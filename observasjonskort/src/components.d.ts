@@ -20,6 +20,20 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface VarsomObservation {
+        /**
+          * The first name
+         */
+        "id": string;
+        /**
+          * The last name
+         */
+        "number": string;
+        /**
+          * The middle name
+         */
+        "type": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +42,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLVarsomObservationElement extends Components.VarsomObservation, HTMLStencilElement {
+    }
+    var HTMLVarsomObservationElement: {
+        prototype: HTMLVarsomObservationElement;
+        new (): HTMLVarsomObservationElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "varsom-observation": HTMLVarsomObservationElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +68,23 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface VarsomObservation {
+        /**
+          * The first name
+         */
+        "id"?: string;
+        /**
+          * The last name
+         */
+        "number"?: string;
+        /**
+          * The middle name
+         */
+        "type"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "varsom-observation": VarsomObservation;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +92,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
         }
     }
 }
