@@ -1,5 +1,6 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 import { format } from '../../utils/utils';
+import { getDataFromApiById } from '../../utils/utils';
 
 @Component({
   tag: 'varsom-observation',
@@ -7,20 +8,33 @@ import { format } from '../../utils/utils';
   shadow: true,
 })
 export class VarsomObservation {
-  /**
-   * The first name
-   */
+
+  @State() regId: string;
+  @State() moh: number;
+ 
   @Prop() id: string;
 
-  /**
-   * The middle name
-   */
+  
   @Prop() type: string;
 
-  /**
-   * The last name
-   */
+ 
   @Prop() number: string;
+
+  componentDidLoad(){
+    if(this.id !== undefined){ //if id is sent to component, it will only show this observation
+    getDataFromApiById(this.id)
+    .then((data => {
+      
+      this.regId = data["RegId"];
+      this.moh = data["ObsLocation"]["Height"];
+
+      //etc
+      //etc
+
+    }));
+  }
+  }
+  
 
  
     private getText(): string {
@@ -28,6 +42,13 @@ export class VarsomObservation {
     }
   
     render() {
-      return <div>This is a varsom-observasjon-component {this.getText()}</div>;
+      return <div class="observation-container"> 
+      <div class="observation-header">
+        <b>Region region</b>
+        <b>ID: ...</b></div>
+      
+      </div>;
+        
+      
     }
 }

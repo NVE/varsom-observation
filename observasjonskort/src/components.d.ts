@@ -21,17 +21,8 @@ export namespace Components {
         "middle": string;
     }
     interface VarsomObservation {
-        /**
-          * The first name
-         */
         "id": string;
-        /**
-          * The last name
-         */
         "number": string;
-        /**
-          * The middle name
-         */
         "type": string;
     }
 }
@@ -69,17 +60,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface VarsomObservation {
-        /**
-          * The first name
-         */
         "id"?: string;
-        /**
-          * The last name
-         */
         "number"?: string;
-        /**
-          * The middle name
-         */
         "type"?: string;
     }
     interface IntrinsicElements {
