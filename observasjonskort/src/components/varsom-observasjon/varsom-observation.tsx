@@ -2,6 +2,12 @@ import { Component, Prop, h, State } from '@stencil/core';
 import { format, getDataFromApiByTypeAndNumber } from '../../utils/utils';
 import { getDataFromApiById } from '../../utils/utils';
 
+ type Observation = {
+ _moh?: number,
+ _imageUrl?: string
+};
+
+
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
@@ -9,13 +15,17 @@ import { getDataFromApiById } from '../../utils/utils';
 })
 export class VarsomObservation {
 
+ 
+
   @State() regId: string;
   @State() moh: number;
   @State() imageUrl: string;
   @State() numberOfObservations: number;
+
+  @State() observations: Observation[] = []; //when multiple observations they are stored in an array
  
   @Prop() id: string;
-
+  @Prop() language: string = "Norwegian";
   
   @Prop() type: string;
 
@@ -40,17 +50,42 @@ export class VarsomObservation {
   }
 
   if (this.type !== undefined){
-    getDataFromApiByTypeAndNumber(this.type, this.number).then((data => {
-      this.regId = data["RegId"];
-      this.moh = data["ObsLocation"]["Height"];
-      this.imageUrl = data["Attachments"][0]["Url"];
-    }));
-  }
+    getDataFromApiByTypeAndNumber(this.type, this.number, this.language).then((data => {
+      
+     
+    
+     for(let i = 0; i < this.number; i++){
 
-  }
-
+     //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
+      this.observations.push({
+        _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
+        _moh: this.moh = data[i]["ObsLocation"]["Height"]}
+        
+    
+     );
+  
+      
+     }
 
   
+    }));
+  }
+}
+     
+
+
+  renderMultiple(){
+    
+    return <div>{this.observations.map((item: any = {}) =>
+    <div>
+      <img src={item._imageUrl}></img>
+      moh: {this.moh}
+      ___ ___ ___
+    </div>
+    )}
+    
+    </div>
+  }
 
  
     private getText(): string {
@@ -58,6 +93,15 @@ export class VarsomObservation {
     }
   
     render() {
+      if (this.type !== undefined) {
+        
+        return this.renderMultiple();
+        }
+
+        
+     
+      
+      
       return <div class="observation-container"> 
       <div class="observation-header">
         <h1>Region region</h1>
@@ -105,4 +149,4 @@ export class VarsomObservation {
       </div>
       
     }
-}
+  }
