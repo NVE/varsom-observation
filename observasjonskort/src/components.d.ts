@@ -22,7 +22,7 @@ export namespace Components {
     }
     interface VarsomObservation {
         "id": string;
-        "number": string;
+        "number": number;
         "type": string;
     }
 }
@@ -61,7 +61,7 @@ declare namespace LocalJSX {
     }
     interface VarsomObservation {
         "id"?: string;
-        "number"?: string;
+        "number"?: number;
         "type"?: string;
     }
     interface IntrinsicElements {

@@ -6,6 +6,13 @@
   border: 1px solid black;
 }
 
+.observation-image {
+  max-width: 400px;
+  margin-right: 20px;
+ 
+}
+
+
 .observation-header {
   display: flex;
   justify-content: space-between;
