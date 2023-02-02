@@ -16,3 +16,19 @@ let json = await response.json();
 return json[0];
 
 }
+
+export async function getDataFromApiByTypeAndNumber(type: string, num: number){
+  let data = `{NumberOfRecords: ${num}, GeoHazardName: ${type}}`
+    let response = await fetch('https://api.regobs.no/v5/Search', {
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  let json = await response.json();
+  
+  return json[0];
+  
+  }
+
