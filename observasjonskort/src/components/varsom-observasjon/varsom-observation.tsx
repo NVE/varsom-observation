@@ -15,8 +15,6 @@ import { getDataFromApiById } from '../../utils/utils';
 })
 export class VarsomObservation {
 
- 
-
   @State() regId: string;
   @State() moh: number;
   @State() imageUrl: string;
@@ -41,8 +39,6 @@ export class VarsomObservation {
       this.moh = data["ObsLocation"]["Height"];
       this.imageUrl = data["Attachments"][0]["Url"];
       
-
-
       //etc
       //etc
 
@@ -98,10 +94,6 @@ export class VarsomObservation {
         return this.renderMultiple();
         }
 
-        
-     
-      
-      
       return <div class="observation-container"> 
       <div class="observation-header">
         <h1>Region region</h1>
