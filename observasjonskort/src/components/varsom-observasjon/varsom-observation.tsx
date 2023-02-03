@@ -56,23 +56,23 @@ import { getDataFromApiById } from '../../utils/utils';
  type Observation = {
  _moh?: number,
  _imageUrl?: string,
- _region: string,
- _municipality: string,
+ _region?: string,
+ _municipality?: string,
  _source?: string
- _sourceOfPositioning: string,
- _precision: string,
- _dateOfObservation: Date,
- _dateOfRegistration: Date,
- _dateOfLastUpdate: Date,
- _observer: string,
- _typeOfWeather: string
- _signsOfDanger: SignsOfDanger,
- _landslideActivity: LandslideActivity,
- _weather: Weather,
- _test: Test,
- _snowProfile: SnowProfile,
- _landslideProblem: LandslideProblem,
-_estimateOfRisk: EstimateOfRisk
+ _sourceOfPositioning?: string,
+ _precision?: string,
+ _dateOfObservation?: Date,
+ _dateOfRegistration?: Date,
+ _dateOfLastUpdate?: Date,
+ _observer?: string,
+ _typeOfWeather?: string
+ _signsOfDanger?: SignsOfDanger,
+ _landslideActivity?: LandslideActivity,
+ _weather?: Weather,
+ _test?: Test,
+ _snowProfile?: SnowProfile,
+ _landslideProblem?: LandslideProblem,
+_estimateOfRisk?: EstimateOfRisk
 };
 
 
@@ -134,7 +134,11 @@ export class VarsomObservation {
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
-        _moh: this.moh = data[i]["ObsLocation"]["Height"]}
+        _moh: data[i]["ObsLocation"]["Height"],
+        _region: data[i]["ObsLocation"]["MunicipalName"]
+        }
+        
+        
         
     
      );
@@ -149,14 +153,33 @@ export class VarsomObservation {
      
 
 
-  renderMultiple(){
+  render(){
     
-    return <div>{this.observations.map((item: any = {}) =>
-    <div>
-      <img src={item._imageUrl}></img>
-      moh: {this.moh}
-      ___ ___ ___
+    return <div>{this.observations.map((obs: any = {}) =>
+    <div class="observation-container">
+      <div class="observation-header"> 
+      <h1>{obs._region}</h1>
+      <div class="observation-metadata">
+      moh: {obs._moh}
+
+
+      </div>
+      <img class="observation-image" src={obs._imageUrl}></img>
+      
+      </div>
+      
+<div>
+
+
+
+
+
+</div>
+
+
+
     </div>
+    
     )}
     
     </div>
@@ -167,10 +190,10 @@ export class VarsomObservation {
       return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
     }
   
-    render() {
+    render2() {
       if (this.type !== undefined) {
         
-        return this.renderMultiple();
+        //return this.renderMultiple();
         }
 
       return <div class="observation-container"> 
