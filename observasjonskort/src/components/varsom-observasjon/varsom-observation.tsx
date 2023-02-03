@@ -2,9 +2,77 @@ import { Component, Prop, h, State } from '@stencil/core';
 import { format, getDataFromApiByTypeAndNumber } from '../../utils/utils';
 import { getDataFromApiById } from '../../utils/utils';
 
+ type SignsOfDanger = {
+  _type: string,
+  _comment: string
+ }
+
+ type LandslideActivity = {
+  _type: string,
+  _time: string,
+  _countSizeAndCause: string,
+  _spread: string,
+  _comment: string,
+  _imageurl?: string
+ }
+
+ type Weather = {
+  _typeOfPrecipitation: string,
+  _temperature: string,
+  _wind: string,
+  _cloudCover: string,
+  _imageUrl?: string
+ }
+ 
+ type Test = {
+  _test: string,
+  _stability: string
+ }
+
+ type SnowProfile = {
+  _comment: string,
+  _temperature: string,
+  _layering: string,
+  _imageUrl?: string
+ }
+
+ type LandslideProblem = {
+  _description: string,
+  _type: string,
+  _estimatedLoadToTrigger: string,
+  _sizeOfExpectedLandslide: string,
+  _spread: string,
+  _comment: string,
+  _imageUrl?: string
+ }
+
+ type EstimateOfRisk = {
+  degreeOfRisk: string,
+  _estimateOfRisk: string,
+  _development: string,
+  _imageUrl?: string
+ }
+
  type Observation = {
  _moh?: number,
- _imageUrl?: string
+ _imageUrl?: string,
+ _region: string,
+ _municipality: string,
+ _source?: string
+ _sourceOfPositioning: string,
+ _precision: string,
+ _dateOfObservation: Date,
+ _dateOfRegistration: Date,
+ _dateOfLastUpdate: Date,
+ _observer: string,
+ _typeOfWeather: string
+ _signsOfDanger: SignsOfDanger,
+ _landslideActivity: LandslideActivity,
+ _weather: Weather,
+ _test: Test,
+ _snowProfile: SnowProfile,
+ _landslideProblem: LandslideProblem,
+_estimateOfRisk: EstimateOfRisk
 };
 
 
@@ -19,6 +87,17 @@ export class VarsomObservation {
   @State() moh: number;
   @State() imageUrl: string;
   @State() numberOfObservations: number;
+  @State() region: string;
+  @State() municipality: string;
+  @State() source: string;
+  @State() sourceOfPositioning: string;
+  @State() precision: string;
+  @State() dateOfObservation: Date;
+  @State() dateOfRegistration: Date;
+  @State() dateOfLastUpdate: Date;
+  @State() observer: string;
+  @State() typeOfWeather: string;
+  
 
   @State() observations: Observation[] = []; //when multiple observations they are stored in an array
  
