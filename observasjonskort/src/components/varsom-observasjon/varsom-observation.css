@@ -3,11 +3,14 @@
 }
 
 .observation-container {
-  border: 1px solid black;
+  border: 3px solid black;
+  border-radius: 2%;
+  padding: 10px;
+  margin: 30px;
 }
 
 .observation-image {
-  max-width: 400px;
+  max-width: 200px;
   margin-right: 20px;
  
 }

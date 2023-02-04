@@ -1,6 +1,5 @@
 import { Component, Prop, h, State } from '@stencil/core';
-import { format, getDataFromApiByTypeAndNumber } from '../../utils/utils';
-import { getDataFromApiById } from '../../utils/utils';
+import { format, getDataFromApi } from '../../utils/utils';
 
  type SignsOfDanger = {
   _type: string,
@@ -55,8 +54,10 @@ import { getDataFromApiById } from '../../utils/utils';
 
  type Observation = {
  _moh?: number,
+ _geoHazardName?: string,
  _imageUrl?: string,
  _region?: string,
+ _regId?: number,
  _municipality?: string,
  _source?: string
  _sourceOfPositioning?: string,
@@ -98,126 +99,55 @@ export class VarsomObservation {
   @State() observer: string;
   @State() typeOfWeather: string;
   
-
   @State() observations: Observation[] = []; //when multiple observations they are stored in an array
- 
+  
   @Prop() id: string;
   @Prop() language: string = "Norwegian";
-  
   @Prop() type: string;
-
- 
   @Prop() number: number = 1;
 
   componentDidLoad(){
-    if (this.id !== undefined){ //if id is sent to component, it will only show this observation
-    getDataFromApiById(this.id)
-    .then((data => {
-      
-      this.regId = data["RegId"];
-      this.moh = data["ObsLocation"]["Height"];
-      this.imageUrl = data["Attachments"][0]["Url"];
-      
-      //etc
-      //etc
-
-    }));
-  }
-
-  if (this.type !== undefined){
-    getDataFromApiByTypeAndNumber(this.type, this.number, this.language).then((data => {
-      
-     
-    
+  
+    getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
+        
      for(let i = 0; i < this.number; i++){
-
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
         _moh: data[i]["ObsLocation"]["Height"],
-        _region: data[i]["ObsLocation"]["MunicipalName"]
-        }
-        
-        
-        
-    
+        _region: data[i]["ObsLocation"]["MunicipalName"],
+        _regId: data[i]["RegId"]
+        }    
      );
-  
-      
      }
-
-  
     }));
-  }
+  
 }
      
-
-
   render(){
     
     return <div>{this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <h1>{obs._region}</h1>
+      <b>ID: {obs._regId}</b>
       <div class="observation-metadata">
-      moh: {obs._moh}
-
-
-      </div>
-      <img class="observation-image" src={obs._imageUrl}></img>
       
-      </div>
-      
-<div>
-
-
-
-
-
-</div>
-
-
-
-    </div>
-    
-    )}
-    
-    </div>
-  }
-
- 
-    private getText(): string {
-      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
-    }
-  
-    render2() {
-      if (this.type !== undefined) {
-        
-        //return this.renderMultiple();
-        }
-
-      return <div class="observation-container"> 
-      <div class="observation-header">
-        <h1>Region region</h1>
-        <b>ID: ...</b></div>
-      
-      <div class="observation-metadata">
-        Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
+      Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
          Oppdatert 10.5.23 09:15
          <br></br>
-         Ikon faretype ... ikon moh {this.moh}  .... 
+         Ikon faretype ... ikon moh {obs._moh}  .... 
          bruker brukerRating..... SvvDrift???
+
       </div>
-      <div class="observation-image-container">
-        <img alt="comment..." class="observation-image" src={this.imageUrl}></img>
-        <img alt="comment..." class="observation-image" src={this.imageUrl}></img>
-        <br></br>
-        <b>Opphavsrett:</b> nve@nve.no <br></br>
+<div class="observation-image-container">
+      <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
+      <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen...
-      </div>
+</div>
 
-      <div class="observation-content">
+<div class="observation-content">
         <h2>Faretegn</h2>
         <b>Type: </b> Overvann i terreng <b>Kommentar: 
            </b> ... 
@@ -239,8 +169,19 @@ export class VarsomObservation {
          <b>Tekst: </b>enda mer beskrivelse under "notat"
 
       </div>
-
       </div>
       
+    </div>
+    
+    )}
+    
+    </div>
+  }
+
+ 
+    private getText(): string {
+      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
     }
+  
+   
   }
