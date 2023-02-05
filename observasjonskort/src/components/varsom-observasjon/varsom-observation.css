@@ -7,6 +7,8 @@
   border-radius: 2%;
   padding: 10px;
   margin: 30px;
+  width: 70%;
+
 }
 
 .observation-image {
@@ -19,6 +21,8 @@
 .observation-header {
   display: flex;
   justify-content: space-between;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 

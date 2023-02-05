@@ -129,8 +129,9 @@ export class VarsomObservation {
     return <div>{this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
-      <h1>{obs._region}</h1>
-      <b>ID: {obs._regId}</b>
+      <p>{obs._region}</p>
+      <p>ID: {obs._regId}</p></div>
+      
       <div class="observation-metadata">
       
       Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
@@ -138,10 +139,12 @@ export class VarsomObservation {
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
          bruker brukerRating..... SvvDrift???
+          
 
       </div>
 <div class="observation-image-container">
       <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
+      <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen...
@@ -171,7 +174,7 @@ export class VarsomObservation {
       </div>
       </div>
       
-    </div>
+    
     
     )}
     
