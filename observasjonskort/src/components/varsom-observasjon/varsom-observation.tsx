@@ -1,5 +1,8 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Method, Listen } from '@stencil/core';
+import L from 'leaflet';
+
 import { format, getDataFromApi } from '../../utils/utils';
+
 
  type SignsOfDanger = {
   _type: string,
@@ -106,8 +109,12 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
 
-  componentDidLoad(){
-  
+
+  componentWillLoad(){
+
+      
+
+
     getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
         
      for(let i = 0; i < this.number; i++){
@@ -122,33 +129,58 @@ export class VarsomObservation {
      }
     }));
   
+
+
 }
+
+addMap(){
+  var map = L.map('map').setView([68.8760739008, 16.3367046597], 8);
+    
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+}
+
+
+
      
   render(){
-    
-    return <div>{this.observations.map((obs: any = {}) =>
+
+
+  
+    return <div><div id='map'></div>
+{this.addMap()}
+      {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
-      
+        -
       <div class="observation-metadata">
-      
+              
       Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
-         Oppdatert 10.5.23 09:15
+         Oppdatert 10.5.23 09:15 
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???
-          
-
+         bruker brukerRating..... Svv Drift??
+           ---
       </div>
 <div class="observation-image-container">
+      
       <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
+
+      
+
       <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen...
 </div>
+
+<slot></slot>
+
 
 <div class="observation-content">
         <h2>Faretegn</h2>
@@ -157,7 +189,7 @@ export class VarsomObservation {
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
         <br></br>
-        type... kommentar....
+        type... kommentar...
 
         <h2>Skredhendelse</h2>
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
@@ -170,6 +202,10 @@ export class VarsomObservation {
 
          <h2>Notater</h2>
          <b>Tekst: </b>enda mer beskrivelse under "notat"
+...
+___
+
+         
 
       </div>
       </div>
@@ -177,8 +213,10 @@ export class VarsomObservation {
     
     
     )}
-    
+   
     </div>
+
+
   }
 
  
