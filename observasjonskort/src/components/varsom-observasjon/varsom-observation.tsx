@@ -1,5 +1,7 @@
 import { Component, Prop, h, State, Method, Listen } from '@stencil/core';
+import { error } from 'console';
 import L from 'leaflet';
+
 
 import { format, getDataFromApi } from '../../utils/utils';
 
@@ -109,11 +111,18 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
 
+  mapId: HTMLElement
+
+
+ componentDidLoad() {
+
+  console.log(this.mapId);
+ }
 
   componentWillLoad(){
 
       
-
+    
 
     getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
         
@@ -133,7 +142,11 @@ export class VarsomObservation {
 
 }
 
+
+
 addMap(){
+  
+  
   var map = L.map('map').setView([68.8760739008, 16.3367046597], 8);
     
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -145,41 +158,42 @@ addMap(){
 
 
 
+
      
   render(){
 
-
+    
   
-    return <div><div id='map'></div>
-{this.addMap()}
+    return <div ref={(el) => this.mapId = el as HTMLElement}><div id="map">fff</div>
+    
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
-        -
+        ...
       <div class="observation-metadata">
               
       Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
          Oppdatert 10.5.23 09:15 
          <br></br>
-         Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... Svv Drift??
-           ---
+         Ikon faretype ... ikon moh {obs._moh}  ...
+         bruker brukerRating... Svv Drift??...
+           .
       </div>
 <div class="observation-image-container">
       
       <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
 
-      
+  
 
       <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen...
+        <b>Kommentar:</b> Statens vegvesen.....__
 </div>
 
-<slot></slot>
+
 
 
 <div class="observation-content">
@@ -188,8 +202,8 @@ addMap(){
            </b> ... 
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
-        <br></br>
-        type... kommentar...
+        <br></br>..
+        type... kommentar....
 
         <h2>Skredhendelse</h2>
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
