@@ -171,7 +171,7 @@ componentWillLoad(){
 </div>..
 <div>
 
-<smart-carousel size="large" dataSource = {this.dataSource}></smart-carousel>
+<smart-carousel dataSource = {this.dataSource}></smart-carousel>
 
   {/* <jeep-carousel  data = '{"slides":[
   {"slide":["<img src=\"images/isbre1.jpg\"></img>"]},
