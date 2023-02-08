@@ -13,6 +13,10 @@
 
 }
 
+.image-carousel{
+  height: 4000px;
+}
+
 .observation-image {
   max-width: 200px;
   margin-right: 20px;

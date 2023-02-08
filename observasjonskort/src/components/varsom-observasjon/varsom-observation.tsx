@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Host } from '@stencil/core';
+import { Component, Prop, h, State, Host, getAssetPath } from '@stencil/core';
 import { format, getDataFromApi } from '../../utils/utils';
 import {Carousel, CarouselProperties, CarouselDisplayMode} from 'smart-webcomponents/source/typescript/smart.elements';
 
@@ -85,6 +85,7 @@ _estimateOfRisk?: EstimateOfRisk
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
   shadow: true,
+  assetsDirs: ['images']
 })
 export class VarsomObservation {
 
@@ -109,12 +110,17 @@ export class VarsomObservation {
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
-  @Prop() carousel: Carousel;
-  @Prop() dataSource;
+  
+  carousel: Carousel;
+  dataSource: any;
 
   
-
+componentWillLoad(){
+  this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
   
+  
+}
+
 
   componentDidLoad(){
   
@@ -132,13 +138,15 @@ export class VarsomObservation {
      }
     }));
 
-    this.dataSource = [{ label: 'Glacier1', image: '../../images/isbre1.jpg'},{ label: 'Glacier2', image: '../../images/isbre2.jpg'}, { label: 'Glacier3', image: '../../images/isbre3.jpg'}]
+    
   
 }
      
   render(){
     
-    return <div>{this.observations.map((obs: any = {}) =>
+  
+  
+    return <Host>{this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
@@ -146,12 +154,12 @@ export class VarsomObservation {
       
       <div class="observation-metadata">
       
-      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15
+      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15.
          Oppdatert 10.5.23 09:15
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???
-          
+         bruker brukerRating..... SvvDrift???..
+          .......
 
       </div>
 <div class="observation-image-container">
@@ -159,12 +167,12 @@ export class VarsomObservation {
       <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen...
+        <b>Kommentar:</b> Statens vegvesen..
 </div>
 <div>
-  <Host>
-    <smart-carousel dataSource = {this.dataSource}></smart-carousel>
-  </Host>
+<div id="image-carousel">
+<smart-carousel dataSource = {this.dataSource}></smart-carousel>
+</div>
   {/* <jeep-carousel  data = '{"slides":[
   {"slide":["<img src=\"images/isbre1.jpg\"></img>"]},
   {"slide":["<img class=\"image\" src=\"../../../../assets/images/elephantl.jpg\"></img>"]},
@@ -193,7 +201,7 @@ export class VarsomObservation {
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
         <br></br>
-        type... kommentar....
+        type... kommentar....__
 
         <h2>Skredhendelse</h2>
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
@@ -214,7 +222,7 @@ export class VarsomObservation {
     
     )}
     
-    </div>
+    </Host>
    
     
   }
