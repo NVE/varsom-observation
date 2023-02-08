@@ -159,7 +159,7 @@ componentWillLoad(){
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
          bruker brukerRating..... SvvDrift???..
-          .......
+          .........
 
       </div>
 <div class="observation-image-container">
@@ -167,12 +167,12 @@ componentWillLoad(){
       <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen..
-</div>
+        <b>Kommentar:</b> Statens vegvesen....
+</div>..
 <div>
-<div id="image-carousel">
+
 <smart-carousel dataSource = {this.dataSource}></smart-carousel>
-</div>
+
   {/* <jeep-carousel  data = '{"slides":[
   {"slide":["<img src=\"images/isbre1.jpg\"></img>"]},
   {"slide":["<img class=\"image\" src=\"../../../../assets/images/elephantl.jpg\"></img>"]},
