@@ -1,5 +1,9 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Host } from '@stencil/core';
 import { format, getDataFromApi } from '../../utils/utils';
+import {Carousel, CarouselProperties, CarouselDisplayMode} from 'smart-webcomponents/source/typescript/smart.elements';
+
+import 'smart-webcomponents/source/components/smart.ui.carousel.js';
+
 
  type SignsOfDanger = {
   _type: string,
@@ -105,6 +109,12 @@ export class VarsomObservation {
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
+  @Prop() carousel: Carousel;
+  @Prop() dataSource;
+
+  
+
+  
 
   componentDidLoad(){
   
@@ -121,6 +131,8 @@ export class VarsomObservation {
      );
      }
     }));
+
+    this.dataSource = [{ label: 'Glacier1', image: '../../images/isbre1.jpg'},{ label: 'Glacier2', image: '../../images/isbre2.jpg'}, { label: 'Glacier3', image: '../../images/isbre3.jpg'}]
   
 }
      
@@ -134,7 +146,7 @@ export class VarsomObservation {
       
       <div class="observation-metadata">
       
-      Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
+      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15
          Oppdatert 10.5.23 09:15
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
@@ -148,6 +160,30 @@ export class VarsomObservation {
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen...
+</div>
+<div>
+  <Host>
+    <smart-carousel dataSource = {this.dataSource}></smart-carousel>
+  </Host>
+  {/* <jeep-carousel  data = '{"slides":[
+  {"slide":["<img src=\"images/isbre1.jpg\"></img>"]},
+  {"slide":["<img class=\"image\" src=\"../../../../assets/images/elephantl.jpg\"></img>"]},
+  {"slide":["<img class=\"image\" src=\"../../../../assets/images/tigerl.jpg\"></img>"]},
+  {"slide":["<img class=\"image\" src=\"../../../../assets/images/lionl.jpg\"></img>"]},
+  {"slide":["<img class=\"image\" src=\"../../../../assets/images/eaglel.jpg\"></img>"]},
+  {"slide":["<img class=\"image\" src=\"../../../../assets/images/eagleheadl.jpg\"></img>"]}
+  ]}'
+  cstyle = ".image {  width: auto;max-width: 100%;height: auto;max-height: 100%;}"
+  options = '{"direction":"horizontal",
+  "autoplay":{"delay":5000,"disableOnInteraction":false,"stopOnLastSlide":true},
+  "pagination":{"el":".swiper-pagination","type":"bullets","clickable":true},
+  "navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"}}'>
+
+
+  </jeep-carousel> */}
+  
+  
+  
 </div>
 
 <div class="observation-content">
@@ -179,6 +215,8 @@ export class VarsomObservation {
     )}
     
     </div>
+   
+    
   }
 
  

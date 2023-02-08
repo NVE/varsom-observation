@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Carousel } from "smart-webcomponents/source/typescript/smart.elements";
 export namespace Components {
     interface MyComponent {
         /**
@@ -21,6 +22,8 @@ export namespace Components {
         "middle": string;
     }
     interface VarsomObservation {
+        "carousel": Carousel;
+        "dataSource": any;
         "id": string;
         "language": string;
         "number": number;
@@ -61,6 +64,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface VarsomObservation {
+        "carousel"?: Carousel;
+        "dataSource"?: any;
         "id"?: string;
         "language"?: string;
         "number"?: number;
