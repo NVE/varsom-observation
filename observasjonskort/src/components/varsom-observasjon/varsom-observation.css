@@ -17,6 +17,12 @@
  
 }
 
+#map{
+  max-width: 40px;
+  max-height: 40px;
+  right: -200px;
+  top: 200px;
+}
 
 .observation-header {
   display: flex;
