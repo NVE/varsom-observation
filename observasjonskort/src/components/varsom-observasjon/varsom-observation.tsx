@@ -99,7 +99,7 @@ export class VarsomObservation {
   @State() observer: string;
   @State() typeOfWeather: string;
   
-  @State() observations: Observation[] = []; //when multiple observations they are stored in an array
+  observations: Observation[] = []; //when multiple observations they are stored in an array
   
   @Prop() regId: string;
   @Prop() language: string = "Norwegian";
