@@ -84,7 +84,7 @@ _estimateOfRisk?: EstimateOfRisk
 })
 export class VarsomObservation {
 
-  @State() regId: string;
+  @State() _regId: string;
   @State() moh: number;
   @State() imageUrl: string;
   @State() numberOfObservations: number;
@@ -101,16 +101,16 @@ export class VarsomObservation {
   
   @State() observations: Observation[] = []; //when multiple observations they are stored in an array
   
-  @Prop() id: string;
+  @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
-  @Prop() number: number = 1;
+  @Prop() count: number = 1;
 
   componentDidLoad(){
   
-    getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
+    getDataFromApi(this.type, this.count, this.language, this.regId).then((data => {
         
-     for(let i = 0; i < this.number; i++){
+     for(let i = 0; i < this.count; i++){
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
@@ -182,9 +182,5 @@ export class VarsomObservation {
   }
 
  
-    private getText(): string {
-      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
-    }
-  
    
   }
