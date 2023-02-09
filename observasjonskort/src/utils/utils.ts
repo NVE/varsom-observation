@@ -23,7 +23,7 @@ console.log(langKey)
   
   }
 
-function getGeoHazardIdFromName(hazardName: string) {
+export function getGeoHazardIdFromName(hazardName: string) {
   switch (hazardName){
     case "Snow": {
       return 10
@@ -40,7 +40,7 @@ function getGeoHazardIdFromName(hazardName: string) {
 
   } }
 
-  function getLangKeyFromName(language: string){
+  export function getLangKeyFromName(language: string){
     switch (language){
       case "English": {
         return 2

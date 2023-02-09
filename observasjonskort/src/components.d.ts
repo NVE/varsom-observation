@@ -21,9 +21,9 @@ export namespace Components {
         "middle": string;
     }
     interface VarsomObservation {
-        "id": string;
+        "count": number;
         "language": string;
-        "number": number;
+        "regId": string;
         "type": string;
     }
 }
@@ -61,9 +61,9 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface VarsomObservation {
-        "id"?: string;
+        "count"?: number;
         "language"?: string;
-        "number"?: number;
+        "regId"?: string;
         "type"?: string;
     }
     interface IntrinsicElements {
