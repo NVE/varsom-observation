@@ -1,5 +1,7 @@
 import { Component, Prop, h, State } from '@stencil/core';
 import { format, getDataFromApi } from '../../utils/utils';
+import { getLangKeyFromName } from '../../utils/utils';
+import { getGeoHazardIdFromName } from '../../utils/utils';
 
  type SignsOfDanger = {
   _type: string,
@@ -99,34 +101,51 @@ export class VarsomObservation {
   @State() observer: string;
   @State() typeOfWeather: string;
   
-  observations: Observation[] = []; //when multiple observations they are stored in an array
+  observations: Observation[] = []; 
   
   @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() count: number = 1;
 
-  componentDidLoad(){
+  async componentWillLoad(){
   
-    getDataFromApi(this.type, this.count, this.language, this.regId).then((data => {
-        
+  let geoHazardId = getGeoHazardIdFromName(this.type);
+  let langKey = getLangKeyFromName(this.language);
+  let data 
+  if (this.regId !== undefined){
+    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  } else
+  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+    let response = await fetch('https://api.regobs.no/v5/Search', {
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  let json = await response.json();
+        console.log(this.language);
      for(let i = 0; i < this.count; i++){
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
-        _moh: data[i]["ObsLocation"]["Height"],
-        _region: data[i]["ObsLocation"]["MunicipalName"],
-        _regId: data[i]["RegId"]
+        _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
+        _moh: json[i]["ObsLocation"]["Height"],
+        _region: json[i]["ObsLocation"]["MunicipalName"],
+        _regId: json[i]["RegId"]
         }    
      );
      }
-    }));
+    
   
 }
+
+
      
   render(){
     
-    return <div>{this.observations.map((obs: any = {}) =>
+    return <div>
+      {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
@@ -138,7 +157,7 @@ export class VarsomObservation {
          Oppdatert 10.5.23 09:15
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???
+         bruker brukerRating..... SvvDrift???..
           
 
       </div>
@@ -147,7 +166,7 @@ export class VarsomObservation {
       <br></br>
       <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen...
+        <b>Kommentar:</b> Statens vegvesen..
 </div>
 
 <div class="observation-content">
@@ -181,6 +200,5 @@ export class VarsomObservation {
     </div>
   }
 
- 
-   
+  
   }
