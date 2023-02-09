@@ -107,6 +107,7 @@ export class VarsomObservation {
   @State() typeOfWeather: string;
   
   observations: Observation[] = []; 
+  mapId!: HTMLElement;
   
   @Prop() regId: string;
   @Prop() language: string = "Norwegian";
@@ -149,10 +150,9 @@ export class VarsomObservation {
 
 
 
-addMap(){
-  
-  
-  var map = L.map('map').setView([68.8760739008, 16.3367046597], 8);
+componentDidRender(){
+   
+  var map = L.map(this.mapId).setView([68.8760739008, 16.3367046597], 8);
     
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -160,18 +160,12 @@ addMap(){
     }).addTo(map);
     
 }
-
-
-
-
-     
+    
   render(){
 
+    return <div><div id="map" ref={(el) => this.mapId = el as HTMLElement}>testmAp</div>
     
-  
-    return <div ref={(el) => this.mapId = el as HTMLElement}><div id="map">fff</div>
-    
-      {this.observations.map((obs: any = {}) =>
+      {this.observations.map((obs: any = {}) => 
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
@@ -234,7 +228,7 @@ ___
     
     )}
    
-    </div>
+</div>
 
 
   }
