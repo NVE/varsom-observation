@@ -2,25 +2,14 @@ export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-export async function getDataFromApiById(id: string){
-let data = `{"RegId": ${id}}`
-  let response = await fetch('https://api.regobs.no/v5/Search', {
-  method: 'POST',
-  body: data,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-let json = await response.json();
-
-return json[0];
-
-}
-
-export async function getDataFromApiByTypeAndNumber(type: string, num: number, language: string){
+export async function getDataFromApi(type: string, num: number, language: string, id: string){
   let geoHazardId = getGeoHazardIdFromName(type);
   let langKey = getLangKeyFromName(language);
-  let data = `{"NumberOfRecords": ${num}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+  let data
+  if (id !== undefined){
+    data = `{"LangKey": ${langKey}, "RegId": ${id}}`
+  } else
+  data = `{"NumberOfRecords": ${num}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
     method: 'POST',
     body: data,
@@ -34,7 +23,7 @@ console.log(langKey)
   
   }
 
-function getGeoHazardIdFromName(hazardName: string) {
+export function getGeoHazardIdFromName(hazardName: string) {
   switch (hazardName){
     case "Snow": {
       return 10
@@ -51,7 +40,7 @@ function getGeoHazardIdFromName(hazardName: string) {
 
   } }
 
-  function getLangKeyFromName(language: string){
+  export function getLangKeyFromName(language: string){
     switch (language){
       case "English": {
         return 2

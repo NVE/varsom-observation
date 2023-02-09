@@ -1,6 +1,7 @@
 import { Component, Prop, h, State } from '@stencil/core';
-import { format, getDataFromApiByTypeAndNumber } from '../../utils/utils';
-import { getDataFromApiById } from '../../utils/utils';
+import { format, getDataFromApi } from '../../utils/utils';
+import { getLangKeyFromName } from '../../utils/utils';
+import { getGeoHazardIdFromName } from '../../utils/utils';
 
  type SignsOfDanger = {
   _type: string,
@@ -55,24 +56,26 @@ import { getDataFromApiById } from '../../utils/utils';
 
  type Observation = {
  _moh?: number,
+ _geoHazardName?: string,
  _imageUrl?: string,
- _region: string,
- _municipality: string,
+ _region?: string,
+ _regId?: number,
+ _municipality?: string,
  _source?: string
- _sourceOfPositioning: string,
- _precision: string,
- _dateOfObservation: Date,
- _dateOfRegistration: Date,
- _dateOfLastUpdate: Date,
- _observer: string,
- _typeOfWeather: string
- _signsOfDanger: SignsOfDanger,
- _landslideActivity: LandslideActivity,
- _weather: Weather,
- _test: Test,
- _snowProfile: SnowProfile,
- _landslideProblem: LandslideProblem,
-_estimateOfRisk: EstimateOfRisk
+ _sourceOfPositioning?: string,
+ _precision?: string,
+ _dateOfObservation?: Date,
+ _dateOfRegistration?: Date,
+ _dateOfLastUpdate?: Date,
+ _observer?: string,
+ _typeOfWeather?: string
+ _signsOfDanger?: SignsOfDanger,
+ _landslideActivity?: LandslideActivity,
+ _weather?: Weather,
+ _test?: Test,
+ _snowProfile?: SnowProfile,
+ _landslideProblem?: LandslideProblem,
+_estimateOfRisk?: EstimateOfRisk
 };
 
 
@@ -83,7 +86,7 @@ _estimateOfRisk: EstimateOfRisk
 })
 export class VarsomObservation {
 
-  @State() regId: string;
+  @State() _regId: string;
   @State() moh: number;
   @State() imageUrl: string;
   @State() numberOfObservations: number;
@@ -98,103 +101,75 @@ export class VarsomObservation {
   @State() observer: string;
   @State() typeOfWeather: string;
   
-
-  @State() observations: Observation[] = []; //when multiple observations they are stored in an array
- 
-  @Prop() id: string;
-  @Prop() language: string = "Norwegian";
+  observations: Observation[] = []; 
   
+  @Prop() regId: string;
+  @Prop() language: string = "Norwegian";
   @Prop() type: string;
+  @Prop() count: number = 1;
 
- 
-  @Prop() number: number = 1;
-
-  componentDidLoad(){
-    if (this.id !== undefined){ //if id is sent to component, it will only show this observation
-    getDataFromApiById(this.id)
-    .then((data => {
-      
-      this.regId = data["RegId"];
-      this.moh = data["ObsLocation"]["Height"];
-      this.imageUrl = data["Attachments"][0]["Url"];
-      
-      //etc
-      //etc
-
-    }));
-  }
-
-  if (this.type !== undefined){
-    getDataFromApiByTypeAndNumber(this.type, this.number, this.language).then((data => {
-      
-     
-    
-     for(let i = 0; i < this.number; i++){
-
+  async componentWillLoad(){
+  
+  let geoHazardId = getGeoHazardIdFromName(this.type);
+  let langKey = getLangKeyFromName(this.language);
+  let data 
+  if (this.regId !== undefined){
+    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  } else
+  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+    let response = await fetch('https://api.regobs.no/v5/Search', {
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  let json = await response.json();
+        console.log(this.language);
+     for(let i = 0; i < this.count; i++){
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
-        _moh: this.moh = data[i]["ObsLocation"]["Height"]}
-        
-    
+        _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
+        _moh: json[i]["ObsLocation"]["Height"],
+        _region: json[i]["ObsLocation"]["MunicipalName"],
+        _regId: json[i]["RegId"]
+        }    
      );
-  
-      
      }
-
+    
   
-    }));
-  }
 }
+
+
      
-
-
-  renderMultiple(){
+  render(){
     
-    return <div>{this.observations.map((item: any = {}) =>
-    <div>
-      <img src={item._imageUrl}></img>
-      moh: {this.moh}
-      ___ ___ ___
-    </div>
-    )}
-    
-    </div>
-  }
-
- 
-    private getText(): string {
-      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
-    }
-  
-    render() {
-      if (this.type !== undefined) {
-        
-        return this.renderMultiple();
-        }
-
-      return <div class="observation-container"> 
-      <div class="observation-header">
-        <h1>Region region</h1>
-        <b>ID: ...</b></div>
+    return <div>
+      {this.observations.map((obs: any = {}) =>
+    <div class="observation-container">
+      <div class="observation-header"> 
+      <p>{obs._region}</p>
+      <p>ID: {obs._regId}</p></div>
       
       <div class="observation-metadata">
-        Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
+      
+      Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
          Oppdatert 10.5.23 09:15
          <br></br>
-         Ikon faretype ... ikon moh {this.moh}  .... 
-         bruker brukerRating..... SvvDrift???
-      </div>
-      <div class="observation-image-container">
-        <img alt="comment..." class="observation-image" src={this.imageUrl}></img>
-        <img alt="comment..." class="observation-image" src={this.imageUrl}></img>
-        <br></br>
-        <b>Opphavsrett:</b> nve@nve.no <br></br>
-        <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen...
-      </div>
+         Ikon faretype ... ikon moh {obs._moh}  .... 
+         bruker brukerRating..... SvvDrift???..
+          
 
-      <div class="observation-content">
+      </div>
+<div class="observation-image-container">
+      <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
+      <br></br>
+      <b>Opphavsrett:</b> nve@nve.no <br></br>
+        <b>Fotograf:</b> fotograf... <br></br>
+        <b>Kommentar:</b> Statens vegvesen..
+</div>
+
+<div class="observation-content">
         <h2>Faretegn</h2>
         <b>Type: </b> Overvann i terreng <b>Kommentar: 
            </b> ... 
@@ -216,8 +191,14 @@ export class VarsomObservation {
          <b>Tekst: </b>enda mer beskrivelse under "notat"
 
       </div>
-
       </div>
       
-    }
+    
+    
+    )}
+    
+    </div>
+  }
+
+  
   }
