@@ -81,7 +81,7 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
  _estimateOfRisk?: EstimateOfRisk, 
-_mapIds?: HTMLElement[]
+_mapId?: HTMLElement
 };
 
 
@@ -108,10 +108,7 @@ export class VarsomObservation {
   @State() typeOfWeather: string;
   
   observations: Observation[] = []; 
-  mapId: HTMLElement;
 
-  mapIds: HTMLElement[] = [];
-  
   @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
@@ -141,8 +138,7 @@ export class VarsomObservation {
         _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
         _moh: json[i]["ObsLocation"]["Height"],
         _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"],
-        _mapIds: []
+        _regId: json[i]["RegId"]
         }    
      );
      
@@ -157,33 +153,24 @@ export class VarsomObservation {
 
 componentDidRender(){
    
-  //for(let i = 0; i < this.observations.length; i++){
-   // console.log(this.mapIds)
-   console.log("lll", this.observations[0]._mapIds[0]);
- /*   var _map = L.map(this.observations[0]._mapIds[0]).setView([68.8760739008, 16.3367046597], 8);
+  for(let i = 0; i < this.observations.length; i++){
+   console.log(this.observations[i]._mapId);
+   //console.log("lll", this.observations[0]._mapIds[0]);
+   var map = L.map(this.observations[i]._mapId).setView([68.8760739008, 16.3367046597], 8);
     
-
-
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(_map);
-*/
-  //}
+}).addTo(map);
+
+}
   
-  var map = L.map(this.mapId).setView([68.8760739008, 16.3367046597], 8);
-    
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
     
 }
     
   render(){
 
-    return <div><div id="map" ref={(el) => this.mapId = el as HTMLElement}></div>
-    
+    return <div>
       {this.observations.map((obs: any = {}) => 
     <div class="observation-container">
       <div class="observation-header"> 
@@ -237,7 +224,7 @@ componentDidRender(){
          <b>Tekst: </b>enda mer beskrivelse under "notat"
 ...
 ___
-<div id={obs._regId} ref={(el) => obs._mapIds[0] = el as HTMLElement}>123</div>
+<div id={obs._regId} ref={(el) => obs._mapId = el as HTMLElement}>123</div>
          
 
       </div>
