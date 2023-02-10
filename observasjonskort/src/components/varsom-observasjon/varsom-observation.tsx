@@ -82,7 +82,8 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
  _test?: Test,
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk
+_estimateOfRisk?: EstimateOfRisk,
+_images?: HTMLElement[]
 };
 
 
@@ -183,6 +184,7 @@ export class VarsomObservation {
 <div>
 
 <smart-carousel dataSource = {this.dataSource}></smart-carousel>
+<smart-carousel dataSource = {obs._images}></smart-carousel>
 
 </div>
 
