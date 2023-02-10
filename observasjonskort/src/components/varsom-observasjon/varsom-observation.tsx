@@ -4,6 +4,11 @@ import {Carousel, CarouselProperties, CarouselDisplayMode} from 'smart-webcompon
 
 import 'smart-webcomponents/source/components/smart.ui.carousel.js';
 
+import { getLangKeyFromName } from '../../utils/utils';
+import { getGeoHazardIdFromName } from '../../utils/utils';
+
+
+import 'smart-webcomponents/source/components/smart.ui.carousel.js';
 
  type SignsOfDanger = {
   _type: string,
@@ -89,7 +94,7 @@ _estimateOfRisk?: EstimateOfRisk
 })
 export class VarsomObservation {
 
-  @State() regId: string;
+  @State() _regId: string;
   @State() moh: number;
   @State() imageUrl: string;
   @State() numberOfObservations: number;
@@ -104,9 +109,9 @@ export class VarsomObservation {
   @State() observer: string;
   @State() typeOfWeather: string;
   
-  @State() observations: Observation[] = []; //when multiple observations they are stored in an array
+  observations: Observation[] = []; 
   
-  @Prop() id: string;
+  @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
@@ -115,33 +120,40 @@ export class VarsomObservation {
   dataSource: any;
 
   
-componentWillLoad(){
-  this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
-  
-  
-}
 
+  @Prop() count: number = 1;
 
-  componentDidLoad(){
-  
-    getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
-        
-     for(let i = 0; i < this.number; i++){
+  async componentWillLoad(){
+    this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
+  let geoHazardId = getGeoHazardIdFromName(this.type);
+  let langKey = getLangKeyFromName(this.language);
+  let data 
+  if (this.regId !== undefined){
+    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  } else
+  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+    let response = await fetch('https://api.regobs.no/v5/Search', {
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  let json = await response.json();
+        console.log(this.language);
+     for(let i = 0; i < this.count; i++){
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
-        _moh: data[i]["ObsLocation"]["Height"],
-        _region: data[i]["ObsLocation"]["MunicipalName"],
-        _regId: data[i]["RegId"]
+        _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
+        _moh: json[i]["ObsLocation"]["Height"],
+        _region: json[i]["ObsLocation"]["MunicipalName"],
+        _regId: json[i]["RegId"]
         }    
      );
      }
-    }));
+    };
 
     
-  
-}
-     
   render(){
     
   
@@ -159,7 +171,6 @@ componentWillLoad(){
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
          bruker brukerRating..... SvvDrift???..
-          .........
 
       </div>
 <div class="observation-image-container">
@@ -173,25 +184,6 @@ componentWillLoad(){
 
 <smart-carousel dataSource = {this.dataSource}></smart-carousel>
 
-  {/* <jeep-carousel  data = '{"slides":[
-  {"slide":["<img src=\"images/isbre1.jpg\"></img>"]},
-  {"slide":["<img class=\"image\" src=\"../../../../assets/images/elephantl.jpg\"></img>"]},
-  {"slide":["<img class=\"image\" src=\"../../../../assets/images/tigerl.jpg\"></img>"]},
-  {"slide":["<img class=\"image\" src=\"../../../../assets/images/lionl.jpg\"></img>"]},
-  {"slide":["<img class=\"image\" src=\"../../../../assets/images/eaglel.jpg\"></img>"]},
-  {"slide":["<img class=\"image\" src=\"../../../../assets/images/eagleheadl.jpg\"></img>"]}
-  ]}'
-  cstyle = ".image {  width: auto;max-width: 100%;height: auto;max-height: 100%;}"
-  options = '{"direction":"horizontal",
-  "autoplay":{"delay":5000,"disableOnInteraction":false,"stopOnLastSlide":true},
-  "pagination":{"el":".swiper-pagination","type":"bullets","clickable":true},
-  "navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"}}'>
-
-
-  </jeep-carousel> */}
-  
-  
-  
 </div>
 
 <div class="observation-content">
@@ -227,10 +219,5 @@ componentWillLoad(){
     
   }
 
- 
-    private getText(): string {
-      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
-    }
   
-   
   }
