@@ -83,7 +83,7 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
 _estimateOfRisk?: EstimateOfRisk,
-_images?: HTMLElement[]
+_images?: any[]
 };
 
 
@@ -141,16 +141,25 @@ export class VarsomObservation {
     },
   });
   let json = await response.json();
-        console.log(this.language);
+        
      for(let i = 0; i < this.count; i++){
+    
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
         _moh: json[i]["ObsLocation"]["Height"],
         _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"]
-        }    
+        _regId: json[i]["RegId"],
+        _images: []
+        }          
      );
+        //add images for image carousel
+    this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
+     this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
+     this.observations[i]._images.push((json[i]["Attachments"][3] && json[i]["Attachments"][3] !== 0) ? json[i]["Attachments"][3]["Url"] : "");
+
+     console.log(this.observations[i]._images)
+
      }
     };
 
@@ -183,7 +192,7 @@ export class VarsomObservation {
 </div>..
 <div>
 
-<smart-carousel dataSource = {this.dataSource}></smart-carousel>
+
 <smart-carousel dataSource = {obs._images}></smart-carousel>
 
 </div>
