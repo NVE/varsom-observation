@@ -1,8 +1,4 @@
 import { Component, Prop, h, State, Host, getAssetPath } from '@stencil/core';
-import { format, getDataFromApi } from '../../utils/utils';
-import {Carousel, CarouselProperties, CarouselDisplayMode} from 'smart-webcomponents/source/typescript/smart.elements';
-
-import 'smart-webcomponents/source/components/smart.ui.carousel.js';
 
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
@@ -83,7 +79,8 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
 _estimateOfRisk?: EstimateOfRisk,
-_images?: any[]
+_images?: any[],
+_dataSource?: any
 };
 
 
@@ -117,14 +114,14 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
   
-  carousel: Carousel;
+  //carousel: Carousel;
   dataSource: any;
 
-  
 
   @Prop() count: number = 1;
 
   async componentWillLoad(){
+
     this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
@@ -151,14 +148,18 @@ export class VarsomObservation {
         _region: json[i]["ObsLocation"]["MunicipalName"],
         _regId: json[i]["RegId"],
         _images: []
+        
         }          
      );
+     
         //add images for image carousel
-    this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
+     this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
      this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
      this.observations[i]._images.push((json[i]["Attachments"][3] && json[i]["Attachments"][3] !== 0) ? json[i]["Attachments"][3]["Url"] : "");
 
      console.log(this.observations[i]._images)
+
+     this.observations[i]._dataSource = [{ label: 'Glacier1', image: this.observations[i]._images[0] , content: "..."},{ label: 'Glacier2', image: this.observations[i]._images[1], content: ",,,"}, { label: 'Glacier3', image: this.observations[i]._images[0], content: "..."}]
 
      }
     };
@@ -168,7 +169,20 @@ export class VarsomObservation {
     
   
   
-    return <Host>{this.observations.map((obs: any = {}) =>
+    return <Host>
+    <div class="glider-contain">
+  <div class="glider">
+    <div>your content here</div>
+    <div>your content here</div>
+    <div>your content here</div>
+    <div>your content here</div>
+  </div>
+
+  <button aria-label="Previous" class="glider-prev">«</button>
+  <button aria-label="Next" class="glider-next">»</button>
+  <div role="tablist" class="dots"></div>
+</div>
+      {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
@@ -190,12 +204,12 @@ export class VarsomObservation {
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen....
 </div>..
-<div>
 
 
-<smart-carousel dataSource = {obs._images}></smart-carousel>
 
-</div>
+<smart-carousel dataSource = {obs._dataSource}></smart-carousel>  
+
+
 
 <div class="observation-content">
         <h2>Faretegn</h2>
@@ -206,7 +220,7 @@ export class VarsomObservation {
         <br></br>
         type... kommentar....__
 
-        <h2>Skredhendelse</h2>
+        <h2>Skredhendelse</h2> 
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
          <b> Størrelse: </b> 100m3
          <br></br>
