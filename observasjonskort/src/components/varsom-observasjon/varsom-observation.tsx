@@ -117,7 +117,7 @@ export class VarsomObservation {
   //carousel: Carousel;
   dataSource: any;
 
-  imgz: HTMLElement[] = [];
+  observationImages: HTMLElement[] = [];
 
 
   @Prop() count: number = 1;
@@ -127,14 +127,14 @@ export class VarsomObservation {
   this.showSlides.bind(this, this.slideIndex += n);
 }
 
-// Thumbnail image controls          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
+// image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
  currentSlide(n) {
   this.showSlides.bind(this, this.slideIndex = n);
 }
 
   showSlides(n: number){
     let i;
-    let slides = this.imgz;
+    let slides = this.observationImages;
     let dots = document.getElementsByClassName("dot");
     if (n > slides.length) {this.slideIndex = 1}
     if (n < 1) {this.slideIndex = slides.length}
@@ -210,31 +210,25 @@ export class VarsomObservation {
          bruker brukerRating..... SvvDrift???..
 
       </div>
-<div class="observation-image-container">
-      <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
-      <br></br>
-      <b>Opphavsrett:</b> nve@nve.no <br></br>
-        <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen....
-</div>..
-
 <div class="slideshow-container">
-  <div ref={(el) => this.imgz[0] = el as HTMLElement} class="mySlides fade">
+  <div ref={(el) => this.observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
   <img src={obs._images[0]}></img>
   </div>
-    <div class="text">Caption Text</div>
+    <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
+        <b>Fotograf:</b> fotograf... <br></br>
+        <b>Kommentar:</b> Statens vegvesen....</div>
   </div>
 
-  <div ref={(el1) => this.imgz[1] = el1 as HTMLElement} class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
+  <div ref={(el) => this.observationImages[1] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
   <img src={obs._images[1]}></img>
     <div class="text">Caption Text</div>
   </div>
 
-  <div ref={(el2) => this.imgz[2] = el2 as HTMLElement} class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
+  <div ref={(el) => this.observationImages[2] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
   <img src={obs._images[2]}></img>
     <div class="text">Caption Text</div>
   </div>

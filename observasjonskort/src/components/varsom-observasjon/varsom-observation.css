@@ -4,6 +4,11 @@
 
 /*box-sizing:border-box*/
 
+img{
+  max-width: 200px;
+}
+
+/* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -45,7 +50,7 @@
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  color: rgb(52, 59, 59);
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -101,11 +106,6 @@
 }
 
 
-.observation-image {
-  max-width: 200px;
-  margin-right: 20px;
- 
-}
 
 
 .observation-header {
