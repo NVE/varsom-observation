@@ -78,7 +78,9 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
  _landslideProblem?: LandslideProblem,
 _estimateOfRisk?: EstimateOfRisk,
 _images?: any[],
-_dataSource?: any
+_dataSource?: any,
+_className?: string,
+_observationImages: HTMLElement[]
 };
 
 
@@ -92,7 +94,6 @@ export class VarsomObservation {
 
   @State() _regId: string;
   @State() moh: number;
-  @State() imageUrl: string;
   @State() numberOfObservations: number;
   @State() region: string;
   @State() municipality: string;
@@ -132,9 +133,10 @@ export class VarsomObservation {
   this.showSlides.bind(this, this.slideIndex = n);
 }
 
-  showSlides(n: number){
+  showSlides(n: number, observation: Observation){
+  
     let i;
-    let slides = this.observationImages;
+    let slides = observation._observationImages;
     let dots = document.getElementsByClassName("dot");
     if (n > slides.length) {this.slideIndex = 1}
     if (n < 1) {this.slideIndex = slides.length}
@@ -149,8 +151,15 @@ export class VarsomObservation {
   }
 
   async componentDidRender(){
-
-    this.showSlides(this.slideIndex);
+    for (let i = 0; i < this.observations.length; i++){
+      var obs = this.observations[i];
+      for (let j = 0; j < 3; j++){
+        obs._observationImages[j].style.display = "none"
+      }
+    }
+    for (let k = 0; k < this.observations.length; k++){
+    this.showSlides(this.slideIndex, this.observations[k]);
+    }
 
     }
   async componentWillLoad(){
@@ -175,19 +184,20 @@ export class VarsomObservation {
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
         _moh: json[i]["ObsLocation"]["Height"],
         _region: json[i]["ObsLocation"]["MunicipalName"],
         _regId: json[i]["RegId"],
-        _images: []
+        _images: [],
+        _className: `${json[i]["RegId"]} fade`,
+        _observationImages: []
         
         }          
      );
      
         //add images for image carousel
+     this.observations[i]._images.push((json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "");
      this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
      this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][3] && json[i]["Attachments"][3] !== 0) ? json[i]["Attachments"][3]["Url"] : "");
 
      }
     };
@@ -211,7 +221,7 @@ export class VarsomObservation {
 
       </div>
 <div class="slideshow-container">
-  <div ref={(el) => this.observationImages[0] = el as HTMLElement} class="mySlides fade">
+  <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
   <img src={obs._images[0]}></img>
@@ -221,13 +231,13 @@ export class VarsomObservation {
         <b>Kommentar:</b> Statens vegvesen....</div>
   </div>
 
-  <div ref={(el) => this.observationImages[1] = el as HTMLElement} class="mySlides fade">
+  <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
   <img src={obs._images[1]}></img>
     <div class="text">Caption Text</div>
   </div>
 
-  <div ref={(el) => this.observationImages[2] = el as HTMLElement} class="mySlides fade">
+  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
   <img src={obs._images[2]}></img>
     <div class="text">Caption Text</div>
