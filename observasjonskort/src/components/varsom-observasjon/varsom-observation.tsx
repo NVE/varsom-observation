@@ -133,8 +133,6 @@ export class VarsomObservation {
 }
 
   showSlides(n: number){
-    console.log("hit")
-    //let slideIndex
     let i;
     let slides = this.imgz;
     let dots = document.getElementsByClassName("dot");
@@ -157,7 +155,6 @@ export class VarsomObservation {
     }
   async componentWillLoad(){
 
-    this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let data 
@@ -192,77 +189,12 @@ export class VarsomObservation {
      this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
      this.observations[i]._images.push((json[i]["Attachments"][3] && json[i]["Attachments"][3] !== 0) ? json[i]["Attachments"][3]["Url"] : "");
 
-     console.log(this.observations[i]._images)
-
-     this.observations[i]._dataSource = [{ label: 'Glacier1', image: this.observations[i]._images[0] , content: "..."},{ label: 'Glacier2', image: this.observations[i]._images[1], content: ",,,"}, { label: 'Glacier3', image: this.observations[i]._images[0], content: "..."}]
-
      }
     };
 
     
   render(){
-    /*
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-    */
-  
-  
-    return <div>
-<div class="slideshow-container">
-  <div ref={(el) => this.imgz[0] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-  <img src={getAssetPath('./images/isbre3.jpg')}></img>
-    <div class="text">Caption Text</div>
-  </div>
-
-  <div ref={(el) => this.imgz[1] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src={getAssetPath('./images/isbre1.jpg')}></img>
-    <div class="text">Caption Two</div>
-  </div>
-
-  <div ref={(el) => this.imgz[2] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src={getAssetPath('./images/isbre2.jpg')}></img>
-    <div class="text">Caption Three</div>
-  </div>
-  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
-
-</div>
-<br></br>
-
-<div>
-  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
-  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
-  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
-</div>
+      return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
@@ -285,6 +217,38 @@ function showSlides(n) {
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen....
 </div>..
+
+<div class="slideshow-container">
+  <div ref={(el) => this.imgz[0] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <div>
+  <img src={obs._images[0]}></img>
+  </div>
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div ref={(el1) => this.imgz[1] = el1 as HTMLElement} class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+  <img src={obs._images[1]}></img>
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div ref={(el2) => this.imgz[2] = el2 as HTMLElement} class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+  <img src={obs._images[2]}></img>
+    <div class="text">Caption Text</div>
+  </div>
+  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
+  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
+
+</div>
+<br></br>
+
+<div>
+  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
+  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
+  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
+</div>
 
 
 <div class="observation-content">
