@@ -1,10 +1,8 @@
-import { Component, Prop, h, State, Host, getAssetPath } from '@stencil/core';
+import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
 
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 
-
-import 'smart-webcomponents/source/components/smart.ui.carousel.js';
 
  type SignsOfDanger = {
   _type: string,
@@ -106,6 +104,8 @@ export class VarsomObservation {
   @State() dateOfLastUpdate: Date;
   @State() observer: string;
   @State() typeOfWeather: string;
+
+  @State() slideIndex: number = 1;
   
   observations: Observation[] = []; 
   
@@ -117,9 +117,44 @@ export class VarsomObservation {
   //carousel: Carousel;
   dataSource: any;
 
+  imgz: HTMLElement[] = [];
+
 
   @Prop() count: number = 1;
 
+  
+ plusSlides(n) {
+  this.showSlides.bind(this, this.slideIndex += n);
+}
+
+// Thumbnail image controls          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
+ currentSlide(n) {
+  this.showSlides.bind(this, this.slideIndex = n);
+}
+
+  showSlides(n: number){
+    console.log("hit")
+    //let slideIndex
+    let i;
+    let slides = this.imgz;
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {this.slideIndex = 1}
+    if (n < 1) {this.slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    for (i = 0; i < dots.length; i++) {
+      //dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[this.slideIndex-1].style.display = "block";
+    //dots[this.slideIndex-1].className += " active";
+  }
+
+  async componentDidRender(){
+
+    this.showSlides(this.slideIndex);
+
+    }
   async componentWillLoad(){
 
     this.dataSource = [{ label: 'Glacier1', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."},{ label: 'Glacier2', image: `${getAssetPath(`./images/isbre2.jpg`)}`, content: ",,,"}, { label: 'Glacier3', image: `${getAssetPath(`./images/isbre3.jpg`)}`, content: "..."}]
@@ -166,21 +201,67 @@ export class VarsomObservation {
 
     
   render(){
-    
+    /*
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+    */
   
   
-    return <Host>
-    <div class="glider-contain">
-  <div class="glider">
-    <div>your content here</div>
-    <div>your content here</div>
-    <div>your content here</div>
-    <div>your content here</div>
+    return <div>
+<div class="slideshow-container">
+  <div ref={(el) => this.imgz[0] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+  <img src={getAssetPath('./images/isbre3.jpg')}></img>
+    <div class="text">Caption Text</div>
   </div>
 
-  <button aria-label="Previous" class="glider-prev">«</button>
-  <button aria-label="Next" class="glider-next">»</button>
-  <div role="tablist" class="dots"></div>
+  <div ref={(el) => this.imgz[1] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src={getAssetPath('./images/isbre1.jpg')}></img>
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div ref={(el) => this.imgz[2] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src={getAssetPath('./images/isbre2.jpg')}></img>
+    <div class="text">Caption Three</div>
+  </div>
+  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
+  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
+
+</div>
+<br></br>
+
+<div>
+  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
+  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
+  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
 </div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
@@ -204,11 +285,6 @@ export class VarsomObservation {
         <b>Fotograf:</b> fotograf... <br></br>
         <b>Kommentar:</b> Statens vegvesen....
 </div>..
-
-
-
-<smart-carousel dataSource = {obs._dataSource}></smart-carousel>  
-
 
 
 <div class="observation-content">
@@ -239,7 +315,7 @@ export class VarsomObservation {
     
     )}
     
-    </Host>
+    </div>
    
     
   }
