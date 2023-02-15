@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@jeepq/core": "^0.0.4-1",
-    "@stencil/core": "^2.13.0",
+    "@stencil/core": "^2.22.2",
     "smart-webcomponents": "^15.0.11"
   },
   "devDependencies": {

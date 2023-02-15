@@ -220,11 +220,14 @@ export class VarsomObservation {
          bruker brukerRating..... SvvDrift???..
 
       </div>
+      <div>
+        <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
+      </div>
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
-  <img src={obs._images[0]}></img>
+  <img class="observation-images" src={obs._images[0]}></img>
   </div>
     <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>

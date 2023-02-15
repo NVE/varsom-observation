@@ -4,8 +4,12 @@
 
 /*box-sizing:border-box*/
 
-img{
+.observation-images{
   max-width: 200px;
+}
+
+.map{
+  max-width: 835px;
 }
 
 /* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
