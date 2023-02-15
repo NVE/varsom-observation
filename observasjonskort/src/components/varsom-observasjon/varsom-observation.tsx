@@ -8,14 +8,14 @@ type SignsOfDanger = {
   _type: string,
   _comment: string
  }
-/*
+
  type Observer = {
   _nickName: string,
   _observerId: number,
   _competenceLevelTID: number,
   _compentenceLevelName: string
  }
-*/
+
  type LandslideActivity = {
   _landSlideName: string,
   _landSlideTriggerName: string,
@@ -81,7 +81,7 @@ type SignsOfDanger = {
   _development: string,
   _imageUrl?: string
  }
-/*
+
  type SnowSurface = {
   
   _surfaceWaterContentName: string,
@@ -101,29 +101,32 @@ type SignsOfDanger = {
   _snowLine: number 
   
  }
-*/
+
  type Observation = {
- _moh?: number,
- _geoHazardName?: string,
- _imageUrl?: string,
- _region?: string,
- _regId?: number,
- _municipality?: string,
- _source?: string
- _sourceOfPositioning?: string,
- _precision?: string,
- _dateOfObservation?: Date,
- _dateOfRegistration?: Date,
- _dateOfLastUpdate?: Date,
- _observer?: string,
- _typeOfWeather?: string
- _signsOfDanger?: SignsOfDanger,
- _landslideActivity?: LandslideActivity,
- _weather?: WeatherObservation,
- _test?: Test,
- _snowProfile?: SnowProfile,
- _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk,
+  _moh?: number,
+  _geoHazardName?: string,
+  _imageUrl?: string,
+  _region?: string,
+  _regId?: number,
+  _municipality?: string,
+  _source?: string
+  _sourceOfPositioning?: string,
+  _precision?: string,
+  _dateOfObservation?: Date,
+  _dateOfRegistration?: Date,
+  _dateOfLastUpdate?: Date,
+  _observer?: Observer,
+  _typeOfWeather?: string
+  _latitude?: number,
+  _longitude?: number,
+  _signsOfDanger?: SignsOfDanger,
+  _landslideActivity?: LandslideActivity,
+  _weather?: WeatherObservation,
+  _test?: Test,
+  _snowProfile?: SnowProfile,
+  _landslideProblem?: LandslideProblem,
+ _estimateOfRisk?: EstimateOfRisk
+ _snowSurface?: SnowSurface
 _images?: any[],
 _dataSource?: any,
 _className?: string,
@@ -213,38 +216,50 @@ export class VarsomObservation {
 
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
-  let data 
+  let _data 
   if (this.regId !== undefined){
-    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
   } else
-  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+  _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
     method: 'POST',
-    body: data,
+    body: _data,
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  let json = await response.json();
+  let data = await response.json();
         
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _moh: json[i]["ObsLocation"]["Height"],
-        _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"],
+        _moh: data[i]["ObsLocation"]["Height"],
+        _region: data[i]["ObsLocation"]["MunicipalName"],
+        _regId: data[i]["RegId"],
+        _municipality: data[i]["ObsLocation"]["LocationName"],
+        _source: data[i]["SourceName"],
+        _sourceOfPositioning: data[i]["ObsLocation"]["UTMSourceName"],
+        _precision: data[i]["ObsLocation"]["Uncertainty"],
+        _dateOfRegistration: data[i]["DtRegTime"],
+        _dateOfLastUpdate: data[i]["DtChangeTime"],
+        _observer: data[i]["Observer"],
+        _typeOfWeather: data[i]["ObsLocation"]["ForecastRegionName"],
+        _latitude: data[i]["ObsLocation"]["Latitude"],
+        _longitude: data[i]["ObsLocation"]["Longitude"],
+        _landslideActivity: data[i]["LandslideActivity"],
+        _snowSurface: data[i]["SnowSurface"],
         _images: [],
-        _className: `${json[i]["RegId"]} fade`,
+        _className: `${data[i]["RegId"]} fade`,
         _observationImages: []
         
         }          
      );
      
         //add images for image carousel
-     this.observations[i]._images.push((json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
+     this.observations[i]._images.push((data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "");
+     this.observations[i]._images.push((data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : "");
+     this.observations[i]._images.push((data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : "");
 
      }
     };
