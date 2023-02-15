@@ -4,25 +4,52 @@ import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 
 
- type SignsOfDanger = {
+type SignsOfDanger = {
   _type: string,
   _comment: string
  }
-
+/*
+ type Observer = {
+  _nickName: string,
+  _observerId: number,
+  _competenceLevelTID: number,
+  _compentenceLevelName: string
+ }
+*/
  type LandslideActivity = {
-  _type: string,
-  _time: string,
-  _countSizeAndCause: string,
-  _spread: string,
+  _landSlideName: string,
+  _landSlideTriggerName: string,
+  _landSlideSizeName: string,
+  _geoHazardName: string,
+  _activityInfluencedName: string,
+  _forecastAccurateName: string,
+  _damageExtentName: string,
+  _imageurl?: string,
+  _landSlideTID: number,
+  _landSlideTriggerTID: number,
+  _landSlideSizeTID: number,
   _comment: string,
-  _imageurl?: string
+  _geoHazardTID: number,
+  _activityInfluencedTID: number,
+  _forecastAccurateTID: number,
+  _damageExtentTId: number,
+  _startLat: number,
+  _startLong: number,
+  _stopLat: number,
+  _stopLong: number,
+  _dtLandSlideTime: string,
+  _dtLandSlideTimeEnd: string
  }
 
- type Weather = {
-  _typeOfPrecipitation: string,
-  _temperature: string,
-  _wind: string,
-  _cloudCover: string,
+ type WeatherObservation = {
+  _precipitationName: string,
+  _windDirectionName: string,
+  _precipitationTID: number,
+  _airTemperature: number,
+  _windSpeed: number,
+  _windDirection: number,
+  _cloudCover: number,
+  _comment: string,
   _imageUrl?: string
  }
  
@@ -54,7 +81,27 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
   _development: string,
   _imageUrl?: string
  }
-
+/*
+ type SnowSurface = {
+  
+  _surfaceWaterContentName: string,
+  _snowDriftName: string,
+  _snowSurfaceName: string,
+  _skiConditionsTID: number,
+  _skiConditionsName: string,
+  _surfaceRoughnessName: string,
+  _snowDepth: number,
+  _newSnowDepth24: number,
+  _newSnowLine: number,
+  _surfaceWaterContentTID: number,
+  _snowDriftTID: number,
+  _snowSurfaceTID: number,
+  _comment: string,
+  _heightLimitLayeredSnow: number,
+  _snowLine: number 
+  
+ }
+*/
  type Observation = {
  _moh?: number,
  _geoHazardName?: string,
@@ -72,7 +119,7 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
  _typeOfWeather?: string
  _signsOfDanger?: SignsOfDanger,
  _landslideActivity?: LandslideActivity,
- _weather?: Weather,
+ _weather?: WeatherObservation,
  _test?: Test,
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
