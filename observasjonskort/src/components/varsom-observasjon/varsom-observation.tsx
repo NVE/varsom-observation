@@ -10,7 +10,7 @@ type SignsOfDanger = {
  }
 
  type Observer = {
-  _nickName: string,
+  NickName: string,
   _observerId: number,
   _competenceLevelTID: number,
   _compentenceLevelName: string
@@ -251,7 +251,10 @@ export class VarsomObservation {
         _snowSurface: data[i]["SnowSurface"],
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
-        _observationImages: []
+        _observationImages: [],
+        //hardcoded...
+        _geoHazardName: "Snø",
+        
         
         }          
      );
@@ -275,11 +278,16 @@ export class VarsomObservation {
       
       <div class="observation-metadata">
       
-      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15.
-         Oppdatert 10.5.23 09:15
+      Observert {obs._dateOfObservation}  
+      Registrert {obs._dateOfRegistration}
+      Oppdatert {obs._dateOfLastUpdate}
+
          <br></br>
-         Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???..
+         Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} 
+         
+      
+         bruker: {obs._observer.NickName} brukerRating {obs._competenceLevelTID} name??? {obs._compentenceLevelName}..... SvvDrift???..
+
 
       </div>
       <div>
