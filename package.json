@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/jest": "^29.4.0"
+  },
+  "dependencies": {
+    "@jeepq/core": "^0.0.4-1",
+    "stencil-carousel": "^1.0.1-deprecate"
+  }
+}

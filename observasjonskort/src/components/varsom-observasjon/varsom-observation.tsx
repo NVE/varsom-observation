@@ -1,7 +1,8 @@
-import { Component, Prop, h, State } from '@stencil/core';
-import { format, getDataFromApi } from '../../utils/utils';
+import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
+
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
+
 
  type SignsOfDanger = {
   _type: string,
@@ -75,7 +76,11 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
  _test?: Test,
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk
+_estimateOfRisk?: EstimateOfRisk,
+_images?: any[],
+_dataSource?: any,
+_className?: string,
+_observationImages: HTMLElement[]
 };
 
 
@@ -83,12 +88,12 @@ _estimateOfRisk?: EstimateOfRisk
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
   shadow: true,
+  assetsDirs: ['images']
 })
 export class VarsomObservation {
 
   @State() _regId: string;
   @State() moh: number;
-  @State() imageUrl: string;
   @State() numberOfObservations: number;
   @State() region: string;
   @State() municipality: string;
@@ -100,16 +105,65 @@ export class VarsomObservation {
   @State() dateOfLastUpdate: Date;
   @State() observer: string;
   @State() typeOfWeather: string;
+
+  @State() slideIndex: number = 1;
   
   observations: Observation[] = []; 
   
   @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
+  @Prop() number: number = 1;
+  
+  //carousel: Carousel;
+  dataSource: any;
+
+  observationImages: HTMLElement[] = [];
+
+
   @Prop() count: number = 1;
 
-  async componentWillLoad(){
   
+ plusSlides(n) {
+  this.showSlides.bind(this, this.slideIndex += n);
+}
+
+// image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
+ currentSlide(n) {
+  this.showSlides.bind(this, this.slideIndex = n);
+}
+
+  showSlides(n: number, observation: Observation){
+  
+    let i;
+    let slides = observation._observationImages;
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {this.slideIndex = 1}
+    if (n < 1) {this.slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    for (i = 0; i < dots.length; i++) {
+      //dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[this.slideIndex-1].style.display = "block";
+    //dots[this.slideIndex-1].className += " active";
+  }
+
+  async componentDidRender(){
+    for (let i = 0; i < this.observations.length; i++){
+      var obs = this.observations[i];
+      for (let j = 0; j < 3; j++){
+        obs._observationImages[j].style.display = "none"
+      }
+    }
+    for (let k = 0; k < this.observations.length; k++){
+    this.showSlides(this.slideIndex, this.observations[k]);
+    }
+
+    }
+  async componentWillLoad(){
+
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let data 
@@ -125,26 +179,32 @@ export class VarsomObservation {
     },
   });
   let json = await response.json();
-        console.log(this.language);
+        
      for(let i = 0; i < this.count; i++){
+    
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _imageUrl: (json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "", //check if image is included
         _moh: json[i]["ObsLocation"]["Height"],
         _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"]
-        }    
+        _regId: json[i]["RegId"],
+        _images: [],
+        _className: `${json[i]["RegId"]} fade`,
+        _observationImages: []
+        
+        }          
      );
-     }
-    
-  
-}
-
-
      
-  render(){
+        //add images for image carousel
+     this.observations[i]._images.push((json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "");
+     this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
+     this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
+
+     }
+    };
+
     
-    return <div>
+  render(){
+      return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
@@ -153,21 +213,47 @@ export class VarsomObservation {
       
       <div class="observation-metadata">
       
-      Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
+      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15.
          Oppdatert 10.5.23 09:15
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
          bruker brukerRating..... SvvDrift???..
-          
 
       </div>
-<div class="observation-image-container">
-      <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
-      <br></br>
-      <b>Opphavsrett:</b> nve@nve.no <br></br>
+<div class="slideshow-container">
+  <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <div>
+  <img src={obs._images[0]}></img>
+  </div>
+    <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen..
+        <b>Kommentar:</b> Statens vegvesen....</div>
+  </div>
+
+  <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+  <img src={obs._images[1]}></img>
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+  <img src={obs._images[2]}></img>
+    <div class="text">Caption Text</div>
+  </div>
+  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
+  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
+
 </div>
+<br></br>
+
+<div>
+  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
+  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
+  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
+</div>
+
 
 <div class="observation-content">
         <h2>Faretegn</h2>
@@ -176,9 +262,9 @@ export class VarsomObservation {
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
         <br></br>
-        type... kommentar....
+        type... kommentar....__
 
-        <h2>Skredhendelse</h2>
+        <h2>Skredhendelse</h2> 
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
          <b> Størrelse: </b> 100m3
          <br></br>
@@ -198,6 +284,8 @@ export class VarsomObservation {
     )}
     
     </div>
+   
+    
   }
 
   
