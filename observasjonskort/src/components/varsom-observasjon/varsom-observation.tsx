@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
 
-import { getLangKeyFromName } from '../../utils/utils';
-import { getGeoHazardIdFromName } from '../../utils/utils';
+import 'smart-webcomponents/source/components/smart.ui.carousel.js';
+
 
 
  type SignsOfDanger = {
@@ -9,20 +9,47 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
   _comment: string
  }
 
- type LandslideActivity = {
-  _type: string,
-  _time: string,
-  _countSizeAndCause: string,
-  _spread: string,
-  _comment: string,
-  _imageurl?: string
+ type Observer = {
+  _nickName: string,
+  _observerId: number,
+  _competenceLevelTID: number,
+  _compentenceLevelName: string
  }
 
- type Weather = {
-  _typeOfPrecipitation: string,
-  _temperature: string,
-  _wind: string,
-  _cloudCover: string,
+ type LandslideActivity = {
+  _landSlideName: string,
+  _landSlideTriggerName: string,
+  _landSlideSizeName: string,
+  _geoHazardName: string,
+  _activityInfluencedName: string,
+  _forecastAccurateName: string,
+  _damageExtentName: string,
+  _imageurl?: string,
+  _landSlideTID: number,
+  _landSlideTriggerTID: number,
+  _landSlideSizeTID: number,
+  _comment: string,
+  _geoHazardTID: number,
+  _activityInfluencedTID: number,
+  _forecastAccurateTID: number,
+  _damageExtentTId: number,
+  _startLat: number,
+  _startLong: number,
+  _stopLat: number,
+  _stopLong: number,
+  _dtLandSlideTime: string,
+  _dtLandSlideTimeEnd: string
+ }
+
+ type WeatherObservation = {
+  _precipitationName: string,
+  _windDirectionName: string,
+  _precipitationTID: number,
+  _airTemperature: number,
+  _windSpeed: number,
+  _windDirection: number,
+  _cloudCover: number,
+  _comment: string,
   _imageUrl?: string
  }
  
@@ -55,6 +82,26 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
   _imageUrl?: string
  }
 
+ type SnowSurface = {
+  
+  _surfaceWaterContentName: string,
+  _snowDriftName: string,
+  _snowSurfaceName: string,
+  _skiConditionsTID: number,
+  _skiConditionsName: string,
+  _surfaceRoughnessName: string,
+  _snowDepth: number,
+  _newSnowDepth24: number,
+  _newSnowLine: number,
+  _surfaceWaterContentTID: number,
+  _snowDriftTID: number,
+  _snowSurfaceTID: number,
+  _comment: string,
+  _heightLimitLayeredSnow: number,
+  _snowLine: number 
+  
+ }
+
  type Observation = {
  _moh?: number,
  _geoHazardName?: string,
@@ -68,19 +115,18 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
  _dateOfObservation?: Date,
  _dateOfRegistration?: Date,
  _dateOfLastUpdate?: Date,
- _observer?: string,
+ _observer?: Observer,
  _typeOfWeather?: string
+ _latitude: number,
+ _longitude: number,
  _signsOfDanger?: SignsOfDanger,
  _landslideActivity?: LandslideActivity,
- _weather?: Weather,
+ _weather?: WeatherObservation,
  _test?: Test,
  _snowProfile?: SnowProfile,
  _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk,
-_images?: any[],
-_dataSource?: any,
-_className?: string,
-_observationImages: HTMLElement[]
+_estimateOfRisk?: EstimateOfRisk
+_snowSurface?: SnowSurface
 };
 
 
@@ -92,8 +138,9 @@ _observationImages: HTMLElement[]
 })
 export class VarsomObservation {
 
-  @State() _regId: string;
+  @State() regId: string;
   @State() moh: number;
+  @State() imageUrl: string;
   @State() numberOfObservations: number;
   @State() region: string;
   @State() municipality: string;
@@ -105,107 +152,77 @@ export class VarsomObservation {
   @State() dateOfLastUpdate: Date;
   @State() observer: string;
   @State() typeOfWeather: string;
+  @State() latitude: number;
+  @State() longitude: number;
+  @State() snowSurface: SnowSurface;
+  // @State() affectedArea: string;
+  // @State() typeOfLandslide: string;
+  // @State() size?: number;
+  // @State() trigger?: string;
+  // @State() varsomAlertCorrect?: boolean;
+  // @State() areaOfAvalanche?: string;
+  // @State() terrainOfArea?: string;
+  // @State() nameOfPathOfAvalanche: string;
 
-  @State() slideIndex: number = 1;
   
-  observations: Observation[] = []; 
+  @State() observations: Observation[] = []; //when multiple observations they are stored in an array
   
-  @Prop() regId: string;
+  @Prop() id: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
-  
-  //carousel: Carousel;
+  @Prop() carousel: Carousel;
   dataSource: any;
 
-  observationImages: HTMLElement[] = [];
-
-
-  @Prop() count: number = 1;
-
-  
- plusSlides(n) {
-  this.showSlides.bind(this, this.slideIndex += n);
-}
-
-// image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
- currentSlide(n) {
-  this.showSlides.bind(this, this.slideIndex = n);
-}
-
-  showSlides(n: number, observation: Observation){
-  
-    let i;
-    let slides = observation._observationImages;
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {this.slideIndex = 1}
-    if (n < 1) {this.slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    for (i = 0; i < dots.length; i++) {
-      //dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[this.slideIndex-1].style.display = "block";
-    //dots[this.slideIndex-1].className += " active";
+  componentWillLoad(){
+    this.dataSource = [{ label: 'Glacier1', content: "Glacier 1", image: `${getAssetPath(`./images/isbre1.jpg`)}`},{ label: 'Glacier2',content: "Glacier 2", image: `${getAssetPath(`./images/isbre2.jpg`)}`}, { label: 'Glacier3', content: "Glacier 3", image: `${getAssetPath(`./images/isbre3.jpg`)}`}]
   }
 
-  async componentDidRender(){
-    for (let i = 0; i < this.observations.length; i++){
-      var obs = this.observations[i];
-      for (let j = 0; j < 3; j++){
-        obs._observationImages[j].style.display = "none"
-      }
-    }
-    for (let k = 0; k < this.observations.length; k++){
-    this.showSlides(this.slideIndex, this.observations[k]);
-    }
+  
 
-    }
-  async componentWillLoad(){
+  
 
-  let geoHazardId = getGeoHazardIdFromName(this.type);
-  let langKey = getLangKeyFromName(this.language);
-  let data 
-  if (this.regId !== undefined){
-    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
-  } else
-  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
-    let response = await fetch('https://api.regobs.no/v5/Search', {
-    method: 'POST',
-    body: data,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  let json = await response.json();
+  componentDidLoad(){
+
+    // let avalancheDate: string;
+    // let landlideStartDate
+  
+    getDataFromApi(this.type, this.number, this.language, this.regId).then((data => {
         
-     for(let i = 0; i < this.count; i++){
-    
+     for(let i = 0; i < this.number; i++){
+
+      
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _moh: json[i]["ObsLocation"]["Height"],
-        _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"],
-        _images: [],
-        _className: `${json[i]["RegId"]} fade`,
-        _observationImages: []
-        
-        }          
+        _imageUrl: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "", //check if image is included
+        _moh: data[i]["ObsLocation"]["Height"],
+        _region: data[i]["ObsLocation"]["MunicipalName"],
+        _regId: data[i]["RegId"],
+        _municipality: data[i]["ObsLocation"]["LocationName"],
+        _source: data[i]["SourceName"],
+        _sourceOfPositioning: data[i]["ObsLocation"]["UTMSourceName"],
+        _precision: data[i]["ObsLocation"]["Uncertainty"],
+        _dateOfRegistration: data[i]["DtRegTime"],
+        _dateOfLastUpdate: data[i]["DtChangeTime"],
+        _observer: data[i]["Observer"],
+        _typeOfWeather: data[i]["ObsLocation"]["ForecastRegionName"],
+        _latitude: data[i]["ObsLocation"]["Latitude"],
+        _longitude: data[i]["ObsLocation"]["Longitude"],
+        _landslideActivity: data[i]["LandslideActivity"],
+        _snowSurface: data[i]["SnowSurface"]
+
+        }    
      );
-     
-        //add images for image carousel
-     this.observations[i]._images.push((json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
-
      }
-    };
+    }));
 
-    
+   
+  
+}
+     
   render(){
-      return <div>
-      {this.observations.map((obs: any = {}) =>
+    
+    return <div>{this.observations.map((obs: any = {}) =>
     <div class="observation-container">
       <div class="observation-header"> 
       <p>{obs._region}</p>
@@ -213,46 +230,25 @@ export class VarsomObservation {
       
       <div class="observation-metadata">
       
-      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15.
+      Observert 10.5.2023. 06:50 Registrert 10.5.23. 09:15
          Oppdatert 10.5.23 09:15
          <br></br>
          Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???..
+         bruker brukerRating..... SvvDrift???
+          
 
       </div>
-<div class="slideshow-container">
-  <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <div>
-  <img src={obs._images[0]}></img>
-  </div>
-    <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
+<div class="observation-image-container">
+      <img alt="legg inn bildekommentar..." class="observation-image" src={obs._imageUrl}></img>
+      <br></br>
+      <b>Opphavsrett:</b> nve@nve.no <br></br>
         <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen....</div>
-  </div>
-
-  <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-  <img src={obs._images[1]}></img>
-    <div class="text">Caption Text</div>
-  </div>
-
-  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-  <img src={obs._images[2]}></img>
-    <div class="text">Caption Text</div>
-  </div>
-  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
-
+        <b>Kommentar:</b> Statens vegvesen...
 </div>
-<br></br>
 
-<div>
-  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
-  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
-  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
-</div>
+  <Host>
+    <smart-carousel dataSource = {this.dataSource}></smart-carousel>
+  </Host>
 
 
 <div class="observation-content">
@@ -262,9 +258,9 @@ export class VarsomObservation {
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
         <br></br>
-        type... kommentar....__
+        type... kommentar....
 
-        <h2>Skredhendelse</h2> 
+        <h2>Skredhendelse</h2>
         <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
          <b> Størrelse: </b> 100m3
          <br></br>
@@ -288,5 +284,10 @@ export class VarsomObservation {
     
   }
 
+ 
+    private getText(): string {
+      return <div>id : {this.id}, type: {this.type}, number: {this.number} </div>;
+    }
   
+   
   }

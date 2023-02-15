@@ -21,10 +21,10 @@ export namespace Components {
         "middle": string;
     }
     interface VarsomObservation {
-        "count": number;
+        "carousel": Carousel;
+        "id": string;
         "language": string;
         "number": number;
-        "regId": string;
         "type": string;
     }
 }
@@ -62,10 +62,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface VarsomObservation {
-        "count"?: number;
+        "carousel"?: Carousel;
+        "id"?: string;
         "language"?: string;
         "number"?: number;
-        "regId"?: string;
         "type"?: string;
     }
     interface IntrinsicElements {
