@@ -260,24 +260,43 @@ export class VarsomObservation {
 
 <div class="observation-content">
         <h2>Faretegn</h2>
-        <b>Type: </b> Overvann i terreng <b>Kommentar: 
-           </b> ... 
+        <b>Type: </b> Fersk vindtransportert snø 
+           <br></br>
+           <b>Kommentar:</b> 
            Område: På dette stedet. Beskrivelse: Det renner vann 
           overalt
         <br></br>
-        type... kommentar....__
+        <b>type</b> Rask temp. stigning
+        <br></br>
+        <b>kommentar:</b> -4C ved bilen kl.12 ....
 
-        <h2>Skredhendelse</h2> 
-        <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
-         <b> Størrelse: </b> 100m3
+        <h2>Skredaktivitet</h2> 
+        <b>Tid: </b> 10. feb. i løpet av dagen 
+         <b> Antall, størrelse og skredutløser: </b> Ingen skredaktivitet 
          <br></br>
-         <b>Trigger: </b>Graving i området <b>Omfang: </b>trafikk hindret
-         <br></br>
-         <b>Stemte varsel på varsom.no? </b> varsel ikke kjent
-         <b>Kommentar: </b>her er ytterligere beskrivelse av hendelsen
 
-         <h2>Notater</h2>
-         <b>Tekst: </b>enda mer beskrivelse under "notat"
+         <h2>Vær</h2>
+         <b>Nedbørstype:</b> ikke nedbør 
+         <b>Temperatur: </b> 3,5 C 
+         <b>Vind: </b> 12 m/s fra øst
+         <b>Skydekke: </b> 100 % skyer
+         <br></br>
+          <b>Kommentar: </b> Ingen nedbør og noe begrenset med vind frem til ca. 14.
+
+<br></br>
+
+<h2>Snødekke</h2>
+
+<b>Snøfokk: </b>kraftig snøfokk 
+<b>Siste døgn: </b> 20 cm
+<b>Snøgrenser: </b> Nysnøgrense på 0 moh
+<br></br>
+<b>Snødekkehardhet:</b> Vindpakket hard
+<b>Snøfuktighet:</b> tørr
+<br></br>
+<b>Kommentar: </b>Stort sett vindpakket hard der jeg var 
+<br></br>
+<img class="observation-images" src={obs._images[0]}></img>
 
       </div>
       </div>
