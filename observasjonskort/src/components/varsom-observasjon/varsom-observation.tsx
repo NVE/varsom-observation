@@ -52,6 +52,15 @@ type SignsOfDanger = {
   _comment: string,
   _imageUrl?: string
  }
+
+ type Attachment = {
+  GeoHazardName?: string, 
+  Url?: string, 
+  RegistrationName?: string, 
+  Photographer?: string, 
+  Comment?: string,
+
+ }
  
  type Test = {
   _test: string,
@@ -112,6 +121,7 @@ type SignsOfDanger = {
  type Observation = {
   _moh?: number,
   _geoHazardName?: string,
+  _registrationName?: string,
   _imageUrl?: string,
   _region?: string,
   _regId?: number,
@@ -137,7 +147,8 @@ type SignsOfDanger = {
 _images?: Image[],
 _dataSource?: any,
 _className?: string,
-_observationImages: HTMLElement[]
+_observationImages: HTMLElement[],
+_attachments: Attachment[]
 };
 
 
@@ -259,12 +270,14 @@ export class VarsomObservation {
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
-        _geoHazardName: data[i]["GeoHazardName"]
-        
+        _geoHazardName: data[i]["GeoHazardName"],
+        _attachments: []
         
         }          
      );
 
+  
+  
   
         //add images for image carousel
      this.observations[i]._images.push(
