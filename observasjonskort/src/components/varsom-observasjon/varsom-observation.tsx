@@ -102,6 +102,13 @@ type SignsOfDanger = {
   
  }
 
+ type Image = {
+  _imageData?: any,
+  _photographer?: string,
+  _copyright?: string,
+  _comment?: string
+ }
+
  type Observation = {
   _moh?: number,
   _geoHazardName?: string,
@@ -127,7 +134,7 @@ type SignsOfDanger = {
   _landslideProblem?: LandslideProblem,
  _estimateOfRisk?: EstimateOfRisk
  _snowSurface?: SnowSurface
-_images?: any[],
+_images?: Image[],
 _dataSource?: any,
 _className?: string,
 _observationImages: HTMLElement[]
@@ -257,12 +264,30 @@ export class VarsomObservation {
         
         }          
      );
-     
-        //add images for image carousel
-     this.observations[i]._images.push((data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "");
-     this.observations[i]._images.push((data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : "");
-     this.observations[i]._images.push((data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : "");
 
+  
+        //add images for image carousel
+     this.observations[i]._images.push(
+      {
+        _imageData: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "",
+        _copyright: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Copyright"] : "",
+        _photographer: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Photographer"] : "",
+        _comment: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Comment"] : "",
+    },
+    {
+      _imageData: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : "",
+      _copyright: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Copyright"] : "",
+      _comment: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Comment"] : "",
+  },
+  {
+    _imageData: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : "",
+    _copyright: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Copyright"] : "",
+    _comment: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Comment"] : "",
+},
+
+    );
+
+    console.log(this.observations[i]._images)
      }
     };
 
@@ -294,22 +319,22 @@ export class VarsomObservation {
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
-  <img class="observation-images" src={obs._images[0]}></img>
+  <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
-    <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
-        <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen....</div>
+    <div class="text"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
+        <b>Fotograf: </b> {obs._images[0]._photographer} <br></br>
+        <b>Kommentar: </b>{obs._images[0]._comment}</div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-  <img src={obs._images[1]}></img>
+  <img src={obs._images[1]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-  <img src={obs._images[2]}></img>
+  <img src={obs._images[2]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
@@ -363,7 +388,7 @@ export class VarsomObservation {
 <br></br>
 <b>Kommentar: </b>Stort sett vindpakket hard der jeg var 
 <br></br>
-<img class="observation-images" src={obs._images[0]}></img>
+<img class="observation-images" src={obs._images[0]._imageData}></img>
 
       </div>
       </div>
