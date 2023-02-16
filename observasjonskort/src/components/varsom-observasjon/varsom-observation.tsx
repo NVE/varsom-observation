@@ -4,52 +4,83 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
 
 
 
- type SignsOfDanger = {
-  _type: string,
-  _comment: string
+ type DangerObs = {
+  GeoHazardName: string,
+  DangerSignName: string,
+  GeoHazardTID: number,
+  DangerSignTID: number,
+  Comment: string
  }
 
  type Observer = {
-  _nickName: string,
-  _observerId: number,
-  _competenceLevelTID: number,
-  _compentenceLevelName: string
+  NickName: string,
+  ObserverId: number,
+  CompetenceLevelTID: number,
+  CompentenceLevelName: string
  }
 
- type LandslideActivity = {
-  _landSlideName: string,
-  _landSlideTriggerName: string,
-  _landSlideSizeName: string,
-  _geoHazardName: string,
-  _activityInfluencedName: string,
-  _forecastAccurateName: string,
-  _damageExtentName: string,
-  _imageurl?: string,
-  _landSlideTID: number,
-  _landSlideTriggerTID: number,
-  _landSlideSizeTID: number,
-  _comment: string,
-  _geoHazardTID: number,
-  _activityInfluencedTID: number,
-  _forecastAccurateTID: number,
-  _damageExtentTId: number,
-  _startLat: number,
-  _startLong: number,
-  _stopLat: number,
-  _stopLong: number,
-  _dtLandSlideTime: string,
-  _dtLandSlideTimeEnd: string
+ type AvalancheObs = {
+  DestructiveSizeName: string,
+  AvalancheTriggerName: string,
+  AvalancheName: string,
+  TerrainStartZoneName: string,
+  AvalCauseName: string,
+  DtAvalancheTime: string, //Tid da skredet gikk
+  Aspect: number, //Eksposisjon
+  HeightStartZone: number, //Høyde i løsneområdet
+  HeightStopZone: number, //Høyde i stoppområdet
+  DestructiveSizeTID: number, //Størrelse. The DestructiveSizeKD unique identifier
+  AvalancheTriggerTID: number, //Skredutløser. The AvalancheTriggerKD unique identifier
+  AvalancheTID: number, //Skredtype. The AvalancheKD unique identifier
+  TerrainStartZoneTID: number, //Terrengtype i løsneområdet. The TerrainStartZoneKD unique identifier
+  SnowLine: number, //SnowLine
+  ValidExposition: string, //ValidExposition
+  AvalCauseTID: number, //Skredutløser. The AvalCauseTID unique identifier
+  FractureHeight: number, //Bruddhøyde
+  FractureWidth: number //Bruddbredde
+  Trajectory: string, //Skredbanenavn
+  StartLat: number, //($double) StartLat
+  StartLong: number, //($double) StartLong
+  StopLat: number, //($double) StopLat
+  StopLong: number //($double) StopLong
+  RemotelyTriggered: boolean, //Ble skredet fjernutløst?
+  Comment: string
+ }
+
+ type LandslideObs = {
+  LandSlideName: string,
+  LandSlideTriggerName: string,
+  LandSlideSizeName: string,
+  GeoHazardName: string,
+  ActivityInfluencedName: string,
+  ForecastAccurateName: string,
+  DamageExtentName: string,
+  Imageurl?: string,
+  LandSlideTID: number,
+  LandSlideTriggerTID: number,
+  LandSlideSizeTID: number,
+  Comment: string,
+  GeoHazardTID: number,
+  ActivityInfluencedTID: number,
+  ForecastAccurateTID: number,
+  DamageExtentTID: number,
+  StartLat: number,
+  StartLong: number,
+  StopLat: number,
+  StopLong: number,
+  DtLandSlideTime: string,
+  DtLandSlideTimeEnd: string
  }
 
  type WeatherObservation = {
-  _precipitationName: string,
-  _windDirectionName: string,
-  _precipitationTID: number,
-  _airTemperature: number,
-  _windSpeed: number,
-  _windDirection: number,
-  _cloudCover: number,
-  _comment: string,
+  PrecipitationName: string,
+  WindDirectionName: string,
+  PrecipitationTID: number,
+  AirTemperature: number,
+  WindSpeed: number,
+  WindDirection: number,
+  CloudCover: number,
+  Comment: string,
   _imageUrl?: string
  }
  
@@ -65,15 +96,15 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
   _imageUrl?: string
  }
 
- type LandslideProblem = {
-  _description: string,
-  _type: string,
-  _estimatedLoadToTrigger: string,
-  _sizeOfExpectedLandslide: string,
-  _spread: string,
-  _comment: string,
-  _imageUrl?: string
- }
+//  type LandslideProblem = {
+//   _description: string,
+//   _type: string,
+//   _estimatedLoadToTrigger: string,
+//   _sizeOfExpectedLandslide: string,
+//   _spread: string,
+//   _comment: string,
+//   _imageUrl?: string
+//  }
 
  type EstimateOfRisk = {
   degreeOfRisk: string,
@@ -83,24 +114,47 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
  }
 
  type SnowSurface = {
+  SnowWindDepth24: string,
   
-  _surfaceWaterContentName: string,
-  _snowDriftName: string,
-  _snowSurfaceName: string,
-  _skiConditionsTID: number,
-  _skiConditionsName: string,
-  _surfaceRoughnessName: string,
-  _snowDepth: number,
-  _newSnowDepth24: number,
-  _newSnowLine: number,
-  _surfaceWaterContentTID: number,
-  _snowDriftTID: number,
-  _snowSurfaceTID: number,
-  _comment: string,
-  _heightLimitLayeredSnow: number,
-  _snowLine: number 
+  SurfaceWaterContentName: string,
+  SnowDriftName: string,
+  SnowSurfaceName: string,
+  SkiConditionsTID: number,
+  SkiConditionsName: string,
+  SurfaceRoughnessName: string,
+  SnowDepth: number,
+  NewSnowDepth24: number,
+  NewSnowLine: number,
+  SurfaceWaterContentTID: number,
+  SnowDriftTID: number,
+  SnowSurfaceTID: number,
+  Comment: string,
+  HeightLimitLayeredSnow: number,
+  SnowLine: number 
   
  }
+
+ type Attachments = {
+  AttachmentId: number,
+GeoHazardName: string, //GeoHazard name
+RegistrationName: string, //Registration name
+//UrlFormats	{...}
+Url: string, //Full original image url
+Photographer: string, //maxLength: 60 Navn på fotograf.
+
+Copyright: string, //maxLength: 60 Rettigheter til bilde.
+Aspect: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
+
+GeoHazardTID: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
+
+RegistrationTID: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
+
+Comment: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
+
+AttachmentMimeType: string,
+IsMainAttachment: boolean //Om bildet skal vises først i registreringen, eller ikke
+ }
+
 
  type Observation = {
  _moh?: number,
@@ -119,14 +173,16 @@ import 'smart-webcomponents/source/components/smart.ui.carousel.js';
  _typeOfWeather?: string
  _latitude: number,
  _longitude: number,
- _signsOfDanger?: SignsOfDanger,
- _landslideActivity?: LandslideActivity,
+ _dangerObs?: DangerObs,
+ _landslideObs?: LandslideObs,
+ _avalancheObs?: AvalancheObs,
  _weather?: WeatherObservation,
  _test?: Test,
  _snowProfile?: SnowProfile,
- _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk
-_snowSurface?: SnowSurface
+//  _landslideProblem?: LandslideProblem,
+_estimateOfRisk?: EstimateOfRisk,
+_snowSurface?: SnowSurface,
+_attachments?: Attachments
 };
 
 
@@ -208,8 +264,11 @@ export class VarsomObservation {
         _typeOfWeather: data[i]["ObsLocation"]["ForecastRegionName"],
         _latitude: data[i]["ObsLocation"]["Latitude"],
         _longitude: data[i]["ObsLocation"]["Longitude"],
-        _landslideActivity: data[i]["LandslideActivity"],
-        _snowSurface: data[i]["SnowSurface"]
+        _dangerObs: data[i]["DangerObs"],
+        _landslideObs: data[i]["LandslideObs"],
+        _avalancheObs: data[i]["AvalancheObs"],
+        _snowSurface: data[i]["SnowSurface"],
+        _attachments: data[i]["Attachments"]
 
         }    
      );
