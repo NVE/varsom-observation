@@ -11,9 +11,9 @@ type SignsOfDanger = {
 
  type Observer = {
   NickName: string,
-  _observerId: number,
-  _competenceLevelTID: number,
-  _compentenceLevelName: string
+  ObserverID: number,
+  CompetenceLevelTID: number,
+  CompentenceLevelName: string
  }
 
  type LandslideActivity = {
@@ -252,8 +252,7 @@ export class VarsomObservation {
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
-        //hardcoded...
-        _geoHazardName: "Snø",
+        _geoHazardName: data[i]["GeoHazardName"]
         
         
         }          
@@ -277,16 +276,14 @@ export class VarsomObservation {
       <p>ID: {obs._regId}</p></div>
       
       <div class="observation-metadata">
-      
-      Observert {obs._dateOfObservation}  
-      Registrert {obs._dateOfRegistration}
-      Oppdatert {obs._dateOfLastUpdate}
+      {/*
+      Observert {obs._dateOfObservation}  ikke i bruk? */}
+      <span>Registrert {obs._dateOfRegistration}</span>
+      <span> Oppdatert {obs._dateOfLastUpdate}</span>
 
          <br></br>
-         Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} 
-         
-      
-         bruker: {obs._observer.NickName} brukerRating {obs._competenceLevelTID} name??? {obs._compentenceLevelName}..... SvvDrift???..
+         <span>Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} </span>
+        <span>bruker: {obs._observer.NickName} brukerRating {obs._observer.CompetenceLevelName}..... SvvDrift???..</span>
 
 
       </div>
