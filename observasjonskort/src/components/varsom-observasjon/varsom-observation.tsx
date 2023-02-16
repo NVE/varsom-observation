@@ -276,7 +276,19 @@ export class VarsomObservation {
         }          
      );
 
-  
+        //add attachments
+        for(let j = 0; j < 30; j++){  //max 30 attachments
+          if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
+            this.observations[i]._attachments.push({
+              Url: data[i]["Attachments"][j]["Url"],
+              Comment: data[i]["Attachments"][j]["Comment"],
+              Photographer: data[i]["Attachments"][j]["Photographer"],
+              GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
+              RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
+            })
+        }
+
+        console.log(this.observations[i]._attachments)
   
   
         //add images for image carousel
