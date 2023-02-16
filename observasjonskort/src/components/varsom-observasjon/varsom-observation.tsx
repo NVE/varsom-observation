@@ -321,7 +321,7 @@ export class VarsomObservation {
     <div>
   <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
-    <div class="text"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
+    <div class="imageInfo"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
         <b>Fotograf: </b> {obs._images[0]._photographer} <br></br>
         <b>Kommentar: </b>{obs._images[0]._comment}</div>
   </div>
