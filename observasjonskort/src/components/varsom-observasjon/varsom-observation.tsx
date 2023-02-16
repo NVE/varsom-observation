@@ -59,6 +59,7 @@ type SignsOfDanger = {
   RegistrationName?: string, 
   Photographer?: string, 
   Comment?: string,
+  Copyright?: string
 
  }
  
@@ -285,12 +286,11 @@ export class VarsomObservation {
               Photographer: data[i]["Attachments"][j]["Photographer"],
               GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
               RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
+              Copyright: data[i]["Attachments"][j]["Copyright"],
             })
         }
 
-        console.log(this.observations[i]._attachments)
-  
-  
+
         //add images for image carousel
      this.observations[i]._images.push(
       {
@@ -312,7 +312,7 @@ export class VarsomObservation {
 
     );
 
-    console.log(this.observations[i]._images)
+    
      }
     };
 
@@ -347,19 +347,19 @@ export class VarsomObservation {
   <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
     <div class="imageInfo"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
-        <b>Fotograf: </b> {obs._images[0]._photographer} <br></br>
-        <b>Kommentar: </b>{obs._images[0]._comment}</div>
+        <p><b>Fotograf: </b> {obs._images[0]._photographer} </p>
+        <p><b>Kommentar: </b> {obs._images[0]._comment} </p></div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-  <img src={obs._images[1]._imageData}></img>
+  <img class="observation-images" src={obs._images[1]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-  <img src={obs._images[2]._imageData}></img>
+  <img class="observation-images" src={obs._images[2]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
@@ -376,6 +376,24 @@ export class VarsomObservation {
 
 
 <div class="observation-content">
+
+        {obs._attachments.map((att: Attachment = {}) =>{
+            return <div> 
+              <div> Type: {att.RegistrationName} </div>
+              <div> Kommentar: {att.Comment} </div>
+              <img class="observation-images" src={att.Url}></img>
+              <div> Fotograf: {att.Photographer} </div>
+              <div> Copyright: {att.Copyright} </div>
+              <br></br>
+            
+</div>
+        }
+        )
+        
+        }
+      
+      {/*   hardcoded examples */ }
+      
         <h2>Faretegn</h2>
         <b>Type: </b> Fersk vindtransportert snø 
            <br></br>
