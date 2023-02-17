@@ -114,6 +114,28 @@ type SignsOfDanger = {
   _imageUrl?: string
  }
 
+ type AvalancheActivityObs2 = {
+  EstimatedNumName?: string,
+  ExposedHeightComboName?: string,
+  AvalancheExtName?: string,
+  AvalCauseName?: string,
+  AvalTriggerSimpleName?: string,
+  DestructiveSizeName?: string,
+  AvalPropagationName?: string,
+  EstimatedNumTID?: number,
+  DtStart?: string,
+  DtEnd?: string,
+  ValidExposition?: string,
+  ExposedHeight1?: number,
+  ExposedHeight2?: number,
+  ExposedHeightComboTID?: 0,
+  AvalancheExtTID?: number,
+  AvalCauseTID?: number,
+  AvalTriggerSimpleTID?: number,
+  DestructiveSizeTID?: number,
+  AvalPropagationTID?: number,
+  Comment?: string
+ }
 
 
  type Attachment = {
@@ -215,7 +237,7 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   _signsOfDanger?: SignsOfDanger,
   _dangerObs?: DangerObs[],
   _landslideObs?: LandslideObs,
-  _avalancheObs?: AvalancheObs[],
+  _avalancheObs?: AvalancheObs,
   //_landslideActivity?: LandslideActivity,
   _weather?: WeatherObservation,
   _test?: Test,
@@ -228,7 +250,8 @@ _dataSource?: any,
 _className?: string,
 _observationImages: HTMLElement[],
 _attachments: Attachment[],
-_observerGroupName?: string
+_observerGroupName?: string,
+_avalancheActivityObs2?: AvalancheActivityObs2[]
 };
 
 
@@ -348,7 +371,8 @@ export class VarsomObservation {
         //_landslideActivity: data[i]["LandslideActivity"],
         _dangerObs: [],//data[i]["DangerObs"],
         _landslideObs: data[i]["LandslideObs"],
-        _avalancheObs: [], //data[i]["AvalancheObs"],
+        _avalancheObs: data[i]["AvalancheObs"],
+        _avalancheActivityObs2: [],
         _snowSurface: data[i]["SnowSurface"],
         //_attachments: data[i]["Attachments"],
         _images: [],
@@ -380,8 +404,10 @@ export class VarsomObservation {
         //add avalancheActivityObservations
         if (data[i]["AvalancheActivityObs2"].length > 0){
           for (let j = 0; j < data[i]["AvalancheActivityObs2"].length; j++){
-            this.observations[i]._avalancheObs.push({
-              AvalCauseName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"]
+            this.observations[i]._avalancheActivityObs2.push({
+              AvalCauseName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"],
+              DtStart: data[i]["AvalancheActivityObs2"][j]["DtStart"],
+              Comment:  data[i]["AvalancheActivityObs2"][j]["Comment"]
               
               //etc....
             })
@@ -497,7 +523,11 @@ export class VarsomObservation {
 
 
 <div class="observation-content">
-  <h2>Faretegn</h2>
+  
+  {obs._attachments.length > 0 ?
+   <h2>Faretegn</h2> : "" }
+  
+
         {obs._attachments.map((att: Attachment = {}) =>{
             return <div> 
               
@@ -509,81 +539,61 @@ export class VarsomObservation {
               <br></br>
             
 </div>
-        }
-        )
+        })
         
         }
 
+{obs._avalancheActivityObs2.length > 0 ?
+<h2>Skredaktivitet</h2> : "" }
 
-{this._regId !== "test" ? <h2>Skredaktivitet</h2> : ""  /* syntax for conditional rendering... */ }
+{obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
+  
+            return <div> 
+              
+              <div> Tid: {el.DtStart} </div>        
+              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div>
+              <div> Kommentar: {el.Comment} </div>
+  
+</div>
+        })
+        
+        }
 
   
-<p>...</p>
-<h2>Vær</h2>
-<p>...</p>
-<h2>Snødekke</h2>
-<p>...</p>
-
-
-      
-
-
-
-
+{obs._avalancheObs ? 
+<div>
+<h2>Skredobservasjon</h2>
+<div>Tid: {obs._avalancheObs.DtAvalancheTime}</div>
+<div>Kommentar: {obs._avalancheObs.Comment}</div>
+  
+</div>
+  
+  : "" }
 
 
 
 
+{obs._weather ? 
+
+<div>
+  <h2>Vær:</h2>
+  <div>Nedbørstype: {obs._weather.PrecipitationName}</div>
+  <div>Temperatur: {obs._weather.AirTemperature}</div>
+  
+   </div>
+
+: ""}
 
 
 
 
 
 
+{obs._snowSurface ? 
+<div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
 
 
 
-      {/*   hardcoded examples */ }
-      <p>_________________________________________________________________</p>
-      <p>__________________hardcoded values_______________________________________________</p>
-        <h2>Faretegn</h2>
-        <b>Type: </b> Fersk vindtransportert snø 
-           <br></br>
-           <b>Kommentar:</b> 
-           Område: På dette stedet. Beskrivelse: Det renner vann 
-          overalt
-        <br></br>
-        <b>type</b> Rask temp. stigning
-        <br></br>
-        <b>kommentar:</b> -4C ved bilen kl.12 ....
-
-        <h2>Skredaktivitet</h2> 
-        <b>Tid: </b> 10. feb. i løpet av dagen 
-         <b> Antall, størrelse og skredutløser: </b> Ingen skredaktivitet 
-         <br></br>
-
-         <h2>Vær</h2>
-         <b>Nedbørstype:</b> ikke nedbør 
-         <b>Temperatur: </b> 3,5 C 
-         <b>Vind: </b> 12 m/s fra øst
-         <b>Skydekke: </b> 100 % skyer
-         <br></br>
-          <b>Kommentar: </b> Ingen nedbør og noe begrenset med vind frem til ca. 14.
-
-<br></br>
-
-<h2>Snødekke</h2>
-
-<b>Snøfokk: </b>kraftig snøfokk 
-<b>Siste døgn: </b> 20 cm
-<b>Snøgrenser: </b> Nysnøgrense på 0 moh
-<br></br>
-<b>Snødekkehardhet:</b> Vindpakket hard
-<b>Snøfuktighet:</b> tørr
-<br></br>
-<b>Kommentar: </b>Stort sett vindpakket hard der jeg var 
-<br></br>
-<img class="observation-images" src={obs._images[0]._imageData}></img>
 
       </div>
       </div>
