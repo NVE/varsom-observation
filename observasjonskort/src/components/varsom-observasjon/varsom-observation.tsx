@@ -4,26 +4,134 @@ import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 
 
- type SignsOfDanger = {
+type SignsOfDanger = {
   _type: string,
   _comment: string
  }
 
- type LandslideActivity = {
-  _type: string,
-  _time: string,
-  _countSizeAndCause: string,
-  _spread: string,
-  _comment: string,
-  _imageurl?: string
+ type DangerObs = {
+  GeoHazardName?: string,
+  DangerSignName?: string,
+  GeoHazardTID?: number,
+  DangerSignTID?: number,
+  Comment?: string
  }
 
- type Weather = {
-  _typeOfPrecipitation: string,
-  _temperature: string,
-  _wind: string,
-  _cloudCover: string,
+ type AvalancheObs = {
+  DestructiveSizeName?: string,
+  AvalancheTriggerName?: string,
+  AvalancheName?: string,
+  TerrainStartZoneName?: string,
+  AvalCauseName?: string,
+  DtAvalancheTime?: string, //Tid da skredet gikk
+  Aspect?: number, //Eksposisjon
+  HeightStartZone?: number, //Høyde i løsneområdet
+  HeightStopZone?: number, //Høyde i stoppområdet
+  DestructiveSizeTID?: number, //Størrelse. The DestructiveSizeKD unique identifier
+  AvalancheTriggerTID?: number, //Skredutløser. The AvalancheTriggerKD unique identifier
+  AvalancheTID?: number, //Skredtype. The AvalancheKD unique identifier
+  TerrainStartZoneTID?: number, //Terrengtype i løsneområdet. The TerrainStartZoneKD unique identifier
+  SnowLine?: number, //SnowLine
+  ValidExposition?: string, //ValidExposition
+  AvalCauseTID?: number, //Skredutløser. The AvalCauseTID unique identifier
+  FractureHeight?: number, //Bruddhøyde
+  FractureWidth?: number //Bruddbredde
+  Trajectory?: string, //Skredbanenavn
+  StartLat?: number, //($double) StartLat
+  StartLong?: number, //($double) StartLong
+  StopLat?: number, //($double) StopLat
+  StopLong?: number //($double) StopLong
+  RemotelyTriggered?: boolean, //Ble skredet fjernutløst?
+  Comment?: string
+ }
+
+ type LandslideObs = {
+  LandSlideName?: string,
+  LandSlideTriggerName?: string,
+  LandSlideSizeName?: string,
+  GeoHazardName?: string,
+  ActivityInfluencedName?: string,
+  ForecastAccurateName?: string,
+  DamageExtentName?: string,
+  Imageurl?: string,
+  LandSlideTID?: number,
+  LandSlideTriggerTID?: number,
+  LandSlideSizeTID?: number,
+  Comment?: string,
+  GeoHazardTID?: number,
+  ActivityInfluencedTID?: number,
+  ForecastAccurateTID?: number,
+  DamageExtentTID?: number,
+  StartLat?: number,
+  StartLong?: number,
+  StopLat?: number,
+  StopLong?: number,
+  DtLandSlideTime?: string,
+  DtLandSlideTimeEnd?: string
+ }
+
+ type Observer = {
+  NickName?: string,
+  ObserverID?: number,
+  CompetenceLevelTID?: number,
+  CompentenceLevelName?: string
+ }
+
+ type WeatherObservation = {
+  PrecipitationName: string,
+  WindDirectionName: string,
+  PrecipitationTID: number,
+  AirTemperature: number,
+  WindSpeed: number,
+  WindDirection: number,
+  CloudCover: number,
+  Comment: string,
   _imageUrl?: string
+ }
+
+ type AvalancheActivityObs2 = {
+  EstimatedNumName?: string,
+  ExposedHeightComboName?: string,
+  AvalancheExtName?: string,
+  AvalCauseName?: string,
+  AvalTriggerSimpleName?: string,
+  DestructiveSizeName?: string,
+  AvalPropagationName?: string,
+  EstimatedNumTID?: number,
+  DtStart?: string,
+  DtEnd?: string,
+  ValidExposition?: string,
+  ExposedHeight1?: number,
+  ExposedHeight2?: number,
+  ExposedHeightComboTID?: 0,
+  AvalancheExtTID?: number,
+  AvalCauseTID?: number,
+  AvalTriggerSimpleTID?: number,
+  DestructiveSizeTID?: number,
+  AvalPropagationTID?: number,
+  Comment?: string
+ }
+
+
+ type Attachment = {
+AttachmentId?: number,
+GeoHazardName?: string, //GeoHazard name
+RegistrationName?: string, //Registration name
+//UrlFormats	{...}
+Url?: string, //Full original image url
+Photographer?: string, //maxLength: 60 Navn på fotograf.
+
+Copyright?: string, //maxLength: 60 Rettigheter til bilde.
+Aspect?: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
+
+GeoHazardTID?: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
+
+RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
+
+Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
+
+AttachmentMimeType?: string,
+IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
  }
  
  type Test = {
@@ -55,32 +163,70 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
   _imageUrl?: string
  }
 
+ type SnowSurface = {
+  SnowWindDepth24: string,
+  
+  SurfaceWaterContentName: string,
+  SnowDriftName: string,
+  SnowSurfaceName: string,
+  SkiConditionsTID: number,
+  SkiConditionsName: string,
+  SurfaceRoughnessName: string,
+  SnowDepth: number,
+  NewSnowDepth24: number,
+  NewSnowLine: number,
+  SurfaceWaterContentTID: number,
+  SnowDriftTID: number,
+  SnowSurfaceTID: number,
+  Comment: string,
+  HeightLimitLayeredSnow: number,
+  SnowLine: number 
+  
+ }
+
+ type Image = {
+  _imageData?: any,
+  _photographer?: string,
+  _copyright?: string,
+  _comment?: string
+ }
+
  type Observation = {
- _moh?: number,
- _geoHazardName?: string,
- _imageUrl?: string,
- _region?: string,
- _regId?: number,
- _municipality?: string,
- _source?: string
- _sourceOfPositioning?: string,
- _precision?: string,
- _dateOfObservation?: Date,
- _dateOfRegistration?: Date,
- _dateOfLastUpdate?: Date,
- _observer?: string,
- _typeOfWeather?: string
- _signsOfDanger?: SignsOfDanger,
- _landslideActivity?: LandslideActivity,
- _weather?: Weather,
- _test?: Test,
- _snowProfile?: SnowProfile,
- _landslideProblem?: LandslideProblem,
-_estimateOfRisk?: EstimateOfRisk,
-_images?: any[],
+  _moh?: number,
+  _geoHazardName?: string,
+  _registrationName?: string,
+  _imageUrl?: string,
+  _region?: string,
+  _regId?: number,
+  _municipality?: string,
+  _source?: string
+  _sourceOfPositioning?: string,
+  _precision?: string,
+  _dateOfObservation?: Date,
+  _dateOfRegistration?: Date,
+  _dateOfLastUpdate?: Date,
+  _observer?: Observer,
+  _typeOfWeather?: string
+  _latitude?: number,
+  _longitude?: number,
+  _signsOfDanger?: SignsOfDanger,
+  _dangerObs?: DangerObs[],
+  _landslideObs?: LandslideObs,
+  _avalancheObs?: AvalancheObs,
+  //_landslideActivity?: LandslideActivity,
+  _weather?: WeatherObservation,
+  _test?: Test,
+  _snowProfile?: SnowProfile,
+  _landslideProblem?: LandslideProblem,
+ _estimateOfRisk?: EstimateOfRisk
+ _snowSurface?: SnowSurface
+_images?: Image[],
 _dataSource?: any,
 _className?: string,
-_observationImages: HTMLElement[]
+_observationImages: HTMLElement[],
+_attachments: Attachment[],
+_observerGroupName?: string,
+_avalancheActivityObs2?: AvalancheActivityObs2[]
 };
 
 
@@ -166,39 +312,129 @@ export class VarsomObservation {
 
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
-  let data 
+  let _data 
   if (this.regId !== undefined){
-    data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
   } else
-  data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+  _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
     method: 'POST',
-    body: data,
+    body: _data,
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  let json = await response.json();
+  let data = await response.json();
         
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
-        _moh: json[i]["ObsLocation"]["Height"],
-        _region: json[i]["ObsLocation"]["MunicipalName"],
-        _regId: json[i]["RegId"],
+        _moh: data[i]["ObsLocation"]["Height"],
+        _region: data[i]["ObsLocation"]["MunicipalName"],
+        _regId: data[i]["RegId"],
+        _municipality: data[i]["ObsLocation"]["LocationName"],
+        _source: data[i]["SourceName"],
+        _sourceOfPositioning: data[i]["ObsLocation"]["UTMSourceName"],
+        _precision: data[i]["ObsLocation"]["Uncertainty"],
+        _dateOfRegistration: data[i]["DtRegTime"],
+        _dateOfLastUpdate: data[i]["DtChangeTime"],
+        _observer: data[i]["Observer"],
+        _typeOfWeather: data[i]["ObsLocation"]["ForecastRegionName"],
+        _latitude: data[i]["ObsLocation"]["Latitude"],
+        _longitude: data[i]["ObsLocation"]["Longitude"],
+        //_landslideActivity: data[i]["LandslideActivity"],
+        _dangerObs: [],//data[i]["DangerObs"],
+        _landslideObs: data[i]["LandslideObs"],
+        _avalancheObs: data[i]["AvalancheObs"],
+        _avalancheActivityObs2: [],
+        _snowSurface: data[i]["SnowSurface"],
+        //_attachments: data[i]["Attachments"],
         _images: [],
-        _className: `${json[i]["RegId"]} fade`,
-        _observationImages: []
+        _className: `${data[i]["RegId"]} fade`,
+        _observationImages: [],
+        _geoHazardName: data[i]["GeoHazardName"],
+        _attachments: [],
+        _weather: data[i]["WeatherObservation"],
+        _observerGroupName: data[i]["ObserverGroupName"]
         
         }          
      );
-     
-        //add images for image carousel
-     this.observations[i]._images.push((json[i]["Attachments"][0] && json[i]["Attachments"][0] !== 0) ? json[i]["Attachments"][0]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][1] && json[i]["Attachments"][1] !== 0) ? json[i]["Attachments"][1]["Url"] : "");
-     this.observations[i]._images.push((json[i]["Attachments"][2] && json[i]["Attachments"][2] !== 0) ? json[i]["Attachments"][2]["Url"] : "");
 
+        //add attachments
+        for(let j = 0; j < 30; j++){  //max 30 attachments
+          if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
+            this.observations[i]._attachments.push({
+              Url: data[i]["Attachments"][j]["Url"],
+              Comment: data[i]["Attachments"][j]["Comment"],
+              Photographer: data[i]["Attachments"][j]["Photographer"],
+              GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
+              RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
+              Copyright: data[i]["Attachments"][j]["Copyright"],
+            })
+  
+            
+        }
+      
+        //add avalancheActivityObservations
+        if (data[i]["AvalancheActivityObs2"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheActivityObs2"].length; j++){
+            this.observations[i]._avalancheActivityObs2.push({
+              AvalCauseName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"],
+              DtStart: data[i]["AvalancheActivityObs2"][j]["DtStart"],
+              Comment:  data[i]["AvalancheActivityObs2"][j]["Comment"]
+              
+              //etc....
+            })
+          }
+        }
+
+        //add dangerObs
+        if (data[i]["DangerObs"].length > 0){
+          for (let j = 0; j < data[i]["DangerObs"].length; j++){
+            this.observations[i]._dangerObs.push({
+              Comment: data[i]["DangerObs"][j]["Comment"]
+              
+              //etc....
+            })
+          }
+        }
+/*
+ //add AvalancheEvalProblem
+ if (data[i]["AvalancheEvalProblem2"].length > 0){
+  for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+    this.observations[i]._avalancheEval...push({
+      AvalProbabilityName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"]
+      
+      //etc....
+    })
+  }
+}
+  */      
+
+
+        //add images for image carousel
+     this.observations[i]._images.push(
+      {
+        _imageData: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "",
+        _copyright: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Copyright"] : "",
+        _photographer: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Photographer"] : "",
+        _comment: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Comment"] : "",
+    },
+    {
+      _imageData: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : "",
+      _copyright: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Copyright"] : "",
+      _comment: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Comment"] : "",
+  },
+  {
+    _imageData: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : "",
+    _copyright: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Copyright"] : "",
+    _comment: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Comment"] : "",
+},
+
+    );
+
+    
      }
     };
 
@@ -212,34 +448,40 @@ export class VarsomObservation {
       <p>ID: {obs._regId}</p></div>
       
       <div class="observation-metadata">
-      
-      Observert 10.5.2022. 06:50 Registrert 10.5.23. 09:15.
-         Oppdatert 10.5.23 09:15
-         <br></br>
-         Ikon faretype ... ikon moh {obs._moh}  .... 
-         bruker brukerRating..... SvvDrift???..
+      {/*
+      Observert {obs._dateOfObservation}  ikke i bruk? */}
+      <span>Registrert {obs._dateOfRegistration}</span>
+      <span> Oppdatert {obs._dateOfLastUpdate}</span>
 
+         <br></br>
+         <span>Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} </span>
+        <span>bruker: {obs._observer.NickName} brukerRating {obs._observer.CompetenceLevelName} {obs._observerGroupName} </span>
+
+
+      </div>
+      <div>
+        <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
       </div>
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
-  <img src={obs._images[0]}></img>
+  <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
-    <div class="text"> <b>Opphavsrett:</b> nve@nve.no <br></br>
-        <b>Fotograf:</b> fotograf... <br></br>
-        <b>Kommentar:</b> Statens vegvesen....</div>
+    <div class="imageInfo"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
+        <p><b>Fotograf: </b> {obs._images[0]._photographer} </p>
+        <p><b>Kommentar: </b> {obs._images[0]._comment} </p></div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-  <img src={obs._images[1]}></img>
+  <img class="observation-images" src={obs._images[1]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-  <img src={obs._images[2]}></img>
+  <img class="observation-images" src={obs._images[2]._imageData}></img>
     <div class="text">Caption Text</div>
   </div>
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
@@ -256,25 +498,77 @@ export class VarsomObservation {
 
 
 <div class="observation-content">
-        <h2>Faretegn</h2>
-        <b>Type: </b> Overvann i terreng <b>Kommentar: 
-           </b> ... 
-           Område: På dette stedet. Beskrivelse: Det renner vann 
-          overalt
-        <br></br>
-        type... kommentar....__
+  
+  {obs._attachments.length > 0 ?
+   <h2>Faretegn</h2> : "" }
+  
 
-        <h2>Skredhendelse</h2> 
-        <b>Tid: </b>Mellom tidspunkt og tidspunkt... <b>Skredtype: </b>flomskred
-         <b> Størrelse: </b> 100m3
-         <br></br>
-         <b>Trigger: </b>Graving i området <b>Omfang: </b>trafikk hindret
-         <br></br>
-         <b>Stemte varsel på varsom.no? </b> varsel ikke kjent
-         <b>Kommentar: </b>her er ytterligere beskrivelse av hendelsen
+        {obs._attachments.map((att: Attachment = {}) =>{
+            return <div> 
+              
+              <div> Type: {att.RegistrationName} </div>
+              <div> Kommentar: {att.Comment} </div>
+              <img class="observation-images" src={att.Url}></img>
+              <div> Fotograf: {att.Photographer} </div>
+              <div> Copyright: {att.Copyright} </div>
+              <br></br>
+            
+</div>
+        })
+        
+        }
 
-         <h2>Notater</h2>
-         <b>Tekst: </b>enda mer beskrivelse under "notat"
+{obs._avalancheActivityObs2.length > 0 ?
+<h2>Skredaktivitet</h2> : "" }
+
+{obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
+  
+            return <div> 
+              
+              <div> Tid: {el.DtStart} </div>        
+              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div>
+              <div> Kommentar: {el.Comment} </div>
+  
+</div>
+        })
+        
+        }
+
+  
+{obs._avalancheObs ? 
+<div>
+<h2>Skredobservasjon</h2>
+<div>Tid: {obs._avalancheObs.DtAvalancheTime}</div>
+<div>Kommentar: {obs._avalancheObs.Comment}</div>
+  
+</div>
+  
+  : "" }
+
+
+
+
+{obs._weather ? 
+
+<div>
+  <h2>Vær:</h2>
+  <div>Nedbørstype: {obs._weather.PrecipitationName}</div>
+  <div>Temperatur: {obs._weather.AirTemperature}</div>
+  
+   </div>
+
+: ""}
+
+
+
+
+
+
+{obs._snowSurface ? 
+<div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
+
+
+
 
       </div>
       </div>
