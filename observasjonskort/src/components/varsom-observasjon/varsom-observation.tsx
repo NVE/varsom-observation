@@ -76,32 +76,7 @@ type SignsOfDanger = {
   CompetenceLevelTID?: number,
   CompentenceLevelName?: string
  }
-/*
- type LandslideActivity = {
-  _landSlideName: string,
-  _landSlideTriggerName: string,
-  _landSlideSizeName: string,
-  _geoHazardName: string,
-  _activityInfluencedName: string,
-  _forecastAccurateName: string,
-  _damageExtentName: string,
-  _imageurl?: string,
-  _landSlideTID: number,
-  _landSlideTriggerTID: number,
-  _landSlideSizeTID: number,
-  _comment: string,
-  _geoHazardTID: number,
-  _activityInfluencedTID: number,
-  _forecastAccurateTID: number,
-  _damageExtentTId: number,
-  _startLat: number,
-  _startLong: number,
-  _stopLat: number,
-  _stopLong: number,
-  _dtLandSlideTime: string,
-  _dtLandSlideTimeEnd: string
- }
-*/
+
  type WeatherObservation = {
   PrecipitationName: string,
   WindDirectionName: string,
