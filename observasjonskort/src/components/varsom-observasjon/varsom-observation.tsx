@@ -89,6 +89,8 @@ type SignsOfDanger = {
   _imageUrl?: string
  }
 
+
+
  type AvalancheActivityObs2 = {
   EstimatedNumName?: string,
   ExposedHeightComboName?: string,
@@ -537,9 +539,16 @@ export class VarsomObservation {
   
 {obs._avalancheObs ? 
 <div>
-<h2>Skredobservasjon</h2>
+<h2>Skredhendelse</h2>
 <div>Tid: {obs._avalancheObs.DtAvalancheTime}</div>
+<div>Størrelse: {obs._avalancheObs.AvalancheName }</div> {/* riktig? */}
+<div>Skredutløser: {obs._avalancheObs.AvalancheTriggerName} </div>
+<div>Løsneområdet: Skredet startet på {obs.avalancheObs._HeightStartZone} 
+og sluttet på {obs.avalancheObs._HeightStopZone} </div>
+<div> Terreng i løsneområdet: {obs._avalancheObs.TerrainStartZoneName} </div>
+<div> Skredbanenavn: {obs._avalancheObs._Trajectory}</div>
 <div>Kommentar: {obs._avalancheObs.Comment}</div>
+{ /* legge til tegning av kompass her....*/ }
   
 </div>
   
@@ -564,8 +573,68 @@ export class VarsomObservation {
 
 
 
+
+
 {obs._snowSurface ? 
 <div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
+
+{ /* damage observations */}
+{obs._damageObs.length > 0 ?
+<h2>Skader</h2> : "" }
+
+{obs._damageObs.map((el: any = {}) =>{
+  
+            return <div> 
+              
+              <div> Type: {el.DamageTypeName} </div>        
+              
+</div>
+        })
+        }
+
+
+{ /* water observations */}
+
+
+{obs._waterLevel2 ? 
+<div>
+
+<h2>Vannstand</h2> Situasjon: {obs._WaterLevel2.WaterLevelStateName}
+Vann på avveie?: {obs._WaterLevel2.WaterAstrayName}
+Hva registrer du? {obs._WaterLevel2.ObservationTimingName}
+Måleinstrument: {obs._WaterLevel2.MeasurementTypeName}
+Kommentar: {obs._comment}
+
+</div>
+: ""}
+
+
+
+{ /* ice observations */}
+ {obs._iceCoverObs ? 
+ <div>
+  <h2>Isdekning</h2>
+  <b>Isdekning: </b> {obs._iceCoverObs.IceCoverName}
+  <b>Isdekning før observasjon: </b> {obs._iceCoverObs.IceCoverBeforeName}
+  <b>Istykkelse: </b> {obs._iceCoverObs.IceThickness}
+  <b>Kommentar: </b> {obs._iceCoverObs.Comment}
+ </div> 
+: ""}
+
+
+
+{ /* landslide observations */}
+
+{obs._landslideObs ? 
+<div>
+  <h2>Skredhendelse</h2>
+  <b>Tid: </b> Mellom {obs._landslideObs.DtLandSlideTime} og {obs._landslideObs.DtLandSlideTimeEnd}
+  <b>Skredtype: </b> {obs._landslideObs.LandSlideName}
+  <b>Hva ble påvirket?: </b> {obs._landslideObs.ActivityInfluencedName}
+  <b>Kommentar: </b> {obs._landslideObs.Comment}
+</div>
+: ""}
+
 
 
 
@@ -581,6 +650,7 @@ export class VarsomObservation {
    
     
   }
+
 
   
   }
