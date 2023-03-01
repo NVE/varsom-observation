@@ -112,6 +112,38 @@ type SignsOfDanger = {
   Comment?: string
  }
 
+ type IceCoverObs = {
+  IceCoverBeforeName:	string,
+  IceCoverName:	string,
+  IceCoverAfterName: string,
+  IceSkateabilityName: string,
+  IceCapacityName: string,
+  IceCoverBeforeTID: number, //Hvordan har vannet vært isdekt før den aktuelle observajonen? Feks var det isfritt? Feltet sier noe om hvordan utviklingen er. The IceCoverBeforeKD unique identifier
+  IceCoverTID: number, //Hvordan er vannet dekket av is nå. The IceCoverKD unique identifier
+  IceCoverAfterTID: number,
+  Comment: string, //maxLength: 1024 Kommentarfelt for å skrive utfyllende tekst om observasjonen.
+  IceSkateabilityTID: number, //Skøytebarhet. IceSkateabilityKD unique identifier
+  IceCapacityTID: number //Bæreevne. IceCapacityKD unique identifier
+ }
+
+ type IceThicknessLayer = {
+  IceLayerName: string,
+  IceLayerTID: number, //The IceLayerKD unique identifier
+  IceLayerThickness:	number, //($double) IceLayerThickness
+  Comment: string, //maxLength: 1024 Comment
+ }
+
+ type IceThickness = {
+  IceThicknessLayers: IceThicknessLayer,
+  SnowDepth: number, //($double) Mengden tørr snø oppå isen. Verdi i meter [m].
+  SlushSnow: number, //($double) Mengden sørpe oppå isen. Verdi i meter [m].
+  IceThicknessSum: number, //($double) Total istykkelse. I tabellen IceThicknessLayer kan individuelle islag registreres. Summen av dem skal samsvare med IceThickenssSum. Verdi i meter [m].
+  IceHeightBefore: number, //($double) Isen kan være presset under vannspeilet eller flyte oppå. Her registreres denne høyden før borring. IceHeightBefore = 0 betyr at isen er tørr og negative verdier angir overvann. Verdi i meter [m].
+  IceHeightAfter: number, //($double) Isen kan være presset under vannspeilet eller flyte oppå. Her registreres denne høyden etter borring. IPositive verdier angir at vannet står nedi hulet og og negative verdier angir overvann. Verdi i meter [m].
+  Comment: string //maxLength: 1024 Comment
+
+ }
+
 
  type Attachment = {
 AttachmentId?: number,
@@ -138,6 +170,8 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   _test: string,
   _stability: string
  }
+
+
 
  type SnowProfile = {
   _comment: string,
@@ -184,6 +218,51 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   
  }
 
+ type WaterLevelMeasurement = {
+  WaterLevelMeasurementId: number, //	integer($int32)
+  Attachments: Attachment[],
+  WaterLevelValue: number, //($double) maximum: 999 minimum: 0
+  DtMeasurementTime: string, //($date-time)
+  Comment: string
+ }
+
+ type WaterLevel2 = {
+  WaterLevelStateName: string,
+  WaterAstrayName: string,
+  ObservationTimingName: string,
+  MeasurementReferenceName:	string,
+  MeasurementTypeName: string,
+  WaterLevelMethodName:	string,
+  MarkingReferenceName:	string,
+  MarkingTypeName: string,
+  WaterLevelMeasurement: WaterLevelMeasurement[],
+  WaterAstrayTID: number,
+  ObservationTimingTID: number, //integer($int32)
+  MeasurementReferenceTID: number, //integer($int32)
+  MeasurementTypeTID: number, //	integer($int32)
+  WaterLevelMethodTID: number, //	integer($int32)
+  MarkingReferenceTID: number, //	integer($int32)
+  WaterLevelStateTID: number, //	integer($int32)
+  MarkingTypeTID: number, //	integer($int32)
+  MeasuringToolDescription:	string,
+  Comment: string
+ }
+
+ type LatLng = {
+  Latitude: number,
+  Longitude: number
+ } 
+
+ type DamageObs = {
+  GeoHazardName:	string,
+  DamageTypeName:	string,
+  Attachments?: Attachment[],
+  GeoHazardTID: number, //	integer($int32)
+  DamageTypeTID: number, //	integer($int32)
+  DamagePosition:	LatLng,
+  Comment:	string
+ }
+
  type Image = {
   _imageData?: any,
   _photographer?: string,
@@ -226,7 +305,11 @@ _className?: string,
 _observationImages: HTMLElement[],
 _attachments: Attachment[],
 _observerGroupName?: string,
-_avalancheActivityObs2?: AvalancheActivityObs2[]
+_avalancheActivityObs2?: AvalancheActivityObs2[],
+_iceCoverObs?: IceCoverObs,
+_iceThickness?: IceThickness,
+_waterLevel?: WaterLevel2,
+_damageObs?: DamageObs[]
 };
 
 
@@ -356,7 +439,12 @@ export class VarsomObservation {
         _geoHazardName: data[i]["GeoHazardName"],
         _attachments: [],
         _weather: data[i]["WeatherObservation"],
-        _observerGroupName: data[i]["ObserverGroupName"]
+        _observerGroupName: data[i]["ObserverGroupName"],
+        _iceCoverObs: data[i]["IceCoverObs"],
+        _iceThickness: data[i]["IceThickness"],
+        _waterLevel: data[i]["WaterLevel2"],
+        _damageObs: []
+        
         
         }          
      );
@@ -380,11 +468,29 @@ export class VarsomObservation {
         if (data[i]["AvalancheActivityObs2"].length > 0){
           for (let j = 0; j < data[i]["AvalancheActivityObs2"].length; j++){
             this.observations[i]._avalancheActivityObs2.push({
+              EstimatedNumName: data[i]["AvalancheActivityObs2"][j]["EstimatedNumName"],
+              ExposedHeightComboName: data[i]["AvalancheActivityObs2"][j]["ExposedHeightComboName"],
+              AvalancheExtName: data[i]["AvalancheActivityObs2"][j]["AvalancheExtName"],
               AvalCauseName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"],
+              AvalTriggerSimpleName: data[i]["AvalancheActivityObs2"][j]["AvalTriggerSimpleName"],
+              DestructiveSizeName: data[i]["AvalancheActivityObs2"][j]["DestructiveSizeName"],
+              AvalPropagationName: data[i]["AvalancheActivityObs2"][j]["AvalPropagationName"],
+              EstimatedNumTID: data[i]["AvalancheActivityObs2"][j]["EstimatedNumTID"],
               DtStart: data[i]["AvalancheActivityObs2"][j]["DtStart"],
-              Comment:  data[i]["AvalancheActivityObs2"][j]["Comment"]
-              
-              //etc....
+              DtEnd: data[i]["AvalancheActivityObs2"][j]["DtEnd"],
+              ValidExposition: data[i]["AvalancheActivityObs2"][j]["ValidExposition"],
+              ExposedHeight1: data[i]["AvalancheActivityObs2"][j]["ExposedHeight1"],
+              ExposedHeight2: data[i]["AvalancheActivityObs2"][j]["ExposedHeight2"],
+              ExposedHeightComboTID: data[i]["AvalancheActivityObs2"][j]["ExposedHeightComboTID"],
+              AvalancheExtTID: data[i]["AvalancheActivityObs2"][j]["AvalancheExtTID"],
+              AvalCauseTID: data[i]["AvalancheActivityObs2"][j]["AvalancheCauseTID"],
+              AvalTriggerSimpleTID: data[i]["AvalancheActivityObs2"][j]["AvalancheTriggerSimpleTID"],
+              DestructiveSizeTID: data[i]["AvalancheActivityObs2"][j]["DestructiveSizeTID"],
+              AvalPropagationTID: data[i]["AvalancheActivityObs2"][j]["AvalPropagationTID"],
+              Comment: data[i]["AvalancheActivityObs2"][j]["Comment"]
+            
+      
+            
             })
           }
         }
@@ -394,6 +500,23 @@ export class VarsomObservation {
           for (let j = 0; j < data[i]["DangerObs"].length; j++){
             this.observations[i]._dangerObs.push({
               Comment: data[i]["DangerObs"][j]["Comment"]
+              
+              //etc....
+            })
+          }
+        }
+
+         //add damageObs
+         if (data[i]["DamageObs"].length > 0){
+          for (let j = 0; j < data[i]["DamageObs"].length; j++){
+            this.observations[i]._damageObs.push({
+              GeoHazardName:	data[i]["DamageObs"][j]["GeoHazardName"],
+              DamageTypeName:	data[i]["DamageObs"][j]["DamageTypeName"],
+              GeoHazardTID: data[i]["DamageObs"][j]["GeoHazardTID"],
+              //Attachments: Attachment[],
+              DamageTypeTID: data[i]["DamageObs"][j]["DamageTypeTID"],
+              DamagePosition:	data[i]["DamageObs"][j]["DamagePosition"],
+              Comment: data[i]["DamageObs"][j]["Comment"]
               
               //etc....
             })
