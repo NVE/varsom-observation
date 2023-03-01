@@ -12,7 +12,7 @@
 | `count`    | `count`    |             | `number` | `1`           |
 | `language` | `language` |             | `string` | `"Norwegian"` |
 | `number`   | `number`   |             | `number` | `1`           |
-| `regId`    | `reg-id`   |             | `string` | `undefined`   |
+| `regid`    | `regid`    |             | `string` | `"0"`         |
 | `type`     | `type`     |             | `string` | `undefined`   |
 
 

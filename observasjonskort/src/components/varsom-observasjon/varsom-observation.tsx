@@ -339,7 +339,7 @@ export class VarsomObservation {
   
   observations: Observation[] = []; 
   
-  @Prop() regId: string;
+  @Prop() regid?: string = "0";
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
@@ -392,12 +392,12 @@ export class VarsomObservation {
 
     }
   async componentWillLoad(){
-
+    console.log(this.regid)
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regId !== undefined){
-    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  if (this.regid !== "0"){
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
@@ -408,7 +408,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-        
+        console.log(_data)
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
