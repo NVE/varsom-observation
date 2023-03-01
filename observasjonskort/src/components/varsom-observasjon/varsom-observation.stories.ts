@@ -1,13 +1,16 @@
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
-    title: 'Components/VarsomObservation'
+    title: 'Components/VarsomObservation',
+    argTypes: {
+        language: { control: "select", options: ["English", "German", "Italian",
+    "Slovenian", "Nynorsk", "Norwegian", "Swedish"] },
+    type: {control: "select", options: ["Snow", "Ice", "Dirt", "Water"]}
+      },
 }
 
-const Template = (args) => `<varsom-observation regId=${args.regId} type="${args.type}" count=${args.count} language="${args.language}"></varsom-observation> `
+const Template = (args) => `<varsom-observation regId=${args.regid} type="${args.type}" count=${args.count} language="${args.language}"></varsom-observation> `
 
-export const ObservationWithRegId = Template.bind({});
-    ObservationWithRegId.args = {
-        language: 'English',
-        type: 'Water',
+export const VarsomObservation = Template.bind({});
+    VarsomObservation.args = {
         count: 1,
-        regId: 999
+        regid: 0
     }
