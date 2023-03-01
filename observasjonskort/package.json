@@ -28,6 +28,8 @@
   "dependencies": {
     "@jeepq/core": "^0.0.4-1",
     "@stencil/core": "^2.22.2",
+    "fetch": "^1.1.0",
+    "node": "^19.6.1",
     "node-fetch": "^3.3.0",
     "smart-webcomponents": "^15.0.11"
   },
@@ -35,7 +37,8 @@
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
-    "puppeteer": "^19.6.3"
+    "puppeteer": "^19.6.3",
+    "rollup-plugin-node-polyfills": "^0.2.1"
   },
   "license": "MIT"
 }
