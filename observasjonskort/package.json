@@ -28,6 +28,7 @@
   "dependencies": {
     "@jeepq/core": "^0.0.4-1",
     "@stencil/core": "^2.22.2",
+    "node-fetch": "^3.3.0",
     "smart-webcomponents": "^15.0.11"
   },
   "devDependencies": {
