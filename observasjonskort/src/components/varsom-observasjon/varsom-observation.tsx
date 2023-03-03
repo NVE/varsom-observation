@@ -321,20 +321,6 @@ _damageObs?: DamageObs[]
 })
 export class VarsomObservation {
 
-  @State() _regId: string;
-  @State() moh: number;
-  @State() numberOfObservations: number;
-  @State() region: string;
-  @State() municipality: string;
-  @State() source: string;
-  @State() sourceOfPositioning: string;
-  @State() precision: string;
-  @State() dateOfObservation: Date;
-  @State() dateOfRegistration: Date;
-  @State() dateOfLastUpdate: Date;
-  @State() observer: string;
-  @State() typeOfWeather: string;
-
   @State() slideIndex: number = 1;
   
   observations: Observation[] = []; 
@@ -392,7 +378,7 @@ export class VarsomObservation {
 
     }
   async componentWillLoad(){
-    console.log(this.regid)
+    
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
@@ -408,7 +394,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-        console.log(_data)
+    
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/

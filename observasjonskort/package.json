@@ -12,7 +12,7 @@
   "unpkg": "dist/observasjonskort/observasjonskort.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
   },
   "files": [
     "dist/",
@@ -25,7 +25,8 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=c8b4e4a83daf"
   },
   "dependencies": {
     "@jeepq/core": "^0.0.4-1",
@@ -44,9 +45,16 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.17.1",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^19.6.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil-component-starter/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/ionic-team/stencil-component-starter#readme",
+  "_id": "observasjonskort@0.0.1"
 }
