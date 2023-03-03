@@ -1,20 +1,121 @@
 import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
+import { type } from 'os';
+import { number } from 'yargs';
 
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 
 
-type SignsOfDanger = {
-  _type: string,
-  _comment: string
+type Observer = {
+  NickName?: string,
+  ObserverID?: number,
+  CompetenceLevelTID?: number,
+  CompentenceLevelName?: string
  }
 
- type DangerObs = {
-  GeoHazardName?: string,
-  DangerSignName?: string,
-  GeoHazardTID?: number,
-  DangerSignTID?: number,
+ type ObsLocation = {
+
+  ForecastRegionTID: number, //	integer($int32) Angir varslingsregion stedet tilhører. Varslingsregioner gitt i ForecastRegionKD. The ForecastRegionKD unique identifier
+  ForecastRegionName: string,
+  Height: number, //	integer($int32)
+  MunicipalName: string,
+  MunicipalNo: string, // Kommune nr stedet tilhører
+  CountryId: number, //	integer($int32)
+  CountryName: string,
+  UTMSourceName: string,
+  Title: string, // Read-only generert tittel
+  ObsLocationID: number, //	integer($int32) ObsLocationID
+  LocationName:	string, // maxLength: 60 Navn på stedet
+  LocationDescription: string, // maxLength: 1024 Beskriver stedet.
+  Latitud: number, // ($double) Latitude
+  Longitude: number // ($double) Longitude
+  UTMSourceTID: number, //	integer($int32) Kildehenvisning på hvordan koordinaten er satt. (GPS i tlf, klikk i kart, osv). Verdier gitt i UTMSourceKD
+  Uncertainty: number, //	integer($int32) Usikkerhet i posisjon i meter. Anslås på web og i app hentes det fra gps.
+ }
+
+ type Attachment = {
+  AttachmentId?: number,
+  GeoHazardName?: string, //GeoHazard name
+  RegistrationName?: string, //Registration name
+  //UrlFormats	{...}
+  Url?: string, //Full original image url
+  Photographer?: string, //maxLength: 60 Navn på fotograf.
+  
+  Copyright?: string, //maxLength: 60 Rettigheter til bilde.
+  Aspect?: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
+  
+  GeoHazardTID?: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
+  
+  RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
+  
+  Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
+  
+  AttachmentMimeType?: string,
+  IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
+   }
+
+  type AvalancheActivityObs2 = {
+  EstimatedNumName?: string,
+  ExposedHeightComboName?: string,
+  AvalancheExtName?: string,
+  AvalCauseName?: string,
+  AvalTriggerSimpleName?: string,
+  DestructiveSizeName?: string,
+  AvalPropagationName?: string,
+  EstimatedNumTID?: number,
+  DtStart?: string,
+  DtEnd?: string,
+  ValidExposition?: string,
+  ExposedHeight1?: number,
+  ExposedHeight2?: number,
+  ExposedHeightComboTID?: 0,
+  AvalancheExtTID?: number,
+  AvalCauseTID?: number,
+  AvalTriggerSimpleTID?: number,
+  DestructiveSizeTID?: number,
+  AvalPropagationTID?: number,
   Comment?: string
+ }  
+
+ type AvalancheEvalProblem2 = {
+  AvalProbabilityName: string,
+  AvalTriggerSimpleName: string,
+  AvalCauseDepthName: string,
+  ExposedHeightComboName:	string,
+  AvalancheExtName:	string,
+  AvalCauseName: string,
+  DestructiveSizeName: string,
+  AvalPropagationName: string,
+  AvalCauseAttributeLightName: string,
+  AvalCauseAttributeThinName:	string,
+  AvalCauseAttributeSoftName:	string,
+  AvalCauseAttributeCrystalName: string,
+  AvalProbabilityTID: number, // integer($int32) Sannsynlighet for skred. The AvalProbabilityKD unique identifier
+  AvalPropagationTID: number, //	integer($int32)
+  AvalTriggerSimpleTID: number, //	integer($int32) The AvalTriggerSimpleKD unique identifier
+  AvalCauseDepthTID: number, //	integer($int32) Hvor dypt ligger det overnevnte svake laget? The AvalCauseDepthKD unique identifier
+  ValidExposition:	string, // maxLength: 8 Velg utsatte retninger
+  ExposedHeight1: number, //	integer($int32) Øverste høyde på “utsatt høyde” symbolet.
+  ExposedHeight2: number, //	integer($int32) Nederste høyde på “utsatt høyde” symbolet.
+  ExposedHeightComboTID: number, //	integer($int32) Hvilket symbol brukes? Er utsatt tereng over ExposedHeight2 eller under den? The ExposedHeightComboKD unique identifier
+  AvalancheExtTID: number, // integer($int32) Skredtype. I appen er dette 1. felt under skredproblem. The AvalancheExtKD unique identifier
+  Comment: string, // Kommentar til skredproblemet
+  AvalCauseTID: number, // integer($int32) Hvilket svakt lag løsner skredet på? The AvalCauseKD unique identifier
+  AvalCauseAttributeLightTID: number, //	integer($int32)
+  AvalCauseAttributeThinTID: number, //	integer($int32)
+  AvalCauseAttributeSoftTID: number, //	integer($int32)
+  AvalCauseAttributeCrystalTID: number, //	integer($int32)
+  DestructiveSizeTID: number //	integer($int32) Sannsynlig tilleggsbelastning for å utløse skred. The DestructiveSizeKD unique identifier
+ }
+
+ type AvalancheEvaluation3 = {
+  AvalancheDangerName: string,
+  ForecastCorrectName: string,
+  AvalancheDangerTID:	number, //integer($int32) Faregrad. The AvalancheDangerKD unique identifier
+  AvalancheEvaluation: string, // maxLength: 1024 Her blir Skredfarevurdering skrevet inn. I appen blir “Utstrekning” lagt til som tekst i denne kolonnen
+  AvalancheDevelopment: string, // maxLength: 1024 Her blir forventet utvikling skrevet inn.
+  ForecastCorrectTID: number, //	integer($int32) Felt hvor observatøren kan fortelle de syns varslet stemmer. Valg fra liste gitt i ForecastCorrectKD. The ForecastCorrectKD unique identifier
+  ForecastComment: string, //maxLength: 1024 Kommentarfelt for utdypende kommentar om varslet stemmer eller ikke.
  }
 
  type AvalancheObs = {
@@ -45,71 +146,45 @@ type SignsOfDanger = {
   Comment?: string
  }
 
- type LandslideObs = {
-  LandSlideName?: string,
-  LandSlideTriggerName?: string,
-  LandSlideSizeName?: string,
+ type CompressionTest = {
+  CompressionTestName: string,
+  PropagationName: string,
+  StabilityEvalName: string,
+  ComprTestFractureName: string,
+  CompressionTestTID: number, //	integer($int32) The CompressionTestKDV unique identifier
+  TapsFracture: number, //	integer($int32) TapsFracture
+  TapsFullPropagation: number, //	integer($int32) TapsFullPropagation
+  PropagationTID: number, //	integer($int32) The PropagationKD unique identifier
+  FractureDepth: number, //($double) maximum: 100 minimum: 0 FractureDepth
+  PstX:	number, //($double) maximum: 100 minimum: 0 PST X distance (in meters)
+  PstY:	number, //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
+  StabilityEvalTID: number, // integer($int32) The StabilityEvalKD unique identifier
+  ComprTestFractureTID: number, //	integer($int32) The ComprTestFractureKD unique identifier
+  RbRelease: number, //	integer($int32) Percentage of block that released in Rutchblock test
+  Comment:	string, //Comment
+  IncludeInSnowProfile:	boolean
+ }
+
+ type DangerObs = {
   GeoHazardName?: string,
-  ActivityInfluencedName?: string,
-  ForecastAccurateName?: string,
-  DamageExtentName?: string,
-  Imageurl?: string,
-  LandSlideTID?: number,
-  LandSlideTriggerTID?: number,
-  LandSlideSizeTID?: number,
-  Comment?: string,
+  DangerSignName?: string,
   GeoHazardTID?: number,
-  ActivityInfluencedTID?: number,
-  ForecastAccurateTID?: number,
-  DamageExtentTID?: number,
-  StartLat?: number,
-  StartLong?: number,
-  StopLat?: number,
-  StopLong?: number,
-  DtLandSlideTime?: string,
-  DtLandSlideTimeEnd?: string
- }
-
- type Observer = {
-  NickName?: string,
-  ObserverID?: number,
-  CompetenceLevelTID?: number,
-  CompentenceLevelName?: string
- }
-
- type WeatherObservation = {
-  PrecipitationName: string,
-  WindDirectionName: string,
-  PrecipitationTID: number,
-  AirTemperature: number,
-  WindSpeed: number,
-  WindDirection: number,
-  CloudCover: number,
-  Comment: string,
-  _imageUrl?: string
- }
-
- type AvalancheActivityObs2 = {
-  EstimatedNumName?: string,
-  ExposedHeightComboName?: string,
-  AvalancheExtName?: string,
-  AvalCauseName?: string,
-  AvalTriggerSimpleName?: string,
-  DestructiveSizeName?: string,
-  AvalPropagationName?: string,
-  EstimatedNumTID?: number,
-  DtStart?: string,
-  DtEnd?: string,
-  ValidExposition?: string,
-  ExposedHeight1?: number,
-  ExposedHeight2?: number,
-  ExposedHeightComboTID?: 0,
-  AvalancheExtTID?: number,
-  AvalCauseTID?: number,
-  AvalTriggerSimpleTID?: number,
-  DestructiveSizeTID?: number,
-  AvalPropagationTID?: number,
+  DangerSignTID?: number,
   Comment?: string
+ }
+
+ type Url = {
+  UrlDescription: string //maxLength: 1024 UrlDescription
+  UrlLine: string, //maxLength: 1024 UrlLine
+ }
+
+ type GeneralObservation = {
+  GeoHazardName: string,
+  Urls: Url[],
+  GeoHazardTID: number, //	integer($int32) Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is).
+  ObsComment: string, //maxLength: 2048 Selve registreringen.
+  ObsHeader: string, //maxLength: 100 Overskriften (hovedpoenget).
+  Comment: string, // maxLength: 1024 Kommentarfelt for å skrive utfyllende tekst
  }
 
  type IceCoverObs = {
@@ -144,62 +219,141 @@ type SignsOfDanger = {
 
  }
 
-
- type Attachment = {
-AttachmentId?: number,
-GeoHazardName?: string, //GeoHazard name
-RegistrationName?: string, //Registration name
-//UrlFormats	{...}
-Url?: string, //Full original image url
-Photographer?: string, //maxLength: 60 Navn på fotograf.
-
-Copyright?: string, //maxLength: 60 Rettigheter til bilde.
-Aspect?: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
-
-GeoHazardTID?: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
-
-RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
-
-Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
-
-AttachmentMimeType?: string,
-IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
- }
- 
- type Test = {
-  _test: string,
-  _stability: string
- }
-
-
-
- type SnowProfile = {
-  _comment: string,
-  _temperature: string,
-  _layering: string,
-  _imageUrl?: string
+ type Incident = {
+  GeoHazardName: string,
+  ActivityInfluencedName:	string,
+  DamageExtentName:	string,
+  ForecastAccurateName:	string,
+  SafetyGearName:	string, // Hadde man sikkerhetsutstyr?
+  LocalTouristName:	string, // Var man lokal, norsk eller utenlandsk turist?
+  LocalKnowledgeName:	string, // Hvor ofte er man i området?
+  RescueName:	string, //Hvem gjennomførte redningen?
+  SlopeActivityName: string, // Hvilken turfase gjelder det?
+  IncidentURLs: Url[],
+  GeoHazardTID: number, //	integer($int32) Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is).
+  ActivityInfluencedTID: number, //	integer($int32) Hva ble påvirket av hendelsen. Valgene er gitt i ActivityInfluencedKD. The ActivityInfluencedKD unique identifier
+  DamageExtentTID: number, //	integer($int32) Skadeomfang. Hva var konsekvensen av hendelsen. Valgene gitt i DamageExtentKD. The DamageExtentKD unique identifier
+  ForecastAccurateTID: number, //	integer($int32) Var det et varsel utstedt og stemte det? The ForecastAccurateKD unique identifier
+  LocalTouristTID: number, //	integer($int32) Var man lokal, norsk eller utenlandsk turist?
+  LocalKnowledgeTID: number, //	integer($int32) Hvor ofte er man i området?
+  InvolvedNum: number, //	integer($int32) Hvor mange var involvert?
+  CasualtiesNum: number, //	integer($int32) Hvor mange var i skredet/vannet?
+  HarmedNum: number, //	integer($int32) Hvor mange vart skadd?
+  DeadNum: number, //	integer($int32) Hvor mange døde?
+  EvacuatedNum: number, //	integer($int32) Hvor mange evakuerte?
+  TrafficObstructed: boolean, // Er trafikk hindret?
+  MaterialDamages: boolean, // Er det noen materielle skader?
+  SafetyGearTID: number, //	integer($int32) Var det noe sikkerhetsutstyr i bruk?
+  RescueTID: number,	// integer($int32) Hvem gjennomførte redningen?
+  SlopeActivityTID: number, //	integer($int32) Hvilken turfase?
+  DtEndTime: string //($date-time) Om hendelsen strakte seg ut i tid, når sluttet den å gjelde? Feks, når åpnet veien igjen etter raset?
+  IncidentHeader: string, // maxLength: 100 Hendelsen beskrives med overskrift ..
+  IncidentIngress: string, // maxLength: 512 .. med ingress eller sammendrag ..
+  IncidentText: string, // maxLength: 2048  .. og teksten eller artikkelen.
+  Comment: string, //Comment.
  }
 
- type LandslideProblem = {
-  _description: string,
+
+type SignsOfDanger = {
   _type: string,
-  _estimatedLoadToTrigger: string,
-  _sizeOfExpectedLandslide: string,
-  _spread: string,
-  _comment: string,
-  _imageUrl?: string
+  _comment: string
  }
 
- type EstimateOfRisk = {
-  degreeOfRisk: string,
-  _estimateOfRisk: string,
-  _development: string,
-  _imageUrl?: string
+
+
+
+
+ type LandslideObs = {
+  LandSlideName?: string,
+  LandSlideTriggerName?: string,
+  LandSlideSizeName?: string,
+  GeoHazardName?: string,
+  ActivityInfluencedName?: string,
+  ForecastAccurateName?: string,
+  DamageExtentName?: string,
+  Imageurl?: string,
+  LandSlideTID?: number,
+  LandSlideTriggerTID?: number,
+  LandSlideSizeTID?: number,
+  Comment?: string,
+  GeoHazardTID?: number,
+  ActivityInfluencedTID?: number,
+  ForecastAccurateTID?: number,
+  DamageExtentTID?: number,
+  StartLat?: number,
+  StartLong?: number,
+  StopLat?: number,
+  StopLong?: number,
+  DtLandSlideTime?: string,
+  DtLandSlideTimeEnd?: string
+ }
+
+ type StratProfileLayer = {
+  GrainFormPrimaryTName:	string,
+  GrainFormSecondaryTName:	string,
+  HardnessTName:	string,
+  HardnessBottomTName:	string,
+  WetnessTName:	string,
+  CriticalLayerTName:	string,
+  DepthTop:	number, //($double)
+  Thickness: number, //($double)
+  GrainFormPrimaryTID: number, //	integer($int32)
+  GrainFormSecondaryTID: number,	integer($int32)
+  GrainSizeAvg:	number, //($double)
+  GrainSizeAvgMax:	number, //($double)
+  HardnessTID: number, //($int32)
+  HardnessBottomTID: number, //($int32)
+  WetnessTID: number, //	integer($int32)
+  CriticalLayerTID: number, //	integer($int32)
+  Comment: string,
+  SortOrder: number //	integer($int32)
+ }
+
+ type StratProfile = {
+  TotalDepth:	number, //($double)
+  Layers: StratProfileLayer[]
+ }
+
+ type SnowTempObs = {
+  Depth: number //($double) maximum: 100 minimum: 0
+  SnowTemp:	number //($double) maximum: 0 minimum: -70
+ }
+
+ type SnowTemp = {
+  Layers: SnowTempObs[]
+ }
+
+ type SnowDensityLayer = {
+  Depth: number, //($double)
+  Thickness: number //($double) thickness in m
+  Density: number //($double) Density in kg/m^3
+  Comment: string,
+  Weight:	number, //($double) Weight in KG
+  WaterEquivalent: number, // ($double)
+  SortOrder: number //	integer($int32)
+ }
+
+ type SnowDensity = {
+  CylinderDiameter:	number, //($double)
+  TareWeight: number, //($double)
+  Comment: string,
+  Layers: SnowDensityLayer[]
+ }
+
+ type SnowProfile2 = {
+  TotalDepth: number, //($double)
+  StratProfile: StratProfile,
+  Comment: string,
+  IsProfileToGround: boolean,
+  Exposition: number, // integer($int32)
+  SlopeAngle: number, // integer($int32)
+  SnowTemp:	SnowTemp,
+  SnowDensity: SnowDensity[]
+
  }
 
  type SnowSurface = {
   SnowWindDepth24: string,
-  
   SurfaceWaterContentName: string,
   SnowDriftName: string,
   SnowSurfaceName: string,
@@ -216,6 +370,19 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   HeightLimitLayeredSnow: number,
   SnowLine: number 
   
+ }
+ 
+
+ type WeatherObservation = {
+  PrecipitationName: string,
+  WindDirectionName: string,
+  PrecipitationTID: number,
+  AirTemperature: number,
+  WindSpeed: number,
+  WindDirection: number,
+  CloudCover: number,
+  Comment: string,
+  _imageUrl?: string
  }
 
  type WaterLevelMeasurement = {
@@ -248,11 +415,6 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   Comment: string
  }
 
- type LatLng = {
-  Latitude: number,
-  Longitude: number
- } 
-
  type DamageObs = {
   GeoHazardName:	string,
   DamageTypeName:	string,
@@ -262,6 +424,162 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   DamagePosition:	LatLng,
   Comment:	string
  }
+
+ type SnowProfile = {
+  _comment: string,
+  _temperature: string,
+  _layering: string,
+  _imageUrl?: string
+ }
+
+ type AvalancheEvaluation = {
+  RegID: number, //integer($int32)
+  CanPublish:	boolean,
+  AvalancheDangerTID: number, //	integer($int32)
+  AvalancheDangerName:	string,
+  ValidExposition:	string,
+  ValidHeightRelative: string,
+  ValidHeightFrom: number, //	integer($int32)
+  ValidHeigtTo: number, //	integer($int32)
+  AvalancheProblemTID1: number, //	integer($int32)
+  AvalancheProblemName1: string,
+  AvalancheProblemTID2: number, //	integer($int32)
+  AvalancheProblemName2: string,
+  AvalancheProblemTID3: number, //	integer($int32)
+  AvalancheProblemName3: string,
+  AvalancheEvaluation1:	string,
+  Comment:	string
+ }
+
+ type AvalancheActivityObs = {
+  AvalancheActivityObsID: number, //	integer($int32) Unik id på denne tabellen da flere er mulig pr RegID.
+  Aspect:	number, //integer($int32) Hvilken side av fjellene har skredene gått? Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
+  HeigthStartZone: number, //	integer($int32) Meter over havet på løsneområdet.
+  DtAvalancheTime: string, //($date-time) Når gikk skredene? Her bruker vi feltet som en ca. tid og brukerene oppfordres til å anta best mulig.
+  DestructiveSizeTID: number, //	integer($int32) Hvor store er skredene?. The DestructiveSizeKD unique identifier
+  DestructiveSizeName:	string,
+  EstimatedNumTID: number, //	integer($int32) Hvor mange skred er gått? The EstimatedNumKD unique identifier
+  EstimatedNumName:	string,
+  AvalancheTID: number, //	integer($int32) Typen skred som er gått. The AvalancheKD unique identifier
+  AvalancheName: string,
+  AvalancheTriggerTID: number, //	integer($int32) Hva utløste skredet? Det er ofte beskrevet som det svake laget i snødekket. The AvalancheTriggerKD unique identifier
+  AvalancheTriggerName:	string,
+  TerrainStartZoneTID: number, //	integer($int32) Hva slags terrengtype var det i løsneområdet. The TerrainStartZoneKD unique identifier
+  TerrainStartZoneName:	string,
+  SnowLine: number, //	integer($int32) Hvor går snøgrensa i området?
+  SnowLineName:	string,
+  Comment: string, //Kommentarfelt for å skrive utfyllende tekst om observasjonen.
+  DtOffAvalancheTime: string //($date-time)
+ }
+
+ type AvalancheDangerObs = {
+  AvalancheDangerObsID: number, //	integer($int32)
+  DangerSignTID: number,	// integer($int32)
+  DangerSignName:	string,
+  Comment:	string
+ }
+
+ type AvalancheEvalProblem = {
+  AvalancheEvalProblemID: number, //	integer($int32)
+  AvalProbabilityTID: number, //	integer($int32)
+  AvalProbabilityName:	string,
+  AvalTriggerSimpleTID: number, //	integer($int32)
+  AvalTriggerSimpleName:	string,
+  DestructiveSizeExtTID: number, //	integer($int32)
+  DestructiveSizeExtName:	string,
+  AvalancheExtTID: number, //	integer($int32)
+  AvalancheExtName:	string,
+  AvalCauseTID: number, //	integer($int32)
+  AvalCauseName:	string,
+  AvalCauseExtTID: number, //	integer($int32)
+  AvalCauseExtName:	string,
+  AvalReleaseHeightTID: number, //	integer($int32)
+  AvalReleaseHeightName:	string,
+  AvalancheProbabilityAutoText:	string,
+  AvalancheProblemAutoText:	string,
+  Comment: string
+ }
+
+ type AvalancheEvaluation2 = {
+  AvalancheDangerName:	string,
+  ValidExposition:	string,
+  Comment:	string,
+  AvalancheEvaluation:	string,
+  AvalancheDevelopment:	string,
+  ExposedHeight1: number, //	integer($int32)
+  ExposedHeight2: number, //	integer($int32)
+  ExposedHeightComboTID: number, //	integer($int32)
+  ExposedHeightComboName:	string,
+  ExposedClimateTID: number, //	integer($int32) 
+  ExposedClimateName:	string,
+  AvalancheDangerTID: number, //	integer($int32)
+  AvalancheEvalProblems: AvalancheEvalProblem	[]
+ }
+
+ type SnowCoverObs = {
+  DepthHoarThickness:	number, // ($double) DepthHoarThickness
+  CriticalLayerExists:	boolean, // CriticalLayerExists
+  CriticalLayerLocation:	number, // ($double) CriticalLayerLocation
+  CriticalLayerTID: number, //	integer($int32) The CriticalLayerKD unique identifier
+  SnowPilotRef:	string, // SnowPilotRef
+  Comment:	string, // Comment.
+  CriticalLayerName:	string
+ }
+
+ type WaterLevel = {
+  WaterLevelDescribed: string,
+  WaterLevelValue:	number, // ($double)
+  WaterLevelRefTID: number, //	integer($int32)
+  WaterLevelRefName: 	string,
+  Comment:	string,
+  MeasuredDischarge:	number, //($double)
+  IsRiver:	boolean
+ }
+
+
+
+ 
+
+
+
+ 
+ 
+ type Test = {
+  _test: string,
+  _stability: string
+ }
+
+
+
+ 
+
+ type LandslideProblem = {
+  _description: string,
+  _type: string,
+  _estimatedLoadToTrigger: string,
+  _sizeOfExpectedLandslide: string,
+  _spread: string,
+  _comment: string,
+  _imageUrl?: string
+ }
+
+ type EstimateOfRisk = {
+  degreeOfRisk: string,
+  _estimateOfRisk: string,
+  _development: string,
+  _imageUrl?: string
+ }
+
+ 
+
+ 
+
+ type LatLng = {
+  Latitude: number,
+  Longitude: number
+ } 
+
+ 
 
  type Image = {
   _imageData?: any,
@@ -297,19 +615,32 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   _test?: Test,
   _snowProfile?: SnowProfile,
   _landslideProblem?: LandslideProblem,
- _estimateOfRisk?: EstimateOfRisk
- _snowSurface?: SnowSurface
-_images?: Image[],
-_dataSource?: any,
-_className?: string,
-_observationImages: HTMLElement[],
-_attachments: Attachment[],
-_observerGroupName?: string,
-_avalancheActivityObs2?: AvalancheActivityObs2[],
-_iceCoverObs?: IceCoverObs,
-_iceThickness?: IceThickness,
-_waterLevel?: WaterLevel2,
-_damageObs?: DamageObs[]
+  _estimateOfRisk?: EstimateOfRisk
+  _snowSurface?: SnowSurface
+  _dataSource?: any,
+  _className?: string,
+  _observationImages: HTMLElement[],
+  _attachments: Attachment[],
+  _observerGroupName?: string,
+  _avalancheActivityObs2?: AvalancheActivityObs2[],
+  _iceCoverObs?: IceCoverObs,
+  _iceThickness?: IceThickness,
+  _waterLevel2?: WaterLevel2,
+  _damageObs?: DamageObs[],
+  _obsLocation?: ObsLocation,
+  _avalancheEvalProblem2?: AvalancheEvalProblem2[]
+  _avalancheEvaluation3?: AvalancheEvaluation3,
+  _compressionTest?: CompressionTest[]
+  _generalObservation?: GeneralObservation,
+  _incident?: Incident,
+  _snowProfile2?: SnowProfile2,
+  _avalancheEvaluation?: AvalancheEvaluation,
+  _avalancheActivityObs?: AvalancheActivityObs[],
+  _avalancheDangerObs?: AvalancheDangerObs[],
+  _avalancheEvaluation2?: AvalancheEvaluation2,
+  _snowCoverObs?: SnowCoverObs,
+  _waterLevel?: WaterLevel,
+ // _images?: Image
 };
 
 
@@ -433,7 +764,7 @@ export class VarsomObservation {
         _avalancheActivityObs2: [],
         _snowSurface: data[i]["SnowSurface"],
         //_attachments: data[i]["Attachments"],
-        _images: [],
+        //_images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
@@ -442,10 +773,21 @@ export class VarsomObservation {
         _observerGroupName: data[i]["ObserverGroupName"],
         _iceCoverObs: data[i]["IceCoverObs"],
         _iceThickness: data[i]["IceThickness"],
-        _waterLevel: data[i]["WaterLevel2"],
-        _damageObs: []
-        
-        
+        _waterLevel2: data[i]["WaterLevel2"],
+        _damageObs: [],
+        _obsLocation: data[i]["ObsLocation"],
+        _avalancheEvalProblem2: [],
+        _avalancheEvaluation3: data[i]["AvalancheEvaluation3"],
+        _compressionTest: [],
+        _generalObservation: data[i]["GeneralObservation"],
+        _incident: data[i]["Incident"],
+        _snowProfile2: data[i]["SnowProfile2"],
+        _avalancheEvaluation: data[i]["AvalancheEvaluation"],
+        _avalancheActivityObs: [],
+        _avalancheDangerObs: [],
+        _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
+        _snowCoverObs: data[i]["SnowCoverObs"],
+        _waterLevel: data[i]["WaterLevel"],  
         }          
      );
 
@@ -499,9 +841,12 @@ export class VarsomObservation {
         if (data[i]["DangerObs"].length > 0){
           for (let j = 0; j < data[i]["DangerObs"].length; j++){
             this.observations[i]._dangerObs.push({
+              GeoHazardName: data[i]["DangerObs"][j]["GeoHazardName"],
+              DangerSignName: data[i]["DangerObs"][j]["DangerSignName"],
+              GeoHazardTID: data[i]["DangerObs"][j]["GeoHazardTID"],
+              DangerSignTID: data[i]["DangerObs"][j]["DangerSignTID"],
               Comment: data[i]["DangerObs"][j]["Comment"]
               
-              //etc....
             })
           }
         }
@@ -519,6 +864,42 @@ export class VarsomObservation {
               Comment: data[i]["DamageObs"][j]["Comment"]
               
               //etc....
+            })
+          }
+        }
+
+        //add avalancheEvalProblem
+        if (data[i]["AvalancheEvalProblem2"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+            this.observations[i]._avalancheEvalProblem2.push({
+              AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
+              AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
+              AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
+              ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
+              AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
+              AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
+              DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
+              AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
+              AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
+              AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
+              AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
+              AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
+              AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
+              AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
+              AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
+              AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
+              ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
+              ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
+              ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
+              ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
+              AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
+              Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
+              AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
+              AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
+              AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
+              AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
+              AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
+              DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
             })
           }
         }
