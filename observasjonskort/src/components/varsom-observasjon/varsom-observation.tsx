@@ -33,20 +33,6 @@ import { Image } from './observation-model';
 })
 export class VarsomObservation {
 
-  @State() _regId: string;
-  @State() moh: number;
-  @State() numberOfObservations: number;
-  @State() region: string;
-  @State() municipality: string;
-  @State() source: string;
-  @State() sourceOfPositioning: string;
-  @State() precision: string;
-  @State() dateOfObservation: Date;
-  @State() dateOfRegistration: Date;
-  @State() dateOfLastUpdate: Date;
-  @State() observer: string;
-  @State() typeOfWeather: string;
-
   @State() slideIndex: number = 1;
   
   observations: Observation[] = []; 
