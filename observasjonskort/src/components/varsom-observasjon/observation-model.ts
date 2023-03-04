@@ -27,7 +27,7 @@ export type Observation = {
     _snowProfile?: SnowProfile,
     _landslideProblem?: LandslideProblem,
    _estimateOfRisk?: EstimateOfRisk
-   _snowSurface?: SnowSurface
+   _snowSurfaceObservation?: SnowSurfaceObservation
   _images?: Image[],
   _dataSource?: any,
   _className?: string,
@@ -234,7 +234,7 @@ export type Observation = {
     _imageUrl?: string
    }
   
-   export type SnowSurface = {
+   export type SnowSurfaceObservation = {
     SnowWindDepth24: string,
     
     SurfaceWaterContentName: string,
