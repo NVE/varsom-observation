@@ -197,9 +197,8 @@ export class VarsomObservation {
         if (data[i]["DangerObs"].length > 0){
           for (let j = 0; j < data[i]["DangerObs"].length; j++){
             this.observations[i]._dangerObs.push({
-              Comment: data[i]["DangerObs"][j]["Comment"]
-              
-              //etc....
+              Comment: data[i]["DangerObs"][j]["Comment"],
+              DangerSignName: data[i]["DangerObs"][j]["DangerSignName"]
             })
           }
         }
@@ -329,9 +328,7 @@ export class VarsomObservation {
   
 
 {/* ATTACHMENTS */}
-  {obs._attachments.length > 0 ?
-   <h2>Faretegn</h2> : "" }
-  
+ 
 
         {obs._attachments.map((att: Attachment = {}) =>{
             return <div> 
@@ -394,10 +391,23 @@ export class VarsomObservation {
 {/* AVALANCHE EVAL PROBLEM */}
 
 
-{/* DAMAGE OBSERVATIONS */}
+{/* DAMAGE OBSERVATIONS ... ikke funnet noe data fra api...*/}
 
 
 {/* DANGER OBSERVATIONS */}
+{obs._dangerObs.length > 0 ?
+<h2>Faretegn</h2> : "" }
+
+{obs._dangerObs.map((el: DangerObs = {}) =>{
+  
+            return <div> 
+          <div> Type: {el.DangerSignName} </div>        
+          <div> Kommentar: {el.Comment} </div>
+  
+</div>
+        })
+        
+        }
 
 {/* COMPRESSION TEST */}
 
