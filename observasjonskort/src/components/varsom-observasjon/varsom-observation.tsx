@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
+import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
 
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
@@ -321,11 +321,25 @@ _damageObs?: DamageObs[]
 })
 export class VarsomObservation {
 
+  @State() _regId: string;
+  @State() moh: number;
+  @State() numberOfObservations: number;
+  @State() region: string;
+  @State() municipality: string;
+  @State() source: string;
+  @State() sourceOfPositioning: string;
+  @State() precision: string;
+  @State() dateOfObservation: Date;
+  @State() dateOfRegistration: Date;
+  @State() dateOfLastUpdate: Date;
+  @State() observer: string;
+  @State() typeOfWeather: string;
+
   @State() slideIndex: number = 1;
   
   observations: Observation[] = []; 
   
-  @Prop() regid?: string = "0";
+  @Prop() regId: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
@@ -378,12 +392,12 @@ export class VarsomObservation {
 
     }
   async componentWillLoad(){
-    
+
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regid !== "0"){
-    _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
+  if (this.regId !== undefined){
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
@@ -394,7 +408,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-    
+        
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
@@ -672,7 +686,7 @@ export class VarsomObservation {
 
 
 
-
+  
 {obs._snowSurface ? 
 <div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
 
