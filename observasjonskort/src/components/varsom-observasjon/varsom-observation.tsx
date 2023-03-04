@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
+import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
@@ -197,7 +197,7 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   _imageUrl?: string
  }
 
- type SnowSurface = {
+ type SnowSurfaceObservation = {
   SnowWindDepth24: string,
   
   SurfaceWaterContentName: string,
@@ -298,7 +298,7 @@ IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller
   _snowProfile?: SnowProfile,
   _landslideProblem?: LandslideProblem,
  _estimateOfRisk?: EstimateOfRisk
- _snowSurface?: SnowSurface
+ _snowSurfaceObservation?: SnowSurfaceObservation
 _images?: Image[],
 _dataSource?: any,
 _className?: string,
@@ -431,7 +431,7 @@ export class VarsomObservation {
         _landslideObs: data[i]["LandslideObs"],
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
-        _snowSurface: data[i]["SnowSurface"],
+        _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
         //_attachments: data[i]["Attachments"],
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
@@ -566,10 +566,14 @@ export class VarsomObservation {
       return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
-      <div class="observation-header"> 
+      <div class="observation-header">    
+      
+      {/* HEADER */}
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
       
+
+      {/* METADATA */}
       <div class="observation-metadata">
       {/*
       Observert {obs._dateOfObservation}  ikke i bruk? */}
@@ -580,11 +584,13 @@ export class VarsomObservation {
          <span>Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} </span>
         <span>bruker: {obs._observer.NickName} brukerRating {obs._observer.CompetenceLevelName} {obs._observerGroupName} </span>
 
-
-      </div>
+      </div>     
       <div>
         <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
       </div>
+
+
+{/* IMAGE SLIDER */}
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
@@ -620,8 +626,11 @@ export class VarsomObservation {
 </div>
 
 
+{/* CONTENT */}
 <div class="observation-content">
   
+
+{/* ATTACHMENTS */}
   {obs._attachments.length > 0 ?
    <h2>Faretegn</h2> : "" }
   
@@ -639,8 +648,10 @@ export class VarsomObservation {
 </div>
         })
         
-        }
+}
 
+
+{/* AVALANCHE ACTIVITY OBSERVATIONS */}
 {obs._avalancheActivityObs2.length > 0 ?
 <h2>Skredaktivitet</h2> : "" }
 
@@ -657,7 +668,7 @@ export class VarsomObservation {
         
         }
 
-  
+{/* AVALANCHE OBSERVATIONS */}  
 {obs._avalancheObs ? 
 <div>
 <h2>Skredobservasjon</h2>
@@ -669,8 +680,7 @@ export class VarsomObservation {
   : "" }
 
 
-
-
+{/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
 
 <div>
@@ -683,12 +693,32 @@ export class VarsomObservation {
 : ""}
 
 
+{/* AVALANCHE EVAL PROBLEM */}
+
+
+{/* DAMAGE OBSERVATIONS */}
+
+
+{/* DANGER OBSERVATIONS */}
 
 
 
+{/* SNOW SURFACE */}
+{obs._snowSurfaceObservation ? 
+<div>
+  <h2>Snødekke</h2>
+   <div>Snødybde: </div>{obs._snowSurfaceObservation.SnowDepth}
+   <div>Kommentar: </div> {obs._snowSurfaceObservation.Comment}
+   <div>Snøfuktighet: </div> {obs._snowSurfaceObservation.SurfaceWaterContentName}
+   <div>Snøfokk: </div> {obs._snowSurfaceObservation.SnowDriftName} 
+   <div>Snødekkehardhet: </div> {obs._snowSurfaceObservation.SnowSurfaceName} 
+   <div>Skiføre: </div> {obs._snowSurfaceObservation.SkiConditionsName}
+   <div>Siste døgn: </div> {obs._snowSurfaceObservation.NewSnowLine} {/*riktig?*/ }
+
+</div>
   
-{obs._snowSurface ? 
-<div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
+  
+  : ""}
 
 
 
