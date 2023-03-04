@@ -701,19 +701,21 @@ export class VarsomObservation {
 
 {/* DANGER OBSERVATIONS */}
 
+{/* COMPRESSION TEST */}
+
 
 
 {/* SNOW SURFACE */}
 {obs._snowSurfaceObservation ? 
 <div>
   <h2>Snødekke</h2>
-   <div>Snødybde: </div>{obs._snowSurfaceObservation.SnowDepth}
-   <div>Kommentar: </div> {obs._snowSurfaceObservation.Comment}
-   <div>Snøfuktighet: </div> {obs._snowSurfaceObservation.SurfaceWaterContentName}
-   <div>Snøfokk: </div> {obs._snowSurfaceObservation.SnowDriftName} 
-   <div>Snødekkehardhet: </div> {obs._snowSurfaceObservation.SnowSurfaceName} 
-   <div>Skiføre: </div> {obs._snowSurfaceObservation.SkiConditionsName}
-   <div>Siste døgn: </div> {obs._snowSurfaceObservation.NewSnowLine} {/*riktig?*/ }
+   <div>Snødybde: {obs._snowSurfaceObservation.SnowDepth} </div>
+   <div>Kommentar: {obs._snowSurfaceObservation.Comment}</div> 
+   <div>Snøfuktighet:  {obs._snowSurfaceObservation.SurfaceWaterContentName}</div>
+   <div>Snøfokk:  {obs._snowSurfaceObservation.SnowDriftName} </div>
+   <div>Snødekkehardhet: {obs._snowSurfaceObservation.SnowSurfaceName} </div> 
+   <div>Skiføre: {obs._snowSurfaceObservation.SkiConditionsName}</div> 
+   <div>Siste døgn: {obs._snowSurfaceObservation.NewSnowLine}</div>  {/*riktig?*/ }
 
 </div>
   
