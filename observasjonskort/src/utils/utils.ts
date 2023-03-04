@@ -1,15 +1,11 @@
+//import fetch from "node-fetch";     needs to be included to test with Ponicode
+
 export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-export async function getDataFromApi(type: string, num: number, language: string, id: string){
-  let geoHazardId = getGeoHazardIdFromName(type);
-  let langKey = getLangKeyFromName(language);
-  let data
-  if (id !== undefined){
-    data = `{"LangKey": ${langKey}, "RegId": ${id}}`
-  } else
-  data = `{"NumberOfRecords": ${num}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+export async function getObservationFromApiById(id: string){
+    let data = `{"RegId": ${id}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
     method: 'POST',
     body: data,
@@ -18,10 +14,41 @@ export async function getDataFromApi(type: string, num: number, language: string
     },
   });
   let json = await response.json();
-console.log(langKey)
-  return json;
+  return json[0]["RegId"];
   
   }
+
+  export async function getObservationFromApiByLanguageAndType(type: string, language: string){
+    let geoHazardId = getGeoHazardIdFromName(type);
+    let langKey = getLangKeyFromName(language);
+    let data = `{"SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+      let response = await fetch('https://api.regobs.no/v5/Search', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    let json = await response.json();
+    return json[0]["GeoHazardName"];
+    
+    }
+
+    export async function getObservationsFromApiByTypeAmountAndLanguage(type: string, num: number, language: string){
+      let geoHazardId = getGeoHazardIdFromName(type);
+      let langKey = getLangKeyFromName(language);
+      let data = `{"NumberOfRecords": ${num}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
+        let response = await fetch('https://api.regobs.no/v5/Search', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      let json = await response.json();
+      return json[1]["GeoHazardName"];
+      
+      }
 
 export function getGeoHazardIdFromName(hazardName: string) {
   switch (hazardName){
