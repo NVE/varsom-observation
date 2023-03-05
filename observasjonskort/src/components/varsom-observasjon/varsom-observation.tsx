@@ -290,9 +290,15 @@ export class VarsomObservation {
          <span>ikon moh: {obs._moh}</span> : " "}
 
          
-         {obs._observer ? 
-         <span> bruker: {obs._observer.NickName} brukerrating {obs._observer.CompetenceLevelName} {obs._observerGroupName}
-          </span> :""}
+         {obs._observer.Nickname ? 
+         <span> bruker: {obs._observer.NickName} </span> : "" }
+
+        {obs._observer.CompetenceLevelName ? 
+        <span> brukerrating: {obs._observer.CompetenceLevelName}</span> : ""}  
+          
+          {obs._observerGroupName ? 
+          <span> brukergruppe: {obs._observer.ObserverGroupName}</span> : ""}
+           
         
 
       </div>     
