@@ -2,28 +2,10 @@ import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { Observation } from './observation-model';
-import { SignsOfDanger } from './observation-model';
+import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
-import { AvalancheObs } from './observation-model';
-import { LandslideObs } from './observation-model';
-import { WeatherObservation } from './observation-model';
-import { Observer } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
-import { IceCoverObs } from './observation-model';
-import { IceThicknessLayer } from './observation-model';
-import { IceThickness } from './observation-model';
 import { Attachment } from './observation-model';
-import { Test } from './observation-model';
-import { SnowProfile } from './observation-model';
-import { LandslideProblem } from './observation-model';
-import { EstimateOfRisk } from './observation-model';
-import { SnowSurfaceObservation } from './observation-model';
-import { WaterLevelMeasurement } from './observation-model';
-import { WaterLevel2 } from './observation-model';
-import { LatLng } from './observation-model';
-import { DamageObs } from './observation-model';
-import { Image } from './observation-model';
-
 
 @Component({
   tag: 'varsom-observation',
@@ -81,7 +63,7 @@ export class VarsomObservation {
     for (let i = 0; i < this.observations.length; i++){
       var obs = this.observations[i];
       for (let j = 0; j < 3; j++){
-        obs._observationImages[j].style.display = "none"
+      //  obs._observationImages[j].style.display = "none"
       }
     }
     for (let k = 0; k < this.observations.length; k++){
@@ -141,11 +123,26 @@ export class VarsomObservation {
         _iceCoverObs: data[i]["IceCoverObs"],
         _iceThickness: data[i]["IceThickness"],
         _waterLevel: data[i]["WaterLevel2"],
-        _damageObs: []
-        
+        _damageObs: [],
+        _avalancheEvalProblem2: [],
+        _avalancheEval3: data[i]["AvalancheEvaluation3"]
         
         }          
      );
+
+
+        
+
+//    map waterlevelMeasurment.... 
+/*
+        for (let j = 0; j < this.count; j++){
+        this.observations[j]._waterLevel.WaterLevelMeasurement = [];
+          
+        
+      }
+*/
+        
+
 
         //add attachments
         for(let j = 0; j < 30; j++){  //max 30 attachments
@@ -161,6 +158,8 @@ export class VarsomObservation {
   
             
         }
+
+    
       
         //add avalancheActivityObservations
         if (data[i]["AvalancheActivityObs2"].length > 0){
@@ -231,6 +230,44 @@ export class VarsomObservation {
   }
 }
   */      
+
+   //add avalancheEvalProblem
+   if (data[i]["AvalancheEvalProblem2"].length > 0){
+    for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+      this.observations[i]._avalancheEvalProblem2.push({
+        AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
+        AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
+        AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
+        ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
+        AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
+        AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
+        DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
+        AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
+        AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
+        AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
+        AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
+        AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
+        AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
+        AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
+        AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
+        AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
+        ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
+        ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
+        ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
+        ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
+        AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
+        Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
+        AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
+        AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
+        AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
+        AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
+        AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
+        DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
+      })
+    }
+  }
+
+
 
 
         //add images for image carousel
@@ -367,8 +404,7 @@ export class VarsomObservation {
               <div> Fotograf: {att.Photographer} </div>
               <div> Copyright: {att.Copyright} </div>
               <br></br>
-            
-</div>
+            </div>
         })
         
 }
@@ -407,6 +443,35 @@ export class VarsomObservation {
   
   : "" }
 
+{/* WATERLEVEL 2 */}
+{/*
+{obs._waterLevel ? 
+<div><h2>Vannstand</h2><br></br></div>: ""}
+
+{obs._waterLevel.WaterLevelStateName ? 
+<div>Situasjon: {obs._waterLevel.WaterLevelStateName} </div>: ""}
+
+{obs._waterLevel.WaterAstrayName ? 
+<div>Vann på avveie: {obs._waterLevel.WaterAstrayName} </div>: ""}
+
+{obs._waterLevel.ObservationTimingName ? 
+<div>Hva registrerer du?: {obs._waterLevel.ObservationTimingName} </div>: ""}
+
+{obs._waterLevel.MeasurementTypeName ? 
+<div>Måleinstrument: {obs._waterLevel.MeasurementTypeName} </div>: ""}
+
+{obs._waterLevel.MeasurementReferenceName ? 
+<div>Måling relativt til: {obs._waterLevel.MeasurementReferenceName} </div>: ""}
+
+{obs._waterLevel.Comment ? 
+<div>Kommentar: {obs._waterLevel.Comment} </div>: ""}
+*/
+  }
+
+{/* VANNMÅLING ... nested array... må mappes  */ }
+
+
+
 
 {/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
@@ -423,7 +488,62 @@ export class VarsomObservation {
 
 {/* AVALANCHE EVAL PROBLEM */}
 
+{/* AVALANCHE EVAL PROBLEM 2 */}
+{obs._avalancheEvalProblem2.length > 0 ? 
+<h2>Skredproblem</h2> : ""}
 
+{obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
+return <div>
+  <div>
+  {el.AvalCauseName ? 
+  <h3>{el.AvalCauseName}</h3>: ""}
+  <br></br>
+  </div>
+  
+  {el.AvalancheExtName ?
+   <div>Skredtype: {el.AvalancheExtName} </div> : ""}
+
+  {el.AvalCauseDepthName ? 
+  <div>Avstand fra overflaten til det svake laget: {el.AvalCauseDepthName} </div> : ""}
+
+  {el.AvalCauseAttributeSoftName ? 
+  <div>Ugunstige egenskaper til det svake laget: {el.AvalCauseAttributeSoftName} </div> : ""}
+
+  {el.AvalTriggerSimpleName ? 
+  <div>Sannsynlig belasting for å løse ut skred: {el.AvalTriggerSimpleName} </div> : ""}
+
+{el.DestructiveSizeName ? 
+  <div>Størrelse på forventet skred: {el.DestructiveSizeName} </div> : ""}
+
+{el.AvalPropagationName ? 
+  <div>MiddelsUtbredelse: {el.AvalPropagationName} </div> : ""}
+
+
+{/* TEGNING HER... */}
+
+</div>
+})
+}
+
+{/* AVALANCE EVALUATION 3*/}
+{obs._avalancheEval3 ? 
+<div>
+<h2>Skredfarervurdering</h2> 
+
+{/* TEGNING HER */}
+
+{obs._avalancheEval3.AvalancheEvaluation ? 
+  <div>Skredfarevurdering: {obs._avalancheEval3.AvalancheEvaluation} </div> : ""}
+ 
+ {obs._avalancheEval3.AvalancheDevelopment ? 
+ <div>Utvikling: {obs._avalancheEval3.AvalancheDevelopment} </div> :"" }
+
+ {obs._avalancheEval3.ForecastComment ?
+ <div>Kommentar: {obs._avalancheEval3.ForecastComment} </div> :"" }
+
+</div>
+
+: ""}
 {/* DAMAGE OBSERVATIONS ... ikke funnet noe data fra api...*/}
 
 

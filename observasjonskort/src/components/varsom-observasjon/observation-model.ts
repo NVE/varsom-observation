@@ -31,14 +31,16 @@ export type Observation = {
   _images?: Image[],
   _dataSource?: any,
   _className?: string,
-  _observationImages: HTMLElement[],
-  _attachments: Attachment[],
+  _observationImages?: HTMLElement[],
+  _attachments?: Attachment[],
   _observerGroupName?: string,
   _avalancheActivityObs2?: AvalancheActivityObs2[],
   _iceCoverObs?: IceCoverObs,
   _iceThickness?: IceThickness,
   _waterLevel?: WaterLevel2,
-  _damageObs?: DamageObs[]
+  _damageObs?: DamageObs[],
+  _avalancheEvalProblem2?: AvalancheEvalProblem2[],
+  _avalancheEval3?: AvalancheEvaluation3
   };
 
   export type SignsOfDanger = {
@@ -208,7 +210,46 @@ export type Observation = {
     _stability: string
    }
   
+  export  type AvalancheEvalProblem2 = {
+    AvalProbabilityName?: string,
+    AvalTriggerSimpleName?: string,
+    AvalCauseDepthName?: string,
+    ExposedHeightComboName?:	string,
+    AvalancheExtName?:	string,
+    AvalCauseName?: string,
+    DestructiveSizeName?: string,
+    AvalPropagationName?: string,
+    AvalCauseAttributeLightName?: string,
+    AvalCauseAttributeThinName?:	string,
+    AvalCauseAttributeSoftName?:	string,
+    AvalCauseAttributeCrystalName?: string,
+    AvalProbabilityTID?: number, // integer($int32) Sannsynlighet for skred. The AvalProbabilityKD unique identifier
+    AvalPropagationTID?: number, //	integer($int32)
+    AvalTriggerSimpleTID?: number, //	integer($int32) The AvalTriggerSimpleKD unique identifier
+    AvalCauseDepthTID?: number, //	integer($int32) Hvor dypt ligger det overnevnte svake laget? The AvalCauseDepthKD unique identifier
+    ValidExposition?:	string, // maxLength: 8 Velg utsatte retninger
+    ExposedHeight1?: number, //	integer($int32) Øverste høyde på “utsatt høyde” symbolet.
+    ExposedHeight2?: number, //	integer($int32) Nederste høyde på “utsatt høyde” symbolet.
+    ExposedHeightComboTID?: number, //	integer($int32) Hvilket symbol brukes? Er utsatt tereng over ExposedHeight2 eller under den? The ExposedHeightComboKD unique identifier
+    AvalancheExtTID?: number, // integer($int32) Skredtype. I appen er dette 1. felt under skredproblem. The AvalancheExtKD unique identifier
+    Comment?: string, // Kommentar til skredproblemet
+    AvalCauseTID?: number, // integer($int32) Hvilket svakt lag løsner skredet på? The AvalCauseKD unique identifier
+    AvalCauseAttributeLightTID?: number, //	integer($int32)
+    AvalCauseAttributeThinTID?: number, //	integer($int32)
+    AvalCauseAttributeSoftTID?: number, //	integer($int32)
+    AvalCauseAttributeCrystalTID?: number, //	integer($int32)
+    DestructiveSizeTID?: number //	integer($int32) Sannsynlig tilleggsbelastning for å utløse skred. The DestructiveSizeKD unique identifier
+   }
   
+   export type AvalancheEvaluation3 = {
+    AvalancheDangerName?: string,
+    ForecastCorrectName?: string,
+    AvalancheDangerTID?:	number, //integer($int32) Faregrad. The AvalancheDangerKD unique identifier
+    AvalancheEvaluation?: string, // maxLength: 1024 Her blir Skredfarevurdering skrevet inn. I appen blir “Utstrekning” lagt til som tekst i denne kolonnen
+    AvalancheDevelopment?: string, // maxLength: 1024 Her blir forventet utvikling skrevet inn.
+    ForecastCorrectTID?: number, //	integer($int32) Felt hvor observatøren kan fortelle de syns varslet stemmer. Valg fra liste gitt i ForecastCorrectKD. The ForecastCorrectKD unique identifier
+    ForecastComment?: string, //maxLength: 1024 Kommentarfelt for utdypende kommentar om varslet stemmer eller ikke.
+   }
   
    export type SnowProfile = {
     _comment: string,
@@ -256,11 +297,11 @@ export type Observation = {
    }
   
    export type WaterLevelMeasurement = {
-    WaterLevelMeasurementId: number, //	integer($int32)
-    Attachments: Attachment[],
-    WaterLevelValue: number, //($double) maximum: 999 minimum: 0
-    DtMeasurementTime: string, //($date-time)
-    Comment: string
+    WaterLevelMeasurementId?: number, //	integer($int32)
+    Attachments?: Attachment[],
+    WaterLevelValue?: number, //($double) maximum: 999 minimum: 0
+    DtMeasurementTime?: string, //($date-time)
+    Comment?: string
    }
   
    export type WaterLevel2 = {
