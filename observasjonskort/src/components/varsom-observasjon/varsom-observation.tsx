@@ -19,7 +19,7 @@ export class VarsomObservation {
   
   observations: Observation[] = []; 
   
-  @Prop() regId: string;
+  @Prop() regid: string;
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
@@ -76,8 +76,8 @@ export class VarsomObservation {
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regId !== undefined){
-    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  if (this.regid !== undefined){
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
@@ -129,20 +129,7 @@ export class VarsomObservation {
         
         }          
      );
-
-
-        
-
-//    map waterlevelMeasurment.... 
-/*
-        for (let j = 0; j < this.count; j++){
-        this.observations[j]._waterLevel.WaterLevelMeasurement = [];
-          
-        
-      }
-*/
-        
-
+     
 
         //add attachments
         for(let j = 0; j < 30; j++){  //max 30 attachments
@@ -458,7 +445,8 @@ export class VarsomObservation {
 <div>Hva registrerer du?: {obs._waterLevel.ObservationTimingName} </div>: ""}
 
 {obs._waterLevel.MeasurementTypeName ? 
-<div>Måleinstrument: {obs._waterLevel.MeasurementTypeName} </div>: ""}
+<div>Måleinstrument: {obs._waterLevel.MeasurementTypeName}, 
+{obs._waterLevel.MeasuringToolDescription}</div>: ""}
 
 {obs._waterLevel.MeasurementReferenceName ? 
 <div>Måling relativt til: {obs._waterLevel.MeasurementReferenceName} </div>: ""}
@@ -466,19 +454,23 @@ export class VarsomObservation {
 {obs._waterLevel.Comment ? 
 <div>Kommentar: {obs._waterLevel.Comment} </div>: ""}
 
-
-{obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
-  <h2>Vannmåling</h2>
-{el.WaterLevelValue}
-})
-}
-
-
-
 </div>: ""}
 
-{/* VANNMÅLING ... nested array... må mappes  */ }
 
+{/* VANNMÅLING  */ }
+{obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
+  return <div>
+  <h2>Vannmåling</h2>
+{el.DtMeasurementTime ? 
+  <div>Tid: {el.DtMeasurementTime} </div> : ""}
+{el.WaterLevelValue ? 
+<div>Verdi: {el.WaterLevelValue} </div>: ""}
+{el.Comment ?
+ <div>Kommentar: {el.Comment} </div>: ""}
+</div>
+})
+
+}
 
 
 
