@@ -274,12 +274,26 @@ export class VarsomObservation {
       <div class="observation-metadata">
       {/*
       Observert {obs._dateOfObservation}  ikke i bruk? */}
-      <span>Registrert {obs._dateOfRegistration}</span>
-      <span> Oppdatert {obs._dateOfLastUpdate}</span>
+
+
+      {obs._dateOfRegistration ? 
+      <span>Registrert {obs._dateOfRegistration}</span> : "" }
+      
+      {obs._dateOfLastUpdate ? 
+      <span> Oppdatert {obs._dateOfLastUpdate}</span> : "" }
 
          <br></br>
-         <span>Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} </span>
-        <span>bruker: {obs._observer.NickName} brukerRating {obs._observer.CompetenceLevelName} {obs._observerGroupName} </span>
+         {obs._geoHazardName ? 
+         <span>Ikon faretype: {obs._geoHazardName} </span>: ""}
+
+         {obs._moh ? 
+         <span>ikon moh: {obs._moh}</span> : " "}
+
+         
+         {obs._observer ? 
+         <span> bruker: {obs._observer.NickName} brukerrating {obs._observer.CompetenceLevelName} {obs._observerGroupName}
+          </span> :""}
+        
 
       </div>     
       <div>
@@ -294,21 +308,29 @@ export class VarsomObservation {
     <div>
   <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
-    <div class="imageInfo"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
-        <p><b>Fotograf: </b> {obs._images[0]._photographer} </p>
-        <p><b>Kommentar: </b> {obs._images[0]._comment} </p></div>
+    <div class="imageInfo"> 
+    {obs._images[0]._copyright ? 
+    <div><b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[0]._photographer ? 
+     <div><b>Fotograf: </b> {obs._images[0]._photographer} <br></br></div> : ""}
+        
+    {obs._images[0]._comment ? 
+        <div><b>Kommentar: </b> {obs._images[0]._comment} </div> : ""}
+
+    </div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
   <img class="observation-images" src={obs._images[1]._imageData}></img>
-    <div class="text">Caption Text</div>
+    <div class="text"></div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
   <img class="observation-images" src={obs._images[2]._imageData}></img>
-    <div class="text">Caption Text</div>
+    <div class="text"></div>
   </div>
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
   <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
@@ -353,10 +375,15 @@ export class VarsomObservation {
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
   
             return <div> 
+              {el.DtStart ? 
+              <div> Tid: {el.DtStart} </div> : ""}
               
-              <div> Tid: {el.DtStart} </div>        
-              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div>
-              <div> Kommentar: {el.Comment} </div>
+              {el.AvalCauseName ? 
+              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div> : ""}
+              
+              {el.Comment ? 
+              <div> Kommentar: {el.Comment} </div> :  ""}
+              
   
 </div>
         })
@@ -417,13 +444,27 @@ export class VarsomObservation {
 {obs._snowSurfaceObservation ? 
 <div>
   <h2>Snødekke</h2>
-   <div>Snødybde: {obs._snowSurfaceObservation.SnowDepth} </div>
-   <div>Kommentar: {obs._snowSurfaceObservation.Comment}</div> 
-   <div>Snøfuktighet:  {obs._snowSurfaceObservation.SurfaceWaterContentName}</div>
-   <div>Snøfokk:  {obs._snowSurfaceObservation.SnowDriftName} </div>
-   <div>Snødekkehardhet: {obs._snowSurfaceObservation.SnowSurfaceName} </div> 
-   <div>Skiføre: {obs._snowSurfaceObservation.SkiConditionsName}</div> 
-   <div>Siste døgn: {obs._snowSurfaceObservation.NewSnowLine}</div>  {/*riktig?*/ }
+  {obs._snowSurfaceObservation.SnowDepth ? 
+  <div>Snødybde: {obs._snowSurfaceObservation.SnowDepth} </div> : ""}
+   
+   {obs._snowSurfaceObservation.Comment ? 
+   <div>Kommentar: {obs._snowSurfaceObservation.Comment}</div> : ""}
+  
+  {obs._snowSurfaceObservation.SurfaceWaterContentName ? 
+  <div>Snøfuktighet:  {obs._snowSurfaceObservation.SurfaceWaterContentName}</div> : ""}
+   
+    {obs._snowSurfaceObservation.SnowDriftName ? 
+    <div>Snøfokk:  {obs._snowSurfaceObservation.SnowDriftName} </div> : ""}
+   
+   
+   {obs._snowSurfaceObservation.SnowSurfaceName ?
+   <div>Snødekkehardhet: {obs._snowSurfaceObservation.SnowSurfaceName} </div> :""}
+    
+   {obs._snowSurfaceObservation.SkiConditionsName ? 
+   <div>Skiføre: {obs._snowSurfaceObservation.SkiConditionsName}</div> : ""}
+   
+    {obs._snowSurfaceObservation.NewSnowLine ? 
+    <div>Siste døgn: {obs._snowSurfaceObservation.NewSnowLine} </div> : ""}  {/*riktig?*/ }
 
 </div>
   
