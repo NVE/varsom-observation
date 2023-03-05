@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { Observation } from './observation-model';
+import { Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -88,7 +88,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-        
+  
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
@@ -393,7 +393,7 @@ export class VarsomObservation {
   
 
 {/* ATTACHMENTS */}
- 
+ {/* add null checks...*/ }
 
         {obs._attachments.map((att: Attachment = {}) =>{
             return <div> 
@@ -444,9 +444,9 @@ export class VarsomObservation {
   : "" }
 
 {/* WATERLEVEL 2 */}
-{/*
+
 {obs._waterLevel ? 
-<div><h2>Vannstand</h2><br></br></div>: ""}
+<div><h2>Vannstand</h2><br></br>
 
 {obs._waterLevel.WaterLevelStateName ? 
 <div>Situasjon: {obs._waterLevel.WaterLevelStateName} </div>: ""}
@@ -465,8 +465,17 @@ export class VarsomObservation {
 
 {obs._waterLevel.Comment ? 
 <div>Kommentar: {obs._waterLevel.Comment} </div>: ""}
-*/
-  }
+
+
+{obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
+  <h2>Vannmåling</h2>
+{el.WaterLevelValue}
+})
+}
+
+
+
+</div>: ""}
 
 {/* VANNMÅLING ... nested array... må mappes  */ }
 
