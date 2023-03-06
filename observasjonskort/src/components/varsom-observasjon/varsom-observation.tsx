@@ -7,6 +7,7 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 
+
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
@@ -289,6 +290,8 @@ export class VarsomObservation {
     <div class="observation-container">
       <div class="observation-header">    
       
+      <Varsom-header region={obs._region} regId={obs._regId}></Varsom-header>
+
       {/* HEADER */}
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
@@ -298,6 +301,7 @@ export class VarsomObservation {
       <div class="observation-metadata">
       {/*
       Observert {obs._dateOfObservation}  ikke i bruk? */}
+      <varsom-metadata date={obs._avalancheObs ? obs._avalancheObs.Comment : null}> </varsom-metadata>
 
 
       {obs._dateOfRegistration ? 
@@ -458,6 +462,7 @@ export class VarsomObservation {
 
 
 {/* VANNMÅLING  */ }
+{/*
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <div>
   <h2>Vannmåling</h2>
@@ -471,7 +476,7 @@ export class VarsomObservation {
 })
 
 }
-
+*/}
 
 
 {/* WEATHER OBSERVATIONS */}
@@ -532,6 +537,8 @@ return <div>
 <h2>Skredfarervurdering</h2> 
 
 {/* TEGNING HER */}
+
+
 
 {obs._avalancheEval3.AvalancheEvaluation ? 
   <div>Skredfarevurdering: {obs._avalancheEval3.AvalancheEvaluation} </div> : ""}
