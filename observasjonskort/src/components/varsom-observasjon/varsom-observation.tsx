@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
+import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { Observation, WaterLevelMeasurement } from './observation-model';
@@ -63,7 +63,7 @@ export class VarsomObservation {
     for (let i = 0; i < this.observations.length; i++){
       var obs = this.observations[i];
       for (let j = 0; j < 3; j++){
-      //  obs._observationImages[j].style.display = "none"
+        obs._observationImages[j].style.display = "none"
       }
     }
     for (let k = 0; k < this.observations.length; k++){
@@ -129,7 +129,7 @@ export class VarsomObservation {
         
         }          
      );
-     
+
 
         //add attachments
         for(let j = 0; j < 30; j++){  //max 30 attachments
