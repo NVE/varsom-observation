@@ -20,6 +20,14 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface VarsomHeader {
+        "regId": string;
+        "region": string;
+    }
+    interface VarsomMetadata {
+        "date"?: any;
+        "date2"?: any;
+    }
     interface VarsomObservation {
         "count": number;
         "language": string;
@@ -35,6 +43,18 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
+    }
+    var HTMLVarsomHeaderElement: {
+        prototype: HTMLVarsomHeaderElement;
+        new (): HTMLVarsomHeaderElement;
+    };
+    interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
+    }
+    var HTMLVarsomMetadataElement: {
+        prototype: HTMLVarsomMetadataElement;
+        new (): HTMLVarsomMetadataElement;
+    };
     interface HTMLVarsomObservationElement extends Components.VarsomObservation, HTMLStencilElement {
     }
     var HTMLVarsomObservationElement: {
@@ -43,6 +63,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "varsom-header": HTMLVarsomHeaderElement;
+        "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
     }
 }
@@ -61,6 +83,14 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface VarsomHeader {
+        "regId"?: string;
+        "region"?: string;
+    }
+    interface VarsomMetadata {
+        "date"?: any;
+        "date2"?: any;
+    }
     interface VarsomObservation {
         "count"?: number;
         "language"?: string;
@@ -70,6 +100,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "varsom-header": VarsomHeader;
+        "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
     }
 }
@@ -78,6 +110,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
+            "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
         }
     }
