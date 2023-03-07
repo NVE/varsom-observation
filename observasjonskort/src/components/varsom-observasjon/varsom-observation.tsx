@@ -296,6 +296,9 @@ export class VarsomObservation {
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
       
+      {/* tester schema-komponent */}
+      <varsom-schema label="jadda"></varsom-schema>
+
 
       {/* METADATA */}
       <div class="observation-metadata">
@@ -396,8 +399,19 @@ export class VarsomObservation {
               <div> Copyright: {att.Copyright} </div>
               <br></br>
             </div>
-        })
-        
+        })    
+}
+
+{/* tester schemakomponent */}
+{obs._attachments.map((att: Attachment = {}) =>{
+            return <varsom-schema label="joda" registrationName={att.RegistrationName}
+            comment={att.Comment}
+            photographer={att.Photographer}
+            copyright={att.Copyright}
+            ></varsom-schema> 
+              
+             
+        })    
 }
 
 

@@ -35,6 +35,14 @@ export namespace Components {
         "regid": string;
         "type": string;
     }
+    interface VarsomSchema {
+        "comment": string;
+        "copyright": string;
+        "label": string;
+        "observer": string;
+        "photographer": string;
+        "registrationName": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -61,11 +69,18 @@ declare global {
         prototype: HTMLVarsomObservationElement;
         new (): HTMLVarsomObservationElement;
     };
+    interface HTMLVarsomSchemaElement extends Components.VarsomSchema, HTMLStencilElement {
+    }
+    var HTMLVarsomSchemaElement: {
+        prototype: HTMLVarsomSchemaElement;
+        new (): HTMLVarsomSchemaElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
+        "varsom-schema": HTMLVarsomSchemaElement;
     }
 }
 declare namespace LocalJSX {
@@ -98,11 +113,20 @@ declare namespace LocalJSX {
         "regid"?: string;
         "type"?: string;
     }
+    interface VarsomSchema {
+        "comment"?: string;
+        "copyright"?: string;
+        "label"?: string;
+        "observer"?: string;
+        "photographer"?: string;
+        "registrationName"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "varsom-header": VarsomHeader;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
+        "varsom-schema": VarsomSchema;
     }
 }
 export { LocalJSX as JSX };
@@ -113,6 +137,7 @@ declare module "@stencil/core" {
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
+            "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
         }
     }
 }
