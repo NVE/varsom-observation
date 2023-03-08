@@ -1,28 +1,10 @@
-import { Component, Prop, h, State, Host, getAssetPath, Listen } from '@stencil/core';
+import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { Observation } from './observation-model';
-import { SignsOfDanger } from './observation-model';
-import { DangerObs } from './observation-model';
-import { AvalancheObs } from './observation-model';
-import { LandslideObs } from './observation-model';
-import { WeatherObservation } from './observation-model';
-import { Observer } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
-import { IceCoverObs } from './observation-model';
-import { IceThicknessLayer } from './observation-model';
-import { IceThickness } from './observation-model';
 import { Attachment } from './observation-model';
-import { Test } from './observation-model';
-import { SnowProfile } from './observation-model';
-import { LandslideProblem } from './observation-model';
-import { EstimateOfRisk } from './observation-model';
-import { SnowSurface } from './observation-model';
-import { WaterLevelMeasurement } from './observation-model';
-import { WaterLevel2 } from './observation-model';
-import { LatLng } from './observation-model';
-import { DamageObs } from './observation-model';
-import { Image } from './observation-model';
+
 
 
 @Component({
