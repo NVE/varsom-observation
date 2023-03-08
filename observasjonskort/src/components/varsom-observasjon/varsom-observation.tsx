@@ -7,7 +7,7 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
-
+import { getLangCodeFromName } from '../../utils/utils';
 
 
 @Component({
@@ -84,8 +84,8 @@ export class VarsomObservation {
 
   async componentWillLoad(){
 
-
-    this.strings = await getLocaleComponentStrings("en");
+  
+  this.strings = await getLocaleComponentStrings(getLangCodeFromName(this.language));
   
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);

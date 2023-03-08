@@ -92,8 +92,43 @@ export function getGeoHazardIdFromName(hazardName: string) {
       case "Nynorsk": {
         return 7
       }
-        
+      case "French": {
+        return 8
+      }
+      case "Danish": {
+        return 9
+      }
     }
   }
 
-
+  export function getLangCodeFromName(language: string){
+    switch (language){
+      case "English": {
+        return "en"
+      }
+      case "Norwegian": {
+        return "nb"
+      }
+      case "German": {
+        return "de"
+      }
+      case "Slovenian": {
+        return "sl"
+      }
+      case "Italian": {
+        return "it"
+      }
+      case "Swedish": {
+        return "sv"
+      }
+      case "Nynorsk": {
+        return "nn"
+      }
+      case "French": {
+        return "fr"
+      }
+      case "Danish": {
+        return "da"
+      }
+    }
+  }

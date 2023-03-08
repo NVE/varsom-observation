@@ -1,0 +1,990 @@
+{
+  "ABONNER_BANNER": {
+    "BANNER_TEXT_LINE_1": "Naturfarevarsler fra Varsom på SMS eller e-post.",
+    "BANNER_TEXT_LINE_2": "Sett opp eller administrer dine varsler her.",
+    "LINK_TEXT": "Gå til abonner.varsom.no",
+    "TITLE": "Varsom Abonner"
+  },
+  "ADD_MENU": {
+    "DRAFT_TITLE_ICE": "Kladd: Isobservasjon",
+    "DRAFT_TITLE_SNOW": "Kladd: Snøobservasjon",
+    "DRAFT_TITLE_SOIL": "Kladd: Jordobservasjon",
+    "DRAFT_TITLE_WATER": "Kladd: Vannobservasjon",
+    "NEW_ICE_OBSERVATION": "Ny isobservasjon",
+    "NEW_SNOW_OBSERVATION": "Ny snøobservasjon",
+    "NEW_SOIL_OBSERVATION": "Ny jordobservasjon",
+    "NEW_WATER_OBSERVATION": "Ny vannobservasjon"
+  },
+  "ALERT": {
+    "CANCEL": "Avbryt",
+    "DEFAULT_HEADER": "Oisann!",
+    "FINE": "Greit",
+    "NO_THANKS": "Nei takk",
+    "OK": "Ok",
+    "PULL_TO_REFRESH": "Dra ned for å oppdatere...",
+    "UNDO": "Angre",
+    "WARNING": "Advarsel"
+  },
+  "CLOSE": "Lukk",
+  "COACH_MARKS": {
+    "ADD_OBSERVATIONS": "Legg til egne observasjoner",
+    "SELECT_GEO_HAZARD": "Velg naturfare",
+    "SKI_CONDITIONS": "Nå kan du også rapportere skiføre!",
+    "TOGGLE_OBSERVATION": "Bytt mellom enkel og fullstendig observasjon",
+    "TOGGLE_OBSERVATION_EXTRA_INFO": "Slå på for å sende inn observasjoner av situasjonen der du er – enkelt og raskt. Dette er supernyttige data for varslingen og andre brukere.\n \n Slå av for å få alle valgene for innsending av observasjoner – som før.",
+    "VIEW_WARNINGS": "Se varsler fra varsom.no"
+  },
+  "COMPETENCE": {
+    "UNKNOWN": "Ukjent kompetanse"
+  },
+  "DATA_LOAD": {
+    "DATA": "Laster data...",
+    "LOADING": "Laster",
+    "NO_FETCHED_OBSERVATIONS": "Appen har ikke fått hentet observasjoner",
+    "OBSERVATIONS_LAST_UPDATE_OLDER_THAN_TWO_WEEKS": "Observasjoner ble sist hentet for {{timeSinceLastUpdated}}",
+    "SERVICE_UNAVAILABLE": "Det kan være du ikke har nett eller at appen ikke får kontakt med Regobs. Du kan prøve å oppdatere manuelt med oppdateringsknappen i filtermenyen",
+    "SPINNER_FETCH_OBSERVATIONS": "Henter observasjoner"
+  },
+  "DATE": "Dato",
+  "DAYS": {
+    "SHORT": {
+      "0": "Søn",
+      "1": "Man",
+      "2": "Tir",
+      "3": "Ons",
+      "4": "Tor",
+      "5": "Fre",
+      "6": "Lør"
+    }
+  },
+  "DIALOGS": {
+    "ARE_YOU_SURE": "Er du sikker?",
+    "CANCEL": "Avbryt",
+    "COMMENT": "Kommentar",
+    "CONFIRM": "Bekreft",
+    "DELETE": "Slett",
+    "NEXT": "Neste",
+    "NO": "Nei",
+    "OF": "Av",
+    "OK": "Ok",
+    "OK_BACK": "Ok, tilbake til oversikt",
+    "PREVIOUS": "Forrige",
+    "RESET": "Nullstill",
+    "YES": "Ja"
+  },
+  "DIRECTION": {
+    "E": "Ø",
+    "N": "N",
+    "NE": "NØ",
+    "NW": "NV",
+    "S": "S",
+    "SE": "SØ",
+    "SW": "SV",
+    "W": "V"
+  },
+  "DRAFT": "Kladd",
+  "GEOLOCATION": {
+    "POSITION_ERROR": {
+      "INVALID": "Kan ikke vise posisjonen din pga. ufullstendige posisjonsdata",
+      "PermissionDenied": "Vi trenger tilgang til nøyaktig posisjon for å vise hvor du er",
+      "PositionUnavailable": "Får ikke tak i posisjonen din",
+      "Timeout": "Det tok for lang tid å få tak i posisjonen din",
+      "UNSUPPORTED": "Enheten kan ikke gi deg posisjonsdata"
+    }
+  },
+  "GEOLOCATION_SERVICE": {
+    "NOTIFICATION_TITLE": "Tur pågår"
+  },
+  "GEO_HAZARDS": {
+    "DIRT": "Jord",
+    "ICE": "Is",
+    "SNOW": "Snø",
+    "WATER": "Vann"
+  },
+  "HELP": {
+    "TITLE": "Hjelp"
+  },
+  "LEGAL_TERMS": {
+    "HEADER": "Om data i Varsom",
+    "LINE_1": "Bruk varslene, observasjonene og kartene på eget ansvar. Det kan forekomme feil og mangler.",
+    "LINE_2": "Husk at varselet er et hjelpemiddel, ikke en fasit. Gjør alltid egne vurderinger. Lokale forhold der du er, kan være mer komplekse og avvike fra det som er varslet.",
+    "LINE_3": "Observasjoner produseres av brukerne og foreligger «som de er». Data kan inneholde feil og mangler. NVE har ikke ansvar for feil, mangler og vurderinger som produseres av brukerne.",
+    "LINE_4": "Når du publiserer bilder på observasjoner aksepterer du at bildene kan gjenbrukes (lisensiert under <a href='https://data.norge.no/nlod/no/'> Norsk lisens for offentlige data</a>).",
+    "LINE_5": "Les mer i våre <a href=\"{{legalUrl}}\" target=\"_blank\">brukervilkår</a>.",
+    "OK": "Ok, jeg aksepterer"
+  },
+  "LOGIN": {
+    "CHANGE_PASSWORD": "Endre passord",
+    "CREATE_USER": "Lag ny bruker",
+    "DELETE_PROFILE": "Slett profil og mine data",
+    "EMAIL": "E-post",
+    "FORGOT_PASSWORD": "Glemt passord",
+    "IS_LOGGING_IN": "Logger inn...",
+    "LOGGED_IN_AS": "Logget inn som",
+    "LOGIN": "Logg inn",
+    "LOGOUT": "Logg ut",
+    "MY_PROFILE": "Min profil",
+    "PASSWORD": "Passord",
+    "SERVICE_UNAVAILABLE": "Vi har problemer med å nå tjenesten for innlogging. Har du nett? Det kan hende at tjenesten må våkne og få seg en dugelig sterk kopp med kaffe først. Gi den noen minutter og prøv igjen. Hvis du ikke har nett, kan du lagre observasjoner som kladd og sende dem inn når du er tilkoblet nettet igjen.",
+    "TITLE": "Logg inn",
+    "UNAUTHORIZED": "Feil brukernavn eller passord. Vennligst prøv igjen.",
+    "UNKNOWN_ERROR": "Det oppsto en feil ved innlogging. Melding fra server:"
+  },
+  "MAP_CENTER_INFO": {
+    "ABOVE_SEA_LEVEL": "moh",
+    "AWAY_FROM": "unna",
+    "COPIED_TO_CLIPBOARD": "Kopiert til utklippstavlen",
+    "EAST_SHORT": "Ø",
+    "NORTH_SHORT": "N",
+    "WEATHER_ERROR": "Fant ikke værvarsel!",
+    "WEATHER_FROM": "Værvarsel på"
+  },
+  "MAP_ITEM_BAR": {
+    "AWAY": "Unna",
+    "OBSERVATION": "Observasjon"
+  },
+  "MAP_SEARCH": {
+    "SEARCH_HISTORY_HEADER": "Siste søk",
+    "SEARCH_TEXT": "Søk etter sted"
+  },
+  "MENU": {
+    "ABOUT_REGOBS": "Om data i Varsom",
+    "AND": "og",
+    "CONTACT_DESCRIPTION": "Vi har lagt ved loggfiler. Du kan fjerne disse vedleggene om du ikke ønsker å sende inn logger",
+    "CONTACT_REGOBS": "Kontakt oss",
+    "CONTACT_REGOBS_ERROR": "Rapporter feil",
+    "CONTACT_SUBJECT": "Kontakt oss fra app",
+    "CUSTOM_TIMESPAN": "Egendefinert periode",
+    "DATE_RANGE": {
+      "LAST_WEEK": "Siste uke",
+      "LAST_X_DAYS": "Siste {{days}} dager",
+      "LAST_X_MONTHS": "Siste {{months}} måneder",
+      "LAST_X_WEEKS": "Siste {{weeks}} uker",
+      "TODAY": "I dag",
+      "YESTERDAY": "I går"
+    },
+    "DAYS_BACK": "Dager tilbake",
+    "DAY_BACK": "Dag tilbake",
+    "DEACTIVATE_OBSERVATIONS": "Visning av observasjoner er deaktivert",
+    "END_DATE": "Sluttdato",
+    "ERROR_REPORT_DESCRIPTION": "Vennligst beskriv feilen. Dersom du har skjermbilder, kan du legge de ved. Vi har lagt ved loggfiler som kan hjelpe oss å finne feilen. Du kan fjerne disse vedleggene om du ikke ønsker å sende inn logger",
+    "ERROR_REPORT_SUBJECT": "Feilrapport fra",
+    "GENERAL": "Generelt",
+    "HIDE_OBSERVATIONS": "Skjul observasjoner",
+    "LAST_UPDATED": "Sist oppdatert",
+    "MAP": "Kart",
+    "MAP_LEGENDS": "Tegnforklaring for kart",
+    "MAP_SETTINGS": "Kartvalg",
+    "MAP_SETTINGS_FOR": "Kartvalg for",
+    "NO_EMAIL_APP": "Epost kan ikke sendes, fordi vi ikke får kontakt med epost-appen på telefonen. På Iphone må du ha appen 'Mail'",
+    "OPACITY": "Gjennomsiktighet",
+    "OTHER": "Annet",
+    "SHOW": "Vis",
+    "SHOWING_OBSERVATIONS": "observasjoner",
+    "SHOW_MAP_CENTER": "Vis kartsenter",
+    "SHOW_OBSERVATIONS": "Vis observasjoner",
+    "SHOW_TRIPS": "Vis turer",
+    "START_DATE": "Startdato",
+    "START_WIZARD": "Start veiviseren",
+    "SUPPORT_MAP_CREDITS": "Støttekart levert av",
+    "TILES": {
+      "ARC_GIS": "ESRI World Topo (verden)",
+      "GEODATA_LANDSKAP": "Geodata Landskap (Norge)",
+      "KARTVERKET": "Kartverket (Norge)",
+      "NORWEGIAN_POLAR_INSTITUTE": "Npolar (Svalbard)",
+      "OPEN_TOPO": "OpenTopoMap (verden)"
+    },
+    "TIMESPAN": "Tidsrom",
+    "TODAYS_OBSERVATIONS": "Kun dagens observasjoner",
+    "TOPO_MAP_CREDITS": "Topografisk kart levert av",
+    "UPDATE_OBSERVATIONS": "Oppdatert",
+    "USER_SETTINGS": "Brukervalg",
+    "WEEKS_BACK": "Uker tilbake"
+  },
+  "MONTHS": {
+    "SHORT_LIST": "jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"
+  },
+  "MY_OBSERVATIONS": {
+    "LOADING_MORE": "Laster flere observasjoner...",
+    "MAX_COUNT_REACHED_HEADER": "Ingen flere observasjoner",
+    "MAX_COUNT_REACHED_TEXT": "Vi viser maks {{ maxCount }} observasjoner her. Du kan se flere på <a target=\"_blank\" href=\"{{ myObservationsUrl }}/\">din side på web</a>",
+    "MY_SENT_OBSERVATIONS": "Mine innsendte observasjoner",
+    "NO_OBSERVATIONS": "Del dine observasjoner!",
+    "NO_OBSERVATIONS_TEXT": "Her vil observasjoner du selv har gjort ligge. Det er lett å dele observasjoner, bilder og vurderinger med andre.",
+    "OFFLINE": "Vi får ikke hentet observasjoner du har sendt inn. Har du nett?",
+    "SENT_SUBTITLE": "Disse observasjonene er sendt inn og lagret i Regobs.",
+    "TITLE": "Mine observasjoner"
+  },
+  "MY_PROFILE": {
+    "COMPETENCE": "<a href=\"https://varsom.no/regobs/kompetanse/\">Les mer om kompetanse</a>",
+    "COPYRIGHT": "Opphavsrett",
+    "EDIT": "Rediger",
+    "MY_COMPETENCE": "Min kompetanse",
+    "MY_GROUPS": "Mine grupper",
+    "MY_GROUPS_TEXT": "Du kan redigere en observasjon i en gruppe inntil 48 timer etter den er sendt inn.<br/>For å endre gruppenavn, gruppebeskrivelse og medlemmer, <a href=\"mailto:regobs@nve.no\">ta kontakt</a>.",
+    "MY_NVE_ACCOUNT": "Min NVE-konto",
+    "MY_PICTURES": "Mine bilder",
+    "NICKNAME": "Mitt kallenavn",
+    "NICKNAME_TEXT": "Kallenavn er et navn som er synlig for alle og vises sammen med observasjoner du gjør",
+    "NO_GROUPS": "Du er ikke medlem av noen grupper",
+    "PHOTOGRAPHER": "Fotograf",
+    "PUBLISH_PHOTOS": "Når du publiserer bilder på observasjoner aksepterer du at de er lisensiert under NLOD og kan gjenbrukes. <a href=\"https://data.norge.no/nlod/no/\">Les mer om data</a>",
+    "SAVE": "Lagre",
+    "TITLE": "Min side",
+    "USER": "Bruker"
+  },
+  "OBSERVATION_FILTER": {
+    "COMPETANCE_FILTER": {
+      "ALL": "Alle",
+      "AUTOMATIC_STATIONS": "Automatiske stasjoner",
+      "LABEL": "Kompetanse",
+      "TITLE": "Observatør"
+    },
+    "NICK_FILTER": {
+      "PLACEHOLDER": "Søk på observatørnavn",
+      "TITLE": "Navn"
+    },
+    "OBSERVATION_TYPE_FILTER": {
+      "TITLE": "Observasjonstype"
+    },
+    "RESET_FILTER_BUTTON_TITLE": "Tilbakestill filtre",
+    "TITLE": "Observasjonsfilter",
+    "MULTISELECT_SHOW_NO_COUNT": "Viser alle",
+    "MULTISELECT_SHOW_COUNT": "{{selectedItemsCount}} valgt"
+  },
+  "OBSERVATION_LIST": {
+    "FORMS": "Skjemaer",
+    "MAX_COUNT_REACHED_HEADER": "Ingen flere observasjoner",
+    "MAX_COUNT_REACHED_TEXT": "Vi viser maks {{ maxCount }} observasjoner her. Hvis du ikke fant det du lette etter, prøv å zoome inn på kartet eller snevre inn perioden du vil se observasjoner fra.",
+    "NO_OBSERVATIONS": "Ingen observasjoner",
+    "NO_OBSERVATIONS_TEXT": "Det er ingen observasjoner i kartutsnittet, forsøk å endre utsnittet eller utvid perioden du vil se observasjoner fra.",
+    "SORT_BY_CHANGE_TIME": "Oppdatert tid",
+    "SORT_BY_OBS_TIME": "Observert tid",
+    "SORT_BY_TEXT": "Sorter på",
+    "TITLE": "Observasjoner",
+    "TOGGLE_BUTTON_OBSERVATIONS_ALL": "Alle",
+    "TOGGLE_BUTTON_OBSERVATIONS_IN_MAP_VIEW": "I kartutsnitt"
+  },
+  "OFFLINE_MAP": {
+    "DELETE_PACKAGE_CONFIRM": "Vil du slette denne kartpakka?",
+    "DISKSPACE_ERROR_MESSAGE": "Beklager, du har ikke nok plass tilgjengelig på telefonen til å lagre kartpakken. Vennligst frigjør plass og prøv på nytt.",
+    "DOWNLOAD_ERROR_MESSAGE": "Klarte ikke laste ned kartpakke. Pass på at du har stabil og god internett-kobling.",
+    "MAP_PACKAGE_DETAILS_PAGE": {
+      "CANCEL_DOWNLOAD_BUTTON": "Avbryt nedlasting",
+      "DELETE_BUTTON": "Slett",
+      "DOWNLOAD_BUTTON": "Last ned",
+      "HEADER": "Kartpakke {{name}}",
+      "PACKAGE_DOWNLOADED_DATE": "Lasted ned {{date}}",
+      "PACKAGE_DOWNLOAD_STATUS": "Status:",
+      "PACKAGE_PRODUCED_DATE": "Produsert:",
+      "PACKAGE_SIZE": "Størrelse:",
+      "PACKAGE_SIZE_VALUE_WITH_UNIT": "{{size}} MB",
+      "TRY_AGAIN_BUTTON": "Prøv på nytt"
+    },
+    "OFFLINE_MAP_PAGE_TITLE": "Offlinekart",
+    "PACKAGE_COUNT_MULTIPLE": "{{packageCount}} pakker",
+    "PACKAGE_COUNT_SINGLE": "{{packageCount}} pakke",
+    "SPACE_AVAILABLE": "{{spaceAvailable}} ledig",
+    "STATUS": {
+      "DOWNLOADING_PART_X_OF_Y": "Laster ned {{n}} av {{totalParts}}",
+      "DOWNLOAD_ERROR": "Nedlasting feilet",
+      "UNZIP_ERROR": "Utpakking feilet",
+      "UNZIP_PART_X_OF_Y": "Pakker ut {{n}} av {{totalParts}}"
+    },
+    "UNZIP_ERROR_MESSAGE_GENERIC": "Klarte ikke lagre kartpakke på disk. Vennligst prøv igjen!",
+    "UNZIP_ERROR_MESSAGE_NO_SPACE_LEFT": "Klarte ikke lagre kartpakke på disk. Er du sikker på at det er nok plass tilgjengelig?"
+  },
+  "POPUP_DISCLAMER": {
+    "ABOUT_OBSERVATIONS": {
+      "HEADER": "Om observasjoner",
+      "MESSAGE": "Bruk observasjonene på eget ansvar, de produseres av brukerne og foreligger «som de er». NVE har ikke ansvar for feil, mangler og vurderinger som produseres av brukerne.\nSe observasjonene i lys av observatørens kompetanse som vises som stjerner ved navnet."
+    },
+    "ABOUT_OFFLINE_SUPPORT_MAPS": {
+      "HEADER": "Offline-kart",
+      "MESSAGE": "Det valgte kartlaget er kun tilgjengelig online og kan fungere dårlig i områder med begrenset dekning."
+    },
+    "ABOUT_SUPPORT_MAPS": {
+      "HEADER": "Om kart",
+      "MESSAGE": "Bruk kartene på eget ansvar og gjør alltid dine egne vurderinger. Kartene kan inneholde feil og mangler. Kun enkelte temakart er inkluderte i offline-kartpakkene."
+    },
+    "OK_I_UNDERSTAND": "OK, jeg skjønner"
+  },
+  "REGISTRATION": {
+    "ADD_IMAGES": "Legg til bilder",
+    "ADD_WEB_URL": {
+      "TITLE": "Legg til weblenke",
+      "URL": "Url"
+    },
+    "ANONYMIZE": {
+      "CHECK_TO_ANONYMIZE": "Huk av for å anonymisere",
+      "TITLE": "Anonymisering"
+    },
+    "BACK_TO_OBSERVATION": "Tilbake til min observasjon",
+    "CONFIRM_RESET": "Er du sikker på du vil nullstille alle felt?",
+    "COPIED_TO_CLIPBOARD": "Kopiert til utklippstavlen",
+    "COULD_NOT_DOWNLOAD_IMAGE": "Klarte ikke å laste bilde fra regobs.no.",
+    "COULD_NOT_DOWNLOAD_IMAGE_NET_Q": "Har du nett?",
+    "DANGER_OBS": {
+      "AREA": "Område",
+      "COMMENT": "Kommentar",
+      "COMMENT_PLACEHOLDER": "Her kan du gi ytterligere beskrivelse av faretegnet",
+      "DESCRIPTION": "Beskrivelse",
+      "FOR_MUNICIPAL": "For kommunen",
+      "FOR_REGION": "Fylket/varslingsregion",
+      "GENERAL_ON_MOUNTAIN": "Generelt på fjellet",
+      "IN_THE_VALLEY_OR_FJORD": "I dalen/fjorden",
+      "MANY_WATER_NEARBY": "Mange vann i nærheten",
+      "NEW_DANGER_OBS": "Nytt faretegn",
+      "NO_DAMAGE_SIGN": "Ingen faretegn observert",
+      "ON_THIS_MOUNTAIN_SIDE": "I denne fjellsiden",
+      "ON_THIS_PLACE": "På dette stedet",
+      "ON_THIS_SIDE_OF_THE_WATER": "På denne siden av vannet",
+      "ON_THIS_WATER": "På dette vannet",
+      "RIGHT_HERE": "Akkurat her",
+      "TITLE": "Faretegn"
+    },
+    "DELETE": {
+      "DRAFT": {
+        "BUTTON": "Slett kladd",
+        "HEADER": "Slett kladd",
+        "MESSAGE_EDIT": "Vil du slette evt. endringer du har gjort på denne observasjonen?",
+        "MESSAGE_NEW": "Denne observasjonen er ikke sendt inn til Regobs. Vil du slette den?"
+      },
+      "SUBMITTED_REGISTRATION": {
+        "BUTTON": "Slett observasjon fra Regobs",
+        "FAILED": {
+          "HEADER": "Sletting feilet",
+          "MESSAGE": "Vi fikk ikke slettet observasjonen fra Regobs. Sjekk gjerne om du har nett og prøv igjen."
+        },
+        "HEADER": "Slett observasjon",
+        "MESSAGE": "Vil du slette denne observasjonen fra Regobs for godt?"
+      }
+    },
+    "DIRT": {
+      "LAND_SLIDE_OBS": {
+        "AREA_TOTAL": "Tegn hele skredarealen",
+        "AVAL_TRIGGER": "Skredutløser",
+        "CONFIRM_END_POSITION": "Bekreft sluttpunkt",
+        "CONFIRM_LANDSLIDE_AREA": "Bekreft skredområde",
+        "CONFIRM_START_POSITION": "Bekreft startpunkt",
+        "DAMAGE_EXTENT": "Skadeomfang",
+        "DESTRUCTIVE_SIZE": "Størrelse",
+        "DIRT_ACTIVITY_INFLUENCED": "Hva ble påvirket?",
+        "DIRT_FORECAST_ACCURATE": "Stemte varslet?",
+        "DT_LAND_SLIDE_TIME": "Når skjedde skredet tidligst",
+        "DT_LAND_SLIDE_TIME_END": "Når skjedde skredet senest",
+        "END_POSITION": "Sluttpunkt",
+        "IN_MAP": "i kart",
+        "LANDSLIDE_AREA": "Skredområde",
+        "LANDSLIDE_TYPE": "Type skred",
+        "POSITION": "Skredposisjon",
+        "SET_LANDSLIDE_POSITION": "Sett skredposisjon",
+        "START_POSITION": "Startpunkt",
+        "TITLE": "Skredhendelse"
+      }
+    },
+    "DRAFTS": "Mine kladder",
+    "DRAFTS_DESCRIPTION": "Disse observasjonene er ikke sendt inn ennå.",
+    "EDIT": "Rediger observasjon",
+    "EMAIL": {
+      "BODY": "Hei! Jeg har problemer med å sende inn denne registreringen. Kan dere hjelpe meg?",
+      "SUBJECT": "Registrering feilet"
+    },
+    "FAILED": {
+      "ABANDON": "Forkast mine endringer",
+      "CONFLICT": "Mens du jobbet har observasjonen blitt endret et annet sted.<br/>Vil du forkaste dine endringer eller vil du sende inn og overskrive endringene som ble gjort et annet sted?",
+      "EDIT_OBSERVATION": "Rediger observasjon",
+      "GONE": "Denne observasjonen er slettet i Regobs. <br/>Vil du forkaste dine endringer eller vil du sende inn kladden som en ny observasjon?",
+      "LOGGED": "Vi har logget problemet.",
+      "OVERWRITE": "Send inn og overskriv",
+      "PROBLEM": "Det har oppstått et problem med registreringen din",
+      "PROBLEM_HELP_TEXT": "Feilede observasjoner lagres i telefonen din, og når problemet er løst vil du kunne sende inn observasjoen på nytt.",
+      "REFERENCE": "Referanse",
+      "SEND_EMAIL": "Send til oss på e-post",
+      "SUBMIT_NEW": "Send inn som ny observasjon",
+      "SUBTITLE": "Mangler nettverk eller innsending tok for lang tid. Vi prøver igjen etter en stund og håper at nettet har bedret seg.",
+      "TITLE": "Innsending feilet",
+      "UNAUTHORIZED": "Vi lykkes ikke med å sjekke om du har tilgang. Prøv å sende inn på nytt. Om dette ikke hjelper, kan du forsøke å logge ut og inn igjen før du prøver å sende inn på nytt?"
+    },
+    "FETCH_FOR_EDIT_FAILED": {
+      "CONFIRM_BUTTON": "Rediger observasjon",
+      "HEADER": "Synkronisering feilet",
+      "MESSAGE": "Vi fikk ikke til å hente en fersk utgave av observasjonen fra Regobs. Du kan likevel redigere denne, men det er en sjanse for å støte på konflikter når du prøver å sende den inn hvis flere har jobbet med samme observasjon eller du har jobbet med observasjonen på flere enheter."
+    },
+    "GENERAL_COMMENT": {
+      "ADD_NOTES_HEADER": "Notat fra observasjonen",
+      "ADD_PICTURE": "Legg til et bilde",
+      "CHOOSE_FROM_LIBRARY": "Velg fra bibliotek",
+      "COMMENT_PLACEHOLDER": "Her kan du beskrive ytterligere",
+      "COMMENT_TITLE": "Beskrivelse",
+      "DESCRIPTION": "Her kan du laste opp bilder av området du har observert eller bilder av andre relevante ting til observasjonen din.",
+      "SUBTITLE": "Bilder av observasjonen",
+      "TAKE_NEW_PHOTO": "Ta et nytt bilde",
+      "TITLE": "Bilde og notat"
+    },
+    "GROUP": {
+      "SUBTITLE": "Del observasjonen med",
+      "TITLE": "Del med gruppe"
+    },
+    "ICE": {
+      "ICE_COVER": {
+        "ICE_CAPACITY": "Bæreevne",
+        "ICE_COVER": "Isdekning",
+        "ICE_COVER_BEFORE": "Isdekning før observasjon",
+        "ICE_SKATEABILITY": "Skøytbarhet",
+        "TITLE": "Isdekning"
+      },
+      "ICE_THICKNESS": {
+        "ADD_ICE_LAYER": "Registrer islag",
+        "ADD_ICE_LAYER_TITLE": "Tykkelse på islag",
+        "DRY_SNOW_BEFORE_DRILL": "Snø før boring (cm)",
+        "ICE_HEIGHT_AFTER_INPUT": "Overvannets tykkelse",
+        "ICE_HEIGHT_AFTER_NO": "Høyde fra isoverflaten til vannflaten i borehullet",
+        "ICE_HEIGHT_AFTER_TOGGLE": "Overvann etter boring",
+        "ICE_HEIGHT_BEFORE_INPUT": "Overvannets tykkelse",
+        "ICE_HEIGHT_BEFORE_TOGGLE": "Overvann før boring",
+        "ICE_LAYER": "Islag",
+        "ICE_LAYER_THICKNESS": "Tykkelse på islag (cm)",
+        "ICE_THICKNESS_SUM": "Total istykkelse (cm)",
+        "ICE_TYPE": "Type is",
+        "SLUSH_SNOW_BEFORE_DRILL": "Sørpe før boring (cm)",
+        "TITLE": "Istykkelse"
+      },
+      "INCIDENT": {
+        "CASUALTIES_NUM": "Antall gjennom isen",
+        "CASUALTIES_NUM_ERROR_MESSAGE": "Kan ikke være flere enn antall i turgruppa",
+        "DEAD_NUM_ERROR_MESSAGE": "Kan ikke være flere enn antall gjennom isen eller antall i turgruppa",
+        "INVOLVED_NUM": "Antall i turgruppa",
+        "SAFETY_GEAR_TID": "Redningsutstyr"
+      }
+    },
+    "IMAGES": "Bilder",
+    "IMAGE_DESCRIPTION": "Beskrivelse av bildet",
+    "IMAGE_DESCRIPTION_PLACEHOLDER": "Her kan du gi en beskrivelse av bildet",
+    "IMAGE_UPLOAD_ERROR": "{{failedAttachmentsCount}} bilde(r) ble ikke lastet opp for observasjon gjort {{obsTime}}. Send oss gjerne bildet/bildene på epost, så vi kan sjekke manuelt hva som er galt.",
+    "IMAGE_ERROR": {
+      "ALBUM_READ_PERMISSION_MISSING": "Du må gi appen tillatelse til å lese fra fotoalbumet",
+      "CAMERA_PERMISSION_MISSING": "Du må gi appen tillatelse til å bruke kameraet",
+      "UNKNOWN": "Vi fikk ikke til å legge til bildet/bildene. Det kan være noe galt med en bildefil eller en annen feil. Prøv gjerne et annet bilde for å sjekke"
+    },
+    "INCIDENT": {
+      "ACTIVITY": "Aktivitet",
+      "COMMENT": "Beskrivelse",
+      "COMMENT_PLACEHOLDER": "Hvorfor skjedde det? Gikk det bra? Kunne situasjonen vært unngått?",
+      "DAMAGE_EXTENT": "Skadeomfang",
+      "DEAD_NUM": "Antall døde",
+      "IMAGE_PLACEHOLDER": "+ Legg til en beskrivelse av bildet",
+      "RESCUE_TID": "Redning",
+      "TITLE": "Ulykke / hendelse"
+    },
+    "INVALID_IMAGE": "Beklager, ugyldig bildeformat. Kun JPEG er støttet",
+    "IN_CM": "I centimeter",
+    "IN_FULL_CM": "I hele centimeter",
+    "LOG_IN_AND_SEND": "Logg inn for å sende observasjon",
+    "LOG_IN_AND_RESEND": "Logg inn og prøv å sende på nytt",
+    "NONE": "Ingen valgt",
+    "OBS_LOCATION": {
+      "CONFIRM_TEXT": "Bekreft observasjonspunkt og -tid",
+      "CURRENT_LOCATION": "Nåværende posisjon",
+      "EXACT": "Eksakt",
+      "HIDE_DETAILS": "Skjul detaljer",
+      "MORETHANONEKM": "Mer enn 1 km",
+      "NAME_LOCATION": "Navngi sted",
+      "NAME_LOCATION_TOOLTIP": "Å navngi stedet gjør det mulig å lage en tidsserie på samme observasjonspunkt",
+      "SHOW_DETAILS": "Vis detaljer",
+      "SOURCE": "Kildeangivelse",
+      "TITLE": "Observasjonspunkt og -tid",
+      "UNCERTAINTY": "Usikkerhet i posisjon"
+    },
+    "OVERVIEW": {
+      "DATE_AND_TIME": "Dato og tid",
+      "MY_OBSERVATION": "Min observasjon",
+      "SHARE_WITH_GROUP": "Del med gruppe",
+      "SIMPLE": {
+        "CONFIRM": {
+          "CANCEL": "Avbryt",
+          "HEADER": "Bytt til enkel modus",
+          "MESSAGE": "Observasjonen inneholder data som ikke kan vises i enkel modus. Vil du slette data vi ikke kan vise?",
+          "YES": "Slett data og bytt til enkel"
+        },
+        "HEADER_QUESTION": "Hvordan er det her nå?",
+        "IMAGES_MODAL_TITLE": "Bilder av {{registrationType}}",
+        "TOGGLE": "Enkel observasjon"
+      },
+      "TITLE": "Observasjon"
+    },
+    "REQUIRED_FIELDS_MISSING": "Ugyldig skjema. Vil du nullstille skjemaet og gå tilbake?",
+    "RESEND": "Prøv å sende på nytt",
+    "RESET": "Nullstill denne siden",
+    "SAVED_DESCRIPTION": "Disse er under innsending og blir synkronisert når du har nettverk.",
+    "SAVED_ON_PHONE": "Lagret på telefonen",
+    "SAVE_ALERT": {
+      "HEADER": "Lagre som kladd?",
+      "MESSAGE": "Du er på vei til å forlate registreringen uten å sende inn. Vil du lagre som kladd?",
+      "NO": "Nei, forkast",
+      "YES": "Ja, lagre"
+    },
+    "SELECTION_COUNT": "{{ count }} valgt",
+    "SEND": "Send inn",
+    "SET_DAMAGE_LOCATION": {
+      "CONFIRM_TEXT": "Bekreft skadepunkt",
+      "TITLE": "Skadepunkt"
+    },
+    "SET_TIME": {
+      "CONFIRM": "Bekreft dato og tid",
+      "HEADER": "Når observerte du?",
+      "NOW": "Nå",
+      "TITLE": "Tidspunkt"
+    },
+    "SNOW": {
+      "AVALANCHE_ACTIVITY": {
+        "ADD_NEW": "Legg til ny skredaktivitet",
+        "COMMENT_PLACEHOLDER": "Ytterligere kommentar",
+        "DATE_WARNING": "Dato er forskjellig fra observasjonstidspunktet",
+        "DURING_THE_DAY": "I løpet av dagen",
+        "ESTIMATED_TIME": "Antatt tidsrom",
+        "HOW_MANY_AVALANCHES": "Antall skred",
+        "NO_AVALANCHE_ACTIVITY": "Ingen skredaktivitet observert",
+        "TITLE": "Skredaktivitet",
+        "UNKNOWN_NUMBER": "Ukjent antall"
+      },
+      "AVALANCHE_EVALUATION": {
+        "AVALANCHE_DANGER": "Faregrad",
+        "AVALANCHE_DEVELOPMENT": "Utvikling",
+        "AVALANCHE_DEVEOPMENT_PLACEHOLDER": "Utvikling av skredfare",
+        "COMMENT": "Kommentar til varslet faregrad",
+        "EVALUATION": "Vurdering",
+        "EVALUATION_PLACEHOLDER": "Vurdering av skredfare",
+        "FORECAST_CORRECT": "Vurdering av varslet faregrad på varsom.no",
+        "TITLE": "Skredfarevurdering"
+      },
+      "AVALANCHE_OBS": {
+        "AREA_END": "Tegn utløpsområde",
+        "AREA_START": "Tegn løsneområde",
+        "AREA_TOTAL": "Tegn hele skredområdet",
+        "AVALANCHE_AREA": "Skredområde",
+        "AVALANCHE_TRIGGER": "Skredutløser",
+        "AVALANCHE_TYPE": "Skredtype",
+        "AVAL_CAUSE": "Svakt lag",
+        "CASUALTIES_NUM": "Antall skredtatte",
+        "CASUALTIES_NUM_ERROR_MESSAGE": "Kan ikke være flere enn antall involverte",
+        "CONFIRM_AVALANCHE_AREA": "Bekreft skredområde",
+        "DEAD_NUM_ERROR_MESSAGE": "Kan ikke være flere enn antall skredtatte eller involverte",
+        "DESTRUCTIVE_SIZE": "Størrelse",
+        "EARLIEST_TIME": "Tidligste skredtidspunkt",
+        "EVACUATED_NUM": "Antall evakuerte",
+        "FRACTURE_HEIGTH": "Bruddhøyde (cm)",
+        "FRACTURE_WIDTH": "Bruddbredde (m)",
+        "HARMED_DEAD_HIGHER_THAN_CASUALTIES_NUM_ERROR_MESSAGE": "Sum antall døde og kun skadet kan ikke være flere enn antall skredtatte eller involverte",
+        "HARMED_NUM": "Antall kun skadet",
+        "HARMED_NUM_ERROR_MESSAGE": "Kan ikke være flere enn antall involverte",
+        "INCIDENT_DESCRIPTION": "Ulykke/Hendelse",
+        "INCIDENT_PLACEHOLDER": "Førte skredet til skade, ulykke eller nestenulykke? Hva skjedde og hvorfor? Kunne situasjonen vært unngått?",
+        "INVOLVED_NUM": "Antall involverte",
+        "LOCAL_KNOWLEDGE_TID": "Kjennskap til området",
+        "LOCAL_TOURIST_TID": "Lokal eller tilreisende",
+        "MATERIAL_DAMAGES": "Materielle skader",
+        "POSITION": "Skredposisjon",
+        "REMOTELY_TRIGGERED": "Fjernutløst",
+        "SAFETY_GEAR_TID": "Sender/mottaker",
+        "SET_AVALANCHE_POSITION": "Sett skredposisjon",
+        "SLOPE_ACTIVITY_TID": "Turfase",
+        "TERRAIN_START_ZONE": "Terrengtype i løsneområdet",
+        "TIME": "Seneste skredtidspunkt (obligatorisk)",
+        "TITLE": "Skredhendelse",
+        "TRAFFIC_OBSTRUCTED": "Trafikk hindret",
+        "TRAJECTORY_NAME": "Skredbanenavn",
+        "VALID_EXPOSITION": "Eksposisjon"
+      },
+      "AVALANCHE_PROBLEM": {
+        "ADD_NEW": "Legg til nytt skredproblem",
+        "ALL": "Alle",
+        "AVALANCHE_DESTRUCTIVE_SIZE": "Størrelse på forventet skred",
+        "AVALANCHE_PROBABILITY": "Mulighetene for skred",
+        "AVALANCHE_PROPAGATION_HEADER": "Utbredelsen på skredproblemet",
+        "AVALANCHE_TRIGGER_PROBABILITY": "Utløsbarhet",
+        "AVALANCHE_TYPE": "Skredtype",
+        "AVAL_PROBABILITY": "Sannsynlighet for skred",
+        "BOTTOM": "Nederst",
+        "EXPOSED_HEIGHT1": "Høyde",
+        "EXPOSED_HEIGHT2": "Nedre høyde",
+        "EXPOSED_HEIGHT_COMBO": "Utsatt høyde",
+        "MIDDLE": "I midten",
+        "NO_WEAK_LAYERS": "Det finnes ikke svake lag",
+        "PROPAGATION": "Utbredelse",
+        "TITLE": "Skredproblem",
+        "TOP": "Øverst",
+        "UNKNOWN_TYPE": "Ukjent svakt lag",
+        "VALID_EXPOSITION": "Eksposisjon",
+        "WEAK_LAYER": "Svakt lag",
+        "WEAK_LAYER_DEPTH": "Svakt lags dybde"
+      },
+      "COMPRESSION_TEST": {
+        "ADD_NEW": "Legg til ny test",
+        "DISTANCE_FROM_TOP": "Avstand fra toppen (cm)",
+        "FRACTURE_TYPE": "Bruddtype",
+        "RB_RELEASE": "Løsnet prosentdel av blokk",
+        "RB_SCORE": "Rutschblock-resultat",
+        "STABILITY_EVAL": "Stabilitet",
+        "TAPS_FRACTURE": "Antall slag",
+        "TEST_TYPE": "Test type",
+        "TITLE": "Tester",
+        "X_DISTANCE": "Kuttlengde",
+        "Y_DISTANCE": "Søylelengde"
+      },
+      "SNOW_PROFILE": {
+        "COMPRESSION_TEST": {
+          "ATTACHED": "knyttet til profilen",
+          "EMPTY": "Ingen",
+          "INCLUDE_IN_SNOW_PROFILE": "Inkluder i snøprofil",
+          "MULTIPLE_TESTS": "tester",
+          "SINGLE_TEST": "test",
+          "TITLE": "Tester"
+        },
+        "EAST": "Ø",
+        "GENERATING_PREVIEW": "Genererer forhåndsvisning...",
+        "IS_PROFILE_TO_GROUND": "Går profilet til bakken?",
+        "NORTH": "N",
+        "NORTH_EAST": "NØ",
+        "NORTH_WEST": "NV",
+        "PREVIEW": "Forhåndsvisning",
+        "PREVIEW_ERROR": "Klarte ikke generere forhåndsvisning",
+        "PREVIEW_ITEM": "Se snøprofil",
+        "SLOPE_ANGLE": "Bratthet",
+        "SLOPE_ANGLE_PLACEHOLDER": "Kun hele grader",
+        "SNOW_DENSITY": {
+          "CYLINDER": "Sylinder",
+          "CYLINDER_DIAMETER": "Sylinderdiameter (cm)",
+          "CYLINDER_METHOD": "Sylinderberegning",
+          "DENSITY": "Tetthet (kg/m³)",
+          "EMPTY": "Ingen tetthetsprofiler",
+          "HEIGHT": "Høyde (cm)",
+          "LAYER": "Lag",
+          "METHOD": "Metode",
+          "MULTIPLE_LAYERS": "tetthetsprofiler",
+          "ONE_LAYER": "tetthetsprofil lagt til",
+          "TARE_WEIGHT": "Vekt av posen og evt. rør (g)",
+          "TITLE": "Tetthet",
+          "WATER_EQUIVALENT": "Vannekvivalent",
+          "WEIGHT": "Vekt (g)"
+        },
+        "SNOW_TEMP": {
+          "ADD_LAYER_BOTTOM": "Legg til nytt punkt",
+          "DEPTH": "Dybde (cm)",
+          "EMPTY": "Ingen temperaturpunkt observert",
+          "MULTIPLE_LAYERS": "temperaturpunkter observert",
+          "ONE_LAYER": "temperaturpunkt observert",
+          "POINT": "Temperaturpunkt",
+          "TEMPERATURE": "Temperatur (°C)",
+          "TITLE": "Temperaturprofil"
+        },
+        "SOUTH": "S",
+        "SOUTH_EAST": "SØ",
+        "SOUTH_WEST": "SV",
+        "STRAT_PROFILE": {
+          "ADD_LAYER": "Legg til nytt lag",
+          "ADD_LAYER_BOTTOM": "Legg til nytt lag nederst",
+          "ADD_LAYER_TOP": "Legg til nytt lag øverst",
+          "CRITICAL_LAYER": "Kritisk lag",
+          "EMPTY": "Ingen lagdelinger observert",
+          "FROM_OTHER_PROFILE": "Lagdeling fra annen profil",
+          "GRAIN_FORM": "Kornform",
+          "GRAIN_FROM_SECONDARY": "Sekundær kornform",
+          "HARDNESS": "Hardhet",
+          "HARDNESS_BOTTOM": "Nedre hardhet",
+          "LAYER": "Lag",
+          "MAX_GRAIN_SIZE": "Maks kornstørrelse (mm)",
+          "MULTIPLE_LAYERS": "lagdelinger observert",
+          "NO_PROFILES_FOUND": "Ingen tidligere lagdelinger funnet",
+          "ONE_LAYER": "lagdeling observert",
+          "OTHER_PROFILE_DESCRIPTION": "Du kan velge å kopiere inn lagene fra en tidligere registrert profil blant siste 14 dager innen 100 km.",
+          "OTHER_PROFILE_ITEM_TEXT": "Hent lagdeling fra annen profil",
+          "SHOW_LESS": "Vis færre valg",
+          "SHOW_MORE": "Vis flere valg",
+          "SIZE": "Kornstørrelse (mm)",
+          "THICKNESS": "Tykkelse (cm)",
+          "TITLE": "Lagdeling",
+          "TOTAL_THICKNESS": "Total tykkelse",
+          "WETNESS": "Fuktighet"
+        },
+        "SUBFORMS": "Underskjema",
+        "SUPERIOR": "Overordnet",
+        "TITLE": "Snøprofil",
+        "VALID_EXPOSITION": "Eksposisjon",
+        "WEST": "V"
+      },
+      "SNOW_SURFACE": {
+        "COMMENT_HEADER": "Beskriv snødekket",
+        "COMMENT_PLACEHOLDER": "Hvordan er snøfordelingen generelt ifht. høyde og eksposisjon. Er det forskjell i regionen?",
+        "HEIGHT_LIMIT_LAYERED_SNOW": "Øvre grense for snø uten lagdeling (moh)",
+        "HIGHT_LIMIT_LAYERED_SNOW_PLACEHOLDER": "For snø uten farlig lagdeling",
+        "NEW_SNOW_DEPTH": "Nysnø siste 24t (cm)",
+        "NEW_SNOW_LINE": "Nysnøgrense (moh)",
+        "SKI_CONDITIONS": "Skiføre",
+        "SNOW_DEPTH": "Total snødybde (cm)",
+        "SNOW_DRIFT": "Snøfokk",
+        "SNOW_LINE": "Snøgrense (moh)",
+        "SNOW_SURFACE": "Snøoverflate",
+        "SURFACE_WATER_CONTENT_REG": "Overflatefuktighet",
+        "TITLE": "Snødekke"
+      },
+      "WEATHER": {
+        "AIR_TEMPERATURE": "Lufttemperatur (C)",
+        "AIR_TEMPERATURE_PLACEHOLDER": "Kan gis med to desimal",
+        "CLOUD_COVER": "Skydekke (%)",
+        "COMMENT_HEADER": "Beskriv været",
+        "COMMENT_PLACEHOLDER": "Hvordan har været vært i området siste døgn? Eks: Har det vært byger? Har det vært temperaturendringer? Hvor går nullisotermen?",
+        "FROM_EAST": "Ø - fra øst",
+        "FROM_NORTH": "N - fra nord",
+        "FROM_NORTH_EAST": "NØ - fra nordøst",
+        "FROM_NORTH_WEST": "NV - fra nordvest",
+        "FROM_SOUTH": "S - fra sør",
+        "FROM_SOUTH_EAST": "SØ - fra sørøst",
+        "FROM_SOUTH_WEST": "SV - fra sørvest",
+        "FROM_WEST": "V - fra vest",
+        "NOT_GIVEN": "Ikke gitt",
+        "ONLY_FULL_PERCENTAGE": "Kun hele prosent",
+        "PRECIPITATION": "Nedbørstype",
+        "TITLE": "Vær",
+        "WIND_DIRECTION": "Vindretning",
+        "WIND_SPEED": "Vindhastighet (m/s)"
+      }
+    },
+    "SUMMARY": "Oppsummering",
+    "WATER": {
+      "DAMAGE": {
+        "ADD_DAMAGE_LOCATION": "Legg til skadepunkt her",
+        "CAN_YOU_SEE_DAMAGE": "Kan du se noen skader?",
+        "COMMENT": "Beskriv skaden",
+        "COMMENT_PLACEHOLDER": "Her kan du beskrive skaden ytterligere",
+        "IMAGE_OF_DAMAGES": "Bilder av skaden(e)",
+        "TITLE": "Skader",
+        "WHAT_IS_DAMAGED": "Hva er skadet?",
+        "WHERE_IS_DAMAGE_LOCATION": "Hvor er skadepunktet?"
+      },
+      "WATER_LEVEL": {
+        "ADD_NEW": "Legg til ny",
+        "ADD_PICTURE": "Legg til bilde av",
+        "CAN_YOU_SEE_WATER": "Kan du se vann på avveie?",
+        "DESCRIBE": "Beskriv",
+        "DESCRIBE_HEIGHT": "Beskriv høyde",
+        "DESCRIBE_SITUATION": "Hvordan vil du beskrive situasjonen?",
+        "DT_REQUIRED_TEXT": "Tidspunkt er obligatorisk!",
+        "HOW_DO_YOU_READ": "Hvordan leser du av vannstanden?",
+        "MARKED_WITH": "Jeg har markert vannstanden med",
+        "MARKING": "Markering",
+        "MARKING_PLURAL": "Markeringen",
+        "MARKING_REFERENCE": "Jeg har markert vannstanden i/på",
+        "MEASURE_PLURAL": "Målingen",
+        "MEASURING": "Måling",
+        "MEASURING_TOOL": "Skriv inn måleinstrument her",
+        "OBSERVATION_TIMING": "Hva registrerer du?",
+        "REGISTRATION_METHOD": "Hvordan registrerer du?",
+        "RELATIVE": "Høyden er relativ til",
+        "TITLE": "Vannstand",
+        "WATER_LEVEL_METERS": "Vannstand i meter",
+        "WATER_MARKING": "Vannstandsmarkering",
+        "WATER_MEASUREMENT": "Vannstandsmåling"
+      }
+    }
+  },
+  "SETTINGS": {
+    "ALLOW_ANALYTICS": "Tillat sending av bruksdata",
+    "ALLOW_ANALYTICS_DESCRIPTION": "Hjelp oss å forbedre Varsom ved å la oss se hvordan du bruker applikasjonen.",
+    "ALLOW_ANALYTICS_DESCRIPTION_LINE2": "Disse dataene er anonymisert og kan ikke knyttes til deg personlig.",
+    "ALLOW_ANALYTICS_HEADER": "Del bruksstatistikk",
+    "APPMODE": "Appmodus",
+    "APP_VERSION": "Versjon",
+    "CONFIRM_RESET": "Er du sikker på du vil tilbakestille app?",
+    "COUNTRY": "Land",
+    "DROPDOWNS_FAILED": "Klarte ikke oppdatere nedtrekksmenyer. Vennligst sjekk om du har nettverk og prøv igjen litt senere.",
+    "DROPDOWNS_UPDATED": "Nedtrekksmenyer oppdatert!",
+    "EMAIL_RECEIPT": "Kvittering på e-post",
+    "HIDE_ADVANCED": "Skjul avanserte innstillinger",
+    "LANGUAGE": "Språk",
+    "NORWAY_ONLY": "Kun i Norge",
+    "NUMBER_OF_TILES_IN_CACHE": "Maksimalt antall offline kartblad",
+    "READ_MORE_IN_LICENSE_AGREEMENT": "Du kan lese om vår bruk av data i vår <a href=\"{{legalUrl}}\" target=\"_blank\">personvernerklæring</a>.",
+    "RESET": "Tilbakestill app",
+    "RESETTING": "App tilbakestilles. Vennligst vent...",
+    "SEND_LOGS": "Send logger til Regobs-teamet",
+    "SHOW_ADVANCED": "Vis avanserte innstillinger",
+    "SIZE_OF_TILES_CACHE": "Størrelse på kartblad lagret på telefonen",
+    "TILES_CACHE_SIZE": "Antall kartblad lagret på telefonen",
+    "TITLE": "Innstillinger",
+    "UPDATE_DROPDOWNS": "Oppdater nedtrekksmenyer",
+    "USE_IN_WORLD": "Utenfor Norge",
+    "USE_RETINA_MAP": "Bruk høy oppløsning på kart"
+  },
+  "SET_NICK_ALERT": {
+    "ERROR": "Fikk ikke til å lagre kallenavn. Vennligst prøv igjen senere.",
+    "HELP_TEXT": "Du må legge til et kallenavn. Kallenavnet blir vist i dine observasjoner.",
+    "INPUT_TEXT": "Skriv inn kallenavn",
+    "NICK": "Kallenavn"
+  },
+  "START_WIZARD": {
+    "CHOOSE_COUNTRY": {
+      "HEADER": "Velg land",
+      "NO_NORWAY": "Nei, i andre land også",
+      "SUBTITLE": "Kommer du til å bruke appen kun i Norge?",
+      "YES_NORWAY": "Ja, kun i Norge"
+    },
+    "CHOOSE_INTEREST": "Velg naturfaren du er interessert i",
+    "CHOOSE_LANGUAGE": {
+      "ENGLISH": "Engelsk",
+      "ENGLISH_SECONDARY_LANGUAGE": "English",
+      "HEADER": "Velg språk",
+      "HEADER_SECONDARY_LANGUAGE": "Choose language",
+      "NORWEGIAN": "Norsk",
+      "NORWEGIAN_SECONDARY_LANGUAGE": "Norwegian"
+    },
+    "COMPETENCE_PAGE": {
+      "HEADER": "Bruk Varsom fornuftig!",
+      "LINE_1": "Bruk informasjonen i Varsom, men gjør også dine egne vurderinger. Se observasjonene i lys av observatørens kompetanse som vises som stjerner ved navnet."
+    },
+    "I_UNDERSTAND": "Ok, jeg forstår",
+    "PAGE_1": {
+      "HEADER": "Planlegg trygge turer!",
+      "LINE_1": "Se ferske observasjoner og naturfarevarsler når du planlegger turen."
+    },
+    "PAGE_2": {
+      "HEADER": "Forstå terrenget bedre!",
+      "LINE_1": "Se hvor du er i forhold til faresoner i terrenget. Bruk støttekart tilpasset farene du er på utkikk etter."
+    },
+    "PAGE_3": {
+      "BUTTON_TEXT": "Ny observasjon",
+      "HEADER": "Del det du ser med andre!",
+      "LINE_1": "Del dine observasjoner, bilder og vurderinger med andre. Hjelp dem å gjøre egne vurderinger."
+    },
+    "PAGE_4": {
+      "HEADER": "Hva og hvordan?",
+      "LINE_1": "Du velger selv hva du vil se og dele på Varsom. Du kan lese om hvordan du deler observasjoner med andre på varsom.no/snøskredskolen og varsom.no/isskolen"
+    },
+    "SKIP_START": "Hopp over"
+  },
+  "SUPPORT_MAP": {
+    "ABOUT": "Om kartene",
+    "CAUTION_AREA": "Aktsomhetsområde",
+    "CLAY_DANGER_ZONE": "Faregrad for kvikkleiresone",
+    "CLAY_LEGEND_TEXT_1": "Kvikkleirepunkt (SVV)",
+    "CLAY_LEGEND_TEXT_2": "Kvikkleireområde (SVV)",
+    "CLAY_LEGEND_TEXT_3": "Kartblad helt eller delvis kartlagt",
+    "CLAY_LEGEND_TEXT_4": "Marin grense",
+    "CLAY_LEGEND_TEXT_5": "Areal over marin grense",
+    "CLAY_LEGEND_TEXT_6": "Areal under marin grense",
+    "CLAY_LEGEND_TEXT_7": "Lite/ingen marin påvirkning",
+    "CLAY_LEGEND_TEXT_8": "Utløpsområde",
+    "CLAY_LEGEND_TEXT_9": "Potensiell skredfare",
+    "CLAY_MAP_DISCLAMER": "Dette kartlaget er ikke inkludert i offline-kartpakkene.",
+    "CLAY_ZONES_MAP_DESCRIPTION": "Kvikkleire/Jordskred",
+    "FLOOD_LEGEND_TEXT_1": "Gjeldende",
+    "FLOOD_LEGEND_TEXT_10": "200-årsflom",
+    "FLOOD_LEGEND_TEXT_11": "500-årsflom",
+    "FLOOD_LEGEND_TEXT_12": "1000-årsflom",
+    "FLOOD_LEGEND_TEXT_13": "200-årsflom (klima)",
+    "FLOOD_LEGEND_TEXT_2": "Til ny vurdering",
+    "FLOOD_LEGEND_TEXT_3": "Ajourført",
+    "FLOOD_LEGEND_TEXT_4": "Under planlegging",
+    "FLOOD_LEGEND_TEXT_5": "10-årsflom",
+    "FLOOD_LEGEND_TEXT_6": "Elv og vann 10-årsflom",
+    "FLOOD_LEGEND_TEXT_7": "20-årsflom",
+    "FLOOD_LEGEND_TEXT_8": "50-årsflom",
+    "FLOOD_LEGEND_TEXT_9": "100-årsflom",
+    "FLOOD_LEGEND_TEXT_YEAR": "Flomutsatt ved",
+    "FLOOD_MAP_DISCLAMER": "Dette kartlaget er ikke inkludert i offline-kartpakkene.",
+    "FLOOD_ZONES_MAP_DESCRIPTION": "Flomsoner",
+    "HIGH": "Høy",
+    "ICE_LEGEND_TEXT_1": "Oppsprukket is langs land",
+    "ICE_LEGEND_TEXT_2": "Vesentlig svekket is",
+    "ICE_LEGEND_TEXT_3": "Ofte farlige isforhold",
+    "ICE_LEGEND_TEXT_4": "Svekket is",
+    "ICE_LEGEND_TEXT_5": "Kanal",
+    "ICE_LEGEND_TEXT_6": "Rørgate",
+    "ICE_LEGEND_TEXT_7": "Kraftverkstunnel",
+    "ICE_MAP_DESCRIPTION": "Støttekartet viser deler av vassdrag som oppfører seg uforutsigbart gjennom vinteren grunnet reguleringer for kraftproduksjon",
+    "INFO_PAGE": "<h1>Om kart med bratthet og utløp</h1>\nKartene er automatisk generert og kan inneholde feil. Det kan eksistere bratte heng som høydemodellen ikke plukker opp og derfor ikke vises på kartet.\nNoen skred kan gå lenger enn det som er markert som utløpsområde i kartet.\n\n<h2>Hvilke hensyn må tas?</h2>\nTilpass egen risiko ved å velge hvor, når og hvordan du ferdes. Varsom er et hjelpemiddel, ikke en fasit. Gjør alltid egne vurderinger.\n\n<h2>Når er det trygt?</h2>\nAll ferdsel i snødekt skredterreng er forbundet med risiko. \n\n<h2>Lære mer?</h2>\nDu kan lære mer på skredkurs og Snøskredskolen på Varsom.no.",
+    "LOW": "Lav",
+    "MARITINE_BORDER": "Marin grense flate",
+    "MIDDLE": "Middels",
+    "NO_LEGEND": "Dette kartlaget har ikke tegnforklaring enda.",
+    "NO_OPACITY": "Heldekkende",
+    "OUTLETS_GREENLAND_MAP_DESCRIPTION": "Løsne- og utløpsområder (Grønland)",
+    "READ_MORE": "Les mer om støttekart",
+    "STEEPNESS_COLOR_INFO": "Farger på terrengets bratthet i grader:",
+    "STEEPNESS_GREENLAND_MAP_DESCRIPTION": "Bratthetskart (Grønland)",
+    "STEEPNESS_MAP_DESCRIPTION": "Bratthetskart",
+    "STEEPNESS_MAP_DISCLAMER": "<i>Kun</i> for turplanlegging. Kartet er automatisk generert og kan ha feil og mangler, f.eks. bratte heng og utløp som ikke vises.",
+    "STEEPNESS_OFFLINE_DISCLAMER": "Støttekartet er kun tilgjengelig offline med utløp aktiverte.",
+    "STEEPNESS_OUTLET_LEGEND_TEXT_1": "Korte utløp (50% av skred stopper innen denne grensen)",
+    "STEEPNESS_OUTLET_LEGEND_TEXT_2": "Middels utløp (25% av skredene går lenger)",
+    "STEEPNESS_OUTLET_LEGEND_TEXT_3": "Lange utløp (5% av skredene går lenger)\nNoen skred kan ha utløp som ikke er vist på kartet.",
+    "STEEPNESS_OUTLET_LEGEND_TITLE": "Farger på utløp for snøskred:",
+    "STEEPNESS_OUTLET_MAP_DESCRIPTION": "Utløpsområder for snøskred",
+    "WEAKENED_ICE_MAP_DESCRIPTION": "Svekket iskart"
+  },
+  "TABS": {
+    "LIST": "Liste",
+    "MAP": "Kart",
+    "TRIPS": "Turer",
+    "WARNINGS": "Varsler"
+  },
+  "TRIP": {
+    "COMMENT_DESCRIPTION": "Her kan du skrive inn hvilken obstur du skal på, hva du ser etter, osv.",
+    "END_ERROR": "Klarte ikke stoppe tur. Vennligst prøv igjen senere. Turen vil automatisk ble stoppet ved midnatt.",
+    "ERROR": "Klarte ikke starte tur. Vennligs prøv igjen.",
+    "ERROR_POSITION": "Kan ikke starte tur uten GPS posisjon.",
+    "LEGACY_HELP_TEXT": "Her melder du fra om at du planlegger tur i dag.\n\nDet er nyttig for skredvarslingen å vite om det kan ventes observasjoner i dag. Det er også nyttig å vite hva slags observasjoner som kan ventes (hva ser du etter, hvor skal du på tur) og når regner du med at disse sendes inn.\n\nAlle betalte observatører skal registrere hva slags obstur som planlegges: er det en ordinær betalt observasjonstur, eller er det en tilleggsregistrering? Tilleggsregistrering er innsending av observasjoner du har gjort i annet arbeid eller på fritiden din.",
+    "ONGOING_TRIP": "Tur pågår",
+    "STARTED": "Tur startet",
+    "START_TRIP": "Start tur",
+    "STOPPED": "Tur stoppet",
+    "STOP_TRIP": "Avslutt tur",
+    "TITLE": "Turer",
+    "TRIP": "Tur",
+    "TRIP_END_DESCRIPTION": "Observasjoner ventes før kl.",
+    "TRIP_TYPE": "Turtype"
+  },
+  "TRIP_LOG": {
+    "COMPLETE": "Ferdig",
+    "CONTINUE": "Fortsett",
+    "NOT_STARTED": "Ny tur",
+    "PAUSED": "Pauset",
+    "RUNNING": "GPS registrering pågår",
+    "START": "Start",
+    "STOP": "Stopp",
+    "STOPPED": "Tur stoppet og fullført"
+  },
+  "VALIDATION": {
+    "AND": "og",
+    "BETWEEN": "mellom",
+    "CHARACTERS": "tegn",
+    "INTEGER": "et heltall",
+    "MAX": "under",
+    "MIN": "over",
+    "MUST_BE": "må være"
+  },
+  "WARNING_LIST": {
+    "ADDED_TO_FAVOURITES": "lagt til i favoritter",
+    "ALL": "Alle",
+    "ALL_WARNINGS": "Alle varsler",
+    "A_REGIONS": "A - Regioner",
+    "B_REGIONS": "B - Regioner",
+    "B_REGIONS_SUBTITLE": "Varsles kun på faregrad 4 og 5",
+    "FAVOURITES": "Favoritter",
+    "IN_MAP_CENTER": "I kartsenter",
+    "IN_MAP_VIEW": "I kartutsnittet",
+    "MAIN_REGIONS": "Hovedregioner",
+    "NO_FAVOURITES": "Velg dine favorittvarsler",
+    "NO_FAVOURITES_TEXT": "Sveip varselet du ønsker å favorittmarkere til venstre så vil du finne det her.",
+    "NO_WARNINGS": "Ingen varsler",
+    "NO_WARNINGS_TEXT": "Det foreligger ingen varsel for området du befinner deg i. Når det foreligger varsel vil de vises her.",
+    "OTHER_RELEVANT": "Andre aktuelle",
+    "RELEVANT": "Aktuelle",
+    "REMOVED_FROM_FAVOURITES": "fjernet fra favoritter",
+    "TITLE": "Varsler",
+    "TITLE_ICE": "Isvarsel",
+    "TITLE_SNOW": "Snøskredvarsel",
+    "TITLE_WATER": "Flom og jordskredvarsel",
+    "VALID_FROM": "Gyldig fra"
+  }
+}
