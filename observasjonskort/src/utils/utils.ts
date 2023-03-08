@@ -4,6 +4,8 @@ export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
+
+
 export async function getObservationFromApiById(id: string){
     let data = `{"RegId": ${id}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {

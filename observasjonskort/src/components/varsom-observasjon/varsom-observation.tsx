@@ -1,11 +1,13 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { Observation, WaterLevelMeasurement } from './observation-model';
+import { Observation } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
+
 
 
 @Component({
@@ -24,6 +26,9 @@ export class VarsomObservation {
   @Prop() language: string = "Norwegian";
   @Prop() type: string;
   @Prop() number: number = 1;
+
+  element: HTMLElement;
+  strings: any;
   
   //carousel: Carousel;
   dataSource: any;
@@ -60,6 +65,8 @@ export class VarsomObservation {
     //dots[this.slideIndex-1].className += " active";
   }
 
+
+
   async componentDidRender(){
     for (let i = 0; i < this.observations.length; i++){
       var obs = this.observations[i];
@@ -72,8 +79,14 @@ export class VarsomObservation {
     }
 
     }
+
+    
+
   async componentWillLoad(){
 
+
+    this.strings = await getLocaleComponentStrings("en");
+  
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
@@ -292,6 +305,9 @@ export class VarsomObservation {
       
       <Varsom-header region={obs._region} regId={obs._regId}></Varsom-header>
 
+        {/* test translation */ }
+        klø{this.strings.ABONNER_BANNER.BANNER_TEXT_LINE_1}klø
+
       {/* HEADER */}
       <p>{obs._region}</p>
       <p>ID: {obs._regId}</p></div>
@@ -330,7 +346,7 @@ export class VarsomObservation {
           {obs._observerGroupName ? 
           <span> brukergruppe: {obs._observer.ObserverGroupName}</span> : ""}
            
-        
+
 
       </div>     
       <div>
