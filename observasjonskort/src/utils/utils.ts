@@ -1,4 +1,4 @@
-//import fetch from "node-fetch";     needs to be included to test with Ponicode
+import fetch from "node-fetch";     //needs to be included to test with Ponicode
 
 export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');

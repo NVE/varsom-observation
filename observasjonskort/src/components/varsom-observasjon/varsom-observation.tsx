@@ -384,7 +384,7 @@ export class VarsomObservation {
 
 
 
-
+  
 {obs._snowSurface ? 
 <div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
 
