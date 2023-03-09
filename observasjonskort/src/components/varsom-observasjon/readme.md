@@ -7,6 +7,7 @@
 
 ## Properties
 
+<<<<<<< HEAD
 | Property           | Attribute           | Description | Type     | Default     |
 | ------------------ | ------------------- | ----------- | -------- | ----------- |
 | `comment`          | `comment`           |             | `string` | `undefined` |
@@ -15,6 +16,15 @@
 | `observer`         | `observer`          |             | `string` | `undefined` |
 | `photographer`     | `photographer`      |             | `string` | `undefined` |
 | `registrationName` | `registration-name` |             | `string` | `undefined` |
+=======
+| Property   | Attribute  | Description | Type     | Default       |
+| ---------- | ---------- | ----------- | -------- | ------------- |
+| `count`    | `count`    |             | `number` | `1`           |
+| `language` | `language` |             | `string` | `"Norwegian"` |
+| `number`   | `number`   |             | `number` | `1`           |
+| `regId`    | `reg-id`   |             | `string` | `undefined`   |
+| `type`     | `type`     |             | `string` | `undefined`   |
+>>>>>>> main
 
 
 ## Dependencies

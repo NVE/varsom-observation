@@ -32,7 +32,7 @@ export namespace Components {
         "count": number;
         "language": string;
         "number": number;
-        "regid": string;
+        "regId": string;
         "type": string;
     }
     interface VarsomSchema {
@@ -110,7 +110,7 @@ declare namespace LocalJSX {
         "count"?: number;
         "language"?: string;
         "number"?: number;
-        "regid"?: string;
+        "regId"?: string;
         "type"?: string;
     }
     interface VarsomSchema {
