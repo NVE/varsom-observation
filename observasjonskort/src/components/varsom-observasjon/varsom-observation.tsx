@@ -306,13 +306,13 @@ export class VarsomObservation {
 
       <varsom-metadata 
       strings={this.strings} 
-      dateOfRegistration={obs._dateOfRegistration ? obs._dateOfRegistration : null}
-      dateOfLastUpdate={obs._dateOfLastUpdate ? obs._dateOfLastUpdate : null}
-      geoHazardName={obs._geoHazardName ? obs._geoHazardName : null}
+      date-of-registration={obs._dateOfRegistration ? obs._dateOfRegistration : null}
+      date-of-last-update={obs._dateOfLastUpdate ? obs._dateOfLastUpdate : null}
+      geo-hazard-name={obs._geoHazardName ? obs._geoHazardName : null}
       moh={obs._moh ? obs._moh : null}
       nickname={obs._observer.NickName ? obs._observer.NickName : null}
-      competenceLevelName={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
-      observerGroupName={obs._observerGroupName ? obs._observerGroupName : null}
+      competence-level-name={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
+      observer-group-name={obs._observerGroupName ? obs._observerGroupName : null}
       > </varsom-metadata>      
          
       {/*map*/}     
@@ -391,8 +391,8 @@ export class VarsomObservation {
 
             return <varsom-schema
             strings={this.strings}
-            dtStart={el.DtStart ? el.DtStart : null}
-            avalCauseName={el.AvalCauseName ? el.AvalCauseName : null}
+            dt-start={el.DtStart ? el.DtStart : null}
+            aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
             comment={el.Comment ? el.Comment : null}
             > </varsom-schema>
         })
@@ -402,8 +402,8 @@ export class VarsomObservation {
 {obs._avalancheObs ? 
 <varsom-schema
 strings={this.strings}
-dtAvalancheTime={obs._avalancheActivityObs.DtAvalancheTime ? obs._avalancheActivityObs.dtAvalancheTime : null}
-comment={obs._avalancheActivityObs.Comment ? obs._avalancheActivityObs.Comment : null}
+dt-avalanche-time={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
+comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 ></varsom-schema>  
   : "" }
 
@@ -426,8 +426,8 @@ measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._wate
 <div>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-schema
-  dtMeasurementTime={el.DtMeasurementTime ? el.DtMeasurementTime : null}
-  waterLevelValue={el.WaterLevelValue ? el.WaterLevelValue : null}
+  dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
+  water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   comment={el.Comment ? el.Comment : null}
   ></varsom-schema>
 })
@@ -456,73 +456,51 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 <label>Skredproblem: label mangler...</label> : ""}
 
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
-return <div>
-  <div>
-  {el.AvalCauseName ? 
-  <h3>{el.AvalCauseName}</h3>: ""}
-  <br></br>
-  </div>
+return <varsom-schema
+aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
+aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
+aval-cause-attribute-soft-name={el.AvalCauseAttributeSoftName ? el.AvalCauseAttributeSoftName : null}
+aval-trigger-simple-name={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null}
+destructive-size-name={el.DestructiveSizeName ? el.DestructiveSizeName : null}
+aval-propagation-name={el.AvalPropagationName ? el.AvalPropagationName : null}
+>
   
-  {el.AvalancheExtName ?
-   <div>Skredtype: {el.AvalancheExtName} </div> : ""}
-
-  {el.AvalCauseDepthName ? 
-  <div>Avstand fra overflaten til det svake laget: {el.AvalCauseDepthName} </div> : ""}
-
-  {el.AvalCauseAttributeSoftName ? 
-  <div>Ugunstige egenskaper til det svake laget: {el.AvalCauseAttributeSoftName} </div> : ""}
-
-  {el.AvalTriggerSimpleName ? 
-  <div>Sannsynlig belasting for å løse ut skred: {el.AvalTriggerSimpleName} </div> : ""}
-
-{el.DestructiveSizeName ? 
-  <div>Størrelse på forventet skred: {el.DestructiveSizeName} </div> : ""}
-
-{el.AvalPropagationName ? 
-  <div>MiddelsUtbredelse: {el.AvalPropagationName} </div> : ""}
-
-
 {/* TEGNING HER... */}
-
-</div>
+</varsom-schema>
 })
 }
 
 {/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEval3 ? 
 <div>
-<h2>Skredfarervurdering</h2> 
-
+<label>Skredfarervurdering... label mangler</label> 
+<varsom-schema
+avalanche-evaluation={obs._avalancheEval3.AvalancheEvaluation ? obs._avalancheEval3.AvalancheEvaluation : null}
+avalanche-development={obs._avalancheEval3.AvalancheDevelopment ? obs._avalancheEval3.AvalancheDevelopment : null}
+forecast-comment={obs._avalancheEval3.forecastComment}
+>
 {/* TEGNING HER */}
-
-
-
-{obs._avalancheEval3.AvalancheEvaluation ? 
-  <div>Skredfarevurdering: {obs._avalancheEval3.AvalancheEvaluation} </div> : ""}
- 
- {obs._avalancheEval3.AvalancheDevelopment ? 
- <div>Utvikling: {obs._avalancheEval3.AvalancheDevelopment} </div> :"" }
-
- {obs._avalancheEval3.ForecastComment ?
- <div>Kommentar: {obs._avalancheEval3.ForecastComment} </div> :"" }
-
+</varsom-schema>
 </div>
-
 : ""}
+
 {/* DAMAGE OBSERVATIONS ... ikke funnet noe data fra api...*/}
 
 
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
-<h2>Faretegn</h2> : "" }
+<label>Faretegn...label mangler</label> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{
   
-            return <div> 
+            return <varsom-schema
+            danger-sign-name={el.DangerSignName}
+            comment={el.Comment}
+            > 
           <div> Type: {el.DangerSignName} </div>        
           <div> Kommentar: {el.Comment} </div>
-  
-</div>
+          </varsom-schema>
         })
         
         }
@@ -534,32 +512,18 @@ return <div>
 {/* SNOW SURFACE */}
 {obs._snowSurfaceObservation ? 
 <div>
-  <h2>Snødekke</h2>
-  {obs._snowSurfaceObservation.SnowDepth ? 
-  <div>Snødybde: {obs._snowSurfaceObservation.SnowDepth} </div> : ""}
-   
-   {obs._snowSurfaceObservation.Comment ? 
-   <div>Kommentar: {obs._snowSurfaceObservation.Comment}</div> : ""}
-  
-  {obs._snowSurfaceObservation.SurfaceWaterContentName ? 
-  <div>Snøfuktighet:  {obs._snowSurfaceObservation.SurfaceWaterContentName}</div> : ""}
-   
-    {obs._snowSurfaceObservation.SnowDriftName ? 
-    <div>Snøfokk:  {obs._snowSurfaceObservation.SnowDriftName} </div> : ""}
-   
-   
-   {obs._snowSurfaceObservation.SnowSurfaceName ?
-   <div>Snødekkehardhet: {obs._snowSurfaceObservation.SnowSurfaceName} </div> :""}
-    
-   {obs._snowSurfaceObservation.SkiConditionsName ? 
-   <div>Skiføre: {obs._snowSurfaceObservation.SkiConditionsName}</div> : ""}
-   
-    {obs._snowSurfaceObservation.NewSnowLine ? 
-    <div>Siste døgn: {obs._snowSurfaceObservation.NewSnowLine} </div> : ""}  {/*riktig?*/ }
-
-</div>
-  
-  
+  <label>Snødekke... label mangler</label>
+<varsom-schema
+  snowDepth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
+  comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
+  surface-water-contentName={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
+  snow-drift-name={obs._snowSurfaceObservation.SnowDriftName ? obs._snowSurfaceObservation.SnowDriftName : null} 
+  snow-surface-name={obs._snowSurfaceObservation.SnowSurfaceName ? obs._snowSurfaceObservation.SnowSurfaceName : null}
+  ski-conditions-name={obs._snowSurfaceObservation.SkiConditionsName ? obs._snowSurfaceObservation.SkiConditionsName : null}
+  new-snow-line={obs._snowSurfaceObservation.NewSnowLine ? obs._snowSurfaceObservation.NewSnowLine : null}
+>
+</varsom-schema>
+</div>  
   : ""}
 
 

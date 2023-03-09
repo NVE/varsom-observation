@@ -28,6 +28,26 @@ export class VarsomSchema {
   @Prop() waterLevelValue : any;
   @Prop() weatherPrecipitationName: any;
   @Prop() airTemperature: any;
+  @Prop() avalancheExtName: any;
+  @Prop() avalCauseDepthName: any;
+  @Prop() avalCauseAttributeSoftName: any;
+  @Prop() avalTriggerSimpleName: any;
+  @Prop() destructiveSizeName: any;
+  @Prop() avalPropagationName: any;
+  @Prop() avalancheEvaluation: any;
+  @Prop() avalancheDevelopment: any;
+  @Prop() forecastComment: any;
+  @Prop() dangerSignName: any;
+  @Prop() snowDepth: any;
+  @Prop() surfaceWaterContentName: any;
+  @Prop() snowDriftName: any;
+  @Prop() snowSurfaceName: any;
+  @Prop() skiConditionsName: any;
+  @Prop() newSnowLine: any;
+
+  
+  
+  
   
   
   
@@ -107,8 +127,81 @@ export class VarsomSchema {
       <label>label mangler: </label>
       {this.waterLevelValue}
       </span> : ""}
-    
+
+      {this.avalCauseName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.avalCauseName}
+      </span> : ""}
+
+      {this.avalancheEvaluation ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.avalancheEvaluation}
+      </span> : ""}
+
+      {this.avalancheEvaluation ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.avalancheEvaluation}
+      </span> : ""}
+
+      {this.avalancheDevelopment ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.avalancheDevelopment}
+      </span> : ""}
+
+      {this.forecastComment ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.forecastComment}
+      </span> : ""}
+
+      {this.dangerSignName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.dangerSignName}
+      </span> : ""}
+
+      {this.snowDepth ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.snowDepth}
+      </span> : ""}
+
+      {this.surfaceWaterContentName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.surfaceWaterContentName}
+      </span> : ""}
+
+      {this.snowDriftName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.snowDriftName}
+      </span> : ""}
+
+      {this.snowSurfaceName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.snowSurfaceName}
+      </span> : ""}
+
+      {this.skiConditionsName ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.skiConditionsName}
+      </span> : ""}
+
+      {this.newSnowLine ? 
+      <span class="header">
+      <label>label mangler: </label>
+      {this.newSnowLine}
+      </span> : ""}
+
       
+
     
     </div>
   }
