@@ -301,54 +301,22 @@ export class VarsomObservation {
       return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
-      <div class="observation-header">    
-      
-      <Varsom-header region={obs._region} regId={obs._regId}></Varsom-header>
-
-        {/* test translation */ }
-        klø{this.strings.ABONNER_BANNER.BANNER_TEXT_LINE_1}klø
-
-      {/* HEADER */}
-      <p>{obs._region}</p>
-      <p>ID: {obs._regId}</p></div>
-      
-      {/* tester schema-komponent */}
-      <varsom-schema label="jadda"></varsom-schema>
-
-
-      {/* METADATA */}
-      <div class="observation-metadata">
-      {/*
-      Observert {obs._dateOfObservation}  ikke i bruk? */}
-      <varsom-metadata date={obs._avalancheObs ? obs._avalancheObs.Comment : null}> </varsom-metadata>
-
-
-      {obs._dateOfRegistration ? 
-      <span>Registrert {obs._dateOfRegistration}</span> : "" }
-      
-      {obs._dateOfLastUpdate ? 
-      <span> Oppdatert {obs._dateOfLastUpdate}</span> : "" }
-
-         <br></br>
-         {obs._geoHazardName ? 
-         <span>Ikon faretype: {obs._geoHazardName} </span>: ""}
-
-         {obs._moh ? 
-         <span>ikon moh: {obs._moh}</span> : " "}
-
          
-         {obs._observer.Nickname ? 
-         <span> bruker: {obs._observer.NickName} </span> : "" }
+      <varsom-header region={obs._region} regId={obs._regId}></varsom-header>
 
-        {obs._observer.CompetenceLevelName ? 
-        <span> brukerrating: {obs._observer.CompetenceLevelName}</span> : ""}  
-          
-          {obs._observerGroupName ? 
-          <span> brukergruppe: {obs._observer.ObserverGroupName}</span> : ""}
+      <varsom-metadata 
+      strings={this.strings} 
+      dateOfRegistration={obs._dateOfRegistration ? obs._dateOfRegistration : null}
+      dateOfLastUpdate={obs._dateOfLastUpdate ? obs._dateOfLastUpdate : null}
+      geoHazardName={obs._geoHazardName ? obs._geoHazardName : null}
+      moh={obs._moh ? obs._moh : null}
+      nickname={obs._observer.NickName ? obs._observer.NickName : null}
+      competenceLevelName={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
+      observerGroupName={obs._observerGroupName ? obs._observerGroupName : null}
+
+      > </varsom-metadata>      
+         
            
-
-
-      </div>     
       <div>
         <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
       </div>

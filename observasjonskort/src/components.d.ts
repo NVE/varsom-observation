@@ -25,14 +25,20 @@ export namespace Components {
         "region": string;
     }
     interface VarsomMetadata {
-        "date"?: any;
-        "date2"?: any;
+        "competenceLevelName": any;
+        "dateOfLastUpdate"?: any;
+        "dateOfRegistration": any;
+        "geoHazardName": any;
+        "moh": any;
+        "nickname": any;
+        "observerGroupName": any;
+        "strings"?: any;
     }
     interface VarsomObservation {
         "count": number;
         "language": string;
         "number": number;
-        "regId": string;
+        "regid": string;
         "type": string;
     }
     interface VarsomSchema {
@@ -103,14 +109,20 @@ declare namespace LocalJSX {
         "region"?: string;
     }
     interface VarsomMetadata {
-        "date"?: any;
-        "date2"?: any;
+        "competenceLevelName"?: any;
+        "dateOfLastUpdate"?: any;
+        "dateOfRegistration"?: any;
+        "geoHazardName"?: any;
+        "moh"?: any;
+        "nickname"?: any;
+        "observerGroupName"?: any;
+        "strings"?: any;
     }
     interface VarsomObservation {
         "count"?: number;
         "language"?: string;
         "number"?: number;
-        "regId"?: string;
+        "regid"?: string;
         "type"?: string;
     }
     interface VarsomSchema {

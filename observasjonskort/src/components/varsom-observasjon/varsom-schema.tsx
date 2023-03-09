@@ -3,7 +3,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'varsom-schema',
-  styleUrl: 'varsom-observation.css',
+  styleUrl: 'varsom-schema.css',
   shadow: true,
   assetsDirs: ['images']
 })
