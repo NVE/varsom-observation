@@ -412,10 +412,10 @@ comment={obs._avalancheActivityObs.Comment ? obs._avalancheActivityObs.Comment :
 {obs._waterLevel ? 
 <varsom-schema
 water-astray-name={obs._waterLevel.WaterAstrayName ? obs._waterLevel.WaterAstrayName : null}
-observation-timing-name={obs.waterLevel.ObservationTimingName ? obs.waterLevel.observationTimingName : null}
+observation-timing-name={obs._waterLevel.ObservationTimingName ? obs._waterLevel.observationTimingName : null}
 strings={this.strings}
-measurement-type-name={obs._waterlevel.MeasurementTypeName ? obs._waterlevel.MeasurementTypeName : null}
-measurement-reference-name={obs.waterlevel.MeasurementReferenceName ? obs.waterlevel.MeasurementReferenceName : null}
+measurement-type-name={obs._waterLevel.MeasurementTypeName ? obs._waterLevel.MeasurementTypeName : null}
+measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._waterLevel.MeasurementReferenceName : null}
 ></varsom-schema>
 : ""}
 
