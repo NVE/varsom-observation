@@ -50,12 +50,14 @@ export namespace Components {
         "type": string;
     }
     interface VarsomSchema {
-        "comment": string;
-        "copyright": string;
-        "label": string;
-        "observer": string;
-        "photographer": string;
-        "registrationName": string;
+        "AvalCauseName": any;
+        "DtStart": any;
+        "comment": any;
+        "copyright": any;
+        "observer": any;
+        "photographer": any;
+        "registrationName": any;
+        "strings": any;
     }
 }
 declare global {
@@ -149,12 +151,14 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface VarsomSchema {
-        "comment"?: string;
-        "copyright"?: string;
-        "label"?: string;
-        "observer"?: string;
-        "photographer"?: string;
-        "registrationName"?: string;
+        "AvalCauseName"?: any;
+        "DtStart"?: any;
+        "comment"?: any;
+        "copyright"?: any;
+        "observer"?: any;
+        "photographer"?: any;
+        "registrationName"?: any;
+        "strings"?: any;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

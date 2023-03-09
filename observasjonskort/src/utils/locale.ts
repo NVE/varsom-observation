@@ -12,6 +12,7 @@ async function fetchLocaleStringsForComponent(componentName: string, locale: str
   //source: https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
 
   export async function getLocaleComponentStrings(lang: string): Promise<any> {
+    console.log(lang)
     let componentName = "varsom-observation";
     
     let strings;

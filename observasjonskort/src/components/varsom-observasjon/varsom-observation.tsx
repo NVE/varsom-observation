@@ -368,38 +368,24 @@ export class VarsomObservation {
 {/* CONTENT */}
 <div class="observation-content">
   
-
 {/* ATTACHMENTS */}
- {/* add null checks...*/ }
-
+ 
         {obs._attachments.map((att: Attachment = {}) =>{
-            return  <varsom-attachment
+            return <varsom-attachment
               strings={this.strings}
-              registration-name={att.RegistrationName}
-              comment={att.Comment}
-              image-url={att.Url}
-              photographer={att.Photographer}
-              copyright={att.Copyright}
-              ></varsom-attachment>
-        })    
-}
-
-{/* tester schemakomponent */}
-{obs._attachments.map((att: Attachment = {}) =>{
-            return <varsom-schema label="joda" registrationName={att.RegistrationName}
-            comment={att.Comment}
-            photographer={att.Photographer}
-            copyright={att.Copyright}
-            ></varsom-schema> 
-              
-             
+              registration-name={att.RegistrationName ? att.RegistrationName : null}
+              comment={att.Comment ? att.Comment : null}
+              image-url={att.Url ? att.Url : null}
+              photographer={att.Photographer ? att.Photographer : null}
+              copyright={att.Copyright ? att.Copyright : null}
+              ></varsom-attachment>             
         })    
 }
 
 
 {/* AVALANCHE ACTIVITY OBSERVATIONS */}
 {obs._avalancheActivityObs2.length > 0 ?
-<h2>Skredaktivitet</h2> : "" }
+<div class="header">{this.strings.REGISTRATION.SNOW.AVALANCE_ACTIVITY_TITLE}</div> : "" }
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
   

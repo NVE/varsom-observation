@@ -18,27 +18,41 @@ export class VarsomAttachment {
  
 
   render(){
-    return <div class="container"> 
-    <div>
-      <img src={this.imageUrl}></img>
+    return <div class="container">
+      {this.imageUrl ? 
+        <div>
+        <img src={this.imageUrl} />
       </div>
-      <div>
-      <label>label mangler: </label>
-      {this.registrationName}
-    </div>
-    <div>
-      <label>label mangler: </label>
-      {this.comment}
-    </div>
-    <div>
-      <label>label mangler: </label>
-      {this.photographer}
-    </div>
-    <div>
-      <label>label mangler: </label>
-      {this.copyright}
-    </div>
+      : ""} 
 
+      {this.registrationName ? 
+      <div>
+        <label>label mangler: </label>
+        {this.registrationName}
+      </div>
+      : ""} 
+    
+    {this.comment ? 
+      <div>
+        <label>label mangler: </label>
+        {this.comment}
+      </div>
+      : ""} 
+
+    {this.photographer ? 
+      <div>
+        <label>label mangler: </label>
+        {this.photographer}
+      </div>
+      : ""} 
+
+    {this.copyright ? 
+      <div>
+        <label>label mangler: </label>
+        {this.copyright}
+      </div>
+      : ""} 
+      
     </div>
   }
     

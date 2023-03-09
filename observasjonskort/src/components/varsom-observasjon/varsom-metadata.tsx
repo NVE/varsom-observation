@@ -21,38 +21,48 @@ export class VarsomMetadata {
   
   render(){
     return <div> 
+      {this.dateOfRegistration ? 
       <span>
       <label>label mangler: </label>
       {this.dateOfRegistration}
-      </span>
+      </span> : ""}
+
+      {this.dateOfLastUpdate ? 
       <span>
       <label>label mangler: </label>
       {this.dateOfLastUpdate}
-      </span>
+      </span> : ""}
+
+      {this.geoHazardName ? 
       <span>
       <label>label mangler: </label>
       {this.geoHazardName}
-      </span>
+      </span> : ""}
+   
+      {this.moh ? 
       <span>
       <label>label mangler: </label>
       {this.moh}
-      </span>
+      </span> : ""}
+
+      {this.nickname ? 
       <span>
       <label>label mangler: </label>
       {this.nickname}
-      </span>
-      <span>
+      </span> : ""}
+
+      {this.competenceLevelName ? 
       <span>
       <label>label mangler: </label>
       {this.competenceLevelName}
-      </span>
+      </span> : ""}
+     
+      {this.observerGroupName ? 
+      <span>
       <label>label mangler: </label>
       {this.observerGroupName}
-      </span>
-
-
-
-
+      </span> : ""}
+  
     </div>
   }
     
