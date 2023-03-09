@@ -22,11 +22,37 @@ export class VarsomMetadata {
   render(){
     return <div> 
       <span>
-      <label>{this.strings.ABONNER_BANNER.BANNER_TEXT_LINE_1}</label>
+      <label>label mangler: </label>
       {this.dateOfRegistration}
-      
-      
       </span>
+      <span>
+      <label>label mangler: </label>
+      {this.dateOfLastUpdate}
+      </span>
+      <span>
+      <label>label mangler: </label>
+      {this.geoHazardName}
+      </span>
+      <span>
+      <label>label mangler: </label>
+      {this.moh}
+      </span>
+      <span>
+      <label>label mangler: </label>
+      {this.nickname}
+      </span>
+      <span>
+      <span>
+      <label>label mangler: </label>
+      {this.competenceLevelName}
+      </span>
+      <label>label mangler: </label>
+      {this.observerGroupName}
+      </span>
+
+
+
+
     </div>
   }
     

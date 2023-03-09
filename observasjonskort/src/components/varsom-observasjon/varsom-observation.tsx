@@ -313,10 +313,9 @@ export class VarsomObservation {
       nickname={obs._observer.NickName ? obs._observer.NickName : null}
       competenceLevelName={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
       observerGroupName={obs._observerGroupName ? obs._observerGroupName : null}
-
       > </varsom-metadata>      
          
-           
+      {/*map*/}     
       <div>
         <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
       </div>
