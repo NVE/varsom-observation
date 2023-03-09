@@ -50,14 +50,25 @@ export namespace Components {
         "type": string;
     }
     interface VarsomSchema {
-        "AvalCauseName": any;
-        "DtStart": any;
+        "airTemperature": any;
+        "avalCauseName": any;
         "comment": any;
         "copyright": any;
+        "dtAvalancheTime": any;
+        "dtMeasurementTime": any;
+        "dtStart": any;
+        "measurementReferenceName": any;
+        "measurementTypeName": any;
+        "observationTimingName": any;
         "observer": any;
         "photographer": any;
         "registrationName": any;
         "strings": any;
+        "waterAstrayName": any;
+        "waterLevel": any;
+        "waterLevelStateName": any;
+        "waterLevelValue": any;
+        "weatherPrecipitationName": any;
     }
 }
 declare global {
@@ -151,14 +162,25 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface VarsomSchema {
-        "AvalCauseName"?: any;
-        "DtStart"?: any;
+        "airTemperature"?: any;
+        "avalCauseName"?: any;
         "comment"?: any;
         "copyright"?: any;
+        "dtAvalancheTime"?: any;
+        "dtMeasurementTime"?: any;
+        "dtStart"?: any;
+        "measurementReferenceName"?: any;
+        "measurementTypeName"?: any;
+        "observationTimingName"?: any;
         "observer"?: any;
         "photographer"?: any;
         "registrationName"?: any;
         "strings"?: any;
+        "waterAstrayName"?: any;
+        "waterLevel"?: any;
+        "waterLevelStateName"?: any;
+        "waterLevelValue"?: any;
+        "weatherPrecipitationName"?: any;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

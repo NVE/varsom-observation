@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { Observation } from './observation-model';
+import { Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -385,100 +385,75 @@ export class VarsomObservation {
 
 {/* AVALANCHE ACTIVITY OBSERVATIONS */}
 {obs._avalancheActivityObs2.length > 0 ?
-<div class="header">{this.strings.REGISTRATION.SNOW.AVALANCE_ACTIVITY_TITLE}</div> : "" }
+<label>{this.strings.REGISTRATION.SNOW.AVALANCE_ACTIVITY_TITLE}</label> : "" }
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
-  
-            return <div> 
-              {el.DtStart ? 
-              <div> Tid: {el.DtStart} </div> : ""}
-              
-              {el.AvalCauseName ? 
-              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div> : ""}
-              
-              {el.Comment ? 
-              <div> Kommentar: {el.Comment} </div> :  ""}
-              
-  
-</div>
+
+            return <varsom-schema
+            strings={this.strings}
+            dtStart={el.DtStart ? el.DtStart : null}
+            avalCauseName={el.AvalCauseName ? el.AvalCauseName : null}
+            comment={el.Comment ? el.Comment : null}
+            > </varsom-schema>
         })
-        
         }
 
 {/* AVALANCHE OBSERVATIONS */}  
 {obs._avalancheObs ? 
-<div>
-<h2>Skredobservasjon</h2>
-<div>Tid: {obs._avalancheObs.DtAvalancheTime}</div>
-<div>Kommentar: {obs._avalancheObs.Comment}</div>
-  
-</div>
-  
+<varsom-schema
+strings={this.strings}
+dtAvalancheTime={obs._avalancheActivityObs.DtAvalancheTime ? obs._avalancheActivityObs.dtAvalancheTime : null}
+comment={obs._avalancheActivityObs.Comment ? obs._avalancheActivityObs.Comment : null}
+></varsom-schema>  
   : "" }
 
 {/* WATERLEVEL 2 */}
 
 {obs._waterLevel ? 
-<div><h2>Vannstand</h2><br></br>
-
-{obs._waterLevel.WaterLevelStateName ? 
-<div>Situasjon: {obs._waterLevel.WaterLevelStateName} </div>: ""}
-
-{obs._waterLevel.WaterAstrayName ? 
-<div>Vann på avveie: {obs._waterLevel.WaterAstrayName} </div>: ""}
-
-{obs._waterLevel.ObservationTimingName ? 
-<div>Hva registrerer du?: {obs._waterLevel.ObservationTimingName} </div>: ""}
-
-{obs._waterLevel.MeasurementTypeName ? 
-<div>Måleinstrument: {obs._waterLevel.MeasurementTypeName}, 
-{obs._waterLevel.MeasuringToolDescription}</div>: ""}
-
-{obs._waterLevel.MeasurementReferenceName ? 
-<div>Måling relativt til: {obs._waterLevel.MeasurementReferenceName} </div>: ""}
-
-{obs._waterLevel.Comment ? 
-<div>Kommentar: {obs._waterLevel.Comment} </div>: ""}
-
-</div>: ""}
+<varsom-schema
+water-astray-name={obs._waterLevel.WaterAstrayName ? obs._waterLevel.WaterAstrayName : null}
+observation-timing-name={obs.waterLevel.ObservationTimingName ? obs.waterLevel.observationTimingName : null}
+strings={this.strings}
+measurement-type-name={obs._waterlevel.MeasurementTypeName ? obs._waterlevel.MeasurementTypeName : null}
+measurement-reference-name={obs.waterlevel.MeasurementReferenceName ? obs.waterlevel.MeasurementReferenceName : null}
+></varsom-schema>
+: ""}
 
 
 {/* VANNMÅLING  */ }
-{/*
+<label>vannmåling. label mangler...</label>
+{obs._waterLevel ? 
+<div>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
-  return <div>
-  <h2>Vannmåling</h2>
-{el.DtMeasurementTime ? 
-  <div>Tid: {el.DtMeasurementTime} </div> : ""}
-{el.WaterLevelValue ? 
-<div>Verdi: {el.WaterLevelValue} </div>: ""}
-{el.Comment ?
- <div>Kommentar: {el.Comment} </div>: ""}
-</div>
+  return <varsom-schema
+  dtMeasurementTime={el.DtMeasurementTime ? el.DtMeasurementTime : null}
+  waterLevelValue={el.WaterLevelValue ? el.WaterLevelValue : null}
+  comment={el.Comment ? el.Comment : null}
+  ></varsom-schema>
 })
 
 }
-*/}
+</div> : ""}
+
 
 
 {/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
-
-<div>
-  <h2>Vær:</h2>
-  <div>Nedbørstype: {obs._weather.PrecipitationName}</div>
-  <div>Temperatur: {obs._weather.AirTemperature}</div>
-  
-   </div>
-
+<varsom-schema
+weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
+air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
+>
+   </varsom-schema>
 : ""}
 
 
 {/* AVALANCHE EVAL PROBLEM */}
 
+
+
 {/* AVALANCHE EVAL PROBLEM 2 */}
 {obs._avalancheEvalProblem2.length > 0 ? 
-<h2>Skredproblem</h2> : ""}
+<label>Skredproblem: label mangler...</label> : ""}
 
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
 return <div>
