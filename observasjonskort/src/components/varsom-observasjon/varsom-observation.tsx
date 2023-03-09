@@ -373,15 +373,14 @@ export class VarsomObservation {
  {/* add null checks...*/ }
 
         {obs._attachments.map((att: Attachment = {}) =>{
-            return <div> 
-              
-              <div> Type: {att.RegistrationName} </div>
-              <div> Kommentar: {att.Comment} </div>
-              <img class="observation-images" src={att.Url}></img>
-              <div> Fotograf: {att.Photographer} </div>
-              <div> Copyright: {att.Copyright} </div>
-              <br></br>
-            </div>
+            return  <varsom-attachment
+              strings={this.strings}
+              registration-name={att.RegistrationName}
+              comment={att.Comment}
+              image-url={att.Url}
+              photographer={att.Photographer}
+              copyright={att.Copyright}
+              ></varsom-attachment>
         })    
 }
 

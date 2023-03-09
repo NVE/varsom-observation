@@ -1,0 +1,11 @@
+img {
+  max-width: 20rem;
+}
+
+.container {
+  margin-bottom: 2rem;
+}
+
+label {
+  font-weight: 800;
+}

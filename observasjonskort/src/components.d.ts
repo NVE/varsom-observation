@@ -20,6 +20,14 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface VarsomAttachment {
+        "comment": any;
+        "copyright": any;
+        "imageUrl": any;
+        "photographer": any;
+        "registrationName": any;
+        "strings"?: any;
+    }
     interface VarsomHeader {
         "regId": string;
         "region": string;
@@ -57,6 +65,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLVarsomAttachmentElement extends Components.VarsomAttachment, HTMLStencilElement {
+    }
+    var HTMLVarsomAttachmentElement: {
+        prototype: HTMLVarsomAttachmentElement;
+        new (): HTMLVarsomAttachmentElement;
+    };
     interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
     }
     var HTMLVarsomHeaderElement: {
@@ -83,6 +97,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "varsom-attachment": HTMLVarsomAttachmentElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
@@ -103,6 +118,14 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface VarsomAttachment {
+        "comment"?: any;
+        "copyright"?: any;
+        "imageUrl"?: any;
+        "photographer"?: any;
+        "registrationName"?: any;
+        "strings"?: any;
     }
     interface VarsomHeader {
         "regId"?: string;
@@ -135,6 +158,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "varsom-attachment": VarsomAttachment;
         "varsom-header": VarsomHeader;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
@@ -146,6 +170,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "varsom-attachment": LocalJSX.VarsomAttachment & JSXBase.HTMLAttributes<HTMLVarsomAttachmentElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
