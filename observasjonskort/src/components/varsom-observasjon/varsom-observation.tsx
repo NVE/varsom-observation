@@ -385,7 +385,7 @@ export class VarsomObservation {
 
 {/* AVALANCHE ACTIVITY OBSERVATIONS */}
 {obs._avalancheActivityObs2.length > 0 ?
-<label>{this.strings.REGISTRATION.SNOW.AVALANCE_ACTIVITY_TITLE}</label> : "" }
+<label>Label mangler....</label> : "" }
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
 
