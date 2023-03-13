@@ -422,11 +422,11 @@ measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._wate
 <div>
 <label>{this.strings.Observations.WaterLevel2.WaterMeasurement}</label>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
-  return <varsom-schema
+  return <varsom-water-measurement
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   comment={el.Comment ? el.Comment : null}
-  ></varsom-schema>
+  ></varsom-water-measurement>
 })
 
 }

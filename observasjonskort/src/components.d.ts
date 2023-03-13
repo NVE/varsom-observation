@@ -106,6 +106,12 @@ export namespace Components {
         "strings": any;
         "waterAstrayName": any;
     }
+    interface VarsomWaterMeasurement {
+        "comment": any;
+        "dtMeasurementTime": any;
+        "strings": any;
+        "waterLevelValue": any;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -162,6 +168,12 @@ declare global {
         prototype: HTMLVarsomWaterLevel2Element;
         new (): HTMLVarsomWaterLevel2Element;
     };
+    interface HTMLVarsomWaterMeasurementElement extends Components.VarsomWaterMeasurement, HTMLStencilElement {
+    }
+    var HTMLVarsomWaterMeasurementElement: {
+        prototype: HTMLVarsomWaterMeasurementElement;
+        new (): HTMLVarsomWaterMeasurementElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "varsom-attachment": HTMLVarsomAttachmentElement;
@@ -172,6 +184,7 @@ declare global {
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
         "varsom-water-level2": HTMLVarsomWaterLevel2Element;
+        "varsom-water-measurement": HTMLVarsomWaterMeasurementElement;
     }
 }
 declare namespace LocalJSX {
@@ -275,6 +288,12 @@ declare namespace LocalJSX {
         "strings"?: any;
         "waterAstrayName"?: any;
     }
+    interface VarsomWaterMeasurement {
+        "comment"?: any;
+        "dtMeasurementTime"?: any;
+        "strings"?: any;
+        "waterLevelValue"?: any;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "varsom-attachment": VarsomAttachment;
@@ -285,6 +304,7 @@ declare namespace LocalJSX {
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
         "varsom-water-level2": VarsomWaterLevel2;
+        "varsom-water-measurement": VarsomWaterMeasurement;
     }
 }
 export { LocalJSX as JSX };
@@ -300,6 +320,7 @@ declare module "@stencil/core" {
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
             "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
+            "varsom-water-measurement": LocalJSX.VarsomWaterMeasurement & JSXBase.HTMLAttributes<HTMLVarsomWaterMeasurementElement>;
         }
     }
 }

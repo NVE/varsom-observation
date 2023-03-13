@@ -34,21 +34,21 @@ export class VarsomAttachment {
     
     {this.comment ? 
       <div>
-        <label>label mangler: </label>
+        <label>{this.strings.Observations.Picture.PictureComment}: </label>
         {this.comment}
       </div>
       : ""} 
 
     {this.photographer ? 
       <div>
-        <label>label mangler: </label>
+        <label>{this.strings.Observations.Picture.Photographer}: </label>
         {this.photographer}
       </div>
       : ""} 
 
     {this.copyright ? 
       <div>
-        <label>label mangler: </label>
+        <label>{this.strings.Observations.Picture.Copyright}: </label>
         {this.copyright}
       </div>
       : ""} 
