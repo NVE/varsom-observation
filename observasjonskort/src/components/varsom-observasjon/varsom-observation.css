@@ -1,6 +1,10 @@
 :host {
     display: block;
   }
+
+  label {
+    font-weight: 800;
+  }
   
   /*box-sizing:border-box*/
   

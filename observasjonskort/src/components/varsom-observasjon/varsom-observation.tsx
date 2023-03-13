@@ -22,7 +22,7 @@ export class VarsomObservation {
   observations: Observation[] = []; 
   
   @Prop() regid: string;
-  @Prop() lang: string = "nb";
+  @Prop() language: string = "nb";
   @Prop() type: string;
   @Prop() number: number = 1;
 
@@ -84,10 +84,10 @@ export class VarsomObservation {
   async componentWillLoad(){
 
   
-  this.strings = await getLocaleComponentStrings(this.lang);
+  this.strings = await getLocaleComponentStrings(this.language);
   
   let geoHazardId = getGeoHazardIdFromName(this.type);
-  let langKey = getLangKeyFromName(this.lang);
+  let langKey = getLangKeyFromName(this.language);
   let _data 
   if (this.regid !== undefined){
     _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
@@ -382,47 +382,45 @@ export class VarsomObservation {
 }
 
 
-{/* AVALANCHE ACTIVITY OBSERVATIONS */}
 {obs._avalancheActivityObs2.length > 0 ?
 <label>Label mangler....</label> : "" }
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
 
-            return <varsom-schema
+            return <varsom-avalanche-activity-obs2
             strings={this.strings}
             dt-start={el.DtStart ? el.DtStart : null}
             aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
             comment={el.Comment ? el.Comment : null}
-            > </varsom-schema>
+            > </varsom-avalanche-activity-obs2>
         })
         }
 
-{/* AVALANCHE OBSERVATIONS */}  
+
 {obs._avalancheObs ? 
-<varsom-schema
+<varsom-avalanche-obs
 strings={this.strings}
 dt-avalanche-time={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
 comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
-></varsom-schema>  
+></varsom-avalanche-obs>  
   : "" }
 
-{/* WATERLEVEL 2 */}
 
 {obs._waterLevel ? 
-<varsom-schema
+<varsom-water-level2
 water-astray-name={obs._waterLevel.WaterAstrayName ? obs._waterLevel.WaterAstrayName : null}
 observation-timing-name={obs._waterLevel.ObservationTimingName ? obs._waterLevel.observationTimingName : null}
 strings={this.strings}
 measurement-type-name={obs._waterLevel.MeasurementTypeName ? obs._waterLevel.MeasurementTypeName : null}
 measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._waterLevel.MeasurementReferenceName : null}
-></varsom-schema>
+></varsom-water-level2>
 : ""}
 
 
-{/* VANNMÅLING  */ }
-<label>vannmåling. label mangler...</label>
+
 {obs._waterLevel ? 
 <div>
+<label>{this.strings.Observations.WaterLevel2.WaterMeasurement}</label>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-schema
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}

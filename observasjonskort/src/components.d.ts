@@ -28,6 +28,18 @@ export namespace Components {
         "registrationName": any;
         "strings"?: any;
     }
+    interface VarsomAvalancheActivityObs2 {
+        "avalCauseName": any;
+        "comment": any;
+        "dtStart": any;
+        "strings": any;
+    }
+    interface VarsomAvalancheObs2 {
+        "avalCauseName": any;
+        "comment": any;
+        "dtAvalancheTime": any;
+        "strings": any;
+    }
     interface VarsomHeader {
         "regId": string;
         "region": string;
@@ -44,7 +56,7 @@ export namespace Components {
     }
     interface VarsomObservation {
         "count": number;
-        "lang": string;
+        "language": string;
         "number": number;
         "regid": string;
         "type": string;
@@ -86,6 +98,14 @@ export namespace Components {
         "waterLevelValue": any;
         "weatherPrecipitationName": any;
     }
+    interface VarsomWaterLevel2 {
+        "comment": any;
+        "measurementReferenceName": any;
+        "measurementTypeName": any;
+        "observationTimingName": any;
+        "strings": any;
+        "waterAstrayName": any;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -99,6 +119,18 @@ declare global {
     var HTMLVarsomAttachmentElement: {
         prototype: HTMLVarsomAttachmentElement;
         new (): HTMLVarsomAttachmentElement;
+    };
+    interface HTMLVarsomAvalancheActivityObs2Element extends Components.VarsomAvalancheActivityObs2, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheActivityObs2Element: {
+        prototype: HTMLVarsomAvalancheActivityObs2Element;
+        new (): HTMLVarsomAvalancheActivityObs2Element;
+    };
+    interface HTMLVarsomAvalancheObs2Element extends Components.VarsomAvalancheObs2, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheObs2Element: {
+        prototype: HTMLVarsomAvalancheObs2Element;
+        new (): HTMLVarsomAvalancheObs2Element;
     };
     interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
     }
@@ -124,13 +156,22 @@ declare global {
         prototype: HTMLVarsomSchemaElement;
         new (): HTMLVarsomSchemaElement;
     };
+    interface HTMLVarsomWaterLevel2Element extends Components.VarsomWaterLevel2, HTMLStencilElement {
+    }
+    var HTMLVarsomWaterLevel2Element: {
+        prototype: HTMLVarsomWaterLevel2Element;
+        new (): HTMLVarsomWaterLevel2Element;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "varsom-attachment": HTMLVarsomAttachmentElement;
+        "varsom-avalanche-activity-obs2": HTMLVarsomAvalancheActivityObs2Element;
+        "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
+        "varsom-water-level2": HTMLVarsomWaterLevel2Element;
     }
 }
 declare namespace LocalJSX {
@@ -156,6 +197,18 @@ declare namespace LocalJSX {
         "registrationName"?: any;
         "strings"?: any;
     }
+    interface VarsomAvalancheActivityObs2 {
+        "avalCauseName"?: any;
+        "comment"?: any;
+        "dtStart"?: any;
+        "strings"?: any;
+    }
+    interface VarsomAvalancheObs2 {
+        "avalCauseName"?: any;
+        "comment"?: any;
+        "dtAvalancheTime"?: any;
+        "strings"?: any;
+    }
     interface VarsomHeader {
         "regId"?: string;
         "region"?: string;
@@ -172,7 +225,7 @@ declare namespace LocalJSX {
     }
     interface VarsomObservation {
         "count"?: number;
-        "lang"?: string;
+        "language"?: string;
         "number"?: number;
         "regid"?: string;
         "type"?: string;
@@ -214,13 +267,24 @@ declare namespace LocalJSX {
         "waterLevelValue"?: any;
         "weatherPrecipitationName"?: any;
     }
+    interface VarsomWaterLevel2 {
+        "comment"?: any;
+        "measurementReferenceName"?: any;
+        "measurementTypeName"?: any;
+        "observationTimingName"?: any;
+        "strings"?: any;
+        "waterAstrayName"?: any;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "varsom-attachment": VarsomAttachment;
+        "varsom-avalanche-activity-obs2": VarsomAvalancheActivityObs2;
+        "varsom-avalanche-obs2": VarsomAvalancheObs2;
         "varsom-header": VarsomHeader;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
+        "varsom-water-level2": VarsomWaterLevel2;
     }
 }
 export { LocalJSX as JSX };
@@ -229,10 +293,13 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "varsom-attachment": LocalJSX.VarsomAttachment & JSXBase.HTMLAttributes<HTMLVarsomAttachmentElement>;
+            "varsom-avalanche-activity-obs2": LocalJSX.VarsomAvalancheActivityObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObs2Element>;
+            "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
+            "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
         }
     }
 }
