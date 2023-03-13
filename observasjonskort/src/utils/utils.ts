@@ -71,64 +71,34 @@ export function getGeoHazardIdFromName(hazardName: string) {
 
   export function getLangKeyFromName(language: string){
     switch (language){
-      case "English": {
+      case "en": {
         return 2
       }
-      case "Norwegian": {
+      case "nb": {
         return 1
       }
-      case "German": {
+      case "de": {
         return 3
       }
-      case "Slovenian": {
+      case "sl": {
         return 4
       }
-      case "Italian": {
+      case "it": {
         return 6
       }
-      case "Swedish": {
+      case "sv": {
         return 5
       }
-      case "Nynorsk": {
+      case "nn": {
         return 7
       }
-      case "French": {
+      case "fr": {
         return 8
       }
-      case "Danish": {
+      case "da": {
         return 9
       }
     }
   }
 
-  export function getLangCodeFromName(language: string){
-    switch (language){
-      case "English": {
-        return "en"
-      }
-      case "Norwegian": {
-        return "nb"
-      }
-      case "German": {
-        return "de"
-      }
-      case "Slovenian": {
-        return "sl"
-      }
-      case "Italian": {
-        return "it"
-      }
-      case "Swedish": {
-        return "sv"
-      }
-      case "Nynorsk": {
-        return "nn"
-      }
-      case "French": {
-        return "fr"
-      }
-      case "Danish": {
-        return "da"
-      }
-    }
-  }
+

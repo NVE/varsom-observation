@@ -44,7 +44,7 @@ export namespace Components {
     }
     interface VarsomObservation {
         "count": number;
-        "language": string;
+        "lang": string;
         "number": number;
         "regid": string;
         "type": string;
@@ -172,7 +172,7 @@ declare namespace LocalJSX {
     }
     interface VarsomObservation {
         "count"?: number;
-        "language"?: string;
+        "lang"?: string;
         "number"?: number;
         "regid"?: string;
         "type"?: string;

@@ -53,7 +53,7 @@ export class VarsomMetadata {
 
       {this.competenceLevelName ? 
       <span>
-      <label>{this.strings.Search.Observers.CompetenceFilter}</label>
+      <label>{this.strings.Search.Criterias.Observers.CompetenceFilter}</label>
       {this.competenceLevelName}
       </span> : ""}
      
