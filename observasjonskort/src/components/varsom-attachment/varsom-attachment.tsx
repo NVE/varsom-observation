@@ -27,7 +27,6 @@ export class VarsomAttachment {
 
       {this.registrationName ? 
       <div>
-        <label>label mangler: </label>
         {this.registrationName}
       </div>
       : ""} 

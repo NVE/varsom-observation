@@ -329,13 +329,13 @@ export class VarsomObservation {
   </div>
     <div class="imageInfo"> 
     {obs._images[0]._copyright ? 
-    <div><b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
     
     {obs._images[0]._photographer ? 
-     <div><b>Fotograf: </b> {obs._images[0]._photographer} <br></br></div> : ""}
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
         
     {obs._images[0]._comment ? 
-        <div><b>Kommentar: </b> {obs._images[0]._comment} </div> : ""}
+        <div><b>{this.strings.Observations.Picture.PictureComment} </b> {obs._images[0]._comment} </div> : ""}
 
     </div>
   </div>
@@ -420,9 +420,10 @@ measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._wate
 
 {obs._waterLevel ? 
 <div>
-<label>{this.strings.Observations.WaterLevel2.WaterMeasurement}</label>
+<div class="header">{this.strings.Observations.WaterLevel2.WaterMeasurement}</div>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-water-measurement
+  strings={this.strings}
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   comment={el.Comment ? el.Comment : null}
@@ -436,11 +437,12 @@ measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._wate
 
 {/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
-<varsom-schema
+<varsom-weather
+strings={this.strings}
 weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
 >
-   </varsom-schema>
+   </varsom-weather>
 : ""}
 
 
@@ -450,10 +452,11 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 
 {/* AVALANCHE EVAL PROBLEM 2 */}
 {obs._avalancheEvalProblem2.length > 0 ? 
-<label>Skredproblem: label mangler...</label> : ""}
+<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
 
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
-return <varsom-schema
+return <varsom-avalanche-eval-problem2
+strings={this.strings}
 aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
 avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
 aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
@@ -462,23 +465,21 @@ aval-trigger-simple-name={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : 
 destructive-size-name={el.DestructiveSizeName ? el.DestructiveSizeName : null}
 aval-propagation-name={el.AvalPropagationName ? el.AvalPropagationName : null}
 >
-  
-{/* TEGNING HER... */}
-</varsom-schema>
+</varsom-avalanche-eval-problem2>
 })
 }
 
 {/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEval3 ? 
 <div>
-<label>Skredfarervurdering... label mangler</label> 
-<varsom-schema
+<div class="header">{this.strings.Observations.AvalancheEvaluation3.ObsName}</div> 
+<varsom-avalanche-evaluation3
+strings={this.strings}
 avalanche-evaluation={obs._avalancheEval3.AvalancheEvaluation ? obs._avalancheEval3.AvalancheEvaluation : null}
 avalanche-development={obs._avalancheEval3.AvalancheDevelopment ? obs._avalancheEval3.AvalancheDevelopment : null}
 forecast-comment={obs._avalancheEval3.forecastComment}
 >
-{/* TEGNING HER */}
-</varsom-schema>
+</varsom-avalanche-evaluation3>
 </div>
 : ""}
 
@@ -487,17 +488,18 @@ forecast-comment={obs._avalancheEval3.forecastComment}
 
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
-<label>Faretegn...label mangler</label> : "" }
+<div class="header">{this.strings.Observations.DangerObs.ObsName}</div> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{
   
-            return <varsom-schema
+            return <varsom-danger-obs
+            strings={this.strings}
             danger-sign-name={el.DangerSignName}
             comment={el.Comment}
             > 
           <div> Type: {el.DangerSignName} </div>        
           <div> Kommentar: {el.Comment} </div>
-          </varsom-schema>
+          </varsom-danger-obs>
         })
         
         }
@@ -509,17 +511,18 @@ forecast-comment={obs._avalancheEval3.forecastComment}
 {/* SNOW SURFACE */}
 {obs._snowSurfaceObservation ? 
 <div>
-  <label>Snødekke... label mangler</label>
-<varsom-schema
-  snowDepth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
+  <div class="header">{this.strings.Observations.SnowSurfaceObservation.ObsName}</div>
+<varsom-snow-surface
+  strings={this.strings}
+  snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
   comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
-  surface-water-contentName={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
+  surface-water-content-name={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
   snow-drift-name={obs._snowSurfaceObservation.SnowDriftName ? obs._snowSurfaceObservation.SnowDriftName : null} 
   snow-surface-name={obs._snowSurfaceObservation.SnowSurfaceName ? obs._snowSurfaceObservation.SnowSurfaceName : null}
   ski-conditions-name={obs._snowSurfaceObservation.SkiConditionsName ? obs._snowSurfaceObservation.SkiConditionsName : null}
   new-snow-line={obs._snowSurfaceObservation.NewSnowLine ? obs._snowSurfaceObservation.NewSnowLine : null}
 >
-</varsom-schema>
+</varsom-snow-surface>
 </div>  
   : ""}
 
