@@ -3,6 +3,8 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   
   namespace: 'observasjonskort',
+  
+  
   outputTargets: [
     {
       type: 'dist',
@@ -16,7 +18,12 @@ export const config: Config = {
     },
     {
       type: 'www',
+      copy: [{
+        src: "**/*.i18n.*.json",
+        dest: "i18n"
+      }],
       serviceWorker: null, // disable service workers
     },
   ],
+ 
 };

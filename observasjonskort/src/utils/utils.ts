@@ -4,6 +4,8 @@ export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
+
+
 export async function getObservationFromApiById(id: string){
     let data = `{"RegId": ${id}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
@@ -69,28 +71,33 @@ export function getGeoHazardIdFromName(hazardName: string) {
 
   export function getLangKeyFromName(language: string){
     switch (language){
-      case "English": {
+      case "en": {
         return 2
       }
-      case "Norwegian": {
+      case "nb": {
         return 1
       }
-      case "German": {
+      case "de": {
         return 3
       }
-      case "Slovenian": {
+      case "sl": {
         return 4
       }
-      case "Italian": {
+      case "it": {
         return 6
       }
-      case "Swedish": {
+      case "sv": {
         return 5
       }
-      case "Nynorsk": {
+      case "nn": {
         return 7
       }
-        
+      case "fr": {
+        return 8
+      }
+      case "da": {
+        return 9
+      }
     }
   }
 

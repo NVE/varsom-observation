@@ -1,10 +1,12 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { Observation } from './observation-model';
+import { Observation, WaterLevelMeasurement } from './observation-model';
+import { AvalancheEvalProblem2 } from './observation-model';
+import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
-
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-observation',
@@ -18,10 +20,13 @@ export class VarsomObservation {
   
   observations: Observation[] = []; 
   
-  @Prop() regId: string;
-  @Prop() language: string = "Norwegian";
+  @Prop() regid: string;
+  @Prop() language: string = "nb";
   @Prop() type: string;
   @Prop() number: number = 1;
+
+  element: HTMLElement;
+  strings: any;
   
   //carousel: Carousel;
   dataSource: any;
@@ -58,6 +63,8 @@ export class VarsomObservation {
     //dots[this.slideIndex-1].className += " active";
   }
 
+
+
   async componentDidRender(){
     for (let i = 0; i < this.observations.length; i++){
       var obs = this.observations[i];
@@ -70,13 +77,19 @@ export class VarsomObservation {
     }
 
     }
+
+    
+
   async componentWillLoad(){
 
+  
+  this.strings = await getLocaleComponentStrings(this.language);
+  
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regId !== undefined){
-    _data = `{"LangKey": ${langKey}, "RegId": ${this.regId}}`
+  if (this.regid !== undefined){
+    _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
     let response = await fetch('https://api.regobs.no/v5/Search', {
@@ -87,7 +100,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-        
+  console.log("query: " + _data);
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
@@ -110,7 +123,7 @@ export class VarsomObservation {
         _landslideObs: data[i]["LandslideObs"],
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
-        _snowSurface: data[i]["SnowSurface"],
+        _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
         //_attachments: data[i]["Attachments"],
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
@@ -139,6 +152,7 @@ export class VarsomObservation {
         }          
      );
 
+
         //add attachments
         for(let j = 0; j < 30; j++){  //max 30 attachments
           if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
@@ -153,6 +167,8 @@ export class VarsomObservation {
   
             
         }
+
+    
       
         //add avalancheActivityObservations
         if (data[i]["AvalancheActivityObs2"].length > 0){
@@ -305,6 +321,44 @@ export class VarsomObservation {
 }
   */      
 
+   //add avalancheEvalProblem
+   if (data[i]["AvalancheEvalProblem2"].length > 0){
+    for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+      this.observations[i]._avalancheEvalProblem2.push({
+        AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
+        AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
+        AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
+        ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
+        AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
+        AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
+        DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
+        AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
+        AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
+        AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
+        AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
+        AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
+        AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
+        AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
+        AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
+        AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
+        ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
+        ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
+        ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
+        ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
+        AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
+        Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
+        AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
+        AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
+        AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
+        AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
+        AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
+        DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
+      })
+    }
+  }
+
+
+
 
         //add images for image carousel
      this.observations[i]._images.push(
@@ -336,46 +390,56 @@ export class VarsomObservation {
       return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
-      <div class="observation-header"> 
-      <p>{obs._region}</p>
-      <p>ID: {obs._regId}</p></div>
-      
-      <div class="observation-metadata">
-      {/*
-      Observert {obs._dateOfObservation}  ikke i bruk? */}
-      <span>Registrert {obs._dateOfRegistration}</span>
-      <span> Oppdatert {obs._dateOfLastUpdate}</span>
+         
+      <varsom-header region={obs._region} regId={obs._regId}></varsom-header>
 
-         <br></br>
-         <span>Ikon faretype: {obs._geoHazardName} ikon moh: {obs._moh} </span>
-        <span>bruker: {obs._observer.NickName} brukerRating {obs._observer.CompetenceLevelName} {obs._observerGroupName} </span>
-
-
-      </div>
+      <varsom-metadata 
+      strings={this.strings} 
+      date-of-registration={obs._dateOfRegistration ? obs._dateOfRegistration : null}
+      date-of-last-update={obs._dateOfLastUpdate ? obs._dateOfLastUpdate : null}
+      geo-hazard-name={obs._geoHazardName ? obs._geoHazardName : null}
+      moh={obs._moh ? obs._moh : null}
+      nickname={obs._observer.NickName ? obs._observer.NickName : null}
+      competence-level-name={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
+      observer-group-name={obs._observerGroupName ? obs._observerGroupName : null}
+      > </varsom-metadata>      
+         
+      {/*map*/}     
       <div>
         <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
       </div>
+
+
+{/* IMAGE SLIDER */}
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <div>
   <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
-    <div class="imageInfo"> <b>Opphavsrett: </b> {obs._images[0]._copyright} <br></br>
-        <p><b>Fotograf: </b> {obs._images[0]._photographer} </p>
-        <p><b>Kommentar: </b> {obs._images[0]._comment} </p></div>
+    <div class="imageInfo"> 
+    {obs._images[0]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[0]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
+        
+    {obs._images[0]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment} </b> {obs._images[0]._comment} </div> : ""}
+
+    </div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">2 / 3</div>
   <img class="observation-images" src={obs._images[1]._imageData}></img>
-    <div class="text">Caption Text</div>
+    <div class="text"></div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext">3 / 3</div>
   <img class="observation-images" src={obs._images[2]._imageData}></img>
-    <div class="text">Caption Text</div>
+    <div class="text"></div>
   </div>
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
   <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
@@ -390,75 +454,167 @@ export class VarsomObservation {
 </div>
 
 
+{/* CONTENT */}
 <div class="observation-content">
   
-  {obs._attachments.length > 0 ?
-   <h2>Faretegn</h2> : "" }
-  
-
+{/* ATTACHMENTS */}
+ 
         {obs._attachments.map((att: Attachment = {}) =>{
-            return <div> 
-              
-              <div> Type: {att.RegistrationName} </div>
-              <div> Kommentar: {att.Comment} </div>
-              <img class="observation-images" src={att.Url}></img>
-              <div> Fotograf: {att.Photographer} </div>
-              <div> Copyright: {att.Copyright} </div>
-              <br></br>
-            
-</div>
-        })
-        
-        }
+            return <varsom-attachment
+              strings={this.strings}
+              registration-name={att.RegistrationName ? att.RegistrationName : null}
+              comment={att.Comment ? att.Comment : null}
+              image-url={att.Url ? att.Url : null}
+              photographer={att.Photographer ? att.Photographer : null}
+              copyright={att.Copyright ? att.Copyright : null}
+              ></varsom-attachment>             
+        })    
+}
+
 
 {obs._avalancheActivityObs2.length > 0 ?
-<h2>Skredaktivitet</h2> : "" }
+<label>Label mangler....</label> : "" }
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
-  
-            return <div> 
-              
-              <div> Tid: {el.DtStart} </div>        
-              <div> Antall, størrelse og skredutløser: {el.AvalCauseName} </div>
-              <div> Kommentar: {el.Comment} </div>
-  
-</div>
+
+            return <varsom-avalanche-activity-obs2
+            strings={this.strings}
+            dt-start={el.DtStart ? el.DtStart : null}
+            aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+            comment={el.Comment ? el.Comment : null}
+            > </varsom-avalanche-activity-obs2>
         })
-        
         }
 
-  
+
 {obs._avalancheObs ? 
-<div>
-<h2>Skredobservasjon</h2>
-<div>Tid: {obs._avalancheObs.DtAvalancheTime}</div>
-<div>Kommentar: {obs._avalancheObs.Comment}</div>
-  
-</div>
-  
+<varsom-avalanche-obs
+strings={this.strings}
+dt-avalanche-time={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
+comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
+></varsom-avalanche-obs>  
   : "" }
 
 
-
-
-{obs._weather ? 
-
-<div>
-  <h2>Vær:</h2>
-  <div>Nedbørstype: {obs._weather.PrecipitationName}</div>
-  <div>Temperatur: {obs._weather.AirTemperature}</div>
-  
-   </div>
-
+{obs._waterLevel ? 
+<varsom-water-level2
+water-astray-name={obs._waterLevel.WaterAstrayName ? obs._waterLevel.WaterAstrayName : null}
+observation-timing-name={obs._waterLevel.ObservationTimingName ? obs._waterLevel.observationTimingName : null}
+strings={this.strings}
+measurement-type-name={obs._waterLevel.MeasurementTypeName ? obs._waterLevel.MeasurementTypeName : null}
+measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._waterLevel.MeasurementReferenceName : null}
+></varsom-water-level2>
 : ""}
 
 
 
+{obs._waterLevel ? 
+<div>
+<div class="header">{this.strings.Observations.WaterLevel2.WaterMeasurement}</div>
+{obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
+  return <varsom-water-measurement
+  strings={this.strings}
+  dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
+  water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
+  comment={el.Comment ? el.Comment : null}
+  ></varsom-water-measurement>
+})
+
+}
+</div> : ""}
 
 
+
+{/* WEATHER OBSERVATIONS */}
+{obs._weather ? 
+<varsom-weather
+strings={this.strings}
+weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
+air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
+>
+   </varsom-weather>
+: ""}
+
+
+{/* AVALANCHE EVAL PROBLEM */}
+
+
+
+{/* AVALANCHE EVAL PROBLEM 2 */}
+{obs._avalancheEvalProblem2.length > 0 ? 
+<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
+
+{obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
+return <varsom-avalanche-eval-problem2
+strings={this.strings}
+aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
+aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
+aval-cause-attribute-soft-name={el.AvalCauseAttributeSoftName ? el.AvalCauseAttributeSoftName : null}
+aval-trigger-simple-name={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null}
+destructive-size-name={el.DestructiveSizeName ? el.DestructiveSizeName : null}
+aval-propagation-name={el.AvalPropagationName ? el.AvalPropagationName : null}
+>
+</varsom-avalanche-eval-problem2>
+})
+}
+
+{/* AVALANCE EVALUATION 3*/}
+{obs._avalancheEval3 ? 
+<div>
+<div class="header">{this.strings.Observations.AvalancheEvaluation3.ObsName}</div> 
+<varsom-avalanche-evaluation3
+strings={this.strings}
+avalanche-evaluation={obs._avalancheEval3.AvalancheEvaluation ? obs._avalancheEval3.AvalancheEvaluation : null}
+avalanche-development={obs._avalancheEval3.AvalancheDevelopment ? obs._avalancheEval3.AvalancheDevelopment : null}
+forecast-comment={obs._avalancheEval3.forecastComment}
+>
+</varsom-avalanche-evaluation3>
+</div>
+: ""}
+
+{/* DAMAGE OBSERVATIONS ... ikke funnet noe data fra api...*/}
+
+
+{/* DANGER OBSERVATIONS */}
+{obs._dangerObs.length > 0 ?
+<div class="header">{this.strings.Observations.DangerObs.ObsName}</div> : "" }
+
+{obs._dangerObs.map((el: DangerObs = {}) =>{
   
-{obs._snowSurface ? 
-<div> <h2>Snødekke:</h2> Kommentar: {obs._snowSurface.Comment} </div> : ""}
+            return <varsom-danger-obs
+            strings={this.strings}
+            danger-sign-name={el.DangerSignName}
+            comment={el.Comment}
+            > 
+          <div> Type: {el.DangerSignName} </div>        
+          <div> Kommentar: {el.Comment} </div>
+          </varsom-danger-obs>
+        })
+        
+        }
+
+{/* COMPRESSION TEST */}
+
+
+
+{/* SNOW SURFACE */}
+{obs._snowSurfaceObservation ? 
+<div>
+  <div class="header">{this.strings.Observations.SnowSurfaceObservation.ObsName}</div>
+<varsom-snow-surface
+  strings={this.strings}
+  snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
+  comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
+  surface-water-content-name={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
+  snow-drift-name={obs._snowSurfaceObservation.SnowDriftName ? obs._snowSurfaceObservation.SnowDriftName : null} 
+  snow-surface-name={obs._snowSurfaceObservation.SnowSurfaceName ? obs._snowSurfaceObservation.SnowSurfaceName : null}
+  ski-conditions-name={obs._snowSurfaceObservation.SkiConditionsName ? obs._snowSurfaceObservation.SkiConditionsName : null}
+  new-snow-line={obs._snowSurfaceObservation.NewSnowLine ? obs._snowSurfaceObservation.NewSnowLine : null}
+>
+</varsom-snow-surface>
+</div>  
+  : ""}
 
 
 
