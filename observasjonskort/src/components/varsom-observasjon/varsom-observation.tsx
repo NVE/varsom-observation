@@ -4,62 +4,6 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
 import { Observation } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
-import { Observer } from './observation-model';
-import { ObsLocation } from './observation-model';
-import { AvalancheEvalProblem2 } from './observation-model';
-import { AvalancheEvaluation3 } from './observation-model';
-import { AvalancheObs } from './observation-model';
-import { CompressionTest } from './observation-model';
-import { DangerObs } from './observation-model';
-import { Url } from './observation-model';
-import { GeneralObservation } from './observation-model';
-import { IceCoverObs } from './observation-model';
-import { IceThicknessLayer } from './observation-model';
-import { IceThickness } from './observation-model';
-import { Incident } from './observation-model'; 
-import { SignsOfDanger } from './observation-model';
-import { LandslideObs } from './observation-model'; 
-import { StratProfileLayer } from './observation-model';
-import { StratProfile } from './observation-model';
-import { SnowTempObs } from './observation-model';
-import { SnowTemp } from './observation-model';
-import { SnowDensityLayer } from './observation-model';
-import { SnowDensity } from './observation-model'; 
-import { SnowProfile2 } from './observation-model';
-import { SnowSurface } from './observation-model';
-import { WeatherObservation } from './observation-model';
-import { WaterLevelMeasurement } from './observation-model'; 
-import { WaterLevel2 } from './observation-model';
-import { DamageObs } from './observation-model';
-import { SnowProfile } from './observation-model'; 
-import { AvalancheEvaluation } from './observation-model';
-import { AvalancheActivityObs } from './observation-model'; 
-import { AvalancheDangerObs } from './observation-model';
-import { AvalancheEvalProblem } from './observation-model'; 
-import { AvalancheEvaluation2 } from './observation-model';
-import { SnowCoverObs } from './observation-model';
-import { WaterLevel } from './observation-model';
-import { Test } from './observation-model'; 
-import { LatLng } from './observation-model'; 
-import { Image } from './observation-model';
- 
-
-// type LandslideProblem = {
-//   _description: string,
-//   _type: string,
-//   _estimatedLoadToTrigger: string,
-//   _sizeOfExpectedLandslide: string,
-//   _spread: string,
-//   _comment: string,
-//   _imageUrl?: string
-//  }
-
-//  type EstimateOfRisk = {
-//   degreeOfRisk: string,
-//   _estimateOfRisk: string,
-//   _development: string,
-//   _imageUrl?: string
-//  }
 
 
 @Component({
@@ -168,7 +112,7 @@ export class VarsomObservation {
         _avalancheActivityObs2: [],
         _snowSurface: data[i]["SnowSurface"],
         //_attachments: data[i]["Attachments"],
-        //_images: [],
+        _images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
@@ -187,7 +131,7 @@ export class VarsomObservation {
         _incident: data[i]["Incident"],
         _snowProfile2: data[i]["SnowProfile2"],
         _avalancheEvaluation: data[i]["AvalancheEvaluation"],
-        _avalancheActivityObs: [],
+        _avalancheActivityObs: data[i]["AvalancheActivityObs"],
         _avalancheDangerObs: [],
         _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
         _snowCoverObs: data[i]["SnowCoverObs"],
@@ -333,31 +277,6 @@ export class VarsomObservation {
           }
         }
 
-        //add avalancheActivityObs
-        if (data[i]["AvalancheActivityObs"].length > 0){
-          for (let j = 0; j < data[i]["AvalancheActivityObs"].length; j++){
-            this.observations[i]._avalancheActivityObs.push({
-              AvalancheActivityObsID:  data[i]["AvalancheActivityObs"][j]["AvalancheActivityObsID"], //	integer($int32) Unik id på denne tabellen da flere er mulig pr RegID.
-              Aspect:	data[i]["AvalancheActivityObs"][j]["Aspect"],
-              HeigthStartZone: data[i]["AvalancheActivityObs"][j]["HeightStartZone"],
-              DtAvalancheTime: data[i]["AvalancheActivityObs"][j]["DtAvalancheTime"],
-              DestructiveSizeTID: data[i]["AvalancheActivityObs"][j]["DestructiveSizeTID"],
-              DestructiveSizeName:	data[i]["AvalancheActivityObs"][j]["DestructiveSizeName"],
-              EstimatedNumTID: data[i]["AvalancheActivityObs"][j]["EstimatedNumTID"],
-              EstimatedNumName:	data[i]["AvalancheActivityObs"][j]["EstimatedNumName"],
-              AvalancheTID: data[i]["AvalancheActivityObs"][j]["AvalancheTID"],
-              AvalancheName: data[i]["AvalancheActivityObs"][j]["AvalancheName"],
-              AvalancheTriggerTID: data[i]["AvalancheActivityObs"][j]["AvalancheTriggerTID"],
-              AvalancheTriggerName:	data[i]["AvalancheActivityObs"][j]["AvalancheTriggerName"],
-              TerrainStartZoneTID: data[i]["AvalancheActivityObs"][j]["TerrainStartZoneTID"],
-              TerrainStartZoneName:	data[i]["AvalancheActivityObs"][j]["TerrainStartZoneName"],
-              SnowLine: data[i]["AvalancheActivityObs"][j]["SnowLine"],
-              SnowLineName:	data[i]["AvalancheActivityObs"][j]["SnowLineName"],
-              Comment: data[i]["AvalancheActivityObs"][j]["Comment"],
-              DtOffAvalancheTime: data[i]["AvalancheActivityObs"][j]["DtOffAvalancheTime"],
-            })
-          }
-        }
 
         //add avalancheDangerObs
         if (data[i]["AvalancheDangerObs"].length > 0){

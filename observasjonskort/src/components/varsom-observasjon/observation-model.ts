@@ -46,7 +46,7 @@ export type Observation = {
   _incident?: Incident,
   _snowProfile2?: SnowProfile2,
   _avalancheEvaluation?: AvalancheEvaluation,
-  _avalancheActivityObs?: AvalancheActivityObs[],
+  _avalancheActivityObs?: AvalancheActivityObs,
   _avalancheDangerObs?: AvalancheDangerObs[],
   _avalancheEvaluation2?: AvalancheEvaluation2,
   _snowCoverObs?: SnowCoverObs,
