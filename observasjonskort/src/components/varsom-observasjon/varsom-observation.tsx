@@ -4,7 +4,62 @@ import { getGeoHazardIdFromName } from '../../utils/utils';
 import { Observation } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
+import { Observer } from './observation-model';
+import { ObsLocation } from './observation-model';
+import { AvalancheEvalProblem2 } from './observation-model';
+import { AvalancheEvaluation3 } from './observation-model';
+import { AvalancheObs } from './observation-model';
+import { CompressionTest } from './observation-model';
+import { DangerObs } from './observation-model';
+import { Url } from './observation-model';
+import { GeneralObservation } from './observation-model';
+import { IceCoverObs } from './observation-model';
+import { IceThicknessLayer } from './observation-model';
+import { IceThickness } from './observation-model';
+import { Incident } from './observation-model'; 
+import { SignsOfDanger } from './observation-model';
+import { LandslideObs } from './observation-model'; 
+import { StratProfileLayer } from './observation-model';
+import { StratProfile } from './observation-model';
+import { SnowTempObs } from './observation-model';
+import { SnowTemp } from './observation-model';
+import { SnowDensityLayer } from './observation-model';
+import { SnowDensity } from './observation-model'; 
+import { SnowProfile2 } from './observation-model';
+import { SnowSurface } from './observation-model';
+import { WeatherObservation } from './observation-model';
+import { WaterLevelMeasurement } from './observation-model'; 
+import { WaterLevel2 } from './observation-model';
+import { DamageObs } from './observation-model';
+import { SnowProfile } from './observation-model'; 
+import { AvalancheEvaluation } from './observation-model';
+import { AvalancheActivityObs } from './observation-model'; 
+import { AvalancheDangerObs } from './observation-model';
+import { AvalancheEvalProblem } from './observation-model'; 
+import { AvalancheEvaluation2 } from './observation-model';
+import { SnowCoverObs } from './observation-model';
+import { WaterLevel } from './observation-model';
+import { Test } from './observation-model'; 
+import { LatLng } from './observation-model'; 
+import { Image } from './observation-model';
+ 
 
+// type LandslideProblem = {
+//   _description: string,
+//   _type: string,
+//   _estimatedLoadToTrigger: string,
+//   _sizeOfExpectedLandslide: string,
+//   _spread: string,
+//   _comment: string,
+//   _imageUrl?: string
+//  }
+
+//  type EstimateOfRisk = {
+//   degreeOfRisk: string,
+//   _estimateOfRisk: string,
+//   _development: string,
+//   _imageUrl?: string
+//  }
 
 
 @Component({
@@ -113,7 +168,7 @@ export class VarsomObservation {
         _avalancheActivityObs2: [],
         _snowSurface: data[i]["SnowSurface"],
         //_attachments: data[i]["Attachments"],
-        _images: [],
+        //_images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
@@ -122,10 +177,21 @@ export class VarsomObservation {
         _observerGroupName: data[i]["ObserverGroupName"],
         _iceCoverObs: data[i]["IceCoverObs"],
         _iceThickness: data[i]["IceThickness"],
-        _waterLevel: data[i]["WaterLevel2"],
-        _damageObs: []
-        
-        
+        _waterLevel2: data[i]["WaterLevel2"],
+        _damageObs: [],
+        _obsLocation: data[i]["ObsLocation"],
+        _avalancheEvalProblem2: [],
+        _avalancheEvaluation3: data[i]["AvalancheEvaluation3"],
+        _compressionTest: [],
+        _generalObservation: data[i]["GeneralObservation"],
+        _incident: data[i]["Incident"],
+        _snowProfile2: data[i]["SnowProfile2"],
+        _avalancheEvaluation: data[i]["AvalancheEvaluation"],
+        _avalancheActivityObs: [],
+        _avalancheDangerObs: [],
+        _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
+        _snowCoverObs: data[i]["SnowCoverObs"],
+        _waterLevel: data[i]["WaterLevel"],  
         }          
      );
 
@@ -179,9 +245,12 @@ export class VarsomObservation {
         if (data[i]["DangerObs"].length > 0){
           for (let j = 0; j < data[i]["DangerObs"].length; j++){
             this.observations[i]._dangerObs.push({
+              GeoHazardName: data[i]["DangerObs"][j]["GeoHazardName"],
+              DangerSignName: data[i]["DangerObs"][j]["DangerSignName"],
+              GeoHazardTID: data[i]["DangerObs"][j]["GeoHazardTID"],
+              DangerSignTID: data[i]["DangerObs"][j]["DangerSignTID"],
               Comment: data[i]["DangerObs"][j]["Comment"]
               
-              //etc....
             })
           }
         }
@@ -202,6 +271,108 @@ export class VarsomObservation {
             })
           }
         }
+
+        //add avalancheEvalProblem
+        if (data[i]["AvalancheEvalProblem2"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+            this.observations[i]._avalancheEvalProblem2.push({
+              AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
+              AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
+              AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
+              ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
+              AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
+              AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
+              DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
+              AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
+              AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
+              AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
+              AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
+              AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
+              AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
+              AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
+              AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
+              AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
+              ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
+              ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
+              ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
+              ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
+              AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
+              Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
+              AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
+              AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
+              AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
+              AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
+              AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
+              DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
+            })
+          }
+        }
+
+        //add compressionTest
+        if (data[i]["CompressionTest"].length > 0){
+          for (let j = 0; j < data[i]["CompressionTest"].length; j++){
+            this.observations[i]._compressionTest.push({
+              CompressionTestName: data[i]["CompressionTest"][j]["CompressionTestName"],
+              PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
+              StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
+              ComprTestFractureName: data[i]["CompressionTest"][j]["CompressionTestFractureName"],
+              CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
+              TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
+              TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
+              PropagationTID: data[i]["CompressionTest"][j]["PropagationTID"], //	integer($int32) The PropagationKD unique identifier
+              FractureDepth: data[i]["CompressionTest"][j]["FractureDepth"], //($double) maximum: 100 minimum: 0 FractureDepth
+              PstX:	data[i]["CompressionTest"][j]["PstX"], //($double) maximum: 100 minimum: 0 PST X distance (in meters)
+              PstY:	data[i]["CompressionTest"][j]["PstY"], //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
+              StabilityEvalTID: data[i]["CompressionTest"][j]["StabilityEvalTID"], // integer($int32) The StabilityEvalKD unique identifier
+              ComprTestFractureTID: data[i]["CompressionTest"][j]["ComprTestFractureTID"], //	integer($int32) The ComprTestFractureKD unique identifier
+              RbRelease: data[i]["CompressionTest"][j]["RbRelease"], //	integer($int32) Percentage of block that released in Rutchblock test
+              Comment:	data[i]["CompressionTest"][j]["Comment"], //Comment
+              IncludeInSnowProfile:	data[i]["CompressionTest"][j]["IncludeInSnowProfile"]
+              
+            })
+          }
+        }
+
+        //add avalancheActivityObs
+        if (data[i]["AvalancheActivityObs"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheActivityObs"].length; j++){
+            this.observations[i]._avalancheActivityObs.push({
+              AvalancheActivityObsID:  data[i]["AvalancheActivityObs"][j]["AvalancheActivityObsID"], //	integer($int32) Unik id på denne tabellen da flere er mulig pr RegID.
+              Aspect:	data[i]["AvalancheActivityObs"][j]["Aspect"],
+              HeigthStartZone: data[i]["AvalancheActivityObs"][j]["HeightStartZone"],
+              DtAvalancheTime: data[i]["AvalancheActivityObs"][j]["DtAvalancheTime"],
+              DestructiveSizeTID: data[i]["AvalancheActivityObs"][j]["DestructiveSizeTID"],
+              DestructiveSizeName:	data[i]["AvalancheActivityObs"][j]["DestructiveSizeName"],
+              EstimatedNumTID: data[i]["AvalancheActivityObs"][j]["EstimatedNumTID"],
+              EstimatedNumName:	data[i]["AvalancheActivityObs"][j]["EstimatedNumName"],
+              AvalancheTID: data[i]["AvalancheActivityObs"][j]["AvalancheTID"],
+              AvalancheName: data[i]["AvalancheActivityObs"][j]["AvalancheName"],
+              AvalancheTriggerTID: data[i]["AvalancheActivityObs"][j]["AvalancheTriggerTID"],
+              AvalancheTriggerName:	data[i]["AvalancheActivityObs"][j]["AvalancheTriggerName"],
+              TerrainStartZoneTID: data[i]["AvalancheActivityObs"][j]["TerrainStartZoneTID"],
+              TerrainStartZoneName:	data[i]["AvalancheActivityObs"][j]["TerrainStartZoneName"],
+              SnowLine: data[i]["AvalancheActivityObs"][j]["SnowLine"],
+              SnowLineName:	data[i]["AvalancheActivityObs"][j]["SnowLineName"],
+              Comment: data[i]["AvalancheActivityObs"][j]["Comment"],
+              DtOffAvalancheTime: data[i]["AvalancheActivityObs"][j]["DtOffAvalancheTime"],
+            })
+          }
+        }
+
+        //add avalancheDangerObs
+        if (data[i]["AvalancheDangerObs"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheDangerObs"].length; j++){
+            this.observations[i]._avalancheDangerObs.push({
+              AvalancheDangerObsID: data[i]["AvalancheDangerObs"][j]["AvalancheDangerObsID"],
+              DangerSignTID: data[i]["AvalancheDangerObs"][j]["DangerSignTID"],
+              DangerSignName:	data[i]["AvalancheDangerObs"][j]["DangerSignName"],
+              Comment:	data[i]["AvalancheDangerObs"][j]["Comment"],
+            
+            })
+          }
+        }
+
+
 /*
  //add AvalancheEvalProblem
  if (data[i]["AvalancheEvalProblem2"].length > 0){
