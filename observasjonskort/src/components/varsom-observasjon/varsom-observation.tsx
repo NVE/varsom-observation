@@ -101,7 +101,7 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-  
+  console.log("query: " + _data);
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
