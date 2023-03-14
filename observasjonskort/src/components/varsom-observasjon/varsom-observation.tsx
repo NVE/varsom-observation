@@ -8,7 +8,6 @@ import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
-
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
@@ -135,11 +134,21 @@ export class VarsomObservation {
         _observerGroupName: data[i]["ObserverGroupName"],
         _iceCoverObs: data[i]["IceCoverObs"],
         _iceThickness: data[i]["IceThickness"],
-        _waterLevel: data[i]["WaterLevel2"],
+        _waterLevel2: data[i]["WaterLevel2"],
         _damageObs: [],
+        _obsLocation: data[i]["ObsLocation"],
         _avalancheEvalProblem2: [],
-        _avalancheEval3: data[i]["AvalancheEvaluation3"]
-        
+        _avalancheEvaluation3: data[i]["AvalancheEvaluation3"],
+        _compressionTest: [],
+        _generalObservation: data[i]["GeneralObservation"],
+        _incident: data[i]["Incident"],
+        _snowProfile2: data[i]["SnowProfile2"],
+        _avalancheEvaluation: data[i]["AvalancheEvaluation"],
+        _avalancheActivityObs: data[i]["AvalancheActivityObs"],
+        _avalancheDangerObs: [],
+        _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
+        _snowCoverObs: data[i]["SnowCoverObs"],
+        _waterLevel: data[i]["WaterLevel"],  
         }          
      );
 
@@ -196,8 +205,12 @@ export class VarsomObservation {
         if (data[i]["DangerObs"].length > 0){
           for (let j = 0; j < data[i]["DangerObs"].length; j++){
             this.observations[i]._dangerObs.push({
-              Comment: data[i]["DangerObs"][j]["Comment"],
-              DangerSignName: data[i]["DangerObs"][j]["DangerSignName"]
+              GeoHazardName: data[i]["DangerObs"][j]["GeoHazardName"],
+              DangerSignName: data[i]["DangerObs"][j]["DangerSignName"],
+              GeoHazardTID: data[i]["DangerObs"][j]["GeoHazardTID"],
+              DangerSignTID: data[i]["DangerObs"][j]["DangerSignTID"],
+              Comment: data[i]["DangerObs"][j]["Comment"]
+              
             })
           }
         }
@@ -218,6 +231,83 @@ export class VarsomObservation {
             })
           }
         }
+
+        //add avalancheEvalProblem
+        if (data[i]["AvalancheEvalProblem2"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
+            this.observations[i]._avalancheEvalProblem2.push({
+              AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
+              AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
+              AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
+              ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
+              AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
+              AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
+              DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
+              AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
+              AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
+              AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
+              AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
+              AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
+              AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
+              AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
+              AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
+              AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
+              ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
+              ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
+              ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
+              ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
+              AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
+              Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
+              AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
+              AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
+              AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
+              AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
+              AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
+              DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
+            })
+          }
+        }
+
+        //add compressionTest
+        if (data[i]["CompressionTest"].length > 0){
+          for (let j = 0; j < data[i]["CompressionTest"].length; j++){
+            this.observations[i]._compressionTest.push({
+              CompressionTestName: data[i]["CompressionTest"][j]["CompressionTestName"],
+              PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
+              StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
+              ComprTestFractureName: data[i]["CompressionTest"][j]["CompressionTestFractureName"],
+              CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
+              TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
+              TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
+              PropagationTID: data[i]["CompressionTest"][j]["PropagationTID"], //	integer($int32) The PropagationKD unique identifier
+              FractureDepth: data[i]["CompressionTest"][j]["FractureDepth"], //($double) maximum: 100 minimum: 0 FractureDepth
+              PstX:	data[i]["CompressionTest"][j]["PstX"], //($double) maximum: 100 minimum: 0 PST X distance (in meters)
+              PstY:	data[i]["CompressionTest"][j]["PstY"], //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
+              StabilityEvalTID: data[i]["CompressionTest"][j]["StabilityEvalTID"], // integer($int32) The StabilityEvalKD unique identifier
+              ComprTestFractureTID: data[i]["CompressionTest"][j]["ComprTestFractureTID"], //	integer($int32) The ComprTestFractureKD unique identifier
+              RbRelease: data[i]["CompressionTest"][j]["RbRelease"], //	integer($int32) Percentage of block that released in Rutchblock test
+              Comment:	data[i]["CompressionTest"][j]["Comment"], //Comment
+              IncludeInSnowProfile:	data[i]["CompressionTest"][j]["IncludeInSnowProfile"]
+              
+            })
+          }
+        }
+
+
+        //add avalancheDangerObs
+        if (data[i]["AvalancheDangerObs"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheDangerObs"].length; j++){
+            this.observations[i]._avalancheDangerObs.push({
+              AvalancheDangerObsID: data[i]["AvalancheDangerObs"][j]["AvalancheDangerObsID"],
+              DangerSignTID: data[i]["AvalancheDangerObs"][j]["DangerSignTID"],
+              DangerSignName:	data[i]["AvalancheDangerObs"][j]["DangerSignName"],
+              Comment:	data[i]["AvalancheDangerObs"][j]["Comment"],
+            
+            })
+          }
+        }
+
+
 /*
  //add AvalancheEvalProblem
  if (data[i]["AvalancheEvalProblem2"].length > 0){
