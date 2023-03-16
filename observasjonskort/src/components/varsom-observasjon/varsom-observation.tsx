@@ -538,6 +538,20 @@ measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._wate
 }
 </div> : ""}
 
+{obs._iceThickness ? 
+<varsom-ice-thickness
+strings={this.strings}
+Comment={obs._iceThickness.Comment ? obs._iceThickness.Comment : null}
+IceThicknessLayers={obs._iceThickness.IceThicknessLayers ? obs._iceThickness.IceThicknessLayers : null}
+SnowDepth={obs._iceThickness.SnowDepth ? obs._iceThickness.SnowDepth : null}
+SlushSnow={obs._iceThickness.SlushSnow ? obs._iceThickness.SlushSnow : null}
+IceThicknessSum={obs._iceThickness.IceThicknessSum ? obs._iceThickness.IceThicknessSum : null}
+IceHeightBefore={obs._iceThickness.IceHeightBefore ? obs._iceThickness.IceHeightBefore : null}
+IceHeightAfter={obs._iceThickness.IceHeightAfter ? obs._iceThickness.IceHeightAfter : null}
+>
+</varsom-ice-thickness>
+: ""}
+
 
 
 {/* WEATHER OBSERVATIONS */}

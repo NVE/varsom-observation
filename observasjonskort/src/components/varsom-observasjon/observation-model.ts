@@ -178,14 +178,14 @@ export type Observation = {
    }
   
    export type IceThicknessLayer = {
-    IceLayerName: string,
-    IceLayerTID: number, //The IceLayerKD unique identifier
-    IceLayerThickness:	number, //($double) IceLayerThickness
-    Comment: string, //maxLength: 1024 Comment
+    IceLayerName?: string,
+    IceLayerTID?: number, //The IceLayerKD unique identifier
+    IceLayerThickness?:	number, //($double) IceLayerThickness
+    Comment?: string, //maxLength: 1024 Comment
    }
   
    export type IceThickness = {
-    IceThicknessLayers: IceThicknessLayer,
+    IceThicknessLayers: IceThicknessLayer[],
     SnowDepth: number, //($double) Mengden tørr snø oppå isen. Verdi i meter [m].
     SlushSnow: number, //($double) Mengden sørpe oppå isen. Verdi i meter [m].
     IceThicknessSum: number, //($double) Total istykkelse. I tabellen IceThicknessLayer kan individuelle islag registreres. Summen av dem skal samsvare med IceThickenssSum. Verdi i meter [m].

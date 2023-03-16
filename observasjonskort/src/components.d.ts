@@ -127,24 +127,19 @@ export namespace Components {
         "region": string;
     }
     interface VarsomIceThickness {
-        "AvalCauseExtName": any;
-        "AvalCauseExtTID": any;
-        "AvalCauseName": any;
-        "AvalCauseTID": any;
-        "AvalProbabilityName": any;
-        "AvalProbabilityTID": any;
-        "AvalReleaseHeightName": any;
-        "AvalReleaseHeightTID": any;
-        "AvalTriggerSimpleName": any;
-        "AvalTriggerSimpleTID": any;
-        "AvalancheEvalProblemID": any;
-        "AvalancheExtName": any;
-        "AvalancheExtTID": any;
-        "AvalancheProbabilityAutoText": any;
-        "AvalancheProblemAutoText": any;
         "Comment": any;
-        "DestructiveSizeExtName": any;
-        "DestructiveSizeExtTID": any;
+        "IceHeightAfter": any;
+        "IceHeightBefore": any;
+        "IceThicknessLayers": any[];
+        "IceThicknessSum": any;
+        "SlushSnow": any;
+        "SnowDepth": any;
+        "strings": any;
+    }
+    interface VarsomIceThicknessLayer {
+        "Comment": any;
+        "IceLayerName": any;
+        "IceLayerThickness": any;
         "strings": any;
     }
     interface VarsomMetadata {
@@ -298,6 +293,12 @@ declare global {
         prototype: HTMLVarsomIceThicknessElement;
         new (): HTMLVarsomIceThicknessElement;
     };
+    interface HTMLVarsomIceThicknessLayerElement extends Components.VarsomIceThicknessLayer, HTMLStencilElement {
+    }
+    var HTMLVarsomIceThicknessLayerElement: {
+        prototype: HTMLVarsomIceThicknessLayerElement;
+        new (): HTMLVarsomIceThicknessLayerElement;
+    };
     interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
     }
     var HTMLVarsomMetadataElement: {
@@ -352,6 +353,7 @@ declare global {
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
+        "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
@@ -483,24 +485,19 @@ declare namespace LocalJSX {
         "region"?: string;
     }
     interface VarsomIceThickness {
-        "AvalCauseExtName"?: any;
-        "AvalCauseExtTID"?: any;
-        "AvalCauseName"?: any;
-        "AvalCauseTID"?: any;
-        "AvalProbabilityName"?: any;
-        "AvalProbabilityTID"?: any;
-        "AvalReleaseHeightName"?: any;
-        "AvalReleaseHeightTID"?: any;
-        "AvalTriggerSimpleName"?: any;
-        "AvalTriggerSimpleTID"?: any;
-        "AvalancheEvalProblemID"?: any;
-        "AvalancheExtName"?: any;
-        "AvalancheExtTID"?: any;
-        "AvalancheProbabilityAutoText"?: any;
-        "AvalancheProblemAutoText"?: any;
         "Comment"?: any;
-        "DestructiveSizeExtName"?: any;
-        "DestructiveSizeExtTID"?: any;
+        "IceHeightAfter"?: any;
+        "IceHeightBefore"?: any;
+        "IceThicknessLayers"?: any[];
+        "IceThicknessSum"?: any;
+        "SlushSnow"?: any;
+        "SnowDepth"?: any;
+        "strings"?: any;
+    }
+    interface VarsomIceThicknessLayer {
+        "Comment"?: any;
+        "IceLayerName"?: any;
+        "IceLayerThickness"?: any;
         "strings"?: any;
     }
     interface VarsomMetadata {
@@ -598,6 +595,7 @@ declare namespace LocalJSX {
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-header": VarsomHeader;
         "varsom-ice-thickness": VarsomIceThickness;
+        "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
@@ -622,6 +620,7 @@ declare module "@stencil/core" {
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
+            "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;

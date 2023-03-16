@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -10,141 +11,67 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomIceThickness {
 
   @Prop() strings: any;
-  @Prop() AvalancheEvalProblemID: any;
-  @Prop() AvalProbabilityTID: any;
-  @Prop() AvalProbabilityName: any;
-  @Prop() AvalTriggerSimpleTID: any;
-  @Prop() AvalTriggerSimpleName: any;
-  @Prop() DestructiveSizeExtTID: any;
-  @Prop() DestructiveSizeExtName: any;
-  @Prop() AvalancheExtTID: any;
-  @Prop() AvalancheExtName: any;
-  @Prop() AvalCauseTID: any;
-  @Prop() AvalCauseExtTID: any;
-  @Prop() AvalCauseName: any;
-  @Prop() AvalCauseExtName: any;
-  @Prop() AvalReleaseHeightTID: any;
-  @Prop() AvalReleaseHeightName: any;
-  @Prop() AvalancheProbabilityAutoText: any;
-  @Prop() AvalancheProblemAutoText: any;
   @Prop() Comment: any;
+  @Prop() IceThicknessLayers: any[];
+  @Prop() SnowDepth: any;
+  @Prop() SlushSnow: any;
+  @Prop() IceThicknessSum: any;
+  @Prop() IceHeightBefore: any;
+  @Prop() IceHeightAfter: any;
 
-  
 
   render(){
     return <div> 
 
-     
-      {this.AvalancheEvalProblemID ? 
+{this.IceThicknessLayers.map((el: IceThicknessLayer = {}) =>{
+            return <varsom-ice-thickness-layer
+            strings={this.strings}
+            Comment={el.Comment ? el.Comment : null}
+            IceLayerName={el.IceLayerName ? el.IceLayerName : null}
+            IceLayerThickness={el.IceLayerThickness ? el.IceLayerThickness : null}          
+            >
+
+            </varsom-ice-thickness-layer>
+        })
+        }
+
+      {this.IceThicknessLayers ? 
       <span>
       <label>Label mangler: </label>
-      {this.AvalancheEvalProblemID}
+      {this.IceThicknessLayers}
       </span> : ""}
 
+
+      {this.SnowDepth ? 
+      <span>
+      <label>Label mangler: </label>
+      {this.SnowDepth}
+      </span> : ""}
+
+      {this.SlushSnow ? 
+      <span>
+      <label>Label mangler: </label>
+      {this.SlushSnow}
+      </span> : ""}
+
+      {this.IceThicknessSum ? 
+      <span>
+      <label>Label mangler: </label>
+      {this.IceThicknessSum}
+      </span> : ""}
+
+      {this.IceHeightBefore ? 
+      <span>
+      <label>Label mangler: </label>
+      {this.IceHeightBefore}
+      </span> : ""}
       
-      {this.AvalProbabilityName ? 
+      {this.IceHeightAfter ? 
       <span>
       <label>Label mangler: </label>
-      {this.AvalProbabilityName}
+      {this.IceHeightAfter}
       </span> : ""}
 
-      {this.AvalProbabilityTID ? 
-      <span>
-      {this.AvalProbabilityTID}
-      </span> : ""}
-
-      {this.AvalTriggerSimpleTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}: </label>
-      {this.AvalTriggerSimpleTID}
-      </span> : ""}
-
-      {this.AvalTriggerSimpleName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalTriggerSimpleName}
-      </span> : ""}
-
-      {this.DestructiveSizeExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeExtTID}
-      </span> : ""}
-
-      {this.DestructiveSizeExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeExtName}
-      </span> : ""}
-
-      {this.AvalancheExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtTID}
-      </span> : ""}
-
-      {this.AvalancheExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtName}
-      </span> : ""}
-
-      {this.AvalCauseTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseTID}: </label>
-      {this.AvalCauseTID}
-      </span> : ""}
-
-      {this.AvalCauseName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseName}
-      </span> : ""}
-
-      {this.AvalCauseExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseExtTID}
-      </span> : ""}
-
-      {this.AvalCauseExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseExtName}
-      </span> : ""}
-
-      {this.AvalReleaseHeightTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalReleaseHeightTID}
-      </span> : ""}
-
-      {this.AvalReleaseHeightName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalReleaseHeightName}
-      </span> : ""}
-
-      {this.AvalancheProbabilityAutoText ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProbabilityAutoText}
-      </span> : ""}
-
-      {this.AvalancheProblemAutoText ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemAutoText}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Comment}: </label>
-      {this.Comment}
-      </span> : ""}
-
-     
-    
     
     </div>
   }
