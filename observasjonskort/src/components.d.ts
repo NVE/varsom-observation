@@ -142,6 +142,31 @@ export namespace Components {
         "IceLayerThickness": any;
         "strings": any;
     }
+    interface VarsomLandslideObservation {
+        "ActivityInfluencedName"?: any;
+        "ActivityInfluencedTID"?: any;
+        "Comment"?: any;
+        "DamageExtentName"?: any;
+        "DamageExtentTID"?: any;
+        "DtLandSlideTime"?: any;
+        "DtLandSlideTimeEnd"?: any;
+        "ForecastAccurateName"?: any;
+        "ForecastAccurateTID"?: any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
+        "Imageurl"?: any;
+        "LandSlideName"?: any;
+        "LandSlideSizeName"?: any;
+        "LandSlideSizeTID"?: any;
+        "LandSlideTID"?: any;
+        "LandSlideTriggerName"?: any;
+        "LandSlideTriggerTID"?: any;
+        "StartLat"?: any;
+        "StartLong"?: any;
+        "StopLat"?: any;
+        "StopLong"?: any;
+        "strings": any;
+    }
     interface VarsomMetadata {
         "competenceLevelName": any;
         "dateOfLastUpdate"?: any;
@@ -299,6 +324,12 @@ declare global {
         prototype: HTMLVarsomIceThicknessLayerElement;
         new (): HTMLVarsomIceThicknessLayerElement;
     };
+    interface HTMLVarsomLandslideObservationElement extends Components.VarsomLandslideObservation, HTMLStencilElement {
+    }
+    var HTMLVarsomLandslideObservationElement: {
+        prototype: HTMLVarsomLandslideObservationElement;
+        new (): HTMLVarsomLandslideObservationElement;
+    };
     interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
     }
     var HTMLVarsomMetadataElement: {
@@ -354,6 +385,7 @@ declare global {
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
         "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
+        "varsom-landslide-observation": HTMLVarsomLandslideObservationElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
@@ -500,6 +532,31 @@ declare namespace LocalJSX {
         "IceLayerThickness"?: any;
         "strings"?: any;
     }
+    interface VarsomLandslideObservation {
+        "ActivityInfluencedName"?: any;
+        "ActivityInfluencedTID"?: any;
+        "Comment"?: any;
+        "DamageExtentName"?: any;
+        "DamageExtentTID"?: any;
+        "DtLandSlideTime"?: any;
+        "DtLandSlideTimeEnd"?: any;
+        "ForecastAccurateName"?: any;
+        "ForecastAccurateTID"?: any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
+        "Imageurl"?: any;
+        "LandSlideName"?: any;
+        "LandSlideSizeName"?: any;
+        "LandSlideSizeTID"?: any;
+        "LandSlideTID"?: any;
+        "LandSlideTriggerName"?: any;
+        "LandSlideTriggerTID"?: any;
+        "StartLat"?: any;
+        "StartLong"?: any;
+        "StopLat"?: any;
+        "StopLong"?: any;
+        "strings"?: any;
+    }
     interface VarsomMetadata {
         "competenceLevelName"?: any;
         "dateOfLastUpdate"?: any;
@@ -596,6 +653,7 @@ declare namespace LocalJSX {
         "varsom-header": VarsomHeader;
         "varsom-ice-thickness": VarsomIceThickness;
         "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
+        "varsom-landslide-observation": VarsomLandslideObservation;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
@@ -621,6 +679,7 @@ declare module "@stencil/core" {
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
             "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
+            "varsom-landslide-observation": LocalJSX.VarsomLandslideObservation & JSXBase.HTMLAttributes<HTMLVarsomLandslideObservationElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;

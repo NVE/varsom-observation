@@ -552,7 +552,34 @@ IceHeightAfter={obs._iceThickness.IceHeightAfter ? obs._iceThickness.IceHeightAf
 </varsom-ice-thickness>
 : ""}
 
+{obs._landslideObs ? 
+<varsom-landslide-observation
+strings={this.strings}
+LandSlideName={obs._landslideObs.LandSlideName ? obs._landslideObs.LandSlideName : null}
+LandSlideTriggerName={obs._landslideObs.LandSlideTriggerName ? obs._landslideObs.LandSlideTriggerName : null}
+ActivityInfluencedName={obs._landslideObs.ActivityInfluencedName ? obs._landslideObs.ActivityInfluencedName : null}
+GeoHazardName={obs._landslideObs.GeoHazardName ? obs._landslideObs.GeoHazardName : null}
+ForecastAccurateName={obs._landslideObs.ForecastAccurateName ? obs._landslideObs.ForecastAccurateName : null}
+Imageurl={obs._landslideObs.Imageurl ? obs._landslideObs.Imageurl : null}
+DamageExtentName={obs._landslideObs.DamageExtentName ? obs._landslideObs.DamageExtentName : null}
+LandSlideTID={obs._landslideObs.LandSlideTID ? obs._landslideObs.LandSlideTID : null}
+LandSlideTriggerTID={obs._landslideObs.LandSlideTriggerTID ? obs._landslideObs.LandSlideTriggerTID : null}
+Comment={obs._landslideObs.Comment ? obs._landslideObs.Comment : null}
+LandSlideSizeName={obs._landslideObs.LandSlideSizeName ? obs._landslideObs.LandSlideSizeName : null}
+GeoHazardTID={obs._landslideObs.GeoHazardTID ? obs._landslideObs.GeoHazardTID : null}
+ActivityInfluencedTID={obs._landslideObs.ActivityInfluencedTID ? obs._landslideObs.ActivityInfluencedTID : null}
+ForecastAccurateTID={obs._landslideObs.ForecastAccurateTID ? obs._landslideObs.ForecastAccurateTID : null}
+DamageExtentTID={obs._landslideObs.DamageExtentTID ? obs._landslideObs.DamageExtentTID : null}
+StartLat={obs._landslideObs.StartLat ? obs._landslideObs.StartLat : null}
+StopLat={obs._landslideObs.StopLat ? obs._landslideObs.StopLat : null}
+StartLong={obs._landslideObs.StartLong ? obs._landslideObs.StartLong : null}
+StopLong={obs._landslideObs.StopLong ? obs._landslideObs.StopLong : null}
+DtLandSlideTimeEnd={obs._landslideObs.DtLandSlideTimeEnd ? obs._landslideObs.DtLandSlideTimeEnd : null}
+DtLandSlideTime={obs._landslideObs.DtLandSlideTime ? obs._landslideObs.DtLandSlideTime : null}
+LandSlideSizeTID={obs._landslideObs.LandSlideSizeTID ? obs._landslideObs.LandSlideSizeTID : null}
 
+></varsom-landslide-observation>
+: ""}
 
 {/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
