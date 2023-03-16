@@ -2,12 +2,12 @@ import { Component, Prop, h } from '@stencil/core';
 
 
 @Component({
-  tag: 'varsom-evalproblem-test',
-  styleUrl: 'varsom-avalanche-evalproblem.css',
+  tag: 'varsom-ice-thickness',
+  styleUrl: 'varsom-ice-thickness.css',
   shadow: true,
   assetsDirs: ['images']
 })
-export class VarsomAvalancheEvalProblem {
+export class VarsomIceThickness {
 
   @Prop() strings: any;
   @Prop() AvalancheEvalProblemID: any;

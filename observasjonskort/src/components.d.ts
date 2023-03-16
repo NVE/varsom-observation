@@ -34,6 +34,27 @@ export namespace Components {
         "dtStart": any;
         "strings": any;
     }
+    interface VarsomAvalancheEvalProblem {
+        "AvalCauseExtName": any;
+        "AvalCauseExtTID": any;
+        "AvalCauseName": any;
+        "AvalCauseTID": any;
+        "AvalProbabilityName": any;
+        "AvalProbabilityTID": any;
+        "AvalReleaseHeightName": any;
+        "AvalReleaseHeightTID": any;
+        "AvalTriggerSimpleName": any;
+        "AvalTriggerSimpleTID": any;
+        "AvalancheEvalProblemID": any;
+        "AvalancheExtName": any;
+        "AvalancheExtTID": any;
+        "AvalancheProbabilityAutoText": any;
+        "AvalancheProblemAutoText": any;
+        "Comment": any;
+        "DestructiveSizeExtName": any;
+        "DestructiveSizeExtTID": any;
+        "strings": any;
+    }
     interface VarsomAvalancheEvalProblem2 {
         "AvalCauseAttributeCrystalName": any;
         "AvalCauseAttributeCrystalTID": any;
@@ -101,7 +122,11 @@ export namespace Components {
         "dangerSignName": any;
         "strings": any;
     }
-    interface VarsomEvalproblemTest {
+    interface VarsomHeader {
+        "regId": string;
+        "region": string;
+    }
+    interface VarsomIceThickness {
         "AvalCauseExtName": any;
         "AvalCauseExtTID": any;
         "AvalCauseName": any;
@@ -121,10 +146,6 @@ export namespace Components {
         "DestructiveSizeExtName": any;
         "DestructiveSizeExtTID": any;
         "strings": any;
-    }
-    interface VarsomHeader {
-        "regId": string;
-        "region": string;
     }
     interface VarsomMetadata {
         "competenceLevelName": any;
@@ -229,6 +250,12 @@ declare global {
         prototype: HTMLVarsomAvalancheActivityObs2Element;
         new (): HTMLVarsomAvalancheActivityObs2Element;
     };
+    interface HTMLVarsomAvalancheEvalProblemElement extends Components.VarsomAvalancheEvalProblem, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheEvalProblemElement: {
+        prototype: HTMLVarsomAvalancheEvalProblemElement;
+        new (): HTMLVarsomAvalancheEvalProblemElement;
+    };
     interface HTMLVarsomAvalancheEvalProblem2Element extends Components.VarsomAvalancheEvalProblem2, HTMLStencilElement {
     }
     var HTMLVarsomAvalancheEvalProblem2Element: {
@@ -259,17 +286,17 @@ declare global {
         prototype: HTMLVarsomDangerObsElement;
         new (): HTMLVarsomDangerObsElement;
     };
-    interface HTMLVarsomEvalproblemTestElement extends Components.VarsomEvalproblemTest, HTMLStencilElement {
-    }
-    var HTMLVarsomEvalproblemTestElement: {
-        prototype: HTMLVarsomEvalproblemTestElement;
-        new (): HTMLVarsomEvalproblemTestElement;
-    };
     interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
     }
     var HTMLVarsomHeaderElement: {
         prototype: HTMLVarsomHeaderElement;
         new (): HTMLVarsomHeaderElement;
+    };
+    interface HTMLVarsomIceThicknessElement extends Components.VarsomIceThickness, HTMLStencilElement {
+    }
+    var HTMLVarsomIceThicknessElement: {
+        prototype: HTMLVarsomIceThicknessElement;
+        new (): HTMLVarsomIceThicknessElement;
     };
     interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
     }
@@ -317,13 +344,14 @@ declare global {
         "my-component": HTMLMyComponentElement;
         "varsom-attachment": HTMLVarsomAttachmentElement;
         "varsom-avalanche-activity-obs2": HTMLVarsomAvalancheActivityObs2Element;
+        "varsom-avalanche-eval-problem": HTMLVarsomAvalancheEvalProblemElement;
         "varsom-avalanche-eval-problem2": HTMLVarsomAvalancheEvalProblem2Element;
         "varsom-avalanche-evaluation3": HTMLVarsomAvalancheEvaluation3Element;
         "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
-        "varsom-evalproblem-test": HTMLVarsomEvalproblemTestElement;
         "varsom-header": HTMLVarsomHeaderElement;
+        "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
@@ -360,6 +388,27 @@ declare namespace LocalJSX {
         "avalCauseName"?: any;
         "comment"?: any;
         "dtStart"?: any;
+        "strings"?: any;
+    }
+    interface VarsomAvalancheEvalProblem {
+        "AvalCauseExtName"?: any;
+        "AvalCauseExtTID"?: any;
+        "AvalCauseName"?: any;
+        "AvalCauseTID"?: any;
+        "AvalProbabilityName"?: any;
+        "AvalProbabilityTID"?: any;
+        "AvalReleaseHeightName"?: any;
+        "AvalReleaseHeightTID"?: any;
+        "AvalTriggerSimpleName"?: any;
+        "AvalTriggerSimpleTID"?: any;
+        "AvalancheEvalProblemID"?: any;
+        "AvalancheExtName"?: any;
+        "AvalancheExtTID"?: any;
+        "AvalancheProbabilityAutoText"?: any;
+        "AvalancheProblemAutoText"?: any;
+        "Comment"?: any;
+        "DestructiveSizeExtName"?: any;
+        "DestructiveSizeExtTID"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem2 {
@@ -429,7 +478,11 @@ declare namespace LocalJSX {
         "dangerSignName"?: any;
         "strings"?: any;
     }
-    interface VarsomEvalproblemTest {
+    interface VarsomHeader {
+        "regId"?: string;
+        "region"?: string;
+    }
+    interface VarsomIceThickness {
         "AvalCauseExtName"?: any;
         "AvalCauseExtTID"?: any;
         "AvalCauseName"?: any;
@@ -449,10 +502,6 @@ declare namespace LocalJSX {
         "DestructiveSizeExtName"?: any;
         "DestructiveSizeExtTID"?: any;
         "strings"?: any;
-    }
-    interface VarsomHeader {
-        "regId"?: string;
-        "region"?: string;
     }
     interface VarsomMetadata {
         "competenceLevelName"?: any;
@@ -541,13 +590,14 @@ declare namespace LocalJSX {
         "my-component": MyComponent;
         "varsom-attachment": VarsomAttachment;
         "varsom-avalanche-activity-obs2": VarsomAvalancheActivityObs2;
+        "varsom-avalanche-eval-problem": VarsomAvalancheEvalProblem;
         "varsom-avalanche-eval-problem2": VarsomAvalancheEvalProblem2;
         "varsom-avalanche-evaluation3": VarsomAvalancheEvaluation3;
         "varsom-avalanche-obs2": VarsomAvalancheObs2;
         "varsom-compression-test": VarsomCompressionTest;
         "varsom-danger-obs": VarsomDangerObs;
-        "varsom-evalproblem-test": VarsomEvalproblemTest;
         "varsom-header": VarsomHeader;
+        "varsom-ice-thickness": VarsomIceThickness;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
@@ -564,13 +614,14 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "varsom-attachment": LocalJSX.VarsomAttachment & JSXBase.HTMLAttributes<HTMLVarsomAttachmentElement>;
             "varsom-avalanche-activity-obs2": LocalJSX.VarsomAvalancheActivityObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObs2Element>;
+            "varsom-avalanche-eval-problem": LocalJSX.VarsomAvalancheEvalProblem & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblemElement>;
             "varsom-avalanche-eval-problem2": LocalJSX.VarsomAvalancheEvalProblem2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblem2Element>;
             "varsom-avalanche-evaluation3": LocalJSX.VarsomAvalancheEvaluation3 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation3Element>;
             "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
-            "varsom-evalproblem-test": LocalJSX.VarsomEvalproblemTest & JSXBase.HTMLAttributes<HTMLVarsomEvalproblemTestElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
+            "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;

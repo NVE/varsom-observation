@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
-import { getLangKeyFromName, getObservationFromApiById } from '../../utils/utils';
+import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
@@ -138,6 +138,7 @@ export class VarsomObservation {
         _damageObs: [],
         _obsLocation: data[i]["ObsLocation"],
         _avalancheEvalProblem2: [],
+        _avalancheEvalProblem: [],
         _avalancheEvaluation3: data[i]["AvalancheEvaluation3"],
         _compressionTest: [],
         _generalObservation: data[i]["GeneralObservation"],
@@ -551,10 +552,10 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 
 
 {/* AVALANCHE EVAL PROBLEM */}
-{obs._avalancheEvalProblem2.length > 0 ? 
+{obs._avalancheEvalProblem.length > 0 ? 
 <div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
 
-{obs._avalancheEvalProblems.map((el: AvalancheEvalProblem = {}) => {
+{obs._avalancheEvalProblem.map((el: AvalancheEvalProblem = {}) => {
 return <varsom-avalanche-eval-problem
 strings={this.strings}
 AvalancheProblemAutoText={el.AvalancheProblemAutoText ? el.AvalancheProblemAutoText : null}
