@@ -501,6 +501,28 @@ export class VarsomObservation {
         })
         }
 
+{obs._avalancheActivityObs ? 
+<varsom-avalanche-activity-obs
+strings={this.strings}
+AvalancheActivityObsID={obs._avalancheActivityObs.AvalancheActivityObsID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
+Aspect={obs._avalancheActivityObs.Aspect ? obs._avalancheActivityObs.Aspect : null}
+HeigthStartZone={obs._avalancheActivityObs.HeigthStartZone ? obs._avalancheActivityObs.HeigthStartZone : null}
+DtAvalancheTime={obs._avalancheActivityObs.DtAvalancheTime ? obs._avalancheActivityObs.DtAvalancheTime : null}
+DestructiveSizeTID={obs._avalancheActivityObs.DestructiveSizeTID ? obs._avalancheActivityObs.DestructiveSizeTID : null}
+DestructiveSizeName={obs._avalancheActivityObs.DestructiveSizeName ? obs._avalancheActivityObs.DestructiveSizeName : null}
+EstimatedNumTID={obs._avalancheActivityObs.EstimatedNumTID ? obs._avalancheActivityObs.EstimatedNumTID : null}
+EstimatedNumName={obs._avalancheActivityObs.EstimatedNumName ? obs._avalancheActivityObs.EstimatedNumName : null}
+AvalancheTID={obs._avalancheActivityObs.AvalancheTID ? obs._avalancheActivityObs.AvalancheTID : null}
+AvalancheName={obs._avalancheActivityObs.AvalancheName ? obs._avalancheActivityObs.AvalancheName : null}
+AvalancheTriggerTID={obs._avalancheActivityObs.AvalancheTriggerTID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
+AvalancheTriggerName={obs._avalancheActivityObs.AvalancheTriggerName ? obs.AvalancheTriggerTID.AvalancheTriggerName : null}
+TerrainStartZoneTID={obs._avalancheActivityObs.TerrainStartZoneTID ? obs._avalancheActivityObs.TerrainStartZoneTID : null}
+TerrainStartZoneName={obs._avalancheActivityObs.TerrainStartZoneName ? obs._avalancheActivityObs.TerrainStartZoneName : null}
+SnowLine={obs._avalancheActivityObs.SnowLine ? obs._avalancheActivityObs.SnowLine : null}
+SnowLineName={obs._avalancheActivityObs.SnowLineName ? obs._avalancheActivityObs.SnowLineName : null}
+DtOffAvalancheTime={obs._avalancheActivityObs.DtOffAvalancheTime ? obs._avalancheActivityObs.DtOffAvalancheTime : null}
+></varsom-avalanche-activity-obs>
+: ""}
 
 {obs._avalancheObs ? 
 <varsom-avalanche-obs

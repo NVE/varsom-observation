@@ -28,6 +28,26 @@ export namespace Components {
         "registrationName": any;
         "strings"?: any;
     }
+    interface VarsomAvalancheActivityObs {
+        "Aspect": any;
+        "AvalancheActivityObsID": any;
+        "AvalancheName": any;
+        "AvalancheTID": any;
+        "AvalancheTriggerName": any;
+        "AvalancheTriggerTID": any;
+        "DestructiveSizeName": any;
+        "DestructiveSizeTID": any;
+        "DtAvalancheTime": any;
+        "DtOffAvalancheTime": any;
+        "EstimatedNumName": any;
+        "EstimatedNumTID": any;
+        "HeigthStartZone": any;
+        "SnowLine": any;
+        "SnowLineName": any;
+        "TerrainStartZoneName": any;
+        "TerrainStartZoneTID": any;
+        "strings": any;
+    }
     interface VarsomAvalancheActivityObs2 {
         "avalCauseName": any;
         "comment": any;
@@ -303,6 +323,12 @@ declare global {
         prototype: HTMLVarsomAttachmentElement;
         new (): HTMLVarsomAttachmentElement;
     };
+    interface HTMLVarsomAvalancheActivityObsElement extends Components.VarsomAvalancheActivityObs, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheActivityObsElement: {
+        prototype: HTMLVarsomAvalancheActivityObsElement;
+        new (): HTMLVarsomAvalancheActivityObsElement;
+    };
     interface HTMLVarsomAvalancheActivityObs2Element extends Components.VarsomAvalancheActivityObs2, HTMLStencilElement {
     }
     var HTMLVarsomAvalancheActivityObs2Element: {
@@ -438,6 +464,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "varsom-attachment": HTMLVarsomAttachmentElement;
+        "varsom-avalanche-activity-obs": HTMLVarsomAvalancheActivityObsElement;
         "varsom-avalanche-activity-obs2": HTMLVarsomAvalancheActivityObs2Element;
         "varsom-avalanche-eval-problem": HTMLVarsomAvalancheEvalProblemElement;
         "varsom-avalanche-eval-problem2": HTMLVarsomAvalancheEvalProblem2Element;
@@ -483,6 +510,26 @@ declare namespace LocalJSX {
         "imageUrl"?: any;
         "photographer"?: any;
         "registrationName"?: any;
+        "strings"?: any;
+    }
+    interface VarsomAvalancheActivityObs {
+        "Aspect"?: any;
+        "AvalancheActivityObsID"?: any;
+        "AvalancheName"?: any;
+        "AvalancheTID"?: any;
+        "AvalancheTriggerName"?: any;
+        "AvalancheTriggerTID"?: any;
+        "DestructiveSizeName"?: any;
+        "DestructiveSizeTID"?: any;
+        "DtAvalancheTime"?: any;
+        "DtOffAvalancheTime"?: any;
+        "EstimatedNumName"?: any;
+        "EstimatedNumTID"?: any;
+        "HeigthStartZone"?: any;
+        "SnowLine"?: any;
+        "SnowLineName"?: any;
+        "TerrainStartZoneName"?: any;
+        "TerrainStartZoneTID"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs2 {
@@ -749,6 +796,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "my-component": MyComponent;
         "varsom-attachment": VarsomAttachment;
+        "varsom-avalanche-activity-obs": VarsomAvalancheActivityObs;
         "varsom-avalanche-activity-obs2": VarsomAvalancheActivityObs2;
         "varsom-avalanche-eval-problem": VarsomAvalancheEvalProblem;
         "varsom-avalanche-eval-problem2": VarsomAvalancheEvalProblem2;
@@ -779,6 +827,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "varsom-attachment": LocalJSX.VarsomAttachment & JSXBase.HTMLAttributes<HTMLVarsomAttachmentElement>;
+            "varsom-avalanche-activity-obs": LocalJSX.VarsomAvalancheActivityObs & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObsElement>;
             "varsom-avalanche-activity-obs2": LocalJSX.VarsomAvalancheActivityObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObs2Element>;
             "varsom-avalanche-eval-problem": LocalJSX.VarsomAvalancheEvalProblem & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblemElement>;
             "varsom-avalanche-eval-problem2": LocalJSX.VarsomAvalancheEvalProblem2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblem2Element>;
