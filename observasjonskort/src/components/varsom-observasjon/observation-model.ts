@@ -39,6 +39,7 @@ export type Observation = {
   _waterLevel2?: WaterLevel2,
   _damageObs?: DamageObs[],
   _obsLocation?: ObsLocation,
+  _avalancheEvalProblem?: AvalancheEvalProblem[],
   _avalancheEvalProblem2?: AvalancheEvalProblem2[],
   _avalancheEvaluation3?: AvalancheEvaluation3,
   _compressionTest?: CompressionTest[]
@@ -337,6 +338,8 @@ export type Observation = {
     UTMSourceTID: number, //	integer($int32) Kildehenvisning på hvordan koordinaten er satt. (GPS i tlf, klikk i kart, osv). Verdier gitt i UTMSourceKD
     Uncertainty: number, //	integer($int32) Usikkerhet i posisjon i meter. Anslås på web og i app hentes det fra gps.
    }
+
+ 
   
    export type AvalancheEvalProblem2 = {
     AvalProbabilityName?: string,
@@ -562,24 +565,24 @@ export type Observation = {
    }
   
    export type AvalancheEvalProblem = {
-    AvalancheEvalProblemID: number, //	integer($int32)
-    AvalProbabilityTID: number, //	integer($int32)
-    AvalProbabilityName:	string,
-    AvalTriggerSimpleTID: number, //	integer($int32)
-    AvalTriggerSimpleName:	string,
-    DestructiveSizeExtTID: number, //	integer($int32)
-    DestructiveSizeExtName:	string,
-    AvalancheExtTID: number, //	integer($int32)
-    AvalancheExtName:	string,
-    AvalCauseTID: number, //	integer($int32)
-    AvalCauseName:	string,
-    AvalCauseExtTID: number, //	integer($int32)
-    AvalCauseExtName:	string,
-    AvalReleaseHeightTID: number, //	integer($int32)
-    AvalReleaseHeightName:	string,
-    AvalancheProbabilityAutoText:	string,
-    AvalancheProblemAutoText:	string,
-    Comment: string
+    AvalancheEvalProblemID?: number, //	integer($int32)
+    AvalProbabilityTID?: number, //	integer($int32)
+    AvalProbabilityName?:	string,
+    AvalTriggerSimpleTID?: number, //	integer($int32)
+    AvalTriggerSimpleName?:	string,
+    DestructiveSizeExtTID?: number, //	integer($int32)
+    DestructiveSizeExtName?:	string,
+    AvalancheExtTID?: number, //	integer($int32)
+    AvalancheExtName?:	string,
+    AvalCauseTID?: number, //	integer($int32)
+    AvalCauseName?:	string,
+    AvalCauseExtTID?: number, //	integer($int32)
+    AvalCauseExtName?:	string,
+    AvalReleaseHeightTID?: number, //	integer($int32)
+    AvalReleaseHeightName?:	string,
+    AvalancheProbabilityAutoText?:	string,
+    AvalancheProblemAutoText?:	string,
+    Comment?: string
    }
   
    export type AvalancheEvaluation2 = {

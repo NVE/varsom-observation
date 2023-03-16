@@ -102,33 +102,24 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomEvalproblemTest {
-        "AvalCauseAttributeCrystalName": any;
-        "AvalCauseAttributeCrystalTID": any;
-        "AvalCauseAttributeLightName": any;
-        "AvalCauseAttributeLightTID": any;
-        "AvalCauseAttributeSoftName": any;
-        "AvalCauseAttributeSoftTID": any;
-        "AvalCauseAttributeThinName": any;
-        "AvalCauseAttributeThinTID": any;
-        "AvalCauseDepthName": any;
-        "AvalCauseDepthTID": any;
+        "AvalCauseExtName": any;
+        "AvalCauseExtTID": any;
         "AvalCauseName": any;
         "AvalCauseTID": any;
         "AvalProbabilityName": any;
         "AvalProbabilityTID": any;
-        "AvalPropagationName": any;
-        "AvalPropagationTID": any;
+        "AvalReleaseHeightName": any;
+        "AvalReleaseHeightTID": any;
         "AvalTriggerSimpleName": any;
+        "AvalTriggerSimpleTID": any;
+        "AvalancheEvalProblemID": any;
         "AvalancheExtName": any;
         "AvalancheExtTID": any;
+        "AvalancheProbabilityAutoText": any;
+        "AvalancheProblemAutoText": any;
         "Comment": any;
-        "DestructiveSizeName": any;
-        "DestructiveSizeTID": any;
-        "ExposedHeight1": any;
-        "ExposedHeight2": any;
-        "ExposedHeightComboName": any;
-        "ExposedHeightComboTID": any;
-        "ValidExposition": any;
+        "DestructiveSizeExtName": any;
+        "DestructiveSizeExtTID": any;
         "strings": any;
     }
     interface VarsomHeader {
@@ -439,33 +430,24 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomEvalproblemTest {
-        "AvalCauseAttributeCrystalName"?: any;
-        "AvalCauseAttributeCrystalTID"?: any;
-        "AvalCauseAttributeLightName"?: any;
-        "AvalCauseAttributeLightTID"?: any;
-        "AvalCauseAttributeSoftName"?: any;
-        "AvalCauseAttributeSoftTID"?: any;
-        "AvalCauseAttributeThinName"?: any;
-        "AvalCauseAttributeThinTID"?: any;
-        "AvalCauseDepthName"?: any;
-        "AvalCauseDepthTID"?: any;
+        "AvalCauseExtName"?: any;
+        "AvalCauseExtTID"?: any;
         "AvalCauseName"?: any;
         "AvalCauseTID"?: any;
         "AvalProbabilityName"?: any;
         "AvalProbabilityTID"?: any;
-        "AvalPropagationName"?: any;
-        "AvalPropagationTID"?: any;
+        "AvalReleaseHeightName"?: any;
+        "AvalReleaseHeightTID"?: any;
         "AvalTriggerSimpleName"?: any;
+        "AvalTriggerSimpleTID"?: any;
+        "AvalancheEvalProblemID"?: any;
         "AvalancheExtName"?: any;
         "AvalancheExtTID"?: any;
+        "AvalancheProbabilityAutoText"?: any;
+        "AvalancheProblemAutoText"?: any;
         "Comment"?: any;
-        "DestructiveSizeName"?: any;
-        "DestructiveSizeTID"?: any;
-        "ExposedHeight1"?: any;
-        "ExposedHeight2"?: any;
-        "ExposedHeightComboName"?: any;
-        "ExposedHeightComboTID"?: any;
-        "ValidExposition"?: any;
+        "DestructiveSizeExtName"?: any;
+        "DestructiveSizeExtTID"?: any;
         "strings"?: any;
     }
     interface VarsomHeader {

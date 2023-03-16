@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName, getObservationFromApiById } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
+import { AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -232,7 +232,34 @@ export class VarsomObservation {
           }
         }
 
-        //add avalancheEvalProblem
+         //add avalancheEvalProblem
+         if (data[i]["AvalancheEvalProblem"].length > 0){
+          for (let j = 0; j < data[i]["AvalancheEvalProblem"].length; j++){
+            this.observations[i]._avalancheEvalProblem.push({
+              AvalProbabilityName: data[i]["AvalancheEvalProblem"][j]["AvalProbabilityName"],
+              AvalProbabilityTID: data[i]["AvalancheEvalProblem"][j]["AvalProbabilityTID"],
+              AvalancheEvalProblemID: data[i]["AvalancheEvalProblem"][j]["AvalancheEvalProblemID"],
+              AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem"][j]["AvalTriggerSimpleTID"],
+              AvalTriggerSimpleName: data[i]["AvalancheEvalProblem"][j]["AvalTriggerSimpleName"],
+              DestructiveSizeExtTID: data[i]["AvalancheEvalProblem"][j]["DestructiveSizeExtTID"],
+              DestructiveSizeExtName: data[i]["AvalancheEvalProblem"][j]["DestructiveSizeExtName"],
+              AvalancheExtTID: data[i]["AvalancheEvalProblem"][j]["AvalancheExtTID"],
+              AvalancheExtName: data[i]["AvalancheEvalProblem"][j]["AvalancheExtName"],
+              AvalCauseTID: data[i]["AvalancheEvalProblem"][j]["AvalCauseTID"],
+              AvalCauseName: data[i]["AvalancheEvalProblem"][j]["AvalCauseName"],
+              AvalCauseExtTID: data[i]["AvalancheEvalProblem"][j]["AvalCauseExtTID"],
+              AvalCauseExtName: data[i]["AvalancheEvalProblem"][j]["AvalCauseExtName"],
+              AvalReleaseHeightTID: data[i]["AvalancheEvalProblem"][j]["AvalReleaseHeightTID"],
+              AvalReleaseHeightName: data[i]["AvalancheEvalProblem"][j]["AvalReleaseHeightName"],
+              AvalancheProbabilityAutoText: data[i]["AvalancheEvalProblem"][j]["AvalancheProbabilityAutoText"],
+              AvalancheProblemAutoText: data[i]["AvalancheEvalProblem"][j]["AvalancheProblemAutoText"],
+              Comment: data[i]["AvalancheEvalProblem"][j]["Comment"],
+  
+            })
+          }
+        }
+
+        //add avalancheEvalProblem2
         if (data[i]["AvalancheEvalProblem2"].length > 0){
           for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
             this.observations[i]._avalancheEvalProblem2.push({
@@ -306,21 +333,8 @@ export class VarsomObservation {
             })
           }
         }
-
-
+    
 /*
- //add AvalancheEvalProblem
- if (data[i]["AvalancheEvalProblem2"].length > 0){
-  for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
-    this.observations[i]._avalancheEval...push({
-      AvalProbabilityName: data[i]["AvalancheActivityObs2"][j]["AvalCauseName"]
-      
-      //etc....
-    })
-  }
-}
-  */      
-
    //add avalancheEvalProblem
    if (data[i]["AvalancheEvalProblem2"].length > 0){
     for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
@@ -356,7 +370,7 @@ export class VarsomObservation {
       })
     }
   }
-
+*/
 
 
 
@@ -537,7 +551,33 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 
 
 {/* AVALANCHE EVAL PROBLEM */}
+{obs._avalancheEvalProblem2.length > 0 ? 
+<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
 
+{obs._avalancheEvalProblems.map((el: AvalancheEvalProblem = {}) => {
+return <varsom-avalanche-eval-problem
+strings={this.strings}
+AvalancheProblemAutoText={el.AvalancheProblemAutoText ? el.AvalancheProblemAutoText : null}
+AvalancheEvalProblemID={el.AvalancheEvalProblemID ? el.AvalancheEvalProblemID : null} 
+AvalProbabilityTID={el.AvalProbabilityTID ? el.AvalProbabilityTID : null} 
+AvalProbabilityName={el.AvalProbabilityName ? el.AvalProbabilityName : null} 
+AvalTriggerSimpleTID={el.AvalTriggerSimpleTID ? el.AvalTriggerSimpleTID : null} 
+AvalTriggerSimpleName={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null} 
+DestructiveSizeExtTID={el.DestructiveSizeExtTID ? el.DestructiveSizeExtTID : null} 
+DestructiveSizeExtName={el.DestructiveSizeExtName ? el.DestructiveSizeExtName : null} 
+AvalancheExtTID={el.AvalancheExtTID ? el.AvalancheExtTID : null} 
+AvalancheExtName={el.AvalancheExtName ? el.AvalancheExtName : null} 
+AvalCauseTID={el.AvalCauseTID ? el.AvalCauseTID : null} 
+AvalCauseName={el.AvalCauseName ? el.AvalCauseName : null} 
+AvalCauseExtTID={el.AvalCauseExtTID ? el.AvalCauseExtTID : null} 
+AvalReleaseHeightTID={el.AvalReleaseHeightTID ? el.AvalReleaseHeightTID : null} 
+AvalReleaseHeightName={el.AvalReleaseHeightName ? el.AvalReleaseHeightName : null} 
+AvalancheProbabilityAutoText={el.AvalancheProbabilityAutoText ? el.AvalancheProbabilityAutoText : null} 
+
+>
+</varsom-avalanche-eval-problem>
+})
+}
 
 
 {/* AVALANCHE EVAL PROBLEM 2 */}
