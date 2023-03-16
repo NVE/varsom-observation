@@ -743,13 +743,30 @@ Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : n
 strings={this.strings}
 avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avalancheEvaluation3.AvalancheEvaluation : null}
 avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
-forecast-comment={obs._avalancheEvaluation3.forecastComment}
+forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEvaluation3.forecastComment : null}
 >
 </varsom-avalanche-evaluation3>
 </div>
 : ""}
 
-{/* DAMAGE OBSERVATIONS ... ikke funnet noe data fra api...*/}
+{/* DAMAGE OBSERVATIONS*/}
+
+
+{obs._snowProfile2 ?
+<varsom-snow-profile2
+strings={this.strings}
+TotalDepth={obs._snowProfile2.TotalDepth ? obs._snowProfile2.TotalDepth : null}
+StratProfile={obs._snowProfile2.StratProfile ? obs._snowProfile2.StratProfile : null}
+Comment={obs._snowProfile2.Comment ? obs._snowProfile2.Comment : null}
+IsProfileToGround={obs._snowProfile2.IsProfileToGround ? obs._snowProfile2.IsProfileToGround : null}
+Exposition={obs._snowProfile2.Exposition ? obs._snowProfile2.Exposition : null}
+SlopeAngle={obs._snowProfile2.SlopeAngle ? obs._snowProfile2.SlopeAngle : null}
+SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
+SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
+></varsom-snow-profile2>
+:""}
+
+
 
 
 {/* DANGER OBSERVATIONS */}

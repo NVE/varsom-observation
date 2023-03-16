@@ -488,20 +488,20 @@ export type Observation = {
    }
   
    export type SnowDensityLayer = {
-    Depth: number, //($double)
-    Thickness: number //($double) thickness in m
-    Density: number //($double) Density in kg/m^3
-    Comment: string,
-    Weight:	number, //($double) Weight in KG
-    WaterEquivalent: number, // ($double)
-    SortOrder: number //	integer($int32)
+    Depth?: number, //($double)
+    Thickness?: number //($double) thickness in m
+    Density?: number //($double) Density in kg/m^3
+    Comment?: string,
+    Weight?:	number, //($double) Weight in KG
+    WaterEquivalent?: number, // ($double)
+    SortOrder?: number //	integer($int32)
    }
   
    export type SnowDensity = {
-    CylinderDiameter:	number, //($double)
-    TareWeight: number, //($double)
-    Comment: string,
-    Layers: SnowDensityLayer[]
+    CylinderDiameter?:	number, //($double)
+    TareWeight?: number, //($double)
+    Comment?: string,
+    Layers?: SnowDensityLayer[]
    }
   
    export type SnowProfile2 = {

@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SnowDensity, SnowDensityLayer } from "./components/varsom-observasjon/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -290,6 +291,32 @@ export namespace Components {
         "SnowPilotRef": any;
         "strings": any;
     }
+    interface VarsomSnowDensity {
+        "Comment": any;
+        "CylinderDiameter": any;
+        "Layers": SnowDensityLayer[];
+        "TareWeight": any;
+        "strings": any;
+    }
+    interface VarsomSnowDensityLayer {
+        "Depth": any;
+        "SortOrder": any;
+        "Thickness": any;
+        "WaterEquivalent": any;
+        "Weight": any;
+        "strings": any;
+    }
+    interface VarsomSnowProfile2 {
+        "Comment": any;
+        "Exposition": any;
+        "IsProfileToGround": any;
+        "SlopeAngle": any;
+        "SnowDensity": SnowDensity[];
+        "SnowTemp": any;
+        "StratProfile": any;
+        "TotalDepth": any;
+        "strings": any;
+    }
     interface VarsomSnowSurface {
         "comment": any;
         "newSnowLine": any;
@@ -456,6 +483,24 @@ declare global {
         prototype: HTMLVarsomSnowCoverObservationElement;
         new (): HTMLVarsomSnowCoverObservationElement;
     };
+    interface HTMLVarsomSnowDensityElement extends Components.VarsomSnowDensity, HTMLStencilElement {
+    }
+    var HTMLVarsomSnowDensityElement: {
+        prototype: HTMLVarsomSnowDensityElement;
+        new (): HTMLVarsomSnowDensityElement;
+    };
+    interface HTMLVarsomSnowDensityLayerElement extends Components.VarsomSnowDensityLayer, HTMLStencilElement {
+    }
+    var HTMLVarsomSnowDensityLayerElement: {
+        prototype: HTMLVarsomSnowDensityLayerElement;
+        new (): HTMLVarsomSnowDensityLayerElement;
+    };
+    interface HTMLVarsomSnowProfile2Element extends Components.VarsomSnowProfile2, HTMLStencilElement {
+    }
+    var HTMLVarsomSnowProfile2Element: {
+        prototype: HTMLVarsomSnowProfile2Element;
+        new (): HTMLVarsomSnowProfile2Element;
+    };
     interface HTMLVarsomSnowSurfaceElement extends Components.VarsomSnowSurface, HTMLStencilElement {
     }
     var HTMLVarsomSnowSurfaceElement: {
@@ -508,6 +553,9 @@ declare global {
         "varsom-schema": HTMLVarsomSchemaElement;
         "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
         "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
+        "varsom-snow-density": HTMLVarsomSnowDensityElement;
+        "varsom-snow-density-layer": HTMLVarsomSnowDensityLayerElement;
+        "varsom-snow-profile2": HTMLVarsomSnowProfile2Element;
         "varsom-snow-surface": HTMLVarsomSnowSurfaceElement;
         "varsom-water-level": HTMLVarsomWaterLevelElement;
         "varsom-water-level2": HTMLVarsomWaterLevel2Element;
@@ -800,6 +848,32 @@ declare namespace LocalJSX {
         "SnowPilotRef"?: any;
         "strings"?: any;
     }
+    interface VarsomSnowDensity {
+        "Comment"?: any;
+        "CylinderDiameter"?: any;
+        "Layers"?: SnowDensityLayer[];
+        "TareWeight"?: any;
+        "strings"?: any;
+    }
+    interface VarsomSnowDensityLayer {
+        "Depth"?: any;
+        "SortOrder"?: any;
+        "Thickness"?: any;
+        "WaterEquivalent"?: any;
+        "Weight"?: any;
+        "strings"?: any;
+    }
+    interface VarsomSnowProfile2 {
+        "Comment"?: any;
+        "Exposition"?: any;
+        "IsProfileToGround"?: any;
+        "SlopeAngle"?: any;
+        "SnowDensity"?: SnowDensity[];
+        "SnowTemp"?: any;
+        "StratProfile"?: any;
+        "TotalDepth"?: any;
+        "strings"?: any;
+    }
     interface VarsomSnowSurface {
         "comment"?: any;
         "newSnowLine"?: any;
@@ -860,6 +934,9 @@ declare namespace LocalJSX {
         "varsom-schema": VarsomSchema;
         "varsom-signs-of-danger": VarsomSignsOfDanger;
         "varsom-snow-cover-observation": VarsomSnowCoverObservation;
+        "varsom-snow-density": VarsomSnowDensity;
+        "varsom-snow-density-layer": VarsomSnowDensityLayer;
+        "varsom-snow-profile2": VarsomSnowProfile2;
         "varsom-snow-surface": VarsomSnowSurface;
         "varsom-water-level": VarsomWaterLevel;
         "varsom-water-level2": VarsomWaterLevel2;
@@ -892,6 +969,9 @@ declare module "@stencil/core" {
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
             "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
             "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
+            "varsom-snow-density": LocalJSX.VarsomSnowDensity & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityElement>;
+            "varsom-snow-density-layer": LocalJSX.VarsomSnowDensityLayer & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityLayerElement>;
+            "varsom-snow-profile2": LocalJSX.VarsomSnowProfile2 & JSXBase.HTMLAttributes<HTMLVarsomSnowProfile2Element>;
             "varsom-snow-surface": LocalJSX.VarsomSnowSurface & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceElement>;
             "varsom-water-level": LocalJSX.VarsomWaterLevel & JSXBase.HTMLAttributes<HTMLVarsomWaterLevelElement>;
             "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
