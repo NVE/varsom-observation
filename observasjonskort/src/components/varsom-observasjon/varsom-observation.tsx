@@ -512,12 +512,24 @@ comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 
 
 {obs._waterLevel ? 
-<varsom-water-level2
-water-astray-name={obs._waterLevel.WaterAstrayName ? obs._waterLevel.WaterAstrayName : null}
-observation-timing-name={obs._waterLevel.ObservationTimingName ? obs._waterLevel.observationTimingName : null}
+<varsom-water-level
 strings={this.strings}
-measurement-type-name={obs._waterLevel.MeasurementTypeName ? obs._waterLevel.MeasurementTypeName : null}
-measurement-reference-name={obs._waterLevel.MeasurementReferenceName ? obs._waterLevel.MeasurementReferenceName : null}
+WaterLevelDescribed={obs._waterLevel.WaterLevelDescribed ? obs._waterLevel.WaterLevelDescribed : null}
+WaterLevelValue={obs._waterLevel.WaterLevelValue ? obs._waterLevel.WaterLevelValue : null}
+WaterLevelRefTID={obs._waterLevel.WaterLevelRefTID ? obs._waterLevel.WaterLevelRefTID : null}
+WaterLevelRefName={obs._waterLevel.WaterLevelRefName ? obs._waterLevel.WaterLevelRefName : null}
+MeasuredDischarge={obs._waterLevel.MeasuredDischarge ? obs._waterLevel.MeasuredDischarge : null}
+IsRiver={obs._waterLevel.IsRiver ? obs._waterLevel.IsRiver : null}
+></varsom-water-level>
+: ""}
+
+{obs._waterLevel2 ? 
+<varsom-water-level2
+water-astray-name={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
+observation-timing-name={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.observationTimingName : null}
+strings={this.strings}
+measurement-type-name={obs._waterLevel2.MeasurementTypeName ? obs._waterLevel2.MeasurementTypeName : null}
+measurement-reference-name={obs._waterLevel2.MeasurementReferenceName ? obs._waterLevel2.MeasurementReferenceName : null}
 ></varsom-water-level2>
 : ""}
 

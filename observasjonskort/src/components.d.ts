@@ -246,6 +246,15 @@ export namespace Components {
         "strings": any;
         "surfaceWaterContentName": any;
     }
+    interface VarsomWaterLevel {
+        "IsRiver": any;
+        "MeasuredDischarge": any;
+        "WaterLevelDescribed": any;
+        "WaterLevelRefName": any;
+        "WaterLevelRefTID": any;
+        "WaterLevelValue": any;
+        "strings": any;
+    }
     interface VarsomWaterLevel2 {
         "comment": any;
         "measurementReferenceName": any;
@@ -381,6 +390,12 @@ declare global {
         prototype: HTMLVarsomSnowSurfaceElement;
         new (): HTMLVarsomSnowSurfaceElement;
     };
+    interface HTMLVarsomWaterLevelElement extends Components.VarsomWaterLevel, HTMLStencilElement {
+    }
+    var HTMLVarsomWaterLevelElement: {
+        prototype: HTMLVarsomWaterLevelElement;
+        new (): HTMLVarsomWaterLevelElement;
+    };
     interface HTMLVarsomWaterLevel2Element extends Components.VarsomWaterLevel2, HTMLStencilElement {
     }
     var HTMLVarsomWaterLevel2Element: {
@@ -419,6 +434,7 @@ declare global {
         "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
         "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
         "varsom-snow-surface": HTMLVarsomSnowSurfaceElement;
+        "varsom-water-level": HTMLVarsomWaterLevelElement;
         "varsom-water-level2": HTMLVarsomWaterLevel2Element;
         "varsom-water-measurement": HTMLVarsomWaterMeasurementElement;
         "varsom-weather": HTMLVarsomWeatherElement;
@@ -665,6 +681,15 @@ declare namespace LocalJSX {
         "strings"?: any;
         "surfaceWaterContentName"?: any;
     }
+    interface VarsomWaterLevel {
+        "IsRiver"?: any;
+        "MeasuredDischarge"?: any;
+        "WaterLevelDescribed"?: any;
+        "WaterLevelRefName"?: any;
+        "WaterLevelRefTID"?: any;
+        "WaterLevelValue"?: any;
+        "strings"?: any;
+    }
     interface VarsomWaterLevel2 {
         "comment"?: any;
         "measurementReferenceName"?: any;
@@ -704,6 +729,7 @@ declare namespace LocalJSX {
         "varsom-signs-of-danger": VarsomSignsOfDanger;
         "varsom-snow-cover-observation": VarsomSnowCoverObservation;
         "varsom-snow-surface": VarsomSnowSurface;
+        "varsom-water-level": VarsomWaterLevel;
         "varsom-water-level2": VarsomWaterLevel2;
         "varsom-water-measurement": VarsomWaterMeasurement;
         "varsom-weather": VarsomWeather;
@@ -732,6 +758,7 @@ declare module "@stencil/core" {
             "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
             "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
             "varsom-snow-surface": LocalJSX.VarsomSnowSurface & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceElement>;
+            "varsom-water-level": LocalJSX.VarsomWaterLevel & JSXBase.HTMLAttributes<HTMLVarsomWaterLevelElement>;
             "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
             "varsom-water-measurement": LocalJSX.VarsomWaterMeasurement & JSXBase.HTMLAttributes<HTMLVarsomWaterMeasurementElement>;
             "varsom-weather": LocalJSX.VarsomWeather & JSXBase.HTMLAttributes<HTMLVarsomWeatherElement>;
