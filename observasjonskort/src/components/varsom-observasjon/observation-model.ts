@@ -56,8 +56,8 @@ export type Observation = {
   };
 
   export type SignsOfDanger = {
-    _type: string,
-    _comment: string
+    Type: string,
+    Comment: string
    }
   
    export type DangerObs = {

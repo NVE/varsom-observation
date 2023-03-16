@@ -662,6 +662,19 @@ Comment={el.Comment ? el.Comment : null}
 })
 }
 
+{obs._snowCoverObs ? 
+<varsom-snow-cover-obs
+strings={this.strings}
+CriticalLayerExists={obs._snowCoverObs.CriticalLayerExists ? obs._snowCoverObs.CriticalLayerExists : null}
+CriticalLayerLocation={obs._snowCoverObs.CriticalLayerLocation ? obs._snowCoverObs.CriticalLayerLocation : null}
+CriticalLayerTID={obs._snowCoverObs.CriticalLayerTID ? obs._snowCoverObs.CriticalLayerTID : null}
+SnowPilotRef={obs._snowCoverObs.SnowPilotRef ? obs._snowCoverObs.SnowPilotRef : null}
+CriticalLayerName={obs._snowCoverObs.CriticalLayerName ? obs._snowCoverObs.CriticalLayerName : null}
+Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
+
+></varsom-snow-cover-obs>
+: ""}
+
 {/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEval3 ? 
 <div>

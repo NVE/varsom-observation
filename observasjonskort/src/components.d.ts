@@ -221,6 +221,21 @@ export namespace Components {
         "waterLevelValue": any;
         "weatherPrecipitationName": any;
     }
+    interface VarsomSignsOfDanger {
+        "Comment"?: any;
+        "Type"?: any;
+        "strings"?: any;
+    }
+    interface VarsomSnowCoverObservation {
+        "Comment": any;
+        "CriticalLayerExists": any;
+        "CriticalLayerLocation": any;
+        "CriticalLayerName": any;
+        "CriticalLayerTID": any;
+        "DepthHoarThickness": any;
+        "SnowPilotRef": any;
+        "strings": any;
+    }
     interface VarsomSnowSurface {
         "comment": any;
         "newSnowLine": any;
@@ -348,6 +363,18 @@ declare global {
         prototype: HTMLVarsomSchemaElement;
         new (): HTMLVarsomSchemaElement;
     };
+    interface HTMLVarsomSignsOfDangerElement extends Components.VarsomSignsOfDanger, HTMLStencilElement {
+    }
+    var HTMLVarsomSignsOfDangerElement: {
+        prototype: HTMLVarsomSignsOfDangerElement;
+        new (): HTMLVarsomSignsOfDangerElement;
+    };
+    interface HTMLVarsomSnowCoverObservationElement extends Components.VarsomSnowCoverObservation, HTMLStencilElement {
+    }
+    var HTMLVarsomSnowCoverObservationElement: {
+        prototype: HTMLVarsomSnowCoverObservationElement;
+        new (): HTMLVarsomSnowCoverObservationElement;
+    };
     interface HTMLVarsomSnowSurfaceElement extends Components.VarsomSnowSurface, HTMLStencilElement {
     }
     var HTMLVarsomSnowSurfaceElement: {
@@ -389,6 +416,8 @@ declare global {
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-schema": HTMLVarsomSchemaElement;
+        "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
+        "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
         "varsom-snow-surface": HTMLVarsomSnowSurfaceElement;
         "varsom-water-level2": HTMLVarsomWaterLevel2Element;
         "varsom-water-measurement": HTMLVarsomWaterMeasurementElement;
@@ -611,6 +640,21 @@ declare namespace LocalJSX {
         "waterLevelValue"?: any;
         "weatherPrecipitationName"?: any;
     }
+    interface VarsomSignsOfDanger {
+        "Comment"?: any;
+        "Type"?: any;
+        "strings"?: any;
+    }
+    interface VarsomSnowCoverObservation {
+        "Comment"?: any;
+        "CriticalLayerExists"?: any;
+        "CriticalLayerLocation"?: any;
+        "CriticalLayerName"?: any;
+        "CriticalLayerTID"?: any;
+        "DepthHoarThickness"?: any;
+        "SnowPilotRef"?: any;
+        "strings"?: any;
+    }
     interface VarsomSnowSurface {
         "comment"?: any;
         "newSnowLine"?: any;
@@ -657,6 +701,8 @@ declare namespace LocalJSX {
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-schema": VarsomSchema;
+        "varsom-signs-of-danger": VarsomSignsOfDanger;
+        "varsom-snow-cover-observation": VarsomSnowCoverObservation;
         "varsom-snow-surface": VarsomSnowSurface;
         "varsom-water-level2": VarsomWaterLevel2;
         "varsom-water-measurement": VarsomWaterMeasurement;
@@ -683,6 +729,8 @@ declare module "@stencil/core" {
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
+            "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
+            "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
             "varsom-snow-surface": LocalJSX.VarsomSnowSurface & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceElement>;
             "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
             "varsom-water-measurement": LocalJSX.VarsomWaterMeasurement & JSXBase.HTMLAttributes<HTMLVarsomWaterMeasurementElement>;
