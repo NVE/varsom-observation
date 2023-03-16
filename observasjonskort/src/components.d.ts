@@ -86,6 +86,21 @@ export namespace Components {
         "ValidExposition": any;
         "strings": any;
     }
+    interface VarsomAvalancheEvaluation2 {
+        "AvalancheDangerName": any;
+        "AvalancheDangerTID": any;
+        "AvalancheDevelopment": any;
+        "AvalancheEvalProblems": any[];
+        "AvalancheEvaluation": any;
+        "ExposedClimateName": any;
+        "ExposedClimateTID": any;
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ExposedHeightComboName": any;
+        "ExposedHeightComboTID": any;
+        "ValidExposition": any;
+        "strings": any;
+    }
     interface VarsomAvalancheEvaluation3 {
         "avalancheDevelopment": any;
         "avalancheEvaluation": any;
@@ -306,6 +321,12 @@ declare global {
         prototype: HTMLVarsomAvalancheEvalProblem2Element;
         new (): HTMLVarsomAvalancheEvalProblem2Element;
     };
+    interface HTMLVarsomAvalancheEvaluation2Element extends Components.VarsomAvalancheEvaluation2, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheEvaluation2Element: {
+        prototype: HTMLVarsomAvalancheEvaluation2Element;
+        new (): HTMLVarsomAvalancheEvaluation2Element;
+    };
     interface HTMLVarsomAvalancheEvaluation3Element extends Components.VarsomAvalancheEvaluation3, HTMLStencilElement {
     }
     var HTMLVarsomAvalancheEvaluation3Element: {
@@ -420,6 +441,7 @@ declare global {
         "varsom-avalanche-activity-obs2": HTMLVarsomAvalancheActivityObs2Element;
         "varsom-avalanche-eval-problem": HTMLVarsomAvalancheEvalProblemElement;
         "varsom-avalanche-eval-problem2": HTMLVarsomAvalancheEvalProblem2Element;
+        "varsom-avalanche-evaluation2": HTMLVarsomAvalancheEvaluation2Element;
         "varsom-avalanche-evaluation3": HTMLVarsomAvalancheEvaluation3Element;
         "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
@@ -514,6 +536,21 @@ declare namespace LocalJSX {
         "Comment"?: any;
         "DestructiveSizeName"?: any;
         "DestructiveSizeTID"?: any;
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ExposedHeightComboName"?: any;
+        "ExposedHeightComboTID"?: any;
+        "ValidExposition"?: any;
+        "strings"?: any;
+    }
+    interface VarsomAvalancheEvaluation2 {
+        "AvalancheDangerName"?: any;
+        "AvalancheDangerTID"?: any;
+        "AvalancheDevelopment"?: any;
+        "AvalancheEvalProblems"?: any[];
+        "AvalancheEvaluation"?: any;
+        "ExposedClimateName"?: any;
+        "ExposedClimateTID"?: any;
         "ExposedHeight1"?: any;
         "ExposedHeight2"?: any;
         "ExposedHeightComboName"?: any;
@@ -715,6 +752,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-activity-obs2": VarsomAvalancheActivityObs2;
         "varsom-avalanche-eval-problem": VarsomAvalancheEvalProblem;
         "varsom-avalanche-eval-problem2": VarsomAvalancheEvalProblem2;
+        "varsom-avalanche-evaluation2": VarsomAvalancheEvaluation2;
         "varsom-avalanche-evaluation3": VarsomAvalancheEvaluation3;
         "varsom-avalanche-obs2": VarsomAvalancheObs2;
         "varsom-compression-test": VarsomCompressionTest;
@@ -744,6 +782,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-activity-obs2": LocalJSX.VarsomAvalancheActivityObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObs2Element>;
             "varsom-avalanche-eval-problem": LocalJSX.VarsomAvalancheEvalProblem & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblemElement>;
             "varsom-avalanche-eval-problem2": LocalJSX.VarsomAvalancheEvalProblem2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblem2Element>;
+            "varsom-avalanche-evaluation2": LocalJSX.VarsomAvalancheEvaluation2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation2Element>;
             "varsom-avalanche-evaluation3": LocalJSX.VarsomAvalancheEvaluation3 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation3Element>;
             "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
