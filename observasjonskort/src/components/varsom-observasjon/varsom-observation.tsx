@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
-import { getLangKeyFromName } from '../../utils/utils';
+import { getLangKeyFromName, getObservationFromApiById } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { Observation, WaterLevelMeasurement } from './observation-model';
+import { CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -584,18 +584,44 @@ forecast-comment={obs._avalancheEval3.forecastComment}
   
             return <varsom-danger-obs
             strings={this.strings}
-            danger-sign-name={el.DangerSignName}
-            comment={el.Comment}
+            danger-sign-name={el.DangerSignName ? el.DangerSignName : null}
+            comment={el.Comment ? el.Comment : null}
             > 
-          <div> Type: {el.DangerSignName} </div>        
-          <div> Kommentar: {el.Comment} </div>
+      
           </varsom-danger-obs>
         })
         
         }
 
 {/* COMPRESSION TEST */}
+{obs._compressionTest.length > 0 ?
+<div class="header">{this.strings.Observations.CompressionTest.ObsName}</div> : "" }
 
+{obs._compressionTest.map((el: CompressionTest = {}) =>{
+  
+            return <varsom-compression-test
+            strings={this.strings}
+            CompressionTestTID={el.CompressionTestTID ? el.CompressionTestTID : null}
+            TapsFracture={el.TapsFracture ? el.TapsFracture : null}
+            TapsFullPropagation={el.TapsFullPropagation ? el.TapsFullPropagation : null}
+            PropagationTID={el.PropagationTID ? el.PropagationTID : null}
+            PropagationName={el.PropagationName ? el.PropagationName : null}
+            FractureDepth={el.FractureDepth ? el.FractureDepth : null}
+            PstX={el.PstX ? el.PstX : null}
+            PstY={el.PstY ? el.PstY : null}
+            RbRelease={el.RbRelease ? el.RbRelease : null}
+            StabilityEvalTID={el.StabilityEvalTID ? el.StabilityEvalTID : null}
+            StabilityEvalName={el.StabilityEvalName ? el.StabilityEvalName : null}
+            ComprTestFractureTID={el.ComprTestFractureTID ? el.ComprTestFractureTID : null}
+            ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
+            IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
+            comment={el.Comment}
+            > 
+        
+          </varsom-compression-test>
+        })
+        
+        }
 
 
 {/* SNOW SURFACE */}

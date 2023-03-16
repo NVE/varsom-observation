@@ -56,6 +56,25 @@ export namespace Components {
         "dtAvalancheTime": any;
         "strings": any;
     }
+    interface VarsomCompressionTest {
+        "ComprTestFractureName": any;
+        "ComprTestFractureTID": any;
+        "CompressionTestName": any;
+        "CompressionTestTID": any;
+        "FractureDepth": any;
+        "IncludeInSnowProfile": any;
+        "PropagationName": any;
+        "PropagationTID": any;
+        "PstX": any;
+        "PstY": any;
+        "RbRelease": any;
+        "StabilityEvalName": any;
+        "StabilityEvalTID": any;
+        "TapsFracture": any;
+        "TapsFullPropagation": any;
+        "comment": any;
+        "strings": any;
+    }
     interface VarsomDangerObs {
         "comment": any;
         "dangerSignName": any;
@@ -186,6 +205,12 @@ declare global {
         prototype: HTMLVarsomAvalancheObs2Element;
         new (): HTMLVarsomAvalancheObs2Element;
     };
+    interface HTMLVarsomCompressionTestElement extends Components.VarsomCompressionTest, HTMLStencilElement {
+    }
+    var HTMLVarsomCompressionTestElement: {
+        prototype: HTMLVarsomCompressionTestElement;
+        new (): HTMLVarsomCompressionTestElement;
+    };
     interface HTMLVarsomDangerObsElement extends Components.VarsomDangerObs, HTMLStencilElement {
     }
     var HTMLVarsomDangerObsElement: {
@@ -247,6 +272,7 @@ declare global {
         "varsom-avalanche-eval-problem2": HTMLVarsomAvalancheEvalProblem2Element;
         "varsom-avalanche-evaluation3": HTMLVarsomAvalancheEvaluation3Element;
         "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
+        "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
@@ -307,6 +333,25 @@ declare namespace LocalJSX {
         "avalCauseName"?: any;
         "comment"?: any;
         "dtAvalancheTime"?: any;
+        "strings"?: any;
+    }
+    interface VarsomCompressionTest {
+        "ComprTestFractureName"?: any;
+        "ComprTestFractureTID"?: any;
+        "CompressionTestName"?: any;
+        "CompressionTestTID"?: any;
+        "FractureDepth"?: any;
+        "IncludeInSnowProfile"?: any;
+        "PropagationName"?: any;
+        "PropagationTID"?: any;
+        "PstX"?: any;
+        "PstY"?: any;
+        "RbRelease"?: any;
+        "StabilityEvalName"?: any;
+        "StabilityEvalTID"?: any;
+        "TapsFracture"?: any;
+        "TapsFullPropagation"?: any;
+        "comment"?: any;
         "strings"?: any;
     }
     interface VarsomDangerObs {
@@ -408,6 +453,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-eval-problem2": VarsomAvalancheEvalProblem2;
         "varsom-avalanche-evaluation3": VarsomAvalancheEvaluation3;
         "varsom-avalanche-obs2": VarsomAvalancheObs2;
+        "varsom-compression-test": VarsomCompressionTest;
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-header": VarsomHeader;
         "varsom-metadata": VarsomMetadata;
@@ -429,6 +475,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-eval-problem2": LocalJSX.VarsomAvalancheEvalProblem2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblem2Element>;
             "varsom-avalanche-evaluation3": LocalJSX.VarsomAvalancheEvaluation3 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation3Element>;
             "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
+            "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;

@@ -380,22 +380,22 @@ export type Observation = {
    }
     
    export type CompressionTest = {
-    CompressionTestName: string,
-    PropagationName: string,
-    StabilityEvalName: string,
-    ComprTestFractureName: string,
-    CompressionTestTID: number, //	integer($int32) The CompressionTestKDV unique identifier
-    TapsFracture: number, //	integer($int32) TapsFracture
-    TapsFullPropagation: number, //	integer($int32) TapsFullPropagation
-    PropagationTID: number, //	integer($int32) The PropagationKD unique identifier
-    FractureDepth: number, //($double) maximum: 100 minimum: 0 FractureDepth
-    PstX:	number, //($double) maximum: 100 minimum: 0 PST X distance (in meters)
-    PstY:	number, //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
-    StabilityEvalTID: number, // integer($int32) The StabilityEvalKD unique identifier
-    ComprTestFractureTID: number, //	integer($int32) The ComprTestFractureKD unique identifier
-    RbRelease: number, //	integer($int32) Percentage of block that released in Rutchblock test
-    Comment:	string, //Comment
-    IncludeInSnowProfile:	boolean
+    CompressionTestName?: string,
+    PropagationName?: string,
+    StabilityEvalName?: string,
+    ComprTestFractureName?: string,
+    CompressionTestTID?: number, //	integer($int32) The CompressionTestKDV unique identifier
+    TapsFracture?: number, //	integer($int32) TapsFracture
+    TapsFullPropagation?: number, //	integer($int32) TapsFullPropagation
+    PropagationTID?: number, //	integer($int32) The PropagationKD unique identifier
+    FractureDepth?: number, //($double) maximum: 100 minimum: 0 FractureDepth
+    PstX?:	number, //($double) maximum: 100 minimum: 0 PST X distance (in meters)
+    PstY?:	number, //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
+    StabilityEvalTID?: number, // integer($int32) The StabilityEvalKD unique identifier
+    ComprTestFractureTID?: number, //	integer($int32) The ComprTestFractureKD unique identifier
+    RbRelease?: number, //	integer($int32) Percentage of block that released in Rutchblock test
+    Comment?:	string, //Comment
+    IncludeInSnowProfile?:	boolean
    }
   
   
