@@ -547,13 +547,34 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
 return <varsom-avalanche-eval-problem2
 strings={this.strings}
-aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+aval-probability-tid={el.AvalProbabilityTID ? el.AvalProbabilityTID : null}
+aval-probability-name={el.AvalProbabilityName ? el.AvalProbabilityName : null}
+aval-cause-depth-tid={el.AvalCauseDepthTID ? el.AvalCauseDepthTID : null}
+valid-exposition={el.ValidExposition ? el.ValidExposition : null}
+exposed-height1={el.ExposedHeight1 ? el.ExposedHeight1 : null}
+exposed-height2={el.ExposedHeight2 ? el.ExposedHeight2 : null}
+exposed-height-combo-tid={el.ExposedHeightComboTID ? el.ExposedHeightComboTID : null}
+exposed-height-combo-name={el.ExposedHeightComboName ? el.ExposedHeightComboName : null}
+avalanche-ext-tid={el.AvalancheExtTID ? el.AvalancheExtTID : null}
 avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
-aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
+aval-cause-tid={el.AvalCauseTID ? el.AvalCauseTID : null}
+aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+aval-cause-attribute-light-tid={el.AvalCauseAttributeLightTID ? el.AvalCauseAttributeLightTID : null}
+aval-cause-attribute-light-name={el.AvalCauseAttributeLightName ? el.AvalCauseAttributeLightName : null}
+aval-cause-attribute-thin-tid={el.AvalCauseAttributeThinTID ? el.AvalCauseAttributeThinTID : null}
+aval-cause-attribute-thin-name={el.AvalCauseAttributeThinName ? el.AvalCauseAttributeThinName : null}
+aval-cause-attribute-soft-tid={el.AvalCauseAttributeSoftTID ? el.AvalCauseAttributeSoftTID : null} 
 aval-cause-attribute-soft-name={el.AvalCauseAttributeSoftName ? el.AvalCauseAttributeSoftName : null}
+aval-cause-attribute-crystal-tidID={el.AvalCauseAttributeSoftTID ? el.AvalCauseAttributeSoftTID : null} 
+aval-cause-attribute-crystal-name={el.AvalCauseAttributeCrystalName ? el.AvalCauseAttributeCrystalName : null} 
+destructive-size-tid={el.DestructiveSizeTID ? el.DestructiveSizeTID : null} 
+aval-trigger-simple-tid={el.AvalTriggerSimpleTID ? el.AvalTriggerSimpleTID : null} 
 aval-trigger-simple-name={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null}
 destructive-size-name={el.DestructiveSizeName ? el.DestructiveSizeName : null}
-aval-propagation-name={el.AvalPropagationName ? el.AvalPropagationName : null}
+aval-propagation-tid={el.AvalPropagationTID ? el.AvalPropagationTID : null}
+AvalPropagationName={el.AvalPropagationName ? el.AvalPropagationName : null}
+Comment={el.Comment ? el.Comment : null}
+
 >
 </varsom-avalanche-eval-problem2>
 })

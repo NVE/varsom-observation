@@ -35,13 +35,34 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvalProblem2 {
-        "avalCauseAttributeSoftName": any;
-        "avalCauseDepthName": any;
-        "avalCauseName": any;
-        "avalPropagationName": any;
-        "avalTriggerSimpleName": any;
-        "avalancheExtName": any;
-        "destructiveSizeName": any;
+        "AvalCauseAttributeCrystalName": any;
+        "AvalCauseAttributeCrystalTID": any;
+        "AvalCauseAttributeLightName": any;
+        "AvalCauseAttributeLightTID": any;
+        "AvalCauseAttributeSoftName": any;
+        "AvalCauseAttributeSoftTID": any;
+        "AvalCauseAttributeThinName": any;
+        "AvalCauseAttributeThinTID": any;
+        "AvalCauseDepthName": any;
+        "AvalCauseDepthTID": any;
+        "AvalCauseName": any;
+        "AvalCauseTID": any;
+        "AvalProbabilityName": any;
+        "AvalProbabilityTID": any;
+        "AvalPropagationName": any;
+        "AvalPropagationTID": any;
+        "AvalTriggerSimpleName": any;
+        "AvalTriggerSimpleTID": any;
+        "AvalancheExtName": any;
+        "AvalancheExtTID": any;
+        "Comment": any;
+        "DestructiveSizeName": any;
+        "DestructiveSizeTID": any;
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ExposedHeightComboName": any;
+        "ExposedHeightComboTID": any;
+        "ValidExposition": any;
         "strings": any;
     }
     interface VarsomAvalancheEvaluation3 {
@@ -78,6 +99,36 @@ export namespace Components {
     interface VarsomDangerObs {
         "comment": any;
         "dangerSignName": any;
+        "strings": any;
+    }
+    interface VarsomEvalproblemTest {
+        "AvalCauseAttributeCrystalName": any;
+        "AvalCauseAttributeCrystalTID": any;
+        "AvalCauseAttributeLightName": any;
+        "AvalCauseAttributeLightTID": any;
+        "AvalCauseAttributeSoftName": any;
+        "AvalCauseAttributeSoftTID": any;
+        "AvalCauseAttributeThinName": any;
+        "AvalCauseAttributeThinTID": any;
+        "AvalCauseDepthName": any;
+        "AvalCauseDepthTID": any;
+        "AvalCauseName": any;
+        "AvalCauseTID": any;
+        "AvalProbabilityName": any;
+        "AvalProbabilityTID": any;
+        "AvalPropagationName": any;
+        "AvalPropagationTID": any;
+        "AvalTriggerSimpleName": any;
+        "AvalancheExtName": any;
+        "AvalancheExtTID": any;
+        "Comment": any;
+        "DestructiveSizeName": any;
+        "DestructiveSizeTID": any;
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ExposedHeightComboName": any;
+        "ExposedHeightComboTID": any;
+        "ValidExposition": any;
         "strings": any;
     }
     interface VarsomHeader {
@@ -217,6 +268,12 @@ declare global {
         prototype: HTMLVarsomDangerObsElement;
         new (): HTMLVarsomDangerObsElement;
     };
+    interface HTMLVarsomEvalproblemTestElement extends Components.VarsomEvalproblemTest, HTMLStencilElement {
+    }
+    var HTMLVarsomEvalproblemTestElement: {
+        prototype: HTMLVarsomEvalproblemTestElement;
+        new (): HTMLVarsomEvalproblemTestElement;
+    };
     interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
     }
     var HTMLVarsomHeaderElement: {
@@ -274,6 +331,7 @@ declare global {
         "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
+        "varsom-evalproblem-test": HTMLVarsomEvalproblemTestElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
@@ -314,13 +372,34 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem2 {
-        "avalCauseAttributeSoftName"?: any;
-        "avalCauseDepthName"?: any;
-        "avalCauseName"?: any;
-        "avalPropagationName"?: any;
-        "avalTriggerSimpleName"?: any;
-        "avalancheExtName"?: any;
-        "destructiveSizeName"?: any;
+        "AvalCauseAttributeCrystalName"?: any;
+        "AvalCauseAttributeCrystalTID"?: any;
+        "AvalCauseAttributeLightName"?: any;
+        "AvalCauseAttributeLightTID"?: any;
+        "AvalCauseAttributeSoftName"?: any;
+        "AvalCauseAttributeSoftTID"?: any;
+        "AvalCauseAttributeThinName"?: any;
+        "AvalCauseAttributeThinTID"?: any;
+        "AvalCauseDepthName"?: any;
+        "AvalCauseDepthTID"?: any;
+        "AvalCauseName"?: any;
+        "AvalCauseTID"?: any;
+        "AvalProbabilityName"?: any;
+        "AvalProbabilityTID"?: any;
+        "AvalPropagationName"?: any;
+        "AvalPropagationTID"?: any;
+        "AvalTriggerSimpleName"?: any;
+        "AvalTriggerSimpleTID"?: any;
+        "AvalancheExtName"?: any;
+        "AvalancheExtTID"?: any;
+        "Comment"?: any;
+        "DestructiveSizeName"?: any;
+        "DestructiveSizeTID"?: any;
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ExposedHeightComboName"?: any;
+        "ExposedHeightComboTID"?: any;
+        "ValidExposition"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheEvaluation3 {
@@ -357,6 +436,36 @@ declare namespace LocalJSX {
     interface VarsomDangerObs {
         "comment"?: any;
         "dangerSignName"?: any;
+        "strings"?: any;
+    }
+    interface VarsomEvalproblemTest {
+        "AvalCauseAttributeCrystalName"?: any;
+        "AvalCauseAttributeCrystalTID"?: any;
+        "AvalCauseAttributeLightName"?: any;
+        "AvalCauseAttributeLightTID"?: any;
+        "AvalCauseAttributeSoftName"?: any;
+        "AvalCauseAttributeSoftTID"?: any;
+        "AvalCauseAttributeThinName"?: any;
+        "AvalCauseAttributeThinTID"?: any;
+        "AvalCauseDepthName"?: any;
+        "AvalCauseDepthTID"?: any;
+        "AvalCauseName"?: any;
+        "AvalCauseTID"?: any;
+        "AvalProbabilityName"?: any;
+        "AvalProbabilityTID"?: any;
+        "AvalPropagationName"?: any;
+        "AvalPropagationTID"?: any;
+        "AvalTriggerSimpleName"?: any;
+        "AvalancheExtName"?: any;
+        "AvalancheExtTID"?: any;
+        "Comment"?: any;
+        "DestructiveSizeName"?: any;
+        "DestructiveSizeTID"?: any;
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ExposedHeightComboName"?: any;
+        "ExposedHeightComboTID"?: any;
+        "ValidExposition"?: any;
         "strings"?: any;
     }
     interface VarsomHeader {
@@ -455,6 +564,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-obs2": VarsomAvalancheObs2;
         "varsom-compression-test": VarsomCompressionTest;
         "varsom-danger-obs": VarsomDangerObs;
+        "varsom-evalproblem-test": VarsomEvalproblemTest;
         "varsom-header": VarsomHeader;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
@@ -477,6 +587,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
+            "varsom-evalproblem-test": LocalJSX.VarsomEvalproblemTest & JSXBase.HTMLAttributes<HTMLVarsomEvalproblemTestElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;

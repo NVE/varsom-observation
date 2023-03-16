@@ -30,7 +30,7 @@ export class VarsomCompressionTest {
 
   render(){
     return <div> 
-
+{/* se regobs-kode for visning av tabell.... */ }
       {this.CompressionTestName ? 
       <span>
       <label>Label mangler: </label>
