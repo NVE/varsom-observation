@@ -709,15 +709,41 @@ Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
 ></varsom-snow-cover-obs>
 : ""}
 
+
+{obs._avalancheEvaluation ? 
+<div>
+<div class="header">{this.strings.Observations.AvalancheEvaluation.ObsName}</div> 
+<varsom-avalanche-evaluation
+strings={this.strings}
+RegID={obs._avalancheEvaluation.RegID ? obs._avalancheEvaluation.RegID : null}
+CanPublish={obs._avalancheEvaluation.CanPublish ? obs._avalancheEvaluation.CanPublish : null}
+AvalancheDangerTID={obs._avalancheEvaluation.AvalancheDangerTID ? obs._avalancheEvaluation.AvalancheDangerTID : null}
+AvalancheDangerName={obs._avalancheEvaluation.AvalancheDangerName ? obs._avalancheEvaluation.AvalancheDangerName : null}
+ValidExposition={obs._avalancheEvaluation.ValidExposition ? obs._avalancheEvaluation.ValidExposition : null}
+ValidHeightRelative={obs._avalancheEvaluation.ValidHeightRelative ? obs._avalancheEvaluation.ValidHeightRelative : null}
+ValidHeightFrom={obs._avalancheEvaluation.ValidHeightFrom ? obs._avalancheEvaluation.ValidHeightFrom : null}
+ValidHeigtTo={obs._avalancheEvaluation.ValidHeigtTo ? obs._avalancheEvaluation.ValidHeigtTo : null}
+AvalancheProblemTID1={obs._avalancheEvaluation.AvalancheProblemTID1 ? obs._avalancheEvaluation.AvalancheProblemTID1 : null}
+AvalancheProblemName1={obs._avalancheEvaluation.AvalancheProblemName1 ? obs._avalancheEvaluation.AvalancheProblemName1 : null}
+AvalancheProblemTID2={obs._avalancheEvaluation.AvalancheProblemTID2 ? obs._avalancheEvaluation.AvalancheProblemTID2 : null}
+AvalancheProblemName2={obs._avalancheEvaluation.AvalancheProblemName2 ? obs._avalancheEvaluation.AvalancheProblemName2 : null}
+AvalancheProblemTID3={obs._avalancheEvaluation.AvalancheProblemTID3 ? obs._avalancheEvaluation.AvalancheProblemTID3 : null}
+AvalancheProblemName3={obs._avalancheEvaluation.AvalancheProblemName3 ? obs._avalancheEvaluation.AvalancheProblemName3 : null}
+AvalancheEvaluation1={obs._avalancheEvaluation.AvalancheEvaluation1 ? obs._avalancheEvaluation.AvalancheEvaluation1 : null}
+Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : null}
+></varsom-avalanche-evaluation>
+</div>
+: ""}
+
 {/* AVALANCE EVALUATION 3*/}
-{obs._avalancheEval3 ? 
+{obs._avalancheEvaluation3 ? 
 <div>
 <div class="header">{this.strings.Observations.AvalancheEvaluation3.ObsName}</div> 
 <varsom-avalanche-evaluation3
 strings={this.strings}
-avalanche-evaluation={obs._avalancheEval3.AvalancheEvaluation ? obs._avalancheEval3.AvalancheEvaluation : null}
-avalanche-development={obs._avalancheEval3.AvalancheDevelopment ? obs._avalancheEval3.AvalancheDevelopment : null}
-forecast-comment={obs._avalancheEval3.forecastComment}
+avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avalancheEvaluation3.AvalancheEvaluation : null}
+avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
+forecast-comment={obs._avalancheEvaluation3.forecastComment}
 >
 </varsom-avalanche-evaluation3>
 </div>
