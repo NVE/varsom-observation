@@ -453,24 +453,24 @@ export type Observation = {
   
   
    export type StratProfileLayer = {
-    GrainFormPrimaryTName:	string,
-    GrainFormSecondaryTName:	string,
-    HardnessTName:	string,
-    HardnessBottomTName:	string,
-    WetnessTName:	string,
-    CriticalLayerTName:	string,
-    DepthTop:	number, //($double)
-    Thickness: number, //($double)
-    GrainFormPrimaryTID: number, //	integer($int32)
-    GrainFormSecondaryTID: number,	integer($int32)
-    GrainSizeAvg:	number, //($double)
-    GrainSizeAvgMax:	number, //($double)
-    HardnessTID: number, //($int32)
-    HardnessBottomTID: number, //($int32)
-    WetnessTID: number, //	integer($int32)
-    CriticalLayerTID: number, //	integer($int32)
-    Comment: string,
-    SortOrder: number //	integer($int32)
+    GrainFormPrimaryTName?:	string,
+    GrainFormSecondaryTName?:	string,
+    HardnessTName?:	string,
+    HardnessBottomTName?:	string,
+    WetnessTName?:	string,
+    CriticalLayerTName?:	string,
+    DepthTop?:	number, //($double)
+    Thickness?: number, //($double)
+    GrainFormPrimaryTID?: number, //	integer($int32)
+    GrainFormSecondaryTID?: number,	//integer($int32)
+    GrainSizeAvg?:	number, //($double)
+    GrainSizeAvgMax?:	number, //($double)
+    HardnessTID?: number, //($int32)
+    HardnessBottomTID?: number, //($int32)
+    WetnessTID?: number, //	integer($int32)
+    CriticalLayerTID?: number, //	integer($int32)
+    Comment?: string,
+    SortOrder?: number //	integer($int32)
    }
   
    export type StratProfile = {
@@ -479,8 +479,8 @@ export type Observation = {
    }
   
    export type SnowTempObs = {
-    Depth: number //($double) maximum: 100 minimum: 0
-    SnowTemp:	number //($double) maximum: 0 minimum: -70
+    Depth?: number, //($double) maximum: 100 minimum: 0
+    SnowTemp?:	number //($double) maximum: 0 minimum: -70
    }
   
    export type SnowTemp = {
