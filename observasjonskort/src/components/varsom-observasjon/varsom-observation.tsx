@@ -835,7 +835,42 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 </div>  
   : ""}
 
-
+{obs._incident ? 
+<varsom-incident
+strings={this.strings}
+GeoHazardName={obs._incident.GeoHazardName ? obs._incident.GeoHazardName : null}
+ActivityInfluencedName={obs._incident.ActivityInfluencedName ? obs._incident.ActivityInfluencedName : null}
+DamageExtentName={obs._incident.DamageExtentName ? obs._incident.DamageExtentName : null}
+ForecastAccurateName={obs._incident.ForecastAccurateName ? obs._incident.ForecastAccurateName : null}
+SafetyGearName={obs._incident.SafetyGearName ? obs._incident.SafetyGearName : null}
+LocalTouristName={obs._incident.LocalTouristName ? obs._incident.LocalTouristName : null}
+LocalKnowledgeName={obs._incident.LocalKnowledgeName ? obs._incident.LocalKnowledgeName : null}
+RescueName={obs._incident.RescueName ? obs._incident.RescueName : null}
+SlopeActivityName={obs._incident.SlopeActivityName ? obs._incident.SlopeActivityName : null}
+IncidentURLs={obs._incident.IncidentURLs ? obs._incident.IncidentURLs : null}
+GeoHazardTID={obs._incident.GeoHazardTID ? obs._incident.GeoHazardTID : null}
+ActivityInfluencedTID={obs._incident.ActivityInfluencedTID ? obs._incident.ActivityInfluencedTID : null}
+DamageExtentTID={obs._incident.DamageExtentTID ? obs._incident.DamageExtentTID : null}
+ForecastAccurateTID={obs._incident.ForecastAccurateTID ? obs._incident.ForecastAccurateTID : null}
+LocalTouristTID={obs._incident.LocalTouristTID ? obs._incident.LocalTouristTID : null}
+LocalKnowledgeTID={obs._incident.LocalKnowledgeTID ? obs._incident.LocalKnowledgeTID : null}
+InvolvedNum={obs._incident.InvolvedNum ? obs._incident.InvolvedNum : null}
+CasualtiesNum={obs._incident.CasualtiesNum ? obs._incident.CasualtiesNum : null}
+HarmedNum={obs._incident.HarmedNum ? obs._incident.HarmedNum : null}
+DeadNum={obs._incident.DeadNum ? obs._incident.DeadNum : null}
+EvacuatedNum={obs._incident.EvacuatedNum ? obs._incident.EvacuatedNum : null}
+TrafficObstructed={obs._incident.TrafficObstructed ? obs._incident.TrafficObstructed : null}
+MaterialDamages={obs._incident.MaterialDamages ? obs._incident.MaterialDamages : null}
+SafetyGearTID={obs._incident.SafetyGearTID ? obs._incident.SafetyGearTID : null}
+RescueTID={obs._incident.RescueTID ? obs._incident.RescueTID : null}
+SlopeActivityTID={obs._incident.SlopeActivityTID ? obs._incident.SlopeActivityTID : null}
+DtEndTime={obs._incident.DtEndTime ? obs._incident.DtEndTime : null}
+IncidentHeader={obs._incident.IncidentHeader ? obs._incident.IncidentHeader : null}
+IncidentIngress={obs._incident.IncidentIngress ? obs._incident.IncidentIngress : null}
+IncidentText={obs._incident.IncidentText ? obs._incident.IncidentText : null}
+Comment={obs._incident.Comment ? obs._incident.Comment : null}
+></varsom-incident>
+: ""}
 
 
       </div>
