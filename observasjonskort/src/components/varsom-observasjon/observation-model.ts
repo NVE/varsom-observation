@@ -203,33 +203,28 @@ export type Observation = {
   //UrlFormats	{...}
   Url?: string, //Full original image url
   Photographer?: string, //maxLength: 60 Navn på fotograf.
-  
   Copyright?: string, //maxLength: 60 Rettigheter til bilde.
   Aspect?: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
-  
   GeoHazardTID?: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
-  
   RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
-  
   Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
-  
   AttachmentMimeType?: string,
   IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
    }
    
-   export type Test = {
-    _test: string,
-    _stability: string
+   export type Test = {  //can't find this in the api...
+    Test: string,
+    Stability: string
    }
   
    export type SnowProfile = {
-    _comment: string,
-    _temperature: string,
-    _layering: string,
-    _imageUrl?: string
+    Comment: string,
+    Temperature: string,
+    Layering: string,
+    ImageUrl?: string
    }
   
-   export type LandslideProblem = {
+   export type LandslideProblem = {  //can't find this in the api...
     _description: string,
     _type: string,
     _estimatedLoadToTrigger: string,
@@ -239,7 +234,7 @@ export type Observation = {
     _imageUrl?: string
    }
   
-   export type EstimateOfRisk = {
+   export type EstimateOfRisk = {  //can't find this in the api...
     degreeOfRisk: string,
     _estimateOfRisk: string,
     _development: string,

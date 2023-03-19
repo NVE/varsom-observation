@@ -7,16 +7,24 @@
 
 ## Properties
 
-| Property                  | Attribute                    | Description | Type  | Default     |
-| ------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                 | `comment`                    |             | `any` | `undefined` |
-| `newSnowLine`             | `new-snow-line`              |             | `any` | `undefined` |
-| `skiConditionsName`       | `ski-conditions-name`        |             | `any` | `undefined` |
-| `snowDepth`               | `snow-depth`                 |             | `any` | `undefined` |
-| `snowDriftName`           | `snow-drift-name`            |             | `any` | `undefined` |
-| `snowSurfaceName`         | `snow-surface-name`          |             | `any` | `undefined` |
-| `strings`                 | `strings`                    |             | `any` | `undefined` |
-| `surfaceWaterContentName` | `surface-water-content-name` |             | `any` | `undefined` |
+| Property                  | Attribute                     | Description | Type  | Default     |
+| ------------------------- | ----------------------------- | ----------- | ----- | ----------- |
+| `Comment`                 | `comment`                     |             | `any` | `undefined` |
+| `HeightLimitLayeredSnow`  | `height-limit-layered-snow`   |             | `any` | `undefined` |
+| `NewSnowDepth24`          | `new-snow-depth-2-4`          |             | `any` | `undefined` |
+| `NewSnowLine`             | `new-snow-line`               |             | `any` | `undefined` |
+| `SkiConditionsName`       | `ski-conditions-name`         |             | `any` | `undefined` |
+| `SkiConditionsTID`        | `ski-conditions-t-i-d`        |             | `any` | `undefined` |
+| `SnowDepth`               | `snow-depth`                  |             | `any` | `undefined` |
+| `SnowDriftName`           | `snow-drift-name`             |             | `any` | `undefined` |
+| `SnowDriftTID`            | `snow-drift-t-i-d`            |             | `any` | `undefined` |
+| `SnowLine`                | `snow-line`                   |             | `any` | `undefined` |
+| `SnowSurfaceName`         | `snow-surface-name`           |             | `any` | `undefined` |
+| `SnowSurfaceTID`          | `snow-surface-t-i-d`          |             | `any` | `undefined` |
+| `SurfaceRoughnessName`    | `surface-roughness-name`      |             | `any` | `undefined` |
+| `SurfaceWaterContentName` | `surface-water-content-name`  |             | `any` | `undefined` |
+| `SurfaceWaterContentTID`  | `surface-water-content-t-i-d` |             | `any` | `undefined` |
+| `strings`                 | `strings`                     |             | `any` | `undefined` |
 
 
 ## Dependencies
@@ -28,8 +36,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-snow-surface
-  style varsom-snow-surface fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-observation --> varsom-snow-surface-observation
+  style varsom-snow-surface-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

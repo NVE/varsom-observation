@@ -842,6 +842,25 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 </div>  
   : ""}
 
+{obs._snowCoverObs ? 
+<varsom-ice-cover-observation
+strings={this.strings}
+IceCoverBeforeName={obs._snowCoverObs.IceCoverBeforeName ? obs._snowCoverObs.IceCoverBeforeName : null}
+IceCoverName={obs._snowCoverObs.IceCoverName ? obs._snowCoverObs.IceCoverName : null}
+IceCoverAfterName={obs._snowCoverObs.IceCoverAfterName ? obs._snowCoverObs.IceCoverAfterName   : null}
+IceSkateabilityName={obs._snowCoverObs.IceSkateabilityName ? obs._snowCoverObs.IceSkateabilityName : null}
+IceCapacityName={obs._snowCoverObs.IceCapacityName ? obs._snowCoverObs.IceCapacityName : null}
+IceCoverBeforeTID={obs._snowCoverObs.IceCoverBeforeTID ? obs._snowCoverObs.IceCoverBeforeTID : null}
+IceCoverTID={obs._snowCoverObs.IceCoverTID ? obs._snowCoverObs.IceCoverTID : null}
+IceCoverAfterTID={obs._snowCoverObs.IceCoverAfterTID ? obs._snowCoverObs.IceCoverAfterTID : null}
+IceSkateabilityTID={obs._snowCoverObs.IceSkateabilityTID ? obs._snowCoverObs.IceSkateabilityTID : null}
+Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
+IceCapacityTID={obs._snowCoverObs.IceCapacityTID ? obs._snowCoverObs.IceCapacityTID : null}
+></varsom-ice-cover-observation>
+: ""}
+
+
+
 {obs._generalObservation ? 
 <varsom-general-observation
 strings={this.strings}
