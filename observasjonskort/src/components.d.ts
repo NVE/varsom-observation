@@ -360,15 +360,23 @@ export namespace Components {
         "TotalDepth": any;
         "strings": any;
     }
-    interface VarsomSnowSurface {
-        "comment": any;
-        "newSnowLine": any;
-        "skiConditionsName": any;
-        "snowDepth": any;
-        "snowDriftName": any;
-        "snowSurfaceName": any;
+    interface VarsomSnowSurfaceObservation {
+        "Comment": any;
+        "HeightLimitLayeredSnow": any;
+        "NewSnowDepth24": any;
+        "NewSnowLine": any;
+        "SkiConditionsName": any;
+        "SkiConditionsTID": any;
+        "SnowDepth": any;
+        "SnowDriftName": any;
+        "SnowDriftTID": any;
+        "SnowLine": any;
+        "SnowSurfaceName": any;
+        "SnowSurfaceTID": any;
+        "SurfaceRoughnessName": any;
+        "SurfaceWaterContentName": any;
+        "SurfaceWaterContentTID": any;
         "strings": any;
-        "surfaceWaterContentName": any;
     }
     interface VarsomSnowTemp {
         "Layers": SnowTempObs[];
@@ -596,11 +604,11 @@ declare global {
         prototype: HTMLVarsomSnowProfile2Element;
         new (): HTMLVarsomSnowProfile2Element;
     };
-    interface HTMLVarsomSnowSurfaceElement extends Components.VarsomSnowSurface, HTMLStencilElement {
+    interface HTMLVarsomSnowSurfaceObservationElement extends Components.VarsomSnowSurfaceObservation, HTMLStencilElement {
     }
-    var HTMLVarsomSnowSurfaceElement: {
-        prototype: HTMLVarsomSnowSurfaceElement;
-        new (): HTMLVarsomSnowSurfaceElement;
+    var HTMLVarsomSnowSurfaceObservationElement: {
+        prototype: HTMLVarsomSnowSurfaceObservationElement;
+        new (): HTMLVarsomSnowSurfaceObservationElement;
     };
     interface HTMLVarsomSnowTempElement extends Components.VarsomSnowTemp, HTMLStencilElement {
     }
@@ -683,7 +691,7 @@ declare global {
         "varsom-snow-density": HTMLVarsomSnowDensityElement;
         "varsom-snow-density-layer": HTMLVarsomSnowDensityLayerElement;
         "varsom-snow-profile2": HTMLVarsomSnowProfile2Element;
-        "varsom-snow-surface": HTMLVarsomSnowSurfaceElement;
+        "varsom-snow-surface-observation": HTMLVarsomSnowSurfaceObservationElement;
         "varsom-snow-temp": HTMLVarsomSnowTempElement;
         "varsom-snow-temp-obs": HTMLVarsomSnowTempObsElement;
         "varsom-strat-profile": HTMLVarsomStratProfileElement;
@@ -1049,15 +1057,23 @@ declare namespace LocalJSX {
         "TotalDepth"?: any;
         "strings"?: any;
     }
-    interface VarsomSnowSurface {
-        "comment"?: any;
-        "newSnowLine"?: any;
-        "skiConditionsName"?: any;
-        "snowDepth"?: any;
-        "snowDriftName"?: any;
-        "snowSurfaceName"?: any;
+    interface VarsomSnowSurfaceObservation {
+        "Comment"?: any;
+        "HeightLimitLayeredSnow"?: any;
+        "NewSnowDepth24"?: any;
+        "NewSnowLine"?: any;
+        "SkiConditionsName"?: any;
+        "SkiConditionsTID"?: any;
+        "SnowDepth"?: any;
+        "SnowDriftName"?: any;
+        "SnowDriftTID"?: any;
+        "SnowLine"?: any;
+        "SnowSurfaceName"?: any;
+        "SnowSurfaceTID"?: any;
+        "SurfaceRoughnessName"?: any;
+        "SurfaceWaterContentName"?: any;
+        "SurfaceWaterContentTID"?: any;
         "strings"?: any;
-        "surfaceWaterContentName"?: any;
     }
     interface VarsomSnowTemp {
         "Layers"?: SnowTempObs[];
@@ -1154,7 +1170,7 @@ declare namespace LocalJSX {
         "varsom-snow-density": VarsomSnowDensity;
         "varsom-snow-density-layer": VarsomSnowDensityLayer;
         "varsom-snow-profile2": VarsomSnowProfile2;
-        "varsom-snow-surface": VarsomSnowSurface;
+        "varsom-snow-surface-observation": VarsomSnowSurfaceObservation;
         "varsom-snow-temp": VarsomSnowTemp;
         "varsom-snow-temp-obs": VarsomSnowTempObs;
         "varsom-strat-profile": VarsomStratProfile;
@@ -1196,7 +1212,7 @@ declare module "@stencil/core" {
             "varsom-snow-density": LocalJSX.VarsomSnowDensity & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityElement>;
             "varsom-snow-density-layer": LocalJSX.VarsomSnowDensityLayer & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityLayerElement>;
             "varsom-snow-profile2": LocalJSX.VarsomSnowProfile2 & JSXBase.HTMLAttributes<HTMLVarsomSnowProfile2Element>;
-            "varsom-snow-surface": LocalJSX.VarsomSnowSurface & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceElement>;
+            "varsom-snow-surface-observation": LocalJSX.VarsomSnowSurfaceObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceObservationElement>;
             "varsom-snow-temp": LocalJSX.VarsomSnowTemp & JSXBase.HTMLAttributes<HTMLVarsomSnowTempElement>;
             "varsom-snow-temp-obs": LocalJSX.VarsomSnowTempObs & JSXBase.HTMLAttributes<HTMLVarsomSnowTempObsElement>;
             "varsom-strat-profile": LocalJSX.VarsomStratProfile & JSXBase.HTMLAttributes<HTMLVarsomStratProfileElement>;

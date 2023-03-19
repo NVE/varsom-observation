@@ -821,17 +821,24 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 {obs._snowSurfaceObservation ? 
 <div>
   <div class="header">{this.strings.Observations.SnowSurfaceObservation.ObsName}</div>
-<varsom-snow-surface
+<varsom-snow-surface-observation
   strings={this.strings}
   snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
-  comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
   surface-water-content-name={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
   snow-drift-name={obs._snowSurfaceObservation.SnowDriftName ? obs._snowSurfaceObservation.SnowDriftName : null} 
   snow-surface-name={obs._snowSurfaceObservation.SnowSurfaceName ? obs._snowSurfaceObservation.SnowSurfaceName : null}
   ski-conditions-name={obs._snowSurfaceObservation.SkiConditionsName ? obs._snowSurfaceObservation.SkiConditionsName : null}
-  new-snow-line={obs._snowSurfaceObservation.NewSnowLine ? obs._snowSurfaceObservation.NewSnowLine : null}
+  SkiConditionsTID={obs._snowSurfaceObservation.SkiConditionsTID ? obs._snowSurfaceObservation.SkiConditionsTID : null}
+  NewSnowDepth24={obs._snowSurfaceObservation.NewSnowDepth24 ? obs._snowSurfaceObservation.NewSnowDepth24 : null}
+  SurfaceWaterContentTID={obs._snowSurfaceObservation.SurfaceWaterContentTID ? obs._snowSurfaceObservation.SurfaceWaterContentTID : null}
+  SnowDriftTID={obs._snowSurfaceObservation.SnowDriftTID ? obs._snowSurfaceObservation.SnowDriftTID : null}
+  SnowSurfaceTID={obs._snowSurfaceObservation.SnowSurfaceTID ? obs._snowSurfaceObservation.SnowSurfaceTID : null}
+  Comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
+  HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs.HeightLimitLayeredSnow.SkiConditionsTID : null}
+  SnowLine={obs._snowSurfaceObservation.SnowLine ? obs._snowSurfaceObservation.SnowLine : null}
+
 >
-</varsom-snow-surface>
+</varsom-snow-surface-observation>
 </div>  
   : ""}
 
