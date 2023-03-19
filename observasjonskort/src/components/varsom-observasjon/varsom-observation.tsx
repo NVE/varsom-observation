@@ -859,7 +859,19 @@ IceCapacityTID={obs._snowCoverObs.IceCapacityTID ? obs._snowCoverObs.IceCapacity
 ></varsom-ice-cover-observation>
 : ""}
 
-
+{obs._weatherObservation ? 
+<varsom-weather-observation
+strings={this.strings}
+PrecipitationName={obs._weatherObservation.PrecipitationName ? obs._generalObservation.PrecipitationName : null}
+WindDirectionName={obs._weatherObservation.WindDirectionName ? obs._generalObservation.WindDirectionName : null}
+PrecipitationTID={obs._weatherObservation.PrecipitationTID ? obs._generalObservation.PrecipitationTID : null}
+AirTemperature={obs._weatherObservation.AirTemperature ? obs._generalObservation.AirTemperature : null}
+WindSpeed={obs._weatherObservation.WindSpeed ? obs._generalObservation.WindSpeed : null}
+WindDirection={obs._weatherObservation.WindDirection ? obs._generalObservation.WindDirection : null}
+CloudCover={obs._weatherObservation.CloudCover ? obs._generalObservation.CloudCover : null}
+Comment={obs._weatherObservation.Comment ? obs._generalObservation.Comment : null}
+></varsom-weather-observation>
+: ""}
 
 {obs._generalObservation ? 
 <varsom-general-observation

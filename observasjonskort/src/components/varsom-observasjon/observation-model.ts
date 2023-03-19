@@ -137,7 +137,7 @@ export type Observation = {
     WindDirection: number,
     CloudCover: number,
     Comment: string,
-    _imageUrl?: string
+    //_imageUrl?: string
    }
   
    export type AvalancheActivityObs2 = {
