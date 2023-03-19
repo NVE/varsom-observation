@@ -835,6 +835,21 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 </div>  
   : ""}
 
+{obs._generalObservation ? 
+<varsom-general-observation
+strings={this.strings}
+GeoHazardName={obs._generalObservation.GeoHazardName ? obs._generalObservation.GeoHazardName : null}
+Urls={obs._generalObservation.Urls ? obs._generalObservation.Urls : null}
+GeoHazardTID={obs._generalObservation.GeoHazardTID ? obs._generalObservation.GeoHazardTID : null}
+ObsComment={obs._generalObservation.ObsComment ? obs._generalObservation.ObsComment : null}
+ObsHeader={obs._generalObservation.ObsHeader ? obs._generalObservation.ObsHeader : null}
+Comment={obs._generalObservation.Comment ? obs._generalObservation.Comment : null}
+
+
+></varsom-general-observation>
+: ""}
+
+
 {obs._incident ? 
 <varsom-incident
 strings={this.strings}

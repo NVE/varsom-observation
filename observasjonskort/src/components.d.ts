@@ -177,6 +177,15 @@ export namespace Components {
         "dangerSignName": any;
         "strings": any;
     }
+    interface VarsomGeneralObservation {
+        "Comment": any;
+        "GeoHazardName": any;
+        "GeoHazardTID": any;
+        "ObsComment": any;
+        "ObsHeader": any;
+        "Urls": any[];
+        "strings": any;
+    }
     interface VarsomHeader {
         "regId": string;
         "region": string;
@@ -498,6 +507,12 @@ declare global {
         prototype: HTMLVarsomDangerObsElement;
         new (): HTMLVarsomDangerObsElement;
     };
+    interface HTMLVarsomGeneralObservationElement extends Components.VarsomGeneralObservation, HTMLStencilElement {
+    }
+    var HTMLVarsomGeneralObservationElement: {
+        prototype: HTMLVarsomGeneralObservationElement;
+        new (): HTMLVarsomGeneralObservationElement;
+    };
     interface HTMLVarsomHeaderElement extends Components.VarsomHeader, HTMLStencilElement {
     }
     var HTMLVarsomHeaderElement: {
@@ -643,6 +658,7 @@ declare global {
         "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
+        "varsom-general-observation": HTMLVarsomGeneralObservationElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
         "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
@@ -836,6 +852,15 @@ declare namespace LocalJSX {
     interface VarsomDangerObs {
         "comment"?: any;
         "dangerSignName"?: any;
+        "strings"?: any;
+    }
+    interface VarsomGeneralObservation {
+        "Comment"?: any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
+        "ObsComment"?: any;
+        "ObsHeader"?: any;
+        "Urls"?: any[];
         "strings"?: any;
     }
     interface VarsomHeader {
@@ -1098,6 +1123,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-obs2": VarsomAvalancheObs2;
         "varsom-compression-test": VarsomCompressionTest;
         "varsom-danger-obs": VarsomDangerObs;
+        "varsom-general-observation": VarsomGeneralObservation;
         "varsom-header": VarsomHeader;
         "varsom-ice-thickness": VarsomIceThickness;
         "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
@@ -1138,6 +1164,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
+            "varsom-general-observation": LocalJSX.VarsomGeneralObservation & JSXBase.HTMLAttributes<HTMLVarsomGeneralObservationElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
             "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
