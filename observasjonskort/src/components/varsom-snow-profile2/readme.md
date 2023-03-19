@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property                  | Attribute                    | Description | Type  | Default     |
-| ------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                 | `comment`                    |             | `any` | `undefined` |
-| `newSnowLine`             | `new-snow-line`              |             | `any` | `undefined` |
-| `skiConditionsName`       | `ski-conditions-name`        |             | `any` | `undefined` |
-| `snowDepth`               | `snow-depth`                 |             | `any` | `undefined` |
-| `snowDriftName`           | `snow-drift-name`            |             | `any` | `undefined` |
-| `snowSurfaceName`         | `snow-surface-name`          |             | `any` | `undefined` |
-| `strings`                 | `strings`                    |             | `any` | `undefined` |
-| `surfaceWaterContentName` | `surface-water-content-name` |             | `any` | `undefined` |
+| Property            | Attribute              | Description | Type            | Default     |
+| ------------------- | ---------------------- | ----------- | --------------- | ----------- |
+| `Comment`           | `comment`              |             | `any`           | `undefined` |
+| `Exposition`        | `exposition`           |             | `any`           | `undefined` |
+| `IsProfileToGround` | `is-profile-to-ground` |             | `any`           | `undefined` |
+| `SlopeAngle`        | `slope-angle`          |             | `any`           | `undefined` |
+| `SnowDensity`       | --                     |             | `SnowDensity[]` | `undefined` |
+| `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |
+| `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
+| `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
+| `strings`           | `strings`              |             | `any`           | `undefined` |
 
 
 ## Dependencies
@@ -25,11 +26,17 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-snow-density](../varsom-snow-density)
+
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-snow-surface
-  style varsom-snow-surface fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-snow-profile2 --> varsom-snow-density
+  varsom-snow-density --> varsom-snow-density-layer
+  varsom-observation --> varsom-snow-profile2
+  style varsom-snow-profile2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

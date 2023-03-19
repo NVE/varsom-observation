@@ -34,11 +34,13 @@
 
 ### Used by
 
+ - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
  - [varsom-observation](../varsom-observasjon)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
   varsom-observation --> varsom-avalanche-eval-problem
   style varsom-avalanche-eval-problem fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -12,7 +12,7 @@ export class VarsomIceThickness {
 
   @Prop() strings: any;
   @Prop() Comment: any;
-  @Prop() IceThicknessLayers: any[];
+  @Prop() IceThicknessLayers: IceThicknessLayer[];
   @Prop() SnowDepth: any;
   @Prop() SlushSnow: any;
   @Prop() IceThicknessSum: any;

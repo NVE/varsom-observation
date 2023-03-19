@@ -7,29 +7,24 @@
 
 ## Properties
 
-| Property              | Attribute               | Description | Type  | Default     |
-| --------------------- | ----------------------- | ----------- | ----- | ----------- |
-| `competenceLevelName` | `competence-level-name` |             | `any` | `undefined` |
-| `dateOfLastUpdate`    | `date-of-last-update`   |             | `any` | `undefined` |
-| `dateOfRegistration`  | `date-of-registration`  |             | `any` | `undefined` |
-| `geoHazardName`       | `geo-hazard-name`       |             | `any` | `undefined` |
-| `moh`                 | `moh`                   |             | `any` | `undefined` |
-| `nickname`            | `nickname`              |             | `any` | `undefined` |
-| `observerGroupName`   | `observer-group-name`   |             | `any` | `undefined` |
-| `strings`             | `strings`               |             | `any` | `undefined` |
+| Property   | Attribute   | Description | Type  | Default     |
+| ---------- | ----------- | ----------- | ----- | ----------- |
+| `Depth`    | `depth`     |             | `any` | `undefined` |
+| `SnowTemp` | `snow-temp` |             | `any` | `undefined` |
+| `strings`  | `strings`   |             | `any` | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-snow-temp](../varsom-snow-temp)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-metadata
-  style varsom-metadata fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-snow-temp --> varsom-snow-temp-obs
+  style varsom-snow-temp-obs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

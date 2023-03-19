@@ -403,8 +403,8 @@ export type Observation = {
   
   
    export  type Url = {
-    UrlDescription: string //maxLength: 1024 UrlDescription
-    UrlLine: string, //maxLength: 1024 UrlLine
+    UrlDescription?: string //maxLength: 1024 UrlDescription
+    UrlLine?: string, //maxLength: 1024 UrlLine
    }
   
    export type GeneralObservation = {

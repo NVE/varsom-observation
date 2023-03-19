@@ -25,9 +25,14 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-ice-thickness-layer](../varsom-ice-thickness-layer)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-ice-thickness --> varsom-ice-thickness-layer
   varsom-observation --> varsom-ice-thickness
   style varsom-ice-thickness fill:#f9f,stroke:#333,stroke-width:4px
 ```

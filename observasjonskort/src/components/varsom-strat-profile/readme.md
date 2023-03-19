@@ -7,29 +7,24 @@
 
 ## Properties
 
-| Property                  | Attribute                    | Description | Type  | Default     |
-| ------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                 | `comment`                    |             | `any` | `undefined` |
-| `newSnowLine`             | `new-snow-line`              |             | `any` | `undefined` |
-| `skiConditionsName`       | `ski-conditions-name`        |             | `any` | `undefined` |
-| `snowDepth`               | `snow-depth`                 |             | `any` | `undefined` |
-| `snowDriftName`           | `snow-drift-name`            |             | `any` | `undefined` |
-| `snowSurfaceName`         | `snow-surface-name`          |             | `any` | `undefined` |
-| `strings`                 | `strings`                    |             | `any` | `undefined` |
-| `surfaceWaterContentName` | `surface-water-content-name` |             | `any` | `undefined` |
+| Property     | Attribute     | Description | Type                  | Default     |
+| ------------ | ------------- | ----------- | --------------------- | ----------- |
+| `Layers`     | --            |             | `StratProfileLayer[]` | `undefined` |
+| `TotalDepth` | `total-depth` |             | `any`                 | `undefined` |
+| `strings`    | `strings`     |             | `any`                 | `undefined` |
 
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [varsom-observation](../varsom-observasjon)
+- [varsom-strat-profile-layer](../varsom-strat-profile-layer)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-snow-surface
-  style varsom-snow-surface fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-strat-profile --> varsom-strat-profile-layer
+  style varsom-strat-profile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

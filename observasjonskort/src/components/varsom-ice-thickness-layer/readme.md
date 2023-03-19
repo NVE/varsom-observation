@@ -15,6 +15,19 @@
 | `strings`           | `strings`             |             | `any` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [varsom-ice-thickness](../varsom-ice-thickness)
+
+### Graph
+```mermaid
+graph TD;
+  varsom-ice-thickness --> varsom-ice-thickness-layer
+  style varsom-ice-thickness-layer fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

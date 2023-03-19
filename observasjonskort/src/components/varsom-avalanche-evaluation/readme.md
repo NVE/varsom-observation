@@ -7,37 +7,25 @@
 
 ## Properties
 
-| Property                        | Attribute                            | Description | Type  | Default     |
-| ------------------------------- | ------------------------------------ | ----------- | ----- | ----------- |
-| `AvalCauseAttributeCrystalName` | `aval-cause-attribute-crystal-name`  |             | `any` | `undefined` |
-| `AvalCauseAttributeCrystalTID`  | `aval-cause-attribute-crystal-t-i-d` |             | `any` | `undefined` |
-| `AvalCauseAttributeLightName`   | `aval-cause-attribute-light-name`    |             | `any` | `undefined` |
-| `AvalCauseAttributeLightTID`    | `aval-cause-attribute-light-t-i-d`   |             | `any` | `undefined` |
-| `AvalCauseAttributeSoftName`    | `aval-cause-attribute-soft-name`     |             | `any` | `undefined` |
-| `AvalCauseAttributeSoftTID`     | `aval-cause-attribute-soft-t-i-d`    |             | `any` | `undefined` |
-| `AvalCauseAttributeThinName`    | `aval-cause-attribute-thin-name`     |             | `any` | `undefined` |
-| `AvalCauseAttributeThinTID`     | `aval-cause-attribute-thin-t-i-d`    |             | `any` | `undefined` |
-| `AvalCauseDepthName`            | `aval-cause-depth-name`              |             | `any` | `undefined` |
-| `AvalCauseDepthTID`             | `aval-cause-depth-t-i-d`             |             | `any` | `undefined` |
-| `AvalCauseName`                 | `aval-cause-name`                    |             | `any` | `undefined` |
-| `AvalCauseTID`                  | `aval-cause-t-i-d`                   |             | `any` | `undefined` |
-| `AvalProbabilityName`           | `aval-probability-name`              |             | `any` | `undefined` |
-| `AvalProbabilityTID`            | `aval-probability-t-i-d`             |             | `any` | `undefined` |
-| `AvalPropagationName`           | `aval-propagation-name`              |             | `any` | `undefined` |
-| `AvalPropagationTID`            | `aval-propagation-t-i-d`             |             | `any` | `undefined` |
-| `AvalTriggerSimpleName`         | `aval-trigger-simple-name`           |             | `any` | `undefined` |
-| `AvalTriggerSimpleTID`          | `aval-trigger-simple-t-i-d`          |             | `any` | `undefined` |
-| `AvalancheExtName`              | `avalanche-ext-name`                 |             | `any` | `undefined` |
-| `AvalancheExtTID`               | `avalanche-ext-t-i-d`                |             | `any` | `undefined` |
-| `Comment`                       | `comment`                            |             | `any` | `undefined` |
-| `DestructiveSizeName`           | `destructive-size-name`              |             | `any` | `undefined` |
-| `DestructiveSizeTID`            | `destructive-size-t-i-d`             |             | `any` | `undefined` |
-| `ExposedHeight1`                | `exposed-height-1`                   |             | `any` | `undefined` |
-| `ExposedHeight2`                | `exposed-height-2`                   |             | `any` | `undefined` |
-| `ExposedHeightComboName`        | `exposed-height-combo-name`          |             | `any` | `undefined` |
-| `ExposedHeightComboTID`         | `exposed-height-combo-t-i-d`         |             | `any` | `undefined` |
-| `ValidExposition`               | `valid-exposition`                   |             | `any` | `undefined` |
-| `strings`                       | `strings`                            |             | `any` | `undefined` |
+| Property                | Attribute                   | Description | Type  | Default     |
+| ----------------------- | --------------------------- | ----------- | ----- | ----------- |
+| `AvalancheDangerName`   | `avalanche-danger-name`     |             | `any` | `undefined` |
+| `AvalancheDangerTID`    | `avalanche-danger-t-i-d`    |             | `any` | `undefined` |
+| `AvalancheEvaluation1`  | `avalanche-evaluation-1`    |             | `any` | `undefined` |
+| `AvalancheProblemName1` | `avalanche-problem-name-1`  |             | `any` | `undefined` |
+| `AvalancheProblemName2` | `avalanche-problem-name-2`  |             | `any` | `undefined` |
+| `AvalancheProblemName3` | `avalanche-problem-name-3`  |             | `any` | `undefined` |
+| `AvalancheProblemTID1`  | `avalanche-problem-t-i-d-1` |             | `any` | `undefined` |
+| `AvalancheProblemTID2`  | `avalanche-problem-t-i-d-2` |             | `any` | `undefined` |
+| `AvalancheProblemTID3`  | `avalanche-problem-t-i-d-3` |             | `any` | `undefined` |
+| `CanPublish`            | `can-publish`               |             | `any` | `undefined` |
+| `Comment`               | `comment`                   |             | `any` | `undefined` |
+| `RegID`                 | `reg-i-d`                   |             | `any` | `undefined` |
+| `ValidExposition`       | `valid-exposition`          |             | `any` | `undefined` |
+| `ValidHeightFrom`       | `valid-height-from`         |             | `any` | `undefined` |
+| `ValidHeightRelative`   | `valid-height-relative`     |             | `any` | `undefined` |
+| `ValidHeigtTo`          | `valid-heigt-to`            |             | `any` | `undefined` |
+| `strings`               | `strings`                   |             | `any` | `undefined` |
 
 
 ## Dependencies
@@ -49,8 +37,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-avalanche-eval-problem2
-  style varsom-avalanche-eval-problem2 fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-observation --> varsom-avalanche-evaluation
+  style varsom-avalanche-evaluation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

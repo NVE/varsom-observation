@@ -7,16 +7,15 @@
 
 ## Properties
 
-| Property                  | Attribute                    | Description | Type  | Default     |
-| ------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                 | `comment`                    |             | `any` | `undefined` |
-| `newSnowLine`             | `new-snow-line`              |             | `any` | `undefined` |
-| `skiConditionsName`       | `ski-conditions-name`        |             | `any` | `undefined` |
-| `snowDepth`               | `snow-depth`                 |             | `any` | `undefined` |
-| `snowDriftName`           | `snow-drift-name`            |             | `any` | `undefined` |
-| `snowSurfaceName`         | `snow-surface-name`          |             | `any` | `undefined` |
-| `strings`                 | `strings`                    |             | `any` | `undefined` |
-| `surfaceWaterContentName` | `surface-water-content-name` |             | `any` | `undefined` |
+| Property        | Attribute          | Description | Type    | Default     |
+| --------------- | ------------------ | ----------- | ------- | ----------- |
+| `Comment`       | `comment`          |             | `any`   | `undefined` |
+| `GeoHazardName` | `geo-hazard-name`  |             | `any`   | `undefined` |
+| `GeoHazardTID`  | `geo-hazard-t-i-d` |             | `any`   | `undefined` |
+| `ObsComment`    | `obs-comment`      |             | `any`   | `undefined` |
+| `ObsHeader`     | `obs-header`       |             | `any`   | `undefined` |
+| `Urls`          | --                 |             | `Url[]` | `undefined` |
+| `strings`       | `strings`          |             | `any`   | `undefined` |
 
 
 ## Dependencies
@@ -25,11 +24,16 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-url](../varsom-url)
+
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-snow-surface
-  style varsom-snow-surface fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-general-observation --> varsom-url
+  varsom-observation --> varsom-general-observation
+  style varsom-general-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

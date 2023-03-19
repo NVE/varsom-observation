@@ -1,6 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { AvalancheEvalProblem } from '../varsom-observasjon/observation-model';
-
 
 @Component({
   tag: 'varsom-avalanche-evaluation',

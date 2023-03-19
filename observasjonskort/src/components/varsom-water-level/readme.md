@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property                   | Attribute                    | Description | Type  | Default     |
-| -------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                  | `comment`                    |             | `any` | `undefined` |
-| `measurementReferenceName` | `measurement-reference-name` |             | `any` | `undefined` |
-| `measurementTypeName`      | `measurement-type-name`      |             | `any` | `undefined` |
-| `observationTimingName`    | `observation-timing-name`    |             | `any` | `undefined` |
-| `strings`                  | `strings`                    |             | `any` | `undefined` |
-| `waterAstrayName`          | `water-astray-name`          |             | `any` | `undefined` |
+| Property              | Attribute               | Description | Type  | Default     |
+| --------------------- | ----------------------- | ----------- | ----- | ----------- |
+| `IsRiver`             | `is-river`              |             | `any` | `undefined` |
+| `MeasuredDischarge`   | `measured-discharge`    |             | `any` | `undefined` |
+| `WaterLevelDescribed` | `water-level-described` |             | `any` | `undefined` |
+| `WaterLevelRefName`   | `water-level-ref-name`  |             | `any` | `undefined` |
+| `WaterLevelRefTID`    | `water-level-ref-t-i-d` |             | `any` | `undefined` |
+| `WaterLevelValue`     | `water-level-value`     |             | `any` | `undefined` |
+| `strings`             | `strings`               |             | `any` | `undefined` |
 
 
 ## Dependencies
@@ -26,8 +27,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-water-level2
-  style varsom-water-level2 fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-observation --> varsom-water-level
+  style varsom-water-level fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

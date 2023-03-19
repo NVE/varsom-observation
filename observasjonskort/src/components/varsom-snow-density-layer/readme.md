@@ -7,29 +7,27 @@
 
 ## Properties
 
-| Property                  | Attribute                    | Description | Type  | Default     |
-| ------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `comment`                 | `comment`                    |             | `any` | `undefined` |
-| `newSnowLine`             | `new-snow-line`              |             | `any` | `undefined` |
-| `skiConditionsName`       | `ski-conditions-name`        |             | `any` | `undefined` |
-| `snowDepth`               | `snow-depth`                 |             | `any` | `undefined` |
-| `snowDriftName`           | `snow-drift-name`            |             | `any` | `undefined` |
-| `snowSurfaceName`         | `snow-surface-name`          |             | `any` | `undefined` |
-| `strings`                 | `strings`                    |             | `any` | `undefined` |
-| `surfaceWaterContentName` | `surface-water-content-name` |             | `any` | `undefined` |
+| Property          | Attribute          | Description | Type  | Default     |
+| ----------------- | ------------------ | ----------- | ----- | ----------- |
+| `Depth`           | `depth`            |             | `any` | `undefined` |
+| `SortOrder`       | `sort-order`       |             | `any` | `undefined` |
+| `Thickness`       | `thickness`        |             | `any` | `undefined` |
+| `WaterEquivalent` | `water-equivalent` |             | `any` | `undefined` |
+| `Weight`          | `weight`           |             | `any` | `undefined` |
+| `strings`         | `strings`          |             | `any` | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-snow-density](../varsom-snow-density)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-snow-surface
-  style varsom-snow-surface fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-snow-density --> varsom-snow-density-layer
+  style varsom-snow-density-layer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
