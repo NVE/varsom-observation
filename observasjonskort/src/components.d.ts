@@ -55,6 +55,7 @@ export namespace Components {
         "SnowLineName": any;
         "TerrainStartZoneName": any;
         "TerrainStartZoneTID": any;
+        "header": any;
         "strings": any;
     }
     interface VarsomAvalancheActivityObs2 {
@@ -823,6 +824,7 @@ declare namespace LocalJSX {
         "SnowLineName"?: any;
         "TerrainStartZoneName"?: any;
         "TerrainStartZoneTID"?: any;
+        "header"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs2 {

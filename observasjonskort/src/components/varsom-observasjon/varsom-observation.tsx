@@ -334,45 +334,6 @@ export class VarsomObservation {
           }
         }
     
-/*
-   //add avalancheEvalProblem
-   if (data[i]["AvalancheEvalProblem2"].length > 0){
-    for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
-      this.observations[i]._avalancheEvalProblem2.push({
-        AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
-        AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
-        AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
-        ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
-        AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
-        AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
-        DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
-        AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
-        AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
-        AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
-        AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
-        AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
-        AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
-        AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
-        AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
-        AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
-        ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
-        ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
-        ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
-        ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
-        AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
-        Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
-        AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
-        AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
-        AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
-        AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
-        AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
-        DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
-      })
-    }
-  }
-*/
-
-
 
         //add images for image carousel
      this.observations[i]._images.push(
@@ -492,9 +453,10 @@ export class VarsomObservation {
         })    
 }
 
-
 {obs._avalancheActivityObs2.length > 0 ?
-<label>Label mangler....</label> : "" }
+  <div class="header">{this.strings.Observations.AvalancheTID}</div>
+: ""}
+
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
 
@@ -509,6 +471,7 @@ export class VarsomObservation {
 
 {obs._avalancheActivityObs ? 
 <varsom-avalanche-activity-obs
+header={this.strings.Observations.AvalancheTID}
 strings={this.strings}
 AvalancheActivityObsID={obs._avalancheActivityObs.AvalancheActivityObsID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
 Aspect={obs._avalancheActivityObs.Aspect ? obs._avalancheActivityObs.Aspect : null}

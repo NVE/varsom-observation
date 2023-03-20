@@ -27,6 +27,7 @@
 | `SnowLineName`           | `snow-line-name`             |             | `any` | `undefined` |
 | `TerrainStartZoneName`   | `terrain-start-zone-name`    |             | `any` | `undefined` |
 | `TerrainStartZoneTID`    | `terrain-start-zone-t-i-d`   |             | `any` | `undefined` |
+| `header`                 | `header`                     |             | `any` | `undefined` |
 | `strings`                | `strings`                    |             | `any` | `undefined` |
 
 

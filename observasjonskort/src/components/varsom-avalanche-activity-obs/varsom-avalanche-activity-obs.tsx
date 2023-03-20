@@ -10,6 +10,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomAvalancheActivityObs {
 
   @Prop() strings: any;
+  @Prop() header: any;
   @Prop() AvalancheActivityObsID: any;
   @Prop() Aspect: any;
   @Prop() HeigthStartZone: any;
@@ -32,6 +33,12 @@ export class VarsomAvalancheActivityObs {
   
   render(){
     return <div> 
+
+    {this.header ? 
+      <div class="header">
+    {this.header}
+    </div>
+      : ""} 
 
     {this.EstimatedNumName ? 
       <div>
