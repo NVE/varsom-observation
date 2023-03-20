@@ -59,9 +59,26 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheActivityObs2 {
-        "avalCauseName": any;
-        "comment": any;
-        "dtStart": any;
+        "AvalCauseName": any;
+        "AvalCauseTID": any;
+        "AvalPropagationName": any;
+        "AvalPropagationTID": any;
+        "AvalTriggerSimpleName": any;
+        "AvalTriggerSimpleTID": any;
+        "AvalancheExtName": any;
+        "AvalancheExtTID": any;
+        "Comment": any;
+        "DestructiveSizeName": any;
+        "DestructiveSizeTID": any;
+        "DtEnd": any;
+        "DtStart": any;
+        "EstimatedNumName": any;
+        "EstimatedNumTID": any;
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ExposedHeightComboName": any;
+        "ExposedHeightComboTID": any;
+        "ValidExposition": any;
         "strings": any;
     }
     interface VarsomAvalancheEvalProblem {
@@ -828,9 +845,26 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs2 {
-        "avalCauseName"?: any;
-        "comment"?: any;
-        "dtStart"?: any;
+        "AvalCauseName"?: any;
+        "AvalCauseTID"?: any;
+        "AvalPropagationName"?: any;
+        "AvalPropagationTID"?: any;
+        "AvalTriggerSimpleName"?: any;
+        "AvalTriggerSimpleTID"?: any;
+        "AvalancheExtName"?: any;
+        "AvalancheExtTID"?: any;
+        "Comment"?: any;
+        "DestructiveSizeName"?: any;
+        "DestructiveSizeTID"?: any;
+        "DtEnd"?: any;
+        "DtStart"?: any;
+        "EstimatedNumName"?: any;
+        "EstimatedNumTID"?: any;
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ExposedHeightComboName"?: any;
+        "ExposedHeightComboTID"?: any;
+        "ValidExposition"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem {

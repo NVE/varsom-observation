@@ -464,7 +464,26 @@ export class VarsomObservation {
             strings={this.strings}
             dt-start={el.DtStart ? el.DtStart : null}
             aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
-            comment={el.Comment ? el.Comment : null}
+            EstimatedNumName={el.EstimatedNumName ? el.EstimatedNumName : null}
+            ExposedHeightComboName={el.ExposedHeightComboName ? el.ExposedHeightComboName : null}
+            AvalancheExtName={el.AvalancheExtName ? el.AvalancheExtName : null}
+            AvalCauseName={el.AvalCauseName ? el.AvalCauseName : null}
+            AvalTriggerSimpleName={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null}
+            AvalPropagationName={el.AvalPropagationName ? el.AvalPropagationName : null}
+            DestructiveSizeName={el.DestructiveSizeName ? el.DestructiveSizeName : null}
+            EstimatedNumTID={el.EstimatedNumTID ? el.EstimatedNumTID : null}
+            DtStart={el.DtStart ? el.DtStart : null}
+            DtEnd={el.DtEnd ? el.DtEnd : null}
+            ValidExposition={el.ValidExposition ? el.ValidExposition : null}
+            ExposedHeight1={el.ExposedHeight1 ? el.ExposedHeight1 : null}
+            ExposedHeight2={el.ExposedHeight2 ? el.ExposedHeight2 : null}
+            ExposedHeightComboTID={el.ExposedHeightComboTID ? el.ExposedHeightComboTID : null}
+            AvalancheExtTID={el.AvalancheExtTID ? el.AvalancheExtTID : null}
+            AvalCauseTID={el.AvalCauseTID ? el.AvalCauseTID : null}
+            DestructiveSizeTID={el.DestructiveSizeTID ? el.DestructiveSizeTID : null}
+            AvalPropagationTID={el.AvalPropagationTID ? el.AvalPropagationTID : null}
+            Comment={el.Comment ? el.Comment : null}
+
             > </varsom-avalanche-activity-obs2>
         })
         }
