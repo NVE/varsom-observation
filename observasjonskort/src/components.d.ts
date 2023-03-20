@@ -43,6 +43,7 @@ export namespace Components {
         "AvalancheTID": any;
         "AvalancheTriggerName": any;
         "AvalancheTriggerTID": any;
+        "Comment": any;
         "DestructiveSizeName": any;
         "DestructiveSizeTID": any;
         "DtAvalancheTime": any;
@@ -810,6 +811,7 @@ declare namespace LocalJSX {
         "AvalancheTID"?: any;
         "AvalancheTriggerName"?: any;
         "AvalancheTriggerTID"?: any;
+        "Comment"?: any;
         "DestructiveSizeName"?: any;
         "DestructiveSizeTID"?: any;
         "DtAvalancheTime"?: any;

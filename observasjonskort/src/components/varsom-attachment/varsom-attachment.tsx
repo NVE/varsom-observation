@@ -27,13 +27,35 @@ export class VarsomAttachment {
 
   render(){
     return <div class="container">
+
       {this.Url ? 
         <div>
         <img src={this.Url} />
       </div>
       : ""} 
 
-      {console.log(this.strings)}
+{this.RegistrationName ? 
+      <div>
+         <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.Incident.RegistrationTID}: </div>
+        : <div>Bilde av: </div>}
+        </label>
+        {this.RegistrationName}
+      </div>
+      : ""} 
+
+
+    {this.GeoHazardName ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.Incident.GeoHazardTID}: </div>
+        : <div>Faretype: </div>}
+        </label>
+      {this.GeoHazardName}
+    </div>
+      : ""} 
 
       {this.Comment ? 
       <div>
@@ -46,11 +68,7 @@ export class VarsomAttachment {
     </div>
       : ""} 
 
-      {this.RegistrationName ? 
-      <div>
-        {this.RegistrationName}
-      </div>
-      : ""} 
+     
     
     {this.Photographer ? 
       <div>

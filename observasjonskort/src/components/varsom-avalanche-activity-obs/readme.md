@@ -15,6 +15,7 @@
 | `AvalancheTID`           | `avalanche-t-i-d`            |             | `any` | `undefined` |
 | `AvalancheTriggerName`   | `avalanche-trigger-name`     |             | `any` | `undefined` |
 | `AvalancheTriggerTID`    | `avalanche-trigger-t-i-d`    |             | `any` | `undefined` |
+| `Comment`                | `comment`                    |             | `any` | `undefined` |
 | `DestructiveSizeName`    | `destructive-size-name`      |             | `any` | `undefined` |
 | `DestructiveSizeTID`     | `destructive-size-t-i-d`     |             | `any` | `undefined` |
 | `DtAvalancheTime`        | `dt-avalanche-time`          |             | `any` | `undefined` |

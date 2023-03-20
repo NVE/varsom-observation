@@ -27,102 +27,56 @@ export class VarsomAvalancheActivityObs {
   @Prop() SnowLine: any;
   @Prop() SnowLineName: any;
   @Prop() DtOffAvalancheTime: any;
+  @Prop() Comment: any;
   
   
   render(){
     return <div> 
 
-      {this.AvalancheActivityObsID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheActivityObsID}
-      </span> : ""}
+    {this.EstimatedNumName ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.AvalancheActivityObs.HowManyAvalanches}: </div>
+        : <div>Antall skred: </div>}
+        </label>
+    {this.EstimatedNumName}
+    </div>
+      : ""} 
 
-      {this.Aspect ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Aspect}
-      </span> : ""}
-      
-      {this.HeigthStartZone ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.HeigthStartZone}
-      </span> : ""}
+    {this.DestructiveSizeName ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.AvalancheActivityObs.NumberAndSize}: </div>
+        : <div>Antall og størrelse: </div>}
+        </label>
+    {this.DestructiveSizeName}
+    </div>
+      : ""} 
 
-      {this.DtAvalancheTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtAvalancheTime}
-      </span> : ""}
-
-      {this.DestructiveSizeTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeTID}
-      </span> : ""}
-
-      {this.DestructiveSizeName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeName}
-      </span> : ""}
-
-      {this.EstimatedNumTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.EstimatedNumTID}
-      </span> : ""}
-
-      {this.EstimatedNumName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.EstimatedNumName}
-      </span> : ""}
-
-      {this.AvalancheTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheTID}
-      </span> : ""}
-      
-      {this.AvalancheName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheName}
-      </span> : ""}
-
-      {this.AvalancheTriggerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheTriggerName}
-      </span> : ""}
-
-
-      {this.TerrainStartZoneTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TerrainStartZoneTID}
-      </span> : ""}
+    {this.AvalancheTriggerName ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID}: </div>
+        : <div>Skredutløser: </div>}
+        </label>
+    {this.AvalancheTriggerName}
+    </div>
+      : ""} 
 
       
-      {this.TerrainStartZoneName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TerrainStartZoneName}
-      </span> : ""}
-
-      {this.SnowLineName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SnowLineName}
-      </span> : ""}
-
-      {this.DtOffAvalancheTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtOffAvalancheTime}
-      </span> : ""}
+{this.Comment ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.AvalancheActivityObs.Comment}: </div>
+        : <div>Kommentar: </div>}
+        </label>
+    {this.Comment}
+    </div>
+      : ""} 
 
     </div>
   }
