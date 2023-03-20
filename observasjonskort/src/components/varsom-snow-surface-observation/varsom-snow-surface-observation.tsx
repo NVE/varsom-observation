@@ -2,65 +2,75 @@ import { Component, Prop, h } from '@stencil/core';
 
 
 @Component({
-  tag: 'varsom-snow-surface',
-  styleUrl: 'varsom-snow-surface.css',
+  tag: 'varsom-snow-surface-observation',
+  styleUrl: 'varsom-snow-surface-observation.css',
   shadow: true,
   assetsDirs: ['images']
 })
-export class VarsomSnowSurface {
+export class VarsomSnowSurfaceObservation {
 
   @Prop() strings: any;
-  @Prop() snowDepth: any;
-  @Prop() snowDriftName: any;
-  @Prop() snowSurfaceName: any;
-  @Prop() skiConditionsName: any;
-  @Prop() newSnowLine: any;
-  @Prop() surfaceWaterContentName: any;
-  @Prop() comment: any;
+  @Prop() SnowDepth: any;
+  @Prop() SnowDriftName: any;
+  @Prop() SnowSurfaceName: any;
+  @Prop() SkiConditionsName: any;
+  @Prop() NewSnowLine: any;
+  @Prop() SurfaceWaterContentName: any;
+  @Prop() SkiConditionsTID: any;
+  @Prop() SurfaceRoughnessName: any;
+  @Prop() NewSnowDepth24: any;
+  @Prop() SurfaceWaterContentTID: any;
+  @Prop() SnowDriftTID: any;
+  @Prop() SnowSurfaceTID: any;
+  @Prop() Comment: any;
+  @Prop() HeightLimitLayeredSnow: any;
+  @Prop() SnowLine: any;
 
   render(){
     return <div> 
 
-      {this.snowDepth ? 
+not implemented...
+
+      {this.SnowDepth ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.SnowDepth}: </label>
-      {this.snowDepth}
+      {this.SnowDepth}
       </span> : ""}
       
-      {this.snowDriftName ? 
+      {this.SnowDriftName ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.SnowDriftTName}: </label>
-      {this.snowDriftName}
+      {this.SnowDriftName}
       </span> : ""}
 
-      {this.snowSurfaceName ? 
+      {this.SnowSurfaceName ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.SnowSurfaceTName}: </label>
-      {this.snowSurfaceName}
+      {this.SnowSurfaceName}
       </span> : ""}
 
-      {this.skiConditionsName ? 
+      {this.SkiConditionsName ? 
       <span>
       <label>label mangler: </label>
-      {this.skiConditionsName}
+      {this.SkiConditionsName}
       </span> : ""}
 
-      {this.newSnowLine ? 
+      {this.NewSnowLine ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.NewSnowLine}: </label>
-      {this.newSnowLine}
+      {this.NewSnowLine}
       </span> : ""}
       
-      {this.surfaceWaterContentName ? 
+      {this.SurfaceWaterContentName ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.SurfaceWaterContentTName}</label>
-      {this.surfaceWaterContentName}
+      {this.SurfaceWaterContentName}
       </span> : ""}
 
-      {this.comment ? 
+      {this.Comment ? 
       <span>
       <label>{this.strings.Observations.SnowSurfaceObservation.Comment}: </label>
-      {this.comment}
+      {this.Comment}
       </span> : ""}
 
 

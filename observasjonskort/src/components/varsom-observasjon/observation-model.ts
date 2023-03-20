@@ -39,6 +39,7 @@ export type Observation = {
   _waterLevel2?: WaterLevel2,
   _damageObs?: DamageObs[],
   _obsLocation?: ObsLocation,
+  _avalancheEvalProblem?: AvalancheEvalProblem[],
   _avalancheEvalProblem2?: AvalancheEvalProblem2[],
   _avalancheEvaluation3?: AvalancheEvaluation3,
   _compressionTest?: CompressionTest[]
@@ -55,8 +56,8 @@ export type Observation = {
   };
 
   export type SignsOfDanger = {
-    _type: string,
-    _comment: string
+    Type: string,
+    Comment: string
    }
   
    export type DangerObs = {
@@ -136,7 +137,7 @@ export type Observation = {
     WindDirection: number,
     CloudCover: number,
     Comment: string,
-    _imageUrl?: string
+    //_imageUrl?: string
    }
   
    export type AvalancheActivityObs2 = {
@@ -177,14 +178,14 @@ export type Observation = {
    }
   
    export type IceThicknessLayer = {
-    IceLayerName: string,
-    IceLayerTID: number, //The IceLayerKD unique identifier
-    IceLayerThickness:	number, //($double) IceLayerThickness
-    Comment: string, //maxLength: 1024 Comment
+    IceLayerName?: string,
+    IceLayerTID?: number, //The IceLayerKD unique identifier
+    IceLayerThickness?:	number, //($double) IceLayerThickness
+    Comment?: string, //maxLength: 1024 Comment
    }
   
    export type IceThickness = {
-    IceThicknessLayers: IceThicknessLayer,
+    IceThicknessLayers: IceThicknessLayer[],
     SnowDepth: number, //($double) Mengden tørr snø oppå isen. Verdi i meter [m].
     SlushSnow: number, //($double) Mengden sørpe oppå isen. Verdi i meter [m].
     IceThicknessSum: number, //($double) Total istykkelse. I tabellen IceThicknessLayer kan individuelle islag registreres. Summen av dem skal samsvare med IceThickenssSum. Verdi i meter [m].
@@ -202,33 +203,28 @@ export type Observation = {
   //UrlFormats	{...}
   Url?: string, //Full original image url
   Photographer?: string, //maxLength: 60 Navn på fotograf.
-  
   Copyright?: string, //maxLength: 60 Rettigheter til bilde.
   Aspect?: number, //Hvilken himmelretning peker bilde. Gis i grader slik gitt på kompass. 0 er nord og 90 er øst osv.
-  
   GeoHazardTID?: number, //Sett naturfare. Tabellen brukes av alle naturfarer (snø, jord, vann, is). The GeoHazardKD unique identifier
-  
   RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
-  
   Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
-  
   AttachmentMimeType?: string,
   IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
    }
    
-   export type Test = {
-    _test: string,
-    _stability: string
+   export type Test = {  //can't find this in the api...
+    Test: string,
+    Stability: string
    }
   
    export type SnowProfile = {
-    _comment: string,
-    _temperature: string,
-    _layering: string,
-    _imageUrl?: string
+    Comment: string,
+    Temperature: string,
+    Layering: string,
+    ImageUrl?: string
    }
   
-   export type LandslideProblem = {
+   export type LandslideProblem = {  //can't find this in the api...
     _description: string,
     _type: string,
     _estimatedLoadToTrigger: string,
@@ -238,7 +234,7 @@ export type Observation = {
     _imageUrl?: string
    }
   
-   export type EstimateOfRisk = {
+   export type EstimateOfRisk = {  //can't find this in the api...
     degreeOfRisk: string,
     _estimateOfRisk: string,
     _development: string,
@@ -337,6 +333,8 @@ export type Observation = {
     UTMSourceTID: number, //	integer($int32) Kildehenvisning på hvordan koordinaten er satt. (GPS i tlf, klikk i kart, osv). Verdier gitt i UTMSourceKD
     Uncertainty: number, //	integer($int32) Usikkerhet i posisjon i meter. Anslås på web og i app hentes det fra gps.
    }
+
+ 
   
    export type AvalancheEvalProblem2 = {
     AvalProbabilityName?: string,
@@ -380,28 +378,28 @@ export type Observation = {
    }
     
    export type CompressionTest = {
-    CompressionTestName: string,
-    PropagationName: string,
-    StabilityEvalName: string,
-    ComprTestFractureName: string,
-    CompressionTestTID: number, //	integer($int32) The CompressionTestKDV unique identifier
-    TapsFracture: number, //	integer($int32) TapsFracture
-    TapsFullPropagation: number, //	integer($int32) TapsFullPropagation
-    PropagationTID: number, //	integer($int32) The PropagationKD unique identifier
-    FractureDepth: number, //($double) maximum: 100 minimum: 0 FractureDepth
-    PstX:	number, //($double) maximum: 100 minimum: 0 PST X distance (in meters)
-    PstY:	number, //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
-    StabilityEvalTID: number, // integer($int32) The StabilityEvalKD unique identifier
-    ComprTestFractureTID: number, //	integer($int32) The ComprTestFractureKD unique identifier
-    RbRelease: number, //	integer($int32) Percentage of block that released in Rutchblock test
-    Comment:	string, //Comment
-    IncludeInSnowProfile:	boolean
+    CompressionTestName?: string,
+    PropagationName?: string,
+    StabilityEvalName?: string,
+    ComprTestFractureName?: string,
+    CompressionTestTID?: number, //	integer($int32) The CompressionTestKDV unique identifier
+    TapsFracture?: number, //	integer($int32) TapsFracture
+    TapsFullPropagation?: number, //	integer($int32) TapsFullPropagation
+    PropagationTID?: number, //	integer($int32) The PropagationKD unique identifier
+    FractureDepth?: number, //($double) maximum: 100 minimum: 0 FractureDepth
+    PstX?:	number, //($double) maximum: 100 minimum: 0 PST X distance (in meters)
+    PstY?:	number, //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
+    StabilityEvalTID?: number, // integer($int32) The StabilityEvalKD unique identifier
+    ComprTestFractureTID?: number, //	integer($int32) The ComprTestFractureKD unique identifier
+    RbRelease?: number, //	integer($int32) Percentage of block that released in Rutchblock test
+    Comment?:	string, //Comment
+    IncludeInSnowProfile?:	boolean
    }
   
   
    export  type Url = {
-    UrlDescription: string //maxLength: 1024 UrlDescription
-    UrlLine: string, //maxLength: 1024 UrlLine
+    UrlDescription?: string //maxLength: 1024 UrlDescription
+    UrlLine?: string, //maxLength: 1024 UrlLine
    }
   
    export type GeneralObservation = {
@@ -450,24 +448,24 @@ export type Observation = {
   
   
    export type StratProfileLayer = {
-    GrainFormPrimaryTName:	string,
-    GrainFormSecondaryTName:	string,
-    HardnessTName:	string,
-    HardnessBottomTName:	string,
-    WetnessTName:	string,
-    CriticalLayerTName:	string,
-    DepthTop:	number, //($double)
-    Thickness: number, //($double)
-    GrainFormPrimaryTID: number, //	integer($int32)
-    GrainFormSecondaryTID: number,	integer($int32)
-    GrainSizeAvg:	number, //($double)
-    GrainSizeAvgMax:	number, //($double)
-    HardnessTID: number, //($int32)
-    HardnessBottomTID: number, //($int32)
-    WetnessTID: number, //	integer($int32)
-    CriticalLayerTID: number, //	integer($int32)
-    Comment: string,
-    SortOrder: number //	integer($int32)
+    GrainFormPrimaryTName?:	string,
+    GrainFormSecondaryTName?:	string,
+    HardnessTName?:	string,
+    HardnessBottomTName?:	string,
+    WetnessTName?:	string,
+    CriticalLayerTName?:	string,
+    DepthTop?:	number, //($double)
+    Thickness?: number, //($double)
+    GrainFormPrimaryTID?: number, //	integer($int32)
+    GrainFormSecondaryTID?: number,	//integer($int32)
+    GrainSizeAvg?:	number, //($double)
+    GrainSizeAvgMax?:	number, //($double)
+    HardnessTID?: number, //($int32)
+    HardnessBottomTID?: number, //($int32)
+    WetnessTID?: number, //	integer($int32)
+    CriticalLayerTID?: number, //	integer($int32)
+    Comment?: string,
+    SortOrder?: number //	integer($int32)
    }
   
    export type StratProfile = {
@@ -476,8 +474,8 @@ export type Observation = {
    }
   
    export type SnowTempObs = {
-    Depth: number //($double) maximum: 100 minimum: 0
-    SnowTemp:	number //($double) maximum: 0 minimum: -70
+    Depth?: number, //($double) maximum: 100 minimum: 0
+    SnowTemp?:	number //($double) maximum: 0 minimum: -70
    }
   
    export type SnowTemp = {
@@ -485,20 +483,20 @@ export type Observation = {
    }
   
    export type SnowDensityLayer = {
-    Depth: number, //($double)
-    Thickness: number //($double) thickness in m
-    Density: number //($double) Density in kg/m^3
-    Comment: string,
-    Weight:	number, //($double) Weight in KG
-    WaterEquivalent: number, // ($double)
-    SortOrder: number //	integer($int32)
+    Depth?: number, //($double)
+    Thickness?: number //($double) thickness in m
+    Density?: number //($double) Density in kg/m^3
+    Comment?: string,
+    Weight?:	number, //($double) Weight in KG
+    WaterEquivalent?: number, // ($double)
+    SortOrder?: number //	integer($int32)
    }
   
    export type SnowDensity = {
-    CylinderDiameter:	number, //($double)
-    TareWeight: number, //($double)
-    Comment: string,
-    Layers: SnowDensityLayer[]
+    CylinderDiameter?:	number, //($double)
+    TareWeight?: number, //($double)
+    Comment?: string,
+    Layers?: SnowDensityLayer[]
    }
   
    export type SnowProfile2 = {
@@ -562,24 +560,24 @@ export type Observation = {
    }
   
    export type AvalancheEvalProblem = {
-    AvalancheEvalProblemID: number, //	integer($int32)
-    AvalProbabilityTID: number, //	integer($int32)
-    AvalProbabilityName:	string,
-    AvalTriggerSimpleTID: number, //	integer($int32)
-    AvalTriggerSimpleName:	string,
-    DestructiveSizeExtTID: number, //	integer($int32)
-    DestructiveSizeExtName:	string,
-    AvalancheExtTID: number, //	integer($int32)
-    AvalancheExtName:	string,
-    AvalCauseTID: number, //	integer($int32)
-    AvalCauseName:	string,
-    AvalCauseExtTID: number, //	integer($int32)
-    AvalCauseExtName:	string,
-    AvalReleaseHeightTID: number, //	integer($int32)
-    AvalReleaseHeightName:	string,
-    AvalancheProbabilityAutoText:	string,
-    AvalancheProblemAutoText:	string,
-    Comment: string
+    AvalancheEvalProblemID?: number, //	integer($int32)
+    AvalProbabilityTID?: number, //	integer($int32)
+    AvalProbabilityName?:	string,
+    AvalTriggerSimpleTID?: number, //	integer($int32)
+    AvalTriggerSimpleName?:	string,
+    DestructiveSizeExtTID?: number, //	integer($int32)
+    DestructiveSizeExtName?:	string,
+    AvalancheExtTID?: number, //	integer($int32)
+    AvalancheExtName?:	string,
+    AvalCauseTID?: number, //	integer($int32)
+    AvalCauseName?:	string,
+    AvalCauseExtTID?: number, //	integer($int32)
+    AvalCauseExtName?:	string,
+    AvalReleaseHeightTID?: number, //	integer($int32)
+    AvalReleaseHeightName?:	string,
+    AvalancheProbabilityAutoText?:	string,
+    AvalancheProblemAutoText?:	string,
+    Comment?: string
    }
   
    export type AvalancheEvaluation2 = {
