@@ -7,14 +7,21 @@
 
 ## Properties
 
-| Property           | Attribute           | Description | Type  | Default     |
-| ------------------ | ------------------- | ----------- | ----- | ----------- |
-| `comment`          | `comment`           |             | `any` | `undefined` |
-| `copyright`        | `copyright`         |             | `any` | `undefined` |
-| `imageUrl`         | `image-url`         |             | `any` | `undefined` |
-| `photographer`     | `photographer`      |             | `any` | `undefined` |
-| `registrationName` | `registration-name` |             | `any` | `undefined` |
-| `strings`          | `strings`           |             | `any` | `undefined` |
+| Property             | Attribute              | Description | Type  | Default     |
+| -------------------- | ---------------------- | ----------- | ----- | ----------- |
+| `Aspect`             | `aspect`               |             | `any` | `undefined` |
+| `AttachmentId`       | `attachment-id`        |             | `any` | `undefined` |
+| `AttachmentMimeType` | `attachment-mime-type` |             | `any` | `undefined` |
+| `Comment`            | `comment`              |             | `any` | `undefined` |
+| `Copyright`          | `copyright`            |             | `any` | `undefined` |
+| `GeoHazardName`      | `geo-hazard-name`      |             | `any` | `undefined` |
+| `GeoHazardTID`       | `geo-hazard-t-i-d`     |             | `any` | `undefined` |
+| `IsMainAttachment`   | `is-main-attachment`   |             | `any` | `undefined` |
+| `Photographer`       | `photographer`         |             | `any` | `undefined` |
+| `RegistrationName`   | `registration-name`    |             | `any` | `undefined` |
+| `RegistrationTID`    | `registration-t-i-d`   |             | `any` | `undefined` |
+| `Url`                | `url`                  |             | `any` | `undefined` |
+| `strings`            | `strings`              |             | `any` | `undefined` |
 
 
 ## Dependencies

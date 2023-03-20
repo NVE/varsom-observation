@@ -22,11 +22,18 @@ export namespace Components {
         "middle": string;
     }
     interface VarsomAttachment {
-        "comment": any;
-        "copyright": any;
-        "imageUrl": any;
-        "photographer": any;
-        "registrationName": any;
+        "Aspect"?: any;
+        "AttachmentId"?: any;
+        "AttachmentMimeType"?: any;
+        "Comment": any;
+        "Copyright": any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
+        "IsMainAttachment"?: any;
+        "Photographer": any;
+        "RegistrationName": any;
+        "RegistrationTID"?: any;
+        "Url": any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
@@ -782,11 +789,18 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface VarsomAttachment {
-        "comment"?: any;
-        "copyright"?: any;
-        "imageUrl"?: any;
-        "photographer"?: any;
-        "registrationName"?: any;
+        "Aspect"?: any;
+        "AttachmentId"?: any;
+        "AttachmentMimeType"?: any;
+        "Comment"?: any;
+        "Copyright"?: any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
+        "IsMainAttachment"?: any;
+        "Photographer"?: any;
+        "RegistrationName"?: any;
+        "RegistrationTID"?: any;
+        "Url"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {

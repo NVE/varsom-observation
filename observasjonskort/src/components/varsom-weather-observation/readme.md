@@ -7,11 +7,17 @@
 
 ## Properties
 
-| Property                   | Attribute                    | Description | Type  | Default     |
-| -------------------------- | ---------------------------- | ----------- | ----- | ----------- |
-| `airTemperature`           | `air-temperature`            |             | `any` | `undefined` |
-| `strings`                  | `strings`                    |             | `any` | `undefined` |
-| `weatherPrecipitationName` | `weather-precipitation-name` |             | `any` | `undefined` |
+| Property            | Attribute             | Description | Type  | Default     |
+| ------------------- | --------------------- | ----------- | ----- | ----------- |
+| `AirTemperature`    | `air-temperature`     |             | `any` | `undefined` |
+| `CloudCover`        | `cloud-cover`         |             | `any` | `undefined` |
+| `Comment`           | `comment`             |             | `any` | `undefined` |
+| `PrecipitationName` | `precipitation-name`  |             | `any` | `undefined` |
+| `PrecipitationTID`  | `precipitation-t-i-d` |             | `any` | `undefined` |
+| `WindDirection`     | `wind-direction`      |             | `any` | `undefined` |
+| `WindDirectionName` | `wind-direction-name` |             | `any` | `undefined` |
+| `WindSpeed`         | `wind-speed`          |             | `any` | `undefined` |
+| `strings`           | `strings`             |             | `any` | `undefined` |
 
 
 ## Dependencies
@@ -23,8 +29,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  varsom-observation --> varsom-weather
-  style varsom-weather fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-observation --> varsom-weather-observation
+  style varsom-weather-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

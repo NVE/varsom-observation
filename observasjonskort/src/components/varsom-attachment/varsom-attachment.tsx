@@ -9,47 +9,80 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomAttachment {
 
-  @Prop() registrationName: any;
-  @Prop() comment: any;
-  @Prop() imageUrl: any;
-  @Prop() photographer: any;
-  @Prop() copyright: any;
+  @Prop() RegistrationName: any;
+  @Prop() Comment: any;
+  @Prop() Url: any;
+  @Prop() Photographer: any;
+  @Prop() Copyright: any;
   @Prop() strings?: any;
+  @Prop() AttachmentId?: any;
+  @Prop() GeoHazardName?: any;
+  @Prop() GeoHazardTID?: any;
+  @Prop() Aspect?: any;
+  @Prop() RegistrationTID?: any;
+  @Prop() AttachmentMimeType?: any;
+  @Prop() IsMainAttachment?: any;
+  
  
 
   render(){
     return <div class="container">
-      {this.imageUrl ? 
+      {this.Url ? 
         <div>
-        <img src={this.imageUrl} />
+        <img src={this.Url} />
       </div>
       : ""} 
 
-      {this.registrationName ? 
+      {console.log(this.strings)}
+
+      {this.Comment ? 
       <div>
-        {this.registrationName}
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.Picture.PictureComment}: </div>
+        : <div>Kommentar</div>}
+        </label>
+      {this.Photographer}
+    </div>
+      : ""} 
+
+      {this.RegistrationName ? 
+      <div>
+        {this.RegistrationName}
       </div>
       : ""} 
     
-    {this.comment ? 
+    {this.Photographer ? 
       <div>
-        <label>{this.strings.Observations.Picture.PictureComment}: </label>
-        {this.comment}
+        <label>
+          {this.strings ? 
+          <div>{this.strings.Observations.Picture.Photographer}: </div>
+          : <div>Fotograf</div>}
+          </label>
+        {this.Photographer}
       </div>
       : ""} 
 
-    {this.photographer ? 
+    {this.Copyright ? 
       <div>
-        <label>{this.strings.Observations.Picture.Photographer}: </label>
-        {this.photographer}
-      </div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.Picture.Copyright}: </div>
+        : <div>Opphavsrett</div>}
+        </label>
+      {this.Copyright}
+    </div>
       : ""} 
 
-    {this.copyright ? 
-      <div>
-        <label>{this.strings.Observations.Picture.Copyright}: </label>
-        {this.copyright}
-      </div>
+{this.Aspect ? 
+       <div>
+       <label>
+         {this.strings ? 
+         <div>{this.strings.Observations.Picture.Aspect}: </div>
+         : <div>Himmelretning</div>}
+         </label>
+       {this.Copyright}
+     </div>
       : ""} 
       
     </div>

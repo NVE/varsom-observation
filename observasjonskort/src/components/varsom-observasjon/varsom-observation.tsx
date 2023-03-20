@@ -12,7 +12,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images']  
 })
 export class VarsomObservation {
 
@@ -88,7 +88,7 @@ export class VarsomObservation {
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regid !== undefined){
+  if (this.regid.length !== 0){
     _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
@@ -100,7 +100,6 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-  console.log("query: " + _data);
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
@@ -477,11 +476,18 @@ export class VarsomObservation {
         {obs._attachments.map((att: Attachment = {}) =>{
             return <varsom-attachment
               strings={this.strings}
-              registration-name={att.RegistrationName ? att.RegistrationName : null}
-              comment={att.Comment ? att.Comment : null}
-              image-url={att.Url ? att.Url : null}
-              photographer={att.Photographer ? att.Photographer : null}
-              copyright={att.Copyright ? att.Copyright : null}
+              RegistrationName={att.RegistrationName ? att.RegistrationName : null}
+              Comment={att.Comment ? att.Comment : null}
+              Url={att.Url ? att.Url : null}
+              Photographer={att.Photographer ? att.Photographer : null}
+              Copyright={att.Copyright ? att.Copyright : null}
+              AttachmentId={att.AttachmentId ? att.AttachmentId : null}
+              GeoHazardName={att.GeoHazardName ? att.GeoHazardName : null}
+              Aspect={att.Aspect ? att.Aspect : null}
+              GeoHazardTID={att.GeoHazardTID ? att.GeoHazardTID : null}
+              RegistrationTID={att.RegistrationTID ? att.RegistrationTID : null}
+              AttachmentMimeType={att.AttachmentMimeType ? att.AttachmentMimeType : null}
+              IsMainAttachment={att.IsMainAttachment ? att.IsMainAttachment : null}
               ></varsom-attachment>             
         })    
 }
