@@ -20,6 +20,26 @@ export async function getObservationFromApiById(id: string){
   
   }
 
+  export function getIconName(name: string){
+    switch(name){
+      case "Snow":
+        case "Snø":  
+        case "Schnee":
+          case "Snö":
+            case "Sneg":
+              case "Neige":
+                case "Sne":
+      {
+        return "snow";
+        
+      }
+      default:{
+        return "";
+        
+      }
+    }
+  }
+
   export async function getObservationFromApiByLanguageAndType(type: string, language: string){
     let geoHazardId = getGeoHazardIdFromName(type);
     let langKey = getLangKeyFromName(language);

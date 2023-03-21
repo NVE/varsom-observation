@@ -1,5 +1,5 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
-
+import { getIconName } from '../../utils/utils';
 
 @Component({
   tag: 'varsom-metadata',
@@ -35,7 +35,7 @@ export class VarsomMetadata {
 
       {this.geoHazardName ? 
       <span>
-      
+      <img src={getAssetPath(`/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
    
