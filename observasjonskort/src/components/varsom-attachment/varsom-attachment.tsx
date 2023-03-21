@@ -92,6 +92,13 @@ export class VarsomAttachment {
     </div>
       : ""} 
 
+    {this.Copyright ? 
+    <varsom-key-value
+    label={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
+    _value={this.Copyright}
+    ></varsom-key-value>
+    :""}
+
 {this.Aspect ? 
        <div>
        <label>

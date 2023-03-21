@@ -25,9 +25,14 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-metadata --> varsom-key-value
   varsom-observation --> varsom-metadata
   style varsom-metadata fill:#f9f,stroke:#333,stroke-width:4px
 ```

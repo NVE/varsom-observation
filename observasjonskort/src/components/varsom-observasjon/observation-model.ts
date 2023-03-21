@@ -60,6 +60,11 @@ export type Observation = {
     Comment: string
    }
   
+export type Renderer = {
+  _Key?: string,
+  _Value?: string
+}
+
    export type DangerObs = {
     GeoHazardName?: string,
     DangerSignName?: string,

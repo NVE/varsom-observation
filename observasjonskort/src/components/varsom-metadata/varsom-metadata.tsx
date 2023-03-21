@@ -62,11 +62,20 @@ export class VarsomMetadata {
       <label>Ikon mangler... </label>
       {this.observerGroupName}
       </span> : ""}
+
+      {this.moh ? 
+    <varsom-key-value
+    label={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
+    _value={this.moh}
+    ></varsom-key-value>
+    :""}
   
     </div>
   }
+
+}
     
-  }
+  
 
   
   
