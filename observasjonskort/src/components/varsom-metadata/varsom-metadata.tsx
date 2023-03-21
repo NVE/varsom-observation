@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -35,7 +35,7 @@ export class VarsomMetadata {
 
       {this.geoHazardName ? 
       <span>
-      <label>Ikon mangler... </label>
+      
       {this.geoHazardName}
       </span> : ""}
    
