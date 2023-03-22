@@ -46,77 +46,31 @@ export class VarsomAvalancheActivityObs2 {
     </div>
       : ""} 
 
-     {this.EstimatedNumTID ? 
-        <div class="header">
-        {this.strings ? 
-      <div>{this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger}: </div>
-         : "Antall, størrelse og skredutløser" 
-        } </div> 
-     : "" }
-       
-       {this.EstimatedNumName ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.AvalancheActivityObs.HowManyAvalanches}: </div>
-        : <div>Antall skred: </div>}
-        </label>
-    {this.EstimatedNumName}
-    </div>
-      : ""} 
 
-    {this.DestructiveSizeName ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID}: </div>
-        : <div>Størrelse på forventet skred: </div>}  {/* correct? */ }
-        </label>
-    {this.DestructiveSizeName}
-    </div>
-      : ""} 
-
-    {this.AvalTriggerSimpleName ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}: </div>
-        : <div>Sannsynlig belasting for å løse ut skred: </div>}  {/* correct? */ }
-        </label>
-    {this.AvalTriggerSimpleName}
-    </div>
-      : ""} 
-
+    {this.EstimatedNumTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall, størrelse og skredutløser" }
+    _value={this.EstimatedNumName + ". " + this.DestructiveSizeName + ". " + this.AvalTriggerSimpleName}
+    ></varsom-key-value>
+    :""}
+ 
     {this.AvalPropagationTID ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.AvalancheProblem.AvalancheProblem}: </div>
-        : <div>Utbredelse: </div>}  {/* correct? */ }
-        </label>
-    {this.AvalPropagationTID}
-    </div>
-      : ""} 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheProblem : "Utbredelse" }
+    _value={this.AvalPropagationTID}
+    ></varsom-key-value>
+    :""}
+    
+    {/* TODO: IMPLEMENT SVG IMAGE */}
+      
 
     {this.Comment ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.AvalancheProblem.Comment}: </div>
-        : <div>Kommentar: </div>}
-        </label>
-    {this.Comment}
-    </div>
-      : ""} 
-       
-        
-        
-  {/* TODO: IMPLEMENT SVG IMAGE */}
-      
-     
-
-      
-
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+    
     
     </div>
   }
