@@ -57,20 +57,21 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
-    {this.AvalCauseDepthName ? 
+    {this.AvalPropagationName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
-    _value={this.AvalCauseDepthName}
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.Propagation : "Utbredelse" }
+    _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
-
   
     {this.AvalCauseAttributeLightTID ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseAttributeLightTID : "Ugunstige egenskaper på det svake laget" }
     _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName + ". " : "" + 
     this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName + ". " : "" +
-    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName : ""}
+    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName + ". " : "" + 
+    this.AvalCauseAttributeCrystalName ? this.AvalCauseAttributeCrystalName : ""
+  }
     ></varsom-key-value>
     :""}
 
@@ -78,6 +79,27 @@ export class VarsomAvalancheEvalProblem2 {
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
     _value={this.AvalCauseDepthName}
+    ></varsom-key-value>
+    :""}
+
+    {this.AvalProbabilityName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalProbabilityTID : "Sannsynlighet for skred" }
+    _value={this.AvalProbabilityName}
+    ></varsom-key-value>
+    :""}
+
+    {this.AvalTriggerSimpleName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalTriggerSimpleTID : "Sannsynlighet for å løse ut skred" }
+    _value={this.AvalTriggerSimpleName}
+    ></varsom-key-value>
+    :""}
+
+    {this.DestructiveSizeName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem2.DestructiveSizeTID : "Størrelse på forventet skred" }
+    _value={this.DestructiveSizeName}
     ></varsom-key-value>
     :""}
 

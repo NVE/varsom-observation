@@ -13,11 +13,11 @@ export class VarsomKeyValue {
   @Prop() _value?: any;
 
   render(){
-    return <div> 
+    return <span> 
 
     <b>{this._key}: </b>
     {this._value}
-    </div>
+    </span>
   }
     
   }

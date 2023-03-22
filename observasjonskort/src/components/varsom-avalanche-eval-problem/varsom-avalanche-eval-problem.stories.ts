@@ -10,6 +10,7 @@ Comment=${args.Comment}
 aval-trigger-simple-name=${args.AvalTriggerSimpleName} 
 aval-probability-name=${args.AvalProbabilityName} 
 destructive-size-ext-name=${args.DestructiveSizeExtName} 
+aval-cause-name=${args.AvalCauseName} 
 >
 </varsom-avalanche-eval-problem> `
 
@@ -20,6 +21,7 @@ VarsomAvalancheEvaluationProblem.args = {
         AvalancheExtName: "'Tørre flakskred'",
         AvalTriggerSimpleName: "'Svært vanskelig å løse ut'",
         AvalProbabilityName: "'Lite sannsynlig'",
-        DestructiveSizeExtName: "'2 - middels'"
+        DestructiveSizeExtName: "'2 - middels'",
+        AvalCauseName: "'Nedføyket svakt lag med nysnø'"
 
     }
