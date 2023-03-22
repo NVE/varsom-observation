@@ -12,9 +12,6 @@ export class VarsomKeyValue {
   @Prop() _key: any;
   @Prop() _value?: any;
 
-  
-  
-
   render(){
     return <div> 
 
