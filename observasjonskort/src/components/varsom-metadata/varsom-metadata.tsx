@@ -43,8 +43,7 @@ export class VarsomMetadata {
       {this.moh ? 
       <span>
         <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
-      {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
-      {this.moh}
+      {this.moh} <span>{this.strings.RegistrationKeyInfo.MetersAboveSeaLevel} </span> 
       </span> : ""}
 
       {this.nickname ? 
