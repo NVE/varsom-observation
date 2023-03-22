@@ -1,5 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
-
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { getIconName } from '../../utils/utils';
 
 @Component({
   tag: 'varsom-metadata',
@@ -23,6 +23,7 @@ export class VarsomMetadata {
     return <div> 
       {this.dateOfRegistration ? 
       <span>
+        <img src={getAssetPath(`/assets/icons/calendar-icon.svg`)}></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
       {this.dateOfRegistration}
       </span> : ""}
@@ -35,18 +36,20 @@ export class VarsomMetadata {
 
       {this.geoHazardName ? 
       <span>
-      <label>Ikon mangler... </label>
+      <img src={getAssetPath(`/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
    
       {this.moh ? 
       <span>
+        <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
       <label>{this.strings.RegistrationKeyInfo.MetersAboveSeaLevel} </label>
       {this.moh}
       </span> : ""}
 
       {this.nickname ? 
       <span>
+        <img src={getAssetPath(`/assets/icons/user-icon.svg`)}></img>
       <label>{this.strings.Reg.ObserverNickName} </label>
       {this.nickname}
       </span> : ""}
@@ -59,7 +62,7 @@ export class VarsomMetadata {
      
       {this.observerGroupName ? 
       <span>
-      <label>Ikon mangler... </label>
+      <img src={getAssetPath(`/assets/icons/user-group-icon.svg`)}></img>
       {this.observerGroupName}
       </span> : ""}
   

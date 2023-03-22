@@ -20,6 +20,52 @@ export async function getObservationFromApiById(id: string){
   
   }
 
+  export function getIconName(name: string){
+    switch(name){
+      case "Snow":
+        case "Snø":  
+        case "Schnee":
+          case "Snö":
+            case "Sneg":
+              case "Neige":
+                case "Sne":
+      {
+        return "snow";
+      }
+      case "Ice":
+      case "Is":
+        case "Eis":
+          case "Led":
+            case "Glace":  
+      {
+        return "ice";
+      }
+      case "Water":
+      case "Vann":
+        case "Vand":
+          case "Hydrologie":
+            case "Vatn":
+              case "Vatten":
+                case "Voda":
+                  case "Wasser":  
+      {
+          return "water";
+        }
+        case "Dirt":
+        case "Jord":
+          case "Erde":
+            case "Zemlja":
+              case "Sol":  
+        {
+          return "dirt";
+        }
+      default:{
+        return "";
+        
+      }
+    }
+  }
+
   export async function getObservationFromApiByLanguageAndType(type: string, language: string){
     let geoHazardId = getGeoHazardIdFromName(type);
     let langKey = getLangKeyFromName(language);
