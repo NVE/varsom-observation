@@ -31,8 +31,34 @@ export async function getObservationFromApiById(id: string){
                 case "Sne":
       {
         return "snow";
-        
       }
+      case "Ice":
+      case "Is":
+        case "Eis":
+          case "Led":
+            case "Glace":  
+      {
+        return "ice";
+      }
+      case "Water":
+      case "Vann":
+        case "Vand":
+          case "Hydrologie":
+            case "Vatn":
+              case "Vatten":
+                case "Voda":
+                  case "Wasser":  
+      {
+          return "water";
+        }
+        case "Dirt":
+        case "Jord":
+          case "Erde":
+            case "Zemlja":
+              case "Sol":  
+        {
+          return "dirt";
+        }
       default:{
         return "";
         
