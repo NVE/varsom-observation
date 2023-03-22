@@ -43,21 +43,19 @@ export class VarsomMetadata {
       {this.moh ? 
       <span>
         <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
-      <label>{this.strings.RegistrationKeyInfo.MetersAboveSeaLevel} </label>
+      {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
       {this.moh}
       </span> : ""}
 
       {this.nickname ? 
       <span>
         <img src={getAssetPath(`/assets/icons/user-icon.svg`)}></img>
-      <label>{this.strings.Reg.ObserverNickName} </label>
       {this.nickname}
       </span> : ""}
 
       {this.competenceLevelName ? 
       <span>
-      <label>{this.strings.Search.Criterias.Observers.CompetenceFilter}</label>
-      {this.competenceLevelName}
+        {this.competenceLevelName}
       </span> : ""}
      
       {this.observerGroupName ? 
