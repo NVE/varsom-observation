@@ -158,6 +158,7 @@ export namespace Components {
         "AvalancheDevelopment": any;
         "AvalancheEvalProblems": any[];
         "AvalancheEvaluation": any;
+        "Comment": any;
         "ExposedClimateName": any;
         "ExposedClimateTID": any;
         "ExposedHeight1": any;
@@ -975,6 +976,7 @@ declare namespace LocalJSX {
         "AvalancheDevelopment"?: any;
         "AvalancheEvalProblems"?: any[];
         "AvalancheEvaluation"?: any;
+        "Comment"?: any;
         "ExposedClimateName"?: any;
         "ExposedClimateTID"?: any;
         "ExposedHeight1"?: any;

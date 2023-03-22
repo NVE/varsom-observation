@@ -728,9 +728,33 @@ Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : n
 : ""}
 
 {/* AVALANCE EVALUATION 3*/}
+{obs._avalancheEvaluation2 ? 
+<div>
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
+<varsom-avalanche-evaluation2
+strings={this.strings}
+AvalancheDangerName={obs._avalancheEvaluation2.AvalancheDangerName ? obs._avalancheEvaluation2.AvalancheDangerName : null}
+ValidExposition={obs._avalancheEvaluation2.ValidExposition ? obs._avalancheEvaluation2.ValidExposition : null}
+Comment={obs._avalancheEvaluation2.Comment ? obs._avalancheEvaluation2.Comment : null}
+AvalancheEvaluation={obs._avalancheEvaluation2.AvalancheEvaluation ? obs._avalancheEvaluation2.AvalancheEvaluation : null}
+AvalancheDevelopment={obs._avalancheEvaluation2.AvalancheDevelopment ? obs._avalancheEvaluation2.AvalancheDevelopment : null}
+ExposedHeight1={obs._avalancheEvaluation2.ExposedHeight1 ? obs._avalancheEvaluation2.ExposedHeight1 : null}
+ExposedHeight2={obs._avalancheEvaluation2.ExposedHeight2 ? obs._avalancheEvaluation2.ExposedHeight2 : null}
+ExposedHeightComboTID={obs._avalancheEvaluation2.ExposedHeightComboTID ? obs._avalancheEvaluation2.ExposedHeightComboTID : null}
+ExposedHeightComboName={obs._avalancheEvaluation2.ExposedHeightComboName ? obs._avalancheEvaluation2.ExposedHeightComboName : null}
+ExposedClimateTID={obs._avalancheEvaluation2.ExposedClimateTID ? obs._avalancheEvaluation2.ExposedClimateTID : null}
+ExposedClimateName={obs._avalancheEvaluation2.ExposedClimateName ? obs._avalancheEvaluation2.ExposedClimateName : null}
+AvalancheDangerTID={obs._avalancheEvaluation2.AvalancheDangerTID ? obs._avalancheEvaluation2.AvalancheDangerTID : null}
+AvalancheEvalProblems={obs._avalancheEvaluation2.AvalancheEvalProblems ? obs._avalancheEvaluation2.AvalancheEvalProblems : null}
+>
+</varsom-avalanche-evaluation2>
+</div>
+: ""}
+
+{/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEvaluation3 ? 
 <div>
-<div class="header">{this.strings.Observations.AvalancheEvaluation3.ObsName}</div> 
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation3
 strings={this.strings}
 avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avalancheEvaluation3.AvalancheEvaluation : null}
