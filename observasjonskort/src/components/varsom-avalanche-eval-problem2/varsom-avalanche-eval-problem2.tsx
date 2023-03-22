@@ -43,164 +43,56 @@ export class VarsomAvalancheEvalProblem2 {
   render(){
     return <div> 
 
-      {this.AvalProbabilityTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID}: </label>
-      {this.AvalProbabilityTID}
-      </span> : ""}
 
-      {this.AvalProbabilityName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalProbabilityName}
-      </span> : ""}
+    {this.AvalCauseName ? 
+    <varsom-label-small
+    label={this.AvalCauseName}
+    ></varsom-label-small>
+    :""}
 
-      {this.AvalTriggerSimpleTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}: </label>
-      {this.AvalTriggerSimpleTID}
-      </span> : ""}
+    {this.AvalancheExtName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheType : "Skredtype" }
+    _value={this.AvalancheExtName}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalCauseDepthTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID}: </label>
-      {this.AvalCauseDepthTID}
-      </span> : ""}
+    {this.AvalCauseDepthName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
+    _value={this.AvalCauseDepthName}
+    ></varsom-key-value>
+    :""}
 
-      {this.ValidExposition ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidExposition}
-      </span> : ""}
+  
+    {this.AvalCauseAttributeLightTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseAttributeLightTID : "Ugunstige egenskaper på det svake laget" }
+    _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName + ". " : "" + 
+    this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName + ". " : "" +
+    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName : ""}
+    ></varsom-key-value>
+    :""}
 
-      {this.ExposedHeight1 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeight1}
-      </span> : ""}
-
-      {this.ExposedHeight2 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeight2}
-      </span> : ""}
-
-      {this.ExposedHeightComboTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeightComboTID}
-      </span> : ""}
-
-      {this.ExposedHeightComboName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeightComboName}
-      </span> : ""}
-
-      {this.AvalancheExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtName}
-      </span> : ""}
-
-      {this.AvalancheExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtTID}
-      </span> : ""}
-
-      {this.AvalCauseTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseTID}: </label>
-      {this.AvalCauseTID}
-      </span> : ""}
-
-      {this.AvalCauseDepthName ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID}: </label>
-      {this.AvalCauseDepthName}
-      </span> : ""}
-
-      {this.AvalCauseAttributeLightTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID}: </label>
-      {this.AvalCauseAttributeLightTID}
-      </span> : ""}
-
-      {this.AvalCauseAttributeLightName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeLightName}
-      </span> : ""}
-      
-      {this.AvalCauseAttributeSoftName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeSoftName}
-      </span> : ""}
-
-      {this.AvalCauseAttributeThinTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeThinTID}
-      </span> : ""}
-
-      {this.AvalCauseAttributeThinName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeThinName}
-      </span> : ""}
-
-      {this.AvalCauseAttributeSoftTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeSoftTID}
-      </span> : ""}
-
-      {this.AvalCauseAttributeCrystalTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeCrystalTID}
-      </span> : ""}
-
-      {this.AvalCauseAttributeCrystalName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseAttributeCrystalName}
-      </span> : ""}
-      
-      {this.DestructiveSizeTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID}: </label>
-      {this.DestructiveSizeTID}
-      </span> : ""}
-
-      {this.AvalPropagationTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalPropagationTID}
-      </span> : ""} 
-
-      {this.AvalTriggerSimpleName ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}: </label>
-      {this.AvalTriggerSimpleName}
-      </span> : ""}
-
-      {this.DestructiveSizeName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeName}
-      </span> : ""}
-
-      {this.AvalPropagationName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalPropagationName}
-      </span> : ""}
+    {this.AvalCauseDepthName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
+    _value={this.AvalCauseDepthName}
+    ></varsom-key-value>
+    :""}
 
 
-  {/* TEGNING HER... */}    
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+
+
+
+  {/* TODO IMPLEMENT ICONS */}    
 
     
     </div>

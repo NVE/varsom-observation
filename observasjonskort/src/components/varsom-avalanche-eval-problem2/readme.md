@@ -46,9 +46,16 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-label-small](../varsom-label-small)
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-avalanche-eval-problem2 --> varsom-label-small
+  varsom-avalanche-eval-problem2 --> varsom-key-value
   varsom-observation --> varsom-avalanche-eval-problem2
   style varsom-avalanche-eval-problem2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
