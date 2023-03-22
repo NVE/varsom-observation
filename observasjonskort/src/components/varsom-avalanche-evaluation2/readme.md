@@ -34,6 +34,8 @@
 ```mermaid
 graph TD;
   varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
+  varsom-avalanche-eval-problem --> varsom-label-small
+  varsom-avalanche-eval-problem --> varsom-key-value
   style varsom-avalanche-evaluation2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

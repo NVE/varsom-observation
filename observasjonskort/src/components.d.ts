@@ -292,6 +292,9 @@ export namespace Components {
     interface VarsomLabel {
         "label": any;
     }
+    interface VarsomLabelSmall {
+        "label": any;
+    }
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
@@ -642,6 +645,12 @@ declare global {
         prototype: HTMLVarsomLabelElement;
         new (): HTMLVarsomLabelElement;
     };
+    interface HTMLVarsomLabelSmallElement extends Components.VarsomLabelSmall, HTMLStencilElement {
+    }
+    var HTMLVarsomLabelSmallElement: {
+        prototype: HTMLVarsomLabelSmallElement;
+        new (): HTMLVarsomLabelSmallElement;
+    };
     interface HTMLVarsomLandslideObservationElement extends Components.VarsomLandslideObservation, HTMLStencilElement {
     }
     var HTMLVarsomLandslideObservationElement: {
@@ -790,6 +799,7 @@ declare global {
         "varsom-incident": HTMLVarsomIncidentElement;
         "varsom-key-value": HTMLVarsomKeyValueElement;
         "varsom-label": HTMLVarsomLabelElement;
+        "varsom-label-small": HTMLVarsomLabelSmallElement;
         "varsom-landslide-observation": HTMLVarsomLandslideObservationElement;
         "varsom-lat-lng": HTMLVarsomLatLngElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
@@ -1099,6 +1109,9 @@ declare namespace LocalJSX {
     interface VarsomLabel {
         "label"?: any;
     }
+    interface VarsomLabelSmall {
+        "label"?: any;
+    }
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
@@ -1343,6 +1356,7 @@ declare namespace LocalJSX {
         "varsom-incident": VarsomIncident;
         "varsom-key-value": VarsomKeyValue;
         "varsom-label": VarsomLabel;
+        "varsom-label-small": VarsomLabelSmall;
         "varsom-landslide-observation": VarsomLandslideObservation;
         "varsom-lat-lng": VarsomLatLng;
         "varsom-metadata": VarsomMetadata;
@@ -1391,6 +1405,7 @@ declare module "@stencil/core" {
             "varsom-incident": LocalJSX.VarsomIncident & JSXBase.HTMLAttributes<HTMLVarsomIncidentElement>;
             "varsom-key-value": LocalJSX.VarsomKeyValue & JSXBase.HTMLAttributes<HTMLVarsomKeyValueElement>;
             "varsom-label": LocalJSX.VarsomLabel & JSXBase.HTMLAttributes<HTMLVarsomLabelElement>;
+            "varsom-label-small": LocalJSX.VarsomLabelSmall & JSXBase.HTMLAttributes<HTMLVarsomLabelSmallElement>;
             "varsom-landslide-observation": LocalJSX.VarsomLandslideObservation & JSXBase.HTMLAttributes<HTMLVarsomLandslideObservationElement>;
             "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;

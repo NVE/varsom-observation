@@ -454,7 +454,7 @@ export class VarsomObservation {
 
 {obs._avalancheActivityObs2.length > 0 ?
 <varsom-label
-label={this.strings.Observations.AvalancheActivityObs2.ObsName}
+label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Observations.AvalancheActivityObs2.ObsName : "Skredaktivitet"}
 ></varsom-label>
 : ""}
 
@@ -617,7 +617,10 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 
 {/* AVALANCHE EVAL PROBLEM */}
 {obs._avalancheEvalProblem.length > 0 ? 
-<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
+<varsom-label
+label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : "Skreproblem"}> 
+</varsom-label>
+: ""}
 
 {obs._avalancheEvalProblem.map((el: AvalancheEvalProblem = {}) => {
 return <varsom-avalanche-eval-problem
@@ -701,7 +704,7 @@ Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
 
 {obs._avalancheEvaluation ? 
 <div>
-<div class="header">{this.strings.Observations.AvalancheEvaluation.ObsName}</div> 
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation
 strings={this.strings}
 RegID={obs._avalancheEvaluation.RegID ? obs._avalancheEvaluation.RegID : null}
