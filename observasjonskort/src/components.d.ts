@@ -169,9 +169,13 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvaluation3 {
-        "avalancheDevelopment": any;
-        "avalancheEvaluation": any;
-        "comment": any;
+        "AvalancheDangerName": any;
+        "AvalancheDangerTID": any;
+        "AvalancheDevelopment": any;
+        "AvalancheEvaluation": any;
+        "ForecastComment": any;
+        "ForecastCorrectName": any;
+        "ForecastCorrectTID": any;
         "strings": any;
     }
     interface VarsomAvalancheObs2 {
@@ -987,9 +991,13 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvaluation3 {
-        "avalancheDevelopment"?: any;
-        "avalancheEvaluation"?: any;
-        "comment"?: any;
+        "AvalancheDangerName"?: any;
+        "AvalancheDangerTID"?: any;
+        "AvalancheDevelopment"?: any;
+        "AvalancheEvaluation"?: any;
+        "ForecastComment"?: any;
+        "ForecastCorrectName"?: any;
+        "ForecastCorrectTID"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheObs2 {

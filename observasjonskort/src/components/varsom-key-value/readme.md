@@ -24,6 +24,7 @@
  - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
  - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
  - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
+ - [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
 
 ### Graph
 ```mermaid
@@ -35,6 +36,7 @@ graph TD;
   varsom-avalanche-eval-problem2 --> varsom-key-value
   varsom-avalanche-evaluation --> varsom-key-value
   varsom-avalanche-evaluation2 --> varsom-key-value
+  varsom-avalanche-evaluation3 --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

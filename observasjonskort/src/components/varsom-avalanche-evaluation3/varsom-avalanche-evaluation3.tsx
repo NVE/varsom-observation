@@ -10,39 +10,49 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomAvalancheEvaluation3 {
 
   @Prop() strings: any;
-  @Prop() avalancheEvaluation: any;
-  @Prop() avalancheDevelopment: any;
-  @Prop() comment: any;
+  @Prop() AvalancheDangerName: any;
+  @Prop() ForecastCorrectName: any;
+  @Prop() AvalancheDangerTID: any;
+  @Prop() AvalancheEvaluation: any;
+  @Prop() AvalancheDevelopment: any;
+  @Prop() ForecastCorrectTID: any;
+  @Prop() ForecastComment: any;
 
 
 
   render(){
     return <div> 
 
-      {this.avalancheEvaluation ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvaluation3.AvalancheEvaluation}: </label>
-      {this.avalancheEvaluation}
-      </span> : ""}
+  {/* TODO IMPLEMENT PICTURE ... */}    
+  
+    {this.AvalancheEvaluation ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ObsName : "Skredfareurdering" }
+    _value={this.AvalancheEvaluation}
+    ></varsom-key-value>
+    :""}
 
-      {this.avalancheEvaluation ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment}: </label>
-      {this.avalancheEvaluation}
-      </span> : ""}
+    {this.ForecastCorrectName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID : "Varslelets riktighet" }
+    _value={this.ForecastCorrectName}
+    ></varsom-key-value>
+    :""}
 
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvaluation3.ForecastComment}: </label>
-      {this.comment}
-      </span> : ""}
+    {this.AvalancheDevelopment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment : "Utvikling" }
+    _value={this.AvalancheDevelopment}
+    ></varsom-key-value>
+    :""}
 
+    {this.ForecastComment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : "Kommentar" }
+    _value={this.ForecastComment}
+    ></varsom-key-value>
+    :""}
 
-
-
-
-
-  {/* TEGNING HER... */}    
 
     
     </div>
