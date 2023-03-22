@@ -34,74 +34,47 @@ export class VarsomAttachment {
       </div>
       : ""} 
 
-{this.RegistrationName ? 
-      <div>
-         <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.Incident.RegistrationTID}: </div>
-        : <div>Bilde av: </div>}
-        </label>
-        {this.RegistrationName}
-      </div>
-      : ""} 
-
+    {this.RegistrationName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.RegistrationTID : "Bilde av" }
+    _value={this.RegistrationName}
+    ></varsom-key-value>
+    :""}
 
     {this.GeoHazardName ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.Incident.GeoHazardTID}: </div>
-        : <div>Faretype: </div>}
-        </label>
-      {this.GeoHazardName}
-    </div>
-      : ""} 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.geoHazardName : "Faretype" }
+    _value={this.GeoHazardName}
+    ></varsom-key-value>
+    :""}
 
-      {this.Comment ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.Picture.PictureComment}: </div>
-        : <div>Kommentar</div>}
-        </label>
-      {this.Photographer}
-    </div>
-      : ""} 
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
-     
-    
     {this.Photographer ? 
-      <div>
-        <label>
-          {this.strings ? 
-          <div>{this.strings.Observations.Picture.Photographer}: </div>
-          : <div>Fotograf</div>}
-          </label>
-        {this.Photographer}
-      </div>
-      : ""} 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
+    _value={this.Photographer}
+    ></varsom-key-value>
+    :""}
 
     {this.Copyright ? 
-      <div>
-      <label>
-        {this.strings ? 
-        <div>{this.strings.Observations.Picture.Copyright}: </div>
-        : <div>Opphavsrett</div>}
-        </label>
-      {this.Copyright}
-    </div>
-      : ""} 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
+    _value={this.Copyright}
+    ></varsom-key-value>
+    :""}
 
-{this.Aspect ? 
-       <div>
-       <label>
-         {this.strings ? 
-         <div>{this.strings.Observations.Picture.Aspect}: </div>
-         : <div>Himmelretning</div>}
-         </label>
-       {this.Copyright}
-     </div>
-      : ""} 
+    {this.Aspect ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Aspect : "Himmelretning" }
+    _value={this.Aspect}
+    ></varsom-key-value>
+    :""}
       
     </div>
   }
