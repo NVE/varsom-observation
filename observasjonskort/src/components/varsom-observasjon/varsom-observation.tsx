@@ -453,7 +453,9 @@ export class VarsomObservation {
 }
 
 {obs._avalancheActivityObs2.length > 0 ?
-  <div class="header">{this.strings.Observations.AvalancheTID}</div>
+<varsom-label
+label={this.strings.Observations.AvalancheActivityObs2.ObsName}
+></varsom-label>
 : ""}
 
 

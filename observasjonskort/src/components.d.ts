@@ -289,6 +289,9 @@ export namespace Components {
         "_key": any;
         "_value"?: any;
     }
+    interface VarsomLabel {
+        "label": any;
+    }
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
@@ -633,6 +636,12 @@ declare global {
         prototype: HTMLVarsomKeyValueElement;
         new (): HTMLVarsomKeyValueElement;
     };
+    interface HTMLVarsomLabelElement extends Components.VarsomLabel, HTMLStencilElement {
+    }
+    var HTMLVarsomLabelElement: {
+        prototype: HTMLVarsomLabelElement;
+        new (): HTMLVarsomLabelElement;
+    };
     interface HTMLVarsomLandslideObservationElement extends Components.VarsomLandslideObservation, HTMLStencilElement {
     }
     var HTMLVarsomLandslideObservationElement: {
@@ -780,6 +789,7 @@ declare global {
         "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
         "varsom-incident": HTMLVarsomIncidentElement;
         "varsom-key-value": HTMLVarsomKeyValueElement;
+        "varsom-label": HTMLVarsomLabelElement;
         "varsom-landslide-observation": HTMLVarsomLandslideObservationElement;
         "varsom-lat-lng": HTMLVarsomLatLngElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
@@ -1086,6 +1096,9 @@ declare namespace LocalJSX {
         "_key"?: any;
         "_value"?: any;
     }
+    interface VarsomLabel {
+        "label"?: any;
+    }
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
@@ -1329,6 +1342,7 @@ declare namespace LocalJSX {
         "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
         "varsom-incident": VarsomIncident;
         "varsom-key-value": VarsomKeyValue;
+        "varsom-label": VarsomLabel;
         "varsom-landslide-observation": VarsomLandslideObservation;
         "varsom-lat-lng": VarsomLatLng;
         "varsom-metadata": VarsomMetadata;
@@ -1376,6 +1390,7 @@ declare module "@stencil/core" {
             "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
             "varsom-incident": LocalJSX.VarsomIncident & JSXBase.HTMLAttributes<HTMLVarsomIncidentElement>;
             "varsom-key-value": LocalJSX.VarsomKeyValue & JSXBase.HTMLAttributes<HTMLVarsomKeyValueElement>;
+            "varsom-label": LocalJSX.VarsomLabel & JSXBase.HTMLAttributes<HTMLVarsomLabelElement>;
             "varsom-landslide-observation": LocalJSX.VarsomLandslideObservation & JSXBase.HTMLAttributes<HTMLVarsomLandslideObservationElement>;
             "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
