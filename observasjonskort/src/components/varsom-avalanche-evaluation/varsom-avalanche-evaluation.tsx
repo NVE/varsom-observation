@@ -30,109 +30,30 @@ export class VarsomAvalancheEvaluation {
   render(){
     return <div> 
 
-      {this.RegID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.RegID}
-      </span> : ""}
+      {/* TODO: GENERATE ICON/PLOT*/ }
 
-      {this.CanPublish ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CanPublish}
-      </span> : ""}
 
-      {this.AvalancheDangerTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDangerTID}
-      </span> : ""}
+    {this.AvalancheEvaluation1 ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : "Skredfareurdering" }
+    _value={this.AvalancheEvaluation1}
+    ></varsom-key-value>
+    :""}
 
-      {this.RegID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.RegID}
-      </span> : ""}
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalancheDangerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDangerName}
-      </span> : ""}
 
-      {this.ValidExposition ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidExposition}
-      </span> : ""}
 
-      {this.ValidHeightRelative ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidHeightRelative}
-      </span> : ""}
 
-      {this.ValidHeightFrom ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidHeightFrom}
-      </span> : ""}
 
-      {this.ValidHeigtTo ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidHeigtTo}
-      </span> : ""}
 
-      {this.AvalancheProblemTID1 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemTID1}
-      </span> : ""}
+     
 
-      {this.AvalancheProblemName1 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemName1}
-      </span> : ""}
-
-      {this.AvalancheProblemTID2 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemTID2}
-      </span> : ""}
-
-      {this.AvalancheProblemName2 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemName2}
-      </span> : ""}
-
-      {this.AvalancheProblemTID3 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemTID3}
-      </span> : ""}
-
-      {this.AvalancheProblemName3 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemName3}
-      </span> : ""}
-
-      {this.AvalancheEvaluation1 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheEvaluation1}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""}
-
-    
     </div>
   }
     

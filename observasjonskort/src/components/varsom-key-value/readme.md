@@ -20,6 +20,7 @@
  - [varsom-attachment](../varsom-attachment)
  - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
  - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+ - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
 
 ### Graph
 ```mermaid
@@ -27,6 +28,7 @@ graph TD;
   varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-key-value
+  varsom-avalanche-evaluation --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
