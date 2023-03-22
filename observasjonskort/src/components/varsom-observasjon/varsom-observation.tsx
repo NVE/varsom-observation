@@ -862,7 +862,9 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 </div>  
   : ""}
 
-{obs._snowCoverObs ? 
+{obs._iceCoverObs ? 
+<div>
+<varsom-label label={this.strings.Observations.IceCoverObs.ObsName}></varsom-label> 
 <varsom-ice-cover-observation
 strings={this.strings}
 IceCoverBeforeName={obs._snowCoverObs.IceCoverBeforeName ? obs._snowCoverObs.IceCoverBeforeName : null}
@@ -877,6 +879,7 @@ IceSkateabilityTID={obs._snowCoverObs.IceSkateabilityTID ? obs._snowCoverObs.Ice
 Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
 IceCapacityTID={obs._snowCoverObs.IceCapacityTID ? obs._snowCoverObs.IceCapacityTID : null}
 ></varsom-ice-cover-observation>
+</div>
 : ""}
 
 {obs._weatherObservation ? 

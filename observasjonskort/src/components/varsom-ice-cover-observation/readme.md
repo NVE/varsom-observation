@@ -29,9 +29,14 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-ice-cover-observation --> varsom-key-value
   varsom-observation --> varsom-ice-cover-observation
   style varsom-ice-cover-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```

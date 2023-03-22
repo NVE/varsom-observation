@@ -27,7 +27,33 @@ export class VarsomIceCoverObservation {
   render(){
     return <div> 
 
-     not implemented
+    {this.IceCoverName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverTName : "Isdekning" }
+    _value={this.IceCoverName}
+    ></varsom-key-value>
+    :""}
+
+    {this.IceCapacityName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCapacityTName : "Bæreevne" }
+    _value={this.IceCapacityName}
+    ></varsom-key-value>
+    :""}
+
+    {this.IceSkateabilityName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : "Skøytbarhet" }
+    _value={this.IceSkateabilityName}
+    ></varsom-key-value>
+    :""}
+
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.IceCoverObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
     
     </div>

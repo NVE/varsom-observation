@@ -25,6 +25,7 @@
  - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
  - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
  - [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
+ - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
 
 ### Graph
 ```mermaid
@@ -37,6 +38,7 @@ graph TD;
   varsom-avalanche-evaluation --> varsom-key-value
   varsom-avalanche-evaluation2 --> varsom-key-value
   varsom-avalanche-evaluation3 --> varsom-key-value
+  varsom-ice-cover-observation --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
