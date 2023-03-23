@@ -16,11 +16,13 @@
 
 ### Used by
 
+ - [varsom-general-observation](../varsom-general-observation)
  - [varsom-observation](../varsom-observasjon)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-general-observation --> varsom-label
   varsom-observation --> varsom-label
   style varsom-label fill:#f9f,stroke:#333,stroke-width:4px
 ```

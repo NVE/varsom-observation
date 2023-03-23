@@ -553,10 +553,10 @@ export type Observation = {
    }
   
    export type AvalancheDangerObs = {
-    AvalancheDangerObsID: number, //	integer($int32)
-    DangerSignTID: number,	// integer($int32)
-    DangerSignName:	string,
-    Comment:	string
+    AvalancheDangerObsID?: number, //	integer($int32)
+    DangerSignTID?: number,	// integer($int32)
+    DangerSignName?:	string,
+    Comment?:	string
    }
   
    export type AvalancheEvalProblem = {
