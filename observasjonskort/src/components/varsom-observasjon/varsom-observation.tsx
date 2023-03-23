@@ -814,14 +814,19 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
-<div class="header">{this.strings.Observations.DangerObs.ObsName}</div> : "" }
+<varsom-label
+label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Fartegn"}
+></varsom-label> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{
   
             return <varsom-danger-obs
             strings={this.strings}
-            danger-sign-name={el.DangerSignName ? el.DangerSignName : null}
-            comment={el.Comment ? el.Comment : null}
+            GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
+            Comment={el.Comment ? el.Comment : null}
+            DangerSignName={el.DangerSignName ? el.DangerSignName : null}
+            GeoHazardTID={el.GeoHazardTID ? el.GeoHazardTID : null}
+            DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
             > 
       
           </varsom-danger-obs>

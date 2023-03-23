@@ -226,8 +226,11 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomDangerObs {
-        "comment": any;
-        "dangerSignName": any;
+        "Comment": any;
+        "DangerSignName": any;
+        "DangerSignTID": any;
+        "GeoHazardName": any;
+        "GeoHazardTID": any;
         "strings": any;
     }
     interface VarsomEstimateOfRisk {
@@ -1070,8 +1073,11 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomDangerObs {
-        "comment"?: any;
-        "dangerSignName"?: any;
+        "Comment"?: any;
+        "DangerSignName"?: any;
+        "DangerSignTID"?: any;
+        "GeoHazardName"?: any;
+        "GeoHazardTID"?: any;
         "strings"?: any;
     }
     interface VarsomEstimateOfRisk {
