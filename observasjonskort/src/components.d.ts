@@ -81,6 +81,13 @@ export namespace Components {
         "ValidExposition": any;
         "strings": any;
     }
+    interface VarsomAvalancheDangerObs {
+        "AvalancheDangerObsID": any;
+        "Comment": any;
+        "DangerSignName": any;
+        "DangerSignTID": any;
+        "strings": any;
+    }
     interface VarsomAvalancheEvalProblem {
         "AvalCauseExtName": any;
         "AvalCauseExtTID": any;
@@ -573,6 +580,12 @@ declare global {
         prototype: HTMLVarsomAvalancheActivityObs2Element;
         new (): HTMLVarsomAvalancheActivityObs2Element;
     };
+    interface HTMLVarsomAvalancheDangerObsElement extends Components.VarsomAvalancheDangerObs, HTMLStencilElement {
+    }
+    var HTMLVarsomAvalancheDangerObsElement: {
+        prototype: HTMLVarsomAvalancheDangerObsElement;
+        new (): HTMLVarsomAvalancheDangerObsElement;
+    };
     interface HTMLVarsomAvalancheEvalProblemElement extends Components.VarsomAvalancheEvalProblem, HTMLStencilElement {
     }
     var HTMLVarsomAvalancheEvalProblemElement: {
@@ -812,6 +825,7 @@ declare global {
         "varsom-attachment": HTMLVarsomAttachmentElement;
         "varsom-avalanche-activity-obs": HTMLVarsomAvalancheActivityObsElement;
         "varsom-avalanche-activity-obs2": HTMLVarsomAvalancheActivityObs2Element;
+        "varsom-avalanche-danger-obs": HTMLVarsomAvalancheDangerObsElement;
         "varsom-avalanche-eval-problem": HTMLVarsomAvalancheEvalProblemElement;
         "varsom-avalanche-eval-problem2": HTMLVarsomAvalancheEvalProblem2Element;
         "varsom-avalanche-evaluation": HTMLVarsomAvalancheEvaluationElement;
@@ -926,6 +940,13 @@ declare namespace LocalJSX {
         "ExposedHeightComboName"?: any;
         "ExposedHeightComboTID"?: any;
         "ValidExposition"?: any;
+        "strings"?: any;
+    }
+    interface VarsomAvalancheDangerObs {
+        "AvalancheDangerObsID"?: any;
+        "Comment"?: any;
+        "DangerSignName"?: any;
+        "DangerSignTID"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem {
@@ -1399,6 +1420,7 @@ declare namespace LocalJSX {
         "varsom-attachment": VarsomAttachment;
         "varsom-avalanche-activity-obs": VarsomAvalancheActivityObs;
         "varsom-avalanche-activity-obs2": VarsomAvalancheActivityObs2;
+        "varsom-avalanche-danger-obs": VarsomAvalancheDangerObs;
         "varsom-avalanche-eval-problem": VarsomAvalancheEvalProblem;
         "varsom-avalanche-eval-problem2": VarsomAvalancheEvalProblem2;
         "varsom-avalanche-evaluation": VarsomAvalancheEvaluation;
@@ -1448,6 +1470,7 @@ declare module "@stencil/core" {
             "varsom-attachment": LocalJSX.VarsomAttachment & JSXBase.HTMLAttributes<HTMLVarsomAttachmentElement>;
             "varsom-avalanche-activity-obs": LocalJSX.VarsomAvalancheActivityObs & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObsElement>;
             "varsom-avalanche-activity-obs2": LocalJSX.VarsomAvalancheActivityObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheActivityObs2Element>;
+            "varsom-avalanche-danger-obs": LocalJSX.VarsomAvalancheDangerObs & JSXBase.HTMLAttributes<HTMLVarsomAvalancheDangerObsElement>;
             "varsom-avalanche-eval-problem": LocalJSX.VarsomAvalancheEvalProblem & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblemElement>;
             "varsom-avalanche-eval-problem2": LocalJSX.VarsomAvalancheEvalProblem2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvalProblem2Element>;
             "varsom-avalanche-evaluation": LocalJSX.VarsomAvalancheEvaluation & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluationElement>;

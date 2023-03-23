@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
+import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -830,6 +830,27 @@ label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.D
             > 
       
           </varsom-danger-obs>
+        })
+        
+        }
+
+        {/* AVALANCHE DANGER OBSERVATIONS */}
+{obs._avalancheDangerObs.length > 0 ?
+<varsom-label
+label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Observations.AvalancheDangerObs.ObsName : "Fartegn"}
+></varsom-label> : "" }
+
+{obs._avalancheDangerObs.map((el: AvalancheDangerObs = {}) =>{
+  
+            return <varsom-avalanche-danger-obs
+            strings={this.strings}
+            AvalancheDangerObsID={el.AvalancheDangerObsID ? el.AvalancheDangerObsID : null}
+            DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
+            DangerSignName={el.DangerSignName ? el.DangerSignName : null}
+            Comment={el.Comment ? el.Comment : null}
+            > 
+      
+          </varsom-avalanche-danger-obs>
         })
         
         }

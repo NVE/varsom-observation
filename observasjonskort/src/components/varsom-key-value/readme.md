@@ -20,6 +20,7 @@
  - [varsom-attachment](../varsom-attachment)
  - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
  - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+ - [varsom-avalanche-danger-obs](../varsom-avalanche-danger-obs)
  - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
  - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
  - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
@@ -36,6 +37,7 @@ graph TD;
   varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-key-value
+  varsom-avalanche-danger-obs --> varsom-key-value
   varsom-avalanche-eval-problem --> varsom-key-value
   varsom-avalanche-eval-problem2 --> varsom-key-value
   varsom-avalanche-evaluation --> varsom-key-value
