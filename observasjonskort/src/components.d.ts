@@ -178,10 +178,32 @@ export namespace Components {
         "ForecastCorrectTID": any;
         "strings": any;
     }
-    interface VarsomAvalancheObs2 {
-        "avalCauseName": any;
-        "comment": any;
-        "dtAvalancheTime": any;
+    interface VarsomAvalancheObs {
+        "Aspect": any;
+        "AvalCauseName": any;
+        "AvalCauseTID": any;
+        "AvalancheName": any;
+        "AvalancheTID": any;
+        "AvalancheTriggerName": any;
+        "AvalancheTriggerTID": any;
+        "Comment": any;
+        "DestructiveSizeName": any;
+        "DestructiveSizeTID": any;
+        "DtAvalancheTime": any;
+        "FractureHeight": any;
+        "FractureWidth": any;
+        "HeightStartZone": any;
+        "HeightStopZone": any;
+        "RemotelyTriggered": any;
+        "SnowLine": any;
+        "StartLat": any;
+        "StartLong": any;
+        "StopLat": any;
+        "StopLong": any;
+        "TerrainStartZoneName": any;
+        "TerrainStartZoneTID": any;
+        "Trajectory": any;
+        "ValidExposition": any;
         "strings": any;
     }
     interface VarsomCompressionTest {
@@ -578,11 +600,11 @@ declare global {
         prototype: HTMLVarsomAvalancheEvaluation3Element;
         new (): HTMLVarsomAvalancheEvaluation3Element;
     };
-    interface HTMLVarsomAvalancheObs2Element extends Components.VarsomAvalancheObs2, HTMLStencilElement {
+    interface HTMLVarsomAvalancheObsElement extends Components.VarsomAvalancheObs, HTMLStencilElement {
     }
-    var HTMLVarsomAvalancheObs2Element: {
-        prototype: HTMLVarsomAvalancheObs2Element;
-        new (): HTMLVarsomAvalancheObs2Element;
+    var HTMLVarsomAvalancheObsElement: {
+        prototype: HTMLVarsomAvalancheObsElement;
+        new (): HTMLVarsomAvalancheObsElement;
     };
     interface HTMLVarsomCompressionTestElement extends Components.VarsomCompressionTest, HTMLStencilElement {
     }
@@ -792,7 +814,7 @@ declare global {
         "varsom-avalanche-evaluation": HTMLVarsomAvalancheEvaluationElement;
         "varsom-avalanche-evaluation2": HTMLVarsomAvalancheEvaluation2Element;
         "varsom-avalanche-evaluation3": HTMLVarsomAvalancheEvaluation3Element;
-        "varsom-avalanche-obs2": HTMLVarsomAvalancheObs2Element;
+        "varsom-avalanche-obs": HTMLVarsomAvalancheObsElement;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-estimate-of-risk": HTMLVarsomEstimateOfRiskElement;
@@ -1000,10 +1022,32 @@ declare namespace LocalJSX {
         "ForecastCorrectTID"?: any;
         "strings"?: any;
     }
-    interface VarsomAvalancheObs2 {
-        "avalCauseName"?: any;
-        "comment"?: any;
-        "dtAvalancheTime"?: any;
+    interface VarsomAvalancheObs {
+        "Aspect"?: any;
+        "AvalCauseName"?: any;
+        "AvalCauseTID"?: any;
+        "AvalancheName"?: any;
+        "AvalancheTID"?: any;
+        "AvalancheTriggerName"?: any;
+        "AvalancheTriggerTID"?: any;
+        "Comment"?: any;
+        "DestructiveSizeName"?: any;
+        "DestructiveSizeTID"?: any;
+        "DtAvalancheTime"?: any;
+        "FractureHeight"?: any;
+        "FractureWidth"?: any;
+        "HeightStartZone"?: any;
+        "HeightStopZone"?: any;
+        "RemotelyTriggered"?: any;
+        "SnowLine"?: any;
+        "StartLat"?: any;
+        "StartLong"?: any;
+        "StopLat"?: any;
+        "StopLong"?: any;
+        "TerrainStartZoneName"?: any;
+        "TerrainStartZoneTID"?: any;
+        "Trajectory"?: any;
+        "ValidExposition"?: any;
         "strings"?: any;
     }
     interface VarsomCompressionTest {
@@ -1354,7 +1398,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-evaluation": VarsomAvalancheEvaluation;
         "varsom-avalanche-evaluation2": VarsomAvalancheEvaluation2;
         "varsom-avalanche-evaluation3": VarsomAvalancheEvaluation3;
-        "varsom-avalanche-obs2": VarsomAvalancheObs2;
+        "varsom-avalanche-obs": VarsomAvalancheObs;
         "varsom-compression-test": VarsomCompressionTest;
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-estimate-of-risk": VarsomEstimateOfRisk;
@@ -1403,7 +1447,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-evaluation": LocalJSX.VarsomAvalancheEvaluation & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluationElement>;
             "varsom-avalanche-evaluation2": LocalJSX.VarsomAvalancheEvaluation2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation2Element>;
             "varsom-avalanche-evaluation3": LocalJSX.VarsomAvalancheEvaluation3 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation3Element>;
-            "varsom-avalanche-obs2": LocalJSX.VarsomAvalancheObs2 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObs2Element>;
+            "varsom-avalanche-obs": LocalJSX.VarsomAvalancheObs & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObsElement>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-estimate-of-risk": LocalJSX.VarsomEstimateOfRisk & JSXBase.HTMLAttributes<HTMLVarsomEstimateOfRiskElement>;

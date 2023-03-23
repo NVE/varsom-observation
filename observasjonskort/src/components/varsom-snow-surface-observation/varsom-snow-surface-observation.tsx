@@ -25,6 +25,7 @@ export class VarsomSnowSurfaceObservation {
   @Prop() Comment: any;
   @Prop() HeightLimitLayeredSnow: any;
   @Prop() SnowLine: any;
+  
 
   render(){
     return <div> 

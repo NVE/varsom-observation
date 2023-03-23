@@ -516,8 +516,31 @@ DtOffAvalancheTime={obs._avalancheActivityObs.DtOffAvalancheTime ? obs._avalanch
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
 strings={this.strings}
-dt-avalanche-time={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
-comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
+DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
+AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
+AvalancheName={obs._avalancheObs.AvalancheName ? obs._avalancheObs.AvalancheName : null}
+TerrainStartZoneName={obs._avalancheObs.TerrainStartZoneName ? obs._avalancheObs.TerrainStartZoneName : null}
+AvalCauseName={obs._avalancheObs.AvalCauseName ? obs._avalancheObs.AvalCauseName : null}
+DtAvalancheTime={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
+Aspect={obs._avalancheObs.Aspect ? obs._avalancheObs.Aspect : null}
+HeightStartZone={obs._avalancheObs.HeightStartZone ? obs._avalancheObs.HeightStartZone : null}
+HeightStopZone={obs._avalancheObs.HeightStopZone ? obs._avalancheObs.HeightStopZone : null}
+DestructiveSizeTID={obs._avalancheObs.DestructiveSizeTID ? obs._avalancheObs.DestructiveSizeTID : null}
+AvalancheTriggerTID={obs._avalancheObs.AvalancheTriggerTID ? obs._avalancheObs.AvalancheTriggerTID : null}
+AvalancheTID={obs._avalancheObs.AvalancheTID ? obs._avalancheObs.AvalancheTID : null}
+TerrainStartZoneTID={obs._avalancheObs.TerrainStartZoneTID ? obs._avalancheObs.TerrainStartZoneTID : null}
+SnowLine={obs._avalancheObs.SnowLine ? obs._avalancheObs.SnowLine : null}
+ValidExposition={obs._avalancheObs.ValidExposition ? obs._avalancheObs.ValidExposition : null}
+AvalCauseTID={obs._avalancheObs.AvalCauseTID ? obs._avalancheObs.AvalCauseTID : null}
+FractureHeight={obs._avalancheObs.FractureHeight ? obs._avalancheObs.FractureHeight : null}
+FractureWidth={obs._avalancheObs.FractureWidth ? obs._avalancheObs.FractureWidth : null}
+Trajectory={obs._avalancheObs.Trajectory ? obs._avalancheObs.Trajectory : null}
+StartLat={obs._avalancheObs.StartLat ? obs._avalancheObs.StartLat : null}
+StartLong={obs._avalancheObs.StartLong ? obs._avalancheObs.StartLong : null}
+StopLat={obs._avalancheObs.StopLat ? obs._avalancheObs.StopLat : null}
+StopLong={obs._avalancheObs.StopLong ? obs._avalancheObs.StopLong : null}
+RemotelyTriggered={obs._avalancheObs.RemotelyTriggered ? obs._avalancheObs.RemotelyTriggered : null}
+Comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 ></varsom-avalanche-obs>  
   : "" }
 
