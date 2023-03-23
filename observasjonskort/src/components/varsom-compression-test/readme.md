@@ -9,6 +9,7 @@
 
 | Property                | Attribute                   | Description | Type  | Default     |
 | ----------------------- | --------------------------- | ----------- | ----- | ----------- |
+| `Comment`               | `comment`                   |             | `any` | `undefined` |
 | `ComprTestFractureName` | `compr-test-fracture-name`  |             | `any` | `undefined` |
 | `ComprTestFractureTID`  | `compr-test-fracture-t-i-d` |             | `any` | `undefined` |
 | `CompressionTestName`   | `compression-test-name`     |             | `any` | `undefined` |
@@ -24,7 +25,6 @@
 | `StabilityEvalTID`      | `stability-eval-t-i-d`      |             | `any` | `undefined` |
 | `TapsFracture`          | `taps-fracture`             |             | `any` | `undefined` |
 | `TapsFullPropagation`   | `taps-full-propagation`     |             | `any` | `undefined` |
-| `comment`               | `comment`                   |             | `any` | `undefined` |
 | `strings`               | `strings`                   |             | `any` | `undefined` |
 
 
@@ -34,9 +34,14 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-compression-test --> varsom-key-value
   varsom-observation --> varsom-compression-test
   style varsom-compression-test fill:#f9f,stroke:#333,stroke-width:4px
 ```

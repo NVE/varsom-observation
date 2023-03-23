@@ -207,6 +207,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomCompressionTest {
+        "Comment": any;
         "ComprTestFractureName": any;
         "ComprTestFractureTID": any;
         "CompressionTestName": any;
@@ -222,7 +223,6 @@ export namespace Components {
         "StabilityEvalTID": any;
         "TapsFracture": any;
         "TapsFullPropagation": any;
-        "comment": any;
         "strings": any;
     }
     interface VarsomDangerObs {
@@ -1051,6 +1051,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomCompressionTest {
+        "Comment"?: any;
         "ComprTestFractureName"?: any;
         "ComprTestFractureTID"?: any;
         "CompressionTestName"?: any;
@@ -1066,7 +1067,6 @@ declare namespace LocalJSX {
         "StabilityEvalTID"?: any;
         "TapsFracture"?: any;
         "TapsFullPropagation"?: any;
-        "comment"?: any;
         "strings"?: any;
     }
     interface VarsomDangerObs {

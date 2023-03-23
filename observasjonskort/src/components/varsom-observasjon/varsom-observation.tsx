@@ -831,7 +831,9 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 
 {/* COMPRESSION TEST */}
 {obs._compressionTest.length > 0 ?
-<div class="header">{this.strings.Observations.CompressionTest.ObsName}</div> : "" }
+<varsom-label
+label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observations.CompressionTest.ObsName : "Stabilitetstest"}
+></varsom-label> :"" }
 
 {obs._compressionTest.map((el: CompressionTest = {}) =>{
   
@@ -851,7 +853,7 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
             ComprTestFractureTID={el.ComprTestFractureTID ? el.ComprTestFractureTID : null}
             ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
             IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
-            comment={el.Comment}
+            Comment={el.Comment}
             > 
         
           </varsom-compression-test>
