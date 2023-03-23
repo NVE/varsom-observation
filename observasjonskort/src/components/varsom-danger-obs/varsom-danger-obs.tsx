@@ -10,24 +10,29 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomDangerObs {
 
   @Prop() strings: any;
-  @Prop() comment: any;
-  @Prop() dangerSignName: any;
-
+  @Prop() GeoHazardName: any;
+  @Prop() DangerSignName: any;
+  @Prop() GeoHazardTID: any;
+  @Prop() DangerSignTID: any;
+  @Prop() Comment: any;
+ 
   render(){
     return <div> 
 
-      {this.dangerSignName ? 
-      <span>
-      <label>{this.strings.Observations.DamageObs.DangerSignTName}: </label>
-      {this.dangerSignName}
-      </span> : ""}
+    {this.DangerSignName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.DangerObs.DangerSignTName : "Type" }
+    _value={this.DangerSignName}
+    ></varsom-key-value>
+    :""}
 
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.GeneralObservation.Comment}: </label>
-      {this.comment}
-      </span> : ""}
-     
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+ 
     </div>
   }
     
