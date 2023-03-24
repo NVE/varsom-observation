@@ -21,9 +21,24 @@ export const config: Config = {
       copy: [{
         src: "**/*.i18n.*.json",
         dest: "i18n"
-      }],
+      }, 
+      {
+        src: "**/*icon.svg",
+        dest: "icons"
+      }, 
+      {
+        src: "**/*.png",
+        dest: "pictures"
+      },
+      {
+        src: "**/*.jpg",
+        dest: "pictures"
+      }
+    ],
+      
       serviceWorker: null, // disable service workers
-    },
+    }
+    
   ],
  
 };

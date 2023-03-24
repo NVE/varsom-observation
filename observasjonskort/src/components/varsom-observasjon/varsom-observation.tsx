@@ -11,8 +11,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: true,
-  assetsDirs: ['images']
+  shadow: true
 })
 export class VarsomObservation {
 
@@ -421,7 +420,7 @@ export class VarsomObservation {
          
       {/*map*/}     
       <div>
-        <img class="map" src={getAssetPath("./images/mapRegobs.png")}></img>
+        <img class="map" src={getAssetPath("/pictures/mapRegobs.png")}></img>
       </div>
 
 
