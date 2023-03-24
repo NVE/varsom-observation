@@ -40,9 +40,14 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-landslide-observation --> varsom-key-value
   varsom-observation --> varsom-landslide-observation
   style varsom-landslide-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```

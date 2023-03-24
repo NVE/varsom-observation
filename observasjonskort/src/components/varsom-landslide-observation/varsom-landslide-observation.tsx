@@ -38,153 +38,68 @@ export class VarsomLandslideObservation {
   render(){
     return <div> 
 
+{/**TODO : IMPLEMENT MAP */}
 
-      {this.LandSlideName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideName}
-      </span> : ""}
+    {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
+    _value={this.DtLandSlideTime}
+    ></varsom-key-value>
+    :""}
 
-      {this.LandSlideTriggerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideTriggerName}
-      </span> : ""}
+    {(this.DtLandSlideTime && this.DtLandSlideTimeEnd)  ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
+    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom ") + this.DtLandSlideTime
+   + " " + (this.strings ? this.strings.Obsevations.LandslideObs.And + " " : "og ") + 
+   this.DtLandSlideTimeEnd
+  }
+    ></varsom-key-value>
+    :""}
 
-      {this.LandSlideSizeName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideSizeName}
-      </span> : ""}
+    {this.LandSlideName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideTName : "Skredtype" }
+    _value={this.LandSlideName}
+    ></varsom-key-value>
+    :""}
 
-      {this.GeoHazardName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.GeoHazardName}
-      </span> : ""}
+    {this.LandSlideSizeName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideSizeTName : "Størrelse" }
+    _value={this.LandSlideSizeName}
+    ></varsom-key-value>
+    :""}
 
-      {this.ActivityInfluencedName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ActivityInfluencedName}
-      </span> : ""}
-
-      {this.ForecastAccurateName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ForecastAccurateName}
-      </span> : ""}
-
-      {this.DamageExtentName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DamageExtentName}
-      </span> : ""}
-
-      {this.Imageurl ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Imageurl}
-      </span> : ""}
-
-      {this.LandSlideTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideTID}
-      </span> : ""}
-
-      {this.LandSlideTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideTID}
-      </span> : ""}
-
-      {this.LandSlideTriggerTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideTriggerTID}
-      </span> : ""}
-
-      {this.LandSlideSizeTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.LandSlideSizeTID}
-      </span> : ""}
-
-      {this.GeoHazardTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.GeoHazardTID}
-      </span> : ""}
-
-      {this.ActivityInfluencedTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ActivityInfluencedTID}
-      </span> : ""}
-
-      {this.ForecastAccurateTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ForecastAccurateTID}
-      </span> : ""}
-
-      {this.DamageExtentTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DamageExtentTID}
-      </span> : ""}
-
-      {this.StartLat ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StartLat}
-      </span> : ""}
-
-      {this.StartLong ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StartLong}
-      </span> : ""}
-
-      {this.StopLat ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StopLat}
-      </span> : ""}
-
-      {this.StopLong ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StopLong}
-      </span> : ""}
-
-      {this.DtLandSlideTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtLandSlideTime}
-      </span> : ""}
-
-      {this.DtLandSlideTimeEnd ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtLandSlideTimeEnd}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Comment}: </label>
-      {this.Comment}
-      </span> : ""}
-
+    {this.LandSlideTriggerName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideTriggerTName : "Trigger" }
+    _value={this.LandSlideTriggerName}
+    ></varsom-key-value>
+    :""}
       
+    {this.DamageExtentName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.DamageExtentTName : "Omfang" }
+    _value={this.DamageExtentName}
+    ></varsom-key-value>
+    :""}
     
+    {this.ForecastAccurateName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.ForecastAccurateTName : "Stemte varsel på varsom.no?" }
+    _value={this.ForecastAccurateName}
+    ></varsom-key-value>
+    :""}
+
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+
     </div>
   }
     
