@@ -918,17 +918,17 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
 <varsom-label label={this.strings.Observations.IceCoverObs.ObsName}></varsom-label> 
 <varsom-ice-cover-observation
 strings={this.strings}
-IceCoverBeforeName={obs._snowCoverObs.IceCoverBeforeName ? obs._snowCoverObs.IceCoverBeforeName : null}
-IceCoverName={obs._snowCoverObs.IceCoverName ? obs._snowCoverObs.IceCoverName : null}
-IceCoverAfterName={obs._snowCoverObs.IceCoverAfterName ? obs._snowCoverObs.IceCoverAfterName   : null}
-IceSkateabilityName={obs._snowCoverObs.IceSkateabilityName ? obs._snowCoverObs.IceSkateabilityName : null}
-IceCapacityName={obs._snowCoverObs.IceCapacityName ? obs._snowCoverObs.IceCapacityName : null}
-IceCoverBeforeTID={obs._snowCoverObs.IceCoverBeforeTID ? obs._snowCoverObs.IceCoverBeforeTID : null}
-IceCoverTID={obs._snowCoverObs.IceCoverTID ? obs._snowCoverObs.IceCoverTID : null}
-IceCoverAfterTID={obs._snowCoverObs.IceCoverAfterTID ? obs._snowCoverObs.IceCoverAfterTID : null}
-IceSkateabilityTID={obs._snowCoverObs.IceSkateabilityTID ? obs._snowCoverObs.IceSkateabilityTID : null}
-Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
-IceCapacityTID={obs._snowCoverObs.IceCapacityTID ? obs._snowCoverObs.IceCapacityTID : null}
+IceCoverBeforeName={obs._iceCoverObs.IceCoverBeforeName ? obs._iceCoverObs.IceCoverBeforeName : null}
+IceCoverName={obs._iceCoverObs.IceCoverName ? obs._iceCoverObs.IceCoverName : null}
+IceCoverAfterName={obs._iceCoverObs.IceCoverAfterName ? obs._iceCoverObs.IceCoverAfterName   : null}
+IceSkateabilityName={obs._iceCoverObs.IceSkateabilityName ? obs._iceCoverObs.IceSkateabilityName : null}
+IceCapacityName={obs._iceCoverObs.IceCapacityName ? obs._iceCoverObs.IceCapacityName : null}
+IceCoverBeforeTID={obs._iceCoverObs.IceCoverBeforeTID ? obs._iceCoverObs.IceCoverBeforeTID : null}
+IceCoverTID={obs._iceCoverObs.IceCoverTID ? obs._iceCoverObs.IceCoverTID : null}
+IceCoverAfterTID={obs._iceCoverObs.IceCoverAfterTID ? obs._iceCoverObs.IceCoverAfterTID : null}
+IceSkateabilityTID={obs._iceCoverObs.IceSkateabilityTID ? obs._iceCoverObs.IceSkateabilityTID : null}
+Comment={obs._iceCoverObs.Comment ? obs._iceCoverObs.Comment : null}
+IceCapacityTID={obs._iceCoverObs.IceCapacityTID ? obs._iceCoverObs.IceCapacityTID : null}
 ></varsom-ice-cover-observation>
 </div>
 : ""}
