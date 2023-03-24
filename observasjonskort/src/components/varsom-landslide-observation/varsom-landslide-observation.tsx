@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-
+import { Url } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -15,7 +15,7 @@ export class VarsomLandslideObservation {
   @Prop() ActivityInfluencedName?: any;
   @Prop() GeoHazardName?: any;
   @Prop() ForecastAccurateName?: any;
-  @Prop() Imageurl?: any;
+  @Prop() Urls?: any[];
   @Prop() DamageExtentName?: any;
   @Prop() LandSlideTID?: any;
   @Prop() LandSlideTriggerTID?: any;
@@ -40,6 +40,10 @@ export class VarsomLandslideObservation {
 
 {/**TODO : IMPLEMENT MAP */}
 
+      <varsom-label
+      label={this.strings ? this.strings.Observations.LandslideObs.ObsName : "Skredhendelse"}
+      ></varsom-label>
+
     {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
@@ -47,11 +51,11 @@ export class VarsomLandslideObservation {
     ></varsom-key-value>
     :""}
 
-    {(this.DtLandSlideTime && this.DtLandSlideTimeEnd)  ? 
+    {(this.DtLandSlideTime && this.DtLandSlideTimeEnd && this.strings)  ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
-    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom ") + this.DtLandSlideTime
-   + " " + (this.strings ? this.strings.Obsevations.LandslideObs.And + " " : "og ") + 
+    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom") + " " + this.DtLandSlideTime
+   + " " + (this.strings ? this.strings.Observations.LandslideObs.And + " " : "og ") + 
    this.DtLandSlideTimeEnd
   }
     ></varsom-key-value>
@@ -99,6 +103,18 @@ export class VarsomLandslideObservation {
     ></varsom-key-value>
     :""}
 
+    {this.Urls ? 
+      <div>
+      {this.Urls.map((el: Url = {}) =>{
+            return <varsom-url
+            strings={this.strings}
+            UrlDescription={el.UrlDescription ? el.UrlDescription : null}
+            UrlLine={el.UrlLine ? el.UrlLine : null}
+            >
+
+            </varsom-url>
+        })
+        } </div> : ""}
 
     </div>
   }

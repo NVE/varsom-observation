@@ -104,7 +104,7 @@ export type Observation = {
     ActivityInfluencedName?: string,
     ForecastAccurateName?: string,
     DamageExtentName?: string,
-    Imageurl?: string,
+    Urls?: Url[],
     LandSlideTID?: number,
     LandSlideTriggerTID?: number,
     LandSlideSizeTID?: number,

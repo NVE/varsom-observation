@@ -344,7 +344,6 @@ export namespace Components {
         "ForecastAccurateTID"?: any;
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
-        "Imageurl"?: any;
         "LandSlideName"?: any;
         "LandSlideSizeName"?: any;
         "LandSlideSizeTID"?: any;
@@ -355,6 +354,7 @@ export namespace Components {
         "StartLong"?: any;
         "StopLat"?: any;
         "StopLong"?: any;
+        "Urls"?: any[];
         "strings": any;
     }
     interface VarsomLatLng {
@@ -1205,7 +1205,6 @@ declare namespace LocalJSX {
         "ForecastAccurateTID"?: any;
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
-        "Imageurl"?: any;
         "LandSlideName"?: any;
         "LandSlideSizeName"?: any;
         "LandSlideSizeTID"?: any;
@@ -1216,6 +1215,7 @@ declare namespace LocalJSX {
         "StartLong"?: any;
         "StopLat"?: any;
         "StopLong"?: any;
+        "Urls"?: any[];
         "strings"?: any;
     }
     interface VarsomLatLng {

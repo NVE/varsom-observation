@@ -118,7 +118,7 @@ export class VarsomObservation {
         _longitude: data[i]["ObsLocation"]["Longitude"],
         //_landslideActivity: data[i]["LandslideActivity"],
         _dangerObs: [],//data[i]["DangerObs"],
-        _landslideObs: data[i]["LandslideObs"],
+        _landslideObs: data[i]["LandSlideObs"],
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
         _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
@@ -606,7 +606,7 @@ LandSlideTriggerName={obs._landslideObs.LandSlideTriggerName ? obs._landslideObs
 ActivityInfluencedName={obs._landslideObs.ActivityInfluencedName ? obs._landslideObs.ActivityInfluencedName : null}
 GeoHazardName={obs._landslideObs.GeoHazardName ? obs._landslideObs.GeoHazardName : null}
 ForecastAccurateName={obs._landslideObs.ForecastAccurateName ? obs._landslideObs.ForecastAccurateName : null}
-Imageurl={obs._landslideObs.Imageurl ? obs._landslideObs.Imageurl : null}
+Urls={obs._landslideObs.Urls ? obs._landslideObs.Urls : null}
 DamageExtentName={obs._landslideObs.DamageExtentName ? obs._landslideObs.DamageExtentName : null}
 LandSlideTID={obs._landslideObs.LandSlideTID ? obs._landslideObs.LandSlideTID : null}
 LandSlideTriggerTID={obs._landslideObs.LandSlideTriggerTID ? obs._landslideObs.LandSlideTriggerTID : null}

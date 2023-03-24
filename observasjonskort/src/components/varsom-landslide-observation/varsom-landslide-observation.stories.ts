@@ -23,7 +23,7 @@ VarsomLandslideObservation.args = {
     ForecastAccurateName: "'det stemte bra'",
     DamageExtentName: "'ikke spesifisert'",
     LandSlideTriggerName: "'Ikke gitt'",
-    LandSlideSizeName: "'ikke gitt's",
+    LandSlideSizeName: "'ikke gitt'",
     LandSlideName: "Steinsprang",
     DtLandSlideTime: "'2023-03-17T21:54:00+01:00'",
     DtLandSlideTimeEnd: "'2023-03-17T21:54:00+01:00'"
