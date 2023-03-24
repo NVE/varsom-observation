@@ -32,6 +32,7 @@
  - [varsom-general-observation](../varsom-general-observation)
  - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
  - [varsom-ice-thickness](../varsom-ice-thickness)
+ - [varsom-ice-thickness-layer](../varsom-ice-thickness-layer)
 
 ### Graph
 ```mermaid
@@ -51,6 +52,7 @@ graph TD;
   varsom-general-observation --> varsom-key-value
   varsom-ice-cover-observation --> varsom-key-value
   varsom-ice-thickness --> varsom-key-value
+  varsom-ice-thickness-layer --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

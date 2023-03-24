@@ -18,24 +18,12 @@ export class VarsomIceThicknessLayer {
   render(){
     return <div> 
 
-      {this.IceLayerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IceLayerName}
-      </span> : ""}
-
-      {this.IceLayerThickness ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IceLayerThickness}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""}      
-
+    {(this.IceLayerThickness && this.IceLayerName)  ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.IceThickness.IceThicknessLayers : "Islag (ovenfra og ned)" }
+    _value={this.IceLayerThickness + " " + this.IceLayerName + ". " + (this.Comment ? this.Comment : "")}   
+    ></varsom-key-value>
+    :""}
     
     </div>
   }
