@@ -35,6 +35,7 @@
 graph TD;
   varsom-snow-profile2 --> varsom-snow-density
   varsom-snow-density --> varsom-snow-density-layer
+  varsom-snow-density-layer --> varsom-key-value
   varsom-observation --> varsom-snow-profile2
   style varsom-snow-profile2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
