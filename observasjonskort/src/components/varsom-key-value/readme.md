@@ -36,6 +36,7 @@
  - [varsom-incident](../varsom-incident)
  - [varsom-landslide-observation](../varsom-landslide-observation)
  - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
+ - [varsom-snow-density](../varsom-snow-density)
  - [varsom-snow-density-layer](../varsom-snow-density-layer)
 
 ### Graph
@@ -60,6 +61,7 @@ graph TD;
   varsom-incident --> varsom-key-value
   varsom-landslide-observation --> varsom-key-value
   varsom-snow-cover-observation --> varsom-key-value
+  varsom-snow-density --> varsom-key-value
   varsom-snow-density-layer --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```

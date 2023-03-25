@@ -34,6 +34,7 @@
 ```mermaid
 graph TD;
   varsom-snow-profile2 --> varsom-snow-density
+  varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
   varsom-snow-density-layer --> varsom-key-value
   varsom-observation --> varsom-snow-profile2
