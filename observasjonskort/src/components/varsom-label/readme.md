@@ -18,6 +18,8 @@
 
  - [varsom-general-observation](../varsom-general-observation)
  - [varsom-ice-thickness](../varsom-ice-thickness)
+ - [varsom-incident](../varsom-incident)
+ - [varsom-landslide-observation](../varsom-landslide-observation)
  - [varsom-observation](../varsom-observasjon)
 
 ### Graph
@@ -25,6 +27,8 @@
 graph TD;
   varsom-general-observation --> varsom-label
   varsom-ice-thickness --> varsom-label
+  varsom-incident --> varsom-label
+  varsom-landslide-observation --> varsom-label
   varsom-observation --> varsom-label
   style varsom-label fill:#f9f,stroke:#333,stroke-width:4px
 ```

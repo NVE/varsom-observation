@@ -20,7 +20,6 @@
 | `ForecastAccurateTID`    | `forecast-accurate-t-i-d`   |             | `any`   | `undefined` |
 | `GeoHazardName`          | `geo-hazard-name`           |             | `any`   | `undefined` |
 | `GeoHazardTID`           | `geo-hazard-t-i-d`          |             | `any`   | `undefined` |
-| `Imageurl`               | --                          |             | `any[]` | `undefined` |
 | `LandSlideName`          | `land-slide-name`           |             | `any`   | `undefined` |
 | `LandSlideSizeName`      | `land-slide-size-name`      |             | `any`   | `undefined` |
 | `LandSlideSizeTID`       | `land-slide-size-t-i-d`     |             | `any`   | `undefined` |
@@ -31,6 +30,7 @@
 | `StartLong`              | `start-long`                |             | `any`   | `undefined` |
 | `StopLat`                | `stop-lat`                  |             | `any`   | `undefined` |
 | `StopLong`               | `stop-long`                 |             | `any`   | `undefined` |
+| `Urls`                   | --                          |             | `any[]` | `undefined` |
 | `strings`                | `strings`                   |             | `any`   | `undefined` |
 
 
@@ -42,12 +42,16 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-url](../varsom-url)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-landslide-observation --> varsom-label
   varsom-landslide-observation --> varsom-key-value
+  varsom-landslide-observation --> varsom-url
   varsom-observation --> varsom-landslide-observation
   style varsom-landslide-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
