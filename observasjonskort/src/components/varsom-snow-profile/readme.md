@@ -7,17 +7,18 @@
 
 ## Properties
 
-| Property            | Attribute              | Description | Type            | Default     |
-| ------------------- | ---------------------- | ----------- | --------------- | ----------- |
-| `Comment`           | `comment`              |             | `any`           | `undefined` |
-| `Exposition`        | `exposition`           |             | `any`           | `undefined` |
-| `IsProfileToGround` | `is-profile-to-ground` |             | `any`           | `undefined` |
-| `SlopeAngle`        | `slope-angle`          |             | `any`           | `undefined` |
-| `SnowDensity`       | --                     |             | `SnowDensity[]` | `undefined` |
-| `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |
-| `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
-| `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
-| `strings`           | `strings`              |             | `any`           | `undefined` |
+| Property           | Attribute            | Description | Type  | Default     |
+| ------------------ | -------------------- | ----------- | ----- | ----------- |
+| `Aspect`           | `aspect`             |             | `any` | `undefined` |
+| `Comment`          | `comment`            |             | `any` | `undefined` |
+| `Copyright`        | `copyright`          |             | `any` | `undefined` |
+| `GeoHazardName`    | `geo-hazard-name`    |             | `any` | `undefined` |
+| `GeoHazardTID`     | `geo-hazard-t-i-d`   |             | `any` | `undefined` |
+| `Photographer`     | `photographer`       |             | `any` | `undefined` |
+| `RegistrationName` | `registration-name`  |             | `any` | `undefined` |
+| `RegistrationTID`  | `registration-t-i-d` |             | `any` | `undefined` |
+| `Url`              | `url`                |             | `any` | `undefined` |
+| `strings`          | `strings`            |             | `any` | `undefined` |
 
 
 ## Dependencies
@@ -28,17 +29,14 @@
 
 ### Depends on
 
-- [varsom-snow-density](../varsom-snow-density)
+- [varsom-key-value](../varsom-key-value)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-snow-profile2 --> varsom-snow-density
-  varsom-snow-density --> varsom-key-value
-  varsom-snow-density --> varsom-snow-density-layer
-  varsom-snow-density-layer --> varsom-key-value
-  varsom-observation --> varsom-snow-profile2
-  style varsom-snow-profile2 fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-snow-profile --> varsom-key-value
+  varsom-observation --> varsom-snow-profile
+  style varsom-snow-profile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
