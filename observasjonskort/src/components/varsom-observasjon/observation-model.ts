@@ -219,10 +219,15 @@ export type Observation = {
    }
   
    export type SnowProfile = {
-    Comment: string,
-    Temperature: string,
-    Layering: string,
-    ImageUrl?: string
+      GeoHazardName: string,
+      RegistrationName: string,
+      Url: string,
+      Photographer: string,
+      Copyright: string,
+      Aspect: number,
+      GeoHazardTID: number,
+      RegistrationTID: number,
+      Comment: string
    }
   
    export type LandslideProblem = {  //can't find this in the api...

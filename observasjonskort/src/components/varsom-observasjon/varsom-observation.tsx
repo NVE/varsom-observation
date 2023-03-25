@@ -141,6 +141,7 @@ export class VarsomObservation {
         _compressionTest: [],
         _generalObservation: data[i]["GeneralObservation"],
         _incident: data[i]["Incident"],
+        _snowProfile: data[i]["SnowProfile"],
         _snowProfile2: data[i]["SnowProfile2"],
         _avalancheEvaluation: data[i]["AvalancheEvaluation"],
         _avalancheActivityObs: data[i]["AvalancheActivityObs"],
@@ -794,6 +795,25 @@ ForecastCorrectTID={obs._avalancheEvaluation3.ForecastCorrectTID ? obs._avalanch
 
 {/* DAMAGE OBSERVATIONS*/}
 
+
+
+
+{/* SNOW PROFILE */}
+
+{obs._snowProfile ?
+<varsom-snow-profile
+strings={this.strings}
+GeoHazardName={obs._snowProfile.GeoHazardName ? obs._snowProfile.GeoHazardName : null}
+RegistrationName={obs._snowProfile.RegistrationName ? obs._snowProfile.RegistrationName : null}
+Url={obs._snowProfile.Url ? obs._snowProfile.Url : null}
+Photographer={obs._snowProfile.Photographer ? obs._snowProfile.Photographer : null}
+Copyright={obs._snowProfile.Copyright ? obs._snowProfile.Copyright : null}
+Aspect={obs._snowProfile.Aspect ? obs._snowProfile.Aspect : null}
+GeoHazardTID={obs._snowProfile.GeoHazardTID ? obs._snowProfile.GeoHazardTID : null}
+RegistrationTID={obs._snowProfile.RegistrationTID ? obs._snowProfile.RegistrationTID : null}
+Comment={obs._snowProfile.Comment ? obs._snowProfile.Comment : null}
+></varsom-snow-profile>
+:""}
 
 {obs._snowProfile2 ?
 <varsom-snow-profile2
