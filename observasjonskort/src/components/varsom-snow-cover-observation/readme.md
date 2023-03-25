@@ -19,6 +19,21 @@
 | `strings`               | `strings`                 |             | `any` | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [varsom-label](../varsom-label)
+- [varsom-key-value](../varsom-key-value)
+
+### Graph
+```mermaid
+graph TD;
+  varsom-snow-cover-observation --> varsom-label
+  varsom-snow-cover-observation --> varsom-key-value
+  style varsom-snow-cover-observation fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

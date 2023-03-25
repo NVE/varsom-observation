@@ -55,6 +55,7 @@ export type Observation = {
   _images?: Image[]
   };
 
+      {/* can't find this in api... */ }
   export type SignsOfDanger = {
     Type: string,
     Comment: string

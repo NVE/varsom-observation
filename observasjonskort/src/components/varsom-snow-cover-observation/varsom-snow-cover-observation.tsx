@@ -21,48 +21,60 @@ export class VarsomSnowCoverObservation {
   render(){
     return <div> 
 
+<varsom-label
+      label={this.strings ? this.strings.Observations.SnowCover.ObsName : "Snøprofil"}
+      ></varsom-label>
 
-      {this.DepthHoarThickness ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DepthHoarThickness}
-      </span> : ""}
 
-      {this.CriticalLayerExists ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CriticalLayerExists}
-      </span> : ""}
-      
-      {this.CriticalLayerLocation ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CriticalLayerLocation}
-      </span> : ""}
+{this.DepthHoarThickness ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.DepthHoar: "Begerkrystaller tykkelse" }
+    _value={this.DepthHoarThickness}
+    ></varsom-key-value>
+    :""}
 
-      {this.CriticalLayerTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CriticalLayerTID}
-      </span> : ""}
+{this.CriticalLayerExists ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerFound: "Svakt lag finnes" }
+    _value={this.CriticalLayerExists}
+    ></varsom-key-value>
+    :""}
 
-      {this.SnowPilotRef ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SnowPilotRef}
-      </span> : ""}
+{this.CriticalLayerLocation ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerLocation: "Plassering" }
+    _value={this.CriticalLayerLocation}
+    ></varsom-key-value>
+    :""}
 
-      {this.CriticalLayerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CriticalLayerName}
-      </span> : ""}
+{this.CriticalLayerTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerLocation: "Type" }
+    _value={this.CriticalLayerTID}
+    ></varsom-key-value>
+    :""}
 
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""}
+{this.SnowPilotRef ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.SnowPilotRefTID: "Snøprofil" }
+    _value={this.SnowPilotRef}
+    ></varsom-key-value>
+    :""}
+
+{this.CriticalLayerName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerTID: "Snøprofil" }
+    _value={this.CriticalLayerName}
+    ></varsom-key-value>
+    :""}
+
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowCover.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
 
     </div>
   }
