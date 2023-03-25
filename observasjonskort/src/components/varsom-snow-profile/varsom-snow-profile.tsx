@@ -1,6 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { SnowDensity } from '../varsom-observasjon/observation-model';
-
 
 @Component({
   tag: 'varsom-snow-profile',
@@ -56,7 +54,7 @@ export class VarsomSnowProfile {
 {this.Aspect ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Aspect: "Himmelretning" }
-    _value={this.Copyright}
+    _value={this.Aspect}
     ></varsom-key-value>
     :""}
     
@@ -75,7 +73,7 @@ export class VarsomSnowProfile {
     ></varsom-key-value>
     :""}
 
-    
+
     </div>
 
     
