@@ -24,48 +24,16 @@ export class VarsomSnowProfile2 {
   render(){
     return <div> 
 
-      {this.TotalDepth ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TotalDepth}
-      </span> : ""} 
 
-      {this.StratProfile ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StratProfile}
-      </span> : ""} 
-
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""} 
-
-      {this.IsProfileToGround ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IsProfileToGround}
-      </span> : ""} 
-
-      {this.Exposition ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Exposition}
-      </span> : ""} 
-
-      {this.SlopeAngle ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SlopeAngle}
-      </span> : ""} 
-
-      {this.SlopeAngle ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SlopeAngle}
-      </span> : ""} 
-
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+    
+{this.SnowDensity ? 
+<div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
             strings={this.strings}
@@ -78,6 +46,7 @@ export class VarsomSnowProfile2 {
             </varsom-snow-density>
         })
         }
+     </div>   : ""}
     
     </div>
   }
