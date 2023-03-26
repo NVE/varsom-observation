@@ -41,6 +41,7 @@
  - [varsom-snow-profile](../varsom-snow-profile)
  - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
+ - [varsom-snow-temp-obs](../varsom-snow-temp-obs)
 
 ### Graph
 ```mermaid
@@ -69,6 +70,7 @@ graph TD;
   varsom-snow-profile --> varsom-key-value
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-surface-observation --> varsom-key-value
+  varsom-snow-temp-obs --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
