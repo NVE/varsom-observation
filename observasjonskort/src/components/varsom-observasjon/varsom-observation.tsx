@@ -910,8 +910,6 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
 
 {/* SNOW SURFACE */}
 {obs._snowSurfaceObservation ? 
-<div>
-  <div class="header">{this.strings.Observations.SnowSurfaceObservation.ObsName}</div>
 <varsom-snow-surface-observation
   strings={this.strings}
   snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
@@ -927,15 +925,12 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
   Comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
   HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs.HeightLimitLayeredSnow.SkiConditionsTID : null}
   SnowLine={obs._snowSurfaceObservation.SnowLine ? obs._snowSurfaceObservation.SnowLine : null}
-
+  FootPenetration={obs._snowSurfaceObservation.FootPenetration ? obs._snowSurfaceObservation.FootPenetration : null}
 >
-</varsom-snow-surface-observation>
-</div>  
+</varsom-snow-surface-observation> 
   : ""}
 
 {obs._iceCoverObs ? 
-<div>
-<varsom-label label={this.strings.Observations.IceCoverObs.ObsName}></varsom-label> 
 <varsom-ice-cover-observation
 strings={this.strings}
 IceCoverBeforeName={obs._iceCoverObs.IceCoverBeforeName ? obs._iceCoverObs.IceCoverBeforeName : null}
@@ -950,7 +945,6 @@ IceSkateabilityTID={obs._iceCoverObs.IceSkateabilityTID ? obs._iceCoverObs.IceSk
 Comment={obs._iceCoverObs.Comment ? obs._iceCoverObs.Comment : null}
 IceCapacityTID={obs._iceCoverObs.IceCapacityTID ? obs._iceCoverObs.IceCapacityTID : null}
 ></varsom-ice-cover-observation>
-</div>
 : ""}
 
 {obs._weatherObservation ? 

@@ -28,11 +28,15 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
+- [varsom-key-value](../varsom-key-value)
 - [varsom-snow-density](../varsom-snow-density)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-snow-profile2 --> varsom-label
+  varsom-snow-profile2 --> varsom-key-value
   varsom-snow-profile2 --> varsom-snow-density
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer

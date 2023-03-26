@@ -23,6 +23,11 @@ export class VarsomSnowProfile {
     return <div> 
 
 {/** TODO: MISSING TRANSLATION */}
+
+<varsom-label
+      label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
+      ></varsom-label>
+
 {this.GeoHazardName ? 
     <varsom-key-value
     _key="Faretype"

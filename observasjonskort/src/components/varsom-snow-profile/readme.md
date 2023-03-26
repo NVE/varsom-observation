@@ -29,11 +29,13 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-snow-profile --> varsom-label
   varsom-snow-profile --> varsom-key-value
   varsom-observation --> varsom-snow-profile
   style varsom-snow-profile fill:#f9f,stroke:#333,stroke-width:4px

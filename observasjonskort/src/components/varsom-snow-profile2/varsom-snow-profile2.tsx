@@ -24,6 +24,9 @@ export class VarsomSnowProfile2 {
   render(){
     return <div> 
 
+<varsom-label
+      label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
+      ></varsom-label>
 
 {this.Comment ? 
     <varsom-key-value

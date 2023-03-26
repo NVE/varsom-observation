@@ -249,7 +249,7 @@ export type Observation = {
   
    export type SnowSurfaceObservation = {
     SnowWindDepth24: string,
-    
+    FootPenetration: string,
     SurfaceWaterContentName: string,
     SnowDriftName: string,
     SnowSurfaceName: string,

@@ -471,6 +471,7 @@ export namespace Components {
     }
     interface VarsomSnowSurfaceObservation {
         "Comment": any;
+        "FootPenetration": any;
         "HeightLimitLayeredSnow": any;
         "NewSnowDepth24": any;
         "NewSnowLine": any;
@@ -1351,6 +1352,7 @@ declare namespace LocalJSX {
     }
     interface VarsomSnowSurfaceObservation {
         "Comment"?: any;
+        "FootPenetration"?: any;
         "HeightLimitLayeredSnow"?: any;
         "NewSnowDepth24"?: any;
         "NewSnowLine"?: any;
