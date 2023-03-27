@@ -17,19 +17,7 @@ export class VarsomWeather {
   render(){
     return <div> 
 
-    <div class="header">{this.strings.Observations.WeatherObservation.ObsName} </div>
-      {this.weatherPrecipitationName ? 
-      <span>
-      <label>{this.strings.Observations.WeatherObservation.Precipitation}: </label>
-      {this.weatherPrecipitationName}
-      </span> : ""}
-     
-      {this.airTemperature ? 
-      <span>
-      <label>{this.strings.Observations.WeatherObservation.AirTemperature}: </label>
-      {this.airTemperature}
-      </span> : ""}
-      
+      {/** can't find in api... */}
 
     
     </div>
