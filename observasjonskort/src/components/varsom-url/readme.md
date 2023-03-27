@@ -22,9 +22,14 @@
  - [varsom-incident](../varsom-incident)
  - [varsom-landslide-observation](../varsom-landslide-observation)
 
+### Depends on
+
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-url --> varsom-key-value
   varsom-general-observation --> varsom-url
   varsom-incident --> varsom-url
   varsom-landslide-observation --> varsom-url

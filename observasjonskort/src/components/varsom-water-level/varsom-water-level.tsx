@@ -21,41 +21,30 @@ export class VarsomWaterLevel {
   render(){
     return <div> 
 
-      {this.WaterLevelDescribed ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.WaterLevelDescribed}
-      </span> : ""}
+<varsom-label-small
+label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
+></varsom-label-small>
 
-      {this.WaterLevelValue ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.WaterLevelValue}
-      </span> : ""}
+{this.WaterLevelRefTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelRefTName: "Referansenivå" }
+    _value={this.WaterLevelRefName}
+    ></varsom-key-value>
+    :""}
 
-      {this.WaterLevelRefTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.WaterLevelRefTID}
-      </span> : ""}
+{this.WaterLevelDescribed ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelDescribed: "Vannstand beskrivelse" }
+    _value={this.WaterLevelDescribed}
+    ></varsom-key-value>
+    :""}
 
-      {this.WaterLevelRefName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.WaterLevelRefName}
-      </span> : ""}
-
-      {this.MeasuredDischarge ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.MeasuredDischarge}
-      </span> : ""}
-
-      {this.IsRiver ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IsRiver}
-      </span> : ""}
+{this.WaterLevelValue ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelValue: "Størrelse" }
+    _value={this.WaterLevelValue}
+    ></varsom-key-value>
+    :""}
 
     
     </div>

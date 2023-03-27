@@ -17,7 +17,12 @@ export class VarsomUrl {
   render(){
     return <div> 
 
-      not implemented
+{( this.UrlLine && this.UrlDescription) ? 
+    <varsom-key-value
+    _key={this.UrlDescription}
+    _value={this.UrlLine}
+    ></varsom-key-value>
+    :""}
     
     </div>
   }

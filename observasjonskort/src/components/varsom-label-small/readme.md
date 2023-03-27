@@ -20,6 +20,7 @@
  - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
  - [varsom-general-observation](../varsom-general-observation)
  - [varsom-snow-profile2](../varsom-snow-profile2)
+ - [varsom-water-level](../varsom-water-level)
 
 ### Graph
 ```mermaid
@@ -28,6 +29,7 @@ graph TD;
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-general-observation --> varsom-label-small
   varsom-snow-profile2 --> varsom-label-small
+  varsom-water-level --> varsom-label-small
   style varsom-label-small fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
