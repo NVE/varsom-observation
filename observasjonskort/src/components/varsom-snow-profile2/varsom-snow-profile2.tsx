@@ -24,9 +24,11 @@ export class VarsomSnowProfile2 {
   render(){
     return <div> 
 
-<varsom-label
+{/**TODO: IMPLEMENT PICTURE */}
+
+<varsom-label-small
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
-      ></varsom-label>
+      ></varsom-label-small>
 
 {this.Comment ? 
     <varsom-key-value
@@ -50,6 +52,21 @@ export class VarsomSnowProfile2 {
         })
         }
      </div>   : ""}
+
+     {this.StratProfile ? 
+     <div>
+      
+      <span>
+      {this.strings ? this.strings.Observations.SnowProfile.Layers : "Lagdeling" }
+      </span>
+    
+    <varsom-strat-profile
+    Layers={this.StratProfile.Layers}
+    TotalDepth={this.StratProfile.TotalDepth}
+    strings={this.strings}
+    ></varsom-strat-profile>
+    </div>:""}
+
     
     </div>
   }

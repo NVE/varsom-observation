@@ -16,6 +16,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [varsom-snow-profile2](../varsom-snow-profile2)
+
 ### Depends on
 
 - [varsom-strat-profile-layer](../varsom-strat-profile-layer)
@@ -24,6 +28,7 @@
 ```mermaid
 graph TD;
   varsom-strat-profile --> varsom-strat-profile-layer
+  varsom-snow-profile2 --> varsom-strat-profile
   style varsom-strat-profile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

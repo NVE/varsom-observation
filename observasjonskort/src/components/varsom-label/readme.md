@@ -23,7 +23,6 @@
  - [varsom-observation](../varsom-observasjon)
  - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
  - [varsom-snow-profile](../varsom-snow-profile)
- - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
 
 ### Graph
@@ -36,7 +35,6 @@ graph TD;
   varsom-observation --> varsom-label
   varsom-snow-cover-observation --> varsom-label
   varsom-snow-profile --> varsom-label
-  varsom-snow-profile2 --> varsom-label
   varsom-snow-surface-observation --> varsom-label
   style varsom-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
