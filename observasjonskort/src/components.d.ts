@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IceThicknessLayer, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url } from "./components/varsom-observasjon/observation-model";
+import { IceThicknessLayer, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observasjon/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -538,18 +538,32 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomWaterLevel2 {
-        "comment": any;
-        "measurementReferenceName": any;
-        "measurementTypeName": any;
-        "observationTimingName": any;
+        "Comment": any;
+        "MarkingReferenceName": any;
+        "MarkingReferenceTID": any;
+        "MarkingTypeName": any;
+        "MarkingTypeTID": any;
+        "MeasurementReferenceName": any;
+        "MeasurementReferenceTID": any;
+        "MeasurementTypeName": any;
+        "MeasurementTypeTID": any;
+        "MeasuringToolDescription": any;
+        "ObservationTimingName": any;
+        "ObservationTimingTID": any;
+        "WaterAstrayName": any;
+        "WaterAstrayTID": any;
+        "WaterLevelMeasurement": WaterLevelMeasurement[];
+        "WaterLevelMethodName": any;
+        "WaterLevelMethodTID": any;
+        "WaterLevelStateName": any;
+        "WaterLevelStateTID": any;
         "strings": any;
-        "waterAstrayName": any;
     }
     interface VarsomWaterMeasurement {
-        "comment": any;
-        "dtMeasurementTime": any;
+        "Comment": any;
+        "DtMeasurementTime": any;
+        "WaterLevelValue": any;
         "strings": any;
-        "waterLevelValue": any;
     }
     interface VarsomWeather {
         "airTemperature": any;
@@ -1419,18 +1433,32 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomWaterLevel2 {
-        "comment"?: any;
-        "measurementReferenceName"?: any;
-        "measurementTypeName"?: any;
-        "observationTimingName"?: any;
+        "Comment"?: any;
+        "MarkingReferenceName"?: any;
+        "MarkingReferenceTID"?: any;
+        "MarkingTypeName"?: any;
+        "MarkingTypeTID"?: any;
+        "MeasurementReferenceName"?: any;
+        "MeasurementReferenceTID"?: any;
+        "MeasurementTypeName"?: any;
+        "MeasurementTypeTID"?: any;
+        "MeasuringToolDescription"?: any;
+        "ObservationTimingName"?: any;
+        "ObservationTimingTID"?: any;
+        "WaterAstrayName"?: any;
+        "WaterAstrayTID"?: any;
+        "WaterLevelMeasurement"?: WaterLevelMeasurement[];
+        "WaterLevelMethodName"?: any;
+        "WaterLevelMethodTID"?: any;
+        "WaterLevelStateName"?: any;
+        "WaterLevelStateTID"?: any;
         "strings"?: any;
-        "waterAstrayName"?: any;
     }
     interface VarsomWaterMeasurement {
-        "comment"?: any;
-        "dtMeasurementTime"?: any;
+        "Comment"?: any;
+        "DtMeasurementTime"?: any;
+        "WaterLevelValue"?: any;
         "strings"?: any;
-        "waterLevelValue"?: any;
     }
     interface VarsomWeather {
         "airTemperature"?: any;

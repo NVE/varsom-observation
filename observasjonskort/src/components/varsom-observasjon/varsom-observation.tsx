@@ -560,11 +560,26 @@ IsRiver={obs._waterLevel.IsRiver ? obs._waterLevel.IsRiver : null}
 
 {obs._waterLevel2 ? 
 <varsom-water-level2
-water-astray-name={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
-observation-timing-name={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.observationTimingName : null}
 strings={this.strings}
-measurement-type-name={obs._waterLevel2.MeasurementTypeName ? obs._waterLevel2.MeasurementTypeName : null}
-measurement-reference-name={obs._waterLevel2.MeasurementReferenceName ? obs._waterLevel2.MeasurementReferenceName : null}
+WaterLevelStateName={obs._waterLevel2.WaterLevelStateName ? obs._waterLevel2.WaterLevelStateName : null}
+WaterAstrayName={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
+ObservationTimingName={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.ObservationTimingName : null}
+MeasurementReferenceName={obs._waterLevel2.MeasurementReferenceName ? obs._waterLevel2.MeasurementReferenceName  : null}
+MeasurementTypeName={obs._waterLevel2.MeasurementTypeName ? obs._waterLevel2.MeasurementTypeName : null}
+WaterLevelMethodName={obs._waterLevel2.WaterLevelMethodName ? obs._waterLevel2.WaterLevelMethodName  : null}
+MarkingReferenceName={obs._waterLevel2.MarkingReferenceName ? obs._waterLevel2.MarkingReferenceName : null}
+MarkingTypeName={obs._waterLevel2.MarkingTypeName ? obs._waterLevel2.MarkingTypeName : null}
+WaterLevelMeasurement={obs._waterLevel2.WaterLevelMeasurement ? obs._waterLevel2.WaterLevelMeasurement : null}
+WaterAstrayTID={obs._waterLevel2.WaterAstrayTID ? obs._waterLevel2.WaterAstrayTID : null}
+ObservationTimingTID={obs._waterLevel2.ObservationTimingTID ? obs._waterLevel2.ObservationTimingTID : null}
+MeasurementReferenceTID={obs._waterLevel2.MeasurementReferenceTID ? obs._waterLevel2.MeasurementReferenceTID : null}
+MeasurementTypeTID={obs._waterLevel2.MeasurementTypeTID ? obs._waterLevel2.MeasurementTypeTID : null}
+WaterLevelMethodTID={obs._waterLevel2.WaterLevelMethodTID ? obs._waterLevel2.WaterLevelMethodTID : null}
+MarkingReferenceTID={obs._waterLevel2.MarkingReferenceTID ? obs._waterLevel2.MarkingReferenceTID : null}
+WaterLevelStateTID={obs._waterLevel2.WaterLevelStateTID ? obs._waterLevel2.WaterLevelStateTID : null}
+MarkingTypeTID={obs._waterLevel2.MarkingTypeTID ? obs._waterLevel2.MarkingTypeTID : null}
+MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._waterLevel2.MeasuringToolDescription : null}
+
 ></varsom-water-level2>
 : ""}
 
@@ -578,7 +593,7 @@ measurement-reference-name={obs._waterLevel2.MeasurementReferenceName ? obs._wat
   strings={this.strings}
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
-  comment={el.Comment ? el.Comment : null}
+  Comment={el.Comment ? el.Comment : null}
   ></varsom-water-measurement>
 })
 

@@ -44,6 +44,8 @@
  - [varsom-snow-temp-obs](../varsom-snow-temp-obs)
  - [varsom-url](../varsom-url)
  - [varsom-water-level](../varsom-water-level)
+ - [varsom-water-level2](../varsom-water-level2)
+ - [varsom-water-measurement](../varsom-water-measurement)
 
 ### Graph
 ```mermaid
@@ -75,6 +77,8 @@ graph TD;
   varsom-snow-temp-obs --> varsom-key-value
   varsom-url --> varsom-key-value
   varsom-water-level --> varsom-key-value
+  varsom-water-level2 --> varsom-key-value
+  varsom-water-measurement --> varsom-key-value
   style varsom-key-value fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
