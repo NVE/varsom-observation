@@ -51,7 +51,7 @@ export async function getObservationFromApiById(id: string){
       {
           return "water";
         }
-        case "Dirt":
+        case "Soil":
         case "Jord":
           case "Erde":
             case "Zemlja":
