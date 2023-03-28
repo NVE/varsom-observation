@@ -16,14 +16,9 @@ export class VarsomStratProfile {
 
 
   render(){
-    return <div> 
-
-      {this.TotalDepth ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TotalDepth}
-      </span> : ""}
+    return <span> 
   
+
       {this.Layers.map((el: StratProfileLayer = {}) =>{
             return <varsom-strat-profile-layer
             strings={this.strings}
@@ -52,7 +47,7 @@ export class VarsomStratProfile {
         }     
 
 
-    </div>
+    </span>
   }
     
   }

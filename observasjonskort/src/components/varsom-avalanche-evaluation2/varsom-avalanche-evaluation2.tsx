@@ -22,84 +22,40 @@ export class VarsomAvalancheEvaluation2 {
   @Prop() ExposedClimateTID: any;
   @Prop() ExposedClimateName: any;
   @Prop() AvalancheDangerTID: any;
+  @Prop() Comment: any;
   @Prop() AvalancheEvalProblems: any[];
   
 
   render(){
     return <div> 
 
-      {this.AvalancheDangerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDangerName}
-      </span> : ""}
 
-      {this.AvalancheDangerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDangerName}
-      </span> : ""}
+{/* TODO: IMPLEMENT DIAGRAM */ }
 
-      {this.ValidExposition ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ValidExposition}
-      </span> : ""}
 
-      {this.AvalancheEvaluation ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheEvaluation}
-      </span> : ""}
+    {this.AvalancheEvaluation ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.ObsName : "Skredfareurdering" }
+    _value={this.AvalancheEvaluation}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalancheDevelopment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDevelopment}
-      </span> : ""}
+    {this.AvalancheDevelopment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.AvalancheDevelopment : "Utvikling" }
+    _value={this.AvalancheDevelopment}
+    ></varsom-key-value>
+    :""}
 
-      {this.ExposedHeight1 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeight1}
-      </span> : ""}
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
-      {this.ExposedHeight2 ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeight2}
-      </span> : ""}
-
-      {this.ExposedHeightComboTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeightComboTID}
-      </span> : ""}
-
-      {this.ExposedHeightComboName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedHeightComboName}
-      </span> : ""}
-
-      {this.ExposedClimateTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedClimateTID}
-      </span> : ""}
-
-      {this.ExposedClimateName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.ExposedClimateName}
-      </span> : ""}
-
-      {this.AvalancheDangerTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheDangerTID}
-      </span> : ""}
-
+      {this.AvalancheEvalProblems ?
+      <div>
       {this.AvalancheEvalProblems.map((el: AvalancheEvalProblem = {}) =>{
             return <varsom-avalanche-eval-problem
             strings={this.strings}
@@ -128,6 +84,7 @@ export class VarsomAvalancheEvaluation2 {
 
 })
 }
+</div> : ""}
 
   
     

@@ -25,113 +25,33 @@ export class VarsomCompressionTest {
   @Prop() ComprTestFractureTID: any;
   @Prop() ComprTestFractureName: any;
   @Prop() IncludeInSnowProfile: any;
-  @Prop() comment: any;
+  @Prop() Comment: any;
 
 
   render(){
     return <div> 
-{/* se regobs-kode for visning av tabell.... */ }
-      {this.CompressionTestName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CompressionTestName}
-      </span> : ""}
-
-      {this.CompressionTestTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CompressionTestTID}
-      </span> : ""}
-
-      {this.TapsFracture ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TapsFracture}
-      </span> : ""}
-
-      {this.TapsFullPropagation ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TapsFullPropagation}
-      </span> : ""}
-
-      {this.PropagationTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.PropagationTID}
-      </span> : ""}
-
-      {this.PropagationName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.PropagationName}
-      </span> : ""}
-
-      {this.FractureDepth ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.FractureDepth}
-      </span> : ""}
-
-      {this.PstX ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.PstX}
-      </span> : ""}
-
-      
-      {this.PstY ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.PstY}
-      </span> : ""}
-
-      {this.RbRelease ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.RbRelease}
-      </span> : ""}
-
-      {this.StabilityEvalTID ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.StabilityEvalTID} </label>
-      {this.StabilityEvalTID}
-      </span> : ""}
-
-      {this.StabilityEvalName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StabilityEvalName}
-      </span> : ""}
-
-      {this.ComprTestFractureTID ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Type} </label>
-      {this.ComprTestFractureTID}
-      </span> : ""}
-
-      {this.ComprTestFractureName ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Test} </label>
-      {this.ComprTestFractureName}
-      </span> : ""}
-
-      
-      {this.IncludeInSnowProfile ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IncludeInSnowProfile}
-      </span> : ""}
-      
-
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Comment}: </label>
-      {this.comment}
-      </span> : ""}
-
-     
+{/* TODO: se regobs-kode for visning av tabell.... */ }
     
+    {this.PropagationName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.CompressionTest.Test : "Test" }
+    _value={this.PropagationName}
+    ></varsom-key-value>
+    :""}
+    
+    {this.StabilityEvalName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.CompressionTest.StabilityEvalTID : "Stabilitet" }
+    _value={this.StabilityEvalName}
+    ></varsom-key-value>
+    :""}
+
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.CompressionTest.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
     
     </div>
   }

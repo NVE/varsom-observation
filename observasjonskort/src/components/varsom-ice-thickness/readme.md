@@ -27,12 +27,17 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
 - [varsom-ice-thickness-layer](../varsom-ice-thickness-layer)
+- [varsom-key-value](../varsom-key-value)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-ice-thickness --> varsom-label
   varsom-ice-thickness --> varsom-ice-thickness-layer
+  varsom-ice-thickness --> varsom-key-value
+  varsom-ice-thickness-layer --> varsom-key-value
   varsom-observation --> varsom-ice-thickness
   style varsom-ice-thickness fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { WaterLevelMeasurement } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -10,50 +11,104 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomWaterLevel2 {
 
   @Prop() strings: any;
-  @Prop() comment: any;
-  @Prop() waterAstrayName: any;
-  @Prop() observationTimingName: any;
-  @Prop() measurementReferenceName: any;
-  @Prop() measurementTypeName: any;
+  @Prop() Comment: any;
+  @Prop() WaterAstrayName: any;
+  @Prop() WaterLevelStateName: any;
+  @Prop() ObservationTimingName: any;
+  @Prop() MeasurementReferenceName: any;
+  @Prop() WaterLevelMethodName: any;
+  @Prop() MeasurementTypeName: any;
+  @Prop() MarkingReferenceName: any;
+  @Prop() MarkingTypeName: any;
+  @Prop() WaterLevelMeasurement: WaterLevelMeasurement[];
+  @Prop() WaterAstrayTID: any;
+  @Prop() ObservationTimingTID: any;
+  @Prop() MeasurementReferenceTID: any;
+  @Prop() MeasurementTypeTID: any;
+  @Prop() WaterLevelMethodTID: any;
+  @Prop() MarkingReferenceTID: any;
+  @Prop() WaterLevelStateTID: any;
+  @Prop() MarkingTypeTID: any;
+  @Prop() MeasuringToolDescription: any;
    
   render(){
     return <div> 
 
-      {this.waterAstrayName ? 
-      <span>
-      <label>{this.strings.Observations.WaterLevel2.WaterAstrayTName}: </label>
-      {this.waterAstrayName}
-      </span> : ""}
-
-      {this.observationTimingName ? 
-      <span>
-      <label>{this.strings.Observations.WaterLevel2.ObservationTimingTName}: </label>
-      {this.observationTimingName}
-      </span> : ""}
-
-      {this.measurementReferenceName ? 
-      <span>
-      <label>{this.strings.Observations.WaterLevel2.MeasurementReferenceTName}: </label>
-      {this.measurementReferenceName}
-      </span> : ""}
-
-      {this.measurementTypeName ? 
-      <span>
-      <label>{this.strings.Observations.WaterLevel2.MeasurementTypeTName}: </label>
-      {this.measurementTypeName}
-      </span> : ""}
-
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheActivityObs.Comment}: </label>
-      {this.comment}
-      </span> : ""}
      
+<varsom-label-small
+label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
+></varsom-label-small>
 
-      
+{this.WaterLevelStateName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.WaterLevelStateTName: "Situasjon" }
+    _value={this.WaterLevelStateName}
+    ></varsom-key-value>
+    :""}
+
+
+{this.WaterAstrayName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.WaterAstrayTName: "Vann på avveie" }
+    _value={this.WaterAstrayName}
+    ></varsom-key-value>
+    :""}
+
+{this.ObservationTimingName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.ObservationTimingTName: "Hva registrerer du?" }
+    _value={this.ObservationTimingName}
+    ></varsom-key-value>
+    :""}
+
+
+{this.MeasurementTypeName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.MeasurementTypeTName: "Måleinstrument" }
+    _value={this.MeasurementTypeName + ", " + (this.MeasuringToolDescription ? this.MeasuringToolDescription : "")}
+    ></varsom-key-value>
+    :""}
+
+{this.MeasurementReferenceName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.MeasuredRelativeTo: "Måling relativt til" }
+    _value={this.MeasurementReferenceName}
+    ></varsom-key-value>
+    :""}
+
+{this.MeasurementReferenceTID ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.MeasurementReferenceTName: "Vannmarkering på/i" }
+    _value={this.MarkingReferenceName + (this.strings ? this.strings.Observations.WaterLevel2.With : " med ") + 
+  (this.MarkingTypeName ? this.MarkingTypeName : "")}
+    ></varsom-key-value>
+    :""}
+
+{this.Comment ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+
+{this.WaterLevelMeasurement ? 
+      <div>
+      {this.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
+            return <varsom-water-measurement
+            strings={this.strings}
+            Comment={el.Comment}
+            DtMeasurementTime={el.DtMeasurementTime}
+            WaterLevelValue={el.WaterLevelValue}
+            >
+
+            </varsom-water-measurement>
+        })
+        } </div> : ""}
 
     
     </div>
+    
   }
     
   }

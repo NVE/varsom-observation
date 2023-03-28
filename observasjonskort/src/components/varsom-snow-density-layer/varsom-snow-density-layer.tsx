@@ -19,36 +19,34 @@ export class VarsomSnowDensityLayer {
   render(){
     return <div> 
 
-      {this.Depth ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Depth}
-      </span> : ""}
+{this.Depth ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.DepthPlaceholder: "Dybde (cm)" }
+    _value={this.Depth}
+    ></varsom-key-value>
+    :""}
 
-      {this.Thickness ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Thickness}
-      </span> : ""}
+{this.Thickness ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Density.Density: "Tetthet" }
+    _value={this.Thickness}
+    ></varsom-key-value>
+    :""}
 
-      {this.Weight ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Weight}
-      </span> : ""}
+{this.Weight ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Density.Weight: "Vekt (g)" }
+    _value={this.Weight}
+    ></varsom-key-value>
+    :""}
 
-      {this.WaterEquivalent ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.WaterEquivalent}
-      </span> : ""}
+{this.WaterEquivalent ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Density.Weight: "Vannekv. (mm)" }
+    _value={this.WaterEquivalent}
+    ></varsom-key-value>
+    :""}
 
-      {this.SortOrder ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SortOrder}
-      </span> : ""}
-    
     </div>
   }
     

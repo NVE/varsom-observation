@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Url } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -45,9 +46,140 @@ export class VarsomIncident {
   render(){
     return <div> 
 
+<varsom-label
+      label={this.strings ? this.strings.Observations.Incident.ObsName : "Ulykke / Hendelse"}
+      ></varsom-label>
 
-     not implemented
-    
+{this.IncidentHeader ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.IncidentHeader: "Overskrift" }
+    _value={this.IncidentHeader}
+    ></varsom-key-value>
+    :""}
+
+{this.IncidentIngress ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.IncidentIngress: "Ingress" }
+    _value={this.IncidentIngress}
+    ></varsom-key-value>
+    :""}
+
+{this.DamageExtentName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.DamageExtentTID: "Skadeomfang" }
+    _value={this.DamageExtentName}
+    ></varsom-key-value>
+    :""}
+
+{this.ActivityInfluencedName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.ActivityInfluencedTID: "Aktivitet" }
+    _value={this.ActivityInfluencedName}
+    ></varsom-key-value>
+    :""}
+
+{/** TODO: translation missing */}
+{this.LocalTouristName ? 
+    <varsom-key-value
+    _key="Lokal eller tilreisende"
+    _value={this.LocalTouristName}
+    ></varsom-key-value>
+    :""}
+
+{/** TODO: translation missing */}
+{this.LocalKnowledgeName ? 
+    <varsom-key-value
+    _key="Lokalkjent"
+    _value={this.LocalKnowledgeName}
+    ></varsom-key-value>
+    :""}
+
+    {/** TODO: translation missing */}
+{this.SafetyGearName ? 
+    <varsom-key-value
+    _key="Sikkerhetsutstyr"
+    _value={this.SafetyGearName}
+    ></varsom-key-value>
+    :""}
+
+    {/** TODO: translation missing */}
+{this.RescueName ? 
+    <varsom-key-value
+    _key="Redning"
+    _value={this.RescueName}
+    ></varsom-key-value>
+    :""}
+
+      {/** TODO: translation missing */}
+{this.SlopeActivityName ? 
+    <varsom-key-value
+    _key="Turfase"
+    _value={this.SlopeActivityName}
+    ></varsom-key-value>
+    :""}
+
+          {/** TODO: translation missing */}
+{this.TrafficObstructed ? 
+    <varsom-key-value
+    _key="Hindring av trafikk"
+    _value={this.TrafficObstructed}
+    ></varsom-key-value>
+    :""}
+
+{this.MaterialDamages ? 
+    <varsom-key-value
+    _key="Materielle skader"
+    _value={this.MaterialDamages}
+    ></varsom-key-value>
+    :""}
+
+{this.InvolvedNum ? 
+    <varsom-key-value
+    _key="Antall involverte"
+    _value={this.InvolvedNum}
+    ></varsom-key-value>
+    :""}
+
+{this.HarmedNum ? 
+    <varsom-key-value
+    _key="Antall skadde"
+    _value={this.HarmedNum}
+    ></varsom-key-value>
+    :""}
+
+{this.DeadNum ? 
+    <varsom-key-value
+    _key="Antall døde"
+    _value={this.DeadNum}
+    ></varsom-key-value>
+    :""}
+
+{this.EvacuatedNum ? 
+    <varsom-key-value
+    _key="Antall evakuerte"
+    _value={this.EvacuatedNum}
+    ></varsom-key-value>
+    :""}
+
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+{this.IncidentURLs ? 
+      <div>
+      {this.IncidentURLs.map((el: Url = {}) =>{
+            return <varsom-url
+            strings={this.strings}
+            UrlDescription={el.UrlDescription ? el.UrlDescription : null}
+            UrlLine={el.UrlLine ? el.UrlLine : null}
+            >
+
+            </varsom-url>
+        })
+        } </div> : ""}
     </div>
   }
     

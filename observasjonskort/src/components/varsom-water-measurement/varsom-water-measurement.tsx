@@ -10,32 +10,38 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomWaterMeasurement {
 
   @Prop() strings: any;
-  @Prop() comment: any;
-  @Prop() dtMeasurementTime: any;
-  @Prop() waterLevelValue: any;
+  @Prop() Comment: any;
+  @Prop() DtMeasurementTime: any;
+  @Prop() WaterLevelValue: any;
   
 
   render(){
     return <div> 
 
-      {this.dtMeasurementTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.dtMeasurementTime}
-      </span> : ""}
+      <varsom-label-small
+      label={this.strings ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Vannmåling"}
+      ></varsom-label-small>
 
-      {this.waterLevelValue ? 
-      <span>
-      <label>{this.strings.Observations.WaterLevel.WaterLevelValue}: </label>
-      {this.waterLevelValue}
-      </span> : ""}
+{this.DtMeasurementTime ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.LandslideObs.Time: "Tid" }
+    _value={this.DtMeasurementTime}
+    ></varsom-key-value>
+    :""}
 
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheActivityObs.Comment}: </label>
-      {this.comment}
-      </span> : ""}
-     
+{this.WaterLevelValue ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.WaterMeasurementValue: "Tid" }
+    _value={this.WaterLevelValue}
+    ></varsom-key-value>
+    :""}
+
+    {this.Comment ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WaterLevel2.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
       
 

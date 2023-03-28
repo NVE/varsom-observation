@@ -55,6 +55,7 @@ export type Observation = {
   _images?: Image[]
   };
 
+      {/* can't find this in api... */ }
   export type SignsOfDanger = {
     Type: string,
     Comment: string
@@ -104,7 +105,7 @@ export type Observation = {
     ActivityInfluencedName?: string,
     ForecastAccurateName?: string,
     DamageExtentName?: string,
-    Imageurl?: string,
+    Urls?: Url[],
     LandSlideTID?: number,
     LandSlideTriggerTID?: number,
     LandSlideSizeTID?: number,
@@ -218,10 +219,15 @@ export type Observation = {
    }
   
    export type SnowProfile = {
-    Comment: string,
-    Temperature: string,
-    Layering: string,
-    ImageUrl?: string
+      GeoHazardName: string,
+      RegistrationName: string,
+      Url: string,
+      Photographer: string,
+      Copyright: string,
+      Aspect: number,
+      GeoHazardTID: number,
+      RegistrationTID: number,
+      Comment: string
    }
   
    export type LandslideProblem = {  //can't find this in the api...
@@ -243,7 +249,7 @@ export type Observation = {
   
    export type SnowSurfaceObservation = {
     SnowWindDepth24: string,
-    
+    FootPenetration: string,
     SurfaceWaterContentName: string,
     SnowDriftName: string,
     SnowSurfaceName: string,
@@ -553,10 +559,10 @@ export type Observation = {
    }
   
    export type AvalancheDangerObs = {
-    AvalancheDangerObsID: number, //	integer($int32)
-    DangerSignTID: number,	// integer($int32)
-    DangerSignName:	string,
-    Comment:	string
+    AvalancheDangerObsID?: number, //	integer($int32)
+    DangerSignTID?: number,	// integer($int32)
+    DangerSignName?:	string,
+    Comment?:	string
    }
   
    export type AvalancheEvalProblem = {

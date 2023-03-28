@@ -12,7 +12,7 @@ const Template = (args) => `<varsom-observation regid=${args.regid} type="${args
 export const VarsomObservation = Template.bind({});
     VarsomObservation.args = {
         count: 1,
-        regid: "",
+        regid: "''",
         language: "nb",
         type: "Snow"
     }

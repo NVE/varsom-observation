@@ -24,48 +24,21 @@ export class VarsomSnowProfile2 {
   render(){
     return <div> 
 
-      {this.TotalDepth ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TotalDepth}
-      </span> : ""} 
+{/**TODO: IMPLEMENT PICTURE */}
 
-      {this.StratProfile ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.StratProfile}
-      </span> : ""} 
+<varsom-label-small
+      label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
+      ></varsom-label-small>
 
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""} 
-
-      {this.IsProfileToGround ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.IsProfileToGround}
-      </span> : ""} 
-
-      {this.Exposition ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Exposition}
-      </span> : ""} 
-
-      {this.SlopeAngle ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SlopeAngle}
-      </span> : ""} 
-
-      {this.SlopeAngle ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SlopeAngle}
-      </span> : ""} 
-
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+    
+{this.SnowDensity ? 
+<div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
             strings={this.strings}
@@ -78,6 +51,22 @@ export class VarsomSnowProfile2 {
             </varsom-snow-density>
         })
         }
+     </div>   : ""}
+
+     {this.StratProfile ? 
+     <div>
+      
+      <span>
+      {this.strings ? this.strings.Observations.SnowProfile.Layers : "Lagdeling" }
+      </span>
+    
+    <varsom-strat-profile
+    Layers={this.StratProfile.Layers}
+    TotalDepth={this.StratProfile.TotalDepth}
+    strings={this.strings}
+    ></varsom-strat-profile>
+    </div>:""}
+
     
     </div>
   }

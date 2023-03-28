@@ -20,7 +20,7 @@ async function fetchLocaleStringsForComponent(componentName: string, locale: str
     try {
       strings = await fetchLocaleStringsForComponent(componentName, lang);
     } catch (e) {
-      console.warn(`no locale for ${componentName} (${lang}) loading default locale en.`);
+      console.warn(`error getting locale for ${componentName} (${lang}) `);
       strings = await fetchLocaleStringsForComponent(componentName, lang);
     }
     return strings;

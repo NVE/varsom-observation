@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
+import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -87,7 +87,7 @@ export class VarsomObservation {
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
   let _data 
-  if (this.regid !== undefined){
+  if (this.regid.length !== 0){
     _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
   _data = `{"NumberOfRecords": ${this.count}, "SelectedGeoHazards": [${geoHazardId}], "LangKey": ${langKey}}`
@@ -99,7 +99,6 @@ export class VarsomObservation {
     },
   });
   let data = await response.json();
-  console.log("query: " + _data);
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
@@ -119,7 +118,7 @@ export class VarsomObservation {
         _longitude: data[i]["ObsLocation"]["Longitude"],
         //_landslideActivity: data[i]["LandslideActivity"],
         _dangerObs: [],//data[i]["DangerObs"],
-        _landslideObs: data[i]["LandslideObs"],
+        _landslideObs: data[i]["LandSlideObs"],
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
         _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
@@ -142,6 +141,7 @@ export class VarsomObservation {
         _compressionTest: [],
         _generalObservation: data[i]["GeneralObservation"],
         _incident: data[i]["Incident"],
+        _snowProfile: data[i]["SnowProfile"],
         _snowProfile2: data[i]["SnowProfile2"],
         _avalancheEvaluation: data[i]["AvalancheEvaluation"],
         _avalancheActivityObs: data[i]["AvalancheActivityObs"],
@@ -334,45 +334,6 @@ export class VarsomObservation {
           }
         }
     
-/*
-   //add avalancheEvalProblem
-   if (data[i]["AvalancheEvalProblem2"].length > 0){
-    for (let j = 0; j < data[i]["AvalancheEvalProblem2"].length; j++){
-      this.observations[i]._avalancheEvalProblem2.push({
-        AvalProbabilityName: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityName"],
-        AvalTriggerSimpleName: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleName"],
-        AvalCauseDepthName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthName"],
-        ExposedHeightComboName: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboName"],
-        AvalancheExtName: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtName"],
-        AvalCauseName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseName"],
-        DestructiveSizeName: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeName"],
-        AvalPropagationName: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationName"],
-        AvalCauseAttributeLightName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightName"],
-        AvalCauseAttributeThinName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinName"],
-        AvalCauseAttributeSoftName:	data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftName"],
-        AvalCauseAttributeCrystalName: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalName"],
-        AvalProbabilityTID: data[i]["AvalancheEvalProblem2"][j]["AvalProbabilityTID"],
-        AvalPropagationTID: data[i]["AvalancheEvalProblem2"][j]["AvalPropagationTID"],
-        AvalTriggerSimpleTID: data[i]["AvalancheEvalProblem2"][j]["AvalTriggerSimpleTID"],
-        AvalCauseDepthTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseDepthTID"],
-        ValidExposition: data[i]["AvalancheEvalProblem2"][j]["ValidExposition"],
-        ExposedHeight1: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight1"],
-        ExposedHeight2: data[i]["AvalancheEvalProblem2"][j]["ExposedHeight2"],
-        ExposedHeightComboTID: data[i]["AvalancheEvalProblem2"][j]["ExposedHeightComboTID"],
-        AvalancheExtTID: data[i]["AvalancheEvalProblem2"][j]["AvalancheExtTID"],
-        Comment: data[i]["AvalancheEvalProblem2"][j]["Comment"],
-        AvalCauseTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseTID"],
-        AvalCauseAttributeLightTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeLightTID"],
-        AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
-        AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
-        AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
-        DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
-      })
-    }
-  }
-*/
-
-
 
         //add images for image carousel
      this.observations[i]._images.push(
@@ -476,18 +437,28 @@ export class VarsomObservation {
         {obs._attachments.map((att: Attachment = {}) =>{
             return <varsom-attachment
               strings={this.strings}
-              registration-name={att.RegistrationName ? att.RegistrationName : null}
-              comment={att.Comment ? att.Comment : null}
-              image-url={att.Url ? att.Url : null}
-              photographer={att.Photographer ? att.Photographer : null}
-              copyright={att.Copyright ? att.Copyright : null}
+              RegistrationName={att.RegistrationName ? att.RegistrationName : null}
+              Comment={att.Comment ? att.Comment : null}
+              Url={att.Url ? att.Url : null}
+              Photographer={att.Photographer ? att.Photographer : null}
+              Copyright={att.Copyright ? att.Copyright : null}
+              AttachmentId={att.AttachmentId ? att.AttachmentId : null}
+              GeoHazardName={att.GeoHazardName ? att.GeoHazardName : null}
+              Aspect={att.Aspect ? att.Aspect : null}
+              GeoHazardTID={att.GeoHazardTID ? att.GeoHazardTID : null}
+              RegistrationTID={att.RegistrationTID ? att.RegistrationTID : null}
+              AttachmentMimeType={att.AttachmentMimeType ? att.AttachmentMimeType : null}
+              IsMainAttachment={att.IsMainAttachment ? att.IsMainAttachment : null}
               ></varsom-attachment>             
         })    
 }
 
-
 {obs._avalancheActivityObs2.length > 0 ?
-<label>Label mangler....</label> : "" }
+<varsom-label
+label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Observations.AvalancheActivityObs2.ObsName : "Skredaktivitet"}
+></varsom-label>
+: ""}
+
 
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
 
@@ -495,13 +466,33 @@ export class VarsomObservation {
             strings={this.strings}
             dt-start={el.DtStart ? el.DtStart : null}
             aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
-            comment={el.Comment ? el.Comment : null}
+            EstimatedNumName={el.EstimatedNumName ? el.EstimatedNumName : null}
+            ExposedHeightComboName={el.ExposedHeightComboName ? el.ExposedHeightComboName : null}
+            AvalancheExtName={el.AvalancheExtName ? el.AvalancheExtName : null}
+            AvalCauseName={el.AvalCauseName ? el.AvalCauseName : null}
+            AvalTriggerSimpleName={el.AvalTriggerSimpleName ? el.AvalTriggerSimpleName : null}
+            AvalPropagationName={el.AvalPropagationName ? el.AvalPropagationName : null}
+            DestructiveSizeName={el.DestructiveSizeName ? el.DestructiveSizeName : null}
+            EstimatedNumTID={el.EstimatedNumTID ? el.EstimatedNumTID : null}
+            DtStart={el.DtStart ? el.DtStart : null}
+            DtEnd={el.DtEnd ? el.DtEnd : null}
+            ValidExposition={el.ValidExposition ? el.ValidExposition : null}
+            ExposedHeight1={el.ExposedHeight1 ? el.ExposedHeight1 : null}
+            ExposedHeight2={el.ExposedHeight2 ? el.ExposedHeight2 : null}
+            ExposedHeightComboTID={el.ExposedHeightComboTID ? el.ExposedHeightComboTID : null}
+            AvalancheExtTID={el.AvalancheExtTID ? el.AvalancheExtTID : null}
+            AvalCauseTID={el.AvalCauseTID ? el.AvalCauseTID : null}
+            DestructiveSizeTID={el.DestructiveSizeTID ? el.DestructiveSizeTID : null}
+            AvalPropagationTID={el.AvalPropagationTID ? el.AvalPropagationTID : null}
+            Comment={el.Comment ? el.Comment : null}
+
             > </varsom-avalanche-activity-obs2>
         })
         }
 
 {obs._avalancheActivityObs ? 
 <varsom-avalanche-activity-obs
+header={this.strings.Observations.AvalancheTID}
 strings={this.strings}
 AvalancheActivityObsID={obs._avalancheActivityObs.AvalancheActivityObsID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
 Aspect={obs._avalancheActivityObs.Aspect ? obs._avalancheActivityObs.Aspect : null}
@@ -526,8 +517,31 @@ DtOffAvalancheTime={obs._avalancheActivityObs.DtOffAvalancheTime ? obs._avalanch
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
 strings={this.strings}
-dt-avalanche-time={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
-comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
+DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
+AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
+AvalancheName={obs._avalancheObs.AvalancheName ? obs._avalancheObs.AvalancheName : null}
+TerrainStartZoneName={obs._avalancheObs.TerrainStartZoneName ? obs._avalancheObs.TerrainStartZoneName : null}
+AvalCauseName={obs._avalancheObs.AvalCauseName ? obs._avalancheObs.AvalCauseName : null}
+DtAvalancheTime={obs._avalancheObs.DtAvalancheTime ? obs._avalancheObs.DtAvalancheTime : null}
+Aspect={obs._avalancheObs.Aspect ? obs._avalancheObs.Aspect : null}
+HeightStartZone={obs._avalancheObs.HeightStartZone ? obs._avalancheObs.HeightStartZone : null}
+HeightStopZone={obs._avalancheObs.HeightStopZone ? obs._avalancheObs.HeightStopZone : null}
+DestructiveSizeTID={obs._avalancheObs.DestructiveSizeTID ? obs._avalancheObs.DestructiveSizeTID : null}
+AvalancheTriggerTID={obs._avalancheObs.AvalancheTriggerTID ? obs._avalancheObs.AvalancheTriggerTID : null}
+AvalancheTID={obs._avalancheObs.AvalancheTID ? obs._avalancheObs.AvalancheTID : null}
+TerrainStartZoneTID={obs._avalancheObs.TerrainStartZoneTID ? obs._avalancheObs.TerrainStartZoneTID : null}
+SnowLine={obs._avalancheObs.SnowLine ? obs._avalancheObs.SnowLine : null}
+ValidExposition={obs._avalancheObs.ValidExposition ? obs._avalancheObs.ValidExposition : null}
+AvalCauseTID={obs._avalancheObs.AvalCauseTID ? obs._avalancheObs.AvalCauseTID : null}
+FractureHeight={obs._avalancheObs.FractureHeight ? obs._avalancheObs.FractureHeight : null}
+FractureWidth={obs._avalancheObs.FractureWidth ? obs._avalancheObs.FractureWidth : null}
+Trajectory={obs._avalancheObs.Trajectory ? obs._avalancheObs.Trajectory : null}
+StartLat={obs._avalancheObs.StartLat ? obs._avalancheObs.StartLat : null}
+StartLong={obs._avalancheObs.StartLong ? obs._avalancheObs.StartLong : null}
+StopLat={obs._avalancheObs.StopLat ? obs._avalancheObs.StopLat : null}
+StopLong={obs._avalancheObs.StopLong ? obs._avalancheObs.StopLong : null}
+RemotelyTriggered={obs._avalancheObs.RemotelyTriggered ? obs._avalancheObs.RemotelyTriggered : null}
+Comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 ></varsom-avalanche-obs>  
   : "" }
 
@@ -546,11 +560,26 @@ IsRiver={obs._waterLevel.IsRiver ? obs._waterLevel.IsRiver : null}
 
 {obs._waterLevel2 ? 
 <varsom-water-level2
-water-astray-name={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
-observation-timing-name={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.observationTimingName : null}
 strings={this.strings}
-measurement-type-name={obs._waterLevel2.MeasurementTypeName ? obs._waterLevel2.MeasurementTypeName : null}
-measurement-reference-name={obs._waterLevel2.MeasurementReferenceName ? obs._waterLevel2.MeasurementReferenceName : null}
+WaterLevelStateName={obs._waterLevel2.WaterLevelStateName ? obs._waterLevel2.WaterLevelStateName : null}
+WaterAstrayName={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
+ObservationTimingName={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.ObservationTimingName : null}
+MeasurementReferenceName={obs._waterLevel2.MeasurementReferenceName ? obs._waterLevel2.MeasurementReferenceName  : null}
+MeasurementTypeName={obs._waterLevel2.MeasurementTypeName ? obs._waterLevel2.MeasurementTypeName : null}
+WaterLevelMethodName={obs._waterLevel2.WaterLevelMethodName ? obs._waterLevel2.WaterLevelMethodName  : null}
+MarkingReferenceName={obs._waterLevel2.MarkingReferenceName ? obs._waterLevel2.MarkingReferenceName : null}
+MarkingTypeName={obs._waterLevel2.MarkingTypeName ? obs._waterLevel2.MarkingTypeName : null}
+WaterLevelMeasurement={obs._waterLevel2.WaterLevelMeasurement ? obs._waterLevel2.WaterLevelMeasurement : null}
+WaterAstrayTID={obs._waterLevel2.WaterAstrayTID ? obs._waterLevel2.WaterAstrayTID : null}
+ObservationTimingTID={obs._waterLevel2.ObservationTimingTID ? obs._waterLevel2.ObservationTimingTID : null}
+MeasurementReferenceTID={obs._waterLevel2.MeasurementReferenceTID ? obs._waterLevel2.MeasurementReferenceTID : null}
+MeasurementTypeTID={obs._waterLevel2.MeasurementTypeTID ? obs._waterLevel2.MeasurementTypeTID : null}
+WaterLevelMethodTID={obs._waterLevel2.WaterLevelMethodTID ? obs._waterLevel2.WaterLevelMethodTID : null}
+MarkingReferenceTID={obs._waterLevel2.MarkingReferenceTID ? obs._waterLevel2.MarkingReferenceTID : null}
+WaterLevelStateTID={obs._waterLevel2.WaterLevelStateTID ? obs._waterLevel2.WaterLevelStateTID : null}
+MarkingTypeTID={obs._waterLevel2.MarkingTypeTID ? obs._waterLevel2.MarkingTypeTID : null}
+MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._waterLevel2.MeasuringToolDescription : null}
+
 ></varsom-water-level2>
 : ""}
 
@@ -564,7 +593,7 @@ measurement-reference-name={obs._waterLevel2.MeasurementReferenceName ? obs._wat
   strings={this.strings}
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
-  comment={el.Comment ? el.Comment : null}
+  Comment={el.Comment ? el.Comment : null}
   ></varsom-water-measurement>
 })
 
@@ -593,7 +622,7 @@ LandSlideTriggerName={obs._landslideObs.LandSlideTriggerName ? obs._landslideObs
 ActivityInfluencedName={obs._landslideObs.ActivityInfluencedName ? obs._landslideObs.ActivityInfluencedName : null}
 GeoHazardName={obs._landslideObs.GeoHazardName ? obs._landslideObs.GeoHazardName : null}
 ForecastAccurateName={obs._landslideObs.ForecastAccurateName ? obs._landslideObs.ForecastAccurateName : null}
-Imageurl={obs._landslideObs.Imageurl ? obs._landslideObs.Imageurl : null}
+Urls={obs._landslideObs.Urls ? obs._landslideObs.Urls : null}
 DamageExtentName={obs._landslideObs.DamageExtentName ? obs._landslideObs.DamageExtentName : null}
 LandSlideTID={obs._landslideObs.LandSlideTID ? obs._landslideObs.LandSlideTID : null}
 LandSlideTriggerTID={obs._landslideObs.LandSlideTriggerTID ? obs._landslideObs.LandSlideTriggerTID : null}
@@ -627,7 +656,10 @@ air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : nul
 
 {/* AVALANCHE EVAL PROBLEM */}
 {obs._avalancheEvalProblem.length > 0 ? 
-<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
+<varsom-label
+label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : "Skreproblem"}> 
+</varsom-label>
+: ""}
 
 {obs._avalancheEvalProblem.map((el: AvalancheEvalProblem = {}) => {
 return <varsom-avalanche-eval-problem
@@ -711,7 +743,7 @@ Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
 
 {obs._avalancheEvaluation ? 
 <div>
-<div class="header">{this.strings.Observations.AvalancheEvaluation.ObsName}</div> 
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation
 strings={this.strings}
 RegID={obs._avalancheEvaluation.RegID ? obs._avalancheEvaluation.RegID : null}
@@ -735,14 +767,42 @@ Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : n
 : ""}
 
 {/* AVALANCE EVALUATION 3*/}
+{obs._avalancheEvaluation2 ? 
+<div>
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
+<varsom-avalanche-evaluation2
+strings={this.strings}
+AvalancheDangerName={obs._avalancheEvaluation2.AvalancheDangerName ? obs._avalancheEvaluation2.AvalancheDangerName : null}
+ValidExposition={obs._avalancheEvaluation2.ValidExposition ? obs._avalancheEvaluation2.ValidExposition : null}
+Comment={obs._avalancheEvaluation2.Comment ? obs._avalancheEvaluation2.Comment : null}
+AvalancheEvaluation={obs._avalancheEvaluation2.AvalancheEvaluation ? obs._avalancheEvaluation2.AvalancheEvaluation : null}
+AvalancheDevelopment={obs._avalancheEvaluation2.AvalancheDevelopment ? obs._avalancheEvaluation2.AvalancheDevelopment : null}
+ExposedHeight1={obs._avalancheEvaluation2.ExposedHeight1 ? obs._avalancheEvaluation2.ExposedHeight1 : null}
+ExposedHeight2={obs._avalancheEvaluation2.ExposedHeight2 ? obs._avalancheEvaluation2.ExposedHeight2 : null}
+ExposedHeightComboTID={obs._avalancheEvaluation2.ExposedHeightComboTID ? obs._avalancheEvaluation2.ExposedHeightComboTID : null}
+ExposedHeightComboName={obs._avalancheEvaluation2.ExposedHeightComboName ? obs._avalancheEvaluation2.ExposedHeightComboName : null}
+ExposedClimateTID={obs._avalancheEvaluation2.ExposedClimateTID ? obs._avalancheEvaluation2.ExposedClimateTID : null}
+ExposedClimateName={obs._avalancheEvaluation2.ExposedClimateName ? obs._avalancheEvaluation2.ExposedClimateName : null}
+AvalancheDangerTID={obs._avalancheEvaluation2.AvalancheDangerTID ? obs._avalancheEvaluation2.AvalancheDangerTID : null}
+AvalancheEvalProblems={obs._avalancheEvaluation2.AvalancheEvalProblems ? obs._avalancheEvaluation2.AvalancheEvalProblems : null}
+>
+</varsom-avalanche-evaluation2>
+</div>
+: ""}
+
+{/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEvaluation3 ? 
 <div>
-<div class="header">{this.strings.Observations.AvalancheEvaluation3.ObsName}</div> 
+<varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation3
 strings={this.strings}
 avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avalancheEvaluation3.AvalancheEvaluation : null}
 avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
 forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEvaluation3.forecastComment : null}
+AvalancheDangerName={obs._avalancheEvaluation3.AvalancheDangerName ? obs._avalancheEvaluation3.AvalancheDangerName : null}
+ForecastCorrectName={obs._avalancheEvaluation3.ForecastCorrectName ? obs._avalancheEvaluation3.ForecastCorrectName : null}
+ForecastCorrectTID={obs._avalancheEvaluation3.ForecastCorrectTID ? obs._avalancheEvaluation3.ForecastCorrectTID : null}
+
 >
 </varsom-avalanche-evaluation3>
 </div>
@@ -750,6 +810,25 @@ forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEval
 
 {/* DAMAGE OBSERVATIONS*/}
 
+
+
+
+{/* SNOW PROFILE */}
+
+{obs._snowProfile ?
+<varsom-snow-profile
+strings={this.strings}
+GeoHazardName={obs._snowProfile.GeoHazardName ? obs._snowProfile.GeoHazardName : null}
+RegistrationName={obs._snowProfile.RegistrationName ? obs._snowProfile.RegistrationName : null}
+Url={obs._snowProfile.Url ? obs._snowProfile.Url : null}
+Photographer={obs._snowProfile.Photographer ? obs._snowProfile.Photographer : null}
+Copyright={obs._snowProfile.Copyright ? obs._snowProfile.Copyright : null}
+Aspect={obs._snowProfile.Aspect ? obs._snowProfile.Aspect : null}
+GeoHazardTID={obs._snowProfile.GeoHazardTID ? obs._snowProfile.GeoHazardTID : null}
+RegistrationTID={obs._snowProfile.RegistrationTID ? obs._snowProfile.RegistrationTID : null}
+Comment={obs._snowProfile.Comment ? obs._snowProfile.Comment : null}
+></varsom-snow-profile>
+:""}
 
 {obs._snowProfile2 ?
 <varsom-snow-profile2
@@ -770,14 +849,19 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
-<div class="header">{this.strings.Observations.DangerObs.ObsName}</div> : "" }
+<varsom-label
+label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Fartegn"}
+></varsom-label> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{
   
             return <varsom-danger-obs
             strings={this.strings}
-            danger-sign-name={el.DangerSignName ? el.DangerSignName : null}
-            comment={el.Comment ? el.Comment : null}
+            GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
+            Comment={el.Comment ? el.Comment : null}
+            DangerSignName={el.DangerSignName ? el.DangerSignName : null}
+            GeoHazardTID={el.GeoHazardTID ? el.GeoHazardTID : null}
+            DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
             > 
       
           </varsom-danger-obs>
@@ -785,9 +869,32 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
         
         }
 
+        {/* AVALANCHE DANGER OBSERVATIONS */}
+{obs._avalancheDangerObs.length > 0 ?
+<varsom-label
+label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Observations.AvalancheDangerObs.ObsName : "Fartegn"}
+></varsom-label> : "" }
+
+{obs._avalancheDangerObs.map((el: AvalancheDangerObs = {}) =>{
+  
+            return <varsom-avalanche-danger-obs
+            strings={this.strings}
+            AvalancheDangerObsID={el.AvalancheDangerObsID ? el.AvalancheDangerObsID : null}
+            DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
+            DangerSignName={el.DangerSignName ? el.DangerSignName : null}
+            Comment={el.Comment ? el.Comment : null}
+            > 
+      
+          </varsom-avalanche-danger-obs>
+        })
+        
+        }
+
 {/* COMPRESSION TEST */}
 {obs._compressionTest.length > 0 ?
-<div class="header">{this.strings.Observations.CompressionTest.ObsName}</div> : "" }
+<varsom-label
+label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observations.CompressionTest.ObsName : "Stabilitetstest"}
+></varsom-label> :"" }
 
 {obs._compressionTest.map((el: CompressionTest = {}) =>{
   
@@ -807,7 +914,7 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
             ComprTestFractureTID={el.ComprTestFractureTID ? el.ComprTestFractureTID : null}
             ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
             IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
-            comment={el.Comment}
+            Comment={el.Comment}
             > 
         
           </varsom-compression-test>
@@ -818,8 +925,6 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 
 {/* SNOW SURFACE */}
 {obs._snowSurfaceObservation ? 
-<div>
-  <div class="header">{this.strings.Observations.SnowSurfaceObservation.ObsName}</div>
 <varsom-snow-surface-observation
   strings={this.strings}
   snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
@@ -835,26 +940,25 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
   Comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
   HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs.HeightLimitLayeredSnow.SkiConditionsTID : null}
   SnowLine={obs._snowSurfaceObservation.SnowLine ? obs._snowSurfaceObservation.SnowLine : null}
-
+  FootPenetration={obs._snowSurfaceObservation.FootPenetration ? obs._snowSurfaceObservation.FootPenetration : null}
 >
-</varsom-snow-surface-observation>
-</div>  
+</varsom-snow-surface-observation> 
   : ""}
 
-{obs._snowCoverObs ? 
+{obs._iceCoverObs ? 
 <varsom-ice-cover-observation
 strings={this.strings}
-IceCoverBeforeName={obs._snowCoverObs.IceCoverBeforeName ? obs._snowCoverObs.IceCoverBeforeName : null}
-IceCoverName={obs._snowCoverObs.IceCoverName ? obs._snowCoverObs.IceCoverName : null}
-IceCoverAfterName={obs._snowCoverObs.IceCoverAfterName ? obs._snowCoverObs.IceCoverAfterName   : null}
-IceSkateabilityName={obs._snowCoverObs.IceSkateabilityName ? obs._snowCoverObs.IceSkateabilityName : null}
-IceCapacityName={obs._snowCoverObs.IceCapacityName ? obs._snowCoverObs.IceCapacityName : null}
-IceCoverBeforeTID={obs._snowCoverObs.IceCoverBeforeTID ? obs._snowCoverObs.IceCoverBeforeTID : null}
-IceCoverTID={obs._snowCoverObs.IceCoverTID ? obs._snowCoverObs.IceCoverTID : null}
-IceCoverAfterTID={obs._snowCoverObs.IceCoverAfterTID ? obs._snowCoverObs.IceCoverAfterTID : null}
-IceSkateabilityTID={obs._snowCoverObs.IceSkateabilityTID ? obs._snowCoverObs.IceSkateabilityTID : null}
-Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
-IceCapacityTID={obs._snowCoverObs.IceCapacityTID ? obs._snowCoverObs.IceCapacityTID : null}
+IceCoverBeforeName={obs._iceCoverObs.IceCoverBeforeName ? obs._iceCoverObs.IceCoverBeforeName : null}
+IceCoverName={obs._iceCoverObs.IceCoverName ? obs._iceCoverObs.IceCoverName : null}
+IceCoverAfterName={obs._iceCoverObs.IceCoverAfterName ? obs._iceCoverObs.IceCoverAfterName   : null}
+IceSkateabilityName={obs._iceCoverObs.IceSkateabilityName ? obs._iceCoverObs.IceSkateabilityName : null}
+IceCapacityName={obs._iceCoverObs.IceCapacityName ? obs._iceCoverObs.IceCapacityName : null}
+IceCoverBeforeTID={obs._iceCoverObs.IceCoverBeforeTID ? obs._iceCoverObs.IceCoverBeforeTID : null}
+IceCoverTID={obs._iceCoverObs.IceCoverTID ? obs._iceCoverObs.IceCoverTID : null}
+IceCoverAfterTID={obs._iceCoverObs.IceCoverAfterTID ? obs._iceCoverObs.IceCoverAfterTID : null}
+IceSkateabilityTID={obs._iceCoverObs.IceSkateabilityTID ? obs._iceCoverObs.IceSkateabilityTID : null}
+Comment={obs._iceCoverObs.Comment ? obs._iceCoverObs.Comment : null}
+IceCapacityTID={obs._iceCoverObs.IceCapacityTID ? obs._iceCoverObs.IceCapacityTID : null}
 ></varsom-ice-cover-observation>
 : ""}
 

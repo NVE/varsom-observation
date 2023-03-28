@@ -34,114 +34,51 @@ export class VarsomAvalancheEvalProblem {
   render(){
     return <div> 
 
-     
-      {this.AvalancheEvalProblemID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheEvalProblemID}
-      </span> : ""}
+    {this.AvalCauseName ? 
+    <varsom-label-small
+    label={this.AvalCauseName}
+    ></varsom-label-small>
+    :""}
 
-      
-      {this.AvalProbabilityName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalProbabilityName}
-      </span> : ""}
+    {this.AvalancheExtName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheType : "Skredtype" }
+    _value={this.AvalancheExtName}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalProbabilityTID ? 
-      <span>
-      {this.AvalProbabilityTID}
-      </span> : ""}
+    {this.AvalTriggerSimpleName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalTriggerSimpleTID : "Sannsynlig belasting for å løse ut skred" }
+    _value={this.AvalTriggerSimpleName}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalTriggerSimpleTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}: </label>
-      {this.AvalTriggerSimpleTID}
-      </span> : ""}
+    {this.AvalProbabilityName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalProbabilityTID : "Sannsynlighet for skred" }
+    _value={this.AvalProbabilityName}
+    ></varsom-key-value>
+    :""}
 
-      {this.AvalTriggerSimpleName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalTriggerSimpleName}
-      </span> : ""}
+    {this.DestructiveSizeExtName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.DestructiveSizeTID : "Størrelse på forventet skred" }
+    _value={this.DestructiveSizeExtName}
+    ></varsom-key-value>
+    :""}
 
-      {this.DestructiveSizeExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeExtTID}
-      </span> : ""}
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
-      {this.DestructiveSizeExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeExtName}
-      </span> : ""}
+{/* TODO: IMPLEMENT ICONS... */}
 
-      {this.AvalancheExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtTID}
-      </span> : ""}
 
-      {this.AvalancheExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheExtName}
-      </span> : ""}
 
-      {this.AvalCauseTID ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheEvalProblem2.AvalCauseTID}: </label>
-      {this.AvalCauseTID}
-      </span> : ""}
-
-      {this.AvalCauseName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseName}
-      </span> : ""}
-
-      {this.AvalCauseExtTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseExtTID}
-      </span> : ""}
-
-      {this.AvalCauseExtName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalCauseExtName}
-      </span> : ""}
-
-      {this.AvalReleaseHeightTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalReleaseHeightTID}
-      </span> : ""}
-
-      {this.AvalReleaseHeightName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalReleaseHeightName}
-      </span> : ""}
-
-      {this.AvalancheProbabilityAutoText ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProbabilityAutoText}
-      </span> : ""}
-
-      {this.AvalancheProblemAutoText ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheProblemAutoText}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Comment}: </label>
-      {this.Comment}
-      </span> : ""}
 
      
     

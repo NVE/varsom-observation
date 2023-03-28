@@ -10,35 +10,69 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomAvalancheActivityObs2 {
 
   @Prop() strings: any;
-  @Prop() comment: any;
-  @Prop() avalCauseName: any;
-  @Prop() dtStart: any;
+  @Prop() Comment: any;
+  @Prop() AvalCauseName: any;
+  @Prop() DtStart: any;
+  @Prop() EstimatedNumName: any;
+  @Prop() ExposedHeightComboName: any;
+  @Prop() AvalancheExtName: any;
+  @Prop() AvalTriggerSimpleName: any;
+  @Prop() DestructiveSizeName: any;
+  @Prop() AvalPropagationName: any;
+  @Prop() EstimatedNumTID: any;
+  @Prop() DtEnd: any;
+  @Prop() ValidExposition: any;
+  @Prop() ExposedHeight1: any;
+  @Prop() ExposedHeight2: any;
+  @Prop() ExposedHeightComboTID: any;
+  @Prop() AvalancheExtTID: any;
+  @Prop() AvalCauseTID: any;
+  @Prop() AvalTriggerSimpleTID: any;
+  @Prop() DestructiveSizeTID: any;
+  @Prop() AvalPropagationTID: any;
  
   
   render(){
     return <div> 
 
-      {this.dtStart ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheActivityObs.DtAvalancheTime}: </label>
-      {this.dtStart}
-      </span> : ""}
+    {(this.DtStart && this.DtEnd) ? 
+      <div>
+      <label>
+        {this.strings ? 
+        <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
+        : <div>Tid: </div>}
+        </label>
+    {this.DtStart} - {this.DtEnd}
+    </div>
+      : ""} 
 
-      {this.avalCauseName ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheObs.AvalCauseTID} </label> {/* correct ? */ }
-      {this.avalCauseName}
-      </span> : ""}
 
-      {this.comment ? 
-      <span>
-      <label>{this.strings.Observations.AvalancheActivityObs.Comment}: </label>
-      {this.comment}
-      </span> : ""}
-     
-
+    {this.EstimatedNumTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall, størrelse og skredutløser" }
+    _value={this.EstimatedNumName ? this.EstimatedNumName + ". " : "" +
+    this.DestructiveSizeName ? this.DestructiveSizeName + ". " : "" + 
+    this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : ""}
+    ></varsom-key-value>
+    :""}
+ 
+    {this.AvalPropagationTID ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheProblem : "Utbredelse" }
+    _value={this.AvalPropagationTID}
+    ></varsom-key-value>
+    :""}
+    
+    {/* TODO: IMPLEMENT SVG IMAGE */}
       
 
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+    
     
     </div>
   }

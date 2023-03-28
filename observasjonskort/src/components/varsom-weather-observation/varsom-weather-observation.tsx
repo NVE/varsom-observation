@@ -25,9 +25,58 @@ export class VarsomWeatherObservation {
   render(){
     return <div> 
 
-   not implemented
+{this.PrecipitationName ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.PrecipitationTID: "Nedbørstype" }
+    _value={this.PrecipitationName}
+    ></varsom-key-value>
+    :""}
 
+{this.AirTemperature ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.AirTemperature: "Lufttemperatur (°C)" }
+    _value={this.AirTemperature}
+    ></varsom-key-value>
+    :""}
+
+{(this.WindDirection && this.WindSpeed) ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.Wind: "Vind" }
+    _value={this.WindSpeed + " " + this.WindDirection}
+    ></varsom-key-value>
+    :""}
     
+
+{(this.WindDirection && !this.WindSpeed) ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.WindDirection: "Vindretning" }
+    _value={this.WindDirection}
+    ></varsom-key-value>
+    :""}
+
+{(!this.WindDirection && this.WindSpeed) ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.WindSpeed: "Vindhastighet (m/s)" }
+    _value={this.WindSpeed}
+    ></varsom-key-value>
+    :""}
+    
+
+{this.CloudCover ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.CloudCover: "Skydekke" }
+    _value={this.CloudCover}
+    ></varsom-key-value>
+    :""}
+
+{this.Comment ?
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.WeatherObservation.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+
     </div>
   }
     

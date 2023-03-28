@@ -19,24 +19,30 @@ export class VarsomSnowDensity {
   render(){
     return <div> 
 
-      {this.CylinderDiameter ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.CylinderDiameter}
-      </span> : ""} 
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
-      {this.TareWeight ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TareWeight}
-      </span> : ""} 
+{this.CylinderDiameter ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Density.CylinderBoreDiam: "Sylinderdiameter (cm)" }
+    _value={this.CylinderDiameter}
+    ></varsom-key-value>
+    :""}
 
-      {this.Comment ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Comment}
-      </span> : ""} 
+{this.TareWeight ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Density.TareWeight: "Posevekt og evt rør (g)" }
+    _value={this.TareWeight}
+    ></varsom-key-value>
+    :""}
 
+
+{this.Layers ? 
+<div>
       {this.Layers.map((el: SnowDensityLayer = {}) =>{
             return <varsom-snow-density-layer
             strings={this.strings}
@@ -48,7 +54,7 @@ export class VarsomSnowDensity {
 </varsom-snow-density-layer>
         })
         }
-  
+</div> : ""}  
     
     </div>
   }

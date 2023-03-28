@@ -10,6 +10,7 @@
 | Property                  | Attribute                     | Description | Type  | Default     |
 | ------------------------- | ----------------------------- | ----------- | ----- | ----------- |
 | `Comment`                 | `comment`                     |             | `any` | `undefined` |
+| `FootPenetration`         | `foot-penetration`            |             | `any` | `undefined` |
 | `HeightLimitLayeredSnow`  | `height-limit-layered-snow`   |             | `any` | `undefined` |
 | `NewSnowDepth24`          | `new-snow-depth-2-4`          |             | `any` | `undefined` |
 | `NewSnowLine`             | `new-snow-line`               |             | `any` | `undefined` |
@@ -33,9 +34,16 @@
 
  - [varsom-observation](../varsom-observasjon)
 
+### Depends on
+
+- [varsom-label](../varsom-label)
+- [varsom-key-value](../varsom-key-value)
+
 ### Graph
 ```mermaid
 graph TD;
+  varsom-snow-surface-observation --> varsom-label
+  varsom-snow-surface-observation --> varsom-key-value
   varsom-observation --> varsom-snow-surface-observation
   style varsom-snow-surface-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```

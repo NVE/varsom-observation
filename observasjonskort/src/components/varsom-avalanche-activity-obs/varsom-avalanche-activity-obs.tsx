@@ -10,6 +10,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomAvalancheActivityObs {
 
   @Prop() strings: any;
+  @Prop() header: any;
   @Prop() AvalancheActivityObsID: any;
   @Prop() Aspect: any;
   @Prop() HeigthStartZone: any;
@@ -27,102 +28,38 @@ export class VarsomAvalancheActivityObs {
   @Prop() SnowLine: any;
   @Prop() SnowLineName: any;
   @Prop() DtOffAvalancheTime: any;
+  @Prop() Comment: any;
   
   
   render(){
     return <div> 
 
-      {this.AvalancheActivityObsID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheActivityObsID}
-      </span> : ""}
+    {this.header ? 
+      <div class="header">
+    {this.header}
+    </div>
+      : ""} 
 
-      {this.Aspect ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Aspect}
-      </span> : ""}
-      
-      {this.HeigthStartZone ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.HeigthStartZone}
-      </span> : ""}
+    {this.EstimatedNumName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
+    _value={this.EstimatedNumName}
+    ></varsom-key-value>
+    :""}
 
-      {this.DtAvalancheTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtAvalancheTime}
-      </span> : ""}
+    {this.AvalancheTriggerName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID : "Skredutløser" }
+    _value={this.AvalancheTriggerName}
+    ></varsom-key-value>
+    :""}
 
-      {this.DestructiveSizeTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeTID}
-      </span> : ""}
-
-      {this.DestructiveSizeName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DestructiveSizeName}
-      </span> : ""}
-
-      {this.EstimatedNumTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.EstimatedNumTID}
-      </span> : ""}
-
-      {this.EstimatedNumName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.EstimatedNumName}
-      </span> : ""}
-
-      {this.AvalancheTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheTID}
-      </span> : ""}
-      
-      {this.AvalancheName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheName}
-      </span> : ""}
-
-      {this.AvalancheTriggerName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.AvalancheTriggerName}
-      </span> : ""}
-
-
-      {this.TerrainStartZoneTID ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TerrainStartZoneTID}
-      </span> : ""}
-
-      
-      {this.TerrainStartZoneName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.TerrainStartZoneName}
-      </span> : ""}
-
-      {this.SnowLineName ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.SnowLineName}
-      </span> : ""}
-
-      {this.DtOffAvalancheTime ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.DtOffAvalancheTime}
-      </span> : ""}
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
 
     </div>
   }

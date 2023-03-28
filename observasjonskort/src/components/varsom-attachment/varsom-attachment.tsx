@@ -9,48 +9,72 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomAttachment {
 
-  @Prop() registrationName: any;
-  @Prop() comment: any;
-  @Prop() imageUrl: any;
-  @Prop() photographer: any;
-  @Prop() copyright: any;
+  @Prop() RegistrationName: any;
+  @Prop() Comment: any;
+  @Prop() Url: any;
+  @Prop() Photographer: any;
+  @Prop() Copyright: any;
   @Prop() strings?: any;
+  @Prop() AttachmentId?: any;
+  @Prop() GeoHazardName?: any;
+  @Prop() GeoHazardTID?: any;
+  @Prop() Aspect?: any;
+  @Prop() RegistrationTID?: any;
+  @Prop() AttachmentMimeType?: any;
+  @Prop() IsMainAttachment?: any;
+  
  
 
   render(){
     return <div class="container">
-      {this.imageUrl ? 
+
+      {this.Url ? 
         <div>
-        <img src={this.imageUrl} />
+        <img src={this.Url} />
       </div>
       : ""} 
 
-      {this.registrationName ? 
-      <div>
-        {this.registrationName}
-      </div>
-      : ""} 
-    
-    {this.comment ? 
-      <div>
-        <label>{this.strings.Observations.Picture.PictureComment}: </label>
-        {this.comment}
-      </div>
-      : ""} 
+    {this.RegistrationName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.RegistrationTID : "Bilde av" }
+    _value={this.RegistrationName}
+    ></varsom-key-value>
+    :""}
 
-    {this.photographer ? 
-      <div>
-        <label>{this.strings.Observations.Picture.Photographer}: </label>
-        {this.photographer}
-      </div>
-      : ""} 
+    {this.GeoHazardName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Incident.geoHazardName : "Faretype" }
+    _value={this.GeoHazardName}
+    ></varsom-key-value>
+    :""}
 
-    {this.copyright ? 
-      <div>
-        <label>{this.strings.Observations.Picture.Copyright}: </label>
-        {this.copyright}
-      </div>
-      : ""} 
+    {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+
+    {this.Photographer ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
+    _value={this.Photographer}
+    ></varsom-key-value>
+    :""}
+
+    {this.Copyright ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
+    _value={this.Copyright}
+    ></varsom-key-value>
+    :""}
+
+    {this.Aspect ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Aspect : "Himmelretning" }
+    _value={this.Aspect}
+    ></varsom-key-value>
+    :""}
       
     </div>
   }

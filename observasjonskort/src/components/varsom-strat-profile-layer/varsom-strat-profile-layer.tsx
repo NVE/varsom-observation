@@ -32,11 +32,40 @@ export class VarsomStratProfileLayer {
 
 
   render(){
-    return <div> 
+    return <span> 
 
-      not implemented
+
+    
+    {this.Thickness ? <span>
+      {(this.Thickness * 100) + "cm"}
+    </span> : "" }
+
+    {(this.HardnessTID && this.HardnessTName) ? <span>
+      {this.HardnessTName + ((this.HardnessBottomTID && this.HardnessBottomTID > 0) ? this.HardnessBottomTName : "") + ", "}
+    </span> : "" }
+
+    {(this.GrainFormPrimaryTID && this.GrainFormPrimaryTName) ? <span>
+      {this.GrainFormPrimaryTName + ((this.GrainFormSecondaryTID && this.GrainFormSecondaryTID > 0) ? this.GrainFormSecondaryTName : "") + " , "}
+    </span> : "" }
+
+    {this.GrainSizeAvg ? <span>
+      {(this.GrainSizeAvg * 100) + " mm " + 
+      (this.GrainSizeAvgMax ? (this.GrainSizeAvgMax * 100) : "") + ", "}
+    </span> : "" }
+    
+    {this.WetnessTID ? <span>
+      {this.WetnessTName + ", "}
+    </span> : "" }
   
-    </div>
+    {this.CriticalLayerTID ? <span>
+      {this.CriticalLayerTName + ", "}
+    </span> : "" }
+
+    {this.Comment ? <span>
+      {this.Comment}
+    </span> : "" }
+
+    </span>
   }
     
   }
