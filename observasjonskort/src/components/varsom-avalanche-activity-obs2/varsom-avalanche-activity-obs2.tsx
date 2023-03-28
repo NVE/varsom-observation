@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -64,7 +64,10 @@ export class VarsomAvalancheActivityObs2 {
     :""}
     
     {/* TODO: IMPLEMENT SVG IMAGE */}
+    {this.ValidExposition ? 
+    <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
       
+    :""}  
 
     {this.Comment ? 
     <varsom-key-value

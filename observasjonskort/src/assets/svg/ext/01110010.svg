@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72pt" height="72pt">
+    <style>
+        text {
+            font-family: "Roboto Light", sans-serif;
+        }
+    </style>
+    <g transform="scale(1)">
+        <g>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(-22.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#e3e3e3"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(22.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#d21523"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(67.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#d21523"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(112.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#d21523"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(157.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#e3e3e3"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(202.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#e3e3e3"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(247.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#d21523"></path>
+            <path d="M 45 9 A 36 36 0 0 1 70.45584412271572 19.54415587728429 L 45 45 Z" transform="rotate(292.5 45 45)" stroke-width="1" stroke="#c6c6c5" class="sector" fill="#e3e3e3"></path>
+            <circle cx="45" cy="45" r="36" fill="none" stroke-width="1" class="circle-outline"></circle>
+        </g>
+        <g>
+            <circle cx="45" cy="9" r="7.2" stroke-width="1" stroke="#69797a" fill="#fff"></circle>
+            <text x="45" y="9" dy="3.1680000000000006" font-size="7.920000000000001" stroke-width="1" text-anchor="middle" fill="#6a7a7b">
+                N
+            </text>
+        </g>
+        <g>
+            <circle cx="81" cy="45" r="7.2" stroke-width="1" stroke="#69797a" fill="#fff"></circle>
+            <text x="81" y="45" dy="3.1680000000000006" font-size="7.920000000000001" stroke-width="1" text-anchor="middle" fill="#6a7a7b">
+                Ø
+            </text>
+        </g>
+        <g>
+            <circle cx="45" cy="81" r="7.2" stroke-width="1" stroke="#69797a" fill="#fff"></circle>
+            <text x="45" y="81" dy="3.1680000000000006" font-size="7.920000000000001" stroke-width="1" text-anchor="middle" fill="#6a7a7b">
+                S
+            </text>
+        </g>
+        <g>
+            <circle cx="9" cy="45" r="7.2" stroke-width="1" stroke="#69797a" fill="#fff"></circle>
+            <text x="9" y="45" dy="3.1680000000000006" font-size="7.920000000000001" stroke-width="1" text-anchor="middle" fill="#6a7a7b">
+                V
+            </text>
+        </g>
+    </g>
+</svg>
