@@ -587,7 +587,9 @@ MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._water
 
 {obs._waterLevel ? 
 <div>
-<div class="header">{this.strings.Observations.WaterLevel2.WaterMeasurement}</div>
+<varsom-label
+label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Water measurement"}> 
+</varsom-label>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-water-measurement
   strings={this.strings}
@@ -689,7 +691,10 @@ AvalancheProbabilityAutoText={el.AvalancheProbabilityAutoText ? el.AvalancheProb
 
 {/* AVALANCHE EVAL PROBLEM 2 */}
 {obs._avalancheEvalProblem2.length > 0 ? 
-<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
+  <varsom-label
+label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : "Skreproblem"}> 
+</varsom-label>
+: ""}
 
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
 return <varsom-avalanche-eval-problem2

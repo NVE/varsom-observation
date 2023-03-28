@@ -75,13 +75,6 @@ export class VarsomAvalancheEvalProblem {
     ></varsom-key-value>
     :""}
 
-{/* TODO: IMPLEMENT ICONS... */}
-
-
-
-
-     
-    
     
     </div>
   }

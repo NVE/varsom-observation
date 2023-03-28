@@ -26,9 +26,9 @@ export class VarsomSnowProfile2 {
 
 {/**TODO: IMPLEMENT PICTURE */}
 
-<varsom-label-small
+<varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
-      ></varsom-label-small>
+      ></varsom-label>
 
 {this.Comment ? 
     <varsom-key-value

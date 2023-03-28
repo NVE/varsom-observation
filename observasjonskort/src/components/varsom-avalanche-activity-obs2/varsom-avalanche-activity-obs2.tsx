@@ -63,10 +63,8 @@ export class VarsomAvalancheActivityObs2 {
     ></varsom-key-value>
     :""}
     
-    {/* TODO: IMPLEMENT SVG IMAGE */}
     {this.ValidExposition ? 
     <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-      
     :""}  
 
     {this.Comment ? 
