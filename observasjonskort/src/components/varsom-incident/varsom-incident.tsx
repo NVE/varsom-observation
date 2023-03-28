@@ -78,85 +78,81 @@ export class VarsomIncident {
     ></varsom-key-value>
     :""}
 
-{/** TODO: translation missing */}
 {this.LocalTouristName ? 
     <varsom-key-value
-    _key="Lokal eller tilreisende"
+    _key="Local or tourist"
     _value={this.LocalTouristName}
     ></varsom-key-value>
     :""}
 
-{/** TODO: translation missing */}
 {this.LocalKnowledgeName ? 
     <varsom-key-value
-    _key="Lokalkjent"
+    _key="Local knowledge"
     _value={this.LocalKnowledgeName}
     ></varsom-key-value>
     :""}
 
-    {/** TODO: translation missing */}
 {this.SafetyGearName ? 
     <varsom-key-value
-    _key="Sikkerhetsutstyr"
+    _key="Safety gear"
     _value={this.SafetyGearName}
     ></varsom-key-value>
     :""}
 
-    {/** TODO: translation missing */}
 {this.RescueName ? 
     <varsom-key-value
-    _key="Redning"
+    _key="Rescue"
     _value={this.RescueName}
     ></varsom-key-value>
     :""}
 
-      {/** TODO: translation missing */}
+      
 {this.SlopeActivityName ? 
     <varsom-key-value
-    _key="Turfase"
+    _key="Slope activity"
     _value={this.SlopeActivityName}
     ></varsom-key-value>
     :""}
 
-          {/** TODO: translation missing */}
+          
 {this.TrafficObstructed ? 
     <varsom-key-value
-    _key="Hindring av trafikk"
+    _key="Obsctruction of traffic"
     _value={this.TrafficObstructed}
     ></varsom-key-value>
     :""}
 
 {this.MaterialDamages ? 
     <varsom-key-value
-    _key="Materielle skader"
+    _key="Material damage"
     _value={this.MaterialDamages}
     ></varsom-key-value>
     :""}
 
 {this.InvolvedNum ? 
     <varsom-key-value
-    _key="Antall involverte"
+    _key="Number involved"
     _value={this.InvolvedNum}
     ></varsom-key-value>
     :""}
 
 {this.HarmedNum ? 
     <varsom-key-value
-    _key="Antall skadde"
+    _key="Number injured"
     _value={this.HarmedNum}
     ></varsom-key-value>
     :""}
 
 {this.DeadNum ? 
     <varsom-key-value
-    _key="Antall døde"
+    _key="Number dead"
     _value={this.DeadNum}
     ></varsom-key-value>
     :""}
 
 {this.EvacuatedNum ? 
     <varsom-key-value
-    _key="Antall evakuerte"
+    _key="Number evacuated"
     _value={this.EvacuatedNum}
     ></varsom-key-value>
     :""}
