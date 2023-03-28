@@ -20,6 +20,26 @@ export async function getObservationFromApiById(id: string){
   
   }
 
+  export function getDangerTypeSvg(id: number){
+    switch(id){
+      case 1: {
+        return "Dry-Snow-1-EAWS.svg";
+      }
+      case 2: {
+        return "Dry-Snow-2-EAWS.svg";
+      }
+      case 3: {
+        return "Dry-Snow-3-EAWS.svg";
+      }
+      case 4: case 5: {
+        return "Dry-Snow-4-5-EAWS.svg";
+      }
+      default: {
+        return "No-Rating-EAWS.svg";
+      }
+    }
+  }
+
   export function getIconName(name: string){
     switch(name){
       case "Snow":
