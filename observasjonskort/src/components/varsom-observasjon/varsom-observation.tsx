@@ -805,6 +805,7 @@ avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avala
 avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
 forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEvaluation3.forecastComment : null}
 AvalancheDangerName={obs._avalancheEvaluation3.AvalancheDangerName ? obs._avalancheEvaluation3.AvalancheDangerName : null}
+AvalancheDangerTID={obs._avalancheEvaluation3.AvalancheDangerTID ? obs._avalancheEvaluation3.AvalancheDangerTID : null}
 ForecastCorrectName={obs._avalancheEvaluation3.ForecastCorrectName ? obs._avalancheEvaluation3.ForecastCorrectName : null}
 ForecastCorrectTID={obs._avalancheEvaluation3.ForecastCorrectTID ? obs._avalancheEvaluation3.ForecastCorrectTID : null}
 
