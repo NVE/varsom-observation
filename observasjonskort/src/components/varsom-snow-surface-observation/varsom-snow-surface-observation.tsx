@@ -91,10 +91,9 @@ export class VarsomSnowSurfaceObservation {
     ></varsom-key-value>
     : ""}
 
-{/* todo missing translation */}
 {this.SkiConditionsName ?
     <varsom-key-value
-    _key="Skiforhold"
+    _key="Ski conditions"
     _value={this.SkiConditionsName}
     ></varsom-key-value>
     : ""}
