@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -42,11 +42,23 @@ export class VarsomAvalancheObs {
   render(){
     return <div> 
 
-      {/* TODO IMPLEMENT MAP */}
+      {/* TODO IMPLEMENT MAP and translation for start/stop*/}
 
-    <div class="header">
-    {this.strings ? this.strings.AvalancheObs.ObsName : "Skredhendelse"}  
-    </div>
+    <varsom-label
+      label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
+      ></varsom-label>
+
+<div>
+    {this.StartLat ? 
+    <span><img src={getAssetPath(`/assets/icons/skred-startposisjon.svg`)}>
+      </img>Skredet startet her</span> 
+    : ""}
+
+    {this.StopLat ? 
+    <span><img src={getAssetPath(`/assets/icons/skred-stopposisjon.svg`)}>
+      </img>Skredet stoppet her</span> 
+    : ""}
+ </div>
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
