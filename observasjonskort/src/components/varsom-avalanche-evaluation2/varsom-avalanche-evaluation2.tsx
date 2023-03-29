@@ -1,4 +1,6 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { getDangerTypeSvg } from '../../utils/utils';
+
 import { AvalancheEvalProblem } from '../varsom-observasjon/observation-model';
 
 
@@ -46,6 +48,15 @@ export class VarsomAvalancheEvaluation2 {
     _value={this.AvalancheDevelopment}
     ></varsom-key-value>
     :""}
+
+{/** todo translate... */}
+{this.AvalancheDangerTID ? 
+<div>
+  <p>Faregrad</p>
+  
+<span><img src={getAssetPath(`/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 1 Liten</span> 
+ </div>
+: ""}
 
     {this.Comment ? 
     <varsom-key-value
