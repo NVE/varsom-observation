@@ -274,12 +274,16 @@ export namespace Components {
     }
     interface VarsomIceThickness {
         "Comment": any;
+        "DtObsTime": any;
         "IceHeightAfter": any;
         "IceHeightBefore": any;
         "IceThicknessLayers": IceThicknessLayer[];
         "IceThicknessSum": any;
+        "LocationName": any;
+        "ObsLocationId": any;
         "SlushSnow": any;
         "SnowDepth": any;
+        "regId": any;
         "strings": any;
     }
     interface VarsomIceThicknessLayer {
@@ -1169,12 +1173,16 @@ declare namespace LocalJSX {
     }
     interface VarsomIceThickness {
         "Comment"?: any;
+        "DtObsTime"?: any;
         "IceHeightAfter"?: any;
         "IceHeightBefore"?: any;
         "IceThicknessLayers"?: IceThicknessLayer[];
         "IceThicknessSum"?: any;
+        "LocationName"?: any;
+        "ObsLocationId"?: any;
         "SlushSnow"?: any;
         "SnowDepth"?: any;
+        "regId"?: any;
         "strings"?: any;
     }
     interface VarsomIceThicknessLayer {

@@ -16,6 +16,7 @@
 | `IceThicknessSum`    | `ice-thickness-sum` |             | `any`                 | `undefined` |
 | `SlushSnow`          | `slush-snow`        |             | `any`                 | `undefined` |
 | `SnowDepth`          | `snow-depth`        |             | `any`                 | `undefined` |
+| `regId`              | `reg-id`            |             | `any`                 | `undefined` |
 | `strings`            | `strings`           |             | `any`                 | `undefined` |
 
 

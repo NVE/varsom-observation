@@ -27,16 +27,7 @@ export function CreatePlot(istykkelse, element, element2) {
     LagIstykkelseDataObject(tobj, data);
     var plott = element;
     // Plottevindu til venstre
-   // var tchartdiv = 'icethicknessdiv';
- //   var innerHTML = '<div style="float:right;clear:both;border: 3px solid #fad5aa;background-color:#ffffe6;padding:2px 0px 2px 5px;margin:10px 0px 0px 5px;">'
-        //+ '<div id="' + tchartdiv + '" style="border: none;background-color:#ffffe6;"></div></div>';
-
-
-//element2.style="border: none;background-color:#ffffe6;";
-
-    //var hoved = element;//document.getElementById('hoved'); 
-    //plott.innerHTML = innerHTML;
- 
+  
     // Plotteområdet
     plott.divId = element2.id;
     // Feilmeldingsområde (ikke bruk)

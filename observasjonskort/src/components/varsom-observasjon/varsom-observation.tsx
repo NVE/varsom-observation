@@ -149,6 +149,7 @@ export class VarsomObservation {
         _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
         _snowCoverObs: data[i]["SnowCoverObs"],
         _waterLevel: data[i]["WaterLevel"],  
+        _dtObsTime: data[i]["DtObsTime"]
         }          
      );
 
@@ -605,6 +606,10 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
 {obs._iceThickness ? 
 <varsom-ice-thickness
 strings={this.strings}
+regId={this.regid}
+ObsLocationId={obs._obsLocation.ObsLocationId}
+DtObsTime={obs._dtObsTime}
+LocationName={obs._obsLocation.LocationName}
 Comment={obs._iceThickness.Comment ? obs._iceThickness.Comment : null}
 IceThicknessLayers={obs._iceThickness.IceThicknessLayers ? obs._iceThickness.IceThicknessLayers : null}
 SnowDepth={obs._iceThickness.SnowDepth ? obs._iceThickness.SnowDepth : null}
