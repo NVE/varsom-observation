@@ -18,12 +18,24 @@ export class VarsomIceThickness {
   @Prop() IceThicknessSum: any;
   @Prop() IceHeightBefore: any;
   @Prop() IceHeightAfter: any;
+  @Prop() regId: any;
+  @Prop() ObsLocationId: any;
+  @Prop() DtObsTime: any;
+  @Prop() LocationName: any;
 
   element: HTMLElement;
   element2: HTMLElement;
 
+
+  
 componentDidRender(){
-  {generatePlotForIceThickness(this.element, this.element2)}
+
+  //TODO sende med all data....
+  {generatePlotForIceThickness(this.IceThicknessLayers, this.regId, this.element, this.element2, this.IceThicknessSum,
+    this.ObsLocationId, this.LocationName, this.SlushSnow, this.IceHeightBefore, 
+    this.IceHeightAfter, this.SnowDepth)}
+
+    
 }
 
   render(){
