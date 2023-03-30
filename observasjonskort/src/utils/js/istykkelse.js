@@ -31,6 +31,9 @@ export function CreatePlot(istykkelse, element, element2) {
  //   var innerHTML = '<div style="float:right;clear:both;border: 3px solid #fad5aa;background-color:#ffffe6;padding:2px 0px 2px 5px;margin:10px 0px 0px 5px;">'
         //+ '<div id="' + tchartdiv + '" style="border: none;background-color:#ffffe6;"></div></div>';
 
+
+//element2.style="border: none;background-color:#ffffe6;";
+
     //var hoved = element;//document.getElementById('hoved'); 
     //plott.innerHTML = innerHTML;
  
@@ -376,7 +379,7 @@ function PlottEnIstykkelse(data, plott, tobs, element2) {
 
     // Sett bredde
     //document.getElementById(plott.divId).style.width = wantedwidth + 'px';
-    //plott.style.width = wantedwidth + 'px';
+    plott.style.width = wantedwidth + 'px';
 
     // Tegn plottet
     $.jqplot.config.enablePlugins = true;

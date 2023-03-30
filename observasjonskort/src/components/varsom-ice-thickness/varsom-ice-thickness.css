@@ -8,5 +8,20 @@ span {
 
 div {
   margin: 1rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
+#hoved {
+  float:right;
+  clear:both;
+  border: 3px solid #fad5aa;
+  background-color:#ffffe6;
+  padding:2px 0px 2px 5px;
+  margin:10px 0px 0px 5px;
+}
+
+#icethicknessdiv {
+  border: none;
+  background-color:#ffffe6;
+}

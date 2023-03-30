@@ -30,16 +30,6 @@ componentDidRender(){
     
     return <div>
 
-{/* TODO: IMPLEMENT PICTURE */}
-
-<div id="hoved" ref={(el) => this.element = el as HTMLElement}>
-
-        <div id="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
-          </div>
-
-        </div>
-
-
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
       ></varsom-label>
@@ -114,6 +104,15 @@ componentDidRender(){
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+
+
+    <div id="hoved" ref={(el) => this.element = el as HTMLElement}>
+
+        <div id="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
+          </div>
+
+        </div>
+
 
     </div>
 
