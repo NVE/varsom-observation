@@ -1,7 +1,18 @@
-//import fetch from "node-fetch";     //needs to be included to test with Ponicode
+
+//import fetch from "node-fetch";  needs to be included to test with Ponicode
+
+//import './js/jquery-1.11.1.min.js';
+//import './js/jquery.jqplot.min.js';
+//import './js/jqplot.canvasOverlay.min.js';
+//import './js/jqplot.canvasTextRenderer.min.js';
+//import './js/jqplot.canvasAxisLabelRenderer.min.js';
+//import './js/istykkelse.js'
+import { CreatePlot } from './js/istykkelse.js';
 
 export function format(first: string, middle: string, last: string): string {
+  
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
+
 }
 
 
@@ -18,6 +29,15 @@ export async function getObservationFromApiById(id: string){
   let json = await response.json();
   return json[0]["RegId"];
   
+  }
+
+  export function generatePlotForIceThickness(elem: HTMLElement, elem2: HTMLElement){
+
+    //var element = '<div id="hoved"></div>'
+    //$("body").append(element);
+    var isTykkelseObj = [{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":3,"IceLayerName":"Sørpeis","IceLayerThickness":0.07},{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":5,"IceLayerName":"Vann/sørpe (mellomlag)","IceLayerThickness":0.25},{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":7,"IceLayerName":"Trolig sørpeis+stålis","IceLayerThickness":0.55}];        
+    CreatePlot(isTykkelseObj, elem, elem2);  
+            
   }
 
   export function getDangerTypeSvg(id: number){
@@ -166,5 +186,7 @@ export function getGeoHazardIdFromName(hazardName: string) {
       }
     }
   }
+
+  
 
 

@@ -1,11 +1,11 @@
 import { Component, Prop, h } from '@stencil/core';
+import { generatePlotForIceThickness } from '../../utils/utils';
 import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
-
 
 @Component({
   tag: 'varsom-ice-thickness',
   styleUrl: 'varsom-ice-thickness.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomIceThickness {
@@ -19,11 +19,26 @@ export class VarsomIceThickness {
   @Prop() IceHeightBefore: any;
   @Prop() IceHeightAfter: any;
 
+  element: HTMLElement;
+  element2: HTMLElement;
+
+componentDidRender(){
+  {generatePlotForIceThickness(this.element, this.element2)}
+}
 
   render(){
-    return <div> 
+    
+    return <div>
 
 {/* TODO: IMPLEMENT PICTURE */}
+
+<div id="hoved" ref={(el) => this.element = el as HTMLElement}>
+
+        <div id="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
+          </div>
+
+        </div>
+
 
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/plott-en-istykkelse-www-regobs-no.js"></script>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/jqplot.canvasOverlay.min.js"></script>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/jqplot.canvasTextRenderer.min.js"></script>
+    <script type="text/javascript" src="https://plot.regobs.no/v1/js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://plot.regobs.no/v1/css/jquery.jqplot.min.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
@@ -10,7 +17,16 @@
   </head>
   <body>
     <!--<varsom-observation regid="335184" language="en"></varsom-observation>-->
-    <varsom-observation type="Dirt" regid="337936" count=1 language="en"></varsom-observation>
+  
+    <varsom-observation type="Snow" regid="" count=5 language="en"></varsom-observation>
     
+  
+   <!--<script>
+     $(document).ready(function (){
+       var isTykkelseObj = [{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":3,"IceLayerName":"Sørpeis","IceLayerThickness":0.07},{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":5,"IceLayerName":"Vann/sørpe (mellomlag)","IceLayerThickness":0.25},{"RegID":338030,"DtObsTime":null,"ObsLocationID":3585,"LocationName":null,"SnowDepth":0.15,"SlushSnow":0.0,"IceThicknessSum":0.87,"IceHeightBefore":null,"IceHeightAfter":0.02,"IceLayerID":null,"IceLayerTID":7,"IceLayerName":"Trolig sørpeis+stålis","IceLayerThickness":0.55}];
+       CreatePlot(isTykkelseObj);
+     });
+   </script>
+  -->
   </body>
 </html>

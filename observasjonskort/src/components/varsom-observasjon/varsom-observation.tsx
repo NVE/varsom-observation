@@ -11,7 +11,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: true
+  shadow: false
 })
 export class VarsomObservation {
 
@@ -770,6 +770,8 @@ Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : n
 ></varsom-avalanche-evaluation>
 </div>
 : ""}
+
+
 
 {/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEvaluation2 ? 
