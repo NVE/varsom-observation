@@ -31,7 +31,7 @@ export class VarsomIceThickness {
   
 componentDidRender(){
 
-  //TODO sende med all data....
+
   {generatePlotForIceThickness(this.IceThicknessLayers, this.regId, this.element, this.element2, this.IceThicknessSum,
     this.ObsLocationId, this.LocationName, this.SlushSnow, this.IceHeightBefore, 
     this.IceHeightAfter, this.SnowDepth)}

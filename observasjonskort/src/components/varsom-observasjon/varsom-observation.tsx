@@ -165,7 +165,7 @@ export class VarsomObservation {
   
 
         //add attachments
-        for(let j = 0; j < 30; j++){  //max 30 attachments
+        for(let j = 0; j < 50; j++){  //max 50 attachments
           if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
             this.observations[i]._attachments.push({
               Url: data[i]["Attachments"][j]["Url"],
@@ -175,7 +175,7 @@ export class VarsomObservation {
               RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
               Copyright: data[i]["Attachments"][j]["Copyright"],
             })
-  
+  //TODO map attachment to model
             
         }
 
@@ -874,7 +874,7 @@ ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
 <varsom-label
-label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Fartegn"}
+label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Faretegn"}
 ></varsom-label> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{

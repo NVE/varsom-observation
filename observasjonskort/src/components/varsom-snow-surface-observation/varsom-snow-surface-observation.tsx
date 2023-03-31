@@ -107,15 +107,6 @@ export class VarsomSnowSurfaceObservation {
     : ""}
 </div>
 
-
-
-
-
-
-
-
-  {/* TODO implement image... */}    
-
     
     </div>
   }
