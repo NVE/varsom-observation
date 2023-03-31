@@ -11,6 +11,7 @@
 | -------------------- | ------------------- | ----------- | --------------------- | ----------- |
 | `Comment`            | `comment`           |             | `any`                 | `undefined` |
 | `DtObsTime`          | `dt-obs-time`       |             | `any`                 | `undefined` |
+| `HardCodedImg`       | `hard-coded-img`    |             | `any`                 | `undefined` |
 | `IceHeightAfter`     | `ice-height-after`  |             | `any`                 | `undefined` |
 | `IceHeightBefore`    | `ice-height-before` |             | `any`                 | `undefined` |
 | `IceThicknessLayers` | --                  |             | `IceThicknessLayer[]` | `undefined` |

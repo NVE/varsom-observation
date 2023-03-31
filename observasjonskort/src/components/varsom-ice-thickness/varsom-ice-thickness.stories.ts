@@ -11,6 +11,7 @@ snow-depth=${args.SnowDepth}
 slush-snow=${args.SlushSnow}
 ice-height-before=${args.IceHeightBefore}
 ice-height-after=${args.IceHeightAfter}
+hard-coded-img=${args.HardCodedImg}
 >
 </varsom-ice-thickness> `
 
@@ -22,6 +23,7 @@ VarsomIceThickness.args = {
     SlushSnow: "'0.23'",
     IceHeightBefore: "'0.1'",
     IceHeightAfter: "'0.2'",
-    IceThicknessSum: "'0.7'"
+    IceThicknessSum: "'0.7'",
+    HardCodedImg: 1
 
     }

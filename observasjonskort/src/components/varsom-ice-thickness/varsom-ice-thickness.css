@@ -25,3 +25,7 @@ div {
   border: none;
   background-color:#ffffe6;
 }
+
+img {
+  max-width: 8rem;
+}

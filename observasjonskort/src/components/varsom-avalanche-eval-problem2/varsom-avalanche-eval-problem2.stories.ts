@@ -14,6 +14,7 @@ destructive-size-ext-name=${args.DestructiveSizeExtName}
 aval-cause-name=${args.AvalCauseName}
 aval-cause-depth-name=${args.AvalCauseDepthName}
 aval-cause-attribute-light-tid=${args.AvalCauseAttributeLightTID} 
+valid-exposition=${args.ValidExposition} 
 >
 </varsom-avalanche-eval-problem2> `
 
@@ -30,5 +31,5 @@ VarsomAvalancheEvaluationProblem.args = {
         AvalCauseName: "'Nedføyket svakt lag med nysnø'",
         AvalCauseDepthName: "'Innen en halv meter'",
         AvalCauseAttributeLightTID: "'Det svake laget bryter både lett og glatt. Laget der bruddet skjer er tynt < 3 cm. Det overliggende laget er mykt. Stor, tydelig gjenkjennbar krystall i det svake laget.'",
-
+        ValidExposition: "00011100"
     }

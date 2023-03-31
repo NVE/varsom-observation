@@ -1,5 +1,4 @@
 
-
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalacheActivityObservation2',
 }
@@ -13,6 +12,7 @@ destructive-size-name=${args.DestructiveSizeName}
 aval-trigger-simple-name=${args.AvalTriggerSimpleName} 
 aval-propagation-tID=${args.AvalPropagationTID} 
 Comment=${args.Comment} 
+valid-exposition=${args.ValidExposition} 
 >
 </varsom-avalanche-activity-obs2> `
 
@@ -25,6 +25,6 @@ VarsomAvalancheActivityObservation2.args = {
         DestructiveSizeName: "'2 - Middels'",
         AvalTriggerSimpleName: "'Naturlig utløst'",
         AvalPropagationTID: "2",
-        Comment: "'ingen fersk skredaktivitet på strekningen Sørreisa-Bardufoss i dag'"
-
+        Comment: "'ingen fersk skredaktivitet på strekningen Sørreisa-Bardufoss i dag'",
+        ValidExposition: "00011100"
     }

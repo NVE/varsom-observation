@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath} from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
 import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
 
@@ -22,6 +22,7 @@ export class VarsomIceThickness {
   @Prop() ObsLocationId: any;
   @Prop() DtObsTime: any;
   @Prop() LocationName: any;
+  @Prop() HardCodedImg: any;
 
   element: HTMLElement;
   element2: HTMLElement;
@@ -118,6 +119,11 @@ componentDidRender(){
     ></varsom-key-value>
     :""}
 </div>
+
+{this.HardCodedImg ?
+  <div><img src={getAssetPath(`/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
+: ""}
+
 
     <div id="hoved" ref={(el) => this.element = el as HTMLElement}>
 

@@ -275,6 +275,7 @@ export namespace Components {
     interface VarsomIceThickness {
         "Comment": any;
         "DtObsTime": any;
+        "HardCodedImg": any;
         "IceHeightAfter": any;
         "IceHeightBefore": any;
         "IceThicknessLayers": IceThicknessLayer[];
@@ -1175,6 +1176,7 @@ declare namespace LocalJSX {
     interface VarsomIceThickness {
         "Comment"?: any;
         "DtObsTime"?: any;
+        "HardCodedImg"?: any;
         "IceHeightAfter"?: any;
         "IceHeightBefore"?: any;
         "IceThicknessLayers"?: IceThicknessLayer[];
