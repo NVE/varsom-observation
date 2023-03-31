@@ -110,13 +110,14 @@ componentDidRender(){
     :""}
 
 
+<div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.IceThickness.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-
+</div>
 
     <div id="hoved" ref={(el) => this.element = el as HTMLElement}>
 

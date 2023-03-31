@@ -19,12 +19,7 @@ export class VarsomSnowDensity {
   render(){
     return <div> 
 
-{this.Comment ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
+
 
 {this.CylinderDiameter ? 
     <varsom-key-value
@@ -40,6 +35,14 @@ export class VarsomSnowDensity {
     ></varsom-key-value>
     :""}
 
+<div>
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""}
+    </div>
 
 {this.Layers ? 
 <div>

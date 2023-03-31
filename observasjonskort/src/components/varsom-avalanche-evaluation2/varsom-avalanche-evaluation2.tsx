@@ -58,12 +58,14 @@ export class VarsomAvalancheEvaluation2 {
  </div>
 : ""}
 
+<div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+</div>
 
       {this.AvalancheEvalProblems ?
       <div>

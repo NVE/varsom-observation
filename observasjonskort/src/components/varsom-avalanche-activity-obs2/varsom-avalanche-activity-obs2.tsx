@@ -67,13 +67,14 @@ export class VarsomAvalancheActivityObs2 {
     <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     :""}  
 
+    <div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    
+    </div>
     
     </div>
   }

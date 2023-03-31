@@ -52,14 +52,14 @@ export class VarsomAvalancheEvalProblem2 {
 
     {this.AvalancheExtName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.AvalancheType : "Skredtype" }
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheType : "Skredtype" }
     _value={this.AvalancheExtName}
     ></varsom-key-value>
     :""}
 
     {this.AvalPropagationName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.Propagation : "Utbredelse" }
+    _key={this.strings ? this.strings.Observations.AvalancheProblem.Propagation : "Utbredelse" }
     _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
@@ -107,14 +107,14 @@ export class VarsomAvalancheEvalProblem2 {
     <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     : ""}
 
-
+    <div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-
+    </div>
     
     </div>
   }

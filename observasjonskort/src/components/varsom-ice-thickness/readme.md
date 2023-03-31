@@ -10,10 +10,13 @@
 | Property             | Attribute           | Description | Type                  | Default     |
 | -------------------- | ------------------- | ----------- | --------------------- | ----------- |
 | `Comment`            | `comment`           |             | `any`                 | `undefined` |
+| `DtObsTime`          | `dt-obs-time`       |             | `any`                 | `undefined` |
 | `IceHeightAfter`     | `ice-height-after`  |             | `any`                 | `undefined` |
 | `IceHeightBefore`    | `ice-height-before` |             | `any`                 | `undefined` |
 | `IceThicknessLayers` | --                  |             | `IceThicknessLayer[]` | `undefined` |
 | `IceThicknessSum`    | `ice-thickness-sum` |             | `any`                 | `undefined` |
+| `LocationName`       | `location-name`     |             | `any`                 | `undefined` |
+| `ObsLocationId`      | `obs-location-id`   |             | `any`                 | `undefined` |
 | `SlushSnow`          | `slush-snow`        |             | `any`                 | `undefined` |
 | `SnowDepth`          | `snow-depth`        |             | `any`                 | `undefined` |
 | `regId`              | `reg-id`            |             | `any`                 | `undefined` |

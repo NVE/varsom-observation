@@ -34,27 +34,6 @@ export class VarsomAttachment {
       </div>
       : ""} 
 
-    {this.RegistrationName ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.RegistrationTID : "Bilde av" }
-    _value={this.RegistrationName}
-    ></varsom-key-value>
-    :""}
-
-    {this.GeoHazardName ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.geoHazardName : "Faretype" }
-    _value={this.GeoHazardName}
-    ></varsom-key-value>
-    :""}
-
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
-
     {this.Photographer ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
@@ -69,13 +48,15 @@ export class VarsomAttachment {
     ></varsom-key-value>
     :""}
 
-    {this.Aspect ? 
+<div>
+{this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Aspect : "Himmelretning" }
-    _value={this.Aspect}
+    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
+    _value={this.Comment}
     ></varsom-key-value>
     :""}
-      
+     </div>
+
     </div>
   }
     

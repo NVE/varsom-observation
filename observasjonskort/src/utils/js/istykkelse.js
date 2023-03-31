@@ -846,7 +846,7 @@ function BeregnIshoyde(islag) {
 
     var masse = 0;
     var tdensity;
-    for (j = 0; j < islag.length; j++) {
+    for (let j = 0; j < islag.length; j++) {
         // tetthet for dette laget
         if (islag[j].istype == 900 || islag[j].istype == 5 || islag[j].istype == 9 || islag[j].istype == 14) {
             // sørpe eller sarr eller stavis. Isen og sørpen er full av tungt vann.

@@ -69,13 +69,14 @@ export class VarsomSnowProfile {
     ></varsom-key-value>
     :""}
 
+<div>
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Snowprofile.Url: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-
+</div>
 
     </div>
 
