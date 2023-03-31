@@ -30,7 +30,7 @@ export class VarsomCompressionTest {
 
   render(){
     return <div> 
-{/* TODO: se regobs-kode for visning av tabell.... */ }
+{/* TODO: se regobs-kode for visning av tabell.... */ } 
     
     {this.PropagationName ? 
     <varsom-key-value
@@ -54,7 +54,7 @@ export class VarsomCompressionTest {
     ></varsom-key-value>
     :""}
     </div>
-    
+
     </div>
   }
     
