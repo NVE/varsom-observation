@@ -514,7 +514,8 @@ export type Observation = {
     Exposition: number, // integer($int32)
     SlopeAngle: number, // integer($int32)
     SnowTemp:	SnowTemp,
-    SnowDensity: SnowDensity[]
+    SnowDensity: SnowDensity[],
+    ImageUrl?: string
   
    }
 

@@ -152,7 +152,17 @@ export class VarsomObservation {
         _dtObsTime: data[i]["DtObsTime"]
         }          
      );
-
+     
+    
+     //add imageUrl for snowProile2
+     for (let i = 0; i < this.observations.length; i ++){
+      for (let j = 0; j < data[i]["Summaries"].length; j ++){
+        if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
+            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
+        }
+      }
+     }
+  
 
         //add attachments
         for(let j = 0; j < 30; j++){  //max 30 attachments
@@ -854,6 +864,7 @@ Exposition={obs._snowProfile2.Exposition ? obs._snowProfile2.Exposition : null}
 SlopeAngle={obs._snowProfile2.SlopeAngle ? obs._snowProfile2.SlopeAngle : null}
 SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
 SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
+ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
 ></varsom-snow-profile2>
 :""}
 

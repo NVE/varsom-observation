@@ -465,6 +465,7 @@ export namespace Components {
     interface VarsomSnowProfile2 {
         "Comment": any;
         "Exposition": any;
+        "ImageUrl": any;
         "IsProfileToGround": any;
         "SlopeAngle": any;
         "SnowDensity": SnowDensity[];
@@ -1364,6 +1365,7 @@ declare namespace LocalJSX {
     interface VarsomSnowProfile2 {
         "Comment"?: any;
         "Exposition"?: any;
+        "ImageUrl"?: any;
         "IsProfileToGround"?: any;
         "SlopeAngle"?: any;
         "SnowDensity"?: SnowDensity[];

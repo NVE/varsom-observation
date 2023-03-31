@@ -18,13 +18,14 @@ export class VarsomSnowProfile2 {
   @Prop() Exposition: any;
   @Prop() SlopeAngle: any;
   @Prop() SnowTemp: any;
+  @Prop() ImageUrl: any;
   @Prop() SnowDensity: SnowDensity[];
 
 
   render(){
     return <div> 
 
-{/**TODO: IMPLEMENT PICTURE */}
+
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
@@ -39,6 +40,11 @@ export class VarsomSnowProfile2 {
     :""}
     </div>
     
+  
+{this.ImageUrl ?
+ <img src={this.ImageUrl}></img>
+ : ""}
+
 {this.SnowDensity ? 
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
