@@ -16,7 +16,8 @@ VarsomIceThicknessLayer.args = {
 
     Comment: "'Kommentar...'",
     IceLayerName: "Sørpeis",
-    IceLayerThickness: 0.26
+    IceLayerThickness: 0.26,
+    
 
 
     }
