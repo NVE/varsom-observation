@@ -31,10 +31,6 @@ export class VarsomAvalancheEvaluation2 {
   render(){
     return <div> 
 
-
-{/* TODO: IMPLEMENT DIAGRAM */ }
-
-
     {this.AvalancheEvaluation ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.ObsName : "Skredfareurdering" }
@@ -49,10 +45,10 @@ export class VarsomAvalancheEvaluation2 {
     ></varsom-key-value>
     :""}
 
-{/** todo translate... */}
+
 {this.AvalancheDangerTID ? 
 <div>
-  <p>Faregrad</p>
+  <p>{this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID : "Faregrad"}</p>
   
 <span><img src={getAssetPath(`/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 1 Liten</span> 
  </div>

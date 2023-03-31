@@ -42,8 +42,6 @@ export class VarsomAvalancheObs {
   render(){
     return <div> 
 
-      {/* TODO IMPLEMENT MAP and translation for start/stop*/}
-
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
       ></varsom-label>
@@ -125,14 +123,13 @@ export class VarsomAvalancheObs {
     ></varsom-key-value>
     :""}
 
-    {/* TODO REMOTELY TRIGGERED YES/NO */}
-
-    {this.ValidExposition ? 
+    {this.RemotelyTriggered? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.ValidExposition : "Eksposisjon" }
-    _value={this.ValidExposition}
+    _key="Remotely triggered?"
+    _value={this.RemotelyTriggered == true ? "Was remotely triggered" : "No"}
     ></varsom-key-value>
     :""}
+
 
 <div>
     {this.Comment ? 

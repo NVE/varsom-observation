@@ -205,7 +205,7 @@ export class VarsomObservation {
               DestructiveSizeTID: data[i]["AvalancheActivityObs2"][j]["DestructiveSizeTID"],
               AvalPropagationTID: data[i]["AvalancheActivityObs2"][j]["AvalPropagationTID"],
               Comment: data[i]["AvalancheActivityObs2"][j]["Comment"]
-            
+              
       
             
             })

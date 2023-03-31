@@ -46,23 +46,25 @@ export class VarsomAvalancheActivityObs2 {
     </div>
       : ""} 
 
-
+<div>
     {this.EstimatedNumTID ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall, størrelse og skredutløser" }
-    _value={this.EstimatedNumName ? this.EstimatedNumName + ". " : "" +
-    this.DestructiveSizeName ? this.DestructiveSizeName + ". " : "" + 
-    this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : ""}
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : "Antall, størrelse og skredutløser" }
+    _value={(this.EstimatedNumName ? (this.EstimatedNumName + ". ") : "" )+ 
+    (this.DestructiveSizeName ? (this.DestructiveSizeName + ". ") : "" ) + 
+    (this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : "")}
     ></varsom-key-value>
     :""}
+ </div>
  
-    {this.AvalPropagationTID ? 
+    {this.AvalPropagationTID? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheProblem : "Utbredelse" }
-    _value={this.AvalPropagationTID}
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.Prevalence : "Utbredelse" }
+    _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
     
+
     {this.ValidExposition ? 
     <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     :""}  
