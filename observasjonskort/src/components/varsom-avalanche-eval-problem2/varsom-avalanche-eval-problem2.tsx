@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -66,7 +66,7 @@ export class VarsomAvalancheEvalProblem2 {
   
     {this.AvalCauseAttributeLightTID ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseAttributeLightTID : "Ugunstige egenskaper på det svake laget" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID : "Ugunstige egenskaper på det svake laget" }
     _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName + ". " : "" + 
     this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName + ". " : "" +
     this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName + ". " : "" + 
@@ -77,45 +77,44 @@ export class VarsomAvalancheEvalProblem2 {
 
     {this.AvalCauseDepthName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID : "Avstand fra overflaten til det svake laget" }
     _value={this.AvalCauseDepthName}
     ></varsom-key-value>
     :""}
 
     {this.AvalProbabilityName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem2.AvalProbabilityTID : "Sannsynlighet for skred" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID : "Sannsynlighet for skred" }
     _value={this.AvalProbabilityName}
     ></varsom-key-value>
     :""}
 
     {this.AvalTriggerSimpleName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalTriggerSimpleTID : "Sannsynlighet for å løse ut skred" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID : "Sannsynlighet for å løse ut skred" }
     _value={this.AvalTriggerSimpleName}
     ></varsom-key-value>
     :""}
 
     {this.DestructiveSizeName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem2.DestructiveSizeTID : "Størrelse på forventet skred" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID : "Størrelse på forventet skred" }
     _value={this.DestructiveSizeName}
     ></varsom-key-value>
     :""}
 
+    {this.ValidExposition ? 
+    <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
+    : ""}
 
+    <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.Comment : "Kommentar" }
+    _key={this.strings ? this.strings.Observations.AvalancheEvalProblem2.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-
-
-
-
-  {/* TODO IMPLEMENT ICONS */}    
-
+    </div>
     
     </div>
   }

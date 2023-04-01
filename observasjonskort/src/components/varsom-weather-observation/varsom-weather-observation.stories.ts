@@ -20,7 +20,7 @@ VarsomWeatherObservation.args = {
     Comment: "'mye vind'",
     CloudCover: "mye skyer",
     WindDirection: "østlig",
-    WindSpeed: "'3 m/s'",
+    WindSpeed: 3,
     AirTemperature: 26,
     PrecipitationName: "vindkast"
 

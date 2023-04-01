@@ -17,6 +17,8 @@ trajectory=${args.Trajectory}
 dt-avalanche-time=${args.DtAvalancheTime}
 valid-exposition=${args.ValidExposition}
 comment=${args.Comment}
+start-lat=${args.StartLat}
+stop-lat=${args.StopLat}
 >
 </varsom-avalanche-obs> `
 
@@ -33,7 +35,9 @@ VarsomAvalancheObservation.args = {
         TerrainStartZoneName: "'Brattheng'",
         Trajectory: "'Utladøla'",
         ValidExposition: "'SØ-S-SV'",
-        Comment: "'Maksimal hastighet ble målt til ca. 14,3 m/s, og skredet varte i ca. 38,2 sekunder. Skredet er automatisk detektert, og egenskaper og koordinater er estimert'"
+        Comment: "'Maksimal hastighet ble målt til ca. 14,3 m/s, og skredet varte i ca. 38,2 sekunder. Skredet er automatisk detektert, og egenskaper og koordinater er estimert'",
+        StartLat: 1,
+        StopLat: 1
 
         
     }

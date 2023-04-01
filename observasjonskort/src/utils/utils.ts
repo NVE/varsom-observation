@@ -1,7 +1,19 @@
-//import fetch from "node-fetch";     //needs to be included to test with Ponicode
+
+//import fetch from "node-fetch";  needs to be included to test with Ponicode
+
+//import './js/jquery-1.11.1.min.js';
+//import './js/jquery.jqplot.min.js';
+//import './js/jqplot.canvasOverlay.min.js';
+//import './js/jqplot.canvasTextRenderer.min.js';
+//import './js/jqplot.canvasAxisLabelRenderer.min.js';
+//import './js/istykkelse.js'
+import { IceThicknessLayer } from '../components/varsom-observasjon/observation-model.js';
+import { CreatePlot } from './js/istykkelse.js';
 
 export function format(first: string, middle: string, last: string): string {
+  
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
+
 }
 
 
@@ -18,6 +30,40 @@ export async function getObservationFromApiById(id: string){
   let json = await response.json();
   return json[0]["RegId"];
   
+  }
+
+  
+  export function generatePlotForIceThickness(iceThicknessLayers: IceThicknessLayer[], regId:number, elem: HTMLElement, elem2: HTMLElement,
+    iceThicknessSum, obsLocationId: number, locationName: string, 
+    slushSnow: number, IceHeightBefore: number, IceHeightAfter: number, snowDepth: number){
+
+      var iceThickness = [];
+    for(let i = 0; i < iceThicknessLayers.length; i++){
+      iceThickness.push({"RegID":regId,"DtObsTime":null,"ObsLocationID":obsLocationId,"LocationName":locationName,"SnowDepth":snowDepth,"SlushSnow":slushSnow,"IceThicknessSum":iceThicknessSum,"IceHeightBefore":IceHeightBefore,"IceHeightAfter":IceHeightAfter,"IceLayerID":null,"IceLayerTID":iceThicknessLayers[i].IceLayerTID,"IceLayerName": iceThicknessLayers[i].IceLayerName,"IceLayerThickness":iceThicknessLayers[i].IceLayerThickness})
+    }
+  
+    CreatePlot(iceThickness, elem, elem2);  
+            
+  }
+
+  export function getDangerTypeSvg(id: number){
+    switch(id){
+      case 1: {
+        return "Dry-Snow-1-EAWS.svg";
+      }
+      case 2: {
+        return "Dry-Snow-2-EAWS.svg";
+      }
+      case 3: {
+        return "Dry-Snow-3-EAWS.svg";
+      }
+      case 4: case 5: {
+        return "Dry-Snow-4-5-EAWS.svg";
+      }
+      default: {
+        return "No-Rating-EAWS.svg";
+      }
+    }
   }
 
   export function getIconName(name: string){
@@ -146,5 +192,7 @@ export function getGeoHazardIdFromName(hazardName: string) {
       }
     }
   }
+
+  
 
 

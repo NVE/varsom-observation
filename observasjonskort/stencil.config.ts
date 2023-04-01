@@ -33,7 +33,15 @@ export const config: Config = {
       {
         src: "**/*.jpg",
         dest: "pictures"
-      }
+      },
+      {
+        src: "**/ext/*.svg",
+        dest: "svg"
+      },
+      {
+        src: "**/avalanche/*.svg",
+        dest: "svg"
+      }      
     ],
       
       serviceWorker: null, // disable service workers

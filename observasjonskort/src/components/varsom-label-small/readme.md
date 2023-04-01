@@ -19,7 +19,6 @@
  - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
  - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
  - [varsom-general-observation](../varsom-general-observation)
- - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-water-level](../varsom-water-level)
  - [varsom-water-level2](../varsom-water-level2)
  - [varsom-water-measurement](../varsom-water-measurement)
@@ -30,7 +29,6 @@ graph TD;
   varsom-avalanche-eval-problem --> varsom-label-small
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-general-observation --> varsom-label-small
-  varsom-snow-profile2 --> varsom-label-small
   varsom-water-level --> varsom-label-small
   varsom-water-level2 --> varsom-label-small
   varsom-water-measurement --> varsom-label-small

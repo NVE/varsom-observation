@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -46,33 +46,37 @@ export class VarsomAvalancheActivityObs2 {
     </div>
       : ""} 
 
-
+<div>
     {this.EstimatedNumTID ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall, størrelse og skredutløser" }
-    _value={this.EstimatedNumName ? this.EstimatedNumName + ". " : "" +
-    this.DestructiveSizeName ? this.DestructiveSizeName + ". " : "" + 
-    this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : ""}
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : "Antall, størrelse og skredutløser" }
+    _value={(this.EstimatedNumName ? (this.EstimatedNumName + ". ") : "" )+ 
+    (this.DestructiveSizeName ? (this.DestructiveSizeName + ". ") : "" ) + 
+    (this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : "")}
     ></varsom-key-value>
     :""}
+ </div>
  
-    {this.AvalPropagationTID ? 
+    {this.AvalPropagationTID? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheProblem : "Utbredelse" }
-    _value={this.AvalPropagationTID}
+    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.Prevalence : "Utbredelse" }
+    _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
     
-    {/* TODO: IMPLEMENT SVG IMAGE */}
-      
 
+    {this.ValidExposition ? 
+    <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
+    :""}  
+
+    <div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    
+    </div>
     
     </div>
   }

@@ -274,12 +274,17 @@ export namespace Components {
     }
     interface VarsomIceThickness {
         "Comment": any;
+        "DtObsTime": any;
+        "HardCodedImg": any;
         "IceHeightAfter": any;
         "IceHeightBefore": any;
         "IceThicknessLayers": IceThicknessLayer[];
         "IceThicknessSum": any;
+        "LocationName": any;
+        "ObsLocationId": any;
         "SlushSnow": any;
         "SnowDepth": any;
+        "regId": any;
         "strings": any;
     }
     interface VarsomIceThicknessLayer {
@@ -461,6 +466,7 @@ export namespace Components {
     interface VarsomSnowProfile2 {
         "Comment": any;
         "Exposition": any;
+        "ImageUrl": any;
         "IsProfileToGround": any;
         "SlopeAngle": any;
         "SnowDensity": SnowDensity[];
@@ -1169,12 +1175,17 @@ declare namespace LocalJSX {
     }
     interface VarsomIceThickness {
         "Comment"?: any;
+        "DtObsTime"?: any;
+        "HardCodedImg"?: any;
         "IceHeightAfter"?: any;
         "IceHeightBefore"?: any;
         "IceThicknessLayers"?: IceThicknessLayer[];
         "IceThicknessSum"?: any;
+        "LocationName"?: any;
+        "ObsLocationId"?: any;
         "SlushSnow"?: any;
         "SnowDepth"?: any;
+        "regId"?: any;
         "strings"?: any;
     }
     interface VarsomIceThicknessLayer {
@@ -1356,6 +1367,7 @@ declare namespace LocalJSX {
     interface VarsomSnowProfile2 {
         "Comment"?: any;
         "Exposition"?: any;
+        "ImageUrl"?: any;
         "IsProfileToGround"?: any;
         "SlopeAngle"?: any;
         "SnowDensity"?: SnowDensity[];

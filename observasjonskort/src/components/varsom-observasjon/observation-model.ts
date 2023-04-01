@@ -52,7 +52,8 @@ export type Observation = {
   _avalancheEvaluation2?: AvalancheEvaluation2,
   _snowCoverObs?: SnowCoverObs,
   _waterLevel?: WaterLevel,
-  _images?: Image[]
+  _images?: Image[],
+  _dtObsTime?: string
   };
 
       {/* can't find this in api... */ }
@@ -513,7 +514,8 @@ export type Observation = {
     Exposition: number, // integer($int32)
     SlopeAngle: number, // integer($int32)
     SnowTemp:	SnowTemp,
-    SnowDensity: SnowDensity[]
+    SnowDensity: SnowDensity[],
+    ImageUrl?: string
   
    }
 

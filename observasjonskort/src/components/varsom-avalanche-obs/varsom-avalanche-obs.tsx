@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
 
 
 @Component({
@@ -42,11 +42,21 @@ export class VarsomAvalancheObs {
   render(){
     return <div> 
 
-      {/* TODO IMPLEMENT MAP */}
+    <varsom-label
+      label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
+      ></varsom-label>
 
-    <div class="header">
-    {this.strings ? this.strings.AvalancheObs.ObsName : "Skredhendelse"}  
-    </div>
+<div>
+    {this.StartLat ? 
+    <span><img src={getAssetPath(`/assets/icons/skred-startposisjon.svg`)}>
+      </img>Skredet startet her</span> 
+    : ""}
+
+    {this.StopLat ? 
+    <span><img src={getAssetPath(`/assets/icons/skred-stopposisjon.svg`)}>
+      </img>Skredet stoppet her</span> 
+    : ""}
+ </div>
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
@@ -113,22 +123,22 @@ export class VarsomAvalancheObs {
     ></varsom-key-value>
     :""}
 
-    {/* TODO REMOTELY TRIGGERED YES/NO */}
-
-    {this.ValidExposition ? 
+    {this.RemotelyTriggered? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.ValidExposition : "Eksposisjon" }
-    _value={this.ValidExposition}
+    _key="Remotely triggered?"
+    _value={this.RemotelyTriggered == true ? "Was remotely triggered" : "No"}
     ></varsom-key-value>
     :""}
 
+
+<div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    
+    </div>
 
     </div>
   }

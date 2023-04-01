@@ -98,22 +98,14 @@ export class VarsomSnowSurfaceObservation {
     ></varsom-key-value>
     : ""}
 
+    <div>
 {this.Comment ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     : ""}
-
-
-
-
-
-
-
-
-
-  {/* TODO implement image... */}    
+</div>
 
     
     </div>

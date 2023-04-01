@@ -1,11 +1,11 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath} from '@stencil/core';
+import { generatePlotForIceThickness } from '../../utils/utils';
 import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
-
 
 @Component({
   tag: 'varsom-ice-thickness',
   styleUrl: 'varsom-ice-thickness.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomIceThickness {
@@ -18,12 +18,30 @@ export class VarsomIceThickness {
   @Prop() IceThicknessSum: any;
   @Prop() IceHeightBefore: any;
   @Prop() IceHeightAfter: any;
+  @Prop() regId: any;
+  @Prop() ObsLocationId: any;
+  @Prop() DtObsTime: any;
+  @Prop() LocationName: any;
+  @Prop() HardCodedImg: any;
 
+  element: HTMLElement;
+  element2: HTMLElement;
+
+
+  
+componentDidRender(){
+
+
+  {generatePlotForIceThickness(this.IceThicknessLayers, this.regId, this.element, this.element2, this.IceThicknessSum,
+    this.ObsLocationId, this.LocationName, this.SlushSnow, this.IceHeightBefore, 
+    this.IceHeightAfter, this.SnowDepth)}
+
+    
+}
 
   render(){
-    return <div> 
-
-{/* TODO: IMPLEMENT PICTURE */}
+    
+    return <div>
 
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
@@ -93,12 +111,27 @@ export class VarsomIceThickness {
     :""}
 
 
+<div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.IceThickness.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+</div>
+
+{this.HardCodedImg ?
+  <div><img src={getAssetPath(`/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
+: ""}
+
+
+    <div id="hoved" ref={(el) => this.element = el as HTMLElement}>
+
+        <div id="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
+          </div>
+
+        </div>
+
 
     </div>
 

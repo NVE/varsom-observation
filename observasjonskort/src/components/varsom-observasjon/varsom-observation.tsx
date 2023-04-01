@@ -11,7 +11,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: true
+  shadow: false
 })
 export class VarsomObservation {
 
@@ -149,12 +149,23 @@ export class VarsomObservation {
         _avalancheEvaluation2: data[i]["AvalancheEvaluation2"],
         _snowCoverObs: data[i]["SnowCoverObs"],
         _waterLevel: data[i]["WaterLevel"],  
+        _dtObsTime: data[i]["DtObsTime"]
         }          
      );
-
+     
+    
+     //add imageUrl for snowProile2
+     for (let i = 0; i < this.observations.length; i ++){
+      for (let j = 0; j < data[i]["Summaries"].length; j ++){
+        if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
+            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
+        }
+      }
+     }
+  
 
         //add attachments
-        for(let j = 0; j < 30; j++){  //max 30 attachments
+        for(let j = 0; j < 50; j++){  //max 50 attachments
           if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
             this.observations[i]._attachments.push({
               Url: data[i]["Attachments"][j]["Url"],
@@ -164,7 +175,7 @@ export class VarsomObservation {
               RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
               Copyright: data[i]["Attachments"][j]["Copyright"],
             })
-  
+  //TODO map attachment to model
             
         }
 
@@ -194,7 +205,7 @@ export class VarsomObservation {
               DestructiveSizeTID: data[i]["AvalancheActivityObs2"][j]["DestructiveSizeTID"],
               AvalPropagationTID: data[i]["AvalancheActivityObs2"][j]["AvalPropagationTID"],
               Comment: data[i]["AvalancheActivityObs2"][j]["Comment"]
-            
+              
       
             
             })
@@ -587,7 +598,9 @@ MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._water
 
 {obs._waterLevel ? 
 <div>
-<div class="header">{this.strings.Observations.WaterLevel2.WaterMeasurement}</div>
+<varsom-label
+label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Water measurement"}> 
+</varsom-label>
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-water-measurement
   strings={this.strings}
@@ -603,6 +616,10 @@ MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._water
 {obs._iceThickness ? 
 <varsom-ice-thickness
 strings={this.strings}
+regId={this.regid}
+ObsLocationId={obs._obsLocation.ObsLocationId}
+DtObsTime={obs._dtObsTime}
+LocationName={obs._obsLocation.LocationName}
 Comment={obs._iceThickness.Comment ? obs._iceThickness.Comment : null}
 IceThicknessLayers={obs._iceThickness.IceThicknessLayers ? obs._iceThickness.IceThicknessLayers : null}
 SnowDepth={obs._iceThickness.SnowDepth ? obs._iceThickness.SnowDepth : null}
@@ -689,7 +706,10 @@ AvalancheProbabilityAutoText={el.AvalancheProbabilityAutoText ? el.AvalancheProb
 
 {/* AVALANCHE EVAL PROBLEM 2 */}
 {obs._avalancheEvalProblem2.length > 0 ? 
-<div class="header">{this.strings.Observations.AvalancheEvalProblem2.ObsName}</div> : ""}
+  <varsom-label
+label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : "Skreproblem"}> 
+</varsom-label>
+: ""}
 
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
 return <varsom-avalanche-eval-problem2
@@ -766,6 +786,8 @@ Comment={obs._avalancheEvaluation.Comment ? obs._avalancheEvaluation.Comment : n
 </div>
 : ""}
 
+
+
 {/* AVALANCE EVALUATION 3*/}
 {obs._avalancheEvaluation2 ? 
 <div>
@@ -800,6 +822,7 @@ avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avala
 avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
 forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEvaluation3.forecastComment : null}
 AvalancheDangerName={obs._avalancheEvaluation3.AvalancheDangerName ? obs._avalancheEvaluation3.AvalancheDangerName : null}
+AvalancheDangerTID={obs._avalancheEvaluation3.AvalancheDangerTID ? obs._avalancheEvaluation3.AvalancheDangerTID : null}
 ForecastCorrectName={obs._avalancheEvaluation3.ForecastCorrectName ? obs._avalancheEvaluation3.ForecastCorrectName : null}
 ForecastCorrectTID={obs._avalancheEvaluation3.ForecastCorrectTID ? obs._avalancheEvaluation3.ForecastCorrectTID : null}
 
@@ -841,6 +864,7 @@ Exposition={obs._snowProfile2.Exposition ? obs._snowProfile2.Exposition : null}
 SlopeAngle={obs._snowProfile2.SlopeAngle ? obs._snowProfile2.SlopeAngle : null}
 SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
 SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
+ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
 ></varsom-snow-profile2>
 :""}
 
@@ -850,7 +874,7 @@ SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : nul
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
 <varsom-label
-label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Fartegn"}
+label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : "Faretegn"}
 ></varsom-label> : "" }
 
 {obs._dangerObs.map((el: DangerObs = {}) =>{

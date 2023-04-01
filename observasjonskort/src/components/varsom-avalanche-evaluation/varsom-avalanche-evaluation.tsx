@@ -1,4 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { getDangerTypeSvg } from '../../utils/utils';
 
 @Component({
   tag: 'varsom-avalanche-evaluation',
@@ -30,8 +31,6 @@ export class VarsomAvalancheEvaluation {
   render(){
     return <div> 
 
-      {/* TODO: GENERATE ICON/PLOT*/ }
-
 
     {this.AvalancheEvaluation1 ? 
     <varsom-key-value
@@ -40,13 +39,22 @@ export class VarsomAvalancheEvaluation {
     ></varsom-key-value>
     :""}
 
+{this.AvalancheDangerTID ? 
+<div>
+  <p>{this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID : "Faregrad"}</p>
+  
+<span><img src={getAssetPath(`/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 1 Liten</span> 
+ </div>
+: ""}
+
+<div>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvaluation.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-
+</div>
 
 
 

@@ -61,9 +61,9 @@ export class VarsomStratProfileLayer {
       {this.CriticalLayerTName + ", "}
     </span> : "" }
 
-    {this.Comment ? <span>
+    {this.Comment ? <div>
       {this.Comment}
-    </span> : "" }
+    </div> : "" }
 
     </span>
   }
