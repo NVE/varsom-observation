@@ -616,7 +616,7 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
 {obs._iceThickness ? 
 <varsom-ice-thickness
 strings={this.strings}
-regId={this.regid}
+regId={obs._regId}
 ObsLocationId={obs._obsLocation.ObsLocationId}
 DtObsTime={obs._dtObsTime}
 LocationName={obs._obsLocation.LocationName}

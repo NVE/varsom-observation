@@ -124,10 +124,9 @@ componentDidRender(){
   <div><img src={getAssetPath(`/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
 : ""}
 
+    <div id={this.regId + "12345"} class="hoved" ref={(el) => this.element = el as HTMLElement}>
 
-    <div id="hoved" ref={(el) => this.element = el as HTMLElement}>
-
-        <div id="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
+        <div id={this.regId + "98765"} class="icethicknessdiv" ref={(el2) => this.element2 = el2 as HTMLElement}>
           </div>
 
         </div>
