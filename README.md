@@ -15,7 +15,7 @@
 Storybook can be used to test and demonstrate the component and each child component, using different inputs (props).
 To run storbybook, you must first build the project. Run:
 1. npm run build
-2. npm run storybook
+2. npm run storybook (you may have to run "$env:NODE_OPTIONS = "--openssl-legacy-provider") first.
 
 The prop "count" in the main component "varsom-observation" must be set to 1 if a regId is set.
 
