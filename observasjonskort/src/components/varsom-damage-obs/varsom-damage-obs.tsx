@@ -10,7 +10,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 })
 export class VarsomDamageObs {
 
-   @Prop() strings: any;
+  @Prop() strings: any;
   // @Prop() comment: any;
   // @Prop() dangerSignName: any;
   // @Prop() registrationName: any;
@@ -29,7 +29,13 @@ export class VarsomDamageObs {
   render(){
      return <div> 
 
-  
+    
+
+       {this.comment ? 
+      <span>
+       <label>{this.strings.Observations.GeneralObservation.Comment}: </label>
+      {this.comment}
+      </span> : ""}
      
     
 
@@ -39,9 +45,17 @@ export class VarsomDamageObs {
             return <varsom-attachment
             strings={this.strings}
             AttachmentId={el.AttachmentId ? el.AttachmentId : null}
-           
-           
+            GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
+            RegistrationName={el.RegistrationName ? el.RegistrationName : null}
+            Url={el.Url ? el.Url : null}
+            Photographer={el.Photographer ? el.Photographer : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            Aspect={el.Aspect ? el.Aspect : null}
+            GeoHazardTID={el.GeoHazardTID ? el.GeoHazardTID : null}
+            RegistrationTID={el.RegistrationTID ? el.RegistrationTID : null}
             Comment={el.Comment ? el.Comment : null}
+            AttachmentMimeType={el.AttachmentMimeType ? el.AttachmentMimeType : null}
+            IsMainAttachment={el.IsMainAttachment ? el.IsMainAttachment : null}
 
             >
 
@@ -51,3 +65,13 @@ export class VarsomDamageObs {
 }
 </div> : ""}
 </div> }}
+
+//     {this.attachments.map((el: Attachment = {}) =>{
+//       return <varsom-attachment
+//       strings={this.strings}
+//       AttachmentId={el.AttachmentId ? el.AttachmentId : null}>
+
+//       </varsom-attachment>
+
+// })
+// }}}
