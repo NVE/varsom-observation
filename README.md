@@ -9,6 +9,7 @@
 4. Install packages (npm install)
 
 ### Test locally
+Type "cd .\observasjonskort\ "
 Run npm start. 
 Change input(props) in index.html to see how the component change
 
