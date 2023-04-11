@@ -6,12 +6,10 @@
 1. Install node.js v18.13.0 or newer
 2. Install Visual Studio Code
 3. Clone repo (https://github.com/NVE/observasjonskort.git)
-4. Install packages (npm install)
-
-### Test locally
-Type "cd .\observasjonskort\ "
-Run npm start. 
-Change input(props) in index.html to see how the component change
+4. Open terminal and run "cd .\observasjonskort\"
+5. Install jquery: "npm install @types/jquery@latest"
+6. Install packages: "npm install"
+7. Test locally with "npm start"
 
 ### Storybook
 Storybook can be used to test and demonstrate the component and each child component, using different inputs (props).
