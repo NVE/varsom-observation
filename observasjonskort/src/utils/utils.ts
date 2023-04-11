@@ -1,5 +1,5 @@
 
-//import fetch from "node-fetch";  needs to be included to test with Ponicode
+//import fetch from "node-fetch";  //needs to be included to test with Ponicode
 
 //import './js/jquery-1.11.1.min.js';
 //import './js/jquery.jqplot.min.js';
