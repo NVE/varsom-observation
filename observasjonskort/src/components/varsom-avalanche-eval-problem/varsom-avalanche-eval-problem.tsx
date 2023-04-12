@@ -32,7 +32,7 @@ export class VarsomAvalancheEvalProblem {
   
 
   render(){
-    return <div> 
+    return <div class="parent"> 
 
     {this.AvalCauseName ? 
     <varsom-label-small

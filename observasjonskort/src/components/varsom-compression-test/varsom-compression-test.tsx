@@ -29,7 +29,7 @@ export class VarsomCompressionTest {
 
 
   render(){
-    return <div> 
+    return <div class="parent"> 
 {/* TODO: se regobs-kode for visning av tabell.... */ } 
     
     {this.PropagationName ? 

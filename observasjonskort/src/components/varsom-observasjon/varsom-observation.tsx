@@ -963,7 +963,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
   SnowDriftTID={obs._snowSurfaceObservation.SnowDriftTID ? obs._snowSurfaceObservation.SnowDriftTID : null}
   SnowSurfaceTID={obs._snowSurfaceObservation.SnowSurfaceTID ? obs._snowSurfaceObservation.SnowSurfaceTID : null}
   Comment={obs._snowSurfaceObservation.Comment ? obs._snowSurfaceObservation.Comment : null}
-  HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs.HeightLimitLayeredSnow.SkiConditionsTID : null}
+  HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs._snowSurfaceObservation.HeightLimitLayeredSnow : null}
   SnowLine={obs._snowSurfaceObservation.SnowLine ? obs._snowSurfaceObservation.SnowLine : null}
   FootPenetration={obs._snowSurfaceObservation.FootPenetration ? obs._snowSurfaceObservation.FootPenetration : null}
 >

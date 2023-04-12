@@ -17,7 +17,7 @@ export class VarsomAvalancheDangerObs {
     
  
   render(){
-    return <div> 
+    return <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value

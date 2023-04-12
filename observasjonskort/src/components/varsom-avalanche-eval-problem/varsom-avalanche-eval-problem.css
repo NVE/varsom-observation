@@ -15,3 +15,8 @@ div {
   font-size: x-large;
   font-weight: bolder;
 }
+
+.parent {
+  padding: 0 0 0 8px;
+  border-left: 1px solid #B3B3B3
+}

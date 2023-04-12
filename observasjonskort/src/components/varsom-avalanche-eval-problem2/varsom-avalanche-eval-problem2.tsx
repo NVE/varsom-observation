@@ -41,7 +41,7 @@ export class VarsomAvalancheEvalProblem2 {
   
 
   render(){
-    return <div> 
+    return <div class="parent"> 
 
 
     {this.AvalCauseName ? 

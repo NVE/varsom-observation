@@ -33,7 +33,7 @@ export class VarsomAvalancheActivityObs2 {
  
   
   render(){
-    return <div> 
+    return <div class="parent"> 
 
     {(this.DtStart && this.DtEnd) ? 
       <div>
