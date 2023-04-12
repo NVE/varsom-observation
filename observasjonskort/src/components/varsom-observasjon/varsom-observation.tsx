@@ -391,8 +391,10 @@ export class VarsomObservation {
       > </varsom-metadata>      
          
       {/*map*/}     
+      <div class="map-container">
       <div>
         <img class="map" src={getAssetPath("/pictures/mapRegobs.png")}></img>
+      </div>
       </div>
 
 

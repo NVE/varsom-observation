@@ -22,8 +22,13 @@
     max-width: 200px;
   }
   
+  .map-container {
+    display: flex;
+    
+  }
+
   .map{
-    max-width: 435px;
+    width: 100%;
   }
   
   /* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
@@ -121,8 +126,6 @@
   .observation-container {
     border: 3px solid black;
     border-radius: 2%;
-    padding: 10px;
-    margin: 30px;
     width: 70%;
   
   }
