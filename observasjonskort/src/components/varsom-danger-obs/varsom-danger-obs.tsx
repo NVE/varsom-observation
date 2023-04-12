@@ -17,7 +17,7 @@ export class VarsomDangerObs {
   @Prop() Comment: any;
  
   render(){
-    return <div> 
+    return <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value
@@ -25,6 +25,7 @@ export class VarsomDangerObs {
     _value={this.DangerSignName}
     ></varsom-key-value>
     :""}
+
 
 <div>
     {this.Comment ? 
