@@ -4,12 +4,16 @@
 
   .header {
     font-size: x-large;
-    font-weight: 800;
+    font-weight: 600;
   }
 
 
   label {
-    font-weight: 800;
+    font-weight: 600;
+  }
+
+  div {
+    font-family:'Source Sans Pro'
   }
   
   /*box-sizing:border-box*/
