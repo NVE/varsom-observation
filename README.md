@@ -39,14 +39,14 @@ The prop "count" in the main component must be set to 1 if a regid is set.
 
 To show multiple observations without a spesific hazard type, set type to blank.
 
-The child components have some example data from the regobs-api. The chils components do not have language prop.
+The child components have some example data from the regobs-api. The child components do not have language prop.
 
 
 <br>
 
 ### **Chromatic**
 Stobybook can be published to Chromatic. Sign up for Chromatic (https://www.chromatic.com/start?startWithSignup=true) and create a project. 
-Replace secret token under scripts in package.json with your project token from Chromatic. Project token should be kept in a safe place, e.g. Github Secrets. 
+Replace secret token under scripts in package.json with your project token from Chromatic. 
 When project token is set, run:
 1. npm run build-storybook
 2. npm chromatic
