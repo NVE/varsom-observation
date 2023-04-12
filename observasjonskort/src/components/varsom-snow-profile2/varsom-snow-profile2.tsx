@@ -20,7 +20,7 @@ export class VarsomSnowProfile2 {
   @Prop() SnowTemp: any;
   @Prop() ImageUrl: any;
   @Prop() SnowDensity: SnowDensity[];
-
+  @Prop() RegId: any;
 
   render(){
     return <div> 
@@ -42,7 +42,9 @@ export class VarsomSnowProfile2 {
     
   
 {this.ImageUrl ?
- <img src={this.ImageUrl}></img>
+ <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
+  <img src={this.ImageUrl}></img>
+ </a>
  : ""}
 
 {this.SnowDensity ? 

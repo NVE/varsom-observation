@@ -865,6 +865,7 @@ SlopeAngle={obs._snowProfile2.SlopeAngle ? obs._snowProfile2.SlopeAngle : null}
 SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
 SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
 ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
+RegId={this.regid}
 ></varsom-snow-profile2>
 :""}
 
