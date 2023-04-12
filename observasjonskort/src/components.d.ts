@@ -232,6 +232,16 @@ export namespace Components {
         "TapsFullPropagation": any;
         "strings": any;
     }
+    interface VarsomDamageObs {
+        "Attachments"?: any[];
+        "comment": string;
+        "damagePosition": any;
+        "damageTypeName": string;
+        "damageTypeTID": number;
+        "geoHazardName": string;
+        "geoHazardTID": number;
+        "strings": any;
+    }
     interface VarsomDangerObs {
         "Comment": any;
         "DangerSignName": any;
@@ -661,6 +671,12 @@ declare global {
         prototype: HTMLVarsomCompressionTestElement;
         new (): HTMLVarsomCompressionTestElement;
     };
+    interface HTMLVarsomDamageObsElement extends Components.VarsomDamageObs, HTMLStencilElement {
+    }
+    var HTMLVarsomDamageObsElement: {
+        prototype: HTMLVarsomDamageObsElement;
+        new (): HTMLVarsomDamageObsElement;
+    };
     interface HTMLVarsomDangerObsElement extends Components.VarsomDangerObs, HTMLStencilElement {
     }
     var HTMLVarsomDangerObsElement: {
@@ -872,6 +888,7 @@ declare global {
         "varsom-avalanche-evaluation3": HTMLVarsomAvalancheEvaluation3Element;
         "varsom-avalanche-obs": HTMLVarsomAvalancheObsElement;
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
+        "varsom-damage-obs": HTMLVarsomDamageObsElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-estimate-of-risk": HTMLVarsomEstimateOfRiskElement;
         "varsom-general-observation": HTMLVarsomGeneralObservationElement;
@@ -1131,6 +1148,16 @@ declare namespace LocalJSX {
         "StabilityEvalTID"?: any;
         "TapsFracture"?: any;
         "TapsFullPropagation"?: any;
+        "strings"?: any;
+    }
+    interface VarsomDamageObs {
+        "Attachments"?: any[];
+        "comment"?: string;
+        "damagePosition"?: any;
+        "damageTypeName"?: string;
+        "damageTypeTID"?: number;
+        "geoHazardName"?: string;
+        "geoHazardTID"?: number;
         "strings"?: any;
     }
     interface VarsomDangerObs {
@@ -1501,6 +1528,7 @@ declare namespace LocalJSX {
         "varsom-avalanche-evaluation3": VarsomAvalancheEvaluation3;
         "varsom-avalanche-obs": VarsomAvalancheObs;
         "varsom-compression-test": VarsomCompressionTest;
+        "varsom-damage-obs": VarsomDamageObs;
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-estimate-of-risk": VarsomEstimateOfRisk;
         "varsom-general-observation": VarsomGeneralObservation;
@@ -1552,6 +1580,7 @@ declare module "@stencil/core" {
             "varsom-avalanche-evaluation3": LocalJSX.VarsomAvalancheEvaluation3 & JSXBase.HTMLAttributes<HTMLVarsomAvalancheEvaluation3Element>;
             "varsom-avalanche-obs": LocalJSX.VarsomAvalancheObs & JSXBase.HTMLAttributes<HTMLVarsomAvalancheObsElement>;
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
+            "varsom-damage-obs": LocalJSX.VarsomDamageObs & JSXBase.HTMLAttributes<HTMLVarsomDamageObsElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-estimate-of-risk": LocalJSX.VarsomEstimateOfRisk & JSXBase.HTMLAttributes<HTMLVarsomEstimateOfRiskElement>;
             "varsom-general-observation": LocalJSX.VarsomGeneralObservation & JSXBase.HTMLAttributes<HTMLVarsomGeneralObservationElement>;
