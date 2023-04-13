@@ -394,43 +394,6 @@ export namespace Components {
         "regid": string;
         "type": string;
     }
-    interface VarsomSchema {
-        "airTemperature": any;
-        "avalCauseAttributeSoftName": any;
-        "avalCauseDepthName": any;
-        "avalCauseName": any;
-        "avalPropagationName": any;
-        "avalTriggerSimpleName": any;
-        "avalancheDevelopment": any;
-        "avalancheEvaluation": any;
-        "avalancheExtName": any;
-        "comment": any;
-        "copyright": any;
-        "dangerSignName": any;
-        "destructiveSizeName": any;
-        "dtAvalancheTime": any;
-        "dtMeasurementTime": any;
-        "dtStart": any;
-        "forecastComment": any;
-        "measurementReferenceName": any;
-        "measurementTypeName": any;
-        "newSnowLine": any;
-        "observationTimingName": any;
-        "observer": any;
-        "photographer": any;
-        "registrationName": any;
-        "skiConditionsName": any;
-        "snowDepth": any;
-        "snowDriftName": any;
-        "snowSurfaceName": any;
-        "strings": any;
-        "surfaceWaterContentName": any;
-        "waterAstrayName": any;
-        "waterLevel": any;
-        "waterLevelStateName": any;
-        "waterLevelValue": any;
-        "weatherPrecipitationName": any;
-    }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
@@ -767,12 +730,6 @@ declare global {
         prototype: HTMLVarsomObservationElement;
         new (): HTMLVarsomObservationElement;
     };
-    interface HTMLVarsomSchemaElement extends Components.VarsomSchema, HTMLStencilElement {
-    }
-    var HTMLVarsomSchemaElement: {
-        prototype: HTMLVarsomSchemaElement;
-        new (): HTMLVarsomSchemaElement;
-    };
     interface HTMLVarsomSignsOfDangerElement extends Components.VarsomSignsOfDanger, HTMLStencilElement {
     }
     var HTMLVarsomSignsOfDangerElement: {
@@ -904,7 +861,6 @@ declare global {
         "varsom-lat-lng": HTMLVarsomLatLngElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
-        "varsom-schema": HTMLVarsomSchemaElement;
         "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
         "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
         "varsom-snow-density": HTMLVarsomSnowDensityElement;
@@ -1312,43 +1268,6 @@ declare namespace LocalJSX {
         "regid"?: string;
         "type"?: string;
     }
-    interface VarsomSchema {
-        "airTemperature"?: any;
-        "avalCauseAttributeSoftName"?: any;
-        "avalCauseDepthName"?: any;
-        "avalCauseName"?: any;
-        "avalPropagationName"?: any;
-        "avalTriggerSimpleName"?: any;
-        "avalancheDevelopment"?: any;
-        "avalancheEvaluation"?: any;
-        "avalancheExtName"?: any;
-        "comment"?: any;
-        "copyright"?: any;
-        "dangerSignName"?: any;
-        "destructiveSizeName"?: any;
-        "dtAvalancheTime"?: any;
-        "dtMeasurementTime"?: any;
-        "dtStart"?: any;
-        "forecastComment"?: any;
-        "measurementReferenceName"?: any;
-        "measurementTypeName"?: any;
-        "newSnowLine"?: any;
-        "observationTimingName"?: any;
-        "observer"?: any;
-        "photographer"?: any;
-        "registrationName"?: any;
-        "skiConditionsName"?: any;
-        "snowDepth"?: any;
-        "snowDriftName"?: any;
-        "snowSurfaceName"?: any;
-        "strings"?: any;
-        "surfaceWaterContentName"?: any;
-        "waterAstrayName"?: any;
-        "waterLevel"?: any;
-        "waterLevelStateName"?: any;
-        "waterLevelValue"?: any;
-        "weatherPrecipitationName"?: any;
-    }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
@@ -1544,7 +1463,6 @@ declare namespace LocalJSX {
         "varsom-lat-lng": VarsomLatLng;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
-        "varsom-schema": VarsomSchema;
         "varsom-signs-of-danger": VarsomSignsOfDanger;
         "varsom-snow-cover-observation": VarsomSnowCoverObservation;
         "varsom-snow-density": VarsomSnowDensity;
@@ -1596,7 +1514,6 @@ declare module "@stencil/core" {
             "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
-            "varsom-schema": LocalJSX.VarsomSchema & JSXBase.HTMLAttributes<HTMLVarsomSchemaElement>;
             "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
             "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
             "varsom-snow-density": LocalJSX.VarsomSnowDensity & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityElement>;
