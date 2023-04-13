@@ -441,6 +441,7 @@ export namespace Components {
         "Exposition": any;
         "ImageUrl": any;
         "IsProfileToGround": any;
+        "RegId": any;
         "SlopeAngle": any;
         "SnowDensity": SnowDensity[];
         "SnowTemp": any;
@@ -1315,6 +1316,7 @@ declare namespace LocalJSX {
         "Exposition"?: any;
         "ImageUrl"?: any;
         "IsProfileToGround"?: any;
+        "RegId"?: any;
         "SlopeAngle"?: any;
         "SnowDensity"?: SnowDensity[];
         "SnowTemp"?: any;
