@@ -44,6 +44,8 @@ export class VarsomLandslideObservation {
       label={this.strings ? this.strings.Observations.LandslideObs.ObsName : "Skredhendelse"}
       ></varsom-label>
 
+<div class="content">
+
     {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
@@ -117,6 +119,8 @@ export class VarsomLandslideObservation {
             </varsom-url>
         })
         } </div> : ""}
+
+    </div>
 
     </div>
   }

@@ -50,6 +50,7 @@ export class VarsomIncident {
       label={this.strings ? this.strings.Observations.Incident.ObsName : "Ulykke / Hendelse"}
       ></varsom-label>
 
+<div class="content">
 {this.IncidentHeader ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Incident.IncidentHeader: "Overskrift" }
@@ -178,6 +179,9 @@ export class VarsomIncident {
             </varsom-url>
         })
         } </div> : ""}
+
+</div>
+
     </div>
   }
     

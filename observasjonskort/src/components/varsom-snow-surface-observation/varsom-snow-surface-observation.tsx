@@ -35,6 +35,7 @@ export class VarsomSnowSurfaceObservation {
       label={this.strings ? this.strings.Observations.SnowSurfaceObservation.ObsName : "Snødekke"}
       ></varsom-label>
 
+<div class="content">
 {this.SnowDepth ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: "Snødybde (cm)" }
@@ -108,6 +109,8 @@ export class VarsomSnowSurfaceObservation {
 </div>
 
     
+    </div>
+
     </div>
   }
     

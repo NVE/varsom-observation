@@ -28,14 +28,15 @@ export class VarsomGeneralObservation {
       label={this.ObsHeader ? this.ObsHeader : ""}
       ></varsom-label-small>
 
-<div>
+<div class="content">
+
     {this.ObsComment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}
-</div>
+
 
       {this.Urls ? 
       <div>
@@ -51,6 +52,7 @@ export class VarsomGeneralObservation {
         } </div>
         : ""}
         
+    </div>
     </div>
   }
     

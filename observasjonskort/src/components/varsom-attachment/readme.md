@@ -28,6 +28,7 @@
 
 ### Used by
 
+ - [varsom-damage-obs](../varsom-damage-obs)
  - [varsom-observation](../varsom-observasjon)
 
 ### Depends on
@@ -38,6 +39,7 @@
 ```mermaid
 graph TD;
   varsom-attachment --> varsom-key-value
+  varsom-damage-obs --> varsom-attachment
   varsom-observation --> varsom-attachment
   style varsom-attachment fill:#f9f,stroke:#333,stroke-width:4px
 ```

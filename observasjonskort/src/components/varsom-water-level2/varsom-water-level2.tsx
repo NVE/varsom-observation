@@ -39,6 +39,8 @@ export class VarsomWaterLevel2 {
 label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
 ></varsom-label-small>
 
+<div class="content">
+
 {this.WaterLevelStateName ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.WaterLevel2.WaterLevelStateTName: "Situasjon" }
@@ -109,7 +111,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
     
     </div>
-    
+    </div>
   }
     
   }

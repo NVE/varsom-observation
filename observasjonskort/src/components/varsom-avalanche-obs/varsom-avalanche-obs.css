@@ -6,11 +6,12 @@ span {
   margin-right: 0.5rem;
 }
 
-div {
-  margin: 1rem 0 1rem 0;
-}
 
 .header {
   font-size: x-large;
   font-weight: bolder;
+}
+
+.content {
+  margin: 1.5rem;
 }

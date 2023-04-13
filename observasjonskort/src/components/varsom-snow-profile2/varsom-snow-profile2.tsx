@@ -31,16 +31,16 @@ export class VarsomSnowProfile2 {
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
       ></varsom-label>
 
-<div>
+<div class="content">
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    </div>
     
-  
+    
+  <br></br>
 {this.ImageUrl ?
  <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
   <img src={this.ImageUrl}></img>
@@ -79,6 +79,8 @@ export class VarsomSnowProfile2 {
 
     
     </div>
+    </div>
+    
   }
     
   }

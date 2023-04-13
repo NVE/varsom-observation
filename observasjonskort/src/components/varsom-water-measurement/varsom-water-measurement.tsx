@@ -22,6 +22,7 @@ export class VarsomWaterMeasurement {
       label={this.strings ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Vannmåling"}
       ></varsom-label-small>
 
+<div class="content">
 {this.DtMeasurementTime ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Time: "Tid" }
@@ -45,8 +46,7 @@ export class VarsomWaterMeasurement {
     :""}
 </div>
       
-
-    
+    </div>
     </div>
   }
     

@@ -26,6 +26,8 @@ export class VarsomSnowProfile {
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
       ></varsom-label>
 
+<div class="content">
+
 {this.GeoHazardName ? 
     <varsom-key-value
     _key="Hazard type"
@@ -80,7 +82,7 @@ export class VarsomSnowProfile {
 
     </div>
 
-    
+    </div>
   }
     
   }

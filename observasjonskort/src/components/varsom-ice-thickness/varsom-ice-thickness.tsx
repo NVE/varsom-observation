@@ -47,6 +47,8 @@ componentDidRender(){
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
       ></varsom-label>
 
+<div class="content">
+
       {this.IceThicknessLayers ? 
       <div>
       {this.IceThicknessLayers.map((el: IceThicknessLayer = {}) =>{
@@ -135,7 +137,8 @@ componentDidRender(){
     </div>
 
 
-
+    </div>
+    
   }
     
   }

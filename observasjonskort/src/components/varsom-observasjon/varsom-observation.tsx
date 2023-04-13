@@ -402,7 +402,7 @@ export class VarsomObservation {
 {/* IMAGE SLIDER */}
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
+    <div class="numbertext"></div>
     <div>
   <img class="observation-images" src={obs._images[0]._imageData}></img>
   </div>
@@ -420,13 +420,13 @@ export class VarsomObservation {
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
+    <div class="numbertext"></div>
   <img class="observation-images" src={obs._images[1]._imageData}></img>
     <div class="text"></div>
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
+    <div class="numbertext"></div>
   <img class="observation-images" src={obs._images[2]._imageData}></img>
     <div class="text"></div>
   </div>

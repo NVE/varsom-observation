@@ -45,7 +45,7 @@ export class VarsomAvalancheObs {
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
       ></varsom-label>
-
+<div class="content">
 <div>
     {this.StartLat ? 
     <span><img src={getAssetPath(`/assets/icons/skred-startposisjon.svg`)}>
@@ -57,6 +57,8 @@ export class VarsomAvalancheObs {
       </img>Skredet stoppet her</span> 
     : ""}
  </div>
+
+ <br></br>
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
@@ -131,7 +133,7 @@ export class VarsomAvalancheObs {
     :""}
 
 
-<div>
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheObs.Comment : "Kommentar" }
@@ -141,6 +143,7 @@ export class VarsomAvalancheObs {
     </div>
 
     </div>
+    
   }
     
   }
