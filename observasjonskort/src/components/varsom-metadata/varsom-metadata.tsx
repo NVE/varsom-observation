@@ -40,6 +40,7 @@ export class VarsomMetadata {
       {this.geoHazardName}
       </span> : ""}
    
+   <br></br>
       {this.moh ? 
       <span>
         <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>

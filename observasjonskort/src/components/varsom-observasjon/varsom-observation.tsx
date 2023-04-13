@@ -158,6 +158,7 @@ export class VarsomObservation {
      for (let i = 0; i < this.observations.length; i ++){
       for (let j = 0; j < data[i]["Summaries"].length; j ++){
         if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
+          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2)
             this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
         }
       }
