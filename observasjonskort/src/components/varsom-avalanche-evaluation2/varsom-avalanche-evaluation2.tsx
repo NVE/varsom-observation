@@ -29,7 +29,7 @@ export class VarsomAvalancheEvaluation2 {
   
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
     {this.AvalancheEvaluation ? 
     <varsom-key-value

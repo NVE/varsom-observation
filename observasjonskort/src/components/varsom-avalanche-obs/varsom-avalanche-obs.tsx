@@ -40,7 +40,7 @@ export class VarsomAvalancheObs {
  
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
