@@ -21,9 +21,9 @@ export class VarsomAvalancheEvaluation3 {
 
 
   render(){
-    return <div> 
-
-  
+    return <div class="container">
+    
+    <div class="content"> 
     {this.AvalancheEvaluation ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ObsName : "Skredfareurdering" }
@@ -60,6 +60,8 @@ export class VarsomAvalancheEvaluation3 {
 <span><img src={getAssetPath(`/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 1 Liten</span> 
  </div>
 : ""}
+
+</div>
     
     </div>
   }

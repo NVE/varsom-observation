@@ -18,7 +18,7 @@ export class VarsomGeneralObservation {
   @Prop() Comment: any;
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
       <varsom-label
       label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}

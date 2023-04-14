@@ -20,7 +20,7 @@ export class VarsomSnowProfile {
   @Prop() Comment: any;
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}

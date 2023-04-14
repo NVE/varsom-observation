@@ -44,7 +44,7 @@ export class VarsomIncident {
   @Prop() Comment: any; 
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.Incident.ObsName : "Ulykke / Hendelse"}

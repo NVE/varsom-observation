@@ -3,14 +3,17 @@ label {
 }
 
 span {
-  margin-right: 0.85rem;
+  margin: 0 0.2rem;
 }
 
 img {
-  margin: 0 0.5rem;
+  margin: 0 0.6rem;
 }
 
 div {
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
   padding: 0.5rem;
 }
+
+
+

@@ -41,7 +41,7 @@ componentDidRender(){
 
   render(){
     
-    return <div>
+    return <div class="container">
 
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}

@@ -33,14 +33,14 @@ export class VarsomMetadata {
       <label>{this.strings.Reg.UpdatedTime} </label>
       {this.dateOfLastUpdate}
       </span> : ""}
-
+      
       {this.geoHazardName ? 
       <span>
       <img src={getAssetPath(`/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
    
-   <br></br>
+   
       {this.moh ? 
       <span>
         <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>

@@ -16,7 +16,7 @@ export class VarsomWaterMeasurement {
   
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 
 <varsom-label-small

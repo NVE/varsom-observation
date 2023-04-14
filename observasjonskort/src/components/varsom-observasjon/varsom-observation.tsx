@@ -404,8 +404,9 @@ export class VarsomObservation {
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
     <div class="numbertext"></div>
     <div>
+    
   <img class="observation-images" src={obs._images[0]._imageData}></img>
-  </div>
+  
     <div class="imageInfo"> 
     {obs._images[0]._copyright ? 
     <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
@@ -416,6 +417,7 @@ export class VarsomObservation {
     {obs._images[0]._comment ? 
         <div><b>{this.strings.Observations.Picture.PictureComment} </b> {obs._images[0]._comment} </div> : ""}
 
+    </div>
     </div>
   </div>
 
@@ -447,7 +449,7 @@ export class VarsomObservation {
 <div class="observation-content">
   
 {/* ATTACHMENTS */}
- 
+   
         {obs._attachments.map((att: Attachment = {}) =>{
             return <varsom-attachment
               strings={this.strings}
@@ -466,7 +468,7 @@ export class VarsomObservation {
               ></varsom-attachment>             
         })    
 }
-
+  
 {obs._avalancheActivityObs2.length > 0 ?
 <varsom-label
 label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Observations.AvalancheActivityObs2.ObsName : "Skredaktivitet"}
@@ -504,6 +506,9 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
         })
         }
 
+{obs._avalancheActivityObs2.length > 0 ?
+<div class="border"></div> :"" }
+
 {obs._avalancheActivityObs ? 
 <varsom-avalanche-activity-obs
 header={this.strings.Observations.AvalancheTID}
@@ -527,6 +532,7 @@ SnowLineName={obs._avalancheActivityObs.SnowLineName ? obs._avalancheActivityObs
 DtOffAvalancheTime={obs._avalancheActivityObs.DtOffAvalancheTime ? obs._avalancheActivityObs.DtOffAvalancheTime : null}
 ></varsom-avalanche-activity-obs>
 : ""}
+
 
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
@@ -615,6 +621,10 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
 
 }
 </div> : ""}
+
+
+
+
 
 {obs._iceThickness ? 
 <varsom-ice-thickness
@@ -705,6 +715,8 @@ AvalancheProbabilityAutoText={el.AvalancheProbabilityAutoText ? el.AvalancheProb
 </varsom-avalanche-eval-problem>
 })
 }
+{obs._avalancheEvalProblem.length > 0 ?
+<div class="border"></div> :"" }
 
 
 {/* AVALANCHE EVAL PROBLEM 2 */}
@@ -749,6 +761,8 @@ Comment={el.Comment ? el.Comment : null}
 </varsom-avalanche-eval-problem2>
 })
 }
+{obs._avalancheEvalProblem2.length > 0 ?
+<div class="border"></div> :"" }
 
 {obs._snowCoverObs ? 
 <varsom-snow-cover-obs
@@ -897,6 +911,9 @@ label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.D
         
         }
 
+{obs._dangerObs.length > 0 ?
+<div class="border"></div> :"" }
+
         {/* AVALANCHE DANGER OBSERVATIONS */}
 {obs._avalancheDangerObs.length > 0 ?
 <varsom-label
@@ -917,6 +934,9 @@ label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Obser
         })
         
         }
+{obs._avalancheDangerObs.length > 0 ?
+<div class="border"></div> :"" }
+
 
 {/* COMPRESSION TEST */}
 {obs._compressionTest.length > 0 ?
@@ -949,6 +969,9 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
         })
         
         }
+
+{obs._compressionTest.length > 0 ?
+<div class="border"></div> :"" }
 
 
 {/* SNOW SURFACE */}

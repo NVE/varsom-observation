@@ -23,7 +23,7 @@ export class VarsomWeatherObservation {
   
   
   render(){
-    return <div> 
+    return <div class="container"> 
 
 {this.PrecipitationName ?
     <varsom-key-value

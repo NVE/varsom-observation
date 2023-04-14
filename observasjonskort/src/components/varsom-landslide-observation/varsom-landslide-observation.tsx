@@ -36,7 +36,7 @@ export class VarsomLandslideObservation {
   
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 {/**TODO : IMPLEMENT MAP */}
 

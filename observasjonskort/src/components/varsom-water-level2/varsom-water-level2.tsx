@@ -32,7 +32,7 @@ export class VarsomWaterLevel2 {
   @Prop() MeasuringToolDescription: any;
    
   render(){
-    return <div> 
+    return <div class="container"> 
 
 
 <varsom-label

@@ -23,9 +23,7 @@ export class VarsomSnowProfile2 {
   @Prop() RegId: any;
 
   render(){
-    return <div> 
-
-
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
@@ -80,7 +78,7 @@ export class VarsomSnowProfile2 {
     
     </div>
     </div>
-    
+
   }
     
   }
