@@ -47,7 +47,7 @@
     "@storybook/manager-webpack4": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
-    "@types/jquery": "^1.11.1",
+    "@types/jquery": "^3.5.16",
     "babel-loader": "^8.3.0",
     "chromatic": "^6.17.1",
     "jest": "^27.4.5",

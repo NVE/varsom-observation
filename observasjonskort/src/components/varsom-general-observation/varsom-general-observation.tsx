@@ -24,12 +24,14 @@ export class VarsomGeneralObservation {
       label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}
       ></varsom-label>
 
-    <varsom-label-small
-      label={this.ObsHeader ? this.ObsHeader : ""}
-      ></varsom-label-small>
+  
 
 <div class="content">
 
+<varsom-label-small
+      label={this.ObsHeader ? this.ObsHeader : ""}
+      ></varsom-label-small>
+      
     {this.ObsComment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
