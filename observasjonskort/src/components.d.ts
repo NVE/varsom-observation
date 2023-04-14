@@ -250,6 +250,9 @@ export namespace Components {
         "GeoHazardTID": any;
         "strings": any;
     }
+    interface VarsomDoc {
+        "Text": any;
+    }
     interface VarsomEstimateOfRisk {
         "comment": any;
         "dangerSignName": any;
@@ -684,6 +687,12 @@ declare global {
         prototype: HTMLVarsomDangerObsElement;
         new (): HTMLVarsomDangerObsElement;
     };
+    interface HTMLVarsomDocElement extends Components.VarsomDoc, HTMLStencilElement {
+    }
+    var HTMLVarsomDocElement: {
+        prototype: HTMLVarsomDocElement;
+        new (): HTMLVarsomDocElement;
+    };
     interface HTMLVarsomEstimateOfRiskElement extends Components.VarsomEstimateOfRisk, HTMLStencilElement {
     }
     var HTMLVarsomEstimateOfRiskElement: {
@@ -891,6 +900,7 @@ declare global {
         "varsom-compression-test": HTMLVarsomCompressionTestElement;
         "varsom-damage-obs": HTMLVarsomDamageObsElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
+        "varsom-doc": HTMLVarsomDocElement;
         "varsom-estimate-of-risk": HTMLVarsomEstimateOfRiskElement;
         "varsom-general-observation": HTMLVarsomGeneralObservationElement;
         "varsom-header": HTMLVarsomHeaderElement;
@@ -1168,6 +1178,9 @@ declare namespace LocalJSX {
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
         "strings"?: any;
+    }
+    interface VarsomDoc {
+        "Text"?: any;
     }
     interface VarsomEstimateOfRisk {
         "comment"?: any;
@@ -1532,6 +1545,7 @@ declare namespace LocalJSX {
         "varsom-compression-test": VarsomCompressionTest;
         "varsom-damage-obs": VarsomDamageObs;
         "varsom-danger-obs": VarsomDangerObs;
+        "varsom-doc": VarsomDoc;
         "varsom-estimate-of-risk": VarsomEstimateOfRisk;
         "varsom-general-observation": VarsomGeneralObservation;
         "varsom-header": VarsomHeader;
@@ -1584,6 +1598,7 @@ declare module "@stencil/core" {
             "varsom-compression-test": LocalJSX.VarsomCompressionTest & JSXBase.HTMLAttributes<HTMLVarsomCompressionTestElement>;
             "varsom-damage-obs": LocalJSX.VarsomDamageObs & JSXBase.HTMLAttributes<HTMLVarsomDamageObsElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
+            "varsom-doc": LocalJSX.VarsomDoc & JSXBase.HTMLAttributes<HTMLVarsomDocElement>;
             "varsom-estimate-of-risk": LocalJSX.VarsomEstimateOfRisk & JSXBase.HTMLAttributes<HTMLVarsomEstimateOfRiskElement>;
             "varsom-general-observation": LocalJSX.VarsomGeneralObservation & JSXBase.HTMLAttributes<HTMLVarsomGeneralObservationElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
