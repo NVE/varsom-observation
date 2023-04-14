@@ -18,11 +18,10 @@ export class VarsomWaterMeasurement {
   render(){
     return <div> 
 
-      <varsom-label-small
+
+<varsom-label-small
       label={this.strings ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Vannmåling"}
       ></varsom-label-small>
-
-<div class="content">
 {this.DtMeasurementTime ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Time: "Tid" }
@@ -37,17 +36,17 @@ export class VarsomWaterMeasurement {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
     {this.Comment ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.WaterLevel2.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
-      
+
+    
     </div>
-    </div>
+    
   }
     
   }

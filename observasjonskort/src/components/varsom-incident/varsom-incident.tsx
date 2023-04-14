@@ -158,14 +158,14 @@ export class VarsomIncident {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Incident.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
+
 
 {this.IncidentURLs ? 
       <div>
