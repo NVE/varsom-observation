@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class VarsomSnowCoverObservation {
   @Prop() SnowPilotRef: any;
   @Prop() Comment: any;
   @Prop() CriticalLayerName: any;
+  @Prop() Attachments: Attachment[];
    
   render(){
     return <div class="container"> 

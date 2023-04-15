@@ -1,4 +1,5 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class VarsomAvalancheObs {
   @Prop() StopLong: any;
   @Prop() RemotelyTriggered: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
 
  

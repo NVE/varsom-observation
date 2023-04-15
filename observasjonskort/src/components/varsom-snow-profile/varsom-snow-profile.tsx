@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-snow-profile',
@@ -18,6 +19,7 @@ export class VarsomSnowProfile {
   @Prop() RegistrationTID: any;
   @Prop() Url: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
   render(){
     return <div class="container"> 

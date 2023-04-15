@@ -173,12 +173,7 @@ export class VarsomObservation {
         }
       }
      }
-  
 
-      
-
-    
-      
         //add avalancheActivityObservations
         if (data[i]["AvalancheActivityObs2"].length > 0){
           for (let j = 0; j < data[i]["AvalancheActivityObs2"].length; j++){
@@ -202,7 +197,8 @@ export class VarsomObservation {
               AvalTriggerSimpleTID: data[i]["AvalancheActivityObs2"][j]["AvalancheTriggerSimpleTID"],
               DestructiveSizeTID: data[i]["AvalancheActivityObs2"][j]["DestructiveSizeTID"],
               AvalPropagationTID: data[i]["AvalancheActivityObs2"][j]["AvalPropagationTID"],
-              Comment: data[i]["AvalancheActivityObs2"][j]["Comment"]
+              Comment: data[i]["AvalancheActivityObs2"][j]["Comment"],
+              Attachments: []
               
       
             
@@ -235,7 +231,8 @@ export class VarsomObservation {
               //Attachments: Attachment[],
               DamageTypeTID: data[i]["DamageObs"][j]["DamageTypeTID"],
               DamagePosition:	data[i]["DamageObs"][j]["DamagePosition"],
-              Comment: data[i]["DamageObs"][j]["Comment"]
+              Comment: data[i]["DamageObs"][j]["Comment"],
+              Attachments: []
               
               //etc....
             })
@@ -264,7 +261,7 @@ export class VarsomObservation {
               AvalancheProbabilityAutoText: data[i]["AvalancheEvalProblem"][j]["AvalancheProbabilityAutoText"],
               AvalancheProblemAutoText: data[i]["AvalancheEvalProblem"][j]["AvalancheProblemAutoText"],
               Comment: data[i]["AvalancheEvalProblem"][j]["Comment"],
-  
+              Attachments: []
             })
           }
         }
@@ -300,7 +297,8 @@ export class VarsomObservation {
               AvalCauseAttributeThinTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeThinTID"],
               AvalCauseAttributeSoftTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeSoftTID"],
               AvalCauseAttributeCrystalTID: data[i]["AvalancheEvalProblem2"][j]["AvalCauseAttributeCrystalTID"],
-              DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"]
+              DestructiveSizeTID: data[i]["AvalancheEvalProblem2"][j]["DestructiveSizeTID"],
+              Attachments: []
             })
           }
         }
@@ -324,7 +322,8 @@ export class VarsomObservation {
               ComprTestFractureTID: data[i]["CompressionTest"][j]["ComprTestFractureTID"], //	integer($int32) The ComprTestFractureKD unique identifier
               RbRelease: data[i]["CompressionTest"][j]["RbRelease"], //	integer($int32) Percentage of block that released in Rutchblock test
               Comment:	data[i]["CompressionTest"][j]["Comment"], //Comment
-              IncludeInSnowProfile:	data[i]["CompressionTest"][j]["IncludeInSnowProfile"]
+              IncludeInSnowProfile:	data[i]["CompressionTest"][j]["IncludeInSnowProfile"],
+              Attachments: []
               
             })
           }
@@ -339,7 +338,8 @@ export class VarsomObservation {
               DangerSignTID: data[i]["AvalancheDangerObs"][j]["DangerSignTID"],
               DangerSignName:	data[i]["AvalancheDangerObs"][j]["DangerSignName"],
               Comment:	data[i]["AvalancheDangerObs"][j]["Comment"],
-            
+              Attachments: []
+        
             })
           }
         }
@@ -349,7 +349,7 @@ export class VarsomObservation {
     //this.observations[i]._dangerObs[k].Attachments = [];
    
 }
-     //add attachments
+     //add attachments to objects
 for(let j = 0; j < 300; j++){  //max 300 attachments
 if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0){
 
@@ -535,6 +535,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
             DestructiveSizeTID={el.DestructiveSizeTID ? el.DestructiveSizeTID : null}
             AvalPropagationTID={el.AvalPropagationTID ? el.AvalPropagationTID : null}
             Comment={el.Comment ? el.Comment : null}
+            Attachments={el.Attachments ? el.Attachments : null}
 
             > </varsom-avalanche-activity-obs2>
         })
@@ -962,6 +963,7 @@ label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Obser
             DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
             DangerSignName={el.DangerSignName ? el.DangerSignName : null}
             Comment={el.Comment ? el.Comment : null}
+            Attachments={el.Attachments ? el.Attachments : null}
             > 
       
           </varsom-avalanche-danger-obs>
@@ -997,6 +999,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
             ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
             IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
             Comment={el.Comment}
+            Attachments={el.Attachments}
             > 
         
           </varsom-compression-test>

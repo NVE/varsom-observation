@@ -38,6 +38,7 @@ export namespace Components {
     }
     interface VarsomAvalancheActivityObs {
         "Aspect": any;
+        "Attachments": Attachment[];
         "AvalancheActivityObsID": any;
         "AvalancheName": any;
         "AvalancheTID": any;
@@ -59,6 +60,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheActivityObs2 {
+        "Attachments": Attachment[];
         "AvalCauseName": any;
         "AvalCauseTID": any;
         "AvalPropagationName": any;
@@ -82,6 +84,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheDangerObs {
+        "Attachments": Attachment[];
         "AvalancheDangerObsID": any;
         "Comment": any;
         "DangerSignName": any;
@@ -89,6 +92,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvalProblem {
+        "Attachments": Attachment[];
         "AvalCauseExtName": any;
         "AvalCauseExtTID": any;
         "AvalCauseName": any;
@@ -110,6 +114,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvalProblem2 {
+        "Attachments": Attachment[];
         "AvalCauseAttributeCrystalName": any;
         "AvalCauseAttributeCrystalTID": any;
         "AvalCauseAttributeLightName": any;
@@ -141,6 +146,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvaluation {
+        "Attachments": Attachment[];
         "AvalancheDangerName": any;
         "AvalancheDangerTID": any;
         "AvalancheEvaluation1": any;
@@ -160,6 +166,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvaluation2 {
+        "Attachments": Attachment[];
         "AvalancheDangerName": any;
         "AvalancheDangerTID": any;
         "AvalancheDevelopment": any;
@@ -176,6 +183,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomAvalancheEvaluation3 {
+        "Attachments": Attachment[];
         "AvalancheDangerName": any;
         "AvalancheDangerTID": any;
         "AvalancheDevelopment": any;
@@ -187,6 +195,7 @@ export namespace Components {
     }
     interface VarsomAvalancheObs {
         "Aspect": any;
+        "Attachments": Attachment[];
         "AvalCauseName": any;
         "AvalCauseTID": any;
         "AvalancheName": any;
@@ -214,6 +223,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomCompressionTest {
+        "Attachments": Attachment[];
         "Comment": any;
         "ComprTestFractureName": any;
         "ComprTestFractureTID": any;
@@ -233,7 +243,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomDamageObs {
-        "Attachments"?: any[];
+        "Attachments"?: Attachment[];
         "comment": string;
         "damagePosition": any;
         "damageTypeName": string;
@@ -243,6 +253,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomDangerObs {
+        "Attachments": Attachment[];
         "Comment": any;
         "DangerSignName": any;
         "DangerSignTID": any;
@@ -259,6 +270,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomGeneralObservation {
+        "Attachments": Attachment[];
         "Comment": any;
         "GeoHazardName": any;
         "GeoHazardTID": any;
@@ -287,6 +299,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomIceThickness {
+        "Attachments": Attachment[];
         "Comment": any;
         "DtObsTime": any;
         "HardCodedImg": any;
@@ -310,6 +323,7 @@ export namespace Components {
     interface VarsomIncident {
         "ActivityInfluencedName": any;
         "ActivityInfluencedTID": any;
+        "Attachments": Attachment[];
         "CasualtiesNum": any;
         "Comment": any;
         "DamageExtentName": any;
@@ -354,6 +368,7 @@ export namespace Components {
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
+        "Attachments": Attachment[];
         "Comment"?: any;
         "DamageExtentName"?: any;
         "DamageExtentTID"?: any;
@@ -404,6 +419,7 @@ export namespace Components {
         "strings"?: any;
     }
     interface VarsomSnowCoverObservation {
+        "Attachments": Attachment[];
         "Comment": any;
         "CriticalLayerExists": any;
         "CriticalLayerLocation": any;
@@ -414,6 +430,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomSnowDensity {
+        "Attachments": Attachment[];
         "Comment": any;
         "CylinderDiameter": any;
         "Layers": SnowDensityLayer[];
@@ -430,6 +447,7 @@ export namespace Components {
     }
     interface VarsomSnowProfile {
         "Aspect": any;
+        "Attachments": Attachment[];
         "Comment": any;
         "Copyright": any;
         "GeoHazardName": any;
@@ -441,6 +459,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomSnowProfile2 {
+        "Attachments": Attachment[];
         "Comment": any;
         "Exposition": any;
         "ImageUrl": any;
@@ -454,6 +473,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomSnowSurfaceObservation {
+        "Attachments": Attachment[];
         "Comment": any;
         "FootPenetration": any;
         "HeightLimitLayeredSnow": any;
@@ -473,6 +493,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomSnowTemp {
+        "Attachments": Attachment[];
         "Layers": SnowTempObs[];
         "strings"?: any;
     }
@@ -482,6 +503,7 @@ export namespace Components {
         "strings"?: any;
     }
     interface VarsomStratProfile {
+        "Attachments": Attachment[];
         "Layers": StratProfileLayer[];
         "TotalDepth": any;
         "strings": any;
@@ -513,6 +535,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomWaterLevel {
+        "Attachments": Attachment[];
         "IsRiver": any;
         "MeasuredDischarge": any;
         "WaterLevelDescribed": any;
@@ -522,6 +545,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomWaterLevel2 {
+        "Attachments": Attachment[];
         "Comment": any;
         "MarkingReferenceName": any;
         "MarkingReferenceTID": any;
@@ -544,6 +568,7 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomWaterMeasurement {
+        "Attachments": Attachment[];
         "Comment": any;
         "DtMeasurementTime": any;
         "WaterLevelValue": any;
@@ -556,6 +581,7 @@ export namespace Components {
     }
     interface VarsomWeatherObservation {
         "AirTemperature": any;
+        "Attachments": Attachment[];
         "CloudCover": any;
         "Comment": any;
         "PrecipitationName": any;
@@ -924,6 +950,7 @@ declare namespace LocalJSX {
     }
     interface VarsomAvalancheActivityObs {
         "Aspect"?: any;
+        "Attachments"?: Attachment[];
         "AvalancheActivityObsID"?: any;
         "AvalancheName"?: any;
         "AvalancheTID"?: any;
@@ -945,6 +972,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs2 {
+        "Attachments"?: Attachment[];
         "AvalCauseName"?: any;
         "AvalCauseTID"?: any;
         "AvalPropagationName"?: any;
@@ -968,6 +996,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheDangerObs {
+        "Attachments"?: Attachment[];
         "AvalancheDangerObsID"?: any;
         "Comment"?: any;
         "DangerSignName"?: any;
@@ -975,6 +1004,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem {
+        "Attachments"?: Attachment[];
         "AvalCauseExtName"?: any;
         "AvalCauseExtTID"?: any;
         "AvalCauseName"?: any;
@@ -996,6 +1026,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvalProblem2 {
+        "Attachments"?: Attachment[];
         "AvalCauseAttributeCrystalName"?: any;
         "AvalCauseAttributeCrystalTID"?: any;
         "AvalCauseAttributeLightName"?: any;
@@ -1027,6 +1058,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvaluation {
+        "Attachments"?: Attachment[];
         "AvalancheDangerName"?: any;
         "AvalancheDangerTID"?: any;
         "AvalancheEvaluation1"?: any;
@@ -1046,6 +1078,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvaluation2 {
+        "Attachments"?: Attachment[];
         "AvalancheDangerName"?: any;
         "AvalancheDangerTID"?: any;
         "AvalancheDevelopment"?: any;
@@ -1062,6 +1095,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomAvalancheEvaluation3 {
+        "Attachments"?: Attachment[];
         "AvalancheDangerName"?: any;
         "AvalancheDangerTID"?: any;
         "AvalancheDevelopment"?: any;
@@ -1073,6 +1107,7 @@ declare namespace LocalJSX {
     }
     interface VarsomAvalancheObs {
         "Aspect"?: any;
+        "Attachments"?: Attachment[];
         "AvalCauseName"?: any;
         "AvalCauseTID"?: any;
         "AvalancheName"?: any;
@@ -1100,6 +1135,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomCompressionTest {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "ComprTestFractureName"?: any;
         "ComprTestFractureTID"?: any;
@@ -1119,7 +1155,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomDamageObs {
-        "Attachments"?: any[];
+        "Attachments"?: Attachment[];
         "comment"?: string;
         "damagePosition"?: any;
         "damageTypeName"?: string;
@@ -1129,6 +1165,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomDangerObs {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "DangerSignName"?: any;
         "DangerSignTID"?: any;
@@ -1145,6 +1182,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomGeneralObservation {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
@@ -1173,6 +1211,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomIceThickness {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "DtObsTime"?: any;
         "HardCodedImg"?: any;
@@ -1196,6 +1235,7 @@ declare namespace LocalJSX {
     interface VarsomIncident {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
+        "Attachments"?: Attachment[];
         "CasualtiesNum"?: any;
         "Comment"?: any;
         "DamageExtentName"?: any;
@@ -1240,6 +1280,7 @@ declare namespace LocalJSX {
     interface VarsomLandslideObservation {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "DamageExtentName"?: any;
         "DamageExtentTID"?: any;
@@ -1290,6 +1331,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomSnowCoverObservation {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "CriticalLayerExists"?: any;
         "CriticalLayerLocation"?: any;
@@ -1300,6 +1342,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomSnowDensity {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "CylinderDiameter"?: any;
         "Layers"?: SnowDensityLayer[];
@@ -1316,6 +1359,7 @@ declare namespace LocalJSX {
     }
     interface VarsomSnowProfile {
         "Aspect"?: any;
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "Copyright"?: any;
         "GeoHazardName"?: any;
@@ -1327,6 +1371,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomSnowProfile2 {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "Exposition"?: any;
         "ImageUrl"?: any;
@@ -1340,6 +1385,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomSnowSurfaceObservation {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "FootPenetration"?: any;
         "HeightLimitLayeredSnow"?: any;
@@ -1359,6 +1405,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomSnowTemp {
+        "Attachments"?: Attachment[];
         "Layers"?: SnowTempObs[];
         "strings"?: any;
     }
@@ -1368,6 +1415,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomStratProfile {
+        "Attachments"?: Attachment[];
         "Layers"?: StratProfileLayer[];
         "TotalDepth"?: any;
         "strings"?: any;
@@ -1399,6 +1447,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomWaterLevel {
+        "Attachments"?: Attachment[];
         "IsRiver"?: any;
         "MeasuredDischarge"?: any;
         "WaterLevelDescribed"?: any;
@@ -1408,6 +1457,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomWaterLevel2 {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "MarkingReferenceName"?: any;
         "MarkingReferenceTID"?: any;
@@ -1430,6 +1480,7 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomWaterMeasurement {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "DtMeasurementTime"?: any;
         "WaterLevelValue"?: any;
@@ -1442,6 +1493,7 @@ declare namespace LocalJSX {
     }
     interface VarsomWeatherObservation {
         "AirTemperature"?: any;
+        "Attachments"?: Attachment[];
         "CloudCover"?: any;
         "Comment"?: any;
         "PrecipitationName"?: any;

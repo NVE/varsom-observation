@@ -163,7 +163,8 @@ export type Observation = {
     AvalTriggerSimpleTID?: number,
     DestructiveSizeTID?: number,
     AvalPropagationTID?: number,
-    Comment?: string
+    Comment?: string,
+    Attachments?: Attachment[]
    }
   
    export type IceCoverObs = {
@@ -402,7 +403,8 @@ export type Observation = {
     ComprTestFractureTID?: number, //	integer($int32) The ComprTestFractureKD unique identifier
     RbRelease?: number, //	integer($int32) Percentage of block that released in Rutchblock test
     Comment?:	string, //Comment
-    IncludeInSnowProfile?:	boolean
+    IncludeInSnowProfile?:	boolean,
+    Attachments?: Attachment[]
    }
   
   
@@ -566,7 +568,8 @@ export type Observation = {
     AvalancheDangerObsID?: number, //	integer($int32)
     DangerSignTID?: number,	// integer($int32)
     DangerSignName?:	string,
-    Comment?:	string
+    Comment?:	string,
+    Attachments: Attachment[]
    }
   
    export type AvalancheEvalProblem = {
@@ -587,7 +590,8 @@ export type Observation = {
     AvalReleaseHeightName?:	string,
     AvalancheProbabilityAutoText?:	string,
     AvalancheProblemAutoText?:	string,
-    Comment?: string
+    Comment?: string,
+    Attachments?: Attachment[]
    }
   
    export type AvalancheEvaluation2 = {

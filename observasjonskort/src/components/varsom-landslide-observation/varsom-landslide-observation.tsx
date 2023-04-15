@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -32,6 +32,7 @@ export class VarsomLandslideObservation {
   @Prop() DtLandSlideTimeEnd?: any;
   @Prop() DtLandSlideTime?: any;
   @Prop() LandSlideSizeTID?: any;
+  @Prop() Attachments: Attachment[];
   
   
 

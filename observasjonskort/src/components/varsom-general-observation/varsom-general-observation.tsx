@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-general-observation',
@@ -16,6 +16,7 @@ export class VarsomGeneralObservation {
   @Prop() ObsComment: any;
   @Prop() ObsHeader: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
   render(){
     return <div class="container"> 

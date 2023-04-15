@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { StratProfileLayer } from '../varsom-observasjon/observation-model';
+import { Attachment, StratProfileLayer } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-strat-profile',
@@ -11,7 +11,8 @@ export class VarsomStratProfile {
 
   @Prop() strings: any;
   @Prop() TotalDepth:	any;
-  @Prop() Layers: StratProfileLayer[]
+  @Prop() Layers: StratProfileLayer[];
+  @Prop() Attachments: Attachment[];
 
 
 

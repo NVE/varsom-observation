@@ -1,6 +1,6 @@
 import { Component, Prop, h, getAssetPath} from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
-import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
+import { Attachment, IceThicknessLayer } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-ice-thickness',
@@ -23,6 +23,7 @@ export class VarsomIceThickness {
   @Prop() DtObsTime: any;
   @Prop() LocationName: any;
   @Prop() HardCodedImg: any;
+  @Prop() Attachments: Attachment[];
 
   element: HTMLElement;
   element2: HTMLElement;

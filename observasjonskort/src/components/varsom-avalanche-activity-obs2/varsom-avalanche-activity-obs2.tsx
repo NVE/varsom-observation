@@ -1,4 +1,5 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() AvalTriggerSimpleTID: any;
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
+  @Prop() Attachments: Attachment[];
  
   
   render(){

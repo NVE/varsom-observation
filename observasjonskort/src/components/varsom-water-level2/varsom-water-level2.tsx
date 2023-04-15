@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { WaterLevelMeasurement } from '../varsom-observasjon/observation-model';
+import { Attachment, WaterLevelMeasurement } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -30,6 +30,7 @@ export class VarsomWaterLevel2 {
   @Prop() WaterLevelStateTID: any;
   @Prop() MarkingTypeTID: any;
   @Prop() MeasuringToolDescription: any;
+  @Prop() Attachments: Attachment[];
    
   render(){
     return <div class="container"> 

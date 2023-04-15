@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class VarsomCompressionTest {
   @Prop() ComprTestFractureName: any;
   @Prop() IncludeInSnowProfile: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
 
   render(){

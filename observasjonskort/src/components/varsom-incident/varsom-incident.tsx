@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -42,6 +42,7 @@ export class VarsomIncident {
   @Prop() IncidentIngress: any; 
   @Prop() IncidentText: any; 
   @Prop() Comment: any; 
+  @Prop() Attachments: Attachment[];
 
   render(){
     return <div class="container"> 
