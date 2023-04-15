@@ -34,6 +34,7 @@ export class VarsomAttachment {
       </div>
       : ""} 
 
+<div class="imageInfo">
     {this.Photographer ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
@@ -55,7 +56,8 @@ export class VarsomAttachment {
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    
+</div>
+
     </div>
   }
     

@@ -67,7 +67,8 @@ export type Observation = {
     DangerSignName?: string,
     GeoHazardTID?: number,
     DangerSignTID?: number,
-    Comment?: string
+    Comment?: string,
+    Attachments?: Attachment[]
    }
   
    export type AvalancheObs = {
@@ -176,7 +177,8 @@ export type Observation = {
     IceCoverAfterTID: number,
     Comment: string, //maxLength: 1024 Kommentarfelt for å skrive utfyllende tekst om observasjonen.
     IceSkateabilityTID: number, //Skøytebarhet. IceSkateabilityKD unique identifier
-    IceCapacityTID: number //Bæreevne. IceCapacityKD unique identifier
+    IceCapacityTID: number, //Bæreevne. IceCapacityKD unique identifier
+    Attachments: Attachment[]
    }
   
    export type IceThicknessLayer = {

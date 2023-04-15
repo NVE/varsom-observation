@@ -35,6 +35,16 @@ export class VarsomObservation {
 
   @Prop() count: number = 1;
 
+  addAttachments(object: any, url: string, comment: string, photographer: string, copyright: string){
+ 
+    object.Attachments.push({
+      Comment: comment,
+      Photographer: photographer,
+      Copyright: copyright,
+      Url: url
+    }
+    )
+  }
   
  plusSlides(n) {
   this.showSlides.bind(this, this.slideIndex += n);
@@ -165,20 +175,7 @@ export class VarsomObservation {
      }
   
 
-        //add attachments
-        for(let j = 0; j < 50; j++){  //max 50 attachments
-          if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
-            this.observations[i]._attachments.push({
-              Url: data[i]["Attachments"][j]["Url"],
-              Comment: data[i]["Attachments"][j]["Comment"],
-              Photographer: data[i]["Attachments"][j]["Photographer"],
-              GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
-              RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
-              Copyright: data[i]["Attachments"][j]["Copyright"],
-            })
-  //TODO map attachment to model
-            
-        }
+      
 
     
       
@@ -221,7 +218,8 @@ export class VarsomObservation {
               DangerSignName: data[i]["DangerObs"][j]["DangerSignName"],
               GeoHazardTID: data[i]["DangerObs"][j]["GeoHazardTID"],
               DangerSignTID: data[i]["DangerObs"][j]["DangerSignTID"],
-              Comment: data[i]["DangerObs"][j]["Comment"]
+              Comment: data[i]["DangerObs"][j]["Comment"],
+              Attachments: []
               
             })
           }
@@ -345,7 +343,43 @@ export class VarsomObservation {
             })
           }
         }
+
+                //initialize attachment arrays in object arrays
+  for (let k = 0; k < this.observations[i]._dangerObs.length; k++){
+    //this.observations[i]._dangerObs[k].Attachments = [];
+   
+}
+     //add attachments
+for(let j = 0; j < 300; j++){  //max 300 attachments
+if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0){
+
+if (data[i]["Attachments"][j].RegistrationTID == 51){
+  this.observations[i]._iceCoverObs.Attachments = [];
+  this.addAttachments(this.observations[i]._iceCoverObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+
+if (data[i]["Attachments"][j].RegistrationTID == 13){
+    this.addAttachments(this.observations[i]._dangerObs[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+
+  }
+
+} 
+/*
+          //add attachments
+          for(let j = 0; j < 300; j++){  //max 300 attachments
+            if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
+              this.observations[i]._attachments.push({
+                Url: data[i]["Attachments"][j]["Url"],
+                Comment: data[i]["Attachments"][j]["Comment"],
+                Photographer: data[i]["Attachments"][j]["Photographer"],
+                GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
+                RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
+                Copyright: data[i]["Attachments"][j]["Copyright"],
+              })
     
+              
+          }
+  */  
 
         //add images for image carousel
      this.observations[i]._images.push(
@@ -372,7 +406,7 @@ export class VarsomObservation {
      }
     };
 
-    
+  }
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
@@ -1010,6 +1044,7 @@ IceCoverAfterTID={obs._iceCoverObs.IceCoverAfterTID ? obs._iceCoverObs.IceCoverA
 IceSkateabilityTID={obs._iceCoverObs.IceSkateabilityTID ? obs._iceCoverObs.IceSkateabilityTID : null}
 Comment={obs._iceCoverObs.Comment ? obs._iceCoverObs.Comment : null}
 IceCapacityTID={obs._iceCoverObs.IceCapacityTID ? obs._iceCoverObs.IceCapacityTID : null}
+Attachments={obs._iceCoverObs.Attachments ? obs._iceCoverObs.Attachments : null}
 ></varsom-ice-cover-observation>
 : ""}
 
@@ -1094,3 +1129,5 @@ Comment={obs._incident.Comment ? obs._incident.Comment : null}
 
   
   }
+
+

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IceThicknessLayer, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observasjon/observation-model";
+import { Attachment, IceThicknessLayer, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observasjon/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -272,6 +272,7 @@ export namespace Components {
         "region": string;
     }
     interface VarsomIceCoverObservation {
+        "Attachments": Attachment[];
         "Comment": any;
         "IceCapacityName": any;
         "IceCapacityTID": any;
@@ -1157,6 +1158,7 @@ declare namespace LocalJSX {
         "region"?: string;
     }
     interface VarsomIceCoverObservation {
+        "Attachments"?: Attachment[];
         "Comment"?: any;
         "IceCapacityName"?: any;
         "IceCapacityTID"?: any;
