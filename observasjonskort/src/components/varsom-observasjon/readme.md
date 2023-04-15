@@ -7,44 +7,133 @@
 
 ## Properties
 
-| Property                     | Attribute                        | Description | Type  | Default     |
-| ---------------------------- | -------------------------------- | ----------- | ----- | ----------- |
-| `airTemperature`             | `air-temperature`                |             | `any` | `undefined` |
-| `avalCauseAttributeSoftName` | `aval-cause-attribute-soft-name` |             | `any` | `undefined` |
-| `avalCauseDepthName`         | `aval-cause-depth-name`          |             | `any` | `undefined` |
-| `avalCauseName`              | `aval-cause-name`                |             | `any` | `undefined` |
-| `avalPropagationName`        | `aval-propagation-name`          |             | `any` | `undefined` |
-| `avalTriggerSimpleName`      | `aval-trigger-simple-name`       |             | `any` | `undefined` |
-| `avalancheDevelopment`       | `avalanche-development`          |             | `any` | `undefined` |
-| `avalancheEvaluation`        | `avalanche-evaluation`           |             | `any` | `undefined` |
-| `avalancheExtName`           | `avalanche-ext-name`             |             | `any` | `undefined` |
-| `comment`                    | `comment`                        |             | `any` | `undefined` |
-| `copyright`                  | `copyright`                      |             | `any` | `undefined` |
-| `dangerSignName`             | `danger-sign-name`               |             | `any` | `undefined` |
-| `destructiveSizeName`        | `destructive-size-name`          |             | `any` | `undefined` |
-| `dtAvalancheTime`            | `dt-avalanche-time`              |             | `any` | `undefined` |
-| `dtMeasurementTime`          | `dt-measurement-time`            |             | `any` | `undefined` |
-| `dtStart`                    | `dt-start`                       |             | `any` | `undefined` |
-| `forecastComment`            | `forecast-comment`               |             | `any` | `undefined` |
-| `measurementReferenceName`   | `measurement-reference-name`     |             | `any` | `undefined` |
-| `measurementTypeName`        | `measurement-type-name`          |             | `any` | `undefined` |
-| `newSnowLine`                | `new-snow-line`                  |             | `any` | `undefined` |
-| `observationTimingName`      | `observation-timing-name`        |             | `any` | `undefined` |
-| `observer`                   | `observer`                       |             | `any` | `undefined` |
-| `photographer`               | `photographer`                   |             | `any` | `undefined` |
-| `registrationName`           | `registration-name`              |             | `any` | `undefined` |
-| `skiConditionsName`          | `ski-conditions-name`            |             | `any` | `undefined` |
-| `snowDepth`                  | `snow-depth`                     |             | `any` | `undefined` |
-| `snowDriftName`              | `snow-drift-name`                |             | `any` | `undefined` |
-| `snowSurfaceName`            | `snow-surface-name`              |             | `any` | `undefined` |
-| `strings`                    | `strings`                        |             | `any` | `undefined` |
-| `surfaceWaterContentName`    | `surface-water-content-name`     |             | `any` | `undefined` |
-| `waterAstrayName`            | `water-astray-name`              |             | `any` | `undefined` |
-| `waterLevel`                 | `water-level`                    |             | `any` | `undefined` |
-| `waterLevelStateName`        | `water-level-state-name`         |             | `any` | `undefined` |
-| `waterLevelValue`            | `water-level-value`              |             | `any` | `undefined` |
-| `weatherPrecipitationName`   | `weather-precipitation-name`     |             | `any` | `undefined` |
+| Property   | Attribute  | Description | Type     | Default     |
+| ---------- | ---------- | ----------- | -------- | ----------- |
+| `count`    | `count`    |             | `number` | `1`         |
+| `language` | `language` |             | `string` | `"nb"`      |
+| `number`   | `number`   |             | `number` | `1`         |
+| `regid`    | `regid`    |             | `string` | `undefined` |
+| `type`     | `type`     |             | `string` | `undefined` |
 
+
+## Dependencies
+
+### Depends on
+
+- [varsom-header](../varsom-header)
+- [varsom-metadata](../varsom-metadata)
+- [varsom-attachment](../varsom-attachment)
+- [varsom-label](../varsom-label)
+- [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+- [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
+- [varsom-avalanche-obs](../varsom-avalanche-obs)
+- [varsom-water-level](../varsom-water-level)
+- [varsom-water-level2](../varsom-water-level2)
+- [varsom-water-measurement](../varsom-water-measurement)
+- [varsom-ice-thickness](../varsom-ice-thickness)
+- [varsom-landslide-observation](../varsom-landslide-observation)
+- [varsom-weather](../varsom-weather)
+- [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
+- [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
+- [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
+- [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
+- [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
+- [varsom-snow-profile](../varsom-snow-profile)
+- [varsom-snow-profile2](../varsom-snow-profile2)
+- [varsom-danger-obs](../varsom-danger-obs)
+- [varsom-avalanche-danger-obs](../varsom-avalanche-danger-obs)
+- [varsom-compression-test](../varsom-compression-test)
+- [varsom-snow-surface-observation](../varsom-snow-surface-observation)
+- [varsom-ice-cover-observation](../varsom-ice-cover-observation)
+- [varsom-weather-observation](../varsom-weather-observation)
+- [varsom-general-observation](../varsom-general-observation)
+- [varsom-incident](../varsom-incident)
+
+### Graph
+```mermaid
+graph TD;
+  varsom-observation --> varsom-header
+  varsom-observation --> varsom-metadata
+  varsom-observation --> varsom-attachment
+  varsom-observation --> varsom-label
+  varsom-observation --> varsom-avalanche-activity-obs2
+  varsom-observation --> varsom-avalanche-activity-obs
+  varsom-observation --> varsom-avalanche-obs
+  varsom-observation --> varsom-water-level
+  varsom-observation --> varsom-water-level2
+  varsom-observation --> varsom-water-measurement
+  varsom-observation --> varsom-ice-thickness
+  varsom-observation --> varsom-landslide-observation
+  varsom-observation --> varsom-weather
+  varsom-observation --> varsom-avalanche-eval-problem
+  varsom-observation --> varsom-avalanche-eval-problem2
+  varsom-observation --> varsom-avalanche-evaluation
+  varsom-observation --> varsom-avalanche-evaluation2
+  varsom-observation --> varsom-avalanche-evaluation3
+  varsom-observation --> varsom-snow-profile
+  varsom-observation --> varsom-snow-profile2
+  varsom-observation --> varsom-danger-obs
+  varsom-observation --> varsom-avalanche-danger-obs
+  varsom-observation --> varsom-compression-test
+  varsom-observation --> varsom-snow-surface-observation
+  varsom-observation --> varsom-ice-cover-observation
+  varsom-observation --> varsom-weather-observation
+  varsom-observation --> varsom-general-observation
+  varsom-observation --> varsom-incident
+  varsom-attachment --> varsom-key-value
+  varsom-avalanche-activity-obs2 --> varsom-key-value
+  varsom-avalanche-activity-obs --> varsom-key-value
+  varsom-avalanche-obs --> varsom-label
+  varsom-avalanche-obs --> varsom-key-value
+  varsom-water-level --> varsom-label-small
+  varsom-water-level --> varsom-key-value
+  varsom-water-level2 --> varsom-label-small
+  varsom-water-level2 --> varsom-key-value
+  varsom-water-level2 --> varsom-water-measurement
+  varsom-water-measurement --> varsom-label-small
+  varsom-water-measurement --> varsom-key-value
+  varsom-ice-thickness --> varsom-label
+  varsom-ice-thickness --> varsom-ice-thickness-layer
+  varsom-ice-thickness --> varsom-key-value
+  varsom-ice-thickness-layer --> varsom-key-value
+  varsom-landslide-observation --> varsom-label
+  varsom-landslide-observation --> varsom-key-value
+  varsom-landslide-observation --> varsom-url
+  varsom-url --> varsom-key-value
+  varsom-avalanche-eval-problem --> varsom-label-small
+  varsom-avalanche-eval-problem --> varsom-key-value
+  varsom-avalanche-eval-problem2 --> varsom-label-small
+  varsom-avalanche-eval-problem2 --> varsom-key-value
+  varsom-avalanche-evaluation --> varsom-key-value
+  varsom-avalanche-evaluation2 --> varsom-key-value
+  varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
+  varsom-avalanche-evaluation3 --> varsom-key-value
+  varsom-snow-profile --> varsom-label
+  varsom-snow-profile --> varsom-key-value
+  varsom-snow-profile2 --> varsom-label
+  varsom-snow-profile2 --> varsom-key-value
+  varsom-snow-profile2 --> varsom-snow-density
+  varsom-snow-profile2 --> varsom-strat-profile
+  varsom-snow-density --> varsom-key-value
+  varsom-snow-density --> varsom-snow-density-layer
+  varsom-snow-density-layer --> varsom-key-value
+  varsom-strat-profile --> varsom-strat-profile-layer
+  varsom-danger-obs --> varsom-key-value
+  varsom-avalanche-danger-obs --> varsom-key-value
+  varsom-compression-test --> varsom-key-value
+  varsom-snow-surface-observation --> varsom-label
+  varsom-snow-surface-observation --> varsom-key-value
+  varsom-ice-cover-observation --> varsom-key-value
+  varsom-weather-observation --> varsom-key-value
+  varsom-general-observation --> varsom-label
+  varsom-general-observation --> varsom-label-small
+  varsom-general-observation --> varsom-key-value
+  varsom-general-observation --> varsom-url
+  varsom-incident --> varsom-label
+  varsom-incident --> varsom-key-value
+  varsom-incident --> varsom-url
+  style varsom-observation fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

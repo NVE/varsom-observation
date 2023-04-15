@@ -3,7 +3,7 @@ export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-ste
     argTypes: {
         language: { control: "select", options: ["en", "de", "it",
     "sl", "nn", "nb", "sv"] },
-    type: {control: "select", options: ["Snow", "Ice", "Dirt", "Water"]}
+    type: {control: "select", options: ["Snow", "Ice", "Dirt", "Water", ""]}
       },
 }
 
