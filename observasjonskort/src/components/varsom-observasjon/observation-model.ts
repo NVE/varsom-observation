@@ -96,7 +96,8 @@ export type Observation = {
     StopLat?: number, //($double) StopLat
     StopLong?: number //($double) StopLong
     RemotelyTriggered?: boolean, //Ble skredet fjernutløst?
-    Comment?: string
+    Comment?: string,
+    Attachments?: Attachment[]
    }
   
    export type LandslideObs = {
@@ -121,7 +122,8 @@ export type Observation = {
     StopLat?: number,
     StopLong?: number,
     DtLandSlideTime?: string,
-    DtLandSlideTimeEnd?: string
+    DtLandSlideTimeEnd?: string,
+    Attachments?: Attachment[]
    }
   
    export type Observer = {
@@ -140,6 +142,7 @@ export type Observation = {
     WindDirection: number,
     CloudCover: number,
     Comment: string,
+    Attachments?: Attachment[]
     //_imageUrl?: string
    }
   
@@ -197,7 +200,7 @@ export type Observation = {
     IceHeightBefore: number, //($double) Isen kan være presset under vannspeilet eller flyte oppå. Her registreres denne høyden før borring. IceHeightBefore = 0 betyr at isen er tørr og negative verdier angir overvann. Verdi i meter [m].
     IceHeightAfter: number, //($double) Isen kan være presset under vannspeilet eller flyte oppå. Her registreres denne høyden etter borring. IPositive verdier angir at vannet står nedi hulet og og negative verdier angir overvann. Verdi i meter [m].
     Comment: string //maxLength: 1024 Comment
-  
+    Attachments?: Attachment[]
    }
   
   
@@ -231,7 +234,8 @@ export type Observation = {
       Aspect: number,
       GeoHazardTID: number,
       RegistrationTID: number,
-      Comment: string
+      Comment: string,
+      Attachments?: Attachment[]
    }
   
    export type LandslideProblem = {  //can't find this in the api...
@@ -241,7 +245,8 @@ export type Observation = {
     _sizeOfExpectedLandslide: string,
     _spread: string,
     _comment: string,
-    _imageUrl?: string
+    _imageUrl?: string,
+    Attachments?: Attachment[]
    }
   
    export type EstimateOfRisk = {  //can't find this in the api...
@@ -268,8 +273,8 @@ export type Observation = {
     SnowSurfaceTID: number,
     Comment: string,
     HeightLimitLayeredSnow: number,
-    SnowLine: number 
-    
+    SnowLine: number,
+    Attachments?: Attachment[]
    }
   
    export type WaterLevelMeasurement = {
@@ -299,7 +304,8 @@ export type Observation = {
     WaterLevelStateTID: number, //	integer($int32)
     MarkingTypeTID: number, //	integer($int32)
     MeasuringToolDescription:	string,
-    Comment: string
+    Comment: string,
+    Attachments?: Attachment[]
    }
   
    export type LatLng = {
@@ -314,7 +320,7 @@ export type Observation = {
     GeoHazardTID: number, //	integer($int32)
     DamageTypeTID: number, //	integer($int32)
     DamagePosition:	LatLng,
-    Comment:	string
+    Comment:	string,
    }
   
    export type Image = {
@@ -374,8 +380,9 @@ export type Observation = {
     AvalCauseAttributeThinTID?: number, //	integer($int32)
     AvalCauseAttributeSoftTID?: number, //	integer($int32)
     AvalCauseAttributeCrystalTID?: number, //	integer($int32)
-    DestructiveSizeTID?: number //	integer($int32) Sannsynlig tilleggsbelastning for å utløse skred. The DestructiveSizeKD unique identifier
-   }
+    DestructiveSizeTID?: number, //	integer($int32) Sannsynlig tilleggsbelastning for å utløse skred. The DestructiveSizeKD unique identifier
+    Attachments?: Attachment[]
+  }
   
    export type AvalancheEvaluation3 = {
     AvalancheDangerName: string,
@@ -385,7 +392,8 @@ export type Observation = {
     AvalancheDevelopment: string, // maxLength: 1024 Her blir forventet utvikling skrevet inn.
     ForecastCorrectTID: number, //	integer($int32) Felt hvor observatøren kan fortelle de syns varslet stemmer. Valg fra liste gitt i ForecastCorrectKD. The ForecastCorrectKD unique identifier
     ForecastComment: string, //maxLength: 1024 Kommentarfelt for utdypende kommentar om varslet stemmer eller ikke.
-   }
+    Attachments?: Attachment[]
+  }
     
    export type CompressionTest = {
     CompressionTestName?: string,
@@ -420,7 +428,8 @@ export type Observation = {
     ObsComment: string, //maxLength: 2048 Selve registreringen.
     ObsHeader: string, //maxLength: 100 Overskriften (hovedpoenget).
     Comment: string, // maxLength: 1024 Kommentarfelt for å skrive utfyllende tekst
-   }
+    Attachments?: Attachment[] 
+  }
   
   
    export type Incident = {
@@ -455,6 +464,7 @@ export type Observation = {
     IncidentIngress: string, // maxLength: 512 .. med ingress eller sammendrag ..
     IncidentText: string, // maxLength: 2048  .. og teksten eller artikkelen.
     Comment: string, //Comment.
+    Attachments?: Attachment[]
    }
   
   
@@ -481,7 +491,8 @@ export type Observation = {
   
    export type StratProfile = {
     TotalDepth:	number, //($double)
-    Layers: StratProfileLayer[]
+    Layers: StratProfileLayer[],
+    Attachments?: Attachment[]
    }
   
    export type SnowTempObs = {
@@ -490,7 +501,8 @@ export type Observation = {
    }
   
    export type SnowTemp = {
-    Layers: SnowTempObs[]
+    Layers: SnowTempObs[],
+    Attachments?: Attachment[]
    }
   
    export type SnowDensityLayer = {
@@ -507,7 +519,8 @@ export type Observation = {
     CylinderDiameter?:	number, //($double)
     TareWeight?: number, //($double)
     Comment?: string,
-    Layers?: SnowDensityLayer[]
+    Layers?: SnowDensityLayer[],
+    Attachments?: Attachment[]
    }
   
    export type SnowProfile2 = {
@@ -519,7 +532,8 @@ export type Observation = {
     SlopeAngle: number, // integer($int32)
     SnowTemp:	SnowTemp,
     SnowDensity: SnowDensity[],
-    ImageUrl?: string
+    ImageUrl?: string,
+    Attachments?: Attachment[]
   
    }
 
@@ -540,7 +554,8 @@ export type Observation = {
     AvalancheProblemTID3: number, //	integer($int32)
     AvalancheProblemName3: string,
     AvalancheEvaluation1:	string,
-    Comment:	string
+    Comment:	string,
+    Attachments?: Attachment[]
    }
   
    export type AvalancheActivityObs = {
@@ -561,15 +576,16 @@ export type Observation = {
     SnowLine: number, //	integer($int32) Hvor går snøgrensa i området?
     SnowLineName:	string,
     Comment: string, //Kommentarfelt for å skrive utfyllende tekst om observasjonen.
-    DtOffAvalancheTime: string //($date-time)
-   }
+    DtOffAvalancheTime: string, //($date-time)
+    Attachments?: Attachment[] 
+  }
   
    export type AvalancheDangerObs = {
     AvalancheDangerObsID?: number, //	integer($int32)
     DangerSignTID?: number,	// integer($int32)
     DangerSignName?:	string,
     Comment?:	string,
-    Attachments: Attachment[]
+    Attachments?: Attachment[]
    }
   
    export type AvalancheEvalProblem = {
@@ -607,7 +623,8 @@ export type Observation = {
     ExposedClimateTID: number, //	integer($int32) 
     ExposedClimateName:	string,
     AvalancheDangerTID: number, //	integer($int32)
-    AvalancheEvalProblems: AvalancheEvalProblem	[]
+    AvalancheEvalProblems: AvalancheEvalProblem	[],
+    Attachments?: Attachment[]
    }
   
    export type SnowCoverObs = {
@@ -617,7 +634,8 @@ export type Observation = {
     CriticalLayerTID: number, //	integer($int32) The CriticalLayerKD unique identifier
     SnowPilotRef:	string, // SnowPilotRef
     Comment:	string, // Comment.
-    CriticalLayerName:	string
+    CriticalLayerName:	string,
+    Attachments?: Attachment[]
    }
   
    export type WaterLevel = {
@@ -627,7 +645,8 @@ export type Observation = {
     WaterLevelRefName: 	string,
     Comment:	string,
     MeasuredDischarge:	number, //($double)
-    IsRiver:	boolean
+    IsRiver:	boolean,
+    Attachments?: Attachment[]
    }
   
 

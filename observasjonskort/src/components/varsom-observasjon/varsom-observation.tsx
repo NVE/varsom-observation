@@ -791,6 +791,7 @@ destructive-size-name={el.DestructiveSizeName ? el.DestructiveSizeName : null}
 aval-propagation-tid={el.AvalPropagationTID ? el.AvalPropagationTID : null}
 AvalPropagationName={el.AvalPropagationName ? el.AvalPropagationName : null}
 Comment={el.Comment ? el.Comment : null}
+Attachments={el.Attachments ? el.Attachments : null}
 
 >
 </varsom-avalanche-eval-problem2>
