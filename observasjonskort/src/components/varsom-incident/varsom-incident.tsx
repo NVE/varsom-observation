@@ -167,9 +167,12 @@ export class VarsomIncident {
     ></varsom-key-value>
     :""}
 
-
+<br></br>
 {this.IncidentURLs ? 
-      <div>
+      <host>
+    
+      <b>{this.strings ? this.strings.Observations.GeneralObservation.Urls : "Lenker"}</b>
+     
       {this.IncidentURLs.map((el: Url = {}) =>{
             return <varsom-url
             strings={this.strings}
@@ -179,7 +182,7 @@ export class VarsomIncident {
 
             </varsom-url>
         })
-        } </div> : ""}
+        } </host> : ""}
 
 </div>
 
