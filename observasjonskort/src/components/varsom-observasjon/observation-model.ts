@@ -217,8 +217,9 @@ export type Observation = {
   RegistrationTID?: number, //Hva er bildet av. Dette feltet relaterer bildet til en observasjonstype. Feks værobservasjon, faretegn, osv. The RegistrationKD unique identifier
   Comment?: string, //maxLength: 2048 Kommentarfelt for bildet. F.eks for å beskrive det.
   AttachmentMimeType?: string,
-  IsMainAttachment?: boolean //Om bildet skal vises først i registreringen, eller ikke
-   }
+  IsMainAttachment?: boolean, //Om bildet skal vises først i registreringen, eller ikke
+  CropImage?: boolean
+}
    
    export type Test = {  //can't find this in the api...
     Test: string,

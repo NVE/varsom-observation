@@ -89,6 +89,7 @@ export class VarsomAvalancheActivityObs2 {
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
             Copyright={el.Copyright ? el.Copyright : null}
+            CropImage
             >
 
             </varsom-attachment>

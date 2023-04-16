@@ -585,6 +585,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
             AvalPropagationTID={el.AvalPropagationTID ? el.AvalPropagationTID : null}
             Comment={el.Comment ? el.Comment : null}
             Attachments={el.Attachments ? el.Attachments : null}
+            
 
             > </varsom-avalanche-activity-obs2>
         })
@@ -1085,6 +1086,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
   HeightLimitLayeredSnow={obs._snowSurfaceObservation.HeightLimitLayeredSnow ? obs._snowSurfaceObservation.HeightLimitLayeredSnow : null}
   SnowLine={obs._snowSurfaceObservation.SnowLine ? obs._snowSurfaceObservation.SnowLine : null}
   FootPenetration={obs._snowSurfaceObservation.FootPenetration ? obs._snowSurfaceObservation.FootPenetration : null}
+  Attachments={obs._snowSurfaceObservation.Attachments ? obs._snowSurfaceObservation.Attachments : null}
 >
 </varsom-snow-surface-observation> 
   : ""}

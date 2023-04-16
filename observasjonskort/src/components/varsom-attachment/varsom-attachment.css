@@ -1,5 +1,9 @@
-img {
+.normalImage {
   max-width: 400px;
+}
+
+.smallImage {
+  max-width: 350px;
 }
 
 .container {
@@ -19,5 +23,11 @@ label {
 .imageInfo {
   background-color: rgba(4, 73, 98, 0.05);
   width: 100%;
+  padding: 8px 16px 16px;
+}
+
+.smallImageInfo{
+  background-color: rgba(4, 73, 98, 0.05);
+  max-width: 85%;
   padding: 8px 16px 16px;
 }

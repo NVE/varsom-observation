@@ -27,6 +27,7 @@ export namespace Components {
         "AttachmentMimeType"?: any;
         "Comment": any;
         "Copyright": any;
+        "CropImage"?: boolean;
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
         "IsMainAttachment"?: any;
@@ -939,6 +940,7 @@ declare namespace LocalJSX {
         "AttachmentMimeType"?: any;
         "Comment"?: any;
         "Copyright"?: any;
+        "CropImage"?: boolean;
         "GeoHazardName"?: any;
         "GeoHazardTID"?: any;
         "IsMainAttachment"?: any;

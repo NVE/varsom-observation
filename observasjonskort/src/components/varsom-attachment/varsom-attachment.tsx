@@ -22,6 +22,7 @@ export class VarsomAttachment {
   @Prop() RegistrationTID?: any;
   @Prop() AttachmentMimeType?: any;
   @Prop() IsMainAttachment?: any;
+  @Prop() CropImage?: boolean;
   
  
 
@@ -30,17 +31,19 @@ export class VarsomAttachment {
 
       {this.Url ? 
         <div>
-        <img src={this.Url} />
+        <img class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} />
       </div>
       : ""} 
+ 
 
-<div class="imageInfo">
+<div class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
     {this.Photographer ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
     _value={this.Photographer}
     ></varsom-key-value>
     :""}
+    
 
     {this.Copyright ? 
     <varsom-key-value
@@ -56,6 +59,8 @@ export class VarsomAttachment {
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+
+
 </div>
 
     </div>
