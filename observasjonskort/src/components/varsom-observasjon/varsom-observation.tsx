@@ -7,6 +7,7 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
+import { VarsomSnowSurfaceObservation } from '../varsom-snow-surface-observation/varsom-snow-surface-observation';
 
 @Component({
   tag: 'varsom-observation',
@@ -132,12 +133,11 @@ export class VarsomObservation {
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
         _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
-        //_attachments: data[i]["Attachments"],
+        Attachments: [],
         _images: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
-        _attachments: [],
         _weather: data[i]["WeatherObservation"],
         _observerGroupName: data[i]["ObserverGroupName"],
         _iceCoverObs: data[i]["IceCoverObs"],
@@ -199,9 +199,6 @@ export class VarsomObservation {
               AvalPropagationTID: data[i]["AvalancheActivityObs2"][j]["AvalPropagationTID"],
               Comment: data[i]["AvalancheActivityObs2"][j]["Comment"],
               Attachments: []
-              
-      
-            
             })
           }
         }
@@ -344,24 +341,76 @@ export class VarsomObservation {
           }
         }
 
-                //initialize attachment arrays in object arrays
-  for (let k = 0; k < this.observations[i]._dangerObs.length; k++){
-    //this.observations[i]._dangerObs[k].Attachments = [];
-   
+  //initialize attachment arrays in objects
+  for (let k = 0; k < this.observations.length; k++){
+    this.observations[k]._snowProfile2 ? this.observations[k]._snowProfile2.Attachments = [] : "";
+    this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : "";
+    this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : ""; 
+    this.observations[k]._snowSurfaceObservation ? this.observations[k]._snowSurfaceObservation.Attachments = [] : "";
+    this.observations[k]._weather ? this.observations[k]._weather.Attachments = [] : "";
+    this.observations[k]._generalObservation ? this.observations[k]._generalObservation.Attachments = [] : "";
+    this.observations[k]._waterLevel2 ? this.observations[k]._waterLevel2.Attachments = [] : "";
+    this.observations[k]._landslideObs ? this.observations[k]._landslideObs.Attachments = [] : "";
+    this.observations[k].Attachments = [];
 }
      //add attachments to objects
 for(let j = 0; j < 300; j++){  //max 300 attachments
 if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0){
 
+  //objects
 if (data[i]["Attachments"][j].RegistrationTID == 51){
-  this.observations[i]._iceCoverObs.Attachments = [];
+  
   this.addAttachments(this.observations[i]._iceCoverObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+} 
+if (data[i]["Attachments"][j].RegistrationTID == 50){
+  
+  this.addAttachments(this.observations[i]._iceThickness, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+} 
+if (data[i]["Attachments"][j].RegistrationTID == 22){
+  
+  this.addAttachments(this.observations[i]._snowSurfaceObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 36){
+  
+  this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 21){
+  
+  this.addAttachments(this.observations[i]._weather, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 10){
+  
+  this.addAttachments(this.observations[i]._generalObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 62){
+  
+  this.addAttachments(this.observations[i]._waterLevel2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 71){
+  
+  this.addAttachments(this.observations[i]._landslideObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == null){
+  
+  this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 }
 
+
+////arrays of objects
 if (data[i]["Attachments"][j].RegistrationTID == 13){
     this.addAttachments(this.observations[i]._dangerObs[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
-
   }
+  if (data[i]["Attachments"][j].RegistrationTID == 25){
+    this.addAttachments(this.observations[i]._compressionTest[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  }
+  if (data[i]["Attachments"][j].RegistrationTID == 33){
+    this.addAttachments(this.observations[i]._avalancheActivityObs2[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  }
+  if (data[i]["Attachments"][j].RegistrationTID == 14){
+    this.addAttachments(this.observations[i]._damageObs[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  }
+  
+
 
 } 
 /*
@@ -484,7 +533,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   
 {/* ATTACHMENTS */}
    
-        {obs._attachments.map((att: Attachment = {}) =>{
+        {obs.Attachments.map((att: Attachment = {}) =>{
             return <varsom-attachment
               strings={this.strings}
               RegistrationName={att.RegistrationName ? att.RegistrationName : null}
@@ -634,6 +683,7 @@ MarkingReferenceTID={obs._waterLevel2.MarkingReferenceTID ? obs._waterLevel2.Mar
 WaterLevelStateTID={obs._waterLevel2.WaterLevelStateTID ? obs._waterLevel2.WaterLevelStateTID : null}
 MarkingTypeTID={obs._waterLevel2.MarkingTypeTID ? obs._waterLevel2.MarkingTypeTID : null}
 MeasuringToolDescription={obs._waterLevel2.MeasuringToolDescription ? obs._waterLevel2.MeasuringToolDescription : null}
+Attachments={obs._waterLevel2.Attachments ? obs._waterLevel2.Attachments : null}
 
 ></varsom-water-level2>
 : ""}
@@ -675,6 +725,7 @@ SlushSnow={obs._iceThickness.SlushSnow ? obs._iceThickness.SlushSnow : null}
 IceThicknessSum={obs._iceThickness.IceThicknessSum ? obs._iceThickness.IceThicknessSum : null}
 IceHeightBefore={obs._iceThickness.IceHeightBefore ? obs._iceThickness.IceHeightBefore : null}
 IceHeightAfter={obs._iceThickness.IceHeightAfter ? obs._iceThickness.IceHeightAfter : null}
+Attachments={obs._iceThickness.Attachments ? obs._iceThickness.Attachments : null}
 >
 </varsom-ice-thickness>
 : ""}
@@ -704,18 +755,20 @@ StopLong={obs._landslideObs.StopLong ? obs._landslideObs.StopLong : null}
 DtLandSlideTimeEnd={obs._landslideObs.DtLandSlideTimeEnd ? obs._landslideObs.DtLandSlideTimeEnd : null}
 DtLandSlideTime={obs._landslideObs.DtLandSlideTime ? obs._landslideObs.DtLandSlideTime : null}
 LandSlideSizeTID={obs._landslideObs.LandSlideSizeTID ? obs._landslideObs.LandSlideSizeTID : null}
+Attachments={obs._landslideObs.Attachments ? obs._landslideObs.Attachments : null}
 
 ></varsom-landslide-observation>
 : ""}
 
 {/* WEATHER OBSERVATIONS */}
 {obs._weather ? 
-<varsom-weather
+<varsom-weather-observation
 strings={this.strings}
 weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
+Attachments={obs._weather.Attachments ? obs._weather.Attachments : null}
 >
-   </varsom-weather>
+   </varsom-weather-observation>
 : ""}
 
 
@@ -809,6 +862,7 @@ CriticalLayerTID={obs._snowCoverObs.CriticalLayerTID ? obs._snowCoverObs.Critica
 SnowPilotRef={obs._snowCoverObs.SnowPilotRef ? obs._snowCoverObs.SnowPilotRef : null}
 CriticalLayerName={obs._snowCoverObs.CriticalLayerName ? obs._snowCoverObs.CriticalLayerName : null}
 Comment={obs._snowCoverObs.Comment ? obs._snowCoverObs.Comment : null}
+Attachments={obs._snowCoverObs.Attachments ? obs._snowCoverObs.Attachments : null}
 
 ></varsom-snow-cover-obs>
 : ""}
@@ -919,6 +973,7 @@ SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
 SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
 ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
 RegId={this.regid}
+Attachments={obs._snowProfile2.Attachments ? obs._snowProfile2.Attachments : null}
 ></varsom-snow-profile2>
 :""}
 
@@ -1063,6 +1118,7 @@ WindSpeed={obs._weatherObservation.WindSpeed ? obs._generalObservation.WindSpeed
 WindDirection={obs._weatherObservation.WindDirection ? obs._generalObservation.WindDirection : null}
 CloudCover={obs._weatherObservation.CloudCover ? obs._generalObservation.CloudCover : null}
 Comment={obs._weatherObservation.Comment ? obs._generalObservation.Comment : null}
+Attachments={obs._weatherObservation.Attachments ? obs._generalObservation.Attachments : null}
 ></varsom-weather-observation>
 : ""}
 

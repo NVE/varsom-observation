@@ -19,7 +19,7 @@ export class VarsomWeatherObservation {
   @Prop() WindSpeed: any;
   @Prop() CloudCover: any;
   @Prop() Comment: any;
-  @Prop() Attachments: Attachment[];
+  @Prop() Attachments?: Attachment[];
   
   
   
@@ -77,6 +77,20 @@ export class VarsomWeatherObservation {
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+
+{this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
 
     </div>
   }

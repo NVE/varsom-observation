@@ -581,7 +581,7 @@ export namespace Components {
     }
     interface VarsomWeatherObservation {
         "AirTemperature": any;
-        "Attachments": Attachment[];
+        "Attachments"?: Attachment[];
         "CloudCover": any;
         "Comment": any;
         "PrecipitationName": any;

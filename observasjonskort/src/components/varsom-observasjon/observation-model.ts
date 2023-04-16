@@ -31,7 +31,7 @@ export type Observation = {
   _dataSource?: any,
   _className?: string,
   _observationImages?: HTMLElement[],
-  _attachments?: Attachment[],
+  Attachments?: Attachment[],
   _observerGroupName?: string,
   _avalancheActivityObs2?: AvalancheActivityObs2[],
   _iceCoverObs?: IceCoverObs,
