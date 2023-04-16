@@ -17,13 +17,11 @@ export class VarsomUrl {
   render(){
     return <host> 
 
-{( this.UrlLine && this.UrlDescription) ? 
+  {(this.UrlLine && this.UrlDescription) ? 
       <ul>
-    <li>{this.UrlDescription} {this.UrlLine}</li>
-    
+    <li>{this.UrlDescription} {this.UrlLine}</li>  
     </ul>
     :""}
-    
     </host>
   }
     

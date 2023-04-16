@@ -378,10 +378,11 @@ if (data[i]["Attachments"][j].RegistrationTID == 21){
   
   this.addAttachments(this.observations[i]._weather, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 }
-if (data[i]["Attachments"][j].RegistrationTID == 10){
+//if (data[i]["Attachments"][j].RegistrationTID == 10){
   
-  this.addAttachments(this.observations[i]._generalObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
-}
+  //this.addAttachments(this.observations[i]._generalObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+//}
+
 if (data[i]["Attachments"][j].RegistrationTID == 62){
   
   this.addAttachments(this.observations[i]._waterLevel2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
@@ -1133,6 +1134,7 @@ GeoHazardTID={obs._generalObservation.GeoHazardTID ? obs._generalObservation.Geo
 ObsComment={obs._generalObservation.ObsComment ? obs._generalObservation.ObsComment : null}
 ObsHeader={obs._generalObservation.ObsHeader ? obs._generalObservation.ObsHeader : null}
 Comment={obs._generalObservation.Comment ? obs._generalObservation.Comment : null}
+Attachments={obs._generalObservation.Attachments ? obs._generalObservation.Attachments : null}
 
 
 ></varsom-general-observation>
