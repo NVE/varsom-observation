@@ -7,7 +7,6 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
-import { VarsomSnowSurfaceObservation } from '../varsom-snow-surface-observation/varsom-snow-surface-observation';
 
 @Component({
   tag: 'varsom-observation',
@@ -414,22 +413,6 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 
 
 } 
-/*
-          //add attachments
-          for(let j = 0; j < 300; j++){  //max 300 attachments
-            if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0)
-              this.observations[i]._attachments.push({
-                Url: data[i]["Attachments"][j]["Url"],
-                Comment: data[i]["Attachments"][j]["Comment"],
-                Photographer: data[i]["Attachments"][j]["Photographer"],
-                GeoHazardName: data[i]["Attachments"][j]["GeoHazardName"],
-                RegistrationName: data[i]["Attachments"][j]["RegistrationName"],
-                Copyright: data[i]["Attachments"][j]["Copyright"],
-              })
-    
-              
-          }
-  */  
 
         //add images for image carousel
      this.observations[i]._images.push(
