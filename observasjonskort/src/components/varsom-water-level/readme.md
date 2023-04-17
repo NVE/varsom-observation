@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property              | Attribute               | Description | Type  | Default     |
-| --------------------- | ----------------------- | ----------- | ----- | ----------- |
-| `IsRiver`             | `is-river`              |             | `any` | `undefined` |
-| `MeasuredDischarge`   | `measured-discharge`    |             | `any` | `undefined` |
-| `WaterLevelDescribed` | `water-level-described` |             | `any` | `undefined` |
-| `WaterLevelRefName`   | `water-level-ref-name`  |             | `any` | `undefined` |
-| `WaterLevelRefTID`    | `water-level-ref-t-i-d` |             | `any` | `undefined` |
-| `WaterLevelValue`     | `water-level-value`     |             | `any` | `undefined` |
-| `strings`             | `strings`               |             | `any` | `undefined` |
+| Property              | Attribute               | Description | Type           | Default     |
+| --------------------- | ----------------------- | ----------- | -------------- | ----------- |
+| `Attachments`         | --                      |             | `Attachment[]` | `undefined` |
+| `IsRiver`             | `is-river`              |             | `any`          | `undefined` |
+| `MeasuredDischarge`   | `measured-discharge`    |             | `any`          | `undefined` |
+| `WaterLevelDescribed` | `water-level-described` |             | `any`          | `undefined` |
+| `WaterLevelRefName`   | `water-level-ref-name`  |             | `any`          | `undefined` |
+| `WaterLevelRefTID`    | `water-level-ref-t-i-d` |             | `any`          | `undefined` |
+| `WaterLevelValue`     | `water-level-value`     |             | `any`          | `undefined` |
+| `strings`             | `strings`               |             | `any`          | `undefined` |
 
 
 ## Dependencies

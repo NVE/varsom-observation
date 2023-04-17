@@ -32,7 +32,7 @@
 - [varsom-water-measurement](../varsom-water-measurement)
 - [varsom-ice-thickness](../varsom-ice-thickness)
 - [varsom-landslide-observation](../varsom-landslide-observation)
-- [varsom-weather](../varsom-weather)
+- [varsom-weather-observation](../varsom-weather-observation)
 - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
 - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
 - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
@@ -45,7 +45,6 @@
 - [varsom-compression-test](../varsom-compression-test)
 - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
 - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
-- [varsom-weather-observation](../varsom-weather-observation)
 - [varsom-general-observation](../varsom-general-observation)
 - [varsom-incident](../varsom-incident)
 
@@ -64,7 +63,7 @@ graph TD;
   varsom-observation --> varsom-water-measurement
   varsom-observation --> varsom-ice-thickness
   varsom-observation --> varsom-landslide-observation
-  varsom-observation --> varsom-weather
+  varsom-observation --> varsom-weather-observation
   varsom-observation --> varsom-avalanche-eval-problem
   varsom-observation --> varsom-avalanche-eval-problem2
   varsom-observation --> varsom-avalanche-evaluation
@@ -77,29 +76,33 @@ graph TD;
   varsom-observation --> varsom-compression-test
   varsom-observation --> varsom-snow-surface-observation
   varsom-observation --> varsom-ice-cover-observation
-  varsom-observation --> varsom-weather-observation
   varsom-observation --> varsom-general-observation
   varsom-observation --> varsom-incident
   varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-key-value
+  varsom-avalanche-activity-obs2 --> varsom-attachment
   varsom-avalanche-activity-obs --> varsom-key-value
   varsom-avalanche-obs --> varsom-label
   varsom-avalanche-obs --> varsom-key-value
   varsom-water-level --> varsom-label-small
   varsom-water-level --> varsom-key-value
-  varsom-water-level2 --> varsom-label-small
+  varsom-water-level2 --> varsom-label
   varsom-water-level2 --> varsom-key-value
   varsom-water-level2 --> varsom-water-measurement
+  varsom-water-level2 --> varsom-attachment
   varsom-water-measurement --> varsom-label-small
   varsom-water-measurement --> varsom-key-value
   varsom-ice-thickness --> varsom-label
   varsom-ice-thickness --> varsom-ice-thickness-layer
   varsom-ice-thickness --> varsom-key-value
+  varsom-ice-thickness --> varsom-attachment
   varsom-ice-thickness-layer --> varsom-key-value
   varsom-landslide-observation --> varsom-label
   varsom-landslide-observation --> varsom-key-value
   varsom-landslide-observation --> varsom-url
-  varsom-url --> varsom-key-value
+  varsom-landslide-observation --> varsom-attachment
+  varsom-weather-observation --> varsom-key-value
+  varsom-weather-observation --> varsom-attachment
   varsom-avalanche-eval-problem --> varsom-label-small
   varsom-avalanche-eval-problem --> varsom-key-value
   varsom-avalanche-eval-problem2 --> varsom-label-small
@@ -114,17 +117,21 @@ graph TD;
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-profile2 --> varsom-snow-density
   varsom-snow-profile2 --> varsom-strat-profile
+  varsom-snow-profile2 --> varsom-attachment
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
   varsom-snow-density-layer --> varsom-key-value
   varsom-strat-profile --> varsom-strat-profile-layer
   varsom-danger-obs --> varsom-key-value
+  varsom-danger-obs --> varsom-attachment
   varsom-avalanche-danger-obs --> varsom-key-value
   varsom-compression-test --> varsom-key-value
+  varsom-compression-test --> varsom-attachment
   varsom-snow-surface-observation --> varsom-label
   varsom-snow-surface-observation --> varsom-key-value
+  varsom-snow-surface-observation --> varsom-attachment
   varsom-ice-cover-observation --> varsom-key-value
-  varsom-weather-observation --> varsom-key-value
+  varsom-ice-cover-observation --> varsom-attachment
   varsom-general-observation --> varsom-label
   varsom-general-observation --> varsom-label-small
   varsom-general-observation --> varsom-key-value

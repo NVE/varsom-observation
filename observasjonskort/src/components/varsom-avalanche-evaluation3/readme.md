@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property               | Attribute                | Description | Type  | Default     |
-| ---------------------- | ------------------------ | ----------- | ----- | ----------- |
-| `AvalancheDangerName`  | `avalanche-danger-name`  |             | `any` | `undefined` |
-| `AvalancheDangerTID`   | `avalanche-danger-t-i-d` |             | `any` | `undefined` |
-| `AvalancheDevelopment` | `avalanche-development`  |             | `any` | `undefined` |
-| `AvalancheEvaluation`  | `avalanche-evaluation`   |             | `any` | `undefined` |
-| `ForecastComment`      | `forecast-comment`       |             | `any` | `undefined` |
-| `ForecastCorrectName`  | `forecast-correct-name`  |             | `any` | `undefined` |
-| `ForecastCorrectTID`   | `forecast-correct-t-i-d` |             | `any` | `undefined` |
-| `strings`              | `strings`                |             | `any` | `undefined` |
+| Property               | Attribute                | Description | Type           | Default     |
+| ---------------------- | ------------------------ | ----------- | -------------- | ----------- |
+| `Attachments`          | --                       |             | `Attachment[]` | `undefined` |
+| `AvalancheDangerName`  | `avalanche-danger-name`  |             | `any`          | `undefined` |
+| `AvalancheDangerTID`   | `avalanche-danger-t-i-d` |             | `any`          | `undefined` |
+| `AvalancheDevelopment` | `avalanche-development`  |             | `any`          | `undefined` |
+| `AvalancheEvaluation`  | `avalanche-evaluation`   |             | `any`          | `undefined` |
+| `ForecastComment`      | `forecast-comment`       |             | `any`          | `undefined` |
+| `ForecastCorrectName`  | `forecast-correct-name`  |             | `any`          | `undefined` |
+| `ForecastCorrectTID`   | `forecast-correct-t-i-d` |             | `any`          | `undefined` |
+| `strings`              | `strings`                |             | `any`          | `undefined` |
 
 
 ## Dependencies
