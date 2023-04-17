@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property        | Attribute          | Description | Type    | Default     |
-| --------------- | ------------------ | ----------- | ------- | ----------- |
-| `Comment`       | `comment`          |             | `any`   | `undefined` |
-| `GeoHazardName` | `geo-hazard-name`  |             | `any`   | `undefined` |
-| `GeoHazardTID`  | `geo-hazard-t-i-d` |             | `any`   | `undefined` |
-| `ObsComment`    | `obs-comment`      |             | `any`   | `undefined` |
-| `ObsHeader`     | `obs-header`       |             | `any`   | `undefined` |
-| `Urls`          | --                 |             | `Url[]` | `undefined` |
-| `strings`       | `strings`          |             | `any`   | `undefined` |
+| Property        | Attribute          | Description | Type           | Default     |
+| --------------- | ------------------ | ----------- | -------------- | ----------- |
+| `Attachments`   | --                 |             | `Attachment[]` | `undefined` |
+| `Comment`       | `comment`          |             | `any`          | `undefined` |
+| `GeoHazardName` | `geo-hazard-name`  |             | `any`          | `undefined` |
+| `GeoHazardTID`  | `geo-hazard-t-i-d` |             | `any`          | `undefined` |
+| `ObsComment`    | `obs-comment`      |             | `any`          | `undefined` |
+| `ObsHeader`     | `obs-header`       |             | `any`          | `undefined` |
+| `Urls`          | --                 |             | `Url[]`        | `undefined` |
+| `strings`       | `strings`          |             | `any`          | `undefined` |
 
 
 ## Dependencies
@@ -38,7 +39,6 @@ graph TD;
   varsom-general-observation --> varsom-label-small
   varsom-general-observation --> varsom-key-value
   varsom-general-observation --> varsom-url
-  varsom-url --> varsom-key-value
   varsom-observation --> varsom-general-observation
   style varsom-general-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```

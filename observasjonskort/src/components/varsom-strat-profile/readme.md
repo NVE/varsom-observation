@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type                  | Default     |
-| ------------ | ------------- | ----------- | --------------------- | ----------- |
-| `Layers`     | --            |             | `StratProfileLayer[]` | `undefined` |
-| `TotalDepth` | `total-depth` |             | `any`                 | `undefined` |
-| `strings`    | `strings`     |             | `any`                 | `undefined` |
+| Property      | Attribute     | Description | Type                  | Default     |
+| ------------- | ------------- | ----------- | --------------------- | ----------- |
+| `Attachments` | --            |             | `Attachment[]`        | `undefined` |
+| `Layers`      | --            |             | `StratProfileLayer[]` | `undefined` |
+| `TotalDepth`  | `total-depth` |             | `any`                 | `undefined` |
+| `strings`     | `strings`     |             | `any`                 | `undefined` |
 
 
 ## Dependencies

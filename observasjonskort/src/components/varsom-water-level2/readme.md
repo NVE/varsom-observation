@@ -9,6 +9,7 @@
 
 | Property                   | Attribute                     | Description | Type                      | Default     |
 | -------------------------- | ----------------------------- | ----------- | ------------------------- | ----------- |
+| `Attachments`              | --                            |             | `Attachment[]`            | `undefined` |
 | `Comment`                  | `comment`                     |             | `any`                     | `undefined` |
 | `MarkingReferenceName`     | `marking-reference-name`      |             | `any`                     | `undefined` |
 | `MarkingReferenceTID`      | `marking-reference-t-i-d`     |             | `any`                     | `undefined` |
@@ -42,6 +43,7 @@
 - [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-water-measurement](../varsom-water-measurement)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
@@ -49,8 +51,10 @@ graph TD;
   varsom-water-level2 --> varsom-label
   varsom-water-level2 --> varsom-key-value
   varsom-water-level2 --> varsom-water-measurement
+  varsom-water-level2 --> varsom-attachment
   varsom-water-measurement --> varsom-label-small
   varsom-water-measurement --> varsom-key-value
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-water-level2
   style varsom-water-level2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
