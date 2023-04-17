@@ -23,7 +23,7 @@ export class VarsomMetadata {
     return <div> 
       {this.dateOfRegistration ? 
       <span>
-        <img src={getAssetPath(`/assets/icons/calendar-icon.svg`)}></img>
+        <img class="image" src={getAssetPath(`/assets/icons/calendar-icon.svg`)}></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
       {this.dateOfRegistration}
       </span> : ""}
@@ -36,31 +36,71 @@ export class VarsomMetadata {
       
       {this.geoHazardName ? 
       <span>
-      <img src={getAssetPath(`/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
+      <img class="image" src={getAssetPath(`/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
    
    
       {this.moh ? 
       <span>
-        <img src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
+        <img class="image" src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
       {this.moh} <span>{this.strings.RegistrationKeyInfo.MetersAboveSeaLevel} </span> 
       </span> : ""}
 
       {this.nickname ? 
       <span>
-        <img src={getAssetPath(`/assets/icons/user-icon.svg`)}></img>
+        <img class="image" src={getAssetPath(`/assets/icons/user-icon.svg`)}></img>
       {this.nickname}
       </span> : ""}
 
-      {this.competenceLevelName ? 
+      {this.competenceLevelName === "*" ? 
       <span>
-        {this.competenceLevelName}
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+      </span> : ""}
+
+      {this.competenceLevelName === "**" ? 
+      <span>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+      </span> : ""}
+
+      {this.competenceLevelName === "***" ? 
+      <span>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
+      </span> : ""}
+
+      {this.competenceLevelName === "****" ? 
+      <span>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img class="dark" src={getAssetPath(`/assets/icons/star-icon.svg`)}></img>
       </span> : ""}
      
+      {this.competenceLevelName === "*****" ? 
+      <span>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+        <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
+      </span> : ""}
+
       {this.observerGroupName ? 
       <span>
-      <img src={getAssetPath(`/assets/icons/user-group-icon.svg`)}></img>
+      <img class="image" src={getAssetPath(`/assets/icons/user-group-icon.svg`)}></img>
       {this.observerGroupName}
       </span> : ""}
   
