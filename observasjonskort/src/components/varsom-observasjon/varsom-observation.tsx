@@ -424,7 +424,6 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 
 } 
 
-
         //add images for image carousel
      this.observations[i]._images.push(
       {
