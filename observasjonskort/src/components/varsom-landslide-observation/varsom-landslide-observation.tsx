@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -32,6 +32,7 @@ export class VarsomLandslideObservation {
   @Prop() DtLandSlideTimeEnd?: any;
   @Prop() DtLandSlideTime?: any;
   @Prop() LandSlideSizeTID?: any;
+  @Prop() Attachments: Attachment[];
   
   
 
@@ -98,14 +99,13 @@ export class VarsomLandslideObservation {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.LandslideObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
 
     {this.Urls ? 
       <div>
@@ -117,6 +117,20 @@ export class VarsomLandslideObservation {
             >
 
             </varsom-url>
+        })
+        } </div> : ""}
+
+    {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
         })
         } </div> : ""}
 

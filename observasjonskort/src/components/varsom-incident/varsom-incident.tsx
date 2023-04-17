@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -42,6 +42,7 @@ export class VarsomIncident {
   @Prop() IncidentIngress: any; 
   @Prop() IncidentText: any; 
   @Prop() Comment: any; 
+  @Prop() Attachments: Attachment[];
 
   render(){
     return <div class="container"> 
@@ -166,9 +167,12 @@ export class VarsomIncident {
     ></varsom-key-value>
     :""}
 
-
+<br></br>
 {this.IncidentURLs ? 
-      <div>
+      <host>
+    
+      <b>{this.strings ? this.strings.Observations.GeneralObservation.Urls : "Lenker"}</b>
+     
       {this.IncidentURLs.map((el: Url = {}) =>{
             return <varsom-url
             strings={this.strings}
@@ -178,7 +182,7 @@ export class VarsomIncident {
 
             </varsom-url>
         })
-        } </div> : ""}
+        } </host> : ""}
 
 </div>
 

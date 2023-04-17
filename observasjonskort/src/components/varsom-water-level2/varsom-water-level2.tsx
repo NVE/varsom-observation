@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { WaterLevelMeasurement } from '../varsom-observasjon/observation-model';
+import { Attachment, WaterLevelMeasurement } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -30,6 +30,7 @@ export class VarsomWaterLevel2 {
   @Prop() WaterLevelStateTID: any;
   @Prop() MarkingTypeTID: any;
   @Prop() MeasuringToolDescription: any;
+  @Prop() Attachments: Attachment[];
    
   render(){
     return <div class="container"> 
@@ -110,6 +111,20 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
         })
         } </div> : ""}
 
+
+{this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
     
     </div>
     </div>

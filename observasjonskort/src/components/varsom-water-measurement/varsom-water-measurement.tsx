@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class VarsomWaterMeasurement {
   @Prop() Comment: any;
   @Prop() DtMeasurementTime: any;
   @Prop() WaterLevelValue: any;
+  @Prop() Attachments: Attachment[];
   
 
   render(){

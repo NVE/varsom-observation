@@ -1,5 +1,6 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-avalanche-evaluation3',
@@ -17,7 +18,7 @@ export class VarsomAvalancheEvaluation3 {
   @Prop() AvalancheDevelopment: any;
   @Prop() ForecastCorrectTID: any;
   @Prop() ForecastComment: any;
-
+  @Prop() Attachments: Attachment[];
 
 
   render(){

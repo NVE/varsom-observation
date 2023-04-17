@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { SnowDensityLayer } from '../varsom-observasjon/observation-model';
+import { Attachment, SnowDensityLayer } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -15,6 +15,7 @@ export class VarsomSnowDensity {
   @Prop() TareWeight: any;
   @Prop() Comment: any;
   @Prop() Layers: SnowDensityLayer[];
+  @Prop() Attachments: Attachment[];
 
   render(){
     return <div class="container"> 

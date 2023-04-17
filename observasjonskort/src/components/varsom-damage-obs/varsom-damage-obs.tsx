@@ -20,11 +20,12 @@ export class VarsomDamageObs {
 
   @Prop() geoHazardName: string;
   @Prop() damageTypeName:	string;
-  @Prop() Attachments?: any[];//Attachment[],
+  @Prop() Attachments?: Attachment[];
   @Prop() geoHazardTID: number; //	integer($int32)
   @Prop() damageTypeTID: number; //	integer($int32)
   @Prop() damagePosition: any;	//LatLng,
   @Prop() comment:	string;
+
 
   render(){
      return <div> 

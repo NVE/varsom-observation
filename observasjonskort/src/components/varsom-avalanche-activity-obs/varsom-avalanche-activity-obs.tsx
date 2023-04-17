@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -29,6 +30,7 @@ export class VarsomAvalancheActivityObs {
   @Prop() SnowLineName: any;
   @Prop() DtOffAvalancheTime: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
   
   
   render(){
