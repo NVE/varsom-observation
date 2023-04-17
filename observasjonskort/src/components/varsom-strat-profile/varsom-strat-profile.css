@@ -1,7 +1,9 @@
 
 span {
   margin-right: 0.5rem;
+  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
 }
+
 
 div {
   margin: 1rem 0 1rem 0;

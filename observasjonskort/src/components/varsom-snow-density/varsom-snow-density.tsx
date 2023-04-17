@@ -17,9 +17,7 @@ export class VarsomSnowDensity {
   @Prop() Layers: SnowDensityLayer[];
 
   render(){
-    return <div> 
-
-
+    return <div class="container"> 
 
 {this.CylinderDiameter ? 
     <varsom-key-value
@@ -35,14 +33,14 @@ export class VarsomSnowDensity {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    </div>
+    
 
 {this.Layers ? 
 <div>

@@ -41,11 +41,13 @@ componentDidRender(){
 
   render(){
     
-    return <div>
+    return <div class="container">
 
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
       ></varsom-label>
+
+
 
       {this.IceThicknessLayers ? 
       <div>
@@ -60,6 +62,8 @@ componentDidRender(){
             </varsom-ice-thickness-layer>
         })
         } </div> : ""}
+
+<div class="content">
 
     {this.SnowDepth ? 
     <varsom-key-value
@@ -135,6 +139,7 @@ componentDidRender(){
     </div>
 
 
+    </div>
 
   }
     

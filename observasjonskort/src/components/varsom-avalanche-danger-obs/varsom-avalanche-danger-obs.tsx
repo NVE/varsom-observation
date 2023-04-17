@@ -17,7 +17,8 @@ export class VarsomAvalancheDangerObs {
     
  
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value
@@ -35,6 +36,8 @@ export class VarsomAvalancheDangerObs {
     :""}
     </div>
  
+    </div>
+
     </div>
   }
     

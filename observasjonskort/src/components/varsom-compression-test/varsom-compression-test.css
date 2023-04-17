@@ -1,5 +1,5 @@
 label {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 span {
@@ -9,4 +9,14 @@ span {
 div {
   margin: 1rem 0 1rem 0;
 }
+
+.parent {
+  padding: 0 0 0 8px;
+  border-left: 1px solid #B3B3B3;
+  margin: 1.5rem;
+}
+
+
+
+
 

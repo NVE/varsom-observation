@@ -36,13 +36,15 @@ export class VarsomLandslideObservation {
   
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 {/**TODO : IMPLEMENT MAP */}
 
       <varsom-label
       label={this.strings ? this.strings.Observations.LandslideObs.ObsName : "Skredhendelse"}
       ></varsom-label>
+
+<div class="content">
 
     {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
     <varsom-key-value
@@ -117,6 +119,8 @@ export class VarsomLandslideObservation {
             </varsom-url>
         })
         } </div> : ""}
+
+    </div>
 
     </div>
   }

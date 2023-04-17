@@ -19,7 +19,7 @@ export class VarsomWaterLevel {
 
    
   render(){
-    return <div> 
+    return <div class="parent"> 
 
 <varsom-label-small
 label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}

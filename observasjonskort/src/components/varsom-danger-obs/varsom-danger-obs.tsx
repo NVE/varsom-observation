@@ -17,7 +17,8 @@ export class VarsomDangerObs {
   @Prop() Comment: any;
  
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value
@@ -26,15 +27,17 @@ export class VarsomDangerObs {
     ></varsom-key-value>
     :""}
 
-<div>
+
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
- </div>
  
+ 
+    </div>
     </div>
   }
     

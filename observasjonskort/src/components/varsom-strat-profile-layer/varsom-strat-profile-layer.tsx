@@ -34,8 +34,6 @@ export class VarsomStratProfileLayer {
   render(){
     return <span> 
 
-
-    
     {this.Thickness ? <span>
       {(this.Thickness * 100) + "cm"}
     </span> : "" }

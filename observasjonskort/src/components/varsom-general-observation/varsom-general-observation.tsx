@@ -18,24 +18,27 @@ export class VarsomGeneralObservation {
   @Prop() Comment: any;
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
       <varsom-label
       label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}
       ></varsom-label>
 
-    <varsom-label-small
+  
+
+<div class="content">
+
+<varsom-label-small
       label={this.ObsHeader ? this.ObsHeader : ""}
       ></varsom-label-small>
-
-<div>
+      
     {this.ObsComment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}
-</div>
+
 
       {this.Urls ? 
       <div>
@@ -51,6 +54,7 @@ export class VarsomGeneralObservation {
         } </div>
         : ""}
         
+    </div>
     </div>
   }
     

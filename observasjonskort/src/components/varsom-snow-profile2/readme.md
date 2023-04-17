@@ -13,6 +13,7 @@
 | `Exposition`        | `exposition`           |             | `any`           | `undefined` |
 | `ImageUrl`          | `image-url`            |             | `any`           | `undefined` |
 | `IsProfileToGround` | `is-profile-to-ground` |             | `any`           | `undefined` |
+| `RegId`             | `reg-id`               |             | `any`           | `undefined` |
 | `SlopeAngle`        | `slope-angle`          |             | `any`           | `undefined` |
 | `SnowDensity`       | --                     |             | `SnowDensity[]` | `undefined` |
 | `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |

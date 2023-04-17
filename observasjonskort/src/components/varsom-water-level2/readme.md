@@ -39,14 +39,14 @@
 
 ### Depends on
 
-- [varsom-label-small](../varsom-label-small)
+- [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-water-measurement](../varsom-water-measurement)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-water-level2 --> varsom-label-small
+  varsom-water-level2 --> varsom-label
   varsom-water-level2 --> varsom-key-value
   varsom-water-level2 --> varsom-water-measurement
   varsom-water-measurement --> varsom-label-small

@@ -19,12 +19,13 @@ export class VarsomSnowCoverObservation {
   @Prop() CriticalLayerName: any;
    
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowCover.ObsName : "Snøprofil"}
       ></varsom-label>
 
+<div class="content">
 
 {this.DepthHoarThickness ? 
     <varsom-key-value
@@ -77,6 +78,7 @@ export class VarsomSnowCoverObservation {
     :""}
 </div>
 
+</div>
     </div>
   }
     

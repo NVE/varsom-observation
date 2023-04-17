@@ -40,6 +40,7 @@ export class VarsomAvalancheActivityObs {
     </div>
       : ""} 
 
+    <div class="content">
     {this.EstimatedNumName ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
@@ -61,6 +62,7 @@ export class VarsomAvalancheActivityObs {
     ></varsom-key-value>
     :""}
 
+    </div>
     </div>
   }
     

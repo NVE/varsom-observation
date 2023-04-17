@@ -32,12 +32,15 @@ export class VarsomWaterLevel2 {
   @Prop() MeasuringToolDescription: any;
    
   render(){
-    return <div> 
+    return <div class="container"> 
 
-     
-<varsom-label-small
+
+<varsom-label
 label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
-></varsom-label-small>
+></varsom-label>
+     
+<div class="content">
+
 
 {this.WaterLevelStateName ?
     <varsom-key-value
@@ -84,14 +87,14 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
 {this.Comment ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.WaterLevel2.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
+
 
 {this.WaterLevelMeasurement ? 
       <div>
@@ -109,7 +112,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
     
     </div>
-    
+    </div>
   }
     
   }

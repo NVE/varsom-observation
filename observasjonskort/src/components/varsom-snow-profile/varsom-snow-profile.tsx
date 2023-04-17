@@ -20,11 +20,13 @@ export class VarsomSnowProfile {
   @Prop() Comment: any;
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
       ></varsom-label>
+
+<div class="content">
 
 {this.GeoHazardName ? 
     <varsom-key-value
@@ -80,7 +82,7 @@ export class VarsomSnowProfile {
 
     </div>
 
-    
+    </div>
   }
     
   }
