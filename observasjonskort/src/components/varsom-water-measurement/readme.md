@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property            | Attribute             | Description | Type  | Default     |
-| ------------------- | --------------------- | ----------- | ----- | ----------- |
-| `Comment`           | `comment`             |             | `any` | `undefined` |
-| `DtMeasurementTime` | `dt-measurement-time` |             | `any` | `undefined` |
-| `WaterLevelValue`   | `water-level-value`   |             | `any` | `undefined` |
-| `strings`           | `strings`             |             | `any` | `undefined` |
+| Property            | Attribute             | Description | Type           | Default     |
+| ------------------- | --------------------- | ----------- | -------------- | ----------- |
+| `Attachments`       | --                    |             | `Attachment[]` | `undefined` |
+| `Comment`           | `comment`             |             | `any`          | `undefined` |
+| `DtMeasurementTime` | `dt-measurement-time` |             | `any`          | `undefined` |
+| `WaterLevelValue`   | `water-level-value`   |             | `any`          | `undefined` |
+| `strings`           | `strings`             |             | `any`          | `undefined` |
 
 
 ## Dependencies

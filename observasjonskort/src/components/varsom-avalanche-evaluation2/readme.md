@@ -7,22 +7,23 @@
 
 ## Properties
 
-| Property                 | Attribute                    | Description | Type    | Default     |
-| ------------------------ | ---------------------------- | ----------- | ------- | ----------- |
-| `AvalancheDangerName`    | `avalanche-danger-name`      |             | `any`   | `undefined` |
-| `AvalancheDangerTID`     | `avalanche-danger-t-i-d`     |             | `any`   | `undefined` |
-| `AvalancheDevelopment`   | `avalanche-development`      |             | `any`   | `undefined` |
-| `AvalancheEvalProblems`  | --                           |             | `any[]` | `undefined` |
-| `AvalancheEvaluation`    | `avalanche-evaluation`       |             | `any`   | `undefined` |
-| `Comment`                | `comment`                    |             | `any`   | `undefined` |
-| `ExposedClimateName`     | `exposed-climate-name`       |             | `any`   | `undefined` |
-| `ExposedClimateTID`      | `exposed-climate-t-i-d`      |             | `any`   | `undefined` |
-| `ExposedHeight1`         | `exposed-height-1`           |             | `any`   | `undefined` |
-| `ExposedHeight2`         | `exposed-height-2`           |             | `any`   | `undefined` |
-| `ExposedHeightComboName` | `exposed-height-combo-name`  |             | `any`   | `undefined` |
-| `ExposedHeightComboTID`  | `exposed-height-combo-t-i-d` |             | `any`   | `undefined` |
-| `ValidExposition`        | `valid-exposition`           |             | `any`   | `undefined` |
-| `strings`                | `strings`                    |             | `any`   | `undefined` |
+| Property                 | Attribute                    | Description | Type           | Default     |
+| ------------------------ | ---------------------------- | ----------- | -------------- | ----------- |
+| `Attachments`            | --                           |             | `Attachment[]` | `undefined` |
+| `AvalancheDangerName`    | `avalanche-danger-name`      |             | `any`          | `undefined` |
+| `AvalancheDangerTID`     | `avalanche-danger-t-i-d`     |             | `any`          | `undefined` |
+| `AvalancheDevelopment`   | `avalanche-development`      |             | `any`          | `undefined` |
+| `AvalancheEvalProblems`  | --                           |             | `any[]`        | `undefined` |
+| `AvalancheEvaluation`    | `avalanche-evaluation`       |             | `any`          | `undefined` |
+| `Comment`                | `comment`                    |             | `any`          | `undefined` |
+| `ExposedClimateName`     | `exposed-climate-name`       |             | `any`          | `undefined` |
+| `ExposedClimateTID`      | `exposed-climate-t-i-d`      |             | `any`          | `undefined` |
+| `ExposedHeight1`         | `exposed-height-1`           |             | `any`          | `undefined` |
+| `ExposedHeight2`         | `exposed-height-2`           |             | `any`          | `undefined` |
+| `ExposedHeightComboName` | `exposed-height-combo-name`  |             | `any`          | `undefined` |
+| `ExposedHeightComboTID`  | `exposed-height-combo-t-i-d` |             | `any`          | `undefined` |
+| `ValidExposition`        | `valid-exposition`           |             | `any`          | `undefined` |
+| `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 
 ## Dependencies

@@ -42,7 +42,6 @@
  - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
  - [varsom-snow-temp-obs](../varsom-snow-temp-obs)
- - [varsom-url](../varsom-url)
  - [varsom-water-level](../varsom-water-level)
  - [varsom-water-level2](../varsom-water-level2)
  - [varsom-water-measurement](../varsom-water-measurement)
@@ -76,7 +75,6 @@ graph TD;
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-surface-observation --> varsom-key-value
   varsom-snow-temp-obs --> varsom-key-value
-  varsom-url --> varsom-key-value
   varsom-water-level --> varsom-key-value
   varsom-water-level2 --> varsom-key-value
   varsom-water-measurement --> varsom-key-value

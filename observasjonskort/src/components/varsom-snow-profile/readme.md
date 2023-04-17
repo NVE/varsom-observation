@@ -7,18 +7,19 @@
 
 ## Properties
 
-| Property           | Attribute            | Description | Type  | Default     |
-| ------------------ | -------------------- | ----------- | ----- | ----------- |
-| `Aspect`           | `aspect`             |             | `any` | `undefined` |
-| `Comment`          | `comment`            |             | `any` | `undefined` |
-| `Copyright`        | `copyright`          |             | `any` | `undefined` |
-| `GeoHazardName`    | `geo-hazard-name`    |             | `any` | `undefined` |
-| `GeoHazardTID`     | `geo-hazard-t-i-d`   |             | `any` | `undefined` |
-| `Photographer`     | `photographer`       |             | `any` | `undefined` |
-| `RegistrationName` | `registration-name`  |             | `any` | `undefined` |
-| `RegistrationTID`  | `registration-t-i-d` |             | `any` | `undefined` |
-| `Url`              | `url`                |             | `any` | `undefined` |
-| `strings`          | `strings`            |             | `any` | `undefined` |
+| Property           | Attribute            | Description | Type           | Default     |
+| ------------------ | -------------------- | ----------- | -------------- | ----------- |
+| `Aspect`           | `aspect`             |             | `any`          | `undefined` |
+| `Attachments`      | --                   |             | `Attachment[]` | `undefined` |
+| `Comment`          | `comment`            |             | `any`          | `undefined` |
+| `Copyright`        | `copyright`          |             | `any`          | `undefined` |
+| `GeoHazardName`    | `geo-hazard-name`    |             | `any`          | `undefined` |
+| `GeoHazardTID`     | `geo-hazard-t-i-d`   |             | `any`          | `undefined` |
+| `Photographer`     | `photographer`       |             | `any`          | `undefined` |
+| `RegistrationName` | `registration-name`  |             | `any`          | `undefined` |
+| `RegistrationTID`  | `registration-t-i-d` |             | `any`          | `undefined` |
+| `Url`              | `url`                |             | `any`          | `undefined` |
+| `strings`          | `strings`            |             | `any`          | `undefined` |
 
 
 ## Dependencies
