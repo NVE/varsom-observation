@@ -69,6 +69,7 @@ export class VarsomObservation {
       //dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[this.slideIndex-1].style.display = "block";
+    slides[this.slideIndex].style.display = "block";
     //dots[this.slideIndex-1].className += " active";
   }
 
@@ -479,12 +480,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 {/* IMAGE SLIDER */}
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
-    <div>
+    
+
     
   <img class="observation-images" src={obs._images[0]._imageData}></img>
+
+  <img class="observation-images" src={obs._images[1]._imageData}></img>
   
-    <div class="imageInfo"> 
+  <div class="image-info-container">
+    <span class="imageInfo"> 
+    
     {obs._images[0]._copyright ? 
     <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
     
@@ -492,20 +497,33 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
      <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
         
     {obs._images[0]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment} </b> {obs._images[0]._comment} </div> : ""}
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[0]._comment} </div> : ""}
 
-    </div>
+    </span>
+
+    <span class="imageInfo"> 
+    
+    {obs._images[0]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[0]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
+        
+    {obs._images[0]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[0]._comment} </div> : ""}
+
+    </span>
+   
     </div>
   </div>
 
   <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
-  <img class="observation-images" src={obs._images[1]._imageData}></img>
-    <div class="text"></div>
+ 
+ 
   </div>
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
+
   <img class="observation-images" src={obs._images[2]._imageData}></img>
     <div class="text"></div>
   </div>
@@ -515,11 +533,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 </div>
 <br></br>
 
-<div>
-  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
-  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
-  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
-</div>
+
 
 
 {/* CONTENT */}
