@@ -20,7 +20,7 @@ To run storbybook, you must first build the project. Run:
 The prop "count" in the main component "varsom-observation" must be set to 1 if a regId is set.
 
 ### Chromatic
-Stobybook can be published to Chromatic. Sign up for Chromatic (https://www.chromatic.com/start?startWithSignup=true) and create a project. 
+Storybook can be published to Chromatic. Sign up for Chromatic (https://www.chromatic.com/start?startWithSignup=true) and create a project. 
 Replace secret token under scripts in package.json with your project token from Chromatic. Project token should be kept in a safe place, e.g. Github Secrets. 
 When project token is set, run:
 1. npm run build-storybook
