@@ -26,7 +26,7 @@
   /*box-sizing:border-box*/
   
   .observation-images{
-    max-width: 390px;
+    max-width: 200px;
     margin: 18px 2.5rem 0rem 2.5rem;
   }
   
@@ -85,7 +85,7 @@
   .imageInfo {
     background-color: rgba(4, 73, 98, 0.05);
     width: 100%;
-    max-width: 380px;
+    max-width: 280px;
     margin: 0 2.5rem 2.5rem 2.5rem;
     
   }

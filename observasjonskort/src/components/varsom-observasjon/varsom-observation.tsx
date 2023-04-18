@@ -63,6 +63,7 @@ export class VarsomObservation {
     if (n > slides.length) {this.slideIndex = 1}
     if (n < 1) {this.slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
+      if (slides[i])
       slides[i].style.display = 'none';
     }
     for (i = 0; i < dots.length; i++) {
@@ -522,12 +523,12 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   </div>
 
 
-  <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
-  {(obs._observationImages.size > 2 && obs._observationImages[2]._imageData != null) ? 
- <img class="observation-images" src={obs._images[2]._imageData}></img>
+  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
   
-  : ""}
- </div>
+ <img class="observation-images" src={obs._images[2]._imageData}></img>
+ </div> 
+  
+ 
 
 
   <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
