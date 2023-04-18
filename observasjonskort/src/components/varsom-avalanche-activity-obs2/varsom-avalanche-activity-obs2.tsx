@@ -1,4 +1,5 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -30,10 +31,13 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() AvalTriggerSimpleTID: any;
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
+  @Prop() Attachments: Attachment[];
  
   
   render(){
-    return <div> 
+    return <div class="container">
+    
+    <div class="parent"> 
 
     {(this.DtStart && this.DtEnd) ? 
       <div>
@@ -69,15 +73,31 @@ export class VarsomAvalancheActivityObs2 {
     <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     :""}  
 
-    <div>
+    <br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    </div>
     
+    {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            CropImage
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+    
+    </div>
+
     </div>
   }
     

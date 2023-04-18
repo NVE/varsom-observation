@@ -15,16 +15,14 @@ export class VarsomUrl {
  
 
   render(){
-    return <div> 
+    return <host> 
 
-{( this.UrlLine && this.UrlDescription) ? 
-    <varsom-key-value
-    _key={this.UrlDescription}
-    _value={this.UrlLine}
-    ></varsom-key-value>
+  {(this.UrlLine && this.UrlDescription) ? 
+      <ul>
+    <li>{this.UrlDescription} {this.UrlLine}</li>  
+    </ul>
     :""}
-    
-    </div>
+    </host>
   }
     
   }

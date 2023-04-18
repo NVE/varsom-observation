@@ -1,7 +1,7 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
 
-import { AvalancheEvalProblem } from '../varsom-observasjon/observation-model';
+import { Attachment, AvalancheEvalProblem } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -26,10 +26,11 @@ export class VarsomAvalancheEvaluation2 {
   @Prop() AvalancheDangerTID: any;
   @Prop() Comment: any;
   @Prop() AvalancheEvalProblems: any[];
+  @Prop() Attachments: Attachment[];
   
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
     {this.AvalancheEvaluation ? 
     <varsom-key-value

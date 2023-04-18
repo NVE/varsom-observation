@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-snow-profile',
@@ -18,13 +19,16 @@ export class VarsomSnowProfile {
   @Prop() RegistrationTID: any;
   @Prop() Url: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
       ></varsom-label>
+
+<div class="content">
 
 {this.GeoHazardName ? 
     <varsom-key-value
@@ -80,7 +84,7 @@ export class VarsomSnowProfile {
 
     </div>
 
-    
+    </div>
   }
     
   }

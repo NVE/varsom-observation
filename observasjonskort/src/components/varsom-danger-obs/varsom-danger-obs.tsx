@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -15,9 +16,11 @@ export class VarsomDangerObs {
   @Prop() GeoHazardTID: any;
   @Prop() DangerSignTID: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
  
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value
@@ -26,15 +29,30 @@ export class VarsomDangerObs {
     ></varsom-key-value>
     :""}
 
-<div>
+
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
- </div>
  
+ {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+ 
+    </div>
     </div>
   }
     

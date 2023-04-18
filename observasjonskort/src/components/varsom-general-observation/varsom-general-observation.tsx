@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Url } from '../varsom-observasjon/observation-model';
+import { Attachment, Url } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-general-observation',
@@ -16,26 +16,30 @@ export class VarsomGeneralObservation {
   @Prop() ObsComment: any;
   @Prop() ObsHeader: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
   render(){
-    return <div> 
+    return <div class="container"> 
 
       <varsom-label
       label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}
       ></varsom-label>
 
-    <varsom-label-small
+  
+
+<div class="content">
+
+<varsom-label-small
       label={this.ObsHeader ? this.ObsHeader : ""}
       ></varsom-label-small>
-
-<div>
+      
     {this.ObsComment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}
-</div>
+
 
       {this.Urls ? 
       <div>
@@ -51,6 +55,7 @@ export class VarsomGeneralObservation {
         } </div>
         : ""}
         
+    </div>
     </div>
   }
     

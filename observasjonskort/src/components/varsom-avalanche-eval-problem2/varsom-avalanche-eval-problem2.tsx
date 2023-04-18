@@ -1,4 +1,5 @@
 import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -38,10 +39,12 @@ export class VarsomAvalancheEvalProblem2 {
   @Prop() AvalPropagationTID: any;
   @Prop() AvalPropagationName: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
   
 
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 
 
     {this.AvalCauseName ? 
@@ -116,6 +119,7 @@ export class VarsomAvalancheEvalProblem2 {
     :""}
     </div>
     
+    </div>
     </div>
   }
     

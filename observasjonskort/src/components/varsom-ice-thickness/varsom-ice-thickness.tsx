@@ -1,6 +1,6 @@
 import { Component, Prop, h, getAssetPath} from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
-import { IceThicknessLayer } from '../varsom-observasjon/observation-model';
+import { Attachment, IceThicknessLayer } from '../varsom-observasjon/observation-model';
 
 @Component({
   tag: 'varsom-ice-thickness',
@@ -23,6 +23,7 @@ export class VarsomIceThickness {
   @Prop() DtObsTime: any;
   @Prop() LocationName: any;
   @Prop() HardCodedImg: any;
+  @Prop() Attachments: Attachment[];
 
   element: HTMLElement;
   element2: HTMLElement;
@@ -41,11 +42,13 @@ componentDidRender(){
 
   render(){
     
-    return <div>
+    return <div class="container">
 
       <varsom-label
       label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
       ></varsom-label>
+
+
 
       {this.IceThicknessLayers ? 
       <div>
@@ -60,6 +63,8 @@ componentDidRender(){
             </varsom-ice-thickness-layer>
         })
         } </div> : ""}
+
+<div class="content">
 
     {this.SnowDepth ? 
     <varsom-key-value
@@ -111,14 +116,14 @@ componentDidRender(){
     :""}
 
 
-<div>
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.IceThickness.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
+
 
 {this.HardCodedImg ?
   <div><img src={getAssetPath(`/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
@@ -132,9 +137,25 @@ componentDidRender(){
         </div>
 
 
+        {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+
+
     </div>
 
 
+    </div>
 
   }
     

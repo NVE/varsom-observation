@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { SnowDensity } from '../varsom-observasjon/observation-model';
+import { Attachment, SnowDensity } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -20,29 +20,30 @@ export class VarsomSnowProfile2 {
   @Prop() SnowTemp: any;
   @Prop() ImageUrl: any;
   @Prop() SnowDensity: SnowDensity[];
-
+  @Prop() RegId: any;
+  @Prop() Attachments: Attachment[];
 
   render(){
-    return <div> 
-
-
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
       ></varsom-label>
 
-<div>
+<div class="content">
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    </div>
     
-  
+    
+  <br></br>
 {this.ImageUrl ?
- <img src={this.ImageUrl}></img>
+ <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
+  <img src={this.ImageUrl}></img>
+ </a>
  : ""}
 
 {this.SnowDensity ? 
@@ -75,8 +76,23 @@ export class VarsomSnowProfile2 {
     ></varsom-strat-profile>
     </div>:""}
 
+    {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
     
     </div>
+    </div>
+
   }
     
   }

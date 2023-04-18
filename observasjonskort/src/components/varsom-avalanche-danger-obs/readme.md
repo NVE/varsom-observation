@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property               | Attribute                  | Description | Type  | Default     |
-| ---------------------- | -------------------------- | ----------- | ----- | ----------- |
-| `AvalancheDangerObsID` | `avalanche-danger-obs-i-d` |             | `any` | `undefined` |
-| `Comment`              | `comment`                  |             | `any` | `undefined` |
-| `DangerSignName`       | `danger-sign-name`         |             | `any` | `undefined` |
-| `DangerSignTID`        | `danger-sign-t-i-d`        |             | `any` | `undefined` |
-| `strings`              | `strings`                  |             | `any` | `undefined` |
+| Property               | Attribute                  | Description | Type           | Default     |
+| ---------------------- | -------------------------- | ----------- | -------------- | ----------- |
+| `Attachments`          | --                         |             | `Attachment[]` | `undefined` |
+| `AvalancheDangerObsID` | `avalanche-danger-obs-i-d` |             | `any`          | `undefined` |
+| `Comment`              | `comment`                  |             | `any`          | `undefined` |
+| `DangerSignName`       | `danger-sign-name`         |             | `any`          | `undefined` |
+| `DangerSignTID`        | `danger-sign-t-i-d`        |             | `any`          | `undefined` |
+| `strings`              | `strings`                  |             | `any`          | `undefined` |
 
 
 ## Dependencies

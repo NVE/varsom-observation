@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -21,12 +22,13 @@ export class VarsomIceCoverObservation {
   @Prop() Comment: any;
   @Prop() IceSkateabilityTID: any;
   @Prop() IceCapacityTID: any;
+  @Prop() Attachments: Attachment[];
 
 
 
   render(){
     return <div> 
-
+<div class="content">
     {this.IceCoverName ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverTName : "Isdekning" }
@@ -69,14 +71,31 @@ export class VarsomIceCoverObservation {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.IceCoverObs.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
+
+
+{this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+    
+    </div>
+    <div class="border"></div>
     
     </div>
   }

@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -14,10 +15,12 @@ export class VarsomAvalancheDangerObs {
   @Prop() AvalancheDangerObsID: any;
   @Prop() Comment: any;
   @Prop() DangerSignTID: any;
+  @Prop() Attachments: Attachment[];
     
  
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 
     {this.DangerSignName ? 
     <varsom-key-value
@@ -35,6 +38,8 @@ export class VarsomAvalancheDangerObs {
     :""}
     </div>
  
+    </div>
+
     </div>
   }
     

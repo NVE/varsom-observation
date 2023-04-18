@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -26,10 +27,12 @@ export class VarsomCompressionTest {
   @Prop() ComprTestFractureName: any;
   @Prop() IncludeInSnowProfile: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
 
 
   render(){
-    return <div> 
+    return <div class="container">
+    <div class="parent"> 
 {/* TODO: se regobs-kode for visning av tabell.... */ } 
     
     {this.PropagationName ? 
@@ -46,13 +49,28 @@ export class VarsomCompressionTest {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.CompressionTest.Comment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
+  
+  {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+
     </div>
 
     </div>

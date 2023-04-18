@@ -26,6 +26,7 @@
  - [varsom-snow-profile](../varsom-snow-profile)
  - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
+ - [varsom-water-level2](../varsom-water-level2)
 
 ### Graph
 ```mermaid
@@ -40,6 +41,7 @@ graph TD;
   varsom-snow-profile --> varsom-label
   varsom-snow-profile2 --> varsom-label
   varsom-snow-surface-observation --> varsom-label
+  varsom-water-level2 --> varsom-label
   style varsom-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

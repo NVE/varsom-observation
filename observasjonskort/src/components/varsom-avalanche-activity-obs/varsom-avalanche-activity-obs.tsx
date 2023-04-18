@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -29,6 +30,7 @@ export class VarsomAvalancheActivityObs {
   @Prop() SnowLineName: any;
   @Prop() DtOffAvalancheTime: any;
   @Prop() Comment: any;
+  @Prop() Attachments: Attachment[];
   
   
   render(){
@@ -40,6 +42,7 @@ export class VarsomAvalancheActivityObs {
     </div>
       : ""} 
 
+    <div class="content">
     {this.EstimatedNumName ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
@@ -61,6 +64,7 @@ export class VarsomAvalancheActivityObs {
     ></varsom-key-value>
     :""}
 
+    </div>
     </div>
   }
     

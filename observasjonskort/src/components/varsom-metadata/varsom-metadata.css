@@ -1,12 +1,22 @@
 label {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 span {
-  margin-right: 0.85rem;
+  margin: 0 0.15rem;
 }
 
-img {
-  margin: 0 0.5rem;
+.image {
+  margin: 0 0.6rem;
 }
+
+div {
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem;
+}
+
+
+
+
+
 

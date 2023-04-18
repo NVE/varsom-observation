@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { SnowDensityLayer } from '../varsom-observasjon/observation-model';
+import { Attachment, SnowDensityLayer } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -15,11 +15,10 @@ export class VarsomSnowDensity {
   @Prop() TareWeight: any;
   @Prop() Comment: any;
   @Prop() Layers: SnowDensityLayer[];
+  @Prop() Attachments: Attachment[];
 
   render(){
-    return <div> 
-
-
+    return <div class="container"> 
 
 {this.CylinderDiameter ? 
     <varsom-key-value
@@ -35,14 +34,14 @@ export class VarsomSnowDensity {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-    </div>
+    
 
 {this.Layers ? 
 <div>

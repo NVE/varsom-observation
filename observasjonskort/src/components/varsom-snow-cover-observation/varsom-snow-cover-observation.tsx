@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../varsom-observasjon/observation-model';
 
 
 @Component({
@@ -17,14 +18,16 @@ export class VarsomSnowCoverObservation {
   @Prop() SnowPilotRef: any;
   @Prop() Comment: any;
   @Prop() CriticalLayerName: any;
+  @Prop() Attachments: Attachment[];
    
   render(){
-    return <div> 
+    return <div class="container"> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowCover.ObsName : "Snøprofil"}
       ></varsom-label>
 
+<div class="content">
 
 {this.DepthHoarThickness ? 
     <varsom-key-value
@@ -68,16 +71,32 @@ export class VarsomSnowCoverObservation {
     ></varsom-key-value>
     :""}
 
-<div>
+<br></br>
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.SnowCover.Comment: "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
-</div>
 
+{this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
+    
     </div>
+
+</div>
+    
   }
     
   }

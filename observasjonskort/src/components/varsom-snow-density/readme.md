@@ -9,6 +9,7 @@
 
 | Property           | Attribute           | Description | Type                 | Default     |
 | ------------------ | ------------------- | ----------- | -------------------- | ----------- |
+| `Attachments`      | --                  |             | `Attachment[]`       | `undefined` |
 | `Comment`          | `comment`           |             | `any`                | `undefined` |
 | `CylinderDiameter` | `cylinder-diameter` |             | `any`                | `undefined` |
 | `Layers`           | --                  |             | `SnowDensityLayer[]` | `undefined` |

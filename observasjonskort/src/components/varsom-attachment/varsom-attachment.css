@@ -1,9 +1,14 @@
-img {
-  max-width: 20rem;
+.normalImage {
+  max-width: 400px;
+}
+
+.smallImage {
+  max-width: 350px;
 }
 
 .container {
   margin-bottom: 2rem;
+  margin: 0 6rem;
 }
 
 label {
@@ -13,4 +18,16 @@ label {
 .header {
   font-size: x-large;
   font-weight: 800;
+}
+
+.imageInfo {
+  background-color: rgba(4, 73, 98, 0.05);
+  max-width: 400px;
+  padding: 8px 16px 16px;
+}
+
+.smallImageInfo{
+  background-color: rgba(4, 73, 98, 0.05);
+  max-width: 350px;
+  padding: 8px 16px 16px;
 }
