@@ -429,29 +429,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 } 
 
         //add images for image carousel
-     this.observations[i]._images.push(
-      {
-        _imageData: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : null,
-        _copyright: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Copyright"] : null,
-        _photographer: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Photographer"] : null,
-        _comment: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Comment"] : null,
-    },
-    {
-      _imageData: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : null,
-      _copyright: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Copyright"] : null,
-      _photographer: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Photographer"] : null,
-      _comment: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Comment"] : null,
-  },
-  {
-    _imageData: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : null,
-    _copyright: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Copyright"] : null,
-    _photographer: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Photographer"] : null,
-    _comment: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Comment"] : null,
-},
+        for (let m = 0; m < data[i]["Attachments"].length; m++){
+          this.observations[i]._images.push(
+            {
+              _imageData: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Url"] : null,
+              _copyright: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Copyright"] : null,
+              _photographer: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Photographer"] : null,
+              _comment: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Comment"] : null,
+          }
+        )}
 
-    );
-
-    
      }
     };
 
@@ -483,15 +470,18 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 
 
 {/* IMAGE SLIDER */}
+{obs._images.length > 0 ? 
 <div class="slideshow-container">
   <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-    
-
-    
+  
   <img class="observation-images" src={obs._images[0]._imageData}></img>
 
+  {obs._images.length > 1 ? 
   <img class="observation-images" src={obs._images[1]._imageData}></img>
+: null}
   
+  
+
   <div class="image-info-container">
     <span class="imageInfo"> 
     
@@ -525,16 +515,64 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 
   <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
   
- <img class="observation-images" src={obs._images[2]._imageData}></img>
- </div> 
-  
+{obs._images.length > 2 ? 
+<span>
+<img class="observation-images" src={obs._images[2]._imageData}></img>
  
+</span>
+: null}
+
+{obs._images.length > 3 ? 
+<span>
+<img class="observation-images" src={obs._images[3]._imageData}></img>
+ 
+</span>
+: null}
+
+<div class="image-info-container">
+    <span class="imageInfo"> 
+    
+    {obs._images[2]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[2]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[2]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[2]._photographer} <br></br></div> : ""}
+        
+    {obs._images[2]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[2]._comment} </div> : ""}
+
+    </span>
+
+{obs._images.length > 4 ? 
+ <span class="imageInfo"> 
+    
+ {obs._images[3]._copyright ? 
+ <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[3]._copyright} <br></br> </div> : "" }
+ 
+ {obs._images[3]._photographer ? 
+  <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[3]._photographer} <br></br></div> : ""}
+     
+ {obs._images[3]._comment ? 
+     <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[3]._comment} </div> : ""}
+
+ </span>
+: null}
+   
+   
+    </div>
 
 
-  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
+ </div> 
+
+ 
+  
+  <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
+  <a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
 
 </div>
+
+: ""}
+
 <br></br>
 
 
