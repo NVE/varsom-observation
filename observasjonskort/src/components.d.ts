@@ -245,12 +245,12 @@ export namespace Components {
     }
     interface VarsomDamageObs {
         "Attachments"?: Attachment[];
-        "comment": string;
-        "damagePosition": any;
-        "damageTypeName": string;
-        "damageTypeTID": number;
-        "geoHazardName": string;
-        "geoHazardTID": number;
+        "Comment": string;
+        "DamagePosition": any;
+        "DamageTypeName": string;
+        "DamageTypeTID": number;
+        "GeoHazardName": string;
+        "GeoHazardTID": number;
         "strings": any;
     }
     interface VarsomDangerObs {
@@ -1158,12 +1158,12 @@ declare namespace LocalJSX {
     }
     interface VarsomDamageObs {
         "Attachments"?: Attachment[];
-        "comment"?: string;
-        "damagePosition"?: any;
-        "damageTypeName"?: string;
-        "damageTypeTID"?: number;
-        "geoHazardName"?: string;
-        "geoHazardTID"?: number;
+        "Comment"?: string;
+        "DamagePosition"?: any;
+        "DamageTypeName"?: string;
+        "DamageTypeTID"?: number;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
         "strings"?: any;
     }
     interface VarsomDangerObs {

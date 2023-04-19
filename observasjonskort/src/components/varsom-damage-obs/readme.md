@@ -10,12 +10,12 @@
 | Property         | Attribute           | Description | Type           | Default     |
 | ---------------- | ------------------- | ----------- | -------------- | ----------- |
 | `Attachments`    | --                  |             | `Attachment[]` | `undefined` |
-| `comment`        | `comment`           |             | `string`       | `undefined` |
-| `damagePosition` | `damage-position`   |             | `any`          | `undefined` |
-| `damageTypeName` | `damage-type-name`  |             | `string`       | `undefined` |
-| `damageTypeTID`  | `damage-type-t-i-d` |             | `number`       | `undefined` |
-| `geoHazardName`  | `geo-hazard-name`   |             | `string`       | `undefined` |
-| `geoHazardTID`   | `geo-hazard-t-i-d`  |             | `number`       | `undefined` |
+| `Comment`        | `comment`           |             | `string`       | `undefined` |
+| `DamagePosition` | `damage-position`   |             | `any`          | `undefined` |
+| `DamageTypeName` | `damage-type-name`  |             | `string`       | `undefined` |
+| `DamageTypeTID`  | `damage-type-t-i-d` |             | `number`       | `undefined` |
+| `GeoHazardName`  | `geo-hazard-name`   |             | `string`       | `undefined` |
+| `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `number`       | `undefined` |
 | `strings`        | `strings`           |             | `any`          | `undefined` |
 
 
@@ -23,11 +23,13 @@
 
 ### Depends on
 
+- [varsom-key-value](../varsom-key-value)
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value
   style varsom-damage-obs fill:#f9f,stroke:#333,stroke-width:4px

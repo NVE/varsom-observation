@@ -18,25 +18,50 @@ export class VarsomDamageObs {
   // @Prop() photographer: any;
   // @Prop() copyright: any;
 
-  @Prop() geoHazardName: string;
-  @Prop() damageTypeName:	string;
+  @Prop() GeoHazardName: string;
+  @Prop() DamageTypeName:	string;
   @Prop() Attachments?: Attachment[];
-  @Prop() geoHazardTID: number; //	integer($int32)
-  @Prop() damageTypeTID: number; //	integer($int32)
-  @Prop() damagePosition: any;	//LatLng,
-  @Prop() comment:	string;
+  @Prop() GeoHazardTID: number; //	integer($int32)
+  @Prop() DamageTypeTID: number; //	integer($int32)
+  @Prop() DamagePosition: any;	//LatLng,
+  @Prop() Comment:	string;
 
 
   render(){
-     return <div> 
+     return <div>
+
+       {this.Comment ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""} 
+
+    <br></br>
+
+    {this.GeoHazardName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.DangerObs.GeoHazardName : "Faretype" }
+    _value={this.GeoHazardName}
+    ></varsom-key-value> 
+    :""}
+
+    <br></br>
+
+    {this.DamageTypeName ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.DangerObs.DamageTypeName : "Type skade" }
+    _value={this.DamageTypeName}
+    ></varsom-key-value>
+    :""}
 
     
 
-       {this.comment ? 
+       {/* {this.comment ? 
       <span>
        <label>{this.strings.Observations.GeneralObservation.Comment}: </label>
       {this.comment}
-      </span> : ""}
+      </span> : ""} */}
      
     
 

@@ -28,6 +28,7 @@
  - [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
  - [varsom-avalanche-obs](../varsom-avalanche-obs)
  - [varsom-compression-test](../varsom-compression-test)
+ - [varsom-damage-obs](../varsom-damage-obs)
  - [varsom-danger-obs](../varsom-danger-obs)
  - [varsom-general-observation](../varsom-general-observation)
  - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
@@ -61,6 +62,7 @@ graph TD;
   varsom-avalanche-evaluation3 --> varsom-key-value
   varsom-avalanche-obs --> varsom-key-value
   varsom-compression-test --> varsom-key-value
+  varsom-damage-obs --> varsom-key-value
   varsom-danger-obs --> varsom-key-value
   varsom-general-observation --> varsom-key-value
   varsom-ice-cover-observation --> varsom-key-value
