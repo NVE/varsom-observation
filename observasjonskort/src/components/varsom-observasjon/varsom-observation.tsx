@@ -469,6 +469,10 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       </div>
 
 
+{/*<varsom-image-slider
+images={obs._images} 
+  ></varsom-image-slider>*/}
+
 {/* IMAGE SLIDER */}
 {obs._images.length > 0 ? 
 <div class="slideshow-container">

@@ -321,6 +321,9 @@ export namespace Components {
         "IceLayerThickness": any;
         "strings": any;
     }
+    interface VarsomImageSlider {
+        "images": any[];
+    }
     interface VarsomIncident {
         "ActivityInfluencedName": any;
         "ActivityInfluencedTID": any;
@@ -720,6 +723,12 @@ declare global {
         prototype: HTMLVarsomIceThicknessLayerElement;
         new (): HTMLVarsomIceThicknessLayerElement;
     };
+    interface HTMLVarsomImageSliderElement extends Components.VarsomImageSlider, HTMLStencilElement {
+    }
+    var HTMLVarsomImageSliderElement: {
+        prototype: HTMLVarsomImageSliderElement;
+        new (): HTMLVarsomImageSliderElement;
+    };
     interface HTMLVarsomIncidentElement extends Components.VarsomIncident, HTMLStencilElement {
     }
     var HTMLVarsomIncidentElement: {
@@ -892,6 +901,7 @@ declare global {
         "varsom-ice-cover-observation": HTMLVarsomIceCoverObservationElement;
         "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
         "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
+        "varsom-image-slider": HTMLVarsomImageSliderElement;
         "varsom-incident": HTMLVarsomIncidentElement;
         "varsom-key-value": HTMLVarsomKeyValueElement;
         "varsom-label": HTMLVarsomLabelElement;
@@ -1234,6 +1244,9 @@ declare namespace LocalJSX {
         "IceLayerThickness"?: any;
         "strings"?: any;
     }
+    interface VarsomImageSlider {
+        "images"?: any[];
+    }
     interface VarsomIncident {
         "ActivityInfluencedName"?: any;
         "ActivityInfluencedTID"?: any;
@@ -1527,6 +1540,7 @@ declare namespace LocalJSX {
         "varsom-ice-cover-observation": VarsomIceCoverObservation;
         "varsom-ice-thickness": VarsomIceThickness;
         "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
+        "varsom-image-slider": VarsomImageSlider;
         "varsom-incident": VarsomIncident;
         "varsom-key-value": VarsomKeyValue;
         "varsom-label": VarsomLabel;
@@ -1579,6 +1593,7 @@ declare module "@stencil/core" {
             "varsom-ice-cover-observation": LocalJSX.VarsomIceCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomIceCoverObservationElement>;
             "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
             "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
+            "varsom-image-slider": LocalJSX.VarsomImageSlider & JSXBase.HTMLAttributes<HTMLVarsomImageSliderElement>;
             "varsom-incident": LocalJSX.VarsomIncident & JSXBase.HTMLAttributes<HTMLVarsomIncidentElement>;
             "varsom-key-value": LocalJSX.VarsomKeyValue & JSXBase.HTMLAttributes<HTMLVarsomKeyValueElement>;
             "varsom-label": LocalJSX.VarsomLabel & JSXBase.HTMLAttributes<HTMLVarsomLabelElement>;
