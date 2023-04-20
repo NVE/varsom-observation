@@ -24,6 +24,7 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
 
+
   element: HTMLElement;
   strings: any;
   
@@ -96,6 +97,7 @@ export class VarsomObservation {
   async componentWillLoad(){
 
   
+  
   this.strings = await getLocaleComponentStrings(this.language);
   
   let geoHazardId = getGeoHazardIdFromName(this.type);
@@ -138,6 +140,7 @@ export class VarsomObservation {
         _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
         Attachments: [],
         _images: [],
+        _loopNumbers: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
@@ -166,6 +169,7 @@ export class VarsomObservation {
         }          
      );
      
+   
     
      //add imageUrl for snowProile2
      for (let i = 0; i < this.observations.length; i ++){
@@ -426,10 +430,11 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   
 
 
+}
 } 
 
         //add images for image carousel
-        for (let m = 0; m < data[i]["Attachments"].length; m++){
+        for (let m = 0; m < data[i]["Attachments"].length; m++){ 
           this.observations[i]._images.push(
             {
               _imageData: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Url"] : null,
@@ -437,12 +442,19 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
               _photographer: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Photographer"] : null,
               _comment: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Comment"] : null,
           }
-        )}
+        );
+        
+        this.observations[i]._loopNumbers.push(m);
+      
+      }
 
      }
     };
 
-  }
+
+
+
+  
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
@@ -474,108 +486,63 @@ images={obs._images}
   ></varsom-image-slider>*/}
 
 {/* IMAGE SLIDER */}
-{obs._images.length > 0 ? 
-<div class="slideshow-container">
-  <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-  
-  <img class="observation-images" src={obs._images[0]._imageData}></img>
 
-  {obs._images.length > 1 ? 
-  <img class="observation-images" src={obs._images[1]._imageData}></img>
-: null}
-  
-  
-
-  <div class="image-info-container">
-    <span class="imageInfo"> 
-    
-    {obs._images[0]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[0]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
-        
-    {obs._images[0]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[0]._comment} </div> : ""}
-
-    </span>
-
-    <span class="imageInfo"> 
-    
-    {obs._images[1]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[1]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[1]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[1]._photographer} <br></br></div> : ""}
-        
-    {obs._images[1]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[1]._comment} </div> : ""}
-
-    </span>
+{obs._loopNumbers.map((num) =>{
+return <div class="slideshow-container">
    
-    </div>
+   {obs._images.length > num ? 
+  <div ref={(el) => obs._observationImages[num] = el as HTMLElement} class="mySlides fade">
+  <img class="observation-images" src={obs._images[num]._imageData}></img>
+
+  {obs._images.length > num+1 ? 
+  <img class="observation-images" src={obs._images[num+1]._imageData}></img>
+  : null}  
+
+
+ <div class="image-info-container">
+    <span class="imageInfo"> 
+    
+    {obs._images[num]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[num]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[num]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[num]._photographer} <br></br></div> : ""}
+        
+    {obs._images[num]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[num]._comment} </div> : ""}
+
+    </span> 
+
+    {obs._images.length > num+1 ? 
+    <span class="imageInfo"> 
+    
+    {obs._images[num+1]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[num+1]._copyright} <br></br> </div> : "" }
+    
+    {obs._images[num+1]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[num+1]._photographer} <br></br></div> : ""}
+        
+    {obs._images[num+1]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[num+1]._comment} </div> : ""}
+
+    </span> 
+    : null }
+
   </div>
 
-
-  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
-  
-{obs._images.length > 2 ? 
-<span>
-<img class="observation-images" src={obs._images[2]._imageData}></img>
- 
-</span>
-: null}
-
-{obs._images.length > 3 ? 
-<span>
-<img class="observation-images" src={obs._images[3]._imageData}></img>
- 
-</span>
-: null}
-
-<div class="image-info-container">
-    <span class="imageInfo"> 
-    
-    {obs._images[2]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[2]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[2]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[2]._photographer} <br></br></div> : ""}
-        
-    {obs._images[2]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[2]._comment} </div> : ""}
-
-    </span>
-
-{obs._images.length > 4 ? 
- <span class="imageInfo"> 
-    
- {obs._images[3]._copyright ? 
- <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[3]._copyright} <br></br> </div> : "" }
- 
- {obs._images[3]._photographer ? 
-  <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[3]._photographer} <br></br></div> : ""}
-     
- {obs._images[3]._comment ? 
-     <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[3]._comment} </div> : ""}
-
- </span>
-: null}
-   
-   
-    </div>
-
-
- </div> 
-
- 
-  
   <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
+<a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
+  </div>
+
+    
+
+ : null}
+
 
 </div>
 
-: ""}
+})};
+
 
 <br></br>
 
