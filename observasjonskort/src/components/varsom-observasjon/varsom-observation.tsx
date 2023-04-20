@@ -435,6 +435,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 
         //add images for image carousel
         for (let m = 0; m < data[i]["Attachments"].length; m++){ 
+          
           this.observations[i]._images.push(
             {
               _imageData: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Url"] : null,
@@ -443,7 +444,8 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
               _comment: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Comment"] : null,
           }
         );
-        
+          
+        if(m == 0 || m % 2 == 0)
         this.observations[i]._loopNumbers.push(m);
       
       }
@@ -489,7 +491,6 @@ images={obs._images}
 
 {obs._loopNumbers.map((num) =>{
 return <div class="slideshow-container">
-   
    {obs._images.length > num ? 
   <div ref={(el) => obs._observationImages[num] = el as HTMLElement} class="mySlides fade">
   <img class="observation-images" src={obs._images[num]._imageData}></img>
@@ -497,7 +498,6 @@ return <div class="slideshow-container">
   {obs._images.length > num+1 ? 
   <img class="observation-images" src={obs._images[num+1]._imageData}></img>
   : null}  
-
 
  <div class="image-info-container">
     <span class="imageInfo"> 
