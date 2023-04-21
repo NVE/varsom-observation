@@ -30,6 +30,11 @@ div {
   margin: 18px 2.5rem 0rem 2.5rem;
 }
 
+.first{
+  max-width: 200px;
+  margin: 18px 12rem 0rem 12rem;
+}
+
 .map-container {
   display: flex;
   
@@ -89,6 +94,15 @@ div {
   margin: 0 2.5rem 2.5rem 2.5rem;
   
 }
+
+.firstInfo {
+  background-color: rgba(4, 73, 98, 0.05);
+  width: 100%;
+  max-width: 200px;
+  margin: 0 12rem 2.5rem 12rem;
+  
+}
+
 
 /* Caption text */
 .text {

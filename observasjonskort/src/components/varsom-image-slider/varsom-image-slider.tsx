@@ -73,14 +73,14 @@ for (let i = 0; i < this._images.length; i=i+2){
 return <div class="slideshow-container">
    {this._images.length > num ? 
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="mySlides fade">
-  <img class="observation-images" src={this._images[num]._imageData}></img>
+  <img class={this._images.length == 1 ? "observation-images first" : "observation-images"}  src={this._images[num]._imageData}></img>
 
   {this._images.length > num+1 ? 
   <img class="observation-images" src={this._images[num+1]._imageData}></img>
   : null}  
 
  <div class="image-info-container">
-    <span class="imageInfo"> 
+    <span class={this._images.length == 1 ? "imageInfo firstInfo" : "imageInfo"}> 
     
     {this._images[num]._copyright ? 
     <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num]._copyright} <br></br> </div> : "" }
@@ -110,8 +110,13 @@ return <div class="slideshow-container">
 
   </div>
 
+{this._images.length > 2 ?
+<div>
   <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
 <a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
+</div>
+: null}
+
   </div>
 
  : null}
