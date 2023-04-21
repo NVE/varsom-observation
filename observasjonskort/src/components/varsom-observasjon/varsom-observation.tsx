@@ -175,8 +175,10 @@ export class VarsomObservation {
      for (let i = 0; i < this.observations.length; i ++){
       for (let j = 0; j < data[i]["Summaries"].length; j ++){
         if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
-          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2)
+          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2){
+            if (this.observations[i]._snowProfile2)
             this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
+          }
         }
       }
      }
@@ -348,20 +350,29 @@ export class VarsomObservation {
           }
         }
 
-  //initialize attachment arrays in objects
-  for (let k = 0; k < this.observations.length; k++){
+    //initialize attachment arrays in objects
+    for (let k = 0; k < this.observations.length; k++){
     this.observations[k]._snowProfile2 ? this.observations[k]._snowProfile2.Attachments = [] : "";
+    this.observations[k]._iceThickness ? this.observations[k]._iceThickness.Attachments = [] : "";
     this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : "";
-    this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : ""; 
     this.observations[k]._snowSurfaceObservation ? this.observations[k]._snowSurfaceObservation.Attachments = [] : "";
     this.observations[k]._weather ? this.observations[k]._weather.Attachments = [] : "";
     this.observations[k]._generalObservation ? this.observations[k]._generalObservation.Attachments = [] : "";
     this.observations[k]._waterLevel2 ? this.observations[k]._waterLevel2.Attachments = [] : "";
+    this.observations[k]._waterLevel ? this.observations[k]._waterLevel.Attachments = [] : "";
     this.observations[k]._landslideObs ? this.observations[k]._landslideObs.Attachments = [] : "";
-    this.observations[k].Attachments = [];
+    this.observations[k]._avalancheObs ? this.observations[k]._avalancheObs.Attachments = [] : "";
+    this.observations[k]._snowCoverObs ? this.observations[k]._snowCoverObs.Attachments = [] : "";
+    this.observations[k]._incident ? this.observations[k]._incident.Attachments = [] : "";
+    this.observations[k]._avalancheActivityObs ? this.observations[k]._avalancheActivityObs.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation2 ? this.observations[k]._avalancheEvaluation2.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation3 ? this.observations[k]._avalancheEvaluation3.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation ? this.observations[k]._avalancheEvaluation.Attachments = [] : "";
+    
+    //this.observations[k].Attachments = [];
 }
      //add attachments to objects
-for(let j = 0; j < 300; j++){  //max 300 attachments
+for(let j = 0; j < 50; j++){  //max 300 attachments
 if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0){
 
   //objects
@@ -380,18 +391,13 @@ if (data[i]["Attachments"][j].RegistrationTID == 34){
   this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 } 
-if (data[i]["Attachments"][j].RegistrationTID == 36){
-  if (this.observations[i]._snowProfile2)
-  this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
-  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
-} 
 if (data[i]["Attachments"][j].RegistrationTID == 37){
   if (this.observations[i]._snowProfile2)
   this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 } 
 if (data[i]["Attachments"][j].RegistrationTID == 22){
-  if (this.observations[i]._snowSurfaceObservation)
+  if (this.observations[i]._snowSurfaceObservation != null)
   this.addAttachments(this.observations[i]._snowSurfaceObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 }
@@ -508,8 +514,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   }
   
 
-
-}
+  }
 } 
 
         //add images for image carousel
@@ -568,27 +573,7 @@ strings={this.strings}
 
 {/* CONTENT */}
 <div class="observation-content">
-  
-{/* ATTACHMENTS */}
-   
-        {obs.Attachments.map((att: Attachment = {}) =>{
-            return <varsom-attachment
-              strings={this.strings}
-              RegistrationName={att.RegistrationName ? att.RegistrationName : null}
-              Comment={att.Comment ? att.Comment : null}
-              Url={att.Url ? att.Url : null}
-              Photographer={att.Photographer ? att.Photographer : null}
-              Copyright={att.Copyright ? att.Copyright : null}
-              AttachmentId={att.AttachmentId ? att.AttachmentId : null}
-              GeoHazardName={att.GeoHazardName ? att.GeoHazardName : null}
-              Aspect={att.Aspect ? att.Aspect : null}
-              GeoHazardTID={att.GeoHazardTID ? att.GeoHazardTID : null}
-              RegistrationTID={att.RegistrationTID ? att.RegistrationTID : null}
-              AttachmentMimeType={att.AttachmentMimeType ? att.AttachmentMimeType : null}
-              IsMainAttachment={att.IsMainAttachment ? att.IsMainAttachment : null}
-              ></varsom-attachment>             
-        })    
-}
+        
   
 {obs._avalancheActivityObs2.length > 0 ?
 <varsom-label
@@ -807,8 +792,12 @@ Attachments={obs._landslideObs.Attachments ? obs._landslideObs.Attachments : nul
 {obs._weather ? 
 <varsom-weather-observation
 strings={this.strings}
-weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
-air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
+PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
+WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
+PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
+WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
+CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}
+AirTemperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
 Attachments={obs._weather.Attachments ? obs._weather.Attachments : null}
 >
    </varsom-weather-observation>
@@ -1157,20 +1146,6 @@ Attachments={obs._iceCoverObs.Attachments ? obs._iceCoverObs.Attachments : null}
 ></varsom-ice-cover-observation>
 : ""}
 
-{obs._weatherObservation ? 
-<varsom-weather-observation
-strings={this.strings}
-PrecipitationName={obs._weatherObservation.PrecipitationName ? obs._generalObservation.PrecipitationName : null}
-WindDirectionName={obs._weatherObservation.WindDirectionName ? obs._generalObservation.WindDirectionName : null}
-PrecipitationTID={obs._weatherObservation.PrecipitationTID ? obs._generalObservation.PrecipitationTID : null}
-AirTemperature={obs._weatherObservation.AirTemperature ? obs._generalObservation.AirTemperature : null}
-WindSpeed={obs._weatherObservation.WindSpeed ? obs._generalObservation.WindSpeed : null}
-WindDirection={obs._weatherObservation.WindDirection ? obs._generalObservation.WindDirection : null}
-CloudCover={obs._weatherObservation.CloudCover ? obs._generalObservation.CloudCover : null}
-Comment={obs._weatherObservation.Comment ? obs._generalObservation.Comment : null}
-Attachments={obs._weatherObservation.Attachments ? obs._generalObservation.Attachments : null}
-></varsom-weather-observation>
-: ""}
 
 {obs._generalObservation ? 
 <varsom-general-observation
@@ -1226,6 +1201,19 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 ></varsom-incident>
 : ""}
 
+{/* ATTACHMENTS */}
+   
+{obs.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        }
 
       </div>
       </div>

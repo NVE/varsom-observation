@@ -108,7 +108,7 @@ export class VarsomSnowSurfaceObservation {
     _value={this.Comment}
     ></varsom-key-value>
     : ""}
-
+</div>
 {this.Attachments ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
@@ -124,7 +124,7 @@ export class VarsomSnowSurfaceObservation {
         } </div> : ""}
 
     
-    </div>
+    
 
     </div>
   }

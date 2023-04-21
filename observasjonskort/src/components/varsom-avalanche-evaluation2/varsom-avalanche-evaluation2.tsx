@@ -32,6 +32,7 @@ export class VarsomAvalancheEvaluation2 {
   render(){
     return <div class="container"> 
 
+    <div class="content">
     {this.AvalancheEvaluation ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.ObsName : "Skredfareurdering" }
@@ -96,7 +97,20 @@ export class VarsomAvalancheEvaluation2 {
 }
 </div> : ""}
 
-  
+</div>
+{this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
     
     </div>
   }

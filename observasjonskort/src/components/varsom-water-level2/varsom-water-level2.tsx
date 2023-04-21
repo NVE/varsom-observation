@@ -111,6 +111,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
         })
         } </div> : ""}
 
+</div>
 
 {this.Attachments ? 
       <div>
@@ -126,7 +127,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
         })
         } </div> : ""}
     
-    </div>
+    
     </div>
   }
     

@@ -46,7 +46,6 @@ export class VarsomSnowProfile2 {
  </a>
  : ""}
 
-{console.log(this.RegId)}
 
 {this.SnowDensity ? 
 <div>

@@ -26,6 +26,12 @@ export class VarsomWeatherObservation {
   render(){
     return <div class="container"> 
 
+<varsom-label
+label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "Vær"}
+></varsom-label>
+
+<div class="content">
+
 {this.PrecipitationName ?
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.WeatherObservation.PrecipitationTID: "Nedbørstype" }
@@ -78,6 +84,8 @@ export class VarsomWeatherObservation {
     ></varsom-key-value>
     :""}
 
+</div>
+
 {this.Attachments ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
@@ -91,6 +99,8 @@ export class VarsomWeatherObservation {
             </varsom-attachment>
         })
         } </div> : ""}
+
+    
 
     </div>
   }
