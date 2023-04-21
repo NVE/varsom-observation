@@ -24,6 +24,7 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
 
+
   element: HTMLElement;
   strings: any;
   
@@ -63,12 +64,16 @@ export class VarsomObservation {
     if (n > slides.length) {this.slideIndex = 1}
     if (n < 1) {this.slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
+      if (slides[i])
       slides[i].style.display = 'none';
     }
     for (i = 0; i < dots.length; i++) {
       //dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[this.slideIndex-1].style.display = "block";
+    if ( slides[this.slideIndex-1] != null)
+      slides[this.slideIndex-1].style.display = "block";
+    if ( slides[this.slideIndex] != null)
+    slides[this.slideIndex].style.display = "block";
     //dots[this.slideIndex-1].className += " active";
   }
 
@@ -77,7 +82,7 @@ export class VarsomObservation {
   async componentDidRender(){
     for (let i = 0; i < this.observations.length; i++){
       var obs = this.observations[i];
-      for (let j = 0; j < 3; j++){
+      for (let j = 0; j < this.observationImages.length; j++){
         obs._observationImages[j].style.display = "none"
       }
     }
@@ -91,6 +96,7 @@ export class VarsomObservation {
 
   async componentWillLoad(){
 
+  
   
   this.strings = await getLocaleComponentStrings(this.language);
   
@@ -134,6 +140,7 @@ export class VarsomObservation {
         _snowSurfaceObservation: data[i]["SnowSurfaceObservation"],
         Attachments: [],
         _images: [],
+        _loopNumbers: [],
         _className: `${data[i]["RegId"]} fade`,
         _observationImages: [],
         _geoHazardName: data[i]["GeoHazardName"],
@@ -162,6 +169,7 @@ export class VarsomObservation {
         }          
      );
      
+   
     
      //add imageUrl for snowProile2
      for (let i = 0; i < this.observations.length; i ++){
@@ -422,34 +430,33 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   
 
 
+}
 } 
 
         //add images for image carousel
-     this.observations[i]._images.push(
-      {
-        _imageData: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Url"] : "",
-        _copyright: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Copyright"] : "",
-        _photographer: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Photographer"] : "",
-        _comment: (data[i]["Attachments"][0] && data[i]["Attachments"][0] !== 0) ? data[i]["Attachments"][0]["Comment"] : "",
-    },
-    {
-      _imageData: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Url"] : "",
-      _copyright: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Copyright"] : "",
-      _comment: (data[i]["Attachments"][1] && data[i]["Attachments"][1] !== 0) ? data[i]["Attachments"][1]["Comment"] : "",
-  },
-  {
-    _imageData: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Url"] : "",
-    _copyright: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Copyright"] : "",
-    _comment: (data[i]["Attachments"][2] && data[i]["Attachments"][2] !== 0) ? data[i]["Attachments"][2]["Comment"] : "",
-},
+        for (let m = 0; m < data[i]["Attachments"].length; m++){ 
+          
+          this.observations[i]._images.push(
+            {
+              _imageData: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Url"] : null,
+              _copyright: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Copyright"] : null,
+              _photographer: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Photographer"] : null,
+              _comment: (data[i]["Attachments"][m] && data[i]["Attachments"][m] !== 0) ? data[i]["Attachments"][m]["Comment"] : null,
+          }
+        );
+          
+        if(m == 0 || m % 2 == 0)
+        this.observations[i]._loopNumbers.push(m);
+      
+      }
 
-    );
-
-    
      }
     };
 
-  }
+
+
+
+  
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
@@ -475,52 +482,10 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       </div>
       </div>
 
-
-{/* IMAGE SLIDER */}
-<div class="slideshow-container">
-  <div ref={(el) => obs._observationImages[0] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
-    <div>
-    
-  <img class="observation-images" src={obs._images[0]._imageData}></img>
-  
-    <div class="imageInfo"> 
-    {obs._images[0]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[0]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[0]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[0]._photographer} <br></br></div> : ""}
-        
-    {obs._images[0]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment} </b> {obs._images[0]._comment} </div> : ""}
-
-    </div>
-    </div>
-  </div>
-
-  <div ref={(el) => obs._observationImages[1] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
-  <img class="observation-images" src={obs._images[1]._imageData}></img>
-    <div class="text"></div>
-  </div>
-
-  <div ref={(el) => obs._observationImages[2] = el as HTMLElement} class="mySlides fade">
-    <div class="numbertext"></div>
-  <img class="observation-images" src={obs._images[2]._imageData}></img>
-    <div class="text"></div>
-  </div>
-  <a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
-
-</div>
-<br></br>
-
-<div>
-  <span class="dot 1" onClick={this.currentSlide.bind(this, 1)}></span>
-  <span class="dot 2" onClick={this.currentSlide.bind(this,2)}></span>
-  <span class="dot 3" onClick={this.currentSlide.bind(this, 3)}></span>
-</div>
-
+<varsom-image-slider
+_images={obs._images} 
+strings={this.strings}
+  ></varsom-image-slider>
 
 {/* CONTENT */}
 <div class="observation-content">

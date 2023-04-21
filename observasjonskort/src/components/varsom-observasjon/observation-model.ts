@@ -53,7 +53,8 @@ export type Observation = {
   _snowCoverObs?: SnowCoverObs,
   _waterLevel?: WaterLevel,
   _images?: Image[],
-  _dtObsTime?: string
+  _dtObsTime?: string,
+  _loopNumbers?: number[]
   };
 
       {/* can't find this in api... */ }
