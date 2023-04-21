@@ -22,7 +22,7 @@ export class VarsomGeneralObservation {
     return <div class="container"> 
 
       <varsom-label
-      label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}
+      label={this.strings ? this.strings.Observations.GeneralObservation.Notes : "Notater"}
       ></varsom-label>
 
   
