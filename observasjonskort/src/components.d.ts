@@ -322,7 +322,8 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomImageSlider {
-        "images": any[];
+        "_images": any[];
+        "strings": any;
     }
     interface VarsomIncident {
         "ActivityInfluencedName": any;
@@ -1245,7 +1246,8 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomImageSlider {
-        "images"?: any[];
+        "_images"?: any[];
+        "strings"?: any;
     }
     interface VarsomIncident {
         "ActivityInfluencedName"?: any;

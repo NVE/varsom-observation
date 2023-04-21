@@ -10,8 +10,10 @@ import { Component, Prop, State, h } from '@stencil/core';
 export class VarsomImageSlider {
 
   @State() slideIndex: number = 1;
-  @Prop() images: any[];  
+  @Prop() _images: any[];  
   dataSource: any;
+  _loopNumbers: number[];
+  @Prop() strings: any;
 
   observationImages: HTMLElement[] = [];
 
@@ -47,12 +49,19 @@ export class VarsomImageSlider {
       //dots[this.slideIndex-1].className += " active";
     }
   
+
+componentWillLoad(){
+  this._loopNumbers = [];
+for (let i = 0; i < this._images.length; i=i+2){
+  this._loopNumbers.push(i);
+}
+}
   
   
-    async componentDidRender(){
+   componentDidRender(){
       
-        
-        for (let j = 0; j < this.observationImages.length; j++){
+        for (let j = 0; j < this.observationImages.length; j=j+2){
+          
           this.observationImages[j].style.display = "none";
       this.showSlides(this.slideIndex);
       
@@ -63,43 +72,62 @@ export class VarsomImageSlider {
   render(){
     return <div>
 
-....IMAGE SLIDER COMPONENT.....
-{/* IMAGE SLIDER */}
-{this.images.length > 0 ? 
 
-  <div ref={(el) => this.observationImages[0] = el as HTMLElement} class="mySlides fade">
-  
-  <img class="observation-images" src={this.images[0]._imageData}></img>
+{this._loopNumbers.map((num) =>{
+return <div class="slideshow-container">
+   {this._images.length > num ? 
+  <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="mySlides fade">
+  <img class="observation-images" src={this._images[num]._imageData}></img>
 
-  {this.images.length > 1 ? 
-  <img class="observation-images" src={this.images[1]._imageData}></img>
-: null}
+  {this._images.length > num+1 ? 
+  <img class="observation-images" src={this._images[num+1]._imageData}></img>
+  : null}  
 
-</div> 
-: null}
+ <div class="image-info-container">
+    <span class="imageInfo"> 
+    
+    {this._images[num]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num]._copyright} <br></br> </div> : "" }
+    
+    {this._images[num]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num]._photographer} <br></br></div> : ""}
+        
+    {this._images[num]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num]._comment} </div> : ""}
 
-{this.images.length > 2 ? 
+    </span> 
 
-<div ref={(el) => this.observationImages[1] = el as HTMLElement} class="mySlides fade">
-  
-  <img class="observation-images" src={this.images[2]._imageData}></img>
+    {this._images.length > num+1 ? 
+    <span class="imageInfo"> 
+    
+    {this._images[num+1]._copyright ? 
+    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num+1]._copyright} <br></br> </div> : "" }
+    
+    {this._images[num+1]._photographer ? 
+     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num+1]._photographer} <br></br></div> : ""}
+        
+    {this._images[num+1]._comment ? 
+        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num+1]._comment} </div> : ""}
 
-  {this.images.length > 3 ? 
-  <img class="observation-images" src={this.images[3]._imageData}></img>
-: null}
+    </span> 
+    : null }
 
-</div> 
-: null}
+  </div>
 
+  <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
+<a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
+  </div>
 
+    
 
-<a class="prev" onClick={this.plusSlides.bind(this, -1)}>&#10094;</a>
-  <a class="next" onClick={this.plusSlides.bind(this, 1)}>&#10095;</a>
+ : null}
 
 
 </div>
 
-    
+})}
+
+    </div>
   }
 
 }

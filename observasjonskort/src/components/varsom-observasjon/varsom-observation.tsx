@@ -482,72 +482,10 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       </div>
       </div>
 
-
-{/*<varsom-image-slider
-images={obs._images} 
-  ></varsom-image-slider>*/}
-
-{/* IMAGE SLIDER */}
-
-{obs._loopNumbers.map((num) =>{
-return <div class="slideshow-container">
-   {obs._images.length > num ? 
-  <div ref={(el) => obs._observationImages[num] = el as HTMLElement} class="mySlides fade">
-  <img class="observation-images" src={obs._images[num]._imageData}></img>
-
-  {obs._images.length > num+1 ? 
-  <img class="observation-images" src={obs._images[num+1]._imageData}></img>
-  : null}  
-
- <div class="image-info-container">
-    <span class="imageInfo"> 
-    
-    {obs._images[num]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[num]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[num]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[num]._photographer} <br></br></div> : ""}
-        
-    {obs._images[num]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[num]._comment} </div> : ""}
-
-    </span> 
-
-    {obs._images.length > num+1 ? 
-    <span class="imageInfo"> 
-    
-    {obs._images[num+1]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {obs._images[num+1]._copyright} <br></br> </div> : "" }
-    
-    {obs._images[num+1]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {obs._images[num+1]._photographer} <br></br></div> : ""}
-        
-    {obs._images[num+1]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {obs._images[num+1]._comment} </div> : ""}
-
-    </span> 
-    : null }
-
-  </div>
-
-  <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
-<a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
-  </div>
-
-    
-
- : null}
-
-
-</div>
-
-})};
-
-
-<br></br>
-
-
-
+<varsom-image-slider
+_images={obs._images} 
+strings={this.strings}
+  ></varsom-image-slider>
 
 {/* CONTENT */}
 <div class="observation-content">
