@@ -34,19 +34,17 @@ export class VarsomImageSlider {
       let dots = document.getElementsByClassName("dot");
       if (n > slides.length) {this.slideIndex = 1}
       if (n < 1) {this.slideIndex = slides.length}
-      for (i = 0; i < 3; i++){//slides.length; i++) {
+      for (i = 0; i < slides.length; i++){
         if (slides[i]){
         slides[i].style.display = 'none';
         }
       }
       for (i = 0; i < dots.length; i++) {
-        //dots[i].className = dots[i].className.replace(" active", "");
       }
       if ( slides[this.slideIndex-1] != null)
         slides[this.slideIndex-1].style.display = "block";
       if ( slides[this.slideIndex] != null)
       slides[this.slideIndex].style.display = "block";
-      //dots[this.slideIndex-1].className += " active";
     }
   
 
@@ -57,14 +55,12 @@ for (let i = 0; i < this._images.length; i=i+2){
 }
 }
   
-  
+
    componentDidRender(){
       
         for (let j = 0; j < this.observationImages.length; j=j+2){
-          
           this.observationImages[j].style.display = "none";
       this.showSlides(this.slideIndex);
-      
       }
     }
 
@@ -118,18 +114,12 @@ return <div class="slideshow-container">
 <a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
   </div>
 
-    
-
  : null}
 
-
 </div>
-
 })}
-
     </div>
   }
-
 }
   
   
