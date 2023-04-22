@@ -27,7 +27,12 @@ export class VarsomIceCoverObservation {
 
 
   render(){
-    return <div> 
+    return <div class="container"> 
+
+<varsom-label
+      label={this.strings ? this.strings.Observations.IceCoverObs.ObsName : "Isdekning"}
+      ></varsom-label>
+
 <div class="content">
     {this.IceCoverName ? 
     <varsom-key-value
@@ -79,7 +84,7 @@ export class VarsomIceCoverObservation {
     ></varsom-key-value>
     :""}
 
-
+</div>
 {this.Attachments ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
@@ -93,9 +98,7 @@ export class VarsomIceCoverObservation {
             </varsom-attachment>
         })
         } </div> : ""}
-    
-    </div>
-    <div class="border"></div>
+  
     
     </div>
   }

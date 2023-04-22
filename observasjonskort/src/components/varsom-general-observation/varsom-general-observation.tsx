@@ -22,7 +22,7 @@ export class VarsomGeneralObservation {
     return <div class="container"> 
 
       <varsom-label
-      label={this.strings ? this.strings.GeneralObservation.Notes : "Notater"}
+      label={this.strings ? this.strings.Observations.GeneralObservation.Notes : "Notater"}
       ></varsom-label>
 
   
@@ -35,7 +35,7 @@ export class VarsomGeneralObservation {
       
     {this.ObsComment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
+    _key={this.strings ? this.strings.Observations.GeneralObservation.Comment : "Kommentar" }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}
@@ -56,6 +56,20 @@ export class VarsomGeneralObservation {
         : ""}
         
     </div>
+
+    {this.Attachments ? 
+      <div>
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </div> : ""}
     </div>
   }
     

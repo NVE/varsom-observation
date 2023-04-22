@@ -171,12 +171,14 @@ export class VarsomObservation {
      
    
     
-     //add imageUrl for snowProile2
+     //add imageUrl for snowProfile2
      for (let i = 0; i < this.observations.length; i ++){
       for (let j = 0; j < data[i]["Summaries"].length; j ++){
         if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
-          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2)
+          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2){
+            if (this.observations[i]._snowProfile2)
             this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
+          }
         }
       }
      }
@@ -232,13 +234,10 @@ export class VarsomObservation {
               GeoHazardName:	data[i]["DamageObs"][j]["GeoHazardName"],
               DamageTypeName:	data[i]["DamageObs"][j]["DamageTypeName"],
               GeoHazardTID: data[i]["DamageObs"][j]["GeoHazardTID"],
-              //Attachments: Attachment[],
               DamageTypeTID: data[i]["DamageObs"][j]["DamageTypeTID"],
               DamagePosition:	data[i]["DamageObs"][j]["DamagePosition"],
               Comment: data[i]["DamageObs"][j]["Comment"],
               Attachments: []
-              
-              //etc....
             })
           }
         }
@@ -348,20 +347,28 @@ export class VarsomObservation {
           }
         }
 
-  //initialize attachment arrays in objects
-  for (let k = 0; k < this.observations.length; k++){
-    this.observations[k]._snowProfile2 ? this.observations[k]._snowProfile2.Attachments = [] : "";
-    this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : "";
-    this.observations[k]._iceCoverObs ? this.observations[k]._iceCoverObs.Attachments = [] : ""; 
-    this.observations[k]._snowSurfaceObservation ? this.observations[k]._snowSurfaceObservation.Attachments = [] : "";
-    this.observations[k]._weather ? this.observations[k]._weather.Attachments = [] : "";
-    this.observations[k]._generalObservation ? this.observations[k]._generalObservation.Attachments = [] : "";
-    this.observations[k]._waterLevel2 ? this.observations[k]._waterLevel2.Attachments = [] : "";
-    this.observations[k]._landslideObs ? this.observations[k]._landslideObs.Attachments = [] : "";
-    this.observations[k].Attachments = [];
+    //initialize attachment arrays in objects
+    for (let k = 0; k < this.observations.length; k++){
+    this.observations[k]._snowProfile2 && !this.observations[k]._snowProfile2.Attachments ? this.observations[k]._snowProfile2.Attachments = [] : "";
+    this.observations[k]._iceThickness && !this.observations[k]._iceThickness.Attachments ? this.observations[k]._iceThickness.Attachments = [] : "";
+    this.observations[k]._iceCoverObs && !this.observations[k]._iceCoverObs.Attachments ? this.observations[k]._iceCoverObs.Attachments = [] : "";
+    this.observations[k]._snowSurfaceObservation && !this.observations[k]._snowSurfaceObservation.Attachments ? this.observations[k]._snowSurfaceObservation.Attachments = [] : "";
+    this.observations[k]._weather && !this.observations[k]._weather.Attachments ? this.observations[k]._weather.Attachments = [] : "";
+    this.observations[k]._generalObservation && !this.observations[k]._generalObservation.Attachments ? this.observations[k]._generalObservation.Attachments = [] : "";
+    this.observations[k]._waterLevel2  && !this.observations[k]._waterLevel2.Attachments ? this.observations[k]._waterLevel2.Attachments = [] : "";
+    this.observations[k]._waterLevel && !this.observations[k]._waterLevel.Attachments ? this.observations[k]._waterLevel.Attachments = [] : "";
+    this.observations[k]._landslideObs && !this.observations[k]._landslideObs.Attachments ? this.observations[k]._landslideObs.Attachments = [] : "";
+    this.observations[k]._avalancheObs && !this.observations[k]._avalancheObs.Attachments ? this.observations[k]._avalancheObs.Attachments = [] : "";
+    this.observations[k]._snowCoverObs && !this.observations[k]._snowCoverObs.Attachments ? this.observations[k]._snowCoverObs.Attachments = [] : "";
+    this.observations[k]._incident && !this.observations[k]._incident.Attachments ? this.observations[k]._incident.Attachments = [] : "";
+    this.observations[k]._avalancheActivityObs && !this.observations[k]._avalancheActivityObs.Attachments ? this.observations[k]._avalancheActivityObs.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation2 && !this.observations[k]._avalancheEvaluation2.Attachments ? this.observations[k]._avalancheEvaluation2.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation3 && !this.observations[k]._avalancheEvaluation3.Attachments ? this.observations[k]._avalancheEvaluation3.Attachments = [] : "";
+    this.observations[k]._avalancheEvaluation && !this.observations[k]._avalancheEvaluation.Attachments ? this.observations[k]._avalancheEvaluation.Attachments = [] : "";
+  
 }
      //add attachments to objects
-for(let j = 0; j < 300; j++){  //max 300 attachments
+for(let j = 0; j < 50; j++){  //max 50 attachments
 if(data[i]["Attachments"][j] && data[i]["Attachments"][j] !== 0){
 
   //objects
@@ -373,6 +380,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 51){
 if (data[i]["Attachments"][j].RegistrationTID == 50){
   if (this.observations[i]._iceThickness)
   this.addAttachments(this.observations[i]._iceThickness, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+} 
+if (data[i]["Attachments"][j].RegistrationTID == 34){
+  if (this.observations[i]._snowProfile2)
+  this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+} 
+if (data[i]["Attachments"][j].RegistrationTID == 37){
+  if (this.observations[i]._snowProfile2)
+  this.addAttachments(this.observations[i]._snowProfile2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 } 
 if (data[i]["Attachments"][j].RegistrationTID == 22){
@@ -390,7 +407,11 @@ if (data[i]["Attachments"][j].RegistrationTID == 21){
   this.addAttachments(this.observations[i]._weather, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 }
-
+if (data[i]["Attachments"][j].RegistrationTID == 23){
+  if (this.observations[i]._snowCoverObs)
+  this.addAttachments(this.observations[i]._snowCoverObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
 if (data[i]["Attachments"][j].RegistrationTID == 62){
   if (this.observations[i]._waterLevel2)
   this.addAttachments(this.observations[i]._waterLevel2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
@@ -399,6 +420,51 @@ if (data[i]["Attachments"][j].RegistrationTID == 62){
 if (data[i]["Attachments"][j].RegistrationTID == 71){
   if (this.observations[i]._landslideObs)
   this.addAttachments(this.observations[i]._landslideObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 10){
+  if (this.observations[i]._generalObservation)
+  this.addAttachments(this.observations[i]._generalObservation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 11){
+  if (this.observations[i]._incident)
+  this.addAttachments(this.observations[i]._incident, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 27){
+  if (this.observations[i]._avalancheActivityObs)
+  this.addAttachments(this.observations[i]._avalancheActivityObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 30){
+  if (this.observations[i]._avalancheEvaluation2)
+  this.addAttachments(this.observations[i]._avalancheEvaluation2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 31){
+  if (this.observations[i]._avalancheEvaluation3)
+  this.addAttachments(this.observations[i]._avalancheEvaluation3, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 28){
+  if (this.observations[i]._avalancheEvaluation)
+  this.addAttachments(this.observations[i]._avalancheEvaluation, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 26){
+  if (this.observations[i]._avalancheObs)
+  this.addAttachments(this.observations[i]._avalancheObs, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 61){
+  if (this.observations[i]._waterLevel)
+  this.addAttachments(this.observations[i]._waterLevel, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+}
+if (data[i]["Attachments"][j].RegistrationTID == 62){
+  if (this.observations[i]._waterLevel2)
+  this.addAttachments(this.observations[i]._waterLevel2, data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
 }
 if (data[i]["Attachments"][j].RegistrationTID == null){
@@ -417,6 +483,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
     this.addAttachments(this.observations[i]._compressionTest[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
     else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
   }
+  if (data[i]["Attachments"][j].RegistrationTID == 32){
+    if (this.observations[i]._avalancheEvalProblem2.length > 0)
+    this.addAttachments(this.observations[i]._avalancheEvalProblem2[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+    else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  }
+  if (data[i]["Attachments"][j].RegistrationTID == 24){
+    if (this.observations[i]._avalancheDangerObs.length > 0)
+    this.addAttachments(this.observations[i]._avalancheDangerObs[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+    else this.addAttachments(this.observations[i], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
+  }
   if (data[i]["Attachments"][j].RegistrationTID == 33){
     if (this.observations[i]._avalancheActivityObs2.length > 0)
     this.addAttachments(this.observations[i]._avalancheActivityObs2[0], data[i]["Attachments"][j]["Url"], data[i]["Attachments"][j]["Comment"], data[i]["Attachments"][j]["Photographer"], data[i]["Attachments"][j]["Copyright"]);
@@ -429,8 +505,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   }
   
 
-
-}
+  }
 } 
 
         //add images for image carousel
@@ -489,27 +564,7 @@ strings={this.strings}
 
 {/* CONTENT */}
 <div class="observation-content">
-  
-{/* ATTACHMENTS */}
-   
-        {obs.Attachments.map((att: Attachment = {}) =>{
-            return <varsom-attachment
-              strings={this.strings}
-              RegistrationName={att.RegistrationName ? att.RegistrationName : null}
-              Comment={att.Comment ? att.Comment : null}
-              Url={att.Url ? att.Url : null}
-              Photographer={att.Photographer ? att.Photographer : null}
-              Copyright={att.Copyright ? att.Copyright : null}
-              AttachmentId={att.AttachmentId ? att.AttachmentId : null}
-              GeoHazardName={att.GeoHazardName ? att.GeoHazardName : null}
-              Aspect={att.Aspect ? att.Aspect : null}
-              GeoHazardTID={att.GeoHazardTID ? att.GeoHazardTID : null}
-              RegistrationTID={att.RegistrationTID ? att.RegistrationTID : null}
-              AttachmentMimeType={att.AttachmentMimeType ? att.AttachmentMimeType : null}
-              IsMainAttachment={att.IsMainAttachment ? att.IsMainAttachment : null}
-              ></varsom-attachment>             
-        })    
-}
+        
   
 {obs._avalancheActivityObs2.length > 0 ?
 <varsom-label
@@ -664,6 +719,7 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   Comment={el.Comment ? el.Comment : null}
+  Attachments={el.Attachments ? el.Attachments : null}
   ></varsom-water-measurement>
 })
 
@@ -727,8 +783,12 @@ Attachments={obs._landslideObs.Attachments ? obs._landslideObs.Attachments : nul
 {obs._weather ? 
 <varsom-weather-observation
 strings={this.strings}
-weather-precipitation-name={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
-air-temperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
+PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
+WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
+PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
+WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
+CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}
+AirTemperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
 Attachments={obs._weather.Attachments ? obs._weather.Attachments : null}
 >
    </varsom-weather-observation>
@@ -761,6 +821,7 @@ AvalCauseExtTID={el.AvalCauseExtTID ? el.AvalCauseExtTID : null}
 AvalReleaseHeightTID={el.AvalReleaseHeightTID ? el.AvalReleaseHeightTID : null} 
 AvalReleaseHeightName={el.AvalReleaseHeightName ? el.AvalReleaseHeightName : null} 
 AvalancheProbabilityAutoText={el.AvalancheProbabilityAutoText ? el.AvalancheProbabilityAutoText : null} 
+Attachments={el.Attachments ? el.Attachments : null} 
 
 >
 </varsom-avalanche-eval-problem>
@@ -939,7 +1000,7 @@ SlopeAngle={obs._snowProfile2.SlopeAngle ? obs._snowProfile2.SlopeAngle : null}
 SnowTemp={obs._snowProfile2.SnowTemp ? obs._snowProfile2.SnowTemp : null}
 SnowDensity={obs._snowProfile2.SnowDensity ? obs._snowProfile2.SnowDensity : null}
 ImageUrl={obs._snowProfile2.ImageUrl ? obs._snowProfile2.ImageUrl : null}
-RegId={this.regid}
+RegId={obs._regId ? obs._regId : null}
 Attachments={obs._snowProfile2.Attachments ? obs._snowProfile2.Attachments : null}
 ></varsom-snow-profile2>
 :""}
@@ -1076,20 +1137,6 @@ Attachments={obs._iceCoverObs.Attachments ? obs._iceCoverObs.Attachments : null}
 ></varsom-ice-cover-observation>
 : ""}
 
-{obs._weatherObservation ? 
-<varsom-weather-observation
-strings={this.strings}
-PrecipitationName={obs._weatherObservation.PrecipitationName ? obs._generalObservation.PrecipitationName : null}
-WindDirectionName={obs._weatherObservation.WindDirectionName ? obs._generalObservation.WindDirectionName : null}
-PrecipitationTID={obs._weatherObservation.PrecipitationTID ? obs._generalObservation.PrecipitationTID : null}
-AirTemperature={obs._weatherObservation.AirTemperature ? obs._generalObservation.AirTemperature : null}
-WindSpeed={obs._weatherObservation.WindSpeed ? obs._generalObservation.WindSpeed : null}
-WindDirection={obs._weatherObservation.WindDirection ? obs._generalObservation.WindDirection : null}
-CloudCover={obs._weatherObservation.CloudCover ? obs._generalObservation.CloudCover : null}
-Comment={obs._weatherObservation.Comment ? obs._generalObservation.Comment : null}
-Attachments={obs._weatherObservation.Attachments ? obs._generalObservation.Attachments : null}
-></varsom-weather-observation>
-: ""}
 
 {obs._generalObservation ? 
 <varsom-general-observation
@@ -1145,6 +1192,19 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 ></varsom-incident>
 : ""}
 
+{/* ATTACHMENTS */}
+   
+{obs.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        }
 
       </div>
       </div>

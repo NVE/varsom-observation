@@ -499,7 +499,8 @@ export type Observation = {
   
    export type SnowTempObs = {
     Depth?: number, //($double) maximum: 100 minimum: 0
-    SnowTemp?:	number //($double) maximum: 0 minimum: -70
+    SnowTemp?:	number, //($double) maximum: 0 minimum: -70
+
    }
   
    export type SnowTemp = {

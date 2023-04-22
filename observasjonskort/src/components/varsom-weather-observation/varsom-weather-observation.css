@@ -6,9 +6,6 @@ span {
   margin-right: 0.5rem;
 }
 
-div {
-  margin: 1.5rem;
-}
 
 .header {
   font-size: x-large;
@@ -17,4 +14,8 @@ div {
 
 .container {
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+}
+
+.content {
+  margin: 1.5rem;
 }

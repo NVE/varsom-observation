@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-snow-temp-obs',
   styleUrl: 'varsom-snow-temp-obs.css',
@@ -12,7 +11,6 @@ export class VarsomSnowTempObs {
   @Prop() strings?: any;
   @Prop() Depth: any; 
   @Prop() SnowTemp:	any;
-
   
   render(){
     return <div>

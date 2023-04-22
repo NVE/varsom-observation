@@ -6,8 +6,12 @@ span {
   margin-right: 0.5rem;
 }
 
-div {
+.content {
   margin: 1.5rem;
+  
+}
+
+.container {
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
 }
 

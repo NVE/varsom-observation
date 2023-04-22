@@ -46,6 +46,7 @@ export class VarsomSnowProfile2 {
  </a>
  : ""}
 
+
 {this.SnowDensity ? 
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
