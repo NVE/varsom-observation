@@ -23,6 +23,7 @@ export class VarsomObservation {
   @Prop() language: string = "nb";
   @Prop() type: string;
   @Prop() number: number = 1;
+  @Prop() json: any;
 
 
   element: HTMLElement;
@@ -95,14 +96,13 @@ export class VarsomObservation {
     
 
   async componentWillLoad(){
-
-  
-  
+    
   this.strings = await getLocaleComponentStrings(this.language);
-  
+  let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
-  let _data 
+  let _data; 
+  if (!(this.json && this.json.length > 2)){
   if (this.regid.length !== 0){
     _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
@@ -114,7 +114,12 @@ export class VarsomObservation {
       'Content-Type': 'application/json',
     },
   });
-  let data = await response.json();
+  data = await response.json();
+  
+}else {
+  data = JSON.parse(this.json);
+}
+
      for(let i = 0; i < this.count; i++){
     
      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/

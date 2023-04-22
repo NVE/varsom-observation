@@ -36,14 +36,17 @@
 
 - [varsom-key-value](../varsom-key-value)
 - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-avalanche-evaluation2 --> varsom-key-value
   varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
+  varsom-avalanche-evaluation2 --> varsom-attachment
   varsom-avalanche-eval-problem --> varsom-label-small
   varsom-avalanche-eval-problem --> varsom-key-value
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-evaluation2
   style varsom-avalanche-evaluation2 fill:#f9f,stroke:#333,stroke-width:4px
 ```

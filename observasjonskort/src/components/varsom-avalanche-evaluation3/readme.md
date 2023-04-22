@@ -29,11 +29,14 @@
 ### Depends on
 
 - [varsom-key-value](../varsom-key-value)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-avalanche-evaluation3 --> varsom-key-value
+  varsom-avalanche-evaluation3 --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-evaluation3
   style varsom-avalanche-evaluation3 fill:#f9f,stroke:#333,stroke-width:4px
 ```

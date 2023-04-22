@@ -55,6 +55,7 @@
 - [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-url](../varsom-url)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
@@ -62,6 +63,8 @@ graph TD;
   varsom-incident --> varsom-label
   varsom-incident --> varsom-key-value
   varsom-incident --> varsom-url
+  varsom-incident --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-incident
   style varsom-incident fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -48,12 +48,15 @@
 
 - [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-avalanche-obs --> varsom-label
   varsom-avalanche-obs --> varsom-key-value
+  varsom-avalanche-obs --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-obs
   style varsom-avalanche-obs fill:#f9f,stroke:#333,stroke-width:4px
 ```
