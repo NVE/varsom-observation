@@ -35,7 +35,7 @@ export class VarsomGeneralObservation {
       
     {this.ObsComment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.GeneralObservation.Kommentar : "Kommentar" }
+    _key={this.strings ? this.strings.Observations.GeneralObservation.Comment : "Kommentar" }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}
