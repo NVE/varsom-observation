@@ -10,6 +10,7 @@
 | Property   | Attribute  | Description | Type     | Default     |
 | ---------- | ---------- | ----------- | -------- | ----------- |
 | `count`    | `count`    |             | `number` | `1`         |
+| `json`     | `json`     |             | `any`    | `undefined` |
 | `language` | `language` |             | `string` | `"nb"`      |
 | `number`   | `number`   |             | `number` | `1`         |
 | `regid`    | `regid`    |             | `string` | `undefined` |
@@ -22,7 +23,7 @@
 
 - [varsom-header](../varsom-header)
 - [varsom-metadata](../varsom-metadata)
-- [varsom-attachment](../varsom-attachment)
+- [varsom-image-slider](../varsom-image-slider)
 - [varsom-label](../varsom-label)
 - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
 - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
@@ -47,13 +48,14 @@
 - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
 - [varsom-general-observation](../varsom-general-observation)
 - [varsom-incident](../varsom-incident)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-observation --> varsom-header
   varsom-observation --> varsom-metadata
-  varsom-observation --> varsom-attachment
+  varsom-observation --> varsom-image-slider
   varsom-observation --> varsom-label
   varsom-observation --> varsom-avalanche-activity-obs2
   varsom-observation --> varsom-avalanche-activity-obs
@@ -78,14 +80,18 @@ graph TD;
   varsom-observation --> varsom-ice-cover-observation
   varsom-observation --> varsom-general-observation
   varsom-observation --> varsom-incident
-  varsom-attachment --> varsom-key-value
+  varsom-observation --> varsom-attachment
   varsom-avalanche-activity-obs2 --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-key-value
+  varsom-avalanche-activity-obs --> varsom-attachment
   varsom-avalanche-obs --> varsom-label
   varsom-avalanche-obs --> varsom-key-value
+  varsom-avalanche-obs --> varsom-attachment
   varsom-water-level --> varsom-label-small
   varsom-water-level --> varsom-key-value
+  varsom-water-level --> varsom-attachment
   varsom-water-level2 --> varsom-label
   varsom-water-level2 --> varsom-key-value
   varsom-water-level2 --> varsom-water-measurement
@@ -101,6 +107,7 @@ graph TD;
   varsom-landslide-observation --> varsom-key-value
   varsom-landslide-observation --> varsom-url
   varsom-landslide-observation --> varsom-attachment
+  varsom-weather-observation --> varsom-label
   varsom-weather-observation --> varsom-key-value
   varsom-weather-observation --> varsom-attachment
   varsom-avalanche-eval-problem --> varsom-label-small
@@ -108,9 +115,12 @@ graph TD;
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-avalanche-eval-problem2 --> varsom-key-value
   varsom-avalanche-evaluation --> varsom-key-value
+  varsom-avalanche-evaluation --> varsom-attachment
   varsom-avalanche-evaluation2 --> varsom-key-value
   varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
+  varsom-avalanche-evaluation2 --> varsom-attachment
   varsom-avalanche-evaluation3 --> varsom-key-value
+  varsom-avalanche-evaluation3 --> varsom-attachment
   varsom-snow-profile --> varsom-label
   varsom-snow-profile --> varsom-key-value
   varsom-snow-profile2 --> varsom-label
@@ -130,15 +140,18 @@ graph TD;
   varsom-snow-surface-observation --> varsom-label
   varsom-snow-surface-observation --> varsom-key-value
   varsom-snow-surface-observation --> varsom-attachment
+  varsom-ice-cover-observation --> varsom-label
   varsom-ice-cover-observation --> varsom-key-value
   varsom-ice-cover-observation --> varsom-attachment
   varsom-general-observation --> varsom-label
   varsom-general-observation --> varsom-label-small
   varsom-general-observation --> varsom-key-value
   varsom-general-observation --> varsom-url
+  varsom-general-observation --> varsom-attachment
   varsom-incident --> varsom-label
   varsom-incident --> varsom-key-value
   varsom-incident --> varsom-url
+  varsom-incident --> varsom-attachment
   style varsom-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

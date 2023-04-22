@@ -32,12 +32,14 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-ice-cover-observation --> varsom-label
   varsom-ice-cover-observation --> varsom-key-value
   varsom-ice-cover-observation --> varsom-attachment
   varsom-attachment --> varsom-key-value

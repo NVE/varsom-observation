@@ -29,12 +29,15 @@
 
 - [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-water-level --> varsom-label-small
   varsom-water-level --> varsom-key-value
+  varsom-water-level --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-water-level
   style varsom-water-level fill:#f9f,stroke:#333,stroke-width:4px
 ```

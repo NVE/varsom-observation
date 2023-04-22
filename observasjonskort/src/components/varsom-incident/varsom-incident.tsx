@@ -168,7 +168,8 @@ export class VarsomIncident {
     :""}
 
 <br></br>
-{this.IncidentURLs.length > 0 ? 
+
+{this.IncidentURLs && this.IncidentURLs.length > 0 ? 
       <host>
     
       <b>{this.strings ? this.strings.Observations.GeneralObservation.Urls : "Lenker"}</b>
