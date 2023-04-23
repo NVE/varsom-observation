@@ -17,6 +17,7 @@ export class VarsomMetadata {
   @Prop() nickname: any;
   @Prop() competenceLevelName: any;
   @Prop() observerGroupName: any;
+  @Prop() shortVersion: string;
 
   
   render(){
@@ -28,7 +29,7 @@ export class VarsomMetadata {
       {this.dateOfRegistration}
       </span> : ""}
 
-      {this.dateOfLastUpdate ? 
+      {this.dateOfLastUpdate && !this.shortVersion ? 
       <span>
       <label>{this.strings.Reg.UpdatedTime} </label>
       {this.dateOfLastUpdate}
@@ -98,7 +99,7 @@ export class VarsomMetadata {
         <img src={getAssetPath(`/assets/icons/star-icon-dark.svg`)}></img>
       </span> : ""}
 
-      {this.observerGroupName ? 
+      {this.observerGroupName && !this.shortVersion ? 
       <span>
       <img class="image" src={getAssetPath(`/assets/icons/user-group-icon.svg`)}></img>
       {this.observerGroupName}

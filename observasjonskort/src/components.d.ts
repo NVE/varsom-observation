@@ -409,6 +409,7 @@ export namespace Components {
         "moh": any;
         "nickname": any;
         "observerGroupName": any;
+        "shortVersion": string;
         "strings"?: any;
     }
     interface VarsomObservation {
@@ -418,6 +419,7 @@ export namespace Components {
         "number": number;
         "regid": string;
         "type": string;
+        "version": string;
     }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
@@ -1334,6 +1336,7 @@ declare namespace LocalJSX {
         "moh"?: any;
         "nickname"?: any;
         "observerGroupName"?: any;
+        "shortVersion"?: string;
         "strings"?: any;
     }
     interface VarsomObservation {
@@ -1343,6 +1346,7 @@ declare namespace LocalJSX {
         "number"?: number;
         "regid"?: string;
         "type"?: string;
+        "version"?: string;
     }
     interface VarsomSignsOfDanger {
         "Comment"?: any;

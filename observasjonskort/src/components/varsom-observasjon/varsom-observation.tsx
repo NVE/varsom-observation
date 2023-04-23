@@ -24,6 +24,7 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
   @Prop() json: any;
+  @Prop() version: string;
 
 
   element: HTMLElement;
@@ -534,15 +535,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
     };
 
 
-
-
   
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
-    <div class="observation-container">
+    <div class={this.version ? "observation-container-short" : "observation-container"}>
          
-      <varsom-header region={obs._region} regId={obs._regId}></varsom-header>
+      <varsom-header 
+      region={obs._region} 
+      regId={obs._regId}
+      ></varsom-header>
 
       <varsom-metadata 
       strings={this.strings} 
@@ -553,6 +555,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       nickname={obs._observer.NickName ? obs._observer.NickName : null}
       competence-level-name={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
       observer-group-name={obs._observerGroupName ? obs._observerGroupName : null}
+      shortVersion={this.version==="short" ? this.version : null}
       > </varsom-metadata>      
          
       {/*map*/}     
