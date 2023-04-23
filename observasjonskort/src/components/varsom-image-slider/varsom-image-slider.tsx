@@ -14,6 +14,7 @@ export class VarsomImageSlider {
   dataSource: any;
   _loopNumbers: number[];
   @Prop() strings: any;
+  @Prop() shortVersion: string;
 
   observationImages: HTMLElement[] = [];
 
@@ -79,6 +80,7 @@ return <div class="slideshow-container">
   <img class="observation-images" src={this._images[num+1]._imageData}></img>
   : null}  
 
+{!this.shortVersion ? 
  <div class="image-info-container">
     <span class={this._images.length == 1 ? "imageInfo firstInfo" : "imageInfo"}> 
     
@@ -109,6 +111,8 @@ return <div class="slideshow-container">
     : null }
 
   </div>
+
+  : null }
 
 {this._images.length > 2 ?
 <div>

@@ -11,16 +11,27 @@ export class VarsomKeyValue {
 
   @Prop() _key: any;
   @Prop() _value?: any;
-
+  @Prop() shortVersion: string;
+  
   render(){
-    return <span> 
-
-    <b>{this._key}: </b>
+    return <span>
+    {this.shortVersion ?    
+     <span>
+     {this._value} 
+   </span>
+   : 
+    <span>
+    <b>{this._key} -  </b>
     {this._value}
     </span>
   }
+
+    </span>
+ 
     
   }
+    
+  } 
 
   
   

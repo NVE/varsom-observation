@@ -539,7 +539,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
-    <div class={this.version ? "observation-container-short" : "observation-container"}>
+    <div class="observation-container">
          
       <varsom-header 
       region={obs._region} 
@@ -568,6 +568,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 <varsom-image-slider
 _images={obs._images} 
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
   ></varsom-image-slider>
 
 {/* CONTENT */}
@@ -645,6 +646,7 @@ Attachments={obs._avalancheActivityObs.Attachments ? obs._avalancheActivityObs.A
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
 AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
 AvalancheName={obs._avalancheObs.AvalancheName ? obs._avalancheObs.AvalancheName : null}
@@ -760,6 +762,7 @@ Attachments={obs._iceThickness.Attachments ? obs._iceThickness.Attachments : nul
 {obs._landslideObs ? 
 <varsom-landslide-observation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 LandSlideName={obs._landslideObs.LandSlideName ? obs._landslideObs.LandSlideName : null}
 LandSlideTriggerName={obs._landslideObs.LandSlideTriggerName ? obs._landslideObs.LandSlideTriggerName : null}
 ActivityInfluencedName={obs._landslideObs.ActivityInfluencedName ? obs._landslideObs.ActivityInfluencedName : null}
@@ -1201,7 +1204,8 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 : ""}
 
 {/* ATTACHMENTS */}
-   
+{this.version !=="short" ? 
+<div>
 {obs.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             Photographer={el.Photographer ? el.Photographer : null}            
@@ -1213,8 +1217,10 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
             </varsom-attachment>
         })
         }
+     </div> : null}
 
       </div>
+      
       </div>
       
     

@@ -36,6 +36,7 @@ export class VarsomAvalancheObs {
   @Prop() StopLong: any;
   @Prop() RemotelyTriggered: any;
   @Prop() Comment: any;
+  @Prop() shortVersion: any;
   @Prop() Attachments: Attachment[];
 
 
@@ -66,6 +67,7 @@ export class VarsomAvalancheObs {
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.AvalancheObs.DtAvalancheTime : "Tid" }
     _value={this.DtAvalancheTime}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 

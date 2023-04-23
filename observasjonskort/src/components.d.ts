@@ -221,6 +221,7 @@ export namespace Components {
         "TerrainStartZoneTID": any;
         "Trajectory": any;
         "ValidExposition": any;
+        "shortVersion": any;
         "strings": any;
     }
     interface VarsomCompressionTest {
@@ -323,6 +324,7 @@ export namespace Components {
     }
     interface VarsomImageSlider {
         "_images": any[];
+        "shortVersion": string;
         "strings": any;
     }
     interface VarsomIncident {
@@ -363,6 +365,7 @@ export namespace Components {
     interface VarsomKeyValue {
         "_key": any;
         "_value"?: any;
+        "shortVersion": string;
     }
     interface VarsomLabel {
         "label": any;
@@ -394,6 +397,7 @@ export namespace Components {
         "StopLat"?: any;
         "StopLong"?: any;
         "Urls"?: any[];
+        "shortVersion": string;
         "strings": any;
     }
     interface VarsomLatLng {
@@ -1148,6 +1152,7 @@ declare namespace LocalJSX {
         "TerrainStartZoneTID"?: any;
         "Trajectory"?: any;
         "ValidExposition"?: any;
+        "shortVersion"?: any;
         "strings"?: any;
     }
     interface VarsomCompressionTest {
@@ -1250,6 +1255,7 @@ declare namespace LocalJSX {
     }
     interface VarsomImageSlider {
         "_images"?: any[];
+        "shortVersion"?: string;
         "strings"?: any;
     }
     interface VarsomIncident {
@@ -1290,6 +1296,7 @@ declare namespace LocalJSX {
     interface VarsomKeyValue {
         "_key"?: any;
         "_value"?: any;
+        "shortVersion"?: string;
     }
     interface VarsomLabel {
         "label"?: any;
@@ -1321,6 +1328,7 @@ declare namespace LocalJSX {
         "StopLat"?: any;
         "StopLong"?: any;
         "Urls"?: any[];
+        "shortVersion"?: string;
         "strings"?: any;
     }
     interface VarsomLatLng {

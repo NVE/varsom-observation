@@ -10,6 +10,7 @@ import { Attachment, Url } from '../varsom-observasjon/observation-model';
 export class VarsomLandslideObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: string;
   @Prop() LandSlideName?: any;
   @Prop() LandSlideTriggerName?: any;
   @Prop() ActivityInfluencedName?: any;
@@ -49,14 +50,15 @@ export class VarsomLandslideObservation {
 
     {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
     _value={this.DtLandSlideTime}
     ></varsom-key-value>
     :""}
 
     {(this.DtLandSlideTime && this.DtLandSlideTimeEnd && this.strings)  ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.Time : "Tid" }
+    shortVersion={this.shortVersion ? this.shortVersion : null }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
     _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom") + " " + this.DtLandSlideTime
    + " " + (this.strings ? this.strings.Observations.LandslideObs.And + " " : "og ") + 
    this.DtLandSlideTimeEnd
@@ -66,35 +68,35 @@ export class VarsomLandslideObservation {
 
     {this.LandSlideName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideTName : "Skredtype" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTName : (this.shortVersion ? null : "Skredtype") }
     _value={this.LandSlideName}
     ></varsom-key-value>
     :""}
 
     {this.LandSlideSizeName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideSizeTName : "Størrelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideSizeTName : (this.shortVersion ? null : "Størrelse") }
     _value={this.LandSlideSizeName}
     ></varsom-key-value>
     :""}
 
     {this.LandSlideTriggerName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.LandSlideTriggerTName : "Trigger" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTriggerTName : (this.shortVersion ? null : "Trigger") }
     _value={this.LandSlideTriggerName}
     ></varsom-key-value>
     :""}
       
     {this.DamageExtentName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.DamageExtentTName : "Omfang" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.DamageExtentTName : (this.shortVersion ? null : "Omfang") }
     _value={this.DamageExtentName}
     ></varsom-key-value>
     :""}
     
     {this.ForecastAccurateName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.ForecastAccurateTName : "Stemte varsel på varsom.no?" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.ForecastAccurateTName : (this.shortVersion ? null : "Stemte varsel på varsom.no?") }
     _value={this.ForecastAccurateName}
     ></varsom-key-value>
     :""}
@@ -102,7 +104,7 @@ export class VarsomLandslideObservation {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.LandslideObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
