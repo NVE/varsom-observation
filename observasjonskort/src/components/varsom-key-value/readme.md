@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type  | Default     |
-| -------- | --------- | ----------- | ----- | ----------- |
-| `_key`   | `_key`    |             | `any` | `undefined` |
-| `_value` | `_value`  |             | `any` | `undefined` |
+| Property       | Attribute       | Description | Type     | Default     |
+| -------------- | --------------- | ----------- | -------- | ----------- |
+| `_key`         | `_key`          |             | `any`    | `undefined` |
+| `_value`       | `_value`        |             | `any`    | `undefined` |
+| `shortVersion` | `short-version` |             | `string` | `undefined` |
 
 
 ## Dependencies

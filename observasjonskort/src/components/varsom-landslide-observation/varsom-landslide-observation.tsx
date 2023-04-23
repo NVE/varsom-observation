@@ -10,7 +10,7 @@ import { Attachment, Url } from '../varsom-observasjon/observation-model';
 export class VarsomLandslideObservation {
 
   @Prop() strings: any;
-  @Prop() shortVersion: string;
+  @Prop() shortVersion: any;
   @Prop() LandSlideName?: any;
   @Prop() LandSlideTriggerName?: any;
   @Prop() ActivityInfluencedName?: any;

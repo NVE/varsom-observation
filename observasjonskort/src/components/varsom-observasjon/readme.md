@@ -15,6 +15,7 @@
 | `number`   | `number`   |             | `number` | `1`         |
 | `regid`    | `regid`    |             | `string` | `undefined` |
 | `type`     | `type`     |             | `string` | `undefined` |
+| `version`  | `version`  |             | `string` | `undefined` |
 
 
 ## Dependencies

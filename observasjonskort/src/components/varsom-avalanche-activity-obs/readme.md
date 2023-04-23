@@ -29,6 +29,7 @@
 | `TerrainStartZoneName`   | `terrain-start-zone-name`    |             | `any`          | `undefined` |
 | `TerrainStartZoneTID`    | `terrain-start-zone-t-i-d`   |             | `any`          | `undefined` |
 | `header`                 | `header`                     |             | `any`          | `undefined` |
+| `shortVersion`           | `short-version`              |             | `string`       | `undefined` |
 | `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 

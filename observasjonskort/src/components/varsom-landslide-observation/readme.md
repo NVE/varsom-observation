@@ -32,6 +32,7 @@
 | `StopLat`                | `stop-lat`                  |             | `any`          | `undefined` |
 | `StopLong`               | `stop-long`                 |             | `any`          | `undefined` |
 | `Urls`                   | --                          |             | `any[]`        | `undefined` |
+| `shortVersion`           | `short-version`             |             | `string`       | `undefined` |
 | `strings`                | `strings`                   |             | `any`          | `undefined` |
 
 

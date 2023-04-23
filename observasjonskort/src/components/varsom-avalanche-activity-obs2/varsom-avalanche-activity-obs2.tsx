@@ -12,6 +12,7 @@ export class VarsomAvalancheActivityObs2 {
 
   @Prop() strings: any;
   @Prop() Comment: any;
+  @Prop() shortVersion: any;
   @Prop() AvalCauseName: any;
   @Prop() DtStart: any;
   @Prop() EstimatedNumName: any;
@@ -53,7 +54,7 @@ export class VarsomAvalancheActivityObs2 {
 <div>
     {this.EstimatedNumTID ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : "Antall, størrelse og skredutløser" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
     _value={(this.EstimatedNumName ? (this.EstimatedNumName + ". ") : "" )+ 
     (this.DestructiveSizeName ? (this.DestructiveSizeName + ". ") : "" ) + 
     (this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : "")}
@@ -63,7 +64,7 @@ export class VarsomAvalancheActivityObs2 {
  
     {this.AvalPropagationTID? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs2.Prevalence : "Utbredelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.Prevalence : (this.shortVersion ? null : "Utbredelse") }
     _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
@@ -76,12 +77,12 @@ export class VarsomAvalancheActivityObs2 {
     <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
     
-    {this.Attachments ? 
+    {this.Attachments && !this.shortVersion ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment

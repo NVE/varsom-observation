@@ -35,6 +35,7 @@
 | `TerrainStartZoneTID`  | `terrain-start-zone-t-i-d` |             | `any`          | `undefined` |
 | `Trajectory`           | `trajectory`               |             | `any`          | `undefined` |
 | `ValidExposition`      | `valid-exposition`         |             | `any`          | `undefined` |
+| `shortVersion`         | `short-version`            |             | `any`          | `undefined` |
 | `strings`              | `strings`                  |             | `any`          | `undefined` |
 
 

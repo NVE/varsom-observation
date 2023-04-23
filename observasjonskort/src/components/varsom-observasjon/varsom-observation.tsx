@@ -621,6 +621,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
 <varsom-avalanche-activity-obs
 header={this.strings.Observations.AvalancheTID}
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 AvalancheActivityObsID={obs._avalancheActivityObs.AvalancheActivityObsID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
 Aspect={obs._avalancheActivityObs.Aspect ? obs._avalancheActivityObs.Aspect : null}
 HeigthStartZone={obs._avalancheActivityObs.HeigthStartZone ? obs._avalancheActivityObs.HeigthStartZone : null}

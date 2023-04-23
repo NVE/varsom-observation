@@ -12,6 +12,7 @@ export class VarsomAvalancheActivityObs {
 
   @Prop() strings: any;
   @Prop() header: any;
+  @Prop() shortVersion: any;
   @Prop() AvalancheActivityObsID: any;
   @Prop() Aspect: any;
   @Prop() HeigthStartZone: any;
@@ -45,28 +46,28 @@ export class VarsomAvalancheActivityObs {
     <div class="content">
     {this.EstimatedNumName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : "Antall skred" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : (this.shortVersion ? null : "Antall skred") }
     _value={this.EstimatedNumName}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheTriggerName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID : "Skredutløser" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID : (this.shortVersion ? null : "Skredutløser") }
     _value={this.AvalancheTriggerName}
     ></varsom-key-value>
     :""}
 
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheActivityObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
 
     </div>
 
-    {this.Attachments ? 
+    {this.Attachments && !this.shortVersion ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment

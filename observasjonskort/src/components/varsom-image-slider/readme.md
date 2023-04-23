@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type    | Default     |
-| --------- | --------- | ----------- | ------- | ----------- |
-| `_images` | --        |             | `any[]` | `undefined` |
-| `strings` | `strings` |             | `any`   | `undefined` |
+| Property       | Attribute       | Description | Type     | Default     |
+| -------------- | --------------- | ----------- | -------- | ----------- |
+| `_images`      | --              |             | `any[]`  | `undefined` |
+| `shortVersion` | `short-version` |             | `string` | `undefined` |
+| `strings`      | `strings`       |             | `any`    | `undefined` |
 
 
 ## Dependencies
