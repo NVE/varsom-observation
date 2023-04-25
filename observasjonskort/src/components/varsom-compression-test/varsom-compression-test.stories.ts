@@ -2,12 +2,18 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/CompressionTest',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-compression-test
 comment=${args.Comment}
 stability-eval-name=${args.StabilityEvalName}
 propagation-name=${args.PropagationName}
+short-version=${args.shortVersion}  
+
+
 >
 </varsom-compression-test> `
 

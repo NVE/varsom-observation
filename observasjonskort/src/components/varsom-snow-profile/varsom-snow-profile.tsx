@@ -10,6 +10,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomSnowProfile {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() GeoHazardName: any;
   @Prop() RegistrationName: any;
   @Prop() Photographer: any;
@@ -32,35 +33,35 @@ export class VarsomSnowProfile {
 
 {this.GeoHazardName ? 
     <varsom-key-value
-    _key="Hazard type"
+    _key={this.shortVersion ? null : "Hazard type" }
     _value={this.GeoHazardName}
     ></varsom-key-value>
     :""}
 
 {this.RegistrationName ? 
     <varsom-key-value
-    _key="Registration name"
+    _key={this.shortVersion ? null : "Registration name" }
     _value={this.RegistrationName}
     ></varsom-key-value>
     :""}
 
 {this.Photographer ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Photographer: "Fotograf" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Photographer : (this.shortVersion ? null : "Fotograf") }
     _value={this.Photographer}
     ></varsom-key-value>
     :""}
 
 {this.Copyright ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Copyright: "Opphavsrett" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Copyright : (this.shortVersion ? null : "Opphavsrett") }
     _value={this.Copyright}
     ></varsom-key-value>
     :""}
 
 {this.Aspect ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Aspect: "Himmelretning" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Aspect: (this.shortVersion ? null : "Himmelretning") }
     _value={this.Aspect}
     ></varsom-key-value>
     :""}
@@ -76,7 +77,7 @@ export class VarsomSnowProfile {
 <div>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Snowprofile.Url: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}

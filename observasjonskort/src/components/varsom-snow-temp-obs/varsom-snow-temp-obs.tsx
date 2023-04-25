@@ -9,6 +9,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomSnowTempObs {
 
   @Prop() strings?: any;
+  @Prop() shortVersion: any;
   @Prop() Depth: any; 
   @Prop() SnowTemp:	any;
   
@@ -17,14 +18,14 @@ export class VarsomSnowTempObs {
 
       {this.Depth ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: "Snødybde" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: (this.shortVersion ? null : "Snødybde") }
     _value={this.Depth}
     ></varsom-key-value>
     :""}
     
     {this.SnowTemp ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowProfile.SnowTemperature: "Snøtemperatur" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature: (this.shortVersion ? null : "Snøtemperatur") }
     _value={this.SnowTemp + " cm"}
     ></varsom-key-value>
     :""}

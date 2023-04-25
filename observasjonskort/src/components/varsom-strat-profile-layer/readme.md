@@ -27,6 +27,7 @@
 | `Thickness`               | `thickness`                   |             | `any` | `undefined` |
 | `WetnessTID`              | `wetness-t-i-d`               |             | `any` | `undefined` |
 | `WetnessTName`            | `wetness-t-name`              |             | `any` | `undefined` |
+| `shortVersion`            | `short-version`               |             | `any` | `undefined` |
 | `strings`                 | `strings`                     |             | `any` | `undefined` |
 
 

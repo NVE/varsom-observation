@@ -10,6 +10,7 @@ import { Attachment, StratProfileLayer } from '../varsom-observasjon/observation
 export class VarsomStratProfile {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() TotalDepth:	any;
   @Prop() Layers: StratProfileLayer[];
   @Prop() Attachments: Attachment[];
@@ -23,6 +24,7 @@ export class VarsomStratProfile {
       {this.Layers.map((el: StratProfileLayer = {}) =>{
             return <varsom-strat-profile-layer
             strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             GrainFormPrimaryTName={el.GrainFormPrimaryTName ? el.GrainFormPrimaryTName : null}
             GrainFormSecondaryTName={el.GrainFormSecondaryTName ? el.GrainFormSecondaryTName : null}
             HardnessTName={el.HardnessTName ? el.HardnessTName : null}

@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomAvalancheDangerObs {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() DangerSignName: any;
   @Prop() AvalancheDangerObsID: any;
   @Prop() Comment: any;
@@ -24,7 +25,7 @@ export class VarsomAvalancheDangerObs {
 
     {this.DangerSignName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheDangerObs.DangerSignTID : "Type" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheDangerObs.DangerSignTID : (this.shortVersion ? null : "Type") }
     _value={this.DangerSignName}
     ></varsom-key-value>
     :""}
@@ -32,7 +33,7 @@ export class VarsomAvalancheDangerObs {
     <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}

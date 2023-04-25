@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/Incident',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-incident
@@ -20,6 +23,7 @@ involved-num=${args.InvolvedNum}
 harmed-num=${args.HarmedNum}
 dead-num=${args.DeadNum}
 evacuated-num=${args.EvacuatedNum}
+short-version=${args.shortVersion}  
 >
 </varsom-incident> `
 

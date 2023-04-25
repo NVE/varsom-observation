@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomAvalancheEvalProblem {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() AvalancheEvalProblemID: any;
   @Prop() AvalProbabilityTID: any;
   @Prop() AvalProbabilityName: any;
@@ -45,28 +46,28 @@ export class VarsomAvalancheEvalProblem {
 
     {this.AvalancheExtName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalancheType : "Skredtype" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalancheType : (this.shortVersion ? null : "Skredtype") }
     _value={this.AvalancheExtName}
     ></varsom-key-value>
     :""}
 
     {this.AvalTriggerSimpleName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalTriggerSimpleTID : "Sannsynlig belasting for å løse ut skred" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalTriggerSimpleTID : (this.shortVersion ? null : "Sannsynlig belasting for å løse ut skred") }
     _value={this.AvalTriggerSimpleName}
     ></varsom-key-value>
     :""}
 
     {this.AvalProbabilityName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.AvalProbabilityTID : "Sannsynlighet for skred" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalProbabilityTID : (this.shortVersion ? null : "Sannsynlighet for skred") }
     _value={this.AvalProbabilityName}
     ></varsom-key-value>
     :""}
 
     {this.DestructiveSizeExtName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.DestructiveSizeTID : "Størrelse på forventet skred" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse på forventet skred") }
     _value={this.DestructiveSizeExtName}
     ></varsom-key-value>
     :""}
@@ -74,7 +75,7 @@ export class VarsomAvalancheEvalProblem {
     <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheProblem.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}

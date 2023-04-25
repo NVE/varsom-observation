@@ -316,13 +316,13 @@ export type Observation = {
    } 
   
    export type DamageObs = {
-    GeoHazardName:	string,
-    DamageTypeName:	string,
+    GeoHazardName?:	string,
+    DamageTypeName?:	string,
     Attachments?: Attachment[],
-    GeoHazardTID: number, //	integer($int32)
-    DamageTypeTID: number, //	integer($int32)
-    DamagePosition:	LatLng,
-    Comment:	string,
+    GeoHazardTID?: number, //	integer($int32)
+    DamageTypeTID?: number, //	integer($int32)
+    DamagePosition?:	LatLng,
+    Comment?:	string,
    }
   
    export type Image = {

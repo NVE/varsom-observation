@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/WeatherObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-weather-observation
@@ -11,6 +14,7 @@ wind-direction=${args.WindDirection}
 wind-speed=${args.WindSpeed}
 air-temperature=${args.AirTemperature}
 precipitation-name=${args.PrecipitationName}
+short-version=${args.shortVersion}
 >
 </varsom-weather-observation> `
 

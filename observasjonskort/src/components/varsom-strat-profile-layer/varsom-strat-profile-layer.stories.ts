@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/StratProfileLayer',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-strat-profile-layer
@@ -19,6 +22,7 @@ wetness-t-name=${args.WetnessTName}
 critical-layer-t-i-d=${args.CriticalLayerTID}
 critical-layer-t-name=${args.CriticalLayerTName}
 comment=${args.comment}
+short-version=${args.shortVersion}  
 >
 </varsom-strat-profile-layer> `
 

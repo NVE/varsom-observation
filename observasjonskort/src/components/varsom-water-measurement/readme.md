@@ -13,6 +13,7 @@
 | `Comment`           | `comment`             |             | `any`          | `undefined` |
 | `DtMeasurementTime` | `dt-measurement-time` |             | `any`          | `undefined` |
 | `WaterLevelValue`   | `water-level-value`   |             | `any`          | `undefined` |
+| `shortVersion`      | `short-version`       |             | `any`          | `undefined` |
 | `strings`           | `strings`             |             | `any`          | `undefined` |
 
 

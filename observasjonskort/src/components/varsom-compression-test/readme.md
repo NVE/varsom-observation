@@ -26,6 +26,7 @@
 | `StabilityEvalTID`      | `stability-eval-t-i-d`      |             | `any`          | `undefined` |
 | `TapsFracture`          | `taps-fracture`             |             | `any`          | `undefined` |
 | `TapsFullPropagation`   | `taps-full-propagation`     |             | `any`          | `undefined` |
+| `shortVersion`          | `short-version`             |             | `any`          | `undefined` |
 | `strings`               | `strings`                   |             | `any`          | `undefined` |
 
 

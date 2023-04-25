@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type            | Default     |
-| ------------- | --------- | ----------- | --------------- | ----------- |
-| `Attachments` | --        |             | `Attachment[]`  | `undefined` |
-| `Layers`      | --        |             | `SnowTempObs[]` | `undefined` |
-| `strings`     | `strings` |             | `any`           | `undefined` |
+| Property       | Attribute       | Description | Type            | Default     |
+| -------------- | --------------- | ----------- | --------------- | ----------- |
+| `Attachments`  | --              |             | `Attachment[]`  | `undefined` |
+| `Layers`       | --              |             | `SnowTempObs[]` | `undefined` |
+| `shortVersion` | `short-version` |             | `any`           | `undefined` |
+| `strings`      | `strings`       |             | `any`           | `undefined` |
 
 
 ## Dependencies

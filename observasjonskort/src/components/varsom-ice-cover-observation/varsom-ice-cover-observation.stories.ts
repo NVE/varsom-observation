@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/IceCoverObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-ice-cover-observation 
@@ -11,6 +14,7 @@ ice-skateability-name=${args.IceSkateabilityName}
 comment=${args.Comment} 
 ice-cover-before-name=${args.IceCoverBeforeName} 
 ice-cover-after-name=${args.IceCoverAfterName} 
+short-version=${args.shortVersion}  
  
 >
 </varsom-ice-cover-observation> `

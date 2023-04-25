@@ -2,12 +2,16 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/WaterMeasurement',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-water-measurement
 water-level-value=${args.WaterLevelValue}
 dt-measurement-time=${args.DtMeasurementTime}
 comment=${args.Comment}
+short-version=${args.shortVersion}  
 >
 </varsom-water-measurement> `
 

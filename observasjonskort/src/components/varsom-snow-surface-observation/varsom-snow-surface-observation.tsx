@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomSnowSurfaceObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() SnowDepth: any;
   @Prop() SnowDriftName: any;
   @Prop() SnowSurfaceName: any;
@@ -40,63 +41,63 @@ export class VarsomSnowSurfaceObservation {
 <div class="content">
 {this.SnowDepth ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: "Snødybde (cm)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: (this.shortVersion ? null : "Snødybde (cm)") }
     _value={this.SnowDepth * 100}
     ></varsom-key-value>
     :""}
 
 {this.SnowDriftName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowDriftTName: "Snøfokk" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDriftTName: (this.shortVersion ? null : "Snøfokk") }
     _value={this.SnowDriftName}
     ></varsom-key-value>
     :""}
 
 {this.NewSnowDepth24 ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.NewSnowDepth24: "Siste døgn (cm)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.NewSnowDepth24: (this.shortVersion ? null : "Siste døgn (cm)") }
     _value={this.NewSnowDepth24 * 100}
     ></varsom-key-value>
     :""}
 
 {this.SnowLine ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowLine: "Snøgrense (moh)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowLine: (this.shortVersion ? null : "Snøgrense (moh)") }
     _value={this.SnowLine}
     ></varsom-key-value>
     : ""}
 
 {this.NewSnowLine ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.NewSnowLine: "Nysnøgrense (moh)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.NewSnowLine: (this.shortVersion ? null : "Nysnøgrense (moh)") }
     _value={this.NewSnowLine}
     ></varsom-key-value>
     : ""}
 
 {this.SnowSurfaceName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SnowSurfaceTName: "Snøoverflate" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowSurfaceTName: (this.shortVersion ? null : "Snøoverflate") }
     _value={this.SnowSurfaceName}
     ></varsom-key-value>
     : ""}
 
 {this.SurfaceWaterContentName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.SurfaceWaterContentTName: "Overflatefuktighet" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SurfaceWaterContentTName: (this.shortVersion ? null : "Overflatefuktighet") }
     _value={this.SurfaceWaterContentName}
     ></varsom-key-value>
     : ""}
 
 {this.FootPenetration ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.FootPenetration: "Innsynkning fot" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.FootPenetration: (this.shortVersion ? null : "Innsynkning fot") }
     _value={this.FootPenetration}
     ></varsom-key-value>
     : ""}
 
 {this.SkiConditionsName ?
     <varsom-key-value
-    _key="Ski conditions"
+    _key={this.shortVersion ? null : "Innsynkning fot" }
     _value={this.SkiConditionsName}
     ></varsom-key-value>
     : ""}
@@ -104,7 +105,7 @@ export class VarsomSnowSurfaceObservation {
     <br></br>
 {this.Comment ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowSurfaceObservation.Comment: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.Comment: (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     : ""}

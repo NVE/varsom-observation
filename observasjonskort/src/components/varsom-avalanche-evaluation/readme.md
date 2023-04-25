@@ -26,6 +26,7 @@
 | `ValidHeightFrom`       | `valid-height-from`         |             | `any`          | `undefined` |
 | `ValidHeightRelative`   | `valid-height-relative`     |             | `any`          | `undefined` |
 | `ValidHeigtTo`          | `valid-heigt-to`            |             | `any`          | `undefined` |
+| `shortVersion`          | `short-version`             |             | `any`          | `undefined` |
 | `strings`               | `strings`                   |             | `any`          | `undefined` |
 
 

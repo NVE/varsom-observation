@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomAvalancheObs {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() DestructiveSizeName: any;
   @Prop() AvalancheTriggerName: any;
   @Prop() AvalancheName: any;
@@ -36,7 +37,6 @@ export class VarsomAvalancheObs {
   @Prop() StopLong: any;
   @Prop() RemotelyTriggered: any;
   @Prop() Comment: any;
-  @Prop() shortVersion: any;
   @Prop() Attachments: Attachment[];
 
 
@@ -65,7 +65,7 @@ export class VarsomAvalancheObs {
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.DtAvalancheTime : "Tid" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.DtAvalancheTime.ForecastCorrectTID : (this.shortVersion ? null : "Tid") }
     _value={this.DtAvalancheTime}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -73,35 +73,35 @@ export class VarsomAvalancheObs {
 
     {this.AvalancheName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.AvalancheTID : "Type" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.AvalancheTID : (this.shortVersion ? null : "Type") }
     _value={this.AvalancheName}
     ></varsom-key-value>
     :""}
 
     {this.DestructiveSizeName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.DestructiveSizeTID : "Størrelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse") }
     _value={this.DestructiveSizeName}
     ></varsom-key-value>
     :""}
     
     {this.AvalancheTriggerName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.AvalancheTriggerTID : "Skredutløser" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.AvalancheTriggerTID : (this.shortVersion ? null : "Skredutløser") }
     _value={this.AvalancheTriggerName}
     ></varsom-key-value>
     :""}
 
     {this.HeightStartZone ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.HeigthStartZone : "Løsneområdet" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.HeigthStartZone : (this.shortVersion ? null : "Løsneområdet") }
     _value={this.HeightStartZone}
     ></varsom-key-value>
     :""}
 
     {this.HeightStopZone ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.HeightStopZone : "Stoppområdet" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.HeightStopZone : (this.shortVersion ? null : "Stoppområdet") }
     _value={this.HeightStopZone}
     ></varsom-key-value>
     :""}
@@ -110,21 +110,21 @@ export class VarsomAvalancheObs {
     
     {this.AvalCauseName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.AvalCauseTID : "Svakt lag" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.AvalCauseTID : (this.shortVersion ? null : "Svakt lag") }
     _value={this.AvalCauseName}
     ></varsom-key-value>
     :""}
 
     {this.TerrainStartZoneName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.TerrainStartZoneTID : "Terreng i løsneområdet" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.TerrainStartZoneTID : (this.shortVersion ? null : "Terreng i løsneområdet") }
     _value={this.TerrainStartZoneName}
     ></varsom-key-value>
     :""}
 
     {this.Trajectory ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.TrajectoryName : "Skredbanenavn" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.TrajectoryName : (this.shortVersion ? null : "Skredbanenavn") }
     _value={this.Trajectory}
     ></varsom-key-value>
     :""}
@@ -140,7 +140,7 @@ export class VarsomAvalancheObs {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.AvalancheObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}

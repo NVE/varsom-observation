@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomWaterLevel {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() WaterLevelDescribed: any;
   @Prop() WaterLevelValue: any;
   @Prop() WaterLevelRefTID: any;
@@ -28,21 +29,21 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
 {this.WaterLevelRefTID ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelRefTName: "Referansenivå" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelRefTName: (this.shortVersion ? null : "Referansenivå") }
     _value={this.WaterLevelRefName}
     ></varsom-key-value>
     :""}
 
 {this.WaterLevelDescribed ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelDescribed: "Vannstand beskrivelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelDescribed: (this.shortVersion ? null : "Vannstand beskrivelse") }
     _value={this.WaterLevelDescribed}
     ></varsom-key-value>
     :""}
 
 {this.WaterLevelValue ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WaterLevel.WaterLevelValue: "Størrelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelValue: (this.shortVersion ? null : "Størrelse") }
     _value={this.WaterLevelValue}
     ></varsom-key-value>
     :""}

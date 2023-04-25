@@ -23,6 +23,7 @@
 | `ExposedHeightComboName` | `exposed-height-combo-name`  |             | `any`          | `undefined` |
 | `ExposedHeightComboTID`  | `exposed-height-combo-t-i-d` |             | `any`          | `undefined` |
 | `ValidExposition`        | `valid-exposition`           |             | `any`          | `undefined` |
+| `shortVersion`           | `short-version`              |             | `any`          | `undefined` |
 | `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 

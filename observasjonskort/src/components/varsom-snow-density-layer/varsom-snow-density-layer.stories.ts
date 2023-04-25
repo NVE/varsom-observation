@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/SnowDensityLayer',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+          }
 }
 
 const Template = (args) => `<varsom-snow-density-layer
@@ -9,6 +12,7 @@ depth=${args.Depth}
 thickness=${args.Thickness}
 weight=${args.Weight}
 water-equivalent=${args.WaterEquivalent}
+short-version=${args.shortVersion}  
 >
 </varsom-snow-density-layer> `
 

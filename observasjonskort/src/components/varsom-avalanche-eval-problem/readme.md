@@ -28,6 +28,7 @@
 | `Comment`                      | `comment`                         |             | `any`          | `undefined` |
 | `DestructiveSizeExtName`       | `destructive-size-ext-name`       |             | `any`          | `undefined` |
 | `DestructiveSizeExtTID`        | `destructive-size-ext-t-i-d`      |             | `any`          | `undefined` |
+| `shortVersion`                 | `short-version`                   |             | `any`          | `undefined` |
 | `strings`                      | `strings`                         |             | `any`          | `undefined` |
 
 

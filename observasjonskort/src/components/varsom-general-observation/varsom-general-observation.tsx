@@ -10,6 +10,7 @@ import { Attachment, Url } from '../varsom-observasjon/observation-model';
 export class VarsomGeneralObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() GeoHazardName: any;
   @Prop() Urls: Url[];
   @Prop() GeoHazardTID: any;
@@ -35,7 +36,7 @@ export class VarsomGeneralObservation {
       
     {this.ObsComment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.GeneralObservation.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.GeneralObservation.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}

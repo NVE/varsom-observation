@@ -41,6 +41,7 @@
 | `SlopeActivityName`      | `slope-activity-name`       |             | `any`          | `undefined` |
 | `SlopeActivityTID`       | `slope-activity-t-i-d`      |             | `any`          | `undefined` |
 | `TrafficObstructed`      | `traffic-obstructed`        |             | `any`          | `undefined` |
+| `shortVersion`           | `short-version`             |             | `any`          | `undefined` |
 | `strings`                | `strings`                   |             | `any`          | `undefined` |
 
 

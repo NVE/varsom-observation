@@ -17,6 +17,7 @@
 | `CriticalLayerTID`      | `critical-layer-t-i-d`    |             | `any`          | `undefined` |
 | `DepthHoarThickness`    | `depth-hoar-thickness`    |             | `any`          | `undefined` |
 | `SnowPilotRef`          | `snow-pilot-ref`          |             | `any`          | `undefined` |
+| `shortVersion`          | `short-version`           |             | `any`          | `undefined` |
 | `strings`               | `strings`                 |             | `any`          | `undefined` |
 
 

@@ -26,6 +26,7 @@
 | `SurfaceRoughnessName`    | `surface-roughness-name`      |             | `any`          | `undefined` |
 | `SurfaceWaterContentName` | `surface-water-content-name`  |             | `any`          | `undefined` |
 | `SurfaceWaterContentTID`  | `surface-water-content-t-i-d` |             | `any`          | `undefined` |
+| `shortVersion`            | `short-version`               |             | `any`          | `undefined` |
 | `strings`                 | `strings`                     |             | `any`          | `undefined` |
 
 
