@@ -1,5 +1,5 @@
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
-    title: 'Components/VarsomObservation',
+    title: 'Components/VarsomObservation/Short',
     argTypes: {
         language: { control: "select", options: ["en", "de", "it",
     "sl", "nn", "nb", "sv"] },
@@ -8,7 +8,7 @@ export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-ste
      
 }
 
-const Template = (args) => `<varsom-observation regid=${args.regid} type="${args.type}" count=${args.count} language="${args.language}"></varsom-observation> `
+const Template = (args) => `<varsom-observation regid=${args.regid} version="short" type="${args.type}" count=${args.count} language="${args.language}"></varsom-observation> `
 
 export const VarsomObservation = Template.bind({});
     VarsomObservation.args = {
