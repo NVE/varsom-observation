@@ -16,6 +16,7 @@
 | `WaterLevelRefName`   | `water-level-ref-name`  |             | `any`          | `undefined` |
 | `WaterLevelRefTID`    | `water-level-ref-t-i-d` |             | `any`          | `undefined` |
 | `WaterLevelValue`     | `water-level-value`     |             | `any`          | `undefined` |
+| `shortVersion`        | `short-version`         |             | `any`          | `undefined` |
 | `strings`             | `strings`               |             | `any`          | `undefined` |
 
 

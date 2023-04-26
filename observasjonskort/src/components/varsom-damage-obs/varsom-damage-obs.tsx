@@ -11,15 +11,9 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomDamageObs {
 
   @Prop() strings: any;
-  // @Prop() comment: any;
-  // @Prop() dangerSignName: any;
-  // @Prop() registrationName: any;
-  // @Prop() imageUrl: any;
-  // @Prop() photographer: any;
-  // @Prop() copyright: any;
-
   @Prop() GeoHazardName: string;
   @Prop() DamageTypeName:	string;
+  @Prop() shortVersion: any;
   @Prop() Attachments?: Attachment[];
   @Prop() GeoHazardTID: number; //	integer($int32)
   @Prop() DamageTypeTID: number; //	integer($int32)
@@ -30,18 +24,11 @@ export class VarsomDamageObs {
   render(){
      return <div>
 
-       {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""} 
-
-    <br></br>
+    
 
     {this.GeoHazardName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.GeoHazardName : "Faretype" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.GeoHazardName : (this.shortVersion ? null : "Faretype") }
     _value={this.GeoHazardName}
     ></varsom-key-value> 
     :""}
@@ -50,25 +37,27 @@ export class VarsomDamageObs {
 
     {this.DamageTypeName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.DamageTypeName : "Type skade" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.DamageTypeName : (this.shortVersion ? null : "Type skade") }
     _value={this.DamageTypeName}
     ></varsom-key-value>
     :""}
 
-    
+<br></br>
 
-       {/* {this.comment ? 
-      <span>
-       <label>{this.strings.Observations.GeneralObservation.Comment}: </label>
-      {this.comment}
-      </span> : ""} */}
-     
+{this.Comment ? 
+    <varsom-key-value
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _value={this.Comment}
+    ></varsom-key-value>
+    :""} 
+
     
 
     {this.Attachments ?
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             strings={this.strings}
             AttachmentId={el.AttachmentId ? el.AttachmentId : null}
             GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
@@ -92,12 +81,3 @@ export class VarsomDamageObs {
 </div> : ""}
 </div> }}
 
-//     {this.attachments.map((el: Attachment = {}) =>{
-//       return <varsom-attachment
-//       strings={this.strings}
-//       AttachmentId={el.AttachmentId ? el.AttachmentId : null}>
-
-//       </varsom-attachment>
-
-// })
-// }}}

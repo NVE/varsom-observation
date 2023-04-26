@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/SnowProfile',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-snow-profile
@@ -12,6 +16,7 @@ photographer=${args.Photographer}
 copyright=${args.Copyright}
 aspect=${args.Aspect}
 url=${args.Comment}
+short-version=${args.shortVersion}  
 >
 </varsom-snow-profile> `
 

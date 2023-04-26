@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/SnowCoverObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-snow-cover-observation
@@ -12,6 +16,7 @@ critical-layer-location=${args.CriticalLayerLocation}
 critical-layer-t-i-d=${args.CriticalLayerTID}
 snow-pilot-ref=${args.SnowPilotRef}
 critical-layer-name=${args.CriticalLayerName}
+short-version=${args.shortVersion}  
 >
 </varsom-snow-cover-observation> `
 

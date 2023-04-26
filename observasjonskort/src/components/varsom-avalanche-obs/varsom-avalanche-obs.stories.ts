@@ -2,6 +2,9 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalancheObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["", "true (select blank for full version)"]}
+          }
 }
 
 const Template = (args) => `<varsom-avalanche-obs
@@ -19,6 +22,7 @@ valid-exposition=${args.ValidExposition}
 comment=${args.Comment}
 start-lat=${args.StartLat}
 stop-lat=${args.StopLat}
+short-version=${args.shortVersion} 
 >
 </varsom-avalanche-obs> `
 

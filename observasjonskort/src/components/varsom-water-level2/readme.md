@@ -29,6 +29,7 @@
 | `WaterLevelMethodTID`      | `water-level-method-t-i-d`    |             | `any`                     | `undefined` |
 | `WaterLevelStateName`      | `water-level-state-name`      |             | `any`                     | `undefined` |
 | `WaterLevelStateTID`       | `water-level-state-t-i-d`     |             | `any`                     | `undefined` |
+| `shortVersion`             | `short-version`               |             | `any`                     | `undefined` |
 | `strings`                  | `strings`                     |             | `any`                     | `undefined` |
 
 

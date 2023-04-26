@@ -20,6 +20,7 @@
 | `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |
 | `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
 | `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
+| `shortVersion`      | `short-version`        |             | `any`           | `undefined` |
 | `strings`           | `strings`              |             | `any`           | `undefined` |
 
 

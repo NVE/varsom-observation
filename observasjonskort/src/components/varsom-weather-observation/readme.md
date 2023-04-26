@@ -18,6 +18,7 @@
 | `WindDirection`     | `wind-direction`      |             | `any`          | `undefined` |
 | `WindDirectionName` | `wind-direction-name` |             | `any`          | `undefined` |
 | `WindSpeed`         | `wind-speed`          |             | `any`          | `undefined` |
+| `shortVersion`      | `short-version`       |             | `any`          | `undefined` |
 | `strings`           | `strings`             |             | `any`          | `undefined` |
 
 

@@ -446,7 +446,7 @@
       "ForecastCorrectTID": "Varselets riktighet",
       "ObsName": "Skredfarevurdering"
     },
-    "AvalancheObs": {
+    "0": {
       "AvalancheTID": "Skredtype",
       "AvalancheTriggerTID": "Skredutløser",
       "AvalancheType": "Type skred",

@@ -22,6 +22,7 @@
 | `SlushSnow`          | `slush-snow`        |             | `any`                 | `undefined` |
 | `SnowDepth`          | `snow-depth`        |             | `any`                 | `undefined` |
 | `regId`              | `reg-id`            |             | `any`                 | `undefined` |
+| `shortVersion`       | `short-version`     |             | `any`                 | `undefined` |
 | `strings`            | `strings`           |             | `any`                 | `undefined` |
 
 

@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalacheEvaluation3',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-avalanche-evaluation3 
@@ -10,7 +14,7 @@ avalanche-development=${args.AvalancheDevelopment}
 forecast-comment=${args.ForecastComment} 
 forecast-correct-name=${args.ForecastCorrectName} 
 avalanche-danger-t-i-d=${args.AvalancheDangerTID} 
- 
+short-version=${args.shortVersion}  
 >
 </varsom-avalanche-evaluation3> `
 

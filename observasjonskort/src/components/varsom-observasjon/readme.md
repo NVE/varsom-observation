@@ -15,6 +15,7 @@
 | `number`   | `number`   |             | `number` | `1`         |
 | `regid`    | `regid`    |             | `string` | `undefined` |
 | `type`     | `type`     |             | `string` | `undefined` |
+| `version`  | `version`  |             | `string` | `undefined` |
 
 
 ## Dependencies
@@ -24,6 +25,7 @@
 - [varsom-header](../varsom-header)
 - [varsom-metadata](../varsom-metadata)
 - [varsom-image-slider](../varsom-image-slider)
+- [varsom-damage-obs](../varsom-damage-obs)
 - [varsom-label](../varsom-label)
 - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
 - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
@@ -56,6 +58,7 @@ graph TD;
   varsom-observation --> varsom-header
   varsom-observation --> varsom-metadata
   varsom-observation --> varsom-image-slider
+  varsom-observation --> varsom-damage-obs
   varsom-observation --> varsom-label
   varsom-observation --> varsom-avalanche-activity-obs2
   varsom-observation --> varsom-avalanche-activity-obs
@@ -81,9 +84,11 @@ graph TD;
   varsom-observation --> varsom-general-observation
   varsom-observation --> varsom-incident
   varsom-observation --> varsom-attachment
+  varsom-damage-obs --> varsom-key-value
+  varsom-damage-obs --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-attachment
-  varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-attachment
   varsom-avalanche-obs --> varsom-label

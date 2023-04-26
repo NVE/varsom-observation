@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomCompressionTest {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() CompressionTestTID: any;
   @Prop() CompressionTestName: any;
   @Prop() TapsFracture: any;
@@ -37,14 +38,14 @@ export class VarsomCompressionTest {
     
     {this.PropagationName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.CompressionTest.Test : "Test" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Test : (this.shortVersion ? null : "Test") }
     _value={this.PropagationName}
     ></varsom-key-value>
     :""}
     
     {this.StabilityEvalName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.CompressionTest.StabilityEvalTID : "Stabilitet" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.StabilityEvalTID : (this.shortVersion ? null : "Stabilitet") }
     _value={this.StabilityEvalName}
     ></varsom-key-value>
     :""}
@@ -52,15 +53,17 @@ export class VarsomCompressionTest {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.CompressionTest.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
   
+  </div>
   {this.Attachments ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
@@ -73,7 +76,7 @@ export class VarsomCompressionTest {
 
     </div>
 
-    </div>
+    
   }
     
   }

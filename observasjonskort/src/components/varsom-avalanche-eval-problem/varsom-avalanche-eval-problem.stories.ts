@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalancheEvaluationProblem',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-avalanche-eval-problem
@@ -11,6 +15,7 @@ aval-trigger-simple-name=${args.AvalTriggerSimpleName}
 aval-probability-name=${args.AvalProbabilityName} 
 destructive-size-ext-name=${args.DestructiveSizeExtName} 
 aval-cause-name=${args.AvalCauseName} 
+short-version=${args.shortVersion} 
 >
 </varsom-avalanche-eval-problem> `
 

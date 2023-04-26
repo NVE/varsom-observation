@@ -17,6 +17,7 @@
 | `ForecastComment`      | `forecast-comment`       |             | `any`          | `undefined` |
 | `ForecastCorrectName`  | `forecast-correct-name`  |             | `any`          | `undefined` |
 | `ForecastCorrectTID`   | `forecast-correct-t-i-d` |             | `any`          | `undefined` |
+| `shortVersion`         | `short-version`          |             | `any`          | `undefined` |
 | `strings`              | `strings`                |             | `any`          | `undefined` |
 
 

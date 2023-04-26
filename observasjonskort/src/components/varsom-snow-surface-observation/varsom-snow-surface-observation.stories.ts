@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/SnowSurfaceObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-snow-surface-observation
@@ -15,6 +19,7 @@ snow-surface-name=${args.SnowSurfaceName}
 surface-water-content-name=${args.SurfaceWaterContentName}
 foot-penetration=${args.FootPenetration}
 ski-conditions-name=${args.SkiConditionsName}
+short-version=${args.shortVersion}  
 >
 </varsom-snow-surface-observation> `
 

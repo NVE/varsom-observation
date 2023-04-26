@@ -11,6 +11,7 @@ import { Attachment, Url } from '../varsom-observasjon/observation-model';
 export class VarsomIncident {
 
   @Prop() strings: any; 
+  @Prop() shortVersion: any;
   @Prop() GeoHazardName: any; 
   @Prop() ActivityInfluencedName: any; 
   @Prop() DamageExtentName: any; 
@@ -54,56 +55,56 @@ export class VarsomIncident {
 <div class="content">
 {this.IncidentHeader ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.IncidentHeader: "Overskrift" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : (this.shortVersion ? null : "Overskrift") }
     _value={this.IncidentHeader}
     ></varsom-key-value>
     :""}
 
 {this.IncidentIngress ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.IncidentIngress: "Ingress" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.IncidentIngress : (this.shortVersion ? null : "Ingress") }
     _value={this.IncidentIngress}
     ></varsom-key-value>
     :""}
 
 {this.DamageExtentName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.DamageExtentTID: "Skadeomfang" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.DamageExtentTID : (this.shortVersion ? null : "Skadeomfang") }
     _value={this.DamageExtentName}
     ></varsom-key-value>
     :""}
 
 {this.ActivityInfluencedName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.ActivityInfluencedTID: "Aktivitet" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.ActivityInfluencedTID : (this.shortVersion ? null : "Aktivitet") }
     _value={this.ActivityInfluencedName}
     ></varsom-key-value>
     :""}
 
 {this.LocalTouristName ? 
     <varsom-key-value
-    _key="Local or tourist"
+    _key={this.shortVersion ? null : "Local or tourist" }
     _value={this.LocalTouristName}
     ></varsom-key-value>
     :""}
 
 {this.LocalKnowledgeName ? 
     <varsom-key-value
-    _key="Local knowledge"
+    _key={this.shortVersion ? null : "Local knowledge" }
     _value={this.LocalKnowledgeName}
     ></varsom-key-value>
     :""}
 
 {this.SafetyGearName ? 
     <varsom-key-value
-    _key="Safety gear"
+    _key={this.shortVersion ? null : "Safety gear" }
     _value={this.SafetyGearName}
     ></varsom-key-value>
     :""}
 
 {this.RescueName ? 
     <varsom-key-value
-    _key="Rescue"
+    _key={this.shortVersion ? null : "Rescue" }
     _value={this.RescueName}
     ></varsom-key-value>
     :""}
@@ -111,7 +112,7 @@ export class VarsomIncident {
       
 {this.SlopeActivityName ? 
     <varsom-key-value
-    _key="Slope activity"
+    _key={this.shortVersion ? null : "Slope activity" }
     _value={this.SlopeActivityName}
     ></varsom-key-value>
     :""}
@@ -119,42 +120,42 @@ export class VarsomIncident {
           
 {this.TrafficObstructed ? 
     <varsom-key-value
-    _key="Obsctruction of traffic"
+    _key={this.shortVersion ? null : "Obsctruction of traffic" }
     _value={this.TrafficObstructed}
     ></varsom-key-value>
     :""}
 
 {this.MaterialDamages ? 
     <varsom-key-value
-    _key="Material damage"
+    _key={this.shortVersion ? null : "Material damage" }
     _value={this.MaterialDamages}
     ></varsom-key-value>
     :""}
 
 {this.InvolvedNum ? 
     <varsom-key-value
-    _key="Number involved"
+    _key={this.shortVersion ? null : "Number involved" }
     _value={this.InvolvedNum}
     ></varsom-key-value>
     :""}
 
 {this.HarmedNum ? 
     <varsom-key-value
-    _key="Number injured"
+    _key={this.shortVersion ? null : "Number injured" }
     _value={this.HarmedNum}
     ></varsom-key-value>
     :""}
 
 {this.DeadNum ? 
     <varsom-key-value
-    _key="Number dead"
+    _key={this.shortVersion ? null : "Number dead" }
     _value={this.DeadNum}
     ></varsom-key-value>
     :""}
 
 {this.EvacuatedNum ? 
     <varsom-key-value
-    _key="Number evacuated"
+    _key={this.shortVersion ? null : "Number evacuated" }
     _value={this.EvacuatedNum}
     ></varsom-key-value>
     :""}
@@ -162,7 +163,7 @@ export class VarsomIncident {
 <br></br>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Incident.Comment: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -191,6 +192,7 @@ export class VarsomIncident {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

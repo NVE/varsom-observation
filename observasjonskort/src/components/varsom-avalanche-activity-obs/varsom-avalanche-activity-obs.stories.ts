@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalacheActivityObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-avalanche-activity-obs 
@@ -10,6 +14,7 @@ destructive-size-name=${args.DestructiveSizeName}
 avalanche-trigger-name=${args.AvalancheTriggerName} 
 Comment=${args.Comment}
 header=${args.Header}
+short-version=${args.shortVersion}
 >
 </varsom-avalanche-activity-obs> `
 

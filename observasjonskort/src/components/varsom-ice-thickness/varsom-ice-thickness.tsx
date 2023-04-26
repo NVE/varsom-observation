@@ -12,6 +12,7 @@ export class VarsomIceThickness {
 
   @Prop() strings: any;
   @Prop() Comment: any;
+  @Prop() shortVersion: any;
   @Prop() IceThicknessLayers: IceThicknessLayer[];
   @Prop() SnowDepth: any;
   @Prop() SlushSnow: any;
@@ -55,6 +56,7 @@ componentDidRender(){
       {this.IceThicknessLayers.map((el: IceThicknessLayer = {}) =>{
             return <varsom-ice-thickness-layer
             strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Comment={el.Comment ? el.Comment : null}
             IceLayerName={el.IceLayerName ? el.IceLayerName : null}
             IceLayerThickness={el.IceLayerThickness ? el.IceLayerThickness : null}          
@@ -68,49 +70,49 @@ componentDidRender(){
 
     {this.SnowDepth ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.SnowDepthBeforeDrilling: "Snødybde før boring" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.SnowDepthBeforeDrilling : (this.shortVersion ? null : "Snødybde før boring") }
     _value={this.SnowDepth + " cm"}
     ></varsom-key-value>
     :""}
 
     {this.SlushSnow ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.SlushSnowBeforeDrilling : "Sørpe før boring" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.SlushSnowBeforeDrilling : (this.shortVersion ? null : "Sørpe før boring") }
     _value={this.SlushSnow + " cm"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightBefore && this.IceHeightBefore <= 0 ) ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.IceHeightBeforeInput : "Overvannets tykkelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
     _value={((this.IceHeightBefore) * 100 * -1) + " cm"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightAfter && this.IceHeightAfter > 0)? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.IceHeightAfterInput : "Overvannets tykkelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
     _value={(this.IceHeightAfter) * 100 + " cm"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightAfter && this.IceHeightAfter === 0)? 
     <varsom-key-value
-    _key={this.IceHeightAfter}
+    _key={this.IceHeightAfter ? this.IceHeightAfter : (this.shortVersion ? null : "er likt med isoverflaten") }
     _value={this.strings ? this.strings.Observations.IceThickness.IsEqualToIceSurface : "er likt med isoverflaten"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightAfter && this.IceHeightAfter < 0)? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.IceHeightAfterInput : "Overvannets tykkelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
     _value={((this.IceHeightAfter) * 100 * -1) + " cm" + this.strings ? this.strings.Observations.IceThickness.LowerThanIceSurface : "lavere enn isoverflaten"}
     ></varsom-key-value>
     :""}
 
     {this.IceThicknessSum  ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.Total : "Total istykkelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.Total : (this.shortVersion ? null : "Total istykkelse") }
     _value={this.IceThicknessSum}
     ></varsom-key-value>
     :""}
@@ -119,7 +121,7 @@ componentDidRender(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceThickness.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -141,6 +143,7 @@ componentDidRender(){
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

@@ -11,6 +11,7 @@ import { Attachment, SnowDensityLayer } from '../varsom-observasjon/observation-
 export class VarsomSnowDensity {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() CylinderDiameter: any;
   @Prop() TareWeight: any;
   @Prop() Comment: any;
@@ -22,14 +23,14 @@ export class VarsomSnowDensity {
 
 {this.CylinderDiameter ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowProfile.Density.CylinderBoreDiam: "Sylinderdiameter (cm)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.CylinderBoreDiam : (this.shortVersion ? null : "Sylinderdiameter (cm)") }
     _value={this.CylinderDiameter}
     ></varsom-key-value>
     :""}
 
 {this.TareWeight ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowProfile.Density.TareWeight: "Posevekt og evt rør (g)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.TareWeight : (this.shortVersion ? null : "Posevekt og evt rør (g)") }
     _value={this.TareWeight}
     ></varsom-key-value>
     :""}
@@ -37,7 +38,7 @@ export class VarsomSnowDensity {
 <br></br>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowProfile.Comment: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -48,6 +49,7 @@ export class VarsomSnowDensity {
       {this.Layers.map((el: SnowDensityLayer = {}) =>{
             return <varsom-snow-density-layer
             strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Thickness={el.Thickness ? el.Thickness : null}
             Weight={el.Weight ? el.Weight : null}
             WaterEquivalent={el.WaterEquivalent ? el.WaterEquivalent : null}          

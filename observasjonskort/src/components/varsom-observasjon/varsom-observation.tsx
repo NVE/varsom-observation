@@ -1,7 +1,7 @@
 import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, Observation, WaterLevelMeasurement } from './observation-model';
+import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, DamageObs, Observation, WaterLevelMeasurement } from './observation-model';
 import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
@@ -24,6 +24,7 @@ export class VarsomObservation {
   @Prop() type: string;
   @Prop() number: number = 1;
   @Prop() json: any;
+  @Prop() version: string;
 
 
   element: HTMLElement;
@@ -534,15 +535,16 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
     };
 
 
-
-
   
   render(){
       return <div>
       {this.observations.map((obs: any = {}) =>
     <div class="observation-container">
          
-      <varsom-header region={obs._region} regId={obs._regId}></varsom-header>
+      <varsom-header 
+      region={obs._region} 
+      regId={obs._regId}
+      ></varsom-header>
 
       <varsom-metadata 
       strings={this.strings} 
@@ -553,6 +555,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       nickname={obs._observer.NickName ? obs._observer.NickName : null}
       competence-level-name={obs._observer.CompetenceLevelName ? obs._observer.CompetenceLevelName :null}
       observer-group-name={obs._observerGroupName ? obs._observerGroupName : null}
+      shortVersion={this.version==="short" ? this.version : null}
       > </varsom-metadata>      
          
       {/*map*/}     
@@ -565,11 +568,30 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 <varsom-image-slider
 _images={obs._images} 
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
   ></varsom-image-slider>
 
 {/* CONTENT */}
 <div class="observation-content">
-        
+
+{obs._damageObs.map((el: DamageObs = {}) =>{
+
+            return <varsom-damage-obs
+            strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
+            DamageTypeName={el.DamageTypeName ? el.DamageTypeName : null}
+            GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
+            GeoHazardTID={el.GeoHazardTID ? el.GeoHazardTID : null}
+            DamageTypeTID={el.DamageTypeTID ? el.DamageTypeTID : null}
+            DamagePosition={el.DamagePosition ? el.DamagePosition : null}
+            Attachments={el.Attachments ? el.Attachments : null}
+   
+           > </varsom-damage-obs>
+        })
+        }
+
+{obs._damageObs.length > 0 ?
+<div class="border"></div> :"" }
   
 {obs._avalancheActivityObs2.length > 0 ?
 <varsom-label
@@ -582,6 +604,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
 
             return <varsom-avalanche-activity-obs2
             strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
             dt-start={el.DtStart ? el.DtStart : null}
             aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
             EstimatedNumName={el.EstimatedNumName ? el.EstimatedNumName : null}
@@ -617,6 +640,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
 <varsom-avalanche-activity-obs
 header={this.strings.Observations.AvalancheTID}
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 AvalancheActivityObsID={obs._avalancheActivityObs.AvalancheActivityObsID ? obs._avalancheActivityObs.AvalancheActivityObsID : null}
 Aspect={obs._avalancheActivityObs.Aspect ? obs._avalancheActivityObs.Aspect : null}
 HeigthStartZone={obs._avalancheActivityObs.HeigthStartZone ? obs._avalancheActivityObs.HeigthStartZone : null}
@@ -642,6 +666,7 @@ Attachments={obs._avalancheActivityObs.Attachments ? obs._avalancheActivityObs.A
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
 AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
 AvalancheName={obs._avalancheObs.AvalancheName ? obs._avalancheObs.AvalancheName : null}
@@ -675,6 +700,7 @@ Attachments={obs._avalancheObs.Attachments ? obs._avalancheObs.Attachments : nul
 {obs._waterLevel ? 
 <varsom-water-level
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 WaterLevelDescribed={obs._waterLevel.WaterLevelDescribed ? obs._waterLevel.WaterLevelDescribed : null}
 WaterLevelValue={obs._waterLevel.WaterLevelValue ? obs._waterLevel.WaterLevelValue : null}
 WaterLevelRefTID={obs._waterLevel.WaterLevelRefTID ? obs._waterLevel.WaterLevelRefTID : null}
@@ -688,6 +714,7 @@ Attachments={obs._waterLevel.Attachments ? obs._waterLevel.Attachments : null}
 {obs._waterLevel2 ? 
 <varsom-water-level2
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 WaterLevelStateName={obs._waterLevel2.WaterLevelStateName ? obs._waterLevel2.WaterLevelStateName : null}
 WaterAstrayName={obs._waterLevel2.WaterAstrayName ? obs._waterLevel2.WaterAstrayName : null}
 ObservationTimingName={obs._waterLevel2.ObservationTimingName ? obs._waterLevel2.ObservationTimingName : null}
@@ -721,10 +748,10 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
 {obs._waterLevel.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
   return <varsom-water-measurement
   strings={this.strings}
+  shortVersion={this.version==="short" ? this.version : null}
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   Comment={el.Comment ? el.Comment : null}
-  Attachments={el.Attachments ? el.Attachments : null}
   ></varsom-water-measurement>
 })
 
@@ -738,6 +765,7 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
 {obs._iceThickness ? 
 <varsom-ice-thickness
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 regId={obs._regId}
 ObsLocationId={obs._obsLocation.ObsLocationId}
 DtObsTime={obs._dtObsTime}
@@ -757,6 +785,7 @@ Attachments={obs._iceThickness.Attachments ? obs._iceThickness.Attachments : nul
 {obs._landslideObs ? 
 <varsom-landslide-observation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 LandSlideName={obs._landslideObs.LandSlideName ? obs._landslideObs.LandSlideName : null}
 LandSlideTriggerName={obs._landslideObs.LandSlideTriggerName ? obs._landslideObs.LandSlideTriggerName : null}
 ActivityInfluencedName={obs._landslideObs.ActivityInfluencedName ? obs._landslideObs.ActivityInfluencedName : null}
@@ -788,6 +817,7 @@ Attachments={obs._landslideObs.Attachments ? obs._landslideObs.Attachments : nul
 {obs._weather ? 
 <varsom-weather-observation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
 PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
@@ -810,6 +840,7 @@ label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Ob
 {obs._avalancheEvalProblem.map((el: AvalancheEvalProblem = {}) => {
 return <varsom-avalanche-eval-problem
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 AvalancheProblemAutoText={el.AvalancheProblemAutoText ? el.AvalancheProblemAutoText : null}
 AvalancheEvalProblemID={el.AvalancheEvalProblemID ? el.AvalancheEvalProblemID : null} 
 AvalProbabilityTID={el.AvalProbabilityTID ? el.AvalProbabilityTID : null} 
@@ -846,6 +877,7 @@ label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Ob
 {obs._avalancheEvalProblem2.map((el: AvalancheEvalProblem2 = {}) => {
 return <varsom-avalanche-eval-problem2
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 aval-probability-tid={el.AvalProbabilityTID ? el.AvalProbabilityTID : null}
 aval-probability-name={el.AvalProbabilityName ? el.AvalProbabilityName : null}
 aval-cause-depth-tid={el.AvalCauseDepthTID ? el.AvalCauseDepthTID : null}
@@ -885,6 +917,7 @@ Attachments={el.Attachments ? el.Attachments : null}
 {obs._snowCoverObs ? 
 <varsom-snow-cover-obs
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 CriticalLayerExists={obs._snowCoverObs.CriticalLayerExists ? obs._snowCoverObs.CriticalLayerExists : null}
 CriticalLayerLocation={obs._snowCoverObs.CriticalLayerLocation ? obs._snowCoverObs.CriticalLayerLocation : null}
 CriticalLayerTID={obs._snowCoverObs.CriticalLayerTID ? obs._snowCoverObs.CriticalLayerTID : null}
@@ -902,6 +935,7 @@ Attachments={obs._snowCoverObs.Attachments ? obs._snowCoverObs.Attachments : nul
 <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 RegID={obs._avalancheEvaluation.RegID ? obs._avalancheEvaluation.RegID : null}
 CanPublish={obs._avalancheEvaluation.CanPublish ? obs._avalancheEvaluation.CanPublish : null}
 AvalancheDangerTID={obs._avalancheEvaluation.AvalancheDangerTID ? obs._avalancheEvaluation.AvalancheDangerTID : null}
@@ -931,6 +965,7 @@ Attachments={obs._avalancheEvaluation.Attachments ? obs._avalancheEvaluation.Att
 <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation2
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 AvalancheDangerName={obs._avalancheEvaluation2.AvalancheDangerName ? obs._avalancheEvaluation2.AvalancheDangerName : null}
 ValidExposition={obs._avalancheEvaluation2.ValidExposition ? obs._avalancheEvaluation2.ValidExposition : null}
 Comment={obs._avalancheEvaluation2.Comment ? obs._avalancheEvaluation2.Comment : null}
@@ -956,6 +991,7 @@ Attachments={obs._avalancheEvaluation2.Attachments ? obs._avalancheEvaluation2.A
 <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label> 
 <varsom-avalanche-evaluation3
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 avalanche-evaluation={obs._avalancheEvaluation3.AvalancheEvaluation ? obs._avalancheEvaluation3.AvalancheEvaluation : null}
 avalanche-development={obs._avalancheEvaluation3.AvalancheDevelopment ? obs._avalancheEvaluation3.AvalancheDevelopment : null}
 forecast-comment={obs._avalancheEvaluation3.forecastComment ? obs._avalancheEvaluation3.forecastComment : null}
@@ -980,6 +1016,7 @@ Attachments={obs._avalancheEvaluation3.Attachments ? obs._avalancheEvaluation3.A
 {obs._snowProfile ?
 <varsom-snow-profile
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 GeoHazardName={obs._snowProfile.GeoHazardName ? obs._snowProfile.GeoHazardName : null}
 RegistrationName={obs._snowProfile.RegistrationName ? obs._snowProfile.RegistrationName : null}
 Url={obs._snowProfile.Url ? obs._snowProfile.Url : null}
@@ -996,6 +1033,7 @@ Attachments={obs._snowProfile.Attachments ? obs._snowProfile.Attachments : null}
 {obs._snowProfile2 ?
 <varsom-snow-profile2
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 TotalDepth={obs._snowProfile2.TotalDepth ? obs._snowProfile2.TotalDepth : null}
 StratProfile={obs._snowProfile2.StratProfile ? obs._snowProfile2.StratProfile : null}
 Comment={obs._snowProfile2.Comment ? obs._snowProfile2.Comment : null}
@@ -1023,6 +1061,7 @@ label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.D
   
             return <varsom-danger-obs
             strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
             GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
             Comment={el.Comment ? el.Comment : null}
             DangerSignName={el.DangerSignName ? el.DangerSignName : null}
@@ -1049,6 +1088,7 @@ label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Obser
   
             return <varsom-avalanche-danger-obs
             strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
             AvalancheDangerObsID={el.AvalancheDangerObsID ? el.AvalancheDangerObsID : null}
             DangerSignTID={el.DangerSignTID ? el.DangerSignTID : null}
             DangerSignName={el.DangerSignName ? el.DangerSignName : null}
@@ -1074,6 +1114,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
   
             return <varsom-compression-test
             strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
             CompressionTestTID={el.CompressionTestTID ? el.CompressionTestTID : null}
             TapsFracture={el.TapsFracture ? el.TapsFracture : null}
             TapsFullPropagation={el.TapsFullPropagation ? el.TapsFullPropagation : null}
@@ -1105,6 +1146,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
 {obs._snowSurfaceObservation ? 
 <varsom-snow-surface-observation
   strings={this.strings}
+  shortVersion={this.version==="short" ? this.version : null}
   snow-depth={obs._snowSurfaceObservation.SnowDepth ? obs._snowSurfaceObservation.snowDepth : null}
   surface-water-content-name={obs._snowSurfaceObservation.SurfaceWaterContentName ? obs._snowSurfaceObservation.SurfaceWaterContentName : null}
   snow-drift-name={obs._snowSurfaceObservation.SnowDriftName ? obs._snowSurfaceObservation.SnowDriftName : null} 
@@ -1127,6 +1169,7 @@ label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observat
 {obs._iceCoverObs ? 
 <varsom-ice-cover-observation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 IceCoverBeforeName={obs._iceCoverObs.IceCoverBeforeName ? obs._iceCoverObs.IceCoverBeforeName : null}
 IceCoverName={obs._iceCoverObs.IceCoverName ? obs._iceCoverObs.IceCoverName : null}
 IceCoverAfterName={obs._iceCoverObs.IceCoverAfterName ? obs._iceCoverObs.IceCoverAfterName   : null}
@@ -1146,6 +1189,7 @@ Attachments={obs._iceCoverObs.Attachments ? obs._iceCoverObs.Attachments : null}
 {obs._generalObservation ? 
 <varsom-general-observation
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 GeoHazardName={obs._generalObservation.GeoHazardName ? obs._generalObservation.GeoHazardName : null}
 Urls={obs._generalObservation.Urls ? obs._generalObservation.Urls : null}
 GeoHazardTID={obs._generalObservation.GeoHazardTID ? obs._generalObservation.GeoHazardTID : null}
@@ -1159,9 +1203,12 @@ Attachments={obs._generalObservation.Attachments ? obs._generalObservation.Attac
 : ""}
 
 
+
+
 {obs._incident ? 
 <varsom-incident
 strings={this.strings}
+shortVersion={this.version==="short" ? this.version : null}
 GeoHazardName={obs._incident.GeoHazardName ? obs._incident.GeoHazardName : null}
 ActivityInfluencedName={obs._incident.ActivityInfluencedName ? obs._incident.ActivityInfluencedName : null}
 DamageExtentName={obs._incident.DamageExtentName ? obs._incident.DamageExtentName : null}
@@ -1198,9 +1245,11 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 : ""}
 
 {/* ATTACHMENTS */}
-   
+{this.version !=="short" ? 
+<div>
 {obs.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.version==="short" ? this.version : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
@@ -1210,8 +1259,10 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
             </varsom-attachment>
         })
         }
+     </div> : null}
 
       </div>
+      
       </div>
       
     

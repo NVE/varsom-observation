@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomSnowCoverObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() DepthHoarThickness: any;
   @Prop() CriticalLayerExists: any;
   @Prop() CriticalLayerLocation: any;
@@ -31,42 +32,35 @@ export class VarsomSnowCoverObservation {
 
 {this.DepthHoarThickness ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.DepthHoar: "Begerkrystaller tykkelse" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.DepthHoar : (this.shortVersion ? null : "Begerkrystaller tykkelse") }
     _value={this.DepthHoarThickness}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerExists ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerFound: "Svakt lag finnes" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerFound : (this.shortVersion ? null : "Svakt lag finnes") }
     _value={this.CriticalLayerExists}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerLocation ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerLocation: "Plassering" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerLocation : (this.shortVersion ? null : "Plassering") }
     _value={this.CriticalLayerLocation}
-    ></varsom-key-value>
-    :""}
-
-{this.CriticalLayerTID ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerLocation: "Type" }
-    _value={this.CriticalLayerTID}
     ></varsom-key-value>
     :""}
 
 {this.SnowPilotRef ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.SnowPilotRefTID: "Snøprofil" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.SnowPilotRefTID : (this.shortVersion ? null : "Snøprofil") }
     _value={this.SnowPilotRef}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.CriticalLayerTID: "Snøprofil" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerTID : (this.shortVersion ? null : "Type") }
     _value={this.CriticalLayerName}
     ></varsom-key-value>
     :""}
@@ -74,7 +68,7 @@ export class VarsomSnowCoverObservation {
 <br></br>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.SnowCover.Comment: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -85,6 +79,7 @@ export class VarsomSnowCoverObservation {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

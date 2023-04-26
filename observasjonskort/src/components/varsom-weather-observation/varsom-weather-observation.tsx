@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomWeatherObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() PrecipitationName: any;
   @Prop() WindDirectionName: any;
   @Prop() PrecipitationTID: any;
@@ -34,21 +35,21 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {this.PrecipitationName ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.PrecipitationTID: "NedbÃ¸rstype" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.PrecipitationTID: (this.shortVersion ? null : "NedbÃ¸rstype") }
     _value={this.PrecipitationName}
     ></varsom-key-value>
     :""}
 
 {this.AirTemperature ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.AirTemperature: "Lufttemperatur (Â°C)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.AirTemperature: (this.shortVersion ? null : "Lufttemperatur (Â°C)") }
     _value={this.AirTemperature}
     ></varsom-key-value>
     :""}
 
 {(this.WindDirection && this.WindSpeed) ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.Wind: "Vind" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.Wind: (this.shortVersion ? null : "Vind") }
     _value={this.WindSpeed + " " + this.WindDirection}
     ></varsom-key-value>
     :""}
@@ -56,14 +57,14 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {(this.WindDirection && !this.WindSpeed) ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.WindDirection: "Vindretning" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.WindDirection: (this.shortVersion ? null : "Vindretning") }
     _value={this.WindDirection}
     ></varsom-key-value>
     :""}
 
 {(!this.WindDirection && this.WindSpeed) ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.WindSpeed: "Vindhastighet (m/s)" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.WindSpeed: (this.shortVersion ? null : "Vindhastighet (m/s)") }
     _value={this.WindSpeed}
     ></varsom-key-value>
     :""}
@@ -71,7 +72,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {this.CloudCover ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.CloudCover: "Skydekke" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.CloudCover: (this.shortVersion ? null : "Skydekke") }
     _value={this.CloudCover}
     ></varsom-key-value>
     :""}
@@ -79,7 +80,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 <br></br>
 {this.Comment ?
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.WeatherObservation.Comment: "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.Comment: (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -90,6 +91,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

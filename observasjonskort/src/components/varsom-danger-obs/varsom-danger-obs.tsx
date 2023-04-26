@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomDangerObs {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() GeoHazardName: any;
   @Prop() DangerSignName: any;
   @Prop() GeoHazardTID: any;
@@ -24,7 +25,7 @@ export class VarsomDangerObs {
 
     {this.DangerSignName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.DangerSignTName : "Type" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.DangerSignTName : (this.shortVersion ? null : "Type") }
     _value={this.DangerSignName}
     ></varsom-key-value>
     :""}
@@ -33,15 +34,17 @@ export class VarsomDangerObs {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.DangerObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
  
+ </div>
  {this.Attachments ? 
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
@@ -52,7 +55,7 @@ export class VarsomDangerObs {
         })
         } </div> : ""}
  
-    </div>
+ 
     </div>
   }
     

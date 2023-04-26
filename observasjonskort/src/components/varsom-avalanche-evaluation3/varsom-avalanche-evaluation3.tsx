@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomAvalancheEvaluation3 {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() AvalancheDangerName: any;
   @Prop() ForecastCorrectName: any;
   @Prop() AvalancheDangerTID: any;
@@ -27,28 +28,28 @@ export class VarsomAvalancheEvaluation3 {
     <div class="content"> 
     {this.AvalancheEvaluation ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ObsName : "Skredfareurdering" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ObsName : (this.shortVersion ? null : "Skredfareurdering") }
     _value={this.AvalancheEvaluation}
     ></varsom-key-value>
     :""}
 
     {this.ForecastCorrectName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID : "Varslelets riktighet" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID : (this.shortVersion ? null : "Varslelets riktighet") }
     _value={this.ForecastCorrectName}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheDevelopment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment : "Utvikling" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment : (this.shortVersion ? null : "Utvikling") }
     _value={this.AvalancheDevelopment}
     ></varsom-key-value>
     :""}
 
     {this.ForecastComment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : (this.shortVersion ? null : "Kommentar") }
     _value={this.ForecastComment}
     ></varsom-key-value>
     :""}
@@ -68,6 +69,7 @@ export class VarsomAvalancheEvaluation3 {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

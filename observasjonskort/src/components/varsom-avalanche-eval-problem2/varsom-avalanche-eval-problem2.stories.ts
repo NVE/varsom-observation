@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalancheEvaluationProblem2',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-avalanche-eval-problem2
@@ -15,6 +19,7 @@ aval-cause-name=${args.AvalCauseName}
 aval-cause-depth-name=${args.AvalCauseDepthName}
 aval-cause-attribute-light-tid=${args.AvalCauseAttributeLightTID} 
 valid-exposition=${args.ValidExposition} 
+short-version=${args.shortVersion} 
 >
 </varsom-avalanche-eval-problem2> `
 

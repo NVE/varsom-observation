@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomAvalancheEvaluation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() RegID: any;
   @Prop() CanPublish: any;
   @Prop() AvalancheDangerTID: any;
@@ -36,7 +37,7 @@ export class VarsomAvalancheEvaluation {
     <div class="content">
     {this.AvalancheEvaluation1 ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : "Skredfareurdering" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : (this.shortVersion ? null : "Skredfareurdering") }
     _value={this.AvalancheEvaluation1}
     ></varsom-key-value>
     :""}
@@ -52,7 +53,7 @@ export class VarsomAvalancheEvaluation {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}

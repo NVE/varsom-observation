@@ -21,6 +21,7 @@
 | `IceCoverTID`         | `ice-cover-t-i-d`        |             | `any`          | `undefined` |
 | `IceSkateabilityName` | `ice-skateability-name`  |             | `any`          | `undefined` |
 | `IceSkateabilityTID`  | `ice-skateability-t-i-d` |             | `any`          | `undefined` |
+| `shortVersion`        | `short-version`          |             | `any`          | `undefined` |
 | `strings`             | `strings`                |             | `any`          | `undefined` |
 
 

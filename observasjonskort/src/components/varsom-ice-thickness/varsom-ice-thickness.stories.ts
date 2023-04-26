@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/IceThickness',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-ice-thickness
@@ -12,6 +16,7 @@ slush-snow=${args.SlushSnow}
 ice-height-before=${args.IceHeightBefore}
 ice-height-after=${args.IceHeightAfter}
 hard-coded-img=${args.HardCodedImg}
+short-version=${args.shortVersion}
 >
 </varsom-ice-thickness> `
 

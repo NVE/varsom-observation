@@ -11,6 +11,7 @@ import { Attachment } from '../varsom-observasjon/observation-model';
 export class VarsomIceCoverObservation {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() IceCoverBeforeName: any;
   @Prop() IceCoverName: any;
   @Prop() IceCoverAfterName: any;
@@ -36,42 +37,42 @@ export class VarsomIceCoverObservation {
 <div class="content">
     {this.IceCoverName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverTName : "Isdekning" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverTName : (this.shortVersion ? null : "Isdekning") }
     _value={this.IceCoverName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverBeforeName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverBeforeTName : "Isdekning før observasjon" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverBeforeTName : (this.shortVersion ? null : "Isdekning før observasjon") }
     _value={this.IceCoverBeforeName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverAfterName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverAfterTName : "Isdekning etter observasjon" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverAfterTName : (this.shortVersion ? null : "Isdekning etter observasjon") }
     _value={this.IceCoverAfterName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCoverTName : "Isdekning" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverAfterTName : (this.shortVersion ? null : "Isdekning etter observasjon") }
     _value={this.IceCoverName}
     ></varsom-key-value>
     :""}
 
     {this.IceCapacityName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceCapacityTName : "Bæreevne" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCapacityTName : (this.shortVersion ? null : "Bæreevne") }
     _value={this.IceCapacityName}
     ></varsom-key-value>
     :""}
 
     {this.IceSkateabilityName ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : "Skøytbarhet" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : (this.shortVersion ? null : "Skøytbarhet") }
     _value={this.IceSkateabilityName}
     ></varsom-key-value>
     :""}
@@ -79,7 +80,7 @@ export class VarsomIceCoverObservation {
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.IceCoverObs.Comment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -89,6 +90,7 @@ export class VarsomIceCoverObservation {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

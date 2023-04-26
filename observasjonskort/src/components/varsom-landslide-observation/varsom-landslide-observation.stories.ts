@@ -2,6 +2,10 @@
 
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/LandslideObservation',
+    argTypes: {
+        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
+    defaultValue: ""}
+          }
 }
 
 const Template = (args) => `<varsom-landslide-observation
@@ -13,6 +17,7 @@ land-slide-size-name=${args.LandSlideSizeName}
 land-slide-name=${args.LandSlideName}
 dt-land-slide-time=${args.DtLandSlideTime}
 dt-land-slide-time-end=${args.DtLandSlideTimeEnd}
+short-version=${args.shortVersion}
 >
 </varsom-landslide-observation> `
 
@@ -26,5 +31,6 @@ VarsomLandslideObservation.args = {
     LandSlideSizeName: "'ikke gitt'",
     LandSlideName: "Steinsprang",
     DtLandSlideTime: "'2023-03-17T21:54:00+01:00'",
-    DtLandSlideTimeEnd: "'2023-03-17T21:54:00+01:00'"
+    DtLandSlideTimeEnd: "'2023-03-17T21:54:00+01:00'",
+    
     }

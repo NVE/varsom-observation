@@ -13,6 +13,7 @@ import { Attachment, AvalancheEvalProblem } from '../varsom-observasjon/observat
 export class VarsomAvalancheEvaluation2 {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() AvalancheDangerName: any;
   @Prop() ValidExposition: any;
   @Prop() AvalancheEvaluation: any;
@@ -35,14 +36,14 @@ export class VarsomAvalancheEvaluation2 {
     <div class="content">
     {this.AvalancheEvaluation ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.ObsName : "Skredfareurdering" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation2.ObsName : (this.shortVersion ? null : "Skredfareurdering") }
     _value={this.AvalancheEvaluation}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheDevelopment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation2.AvalancheDevelopment : "Utvikling" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation2.AvalancheDevelopment : (this.shortVersion ? null : "Utvikling") }
     _value={this.AvalancheDevelopment}
     ></varsom-key-value>
     :""}
@@ -59,7 +60,7 @@ export class VarsomAvalancheEvaluation2 {
 <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : "Kommentar" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -70,6 +71,7 @@ export class VarsomAvalancheEvaluation2 {
       {this.AvalancheEvalProblems.map((el: AvalancheEvalProblem = {}) =>{
             return <varsom-avalanche-eval-problem
             strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             AvalancheEvalProblemID={el.AvalancheEvalProblemID ? el.AvalancheEvalProblemID : null}
             AvalProbabilityTID={el.AvalProbabilityTID ? el.AvalProbabilityTID : null}
             AvalProbabilityName={el.AvalProbabilityName ? el.AvalProbabilityName : null}
@@ -102,6 +104,7 @@ export class VarsomAvalancheEvaluation2 {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

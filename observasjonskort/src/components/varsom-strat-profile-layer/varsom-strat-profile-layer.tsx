@@ -10,6 +10,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomStratProfileLayer {
 
   @Prop() strings: any;
+  @Prop() shortVersion: any;
   @Prop() GrainFormPrimaryTName: any;
   @Prop() GrainFormSecondaryTName: any;
   @Prop() HardnessTName: any;

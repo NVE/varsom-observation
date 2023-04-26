@@ -10,6 +10,7 @@ import { Attachment, SnowTempObs } from '../varsom-observasjon/observation-model
 export class VarsomSnowTemp {
 
   @Prop() strings?: any;
+  @Prop() shortVersion: any;
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];
   
@@ -19,6 +20,7 @@ export class VarsomSnowTemp {
       {this.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs
             strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             Depth={el.Depth ? el.Depth : null}
             SnowTemp={el.SnowTemp ? el.SnowTemp : null}          
             >
