@@ -35,6 +35,7 @@ export namespace Components {
         "RegistrationName": any;
         "RegistrationTID"?: any;
         "Url": any;
+        "shortVersion": any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
@@ -608,17 +609,11 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomWaterMeasurement {
-        "Attachments": Attachment[];
         "Comment": any;
         "DtMeasurementTime": any;
         "WaterLevelValue": any;
         "shortVersion": any;
         "strings": any;
-    }
-    interface VarsomWeather {
-        "airTemperature": any;
-        "strings": any;
-        "weatherPrecipitationName": any;
     }
     interface VarsomWeatherObservation {
         "AirTemperature": any;
@@ -905,12 +900,6 @@ declare global {
         prototype: HTMLVarsomWaterMeasurementElement;
         new (): HTMLVarsomWaterMeasurementElement;
     };
-    interface HTMLVarsomWeatherElement extends Components.VarsomWeather, HTMLStencilElement {
-    }
-    var HTMLVarsomWeatherElement: {
-        prototype: HTMLVarsomWeatherElement;
-        new (): HTMLVarsomWeatherElement;
-    };
     interface HTMLVarsomWeatherObservationElement extends Components.VarsomWeatherObservation, HTMLStencilElement {
     }
     var HTMLVarsomWeatherObservationElement: {
@@ -963,7 +952,6 @@ declare global {
         "varsom-water-level": HTMLVarsomWaterLevelElement;
         "varsom-water-level2": HTMLVarsomWaterLevel2Element;
         "varsom-water-measurement": HTMLVarsomWaterMeasurementElement;
-        "varsom-weather": HTMLVarsomWeatherElement;
         "varsom-weather-observation": HTMLVarsomWeatherObservationElement;
     }
 }
@@ -996,6 +984,7 @@ declare namespace LocalJSX {
         "RegistrationName"?: any;
         "RegistrationTID"?: any;
         "Url"?: any;
+        "shortVersion"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
@@ -1569,17 +1558,11 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomWaterMeasurement {
-        "Attachments"?: Attachment[];
         "Comment"?: any;
         "DtMeasurementTime"?: any;
         "WaterLevelValue"?: any;
         "shortVersion"?: any;
         "strings"?: any;
-    }
-    interface VarsomWeather {
-        "airTemperature"?: any;
-        "strings"?: any;
-        "weatherPrecipitationName"?: any;
     }
     interface VarsomWeatherObservation {
         "AirTemperature"?: any;
@@ -1640,7 +1623,6 @@ declare namespace LocalJSX {
         "varsom-water-level": VarsomWaterLevel;
         "varsom-water-level2": VarsomWaterLevel2;
         "varsom-water-measurement": VarsomWaterMeasurement;
-        "varsom-weather": VarsomWeather;
         "varsom-weather-observation": VarsomWeatherObservation;
     }
 }
@@ -1693,7 +1675,6 @@ declare module "@stencil/core" {
             "varsom-water-level": LocalJSX.VarsomWaterLevel & JSXBase.HTMLAttributes<HTMLVarsomWaterLevelElement>;
             "varsom-water-level2": LocalJSX.VarsomWaterLevel2 & JSXBase.HTMLAttributes<HTMLVarsomWaterLevel2Element>;
             "varsom-water-measurement": LocalJSX.VarsomWaterMeasurement & JSXBase.HTMLAttributes<HTMLVarsomWaterMeasurementElement>;
-            "varsom-weather": LocalJSX.VarsomWeather & JSXBase.HTMLAttributes<HTMLVarsomWeatherElement>;
             "varsom-weather-observation": LocalJSX.VarsomWeatherObservation & JSXBase.HTMLAttributes<HTMLVarsomWeatherObservationElement>;
         }
     }

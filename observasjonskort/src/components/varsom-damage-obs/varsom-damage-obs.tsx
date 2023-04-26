@@ -28,7 +28,7 @@ export class VarsomDamageObs {
 
     {this.GeoHazardName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.DangerObs.GeoHazardName : (this.shortVersion ? null : "Faretype") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.GeoHazardName : (this.shortVersion ? null : "Faretype") }
     _value={this.GeoHazardName}
     ></varsom-key-value> 
     :""}
@@ -37,7 +37,7 @@ export class VarsomDamageObs {
 
     {this.DamageTypeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.DangerObs.DamageTypeName : (this.shortVersion ? null : "Type skade") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.DamageTypeName : (this.shortVersion ? null : "Type skade") }
     _value={this.DamageTypeName}
     ></varsom-key-value>
     :""}
@@ -46,7 +46,7 @@ export class VarsomDamageObs {
 
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.AvalancheObs.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""} 
@@ -57,6 +57,7 @@ export class VarsomDamageObs {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.shortVersion ? this.shortVersion : null}
             strings={this.strings}
             AttachmentId={el.AttachmentId ? el.AttachmentId : null}
             GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}

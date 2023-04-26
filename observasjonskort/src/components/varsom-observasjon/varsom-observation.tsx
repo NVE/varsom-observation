@@ -573,13 +573,6 @@ shortVersion={this.version==="short" ? this.version : null}
 
 {/* CONTENT */}
 <div class="observation-content">
-        
-{obs._avalancheActivityObs2.length > 0 ?
-<varsom-label
-label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Observations.AvalancheActivityObs2.ObsName : "Skredaktivitet"}
-></varsom-label>
-: ""}
-
 
 {obs._damageObs.map((el: DamageObs = {}) =>{
 
@@ -759,7 +752,6 @@ label={this.strings.Observations.WaterLevel2.WaterMeasurement ? this.strings.Obs
   dt-measurement-time={el.DtMeasurementTime ? el.DtMeasurementTime : null}
   water-level-value={el.WaterLevelValue ? el.WaterLevelValue : null}
   Comment={el.Comment ? el.Comment : null}
-  Attachments={el.Attachments ? el.Attachments : null}
   ></varsom-water-measurement>
 })
 
@@ -1257,6 +1249,7 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 <div>
 {obs.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
+            shortVersion={this.version==="short" ? this.version : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}

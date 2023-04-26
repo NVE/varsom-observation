@@ -25,8 +25,8 @@
 - [varsom-header](../varsom-header)
 - [varsom-metadata](../varsom-metadata)
 - [varsom-image-slider](../varsom-image-slider)
-- [varsom-label](../varsom-label)
 - [varsom-damage-obs](../varsom-damage-obs)
+- [varsom-label](../varsom-label)
 - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
 - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
 - [varsom-avalanche-obs](../varsom-avalanche-obs)
@@ -58,8 +58,8 @@ graph TD;
   varsom-observation --> varsom-header
   varsom-observation --> varsom-metadata
   varsom-observation --> varsom-image-slider
-  varsom-observation --> varsom-label
   varsom-observation --> varsom-damage-obs
+  varsom-observation --> varsom-label
   varsom-observation --> varsom-avalanche-activity-obs2
   varsom-observation --> varsom-avalanche-activity-obs
   varsom-observation --> varsom-avalanche-obs

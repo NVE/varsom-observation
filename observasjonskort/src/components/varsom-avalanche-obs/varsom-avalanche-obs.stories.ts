@@ -3,7 +3,7 @@
 export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
     title: 'Components/AvalancheObservation',
     argTypes: {
-        shortVersion: {control: "select", options: ["true (select blank for full version)", ""]}
+        shortVersion: {control: "select", options: ["", "true (select blank for full version)"]}
           }
 }
 
