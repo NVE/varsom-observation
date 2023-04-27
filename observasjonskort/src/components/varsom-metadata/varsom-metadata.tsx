@@ -26,13 +26,13 @@ export class VarsomMetadata {
       <span>
         <img class="image" src={getAssetPath(`/assets/icons/calendar-icon.svg`)}></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
-      {this.dateOfRegistration}
+      {new Date(this.dateOfRegistration).toLocaleString("no")}
       </span> : ""}
 
       {this.dateOfLastUpdate && !this.shortVersion ? 
       <span>
       <label>{this.strings.Reg.UpdatedTime} </label>
-      {this.dateOfLastUpdate}
+      {new Date(this.dateOfLastUpdate).toLocaleString("no")}
       </span> : ""}
       
       {this.geoHazardName ? 

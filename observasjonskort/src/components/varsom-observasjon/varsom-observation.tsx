@@ -97,7 +97,7 @@ export class VarsomObservation {
     
 
   async componentWillLoad(){
-    
+
   this.strings = await getLocaleComponentStrings(this.language);
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);

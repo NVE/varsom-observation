@@ -66,7 +66,7 @@ export class VarsomAvalancheObs {
     {this.DtAvalancheTime ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.DtAvalancheTime : (this.shortVersion ? null : "Tid") }
-    _value={this.DtAvalancheTime}
+    _value={new Date(this.DtAvalancheTime).toLocaleString("no") }
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
