@@ -34,7 +34,6 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() AvalPropagationTID: any;
   @Prop() Attachments: Attachment[];
  
-  
   render(){
     return <div class="container">
     
@@ -47,7 +46,7 @@ export class VarsomAvalancheActivityObs2 {
         <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
         : <div>Tid: </div>}
         </label>
-    {this.DtStart} - {this.DtEnd}
+    {new Date(this.DtStart).toLocaleString("no")} - {new Date(this.DtEnd).toLocaleString("no")}
     </div>
       : ""} 
 
