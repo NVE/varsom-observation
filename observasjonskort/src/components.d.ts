@@ -442,6 +442,9 @@ export namespace Components {
         "type": string;
         "version": string;
     }
+    interface VarsomRegobsLink {
+        "regId": any;
+    }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
@@ -810,6 +813,12 @@ declare global {
         prototype: HTMLVarsomObservationElement;
         new (): HTMLVarsomObservationElement;
     };
+    interface HTMLVarsomRegobsLinkElement extends Components.VarsomRegobsLink, HTMLStencilElement {
+    }
+    var HTMLVarsomRegobsLinkElement: {
+        prototype: HTMLVarsomRegobsLinkElement;
+        new (): HTMLVarsomRegobsLinkElement;
+    };
     interface HTMLVarsomSignsOfDangerElement extends Components.VarsomSignsOfDanger, HTMLStencilElement {
     }
     var HTMLVarsomSignsOfDangerElement: {
@@ -937,6 +946,7 @@ declare global {
         "varsom-lat-lng": HTMLVarsomLatLngElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
+        "varsom-regobs-link": HTMLVarsomRegobsLinkElement;
         "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
         "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
         "varsom-snow-density": HTMLVarsomSnowDensityElement;
@@ -1391,6 +1401,9 @@ declare namespace LocalJSX {
         "type"?: string;
         "version"?: string;
     }
+    interface VarsomRegobsLink {
+        "regId"?: any;
+    }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
@@ -1608,6 +1621,7 @@ declare namespace LocalJSX {
         "varsom-lat-lng": VarsomLatLng;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
+        "varsom-regobs-link": VarsomRegobsLink;
         "varsom-signs-of-danger": VarsomSignsOfDanger;
         "varsom-snow-cover-observation": VarsomSnowCoverObservation;
         "varsom-snow-density": VarsomSnowDensity;
@@ -1660,6 +1674,7 @@ declare module "@stencil/core" {
             "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
+            "varsom-regobs-link": LocalJSX.VarsomRegobsLink & JSXBase.HTMLAttributes<HTMLVarsomRegobsLinkElement>;
             "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
             "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
             "varsom-snow-density": LocalJSX.VarsomSnowDensity & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityElement>;
