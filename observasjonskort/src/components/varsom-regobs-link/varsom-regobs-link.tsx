@@ -17,6 +17,7 @@ export class VarsomRegobsLink {
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
 <img src={getAssetPath(`/assets/icons/Right.svg`)}></img></a>
 
+{/* TODO IMPLEMENT SHARING??*/}
 <a href=""></a><img class="link" src={getAssetPath(`/assets/icons/Share.svg`)}></img>
     </div>
   }
