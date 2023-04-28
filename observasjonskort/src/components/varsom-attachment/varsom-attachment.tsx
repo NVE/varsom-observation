@@ -32,7 +32,7 @@ export class VarsomAttachment {
 
       {this.Url ? 
         <div>
-        <img class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} />
+        <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} />
       </div>
       : ""} 
  
