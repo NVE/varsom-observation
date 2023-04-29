@@ -4,7 +4,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'varsom-attachment',
   styleUrl: 'varsom-attachment.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomAttachment {

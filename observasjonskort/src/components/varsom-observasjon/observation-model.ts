@@ -1,3 +1,4 @@
+import * as L from 'leaflet';
 
 export type Observation = {
   _moh?: number,
@@ -309,6 +310,71 @@ export type Observation = {
     Comment: string,
     Attachments?: Attachment[]
    }
+
+   export type TileProps = {
+    src: string;
+    top: string;
+    left: string;
+  }
+
+  export type PolygonsToPlot = {
+    totalPolygon: LatLng[];
+    startPolygon: LatLng[];
+    endPolygon: LatLng[];
+  }
+  
+  export type LatLngBounds = {
+    minLng: number;
+    minLat: number;
+    maxLng: number;
+    maxLat: number;
+  }
+  
+  // n, s, e, w in pixels from top left of world
+  export type MercatorBounds = {
+    n: number;
+    s: number;
+    e: number;
+    w: number;
+    zoom: number;
+  }
+  
+  export type Graphic = {
+    id: string;
+    svg: string;//SafeHtml;
+    style: { [styleDesc: string]: number };
+  }
+
+  export type PositionToPlot = {
+    pos: ImageLocation['latLng'];
+    type: 'start' | 'stop' | 'damage' | 'obs';
+    px?: { x: number; y: number };
+  }
+
+
+   enum GeoHazard {
+    Snow = 10,
+    Soil = 20,
+    Water = 60,
+    Ice = 70,
+  }
+
+
+
+export type ImageLocation = {
+  latLng: L.LatLng;
+  geoHazard: GeoHazard;
+  startStopLocation?: ImageLocationStartStop;
+  damageLocations?: Array<L.LatLng>;
+}
+
+export type ImageLocationStartStop = {
+  start?: L.LatLng;
+  stop?: L.LatLng;
+  totalPolygon?: L.Polygon;
+  startPolygon?: L.Polygon;
+  endPolygon?: L.Polygon;
+}
   
    export type LatLng = {
     Latitude: number,

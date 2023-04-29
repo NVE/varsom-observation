@@ -37,6 +37,7 @@
  - [varsom-ice-thickness-layer](../varsom-ice-thickness-layer)
  - [varsom-incident](../varsom-incident)
  - [varsom-landslide-observation](../varsom-landslide-observation)
+ - [varsom-map](../varsom-map)
  - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
  - [varsom-snow-density](../varsom-snow-density)
  - [varsom-snow-density-layer](../varsom-snow-density-layer)
@@ -71,6 +72,7 @@ graph TD;
   varsom-ice-thickness-layer --> varsom-key-value
   varsom-incident --> varsom-key-value
   varsom-landslide-observation --> varsom-key-value
+  varsom-map --> varsom-key-value
   varsom-snow-cover-observation --> varsom-key-value
   varsom-snow-density --> varsom-key-value
   varsom-snow-density-layer --> varsom-key-value

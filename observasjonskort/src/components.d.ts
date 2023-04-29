@@ -422,6 +422,8 @@ export namespace Components {
         "Longitude": any;
         "strings": any;
     }
+    interface VarsomMap {
+    }
     interface VarsomMetadata {
         "competenceLevelName": any;
         "dateOfLastUpdate"?: any;
@@ -801,6 +803,12 @@ declare global {
         prototype: HTMLVarsomLatLngElement;
         new (): HTMLVarsomLatLngElement;
     };
+    interface HTMLVarsomMapElement extends Components.VarsomMap, HTMLStencilElement {
+    }
+    var HTMLVarsomMapElement: {
+        prototype: HTMLVarsomMapElement;
+        new (): HTMLVarsomMapElement;
+    };
     interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
     }
     var HTMLVarsomMetadataElement: {
@@ -944,6 +952,7 @@ declare global {
         "varsom-label-small": HTMLVarsomLabelSmallElement;
         "varsom-landslide-observation": HTMLVarsomLandslideObservationElement;
         "varsom-lat-lng": HTMLVarsomLatLngElement;
+        "varsom-map": HTMLVarsomMapElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-regobs-link": HTMLVarsomRegobsLinkElement;
@@ -1381,6 +1390,8 @@ declare namespace LocalJSX {
         "Longitude"?: any;
         "strings"?: any;
     }
+    interface VarsomMap {
+    }
     interface VarsomMetadata {
         "competenceLevelName"?: any;
         "dateOfLastUpdate"?: any;
@@ -1619,6 +1630,7 @@ declare namespace LocalJSX {
         "varsom-label-small": VarsomLabelSmall;
         "varsom-landslide-observation": VarsomLandslideObservation;
         "varsom-lat-lng": VarsomLatLng;
+        "varsom-map": VarsomMap;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-regobs-link": VarsomRegobsLink;
@@ -1672,6 +1684,7 @@ declare module "@stencil/core" {
             "varsom-label-small": LocalJSX.VarsomLabelSmall & JSXBase.HTMLAttributes<HTMLVarsomLabelSmallElement>;
             "varsom-landslide-observation": LocalJSX.VarsomLandslideObservation & JSXBase.HTMLAttributes<HTMLVarsomLandslideObservationElement>;
             "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
+            "varsom-map": LocalJSX.VarsomMap & JSXBase.HTMLAttributes<HTMLVarsomMapElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-regobs-link": LocalJSX.VarsomRegobsLink & JSXBase.HTMLAttributes<HTMLVarsomRegobsLinkElement>;

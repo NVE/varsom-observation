@@ -4,7 +4,7 @@ import { Component, Prop, State, h } from '@stencil/core';
 @Component({
   tag: 'varsom-image-slider',
   styleUrl: 'varsom-image-slider.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomImageSlider {

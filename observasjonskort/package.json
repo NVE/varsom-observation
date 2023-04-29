@@ -30,8 +30,11 @@
   },
   "dependencies": {
     "@jeepq/core": "^0.0.4-1",
+    "@mapbox/sphericalmercator": "^1.2.0",
     "@stencil/core": "^2.22.2",
+    "@turf/turf": "^6.5.0",
     "fetch": "^1.1.0",
+    "leaflet": "^1.9.3",
     "node": "^19.6.1",
     "node-fetch": "^3.3.0",
     "smart-webcomponents": "^15.0.11"
