@@ -7,6 +7,7 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
+import { ImageLocation } from './observation-model';
 
 @Component({
   tag: 'varsom-observation',
@@ -564,6 +565,20 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
         <img class="map" alt="map for observation" src={getAssetPath("/pictures/mapRegobs.png")}></img>
       </div>
       </div>
+      
+{/* STATIC MAP */}
+<varsom-static-map
+latitude={obs._latitude}
+longitude={obs._longitude}
+allowZoom={true}
+></varsom-static-map>
+
+
+
+
+
+
+
 
 <varsom-image-slider
 _images={obs._images} 

@@ -1,4 +1,4 @@
-import { Component, Prop, State, getAssetPath, h } from '@stencil/core';
+import { Component, Prop, getAssetPath, h } from '@stencil/core';
 import { Graphic, ImageLocation, LatLng, LatLngBounds, MercatorBounds, PolygonsToPlot, TileProps } from '../varsom-observasjon/observation-model';
 import SphericalMercator from '@mapbox/sphericalmercator';
 import { Feature, Polygon } from '@turf/turf';
@@ -10,22 +10,23 @@ import { RegobsGeoHazardMarker } from '../../utils/geo-hazard-marker';
 
 
 @Component({
-  tag: 'varsom-map',
+  tag: 'varsom-static-map',
   styleUrl: 'varsom-map.css',
   shadow: false,
   assetsDirs: ['images']
 })
-export class VarsomMap {
+export class VarsomStaticMap {
 
-  @Prop() location: ImageLocation;
-  @Prop() allowZoom: boolean;
+  @Prop() latitude: number;
+  @Prop() longitude: number;
+  @Prop() allowZoom?: boolean;
   //const trackByImgProps: TrackByFunction<TileProps> = (index, item) => item.src;
   //const trackByGraphic: TrackByFunction<Graphic> = (index, item) => item.id;
   
   // We only have map services with 256px tiles at the moment.
-  const TILE_SIZE = 256;
-  const PADDING = 15;
-  const SVG_PADDING = 20;
+  TILE_SIZE = 256;
+  PADDING = 15;
+  SVG_PADDING = 20;
   
    createGeojsonBounds = ({ minLng, minLat, maxLng, maxLat }: LatLngBounds): Feature<Polygon> => ({
     type: 'Feature',
@@ -49,6 +50,7 @@ export class VarsomMap {
     tiles: TileProps[] = null;
     graphics: Graphic[] = [];
   
+    /*
     private componentCreatedOrResized = new Subject<void>();
     private size = new ReplaySubject<{ w: number; h: number }>(1);
     size$ = this.size.pipe(
@@ -64,6 +66,7 @@ export class VarsomMap {
       map(({ w, h }) => ({ w: +w, h: +h })),
       share()
     );
+    */
   
     /*get trackByImgProps() {
       return trackByImgProps;
@@ -130,6 +133,9 @@ export class VarsomMap {
   
 
     getPositionsToPlot(){
+
+let location = this.latitude;
+
       // This controls the draw order / z-index for graphics
       const positions = [];
       if (this.location.startStopLocation?.start) {
@@ -387,7 +393,7 @@ export class VarsomMap {
   
       this.graphics.push({
         id: 'start',
-        svg: `<img src="${START_ICON}">`,
+        svg: `<img src=${getAssetPath(`/assets/icons/skred-startposisjon.svg`)}></>`,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
@@ -439,7 +445,7 @@ export class VarsomMap {
     private createDamageGraphic(topPx: number, leftPx: number) {
       //this.logger.debug('WARNING! Damage graphics not implemented in obs card');
     }
-  
+  /*
     private updateContainerSize() {
       if (this.container?.nativeElement) {
         const { width: w, height: h } = this.container.nativeElement.getBoundingClientRect();
@@ -456,13 +462,25 @@ export class VarsomMap {
         )
         .subscribe(() => this.updateContainerSize());
     }
-  
+  */
 
   render(){
     return <div class="container">
+    <img
+      src={this.tiles[0].toString()}
+      class="tile"
+      loading="lazy"
+      alt="Map tile"
+      decoding="async"
+    />
+  
+    <div
+      class="graphic"
+    ></div>
+  </div>
 
     
-    </div>
+    
   }
 
 }
