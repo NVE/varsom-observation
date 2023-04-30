@@ -11,6 +11,8 @@ import * as L from 'leaflet'
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { MapLayersService } from '../../utils/static-tiles.service';
 
+import { ReplaySubject, Subject, debounceTime, distinctUntilChanged, map, share, skipWhile, takeUntil } from 'rxjs';
+
 
 @Component({
   tag: 'varsom-static-map',
@@ -54,7 +56,7 @@ export class VarsomStaticMap {
     tiles: TileProps[] = null;
     graphics: Graphic[] = [];
   
-    /*
+    
     private componentCreatedOrResized = new Subject<void>();
     private size = new ReplaySubject<{ w: number; h: number }>(1);
     size$ = this.size.pipe(
@@ -70,8 +72,16 @@ export class VarsomStaticMap {
       map(({ w, h }) => ({ w: +w, h: +h })),
       share()
     );
-*/
+
   
+componentDidRender(){
+   
+    // Create map after view has been initialized, we need the component to be in the dom
+    // to figure out the container size
+    startSizeFinder();
+  }
+}
+
     /*get trackByImgProps() {
       return trackByImgProps;
     }
@@ -87,7 +97,7 @@ export class VarsomStaticMap {
     private mapLayerService: MapLayersService;
       //private logger: LoggingService
      
-  /*  
+  
   
       this.componentCreatedOrResized
         .pipe(
@@ -99,14 +109,10 @@ export class VarsomStaticMap {
         .subscribe(() => this.updateContainerSize());
   
       this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
-    */
-  /*
-    ngAfterViewInit(): void {
-      // Create map after view has been initialized, we need the component to be in the dom
-      // to figure out the container size
-      this.startSizeFinder();
-    }
-  */
+    
+  
+ 
+  
 
   
       
@@ -513,20 +519,20 @@ export class VarsomStaticMap {
         },
       });
     }
-  /*
-    private createDamageGraphic(topPx: number, leftPx: number) {
+  
+    createDamageGraphic(topPx: number, leftPx: number) {
       //this.logger.debug('WARNING! Damage graphics not implemented in obs card');
     }
-    */
-  /*
-    private updateContainerSize() {
+    
+  
+     updateContainerSize() {
       if (this.container?.nativeElement) {
         const { width: w, height: h } = this.container.nativeElement.getBoundingClientRect();
         this.size.next({ w, h });
       }
     }
   
-    private startSizeFinder() {
+    startSizeFinder() {
       // Read map container size
       interval(500)
         .pipe(
@@ -535,7 +541,7 @@ export class VarsomStaticMap {
         )
         .subscribe(() => this.updateContainerSize());
     }
-  */
+  
 
   render(){
     return <div class="container">
