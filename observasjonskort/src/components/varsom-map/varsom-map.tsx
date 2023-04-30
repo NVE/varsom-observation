@@ -1,12 +1,15 @@
 import { Component, Prop, getAssetPath, h } from '@stencil/core';
-import { Graphic, ImageLocation, LatLng, LatLngBounds, MercatorBounds, PolygonsToPlot, TileProps } from '../varsom-observasjon/observation-model';
+import { AvalancheObs, Graphic, ImageLocation, ImageLocationStartStop, LandslideObs, LatLng, LatLngBounds, MercatorBounds, Observation, PolygonsToPlot, TileProps } from '../varsom-observasjon/observation-model';
 import SphericalMercator from '@mapbox/sphericalmercator';
 import { Feature, Polygon } from '@turf/turf';
-import { MapLayersService } from '../../utils/static-tiles.service';
+
 import { PositionToPlot } from '../varsom-observasjon/observation-model';
 import { MapSettings as settings } from '../../utils/map-settings' ;
 import { ITopoMapLayerOptions } from '../../utils/map-settings-model';
 import { RegobsGeoHazardMarker } from '../../utils/geo-hazard-marker';
+import * as L from 'leaflet'
+import { getGeoHazardIdFromName } from '../../utils/utils';
+import { MapLayersService } from '../../utils/static-tiles.service';
 
 
 @Component({
@@ -20,6 +23,7 @@ export class VarsomStaticMap {
   @Prop() latitude: number;
   @Prop() longitude: number;
   @Prop() allowZoom?: boolean;
+  @Prop() observation?: Observation
   //const trackByImgProps: TrackByFunction<TileProps> = (index, item) => item.src;
   //const trackByGraphic: TrackByFunction<Graphic> = (index, item) => item.id;
   
@@ -66,7 +70,7 @@ export class VarsomStaticMap {
       map(({ w, h }) => ({ w: +w, h: +h })),
       share()
     );
-    */
+*/
   
     /*get trackByImgProps() {
       return trackByImgProps;
@@ -83,8 +87,8 @@ export class VarsomStaticMap {
     private mapLayerService: MapLayersService;
       //private logger: LoggingService
      
-    
-  /*
+  /*  
+  
       this.componentCreatedOrResized
         .pipe(
           takeUntil(this.ngDestroy$),
@@ -95,14 +99,16 @@ export class VarsomStaticMap {
         .subscribe(() => this.updateContainerSize());
   
       this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
-    
-  
+    */
+  /*
     ngAfterViewInit(): void {
       // Create map after view has been initialized, we need the component to be in the dom
       // to figure out the container size
       this.startSizeFinder();
     }
-    */
+  */
+
+  
       
     private getTileProperties(
       mapId: string,
@@ -118,10 +124,11 @@ export class VarsomStaticMap {
   
       for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
         for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
-          const url = this.mapLayerService.getUrlForTile(mapId, config, tileX, tileY, zoom);
+          const url = this.mapLayerService.getUrlForTile(//mapId
+          config, tileX, tileY, zoom);
   
           result.push({
-            src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
+             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
             top: `${tileY * tileSize - y0}px`,
           });
@@ -130,25 +137,85 @@ export class VarsomStaticMap {
   
       return result;
     }
+
+    private getDamagePositions(obs: Observation) {
+      if (obs && obs._damageObs && obs._damageObs.some((d) => d.DamagePosition)) {
+        return obs._damageObs.filter(
+          (d) => d.DamagePosition && d.DamagePosition.Latitude && d.DamagePosition.Longitude
+        ).map((d) => L.latLng(d.DamagePosition.Latitude, d.DamagePosition.Longitude));
+      }
+      return undefined;
+    }
+
+    private getLocation(obs: Observation): ImageLocation {
+      return {
+        latLng: L.latLng(obs._latitude, obs._longitude),
+        geoHazard: getGeoHazardIdFromName(obs._geoHazardName),
+        startStopLocation: this.getStartStopLocation(obs),
+        damageLocations: this.getDamagePositions(obs),
+      };
+    }
+
+    private getStartStopLocation(obs: Observation): ImageLocationStartStop {
+      if (obs._avalancheObs) {
+        return {
+          ...this.obs2Latlng(obs._avalancheObs),
+          totalPolygon: this.extent2Polygon(obs._avalancheObs.Extent, settings.map.extentColor),
+          startPolygon: this.extent2Polygon(obs._avalancheObs.StartExtent, settings.map.startExtentColor),
+          endPolygon: this.extent2Polygon(obs._avalancheObs.StopExtent, settings.map.endExtentColor),
+        };
+      }
+      if (obs._landslideObs) {
+        return {
+          ...this.obs2Latlng(obs._landslideObs),
+          totalPolygon: this.extent2Polygon(obs._landslideObs.Extent, settings.map.extentColor),
+          startPolygon: this.extent2Polygon(obs._landslideObs.StartExtent, settings.map.startExtentColor),
+          endPolygon: this.extent2Polygon(obs._landslideObs.StopExtent, settings.map.endExtentColor),
+        };
+      }
   
+      if (obs._waterLevel2) {
+        return {
+          totalPolygon: this.extent2Polygon(obs._waterLevel2.Extent, settings.map.extentColor),
+        };
+      }
+      return undefined;
+    }
+  
+    private obs2Latlng(obs: LandslideObs | AvalancheObs) {
+      return {
+        start: obs.StartLat && obs.StartLong ? L.latLng(obs.StartLat, obs.StartLong) : undefined,
+        stop: obs.StopLat && obs.StopLong ? L.latLng(obs.StopLat, obs.StopLong) : undefined,
+      };
+    }
+
+    private extent2Polygon(extent: number[][], color: string) {
+      return extent
+        ? new L.Polygon(
+            extent.map(([lng, lat]) => [lat, lng]),
+            { color }
+          )
+        : null;
+    }
 
     getPositionsToPlot(){
 
-let location = this.latitude;
+      const location = this.getLocation(this.observation);
 
       // This controls the draw order / z-index for graphics
       const positions = [];
-      if (this.location.startStopLocation?.start) {
-        positions.push({ pos: this.location.startStopLocation.start, type: 'start' });
+      
+      if (location.startStopLocation?.start) {
+        positions.push({ pos: location.startStopLocation.start, type: 'start' });
       }
-      if (this.location.startStopLocation?.stop) {
-        positions.push({ pos: this.location.startStopLocation.stop, type: 'stop' });
+      if (location.startStopLocation?.stop) {
+        positions.push({ pos: location.startStopLocation.stop, type: 'stop' });
       }
-      if (this.location.damageLocations) {
-        positions.push(...this.location.damageLocations.map((pos) => ({ pos, type: 'damage' })));
+      if (location.damageLocations) {
+        positions.push(...location.damageLocations.map((pos) => ({ pos, type: 'damage' })));
       }
-      if (this.location.latLng) {
-        positions.push({ pos: this.location.latLng, type: 'obs' });
+      if (location.latLng) {
+        positions.push({ pos: location.latLng, type: 'obs' });
       }
       return positions;
     }
@@ -156,9 +223,11 @@ let location = this.latitude;
     private getStartZoom() {
       // If start / stop avalanche should be plotted, start more zoomed in. If we are zoomed out we cant see the
       // avalanche path.
+      const location = this.getLocation(this.observation);
+
       if (
-        (this.location?.startStopLocation?.start && this.location?.startStopLocation?.stop) ||
-        this.location?.startStopLocation?.totalPolygon
+        (location?.startStopLocation?.start && location?.startStopLocation?.stop) ||
+        location?.startStopLocation?.totalPolygon
       ) {
         return 14;
       }
@@ -232,9 +301,10 @@ let location = this.latitude;
     }
   
     private getPolygons(): PolygonsToPlot {
+      const location = this.getLocation(this.observation);
       // getLatLngs on polygons may return nested arrays with depth of 3 therefore we use flat(3) to simplify the result
       const polygons = {} as PolygonsToPlot;
-      const startStoplocation = this.location?.startStopLocation;
+      const startStoplocation = location?.startStopLocation;
       if (startStoplocation?.totalPolygon) {
         polygons.totalPolygon = startStoplocation.totalPolygon.getLatLngs().flat(3);
       }
@@ -259,8 +329,9 @@ let location = this.latitude;
         ...(polygons.endPolygon ? polygons.endPolygon : []),
       ];
   
-      const { latLngBounds, geojsonBounds } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
-      const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
+      const { latLngBounds, //geojsonBounds
+     } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
+      const mapLayers = await this.mapLayerService.getMapLayerForLocation();//geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
       // Map tiles
@@ -296,7 +367,7 @@ let location = this.latitude;
           this.createStopGraphic(topPx, leftPx);
           stop = { x, y };
         } else if (type === 'damage') {
-          this.createDamageGraphic(topPx, leftPx);
+          //this.createDamageGraphic(topPx, leftPx);
         } else {
           throw new Error('Type not implemented');
         }
@@ -378,8 +449,9 @@ let location = this.latitude;
     }
   
     private createCenterMarker(topPx: number, leftPx: number) {
+      const location = this.getLocation(this.observation);
       const svg = //this.sanitizer.bypassSecurityTrustHtml(
-        RegobsGeoHazardMarker.getIconSvg(this.location.geoHazard); //)
+        RegobsGeoHazardMarker.getIconSvg(location.geoHazard); //)
       // TODO: Can we extract width and height from svg?
       const svgWidth = 26;
       const svgHeight = 37;
@@ -441,10 +513,11 @@ let location = this.latitude;
         },
       });
     }
-  
+  /*
     private createDamageGraphic(topPx: number, leftPx: number) {
       //this.logger.debug('WARNING! Damage graphics not implemented in obs card');
     }
+    */
   /*
     private updateContainerSize() {
       if (this.container?.nativeElement) {
@@ -466,23 +539,27 @@ let location = this.latitude;
 
   render(){
     return <div class="container">
-    <img
-      src={this.tiles[0].toString()}
-      class="tile"
-      loading="lazy"
-      alt="Map tile"
-      decoding="async"
-    />
+      {this.tiles.map((el) =>{
+return <img
+src={el.toString()}
+class="tile"
+loading="lazy"
+alt="Map tile"
+decoding="async"
+></img>
+})
+}
+
+{this.graphics.map((el) =>{
+return <div class="graphic">
+{el.svg}
+</div>
+})
+}
   
-    <div
-      class="graphic"
-    ></div>
-  </div>
+  </div>  
 
-    
-    
-  }
-
+}
 }
     
   

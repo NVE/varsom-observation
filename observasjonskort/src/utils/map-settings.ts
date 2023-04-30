@@ -26,11 +26,12 @@ export const MapSettings = {
         statensKartverk: {
           url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norgeskart_bakgrunn&zoom={z}&x={x}&y={y}',
           options: {
-            zIndex: MapLayerZIndex.OnlineBackgroundLayer,
             bounds: [
               [57.98808405905049, 4.626617431640625],
               [71.15939141681443, 30.816650390624996],
             ],
+            zIndex: MapLayerZIndex.OnlineBackgroundLayer,
+
           },
           supportsOffline: true,
         },

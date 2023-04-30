@@ -99,7 +99,10 @@ export type Observation = {
     StopLong?: number //($double) StopLong
     RemotelyTriggered?: boolean, //Ble skredet fjernutløst?
     Comment?: string,
-    Attachments?: Attachment[]
+    Attachments?: Attachment[],
+    Extent?: number[][],
+    StartExtent?: number[][],
+    StopExtent?: number[][],
    }
   
    export type LandslideObs = {
@@ -125,8 +128,12 @@ export type Observation = {
     StopLong?: number,
     DtLandSlideTime?: string,
     DtLandSlideTimeEnd?: string,
-    Attachments?: Attachment[]
+    Attachments?: Attachment[],
+    Extent?: number[][],
+    StartExtent?: number[][],
+    StopExtent?: number[][],
    }
+
   
    export type Observer = {
     NickName?: string,
@@ -308,7 +315,10 @@ export type Observation = {
     MarkingTypeTID: number, //	integer($int32)
     MeasuringToolDescription:	string,
     Comment: string,
-    Attachments?: Attachment[]
+    Attachments?: Attachment[],
+    Extent?: number[][],
+    StartExtent?: number[][],
+    StopExtent?: number[][],
    }
 
    export type TileProps = {

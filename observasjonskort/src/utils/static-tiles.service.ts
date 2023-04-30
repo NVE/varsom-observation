@@ -1,10 +1,12 @@
 import { bbox, bboxPolygon, booleanWithin, lineString } from '@turf/turf';
 import { Feature } from '@turf/turf';
 import { LatLngTuple } from 'leaflet';
-import { OfflineMapService } from 'src/app/core/services/offline-map/offline-map.service';
-import { UserSettingService } from 'src/app/core/services/user-setting/user-setting.service';
-import { MapSettings } from './map-settings';
-import { ITopoMapLayerOptions, ITopoMapSettings } from './map-settings';
+import { ITopoMapLayerOptions, ITopoMapSettings } from './map-settings-model';
+import { MapSettings as settings } from './map-settings';
+
+
+
+
 
 export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings[], location: Feature) {
   return (
@@ -17,7 +19,7 @@ export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings
         return true;
       })
       // Grab the map layer config for each map layer
-      .map((map) => ({ layerId: map.layer, layerConfig: settings.map.tiles.topoMapLayers[map.layer] }))
+      .map((map) => ({ layerId: map.layer, layerConfig: settings.map.tiles.topoMapLayers[map.layer.toString()]})) 
       // A map layer may specify a bounds property as well, specifying what extent the map service has
       .filter(({ layerConfig }) => {
         // If bounds are not specified, assume the map layer is valid for this location
@@ -60,44 +62,47 @@ function formatTileUrl(urlTemplate: string, tileX: number, tileY: number, tileZo
  * This service can provide a list of map layers that should be
  * used for a web map image for a certain location.
  */
-@Injectable()
-export class MapLayersService {
-  constructor(private userSettings: UserSettingService) {}
 
-  private async getUserSelectedMapConfig() {
+export class MapLayersService {
+  //constructor(private userSettings: UserSettingService) {}
+
+ /* private async getUserSelectedMapConfig() {
     const { topoMap: userSelectedMap } = await firstValueFrom(this.userSettings.userSetting$);
     const mapConfig = settings.map.tiles.topoMaps[userSelectedMap];
     return mapConfig;
   }
-
-  async getMapLayerForLocation(location: Feature) {
-    const mapConfig = await this.getUserSelectedMapConfig();
-    const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
-    return mapLayers;
+*/
+  async getMapLayerForLocation(//location: Feature) {
+  ){
+   // const mapConfig = await this.getUserSelectedMapConfig();
+    //const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
+    return null;//mapLayers;
   }
 
-  getUrlForTile(mapId: string, options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number) {
+  getUrlForTile(
+    //mapId: string, 
+    options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number) {
     return formatTileUrl(options.url, tileX, tileY, tileZoom);
   }
 }
 
-@Injectable()
+/*
 export class OfflineCapableMapLayersService extends MapLayersService {
-  constructor(userSettings: UserSettingService, private offlineMapService: OfflineMapService) {
+  constructor(userSettings: UserSettingService){ //,private offlineMapService: OfflineMapService) {
     super(userSettings);
   }
 
   getUrlForTile(mapId: string, options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number): string {
-    const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
+//    const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
 
-    if (mapPackage == null) {
+  /*  if (mapPackage == null) {
       return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
     }
-
-    if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
+*/
+/*    if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
       return formatTileUrl(`${mapPackage.url}/{z}/{x}/{y}.png`, tileX, tileY, tileZoom);
     }
-
-    return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
-  }
-}
+*/
+    //return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
+ // }
+//}

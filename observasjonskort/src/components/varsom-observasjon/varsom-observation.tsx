@@ -7,7 +7,6 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
-import { ImageLocation } from './observation-model';
 
 @Component({
   tag: 'varsom-observation',
