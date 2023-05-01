@@ -20,11 +20,11 @@ import * as L from 'leaflet';
   availableOffline?: boolean;
   bounds: L.LatLngTuple[];
 }
-
+/*
  interface SupportTileStore extends SubTileStore {
   opacity: number;
   subTile?: SubTileStore;
-}
+}*/ 
 
  interface SubTileStore {
   name: string;
