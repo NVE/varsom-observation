@@ -544,8 +544,6 @@ export namespace Components {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
-        "latitude": number;
-        "longitude": number;
         "observation"?: Observation;
     }
     interface VarsomStratProfile {
@@ -1516,8 +1514,6 @@ declare namespace LocalJSX {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
-        "latitude"?: number;
-        "longitude"?: number;
         "observation"?: Observation;
     }
     interface VarsomStratProfile {

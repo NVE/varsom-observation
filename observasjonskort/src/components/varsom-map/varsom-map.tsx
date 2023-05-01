@@ -11,7 +11,7 @@ import * as L from 'leaflet'
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { MapLayersService } from '../../utils/static-tiles.service';
 
-import { ReplaySubject, Subject, debounceTime, distinctUntilChanged, map, share, skipWhile, takeUntil } from 'rxjs';
+import { race, ReplaySubject, Subject, debounceTime, distinctUntilChanged, interval, map, share, skipWhile, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -22,13 +22,17 @@ import { ReplaySubject, Subject, debounceTime, distinctUntilChanged, map, share,
 })
 export class VarsomStaticMap {
 
-  @Prop() latitude: number;
-  @Prop() longitude: number;
   @Prop() allowZoom?: boolean;
-  @Prop() observation?: Observation
+  @Prop() observation?: Observation;
+
+  componentCreatedOrResized: any; 
+  ngDestroy$: any;
   //const trackByImgProps: TrackByFunction<TileProps> = (index, item) => item.src;
   //const trackByGraphic: TrackByFunction<Graphic> = (index, item) => item.id;
   
+
+  container: HTMLElement;
+
   // We only have map services with 256px tiles at the moment.
   TILE_SIZE = 256;
   PADDING = 15;
@@ -56,8 +60,8 @@ export class VarsomStaticMap {
     tiles: TileProps[] = null;
     graphics: Graphic[] = [];
   
+     
     
-    private componentCreatedOrResized = new Subject<void>();
     private size = new ReplaySubject<{ w: number; h: number }>(1);
     size$ = this.size.pipe(
       // NB! The debounceTime here must be lower than the interval time
@@ -78,9 +82,50 @@ componentDidRender(){
    
     // Create map after view has been initialized, we need the component to be in the dom
     // to figure out the container size
-    startSizeFinder();
+    this.startSizeFinder();
   }
-}
+
+  componentWillLoad(){
+    console.log(this.observation)
+    this.componentCreatedOrResized = new Subject<void>();
+    this.ngDestroy$ = new Subject<void>();  //TODO ????
+
+    this.componentCreatedOrResized
+    .pipe(
+      takeUntil(this.ngDestroy$),
+      // Use a large debounceTime. If the user is resizing the window, we want to recreate the
+      // map after resizing is finished.
+      debounceTime(500)
+    ).subscribe(() => this.updateContainerSize());
+
+  this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
+
+  //tester...
+  this.createMap(10, 10 );
+//tester...
+  }
+
+  
+  startSizeFinder() {
+    // Read map container size
+    interval(500)
+      .pipe(
+        // When we have a valid size emitted on size$, stop the interval
+        takeUntil(race(this.size$))//, this.ngDestroy$))  //TODO stop interval
+      )
+      .subscribe(() => this.updateContainerSize());
+  }
+
+   
+  updateContainerSize() {
+    if (this.container){//.nativeElement) {
+      //const { width: w, height: h } = this.container.nativeElement.getBoundingClientRect();
+      const w = this.container.clientWidth;
+      const h = this.container.clientHeight;
+      this.size.next({ w, h });
+      //this.size.next({ w, h });
+    }
+  }
 
     /*get trackByImgProps() {
       return trackByImgProps;
@@ -93,30 +138,14 @@ componentDidRender(){
     mercator = new SphericalMercator({ size: this.TILE_SIZE});
   
     //  private sanitizer: DomSanitizer,
-      //private cdr: ChangeDetectorRef,
-    private mapLayerService: MapLayersService;
-      //private logger: LoggingService
+    //private cdr: ChangeDetectorRef,
+    mapLayerService: MapLayersService;
+    //private logger: LoggingService
      
-  
-  
-      this.componentCreatedOrResized
-        .pipe(
-          takeUntil(this.ngDestroy$),
-          // Use a large debounceTime. If the user is resizing the window, we want to recreate the
-          // map after resizing is finished.
-          debounceTime(500)
-        )
-        .subscribe(() => this.updateContainerSize());
-  
-      this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
     
-  
- 
-  
 
-  
       
-    private getTileProperties(
+   getTileProperties(
       mapId: string,
       config: ITopoMapLayerOptions,
       { w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
@@ -124,6 +153,7 @@ componentDidRender(){
       h: number, // Map height
       tileSize: number
     ): TileProps[] {
+      console.log("tileproperties");
       const result: TileProps[] = [];
       const cornerTileX = Math.floor(x0 / tileSize);
       const cornerTileY = Math.floor(y0 / tileSize);
@@ -144,7 +174,7 @@ componentDidRender(){
       return result;
     }
 
-    private getDamagePositions(obs: Observation) {
+   getDamagePositions(obs: Observation) {
       if (obs && obs._damageObs && obs._damageObs.some((d) => d.DamagePosition)) {
         return obs._damageObs.filter(
           (d) => d.DamagePosition && d.DamagePosition.Latitude && d.DamagePosition.Longitude
@@ -153,7 +183,7 @@ componentDidRender(){
       return undefined;
     }
 
-    private getLocation(obs: Observation): ImageLocation {
+   getLocation(obs: Observation): ImageLocation {
       return {
         latLng: L.latLng(obs._latitude, obs._longitude),
         geoHazard: getGeoHazardIdFromName(obs._geoHazardName),
@@ -162,7 +192,7 @@ componentDidRender(){
       };
     }
 
-    private getStartStopLocation(obs: Observation): ImageLocationStartStop {
+   getStartStopLocation(obs: Observation): ImageLocationStartStop {
       if (obs._avalancheObs) {
         return {
           ...this.obs2Latlng(obs._avalancheObs),
@@ -188,14 +218,14 @@ componentDidRender(){
       return undefined;
     }
   
-    private obs2Latlng(obs: LandslideObs | AvalancheObs) {
+     obs2Latlng(obs: LandslideObs | AvalancheObs) {
       return {
         start: obs.StartLat && obs.StartLong ? L.latLng(obs.StartLat, obs.StartLong) : undefined,
         stop: obs.StopLat && obs.StopLong ? L.latLng(obs.StopLat, obs.StopLong) : undefined,
       };
     }
 
-    private extent2Polygon(extent: number[][], color: string) {
+     extent2Polygon(extent: number[][], color: string) {
       return extent
         ? new L.Polygon(
             extent.map(([lng, lat]) => [lat, lng]),
@@ -226,7 +256,7 @@ componentDidRender(){
       return positions;
     }
   
-    private getStartZoom() {
+     getStartZoom() {
       // If start / stop avalanche should be plotted, start more zoomed in. If we are zoomed out we cant see the
       // avalanche path.
       const location = this.getLocation(this.observation);
@@ -242,7 +272,7 @@ componentDidRender(){
       
     }
   
-    private getLatLngBounds(positions: LatLng[]): {
+     getLatLngBounds(positions: LatLng[]): {
       latLngBounds: LatLngBounds;
       geojsonBounds: Feature<Polygon>;
     } {
@@ -306,7 +336,7 @@ componentDidRender(){
       return { zoom, n, s, e, w };
     }
   
-    private getPolygons(): PolygonsToPlot {
+     getPolygons(): PolygonsToPlot {
       const location = this.getLocation(this.observation);
       // getLatLngs on polygons may return nested arrays with depth of 3 therefore we use flat(3) to simplify the result
       const polygons = {} as PolygonsToPlot;
@@ -323,7 +353,7 @@ componentDidRender(){
       return polygons;
     }
   
-    private async createMap(w: number, h: number) {
+     async createMap(w: number, h: number) {
       const positions = this.getPositionsToPlot();
       const polygons = this.getPolygons();
       //add all positions together to find max and min latlng
@@ -350,7 +380,7 @@ componentDidRender(){
   //    this.cdr.detectChanges(); // Async operation, so we must notify angular that changes has occured
     }
   
-    private createGraphics(
+     createGraphics(
       positions: PositionToPlot[],
       polygons: PolygonsToPlot,
       { w: x0, n: y0, zoom }: MercatorBounds
@@ -393,7 +423,7 @@ componentDidRender(){
       }
     }
   
-    private createPolygons(polygons: LatLng[], w: number, n: number, zoom: number, fill: string) {
+     createPolygons(polygons: LatLng[], w: number, n: number, zoom: number, fill: string) {
       const mercatorPoints = this.getMercatorPointsFromPolygonsLtLng(polygons, zoom);
       const listOfXPoints = mercatorPoints.map((l) => l.Latitude);
       const listOfYPoints = mercatorPoints.map((l) => l.Longitude);
@@ -430,7 +460,7 @@ componentDidRender(){
       });
     }
   
-    private getMercatorPointsFromPolygonsLtLng(polygons: LatLng[], zoom: number): LatLng[] {
+     getMercatorPointsFromPolygonsLtLng(polygons: LatLng[], zoom: number): LatLng[] {
       const points: LatLng[] = [];
       for (let i = 0; i < polygons.length; i++) {
         const [xA, yA] = this.mercator.px([polygons[i].Longitude, polygons[i].Latitude], zoom);
@@ -448,13 +478,13 @@ componentDidRender(){
       return points;
     }
   
-    private createPolylinesPointsFromMercatorPoints(lines: LatLng[], svg_x0: number, svg_y0: number): number[][] {
+     createPolylinesPointsFromMercatorPoints(lines: LatLng[], svg_x0: number, svg_y0: number): number[][] {
       return lines.map((l) => {
         return [l.Latitude - svg_x0, l.Longitude - svg_y0];
       });
     }
   
-    private createCenterMarker(topPx: number, leftPx: number) {
+     createCenterMarker(topPx: number, leftPx: number) {
       const location = this.getLocation(this.observation);
       const svg = //this.sanitizer.bypassSecurityTrustHtml(
         RegobsGeoHazardMarker.getIconSvg(location.geoHazard); //)
@@ -465,7 +495,7 @@ componentDidRender(){
       this.graphics.push({ svg, style, id: 'centerMarker' });
     }
   
-    private createStartGraphic(topPx: number, leftPx: number) {
+     createStartGraphic(topPx: number, leftPx: number) {
       const w = 18;
       const h = 28;
   
@@ -478,7 +508,7 @@ componentDidRender(){
         },
       });
     }
-    private createStopGraphic(topPx: number, leftPx: number) {
+     createStopGraphic(topPx: number, leftPx: number) {
       const w = 18;
       const h = 28;
   
@@ -492,7 +522,7 @@ componentDidRender(){
       });
     }
   
-    private createStartStopLine(start: { x: number; y: number }, stop: { x: number; y: number }, x0: number, y0: number) {
+     createStartStopLine(start: { x: number; y: number }, stop: { x: number; y: number }, x0: number, y0: number) {
       const svg_x0 = Math.min(start.x, stop.x) - this.SVG_PADDING;
       const svg_y0 = Math.min(start.y, stop.y) - this.SVG_PADDING;
       const w = Math.ceil(Math.abs(start.x - stop.x)) + this.SVG_PADDING * 2;
@@ -524,27 +554,13 @@ componentDidRender(){
       //this.logger.debug('WARNING! Damage graphics not implemented in obs card');
     }
     
+ 
   
-     updateContainerSize() {
-      if (this.container?.nativeElement) {
-        const { width: w, height: h } = this.container.nativeElement.getBoundingClientRect();
-        this.size.next({ w, h });
-      }
-    }
-  
-    startSizeFinder() {
-      // Read map container size
-      interval(500)
-        .pipe(
-          // When we have a valid size emitted on size$, stop the interval
-          takeUntil(race(this.size$, this.ngDestroy$))
-        )
-        .subscribe(() => this.updateContainerSize());
-    }
   
 
   render(){
-    return <div class="container">
+    return <div class="container" ref={(el) => this.container = el as HTMLElement}>
+      {console.log(this.tiles)} 
       {this.tiles.map((el) =>{
 return <img
 src={el.toString()}
@@ -566,8 +582,7 @@ return <div class="graphic">
   </div>  
 
 }
-}
-    
+} 
   
 
   

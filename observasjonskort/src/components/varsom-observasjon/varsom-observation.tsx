@@ -567,8 +567,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       
 {/* STATIC MAP */}
 <varsom-static-map
-latitude={obs._latitude}
-longitude={obs._longitude}
+observation={obs}
 allowZoom={true}
 ></varsom-static-map>
 
