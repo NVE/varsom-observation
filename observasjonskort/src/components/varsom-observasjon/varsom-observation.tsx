@@ -561,7 +561,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       {/*map*/}     
       <div class="map-container">
       <div>
-        <img class="map" src={getAssetPath("/pictures/mapRegobs.png")}></img>
+        <img class="map" alt="map for observation" src={getAssetPath("/pictures/mapRegobs.png")}></img>
       </div>
       </div>
 

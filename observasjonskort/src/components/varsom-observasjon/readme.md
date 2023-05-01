@@ -51,6 +51,7 @@
 - [varsom-general-observation](../varsom-general-observation)
 - [varsom-incident](../varsom-incident)
 - [varsom-attachment](../varsom-attachment)
+- [varsom-regobs-link](../varsom-regobs-link)
 
 ### Graph
 ```mermaid
@@ -84,6 +85,7 @@ graph TD;
   varsom-observation --> varsom-general-observation
   varsom-observation --> varsom-incident
   varsom-observation --> varsom-attachment
+  varsom-observation --> varsom-regobs-link
   varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value

@@ -74,10 +74,10 @@ for (let i = 0; i < this._images.length; i=i+2){
 return <div class="slideshow-container">
    {this._images.length > num ? 
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="mySlides fade">
-  <img class={this._images.length == 1 ? "observation-images first" : "observation-images"}  src={this._images[num]._imageData}></img>
+  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class={this._images.length == 1 ? "observation-images first" : "observation-images"}  src={this._images[num]._imageData}></img>
 
   {this._images.length > num+1 ? 
-  <img class="observation-images" src={this._images[num+1]._imageData}></img>
+  <img alt={this._images[num+1]._comment ? this._images[num+1]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}></img>
   : null}  
 
 {!this.shortVersion ? 
