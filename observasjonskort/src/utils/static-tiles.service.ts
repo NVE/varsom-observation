@@ -8,6 +8,7 @@ import { MapSettings as settings } from './map-settings';
 
 
 
+
 export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings[], location: Feature) {
   return (
     maps
@@ -64,14 +65,15 @@ function formatTileUrl(urlTemplate: string, tileX: number, tileY: number, tileZo
  */
 
 export class MapLayersService {
-  //constructor(private userSettings: UserSettingService) {}
+  constructor(private userSettings: UserSettingService) {}
 
- /* private async getUserSelectedMapConfig() {
-    const { topoMap: userSelectedMap } = await firstValueFrom(this.userSettings.userSetting$);
+  private async getUserSelectedMapConfig() {
+    const { topoMap: userSelectedMap } = //await firstValueFrom(this.userSettings.userSetting$);
+    this.userSettings.userSetting$;
     const mapConfig = settings.map.tiles.topoMaps[userSelectedMap];
     return mapConfig;
   }
-*/
+  
   async getMapLayerForLocation(//location: Feature) {
   ){
    // const mapConfig = await this.getUserSelectedMapConfig();
@@ -86,7 +88,7 @@ export class MapLayersService {
   }
 }
 
-/*
+
 export class OfflineCapableMapLayersService extends MapLayersService {
   constructor(userSettings: UserSettingService){ //,private offlineMapService: OfflineMapService) {
     super(userSettings);
@@ -95,14 +97,14 @@ export class OfflineCapableMapLayersService extends MapLayersService {
   getUrlForTile(mapId: string, options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number): string {
 //    const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
 
-  /*  if (mapPackage == null) {
+    if (mapPackage == null) {
       return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
     }
-*/
-/*    if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
+
+    if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
       return formatTileUrl(`${mapPackage.url}/{z}/{x}/{y}.png`, tileX, tileY, tileZoom);
     }
-*/
-    //return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
- // }
-//}
+
+    return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
+  }
+}

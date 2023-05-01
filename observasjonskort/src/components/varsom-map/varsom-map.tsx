@@ -146,6 +146,7 @@ componentDidRender(){
 
       
    getTileProperties(
+    
       mapId: string,
       config: ITopoMapLayerOptions,
       { w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
@@ -171,6 +172,7 @@ componentDidRender(){
         }
       }
   
+      
       return result;
     }
 
@@ -377,6 +379,7 @@ componentDidRender(){
   
       this.createGraphics(positions, polygons, mercatorBounds);
   
+    
   //    this.cdr.detectChanges(); // Async operation, so we must notify angular that changes has occured
     }
   
@@ -550,11 +553,11 @@ componentDidRender(){
       });
     }
   
-    createDamageGraphic(topPx: number, leftPx: number) {
+    /*createDamageGraphic(topPx: number, leftPx: number) {
       //this.logger.debug('WARNING! Damage graphics not implemented in obs card');
     }
     
- 
+ */
   
   
 
