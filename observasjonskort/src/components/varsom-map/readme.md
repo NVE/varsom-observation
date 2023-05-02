@@ -7,36 +7,23 @@
 
 ## Properties
 
-| Property             | Attribute              | Description | Type      | Default     |
-| -------------------- | ---------------------- | ----------- | --------- | ----------- |
-| `Aspect`             | `aspect`               |             | `any`     | `undefined` |
-| `AttachmentId`       | `attachment-id`        |             | `any`     | `undefined` |
-| `AttachmentMimeType` | `attachment-mime-type` |             | `any`     | `undefined` |
-| `Comment`            | `comment`              |             | `any`     | `undefined` |
-| `Copyright`          | `copyright`            |             | `any`     | `undefined` |
-| `CropImage`          | `crop-image`           |             | `boolean` | `undefined` |
-| `GeoHazardName`      | `geo-hazard-name`      |             | `any`     | `undefined` |
-| `GeoHazardTID`       | `geo-hazard-t-i-d`     |             | `any`     | `undefined` |
-| `IsMainAttachment`   | `is-main-attachment`   |             | `any`     | `undefined` |
-| `Photographer`       | `photographer`         |             | `any`     | `undefined` |
-| `RegistrationName`   | `registration-name`    |             | `any`     | `undefined` |
-| `RegistrationTID`    | `registration-t-i-d`   |             | `any`     | `undefined` |
-| `Url`                | `url`                  |             | `any`     | `undefined` |
-| `shortVersion`       | `short-version`        |             | `any`     | `undefined` |
-| `strings`            | `strings`              |             | `any`     | `undefined` |
+| Property      | Attribute    | Description | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default     |
+| ------------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `allowZoom`   | `allow-zoom` |             | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `undefined` |
+| `observation` | --           |             | `{ _moh?: number; _geoHazardName?: string; _registrationName?: string; _imageUrl?: string; _region?: string; _regId?: number; _municipality?: string; _source?: string; _sourceOfPositioning?: string; _precision?: string; _dateOfObservation?: Date; _dateOfRegistration?: Date; _dateOfLastUpdate?: Date; _observer?: Observer; _typeOfWeather?: string; _latitude?: number; _longitude?: number; _signsOfDanger?: SignsOfDanger; _dangerObs?: DangerObs[]; _landslideObs?: LandslideObs; _avalancheObs?: AvalancheObs; _weather?: WeatherObservation; _test?: Test; _snowProfile?: SnowProfile; _landslideProblem?: LandslideProblem; _estimateOfRisk?: EstimateOfRisk; _snowSurfaceObservation?: SnowSurfaceObservation; _dataSource?: any; _className?: string; _observationImages?: HTMLElement[]; Attachments?: Attachment[]; _observerGroupName?: string; _avalancheActivityObs2?: AvalancheActivityObs2[]; _iceCoverObs?: IceCoverObs; _iceThickness?: IceThickness; _waterLevel2?: WaterLevel2; _damageObs?: DamageObs[]; _obsLocation?: ObsLocation; _avalancheEvalProblem?: AvalancheEvalProblem[]; _avalancheEvalProblem2?: AvalancheEvalProblem2[]; _avalancheEvaluation3?: AvalancheEvaluation3; _compressionTest?: CompressionTest[]; _generalObservation?: GeneralObservation; _incident?: Incident; _snowProfile2?: SnowProfile2; _avalancheEvaluation?: AvalancheEvaluation; _avalancheActivityObs?: AvalancheActivityObs; _avalancheDangerObs?: AvalancheDangerObs[]; _avalancheEvaluation2?: AvalancheEvaluation2; _snowCoverObs?: SnowCoverObs; _waterLevel?: WaterLevel; _images?: Image[]; _dtObsTime?: string; _loopNumbers?: number[]; }` | `undefined` |
 
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [varsom-key-value](../varsom-key-value)
+ - [varsom-observation](../varsom-observasjon)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-map --> varsom-key-value
-  style varsom-map fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-observation --> varsom-static-map
+  style varsom-static-map fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

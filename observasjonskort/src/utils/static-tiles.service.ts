@@ -3,6 +3,8 @@ import { Feature } from '@turf/turf';
 import { LatLngTuple } from 'leaflet';
 import { ITopoMapLayerOptions, ITopoMapSettings } from './map-settings-model';
 import { MapSettings as settings } from './map-settings';
+import { UserSettingService } from './user-setting.service';
+import { firstValueFrom } from 'rxjs';
 
 
 
@@ -67,20 +69,19 @@ function formatTileUrl(urlTemplate: string, tileX: number, tileY: number, tileZo
 export class MapLayersService {
   constructor(private userSettings: UserSettingService) {}
 
-  private async getUserSelectedMapConfig() {
-    const { topoMap: userSelectedMap } = //await firstValueFrom(this.userSettings.userSetting$);
-    this.userSettings.userSetting$;
+   async getUserSelectedMapConfig() {
+    const { topoMap: userSelectedMap } = await firstValueFrom(this.userSettings.userSetting$);  
     const mapConfig = settings.map.tiles.topoMaps[userSelectedMap];
     return mapConfig;
   }
   
-  async getMapLayerForLocation(//location: Feature) {
-  ){
-   // const mapConfig = await this.getUserSelectedMapConfig();
-    //const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
-    return null;//mapLayers;
+  async getMapLayerForLocation(location: Feature) {
+  {
+    const mapConfig = await this.getUserSelectedMapConfig();
+    const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
+    return mapLayers;
   }
-
+}
   getUrlForTile(
     //mapId: string, 
     options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number) {
@@ -94,17 +95,19 @@ export class OfflineCapableMapLayersService extends MapLayersService {
     super(userSettings);
   }
 
-  getUrlForTile(mapId: string, options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number): string {
-//    const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
+  getUrlForTile(//mapId: string, 
+    options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number): string {
+  //  const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
 
-    if (mapPackage == null) {
-      return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
-    }
+  //  if (mapPackage == null) {
+  //    return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
+   // }
 
-    if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
-      return formatTileUrl(`${mapPackage.url}/{z}/{x}/{y}.png`, tileX, tileY, tileZoom);
-    }
+    //if (tileZoom <= mapPackage.zMax && tileZoom >= mapPackage.zMin) {
+     // return formatTileUrl(`${mapPackage.url}/{z}/{x}/{y}.png`, tileX, tileY, tileZoom);
+   // }
 
-    return super.getUrlForTile(mapId, options, tileX, tileY, tileZoom);
+    return super.getUrlForTile(//mapId,
+    options, tileX, tileY, tileZoom);
   }
 }

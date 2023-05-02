@@ -1,13 +1,11 @@
-import { BehaviorSubject, combineLatest, firstValueFrom, from, Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, firstValueFrom,
+   Observable } from 'rxjs';
 import {
-  catchError,
-  concatMap,
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
   shareReplay,
-  switchMap,
   takeUntil,
   tap,
 } from 'rxjs/operators';
@@ -20,7 +18,7 @@ import equal from 'fast-deep-equal'
 import { Subject } from 'rxjs'
 import { DEFAULT_USER_SETTINGS } from './user-settings.default';
 import { settings } from './settings';
-const DEBUG_TAG = 'UserSettingService';
+//const DEBUG_TAG = 'UserSettingService';
 
 
 export class UserSettingService  {
@@ -149,7 +147,7 @@ export class UserSettingService  {
     this.createSaveToDbOnChangeListener();
   }
 /*
-  private createLanguageChangeListener() {
+  private createLanguageChangeListener() {  //registerLocaleData is angular code...
     this.language$.pipe(takeUntil(this. troy$)).subscribe((langKey) => {
       const lang = LangKey[langKey];
       switch (langKey) {
@@ -192,7 +190,7 @@ componentWillLoad(){
         filter((result) => !!result),
         debounceTime(200),
         tap((result) =>
-        console.log("inmemory user settings changed. saving to db...???")
+        console.log("inmemory user settings changed. saving to db...???: ", result)
         //  this.loggingService?.debug('InMemory user settings changed. Saving to db: ', DEBUG_TAG, result)
         ),
         //switchMap((result) => this.saveUserSettingsToDb(result)),

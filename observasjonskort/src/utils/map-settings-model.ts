@@ -69,7 +69,7 @@ type TopoMapLayersSettings = {
 };
 
 export interface ITopoMapSettings {
-  layer: keyof typeof TopoMapLayer;
+  layer: string; //keyof typeof TopoMapLayer;
 
   /**
    * TileLayerOptions to override "default" tile layer options

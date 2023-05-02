@@ -147,7 +147,7 @@ componentDidRender(){
       
    getTileProperties(
     
-      mapId: string,
+     // mapId: string,
       config: ITopoMapLayerOptions,
       { w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
       w: number, // Map width
@@ -161,7 +161,7 @@ componentDidRender(){
   
       for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
         for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
-          const url = this.mapLayerService.getUrlForTile(//mapId
+          const url = this.mapLayerService.getUrlForTile(//mapId,
           config, tileX, tileY, zoom);
   
           result.push({
@@ -367,14 +367,16 @@ componentDidRender(){
         ...(polygons.endPolygon ? polygons.endPolygon : []),
       ];
   
-      const { latLngBounds, //geojsonBounds
+      const { latLngBounds, geojsonBounds
      } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
-      const mapLayers = await this.mapLayerService.getMapLayerForLocation();//geojsonBounds);
+      const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
       // Map tiles
       this.tiles = mapLayers
-        .map(({ layerId, layerConfig }) => this.getTileProperties(layerId, layerConfig, mercatorBounds, w, h, this.TILE_SIZE))
+        .map(({ //layerId,
+           layerConfig }) => this.getTileProperties(//layerId, 
+        layerConfig, mercatorBounds, w, h, this.TILE_SIZE))
         .flat();
   
       this.createGraphics(positions, polygons, mercatorBounds);

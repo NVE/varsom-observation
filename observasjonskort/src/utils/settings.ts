@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
 
+import { MapLayerZIndex } from "../models/maplayer-zindex.enum";
 import { ISettings } from "./map-settings-model";
 import { NORWAY_BOUNDS } from "./norway-bounds";
 import { SVALBARD_BOUNDS } from "./svalbard-bounds";
+
 
 export const settings: ISettings = {
   authConfig: {
