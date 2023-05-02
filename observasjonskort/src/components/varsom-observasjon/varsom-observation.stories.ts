@@ -2,7 +2,7 @@ export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-ste
     title: 'Components/VarsomObservation',
     argTypes: {
         language: { control: "select", options: ["en", "de", "it",
-    "sl", "nn", "nb", "sv"] },
+    "sl", "nn", "nb", "sv", "da", "fr"] },
     type: {control: "select", options: ["Snow", "Ice", "Dirt", "Water", ""]}
       }
      
