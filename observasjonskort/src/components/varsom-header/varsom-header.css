@@ -3,6 +3,19 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 700px) {
+  .container{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+ span {
+  font-weight: 800;
+  font-size: x-large;
+  margin: 0.5rem;
+ }
+}
+
 span {
   font-weight: 800;
   font-size: x-large;
