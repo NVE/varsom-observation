@@ -1,4 +1,4 @@
-import { Component, Prop, State, Listen } from "@stencil/core";
+/*import { Component, Prop, State, Listen } from "@stencil/core";
 import { ViewportSize} from "../viewport-size-publisher/viewport-size-publisher";
 @Component({
   tag: 'group-home-page'
@@ -68,3 +68,5 @@ export class GroupHomePage {
     ];
   }
 }
+
+*/
