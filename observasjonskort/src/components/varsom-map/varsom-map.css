@@ -7,7 +7,6 @@
 }
   
   .tile {
-    position: absolute;
     width: 256px !important;
     height: 256px !important;
     max-height: 256px !important;
@@ -16,5 +15,7 @@
   }
 
   .graphic {
-    position: absolute;
+    
+    top: 90px;
+    left: 90px;
   }

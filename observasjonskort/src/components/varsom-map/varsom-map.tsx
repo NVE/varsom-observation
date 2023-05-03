@@ -25,6 +25,12 @@ export class VarsomStaticMap {
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
 
+  tiles: TileProps[];//null;
+  graphics: Graphic[];     
+  
+    //  private sanitizer: DomSanitizer,
+    //private cdr: ChangeDetectorRef,
+  mapLayerService = new MapLayersService();
   componentCreatedOrResized: any; 
   ngDestroy$: any;
   //const trackByImgProps: TrackByFunction<TileProps> = (index, item) => item.src;
@@ -37,7 +43,9 @@ export class VarsomStaticMap {
   TILE_SIZE = 256;
   PADDING = 15;
   SVG_PADDING = 20;
-  
+
+  mercator = new SphericalMercator({ size: this.TILE_SIZE});
+
    createGeojsonBounds = ({ minLng, minLat, maxLng, maxLat }: LatLngBounds): Feature<Polygon> => ({
     type: 'Feature',
     properties: {},
@@ -57,8 +65,7 @@ export class VarsomStaticMap {
   });
   
    
-    tiles: TileProps[] = null;
-    graphics: Graphic[] = [];
+
   
      
     
@@ -79,17 +86,10 @@ export class VarsomStaticMap {
 
   
 componentDidRender(){
-   
+   /*
     // Create map after view has been initialized, we need the component to be in the dom
     // to figure out the container size
-    this.startSizeFinder();
-  }
-
-  componentWillLoad(){
-    console.log(this.observation)
-    this.componentCreatedOrResized = new Subject<void>();
-    this.ngDestroy$ = new Subject<void>();  //TODO ????
-
+    //this.startSizeFinder();
     this.componentCreatedOrResized
     .pipe(
       takeUntil(this.ngDestroy$),
@@ -97,12 +97,24 @@ componentDidRender(){
       // map after resizing is finished.
       debounceTime(500)
     ).subscribe(() => this.updateContainerSize());
+*/
+  //this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
 
-  this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
 
-  //tester...
-  this.createMap(10, 10 );
-//tester...
+  //this.createMap(2000,2000);    
+  }
+
+ async componentWillLoad(){
+    this.tiles = [];
+    this.graphics = [];
+    this.componentCreatedOrResized = new Subject<void>();
+    this.ngDestroy$ = new Subject<void>();  
+
+this.startSizeFinder();
+
+await this.createMap(20,20);  
+
+
   }
 
   
@@ -135,11 +147,7 @@ componentDidRender(){
       return trackByGraphic;
     }*/
   
-    mercator = new SphericalMercator({ size: this.TILE_SIZE});
-  
-    //  private sanitizer: DomSanitizer,
-    //private cdr: ChangeDetectorRef,
-    mapLayerService: MapLayersService;
+ 
     //private logger: LoggingService
      
     
@@ -154,25 +162,35 @@ componentDidRender(){
       h: number, // Map height
       tileSize: number
     ): TileProps[] {
-      console.log("tileproperties");
+      
       const result: TileProps[] = [];
-      const cornerTileX = Math.floor(x0 / tileSize);
-      const cornerTileY = Math.floor(y0 / tileSize);
+      //const cornerTileX = Math.floor(x0 / tileSize);
+      const cornerTileX = Math.ceil(w / tileSize);
+      //const cornerTileY = Math.floor(y0 / tileSize);
+      const cornerTileY = Math.ceil(h / tileSize);
   
-      for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
-        for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
+
+      //for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
+        for (let tileY = cornerTileY; tileY * tileSize < 500 + h; tileY++) {
+        //for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
+          for (let tileX = cornerTileX; tileX * tileSize < 500 + w; tileX++) {
           const url = this.mapLayerService.getUrlForTile(//mapId,
           config, tileX, tileY, zoom);
-  
+            
           result.push({
-             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
-            left: `${tileX * tileSize - x0}px`,
-            top: `${tileY * tileSize - y0}px`,
+            src: "https://services.geodataonline.no/arcgis/rest/services/Geocache_WMAS_WGS84/GeocacheLandskap/MapServer/tile/1/1/1?blankTile=false",
+            //url,//this.sanitizer.bypassSecurityTrustUrl(url),
+            //left: `${tileX * tileSize - x0}px`,
+            left: `${tileX * tileSize - 20}px`,
+            //top: `${tileY * tileSize - y0}px`
+            top: `${tileY * tileSize - 20}px`
           });
         }
       }
   
-      
+      console.log("srourcde " + result[0].src)
+      console.log("left: " + result[0].left)
+      console.log("top: " + result[0].top)
       return result;
     }
 
@@ -186,6 +204,7 @@ componentDidRender(){
     }
 
    getLocation(obs: Observation): ImageLocation {
+    console.log("getting location...")
       return {
         latLng: L.latLng(obs._latitude, obs._longitude),
         geoHazard: getGeoHazardIdFromName(obs._geoHazardName),
@@ -195,6 +214,7 @@ componentDidRender(){
     }
 
    getStartStopLocation(obs: Observation): ImageLocationStartStop {
+    console.log("getting start stop location...")
       if (obs._avalancheObs) {
         return {
           ...this.obs2Latlng(obs._avalancheObs),
@@ -237,7 +257,7 @@ componentDidRender(){
     }
 
     getPositionsToPlot(){
-
+      console.log("getting positions to plot...")
       const location = this.getLocation(this.observation);
 
       // This controls the draw order / z-index for graphics
@@ -278,6 +298,7 @@ componentDidRender(){
       latLngBounds: LatLngBounds;
       geojsonBounds: Feature<Polygon>;
     } {
+      console.log("getting latlng bounds...")
       const positionsForBoundsCheck = [...positions];
       const pos = positionsForBoundsCheck.shift();
       let minLat = pos.Latitude;
@@ -300,10 +321,12 @@ componentDidRender(){
     }
   
     getMercatorBounds(
+      
       { minLat, maxLat, minLng, maxLng }: LatLngBounds,
       width: number, // Map width in px
       height: number // Map height in px
     ): MercatorBounds {
+      console.log("getting merc bounds...")
       let zoom = this.getStartZoom();
   
       let n = 0;
@@ -339,6 +362,7 @@ componentDidRender(){
     }
   
      getPolygons(): PolygonsToPlot {
+      console.log("getting pol to plot ...")
       const location = this.getLocation(this.observation);
       // getLatLngs on polygons may return nested arrays with depth of 3 therefore we use flat(3) to simplify the result
       const polygons = {} as PolygonsToPlot;
@@ -356,6 +380,7 @@ componentDidRender(){
     }
   
      async createMap(w: number, h: number) {
+      console.log("creating map...")
       const positions = this.getPositionsToPlot();
       const polygons = this.getPolygons();
       //add all positions together to find max and min latlng
@@ -369,9 +394,15 @@ componentDidRender(){
   
       const { latLngBounds, geojsonBounds
      } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
+
+
+console.log("maplayerservice: " + this.mapLayerService);
+     
+      
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
+      
       // Map tiles
       this.tiles = mapLayers
         .map(({ //layerId,
@@ -379,6 +410,7 @@ componentDidRender(){
         layerConfig, mercatorBounds, w, h, this.TILE_SIZE))
         .flat();
   
+      
       this.createGraphics(positions, polygons, mercatorBounds);
   
     
@@ -386,30 +418,39 @@ componentDidRender(){
     }
   
      createGraphics(
+      
       positions: PositionToPlot[],
       polygons: PolygonsToPlot,
       { w: x0, n: y0, zoom }: MercatorBounds
     ) {
+      
       // Reset map graphics
       this.graphics = [];
       let start = null;
       let stop = null;
+
+      
       for (const { pos, type } of positions) {
         const [x, y] = this.mercator.px([pos.lng, pos.lat], zoom);
         const topPx = y - y0;
         const leftPx = x - x0;
   
         if (type === 'obs') {
+          
           this.createCenterMarker(topPx, leftPx);
         } else if (type === 'start') {
+          
           this.createStartGraphic(topPx, leftPx);
           start = { x, y };
         } else if (type === 'stop') {
+          
           this.createStopGraphic(topPx, leftPx);
           stop = { x, y };
         } else if (type === 'damage') {
+          
           //this.createDamageGraphic(topPx, leftPx);
         } else {
+          
           throw new Error('Type not implemented');
         }
       }
@@ -428,7 +469,9 @@ componentDidRender(){
       }
     }
   
+    
      createPolygons(polygons: LatLng[], w: number, n: number, zoom: number, fill: string) {
+      
       const mercatorPoints = this.getMercatorPointsFromPolygonsLtLng(polygons, zoom);
       const listOfXPoints = mercatorPoints.map((l) => l.Latitude);
       const listOfYPoints = mercatorPoints.map((l) => l.Longitude);
@@ -466,6 +509,7 @@ componentDidRender(){
     }
   
      getMercatorPointsFromPolygonsLtLng(polygons: LatLng[], zoom: number): LatLng[] {
+      
       const points: LatLng[] = [];
       for (let i = 0; i < polygons.length; i++) {
         const [xA, yA] = this.mercator.px([polygons[i].Longitude, polygons[i].Latitude], zoom);
@@ -490,6 +534,7 @@ componentDidRender(){
     }
   
      createCenterMarker(topPx: number, leftPx: number) {
+      
       const location = this.getLocation(this.observation);
       const svg = //this.sanitizer.bypassSecurityTrustHtml(
         RegobsGeoHazardMarker.getIconSvg(location.geoHazard); //)
@@ -501,6 +546,7 @@ componentDidRender(){
     }
   
      createStartGraphic(topPx: number, leftPx: number) {
+      
       const w = 18;
       const h = 28;
   
@@ -514,6 +560,7 @@ componentDidRender(){
       });
     }
      createStopGraphic(topPx: number, leftPx: number) {
+      
       const w = 18;
       const h = 28;
   
@@ -528,6 +575,7 @@ componentDidRender(){
     }
   
      createStartStopLine(start: { x: number; y: number }, stop: { x: number; y: number }, x0: number, y0: number) {
+      
       const svg_x0 = Math.min(start.x, stop.x) - this.SVG_PADDING;
       const svg_y0 = Math.min(start.y, stop.y) - this.SVG_PADDING;
       const w = Math.ceil(Math.abs(start.x - stop.x)) + this.SVG_PADDING * 2;
@@ -565,10 +613,11 @@ componentDidRender(){
 
   render(){
     return <div class="container" ref={(el) => this.container = el as HTMLElement}>
-      {console.log(this.tiles)} 
+    
+      {console.log("tilez : " + this.tiles[0].src)}
       {this.tiles.map((el) =>{
 return <img
-src={el.toString()}
+src={el.src}
 class="tile"
 loading="lazy"
 alt="Map tile"
@@ -579,7 +628,9 @@ decoding="async"
 
 {this.graphics.map((el) =>{
 return <div class="graphic">
+  
 {el.svg}
+
 </div>
 })
 }
