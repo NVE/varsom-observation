@@ -112,7 +112,7 @@ componentDidRender(){
 
 this.startSizeFinder();
 
-await this.createMap(2000,2000);  
+await this.createMap(200,200);  
 
 
   }
@@ -176,7 +176,7 @@ await this.createMap(2000,2000);
         //for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
           for (let tileX = cornerTileX; tileX * tileSize < w * 10; tileX++) {
           const url = this.mapLayerService.getUrlForTile(//mapId,
-          config, tileX, tileY, 10)//zoom);
+          config, tileX, tileY, 5)//zoom);
             
           result.push({
             src: //"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/7/34/68",
@@ -631,7 +631,7 @@ decoding="async"
 {this.graphics.map((el) =>{
 return <div class="graphic">
   
-{el.svg}
+<img src={getAssetPath(`/assets/icons/observasjonspunkt.svg`)}></img>
 
 </div>
 })
