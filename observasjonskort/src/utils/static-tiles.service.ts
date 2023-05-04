@@ -1,4 +1,4 @@
-import { TopoMap } from './../models/topo-map.enum';
+
 import { bbox, bboxPolygon, booleanWithin, lineString } from '@turf/turf';
 import { Feature } from '@turf/turf';
 import { LatLngTuple } from 'leaflet';
@@ -81,7 +81,6 @@ export class MapLayersService {
   async getMapLayerForLocation(location: Feature) {
   {
     const mapConfig = await this.getUserSelectedMapConfig();
-    //console.log("locoz: " + location.geometry.bbox[0]);
     const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
     return mapLayers;
   }

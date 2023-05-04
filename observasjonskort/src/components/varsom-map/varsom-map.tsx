@@ -296,22 +296,33 @@ await this.createMap(200,200);
       latLngBounds: LatLngBounds;
       geojsonBounds: Feature<Polygon>;
     } {
-      console.log("getting latlng bounds...")
-      const positionsForBoundsCheck = [...positions];
-      const pos = positionsForBoundsCheck.shift();
-      let minLat = pos.Latitude;
-      let maxLat = pos.Latitude;
-      let minLng = pos.Longitude;
-      let maxLng = pos.Longitude;
+     
+      let x = JSON.parse(JSON.stringify(positions));
+      let cc = Object.values(x[0]);
+      let xVal = cc.toString().split(",")[0];
+      let yVal = cc.toString().split(",")[1]; 
+
+      //const positionsForBoundsCheck = [...positions];
+      //const pos = positionsForBoundsCheck.shift();
+      let minLat: number = +xVal;
+      let maxLat: number = +xVal;
+      let minLng: number = +yVal;
+      let maxLng: number = +yVal;
+      //let minLat = pos.Latitude;
+      //let maxLat = pos.Latitude;
+      //let minLng = pos.Longitude;
+      //let maxLng = pos.Longitude;
   
-      while (positionsForBoundsCheck.length) {
+
+
+    /*  while (positionsForBoundsCheck.length) {
         const pos = positionsForBoundsCheck.shift();
         minLat = pos.Latitude < minLat ? pos.Latitude : minLat;
         maxLat = pos.Latitude > maxLat ? pos.Latitude : maxLat;
         minLng = pos.Longitude < minLng ? pos.Longitude : minLng;
         maxLng = pos.Longitude > maxLng ? pos.Longitude : maxLng;
       }
-  
+  */
       const latLngBounds = { minLat, minLng, maxLat, maxLng };
       const geojsonBounds = this.createGeojsonBounds(latLngBounds);
   
@@ -390,8 +401,6 @@ await this.createMap(200,200);
         ...(polygons.endPolygon ? polygons.endPolygon : []),
       ];
   
-
-
       const { latLngBounds, geojsonBounds
      } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
      
@@ -399,10 +408,10 @@ await this.createMap(200,200);
 
 console.log("maplayerservice: " + this.mapLayerService);
      
-      console.log("geogeo:" + geojsonBounds.geometry.coordinates)
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
+
       
       // Map tiles
       this.tiles = mapLayers
