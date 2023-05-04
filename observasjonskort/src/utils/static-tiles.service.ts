@@ -19,7 +19,9 @@ export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings
         if (map.excludeBounds.some((bounds) => booleanWithin(location, bounds))) return false;
         return true;
       })
+      
       // Grab the map layer config for each map layer
+      //.map((map) => ({ layerId: map.layer, layerConfig: settings.map.tiles.topoMapLayers[map.layer.toString()]})) 
       .map((map) => ({ layerId: map.layer, layerConfig: settings.map.tiles.topoMapLayers[map.layer.toString()]})) 
       // A map layer may specify a bounds property as well, specifying what extent the map service has
       .filter(({ layerConfig }) => {
@@ -28,6 +30,7 @@ export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings
 
         // Check if we are inside the bounds.
         // turf needs lng lat and not lat lng.
+        
         const lngLatBounds = [...(layerConfig.options.bounds as [LatLngTuple, LatLngTuple])].map((p) => [p[1], p[0]]);
         // We don't know what ordering options.bounds has, if it is [nw, se] or [sw, ne] etc, everything is allowed.
         // Create a line going from one side of the bounds to the other and find the bounds from that.
@@ -55,7 +58,7 @@ function formatTileUrl(urlTemplate: string, tileX: number, tileY: number, tileZo
     const subdomain = abcGenerator.next().value;
     url = urlTemplate.replace('{s}', subdomain);
   }
-
+console.log("urlurl - " + url)
   return url.replace('{x}', tileX.toString()).replace('{y}', tileY.toString()).replace('{z}', tileZoom.toString());
 }
 
@@ -97,7 +100,7 @@ export class OfflineCapableMapLayersService extends MapLayersService {
   //constructor(userSettings: UserSettingService){ //,private offlineMapService: OfflineMapService) {
     //super(userSettings);
  // }
-
+/*
   getUrlForTile(//mapId: string, 
     options: ITopoMapLayerOptions, tileX: number, tileY: number, tileZoom: number): string {
   //  const mapPackage = this.offlineMapService.offlineTilesRegistry.findRegisteredPackage(mapId, tileX, tileY, tileZoom);
@@ -112,5 +115,5 @@ export class OfflineCapableMapLayersService extends MapLayersService {
 
     return super.getUrlForTile(//mapId,
     options, tileX, tileY, tileZoom);
-  }
+  }*/
 }

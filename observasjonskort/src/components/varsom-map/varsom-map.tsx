@@ -157,34 +157,34 @@ await this.createMap(200,200);
     
      // mapId: string,
       config: ITopoMapLayerOptions,
-      //{ w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
+      { w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
       w: number, // Map width
       h: number, // Map height
       tileSize: number
     ): TileProps[] {
-      
+    
       const result: TileProps[] = [];
-      //const cornerTileX = Math.floor(x0 / tileSize);
-      const cornerTileX = Math.ceil(w / tileSize);
-      //const cornerTileY = Math.floor(y0 / tileSize);
-      const cornerTileY = Math.ceil(h / tileSize);
+      const cornerTileX = Math.floor(x0 / tileSize);
+      //const cornerTileX = Math.ceil(w / tileSize);
+      const cornerTileY = Math.floor(y0 / tileSize);
+      //const cornerTileY = Math.ceil(h / tileSize);
   
  
   
-      //for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
-        for (let tileY = cornerTileY; tileY * tileSize < h * 10; tileY++) {
-        //for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
-          for (let tileX = cornerTileX; tileX * tileSize < w * 10; tileX++) {
+      for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
+       // for (let tileY = cornerTileY; tileY * tileSize < h * 100; tileY++) {
+        for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
+        //  for (let tileX = cornerTileX; tileX * tileSize < w * 100; tileX++) {
           const url = this.mapLayerService.getUrlForTile(//mapId,
-          config, tileX, tileY, 5)//zoom);
+          config, tileX, tileY, zoom);
             
           result.push({
             src: //"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/7/34/68",
             url,//this.sanitizer.bypassSecurityTrustUrl(url),
-            //left: `${tileX * tileSize - x0}px`,
-            left: `${tileX * tileSize - 2}px`,
-            //top: `${tileY * tileSize - y0}px`
-            top: `${tileY * tileSize - 2}px`
+            left: `${tileX * tileSize - x0}px`,
+            //left: `${tileX * tileSize - 2}px`,
+            top: `${tileY * tileSize - y0}px`
+            //top: `${tileY * tileSize - 2}px`
           });
         }
       }
@@ -417,7 +417,7 @@ console.log("maplayerservice: " + this.mapLayerService);
       this.tiles = mapLayers
         .map(({ //layerId,
            layerConfig }) => this.getTileProperties(//layerId, 
-        layerConfig, //mercatorBounds
+        layerConfig, mercatorBounds,
         w, h, this.TILE_SIZE))
         .flat();
   

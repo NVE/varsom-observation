@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, DamageObs, Observation, WaterLevelMeasurement } from './observation-model';
