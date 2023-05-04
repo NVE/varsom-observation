@@ -1,13 +1,15 @@
+import { TopoMap } from './../models/topo-map.enum';
 import { bbox, bboxPolygon, booleanWithin, lineString } from '@turf/turf';
 import { Feature } from '@turf/turf';
 import { LatLngTuple } from 'leaflet';
 import { ITopoMapLayerOptions, ITopoMapSettings } from './map-settings-model';
 import { MapSettings as settings } from './map-settings';
-import { UserSettingService } from './user-setting.service';
+//import { UserSettingService } from './user-setting.service';
 //import { firstValueFrom } from 'rxjs';
 
 
 export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings[], location: Feature) {
+  console.log("maps: " + maps)
   return (
     maps
       // A map layer may have one or more exclude bounds.
@@ -71,13 +73,15 @@ export class MapLayersService {
   
    async getUserSelectedMapConfig() {
     //const { topoMap: userSelectedMap } = await firstValueFrom(this.userSettings.userSetting$);  
-    const mapConfig = settings.map.tiles.topoMaps["geoDataLandskap"];//userSelectedMap];
+    //const mapConfig = settings.map.tiles.topoMaps["arcGisOnline"];//userSelectedMap];
+    const mapConfig = settings.map.tiles.topoMaps.mixArcGisOnline;
     return mapConfig;
   }
   
   async getMapLayerForLocation(location: Feature) {
   {
     const mapConfig = await this.getUserSelectedMapConfig();
+    //console.log("locoz: " + location.geometry.bbox[0]);
     const mapLayers = getMapLayersWithMatchingBoundsForLocation(mapConfig, location);
     return mapLayers;
   }

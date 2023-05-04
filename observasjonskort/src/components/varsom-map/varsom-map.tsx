@@ -106,13 +106,13 @@ componentDidRender(){
 
  async componentWillLoad(){
     this.tiles = [];
-    this.graphics = [];
+    //this.graphics = [];
     this.componentCreatedOrResized = new Subject<void>();
     this.ngDestroy$ = new Subject<void>();  
 
 this.startSizeFinder();
 
-await this.createMap(20,20);  
+await this.createMap(2000,2000);  
 
 
   }
@@ -157,7 +157,7 @@ await this.createMap(20,20);
     
      // mapId: string,
       config: ITopoMapLayerOptions,
-      { w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
+      //{ w: x0, n: y0, zoom }: MercatorBounds, // x0, y0 = top left corner of map
       w: number, // Map width
       h: number, // Map height
       tileSize: number
@@ -169,28 +169,26 @@ await this.createMap(20,20);
       //const cornerTileY = Math.floor(y0 / tileSize);
       const cornerTileY = Math.ceil(h / tileSize);
   
-
+ 
+  
       //for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
-        for (let tileY = cornerTileY; tileY * tileSize < 500 + h; tileY++) {
+        for (let tileY = cornerTileY; tileY * tileSize < h * 10; tileY++) {
         //for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
-          for (let tileX = cornerTileX; tileX * tileSize < 500 + w; tileX++) {
+          for (let tileX = cornerTileX; tileX * tileSize < w * 10; tileX++) {
           const url = this.mapLayerService.getUrlForTile(//mapId,
-          config, tileX, tileY, zoom);
+          config, tileX, tileY, 10)//zoom);
             
           result.push({
-            src: "https://services.geodataonline.no/arcgis/rest/services/Geocache_WMAS_WGS84/GeocacheLandskap/MapServer/tile/1/1/1?blankTile=false",
-            //url,//this.sanitizer.bypassSecurityTrustUrl(url),
+            src: //"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/7/34/68",
+            url,//this.sanitizer.bypassSecurityTrustUrl(url),
             //left: `${tileX * tileSize - x0}px`,
-            left: `${tileX * tileSize - 20}px`,
+            left: `${tileX * tileSize - 2}px`,
             //top: `${tileY * tileSize - y0}px`
-            top: `${tileY * tileSize - 20}px`
+            top: `${tileY * tileSize - 2}px`
           });
         }
       }
-  
-      console.log("srourcde " + result[0].src)
-      console.log("left: " + result[0].left)
-      console.log("top: " + result[0].top)
+
       return result;
     }
 
@@ -392,13 +390,16 @@ await this.createMap(20,20);
         ...(polygons.endPolygon ? polygons.endPolygon : []),
       ];
   
+
+
       const { latLngBounds, geojsonBounds
      } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
+     
 
 
 console.log("maplayerservice: " + this.mapLayerService);
      
-      
+      console.log("geogeo:" + geojsonBounds.geometry.coordinates)
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
@@ -407,7 +408,8 @@ console.log("maplayerservice: " + this.mapLayerService);
       this.tiles = mapLayers
         .map(({ //layerId,
            layerConfig }) => this.getTileProperties(//layerId, 
-        layerConfig, mercatorBounds, w, h, this.TILE_SIZE))
+        layerConfig, //mercatorBounds
+        w, h, this.TILE_SIZE))
         .flat();
   
       
@@ -613,8 +615,8 @@ console.log("maplayerservice: " + this.mapLayerService);
 
   render(){
     return <div class="container" ref={(el) => this.container = el as HTMLElement}>
-    
-      {console.log("tilez : " + this.tiles[0].src)}
+      
+  {console.log(this.graphics)}
       {this.tiles.map((el) =>{
 return <img
 src={el.src}
