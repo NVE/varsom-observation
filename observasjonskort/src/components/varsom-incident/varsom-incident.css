@@ -13,3 +13,8 @@ span {
 .container {
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
 }
+
+.attachments-container { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  }

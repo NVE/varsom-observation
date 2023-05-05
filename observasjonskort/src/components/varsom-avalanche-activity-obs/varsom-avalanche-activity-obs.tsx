@@ -68,7 +68,7 @@ export class VarsomAvalancheActivityObs {
     </div>
 
     {this.Attachments && !this.shortVersion ? 
-      <div>
+      <span class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             shortVersion={this.shortVersion ? this.shortVersion : null}
@@ -80,7 +80,7 @@ export class VarsomAvalancheActivityObs {
 
             </varsom-attachment>
         })
-        } </div> : ""}
+        } </span> : ""}
     </div>
   }
     

@@ -47,7 +47,7 @@ export class VarsomAttachment {
     ></varsom-key-value>
     :""}
     
-
+    <br></br>
     {this.Copyright ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
@@ -55,8 +55,8 @@ export class VarsomAttachment {
     ></varsom-key-value>
     :""}
 
-<br></br>
-{this.Comment ? 
+    <br></br>
+    {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
     _value={this.shortVersion ? null : this.Comment}

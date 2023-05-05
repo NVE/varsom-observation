@@ -41,7 +41,7 @@ export class VarsomDangerObs {
  
  </div>
  {this.Attachments ? 
-      <div>
+      <span class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             shortVersion={this.shortVersion ? this.shortVersion : null}
@@ -53,7 +53,7 @@ export class VarsomDangerObs {
 
             </varsom-attachment>
         })
-        } </div> : ""}
+        } </span> : ""}
  
  
     </div>

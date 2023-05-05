@@ -83,7 +83,7 @@ export class VarsomSnowProfile2 {
     </div>
     
     {this.Attachments ? 
-      <div>
+      <span class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             shortVersion={this.shortVersion ? this.shortVersion : null}
@@ -95,7 +95,7 @@ export class VarsomSnowProfile2 {
 
             </varsom-attachment>
         })
-        } </div> : ""}
+        } </span> : ""}
     
     
     </div>
