@@ -58,7 +58,7 @@ function formatTileUrl(urlTemplate: string, tileX: number, tileY: number, tileZo
     const subdomain = abcGenerator.next().value;
     url = urlTemplate.replace('{s}', subdomain);
   }
-console.log("urlurl - " + url)
+
   return url.replace('{x}', tileX.toString()).replace('{y}', tileY.toString()).replace('{z}', tileZoom.toString());
 }
 
@@ -72,11 +72,8 @@ export class MapLayersService {
   
   //  userSettings = new UserSettingService();
 
-  
-  
    async getUserSelectedMapConfig() {
     //const { topoMap: userSelectedMap } = await firstValueFrom(this.userSettings.userSetting$);  
-    //const mapConfig = settings.map.tiles.topoMaps["arcGisOnline"];//userSelectedMap];
     const mapConfig = settings.map.tiles.topoMaps.mixArcGisOnline;
     return mapConfig;
   }

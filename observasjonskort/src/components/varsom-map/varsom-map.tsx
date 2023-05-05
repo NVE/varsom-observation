@@ -85,28 +85,8 @@ export class VarsomStaticMap {
     );
 
   
-componentDidRender(){
-   /*
-    // Create map after view has been initialized, we need the component to be in the dom
-    // to figure out the container size
-    //this.startSizeFinder();
-    this.componentCreatedOrResized
-    .pipe(
-      takeUntil(this.ngDestroy$),
-      // Use a large debounceTime. If the user is resizing the window, we want to recreate the
-      // map after resizing is finished.
-      debounceTime(500)
-    ).subscribe(() => this.updateContainerSize());
-*/
-  //this.size$.pipe(takeUntil(this.ngDestroy$)).subscribe(({ w, h }) => this.createMap(w, h));
-
-
-  //this.createMap(2000,2000);    
-  }
-
  async componentWillLoad(){
     this.tiles = [];
-    //this.graphics = [];
     this.componentCreatedOrResized = new Subject<void>();
     this.ngDestroy$ = new Subject<void>();  
 
@@ -139,19 +119,6 @@ await this.createMap(200,200);
     }
   }
 
-    /*get trackByImgProps() {
-      return trackByImgProps;
-    }
-  
-    get trackByGraphic() {
-      return trackByGraphic;
-    }*/
-  
- 
-    //private logger: LoggingService
-     
-    
-
       
    getTileProperties(
     
@@ -165,26 +132,16 @@ await this.createMap(200,200);
     
       const result: TileProps[] = [];
       const cornerTileX = Math.floor(x0 / tileSize);
-      //const cornerTileX = Math.ceil(w / tileSize);
       const cornerTileY = Math.floor(y0 / tileSize);
-      //const cornerTileY = Math.ceil(h / tileSize);
-  
- 
-  
+
       for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
-       // for (let tileY = cornerTileY; tileY * tileSize < h * 100; tileY++) {
         for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
-        //  for (let tileX = cornerTileX; tileX * tileSize < w * 100; tileX++) {
           const url = this.mapLayerService.getUrlForTile(//mapId,
           config, tileX, tileY, zoom);
-            
           result.push({
-            src: //"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/7/34/68",
-            url,//this.sanitizer.bypassSecurityTrustUrl(url),
+            src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
-            //left: `${tileX * tileSize - 2}px`,
             top: `${tileY * tileSize - y0}px`
-            //top: `${tileY * tileSize - 2}px`
           });
         }
       }
@@ -297,25 +254,18 @@ await this.createMap(200,200);
       geojsonBounds: Feature<Polygon>;
     } {
      
-      let x = JSON.parse(JSON.stringify(positions));
-      let cc = Object.values(x[0]);
-      let xVal = cc.toString().split(",")[0];
-      let yVal = cc.toString().split(",")[1]; 
+      let posValues = JSON.parse(JSON.stringify(positions));
+      let position = Object.values(posValues[0]);
+      let xVal = position.toString().split(",")[0];
+      let yVal = position.toString().split(",")[1]; 
 
-      //const positionsForBoundsCheck = [...positions];
-      //const pos = positionsForBoundsCheck.shift();
       let minLat: number = +xVal;
       let maxLat: number = +xVal;
       let minLng: number = +yVal;
       let maxLng: number = +yVal;
-      //let minLat = pos.Latitude;
-      //let maxLat = pos.Latitude;
-      //let minLng = pos.Longitude;
-      //let maxLng = pos.Longitude;
+
   
-
-
-    /*  while (positionsForBoundsCheck.length) {
+    /*  while (positionsForBoundsCheck.length) {  se beta regobs code if we need this
         const pos = positionsForBoundsCheck.shift();
         minLat = pos.Latitude < minLat ? pos.Latitude : minLat;
         maxLat = pos.Latitude > maxLat ? pos.Latitude : maxLat;
@@ -424,7 +374,6 @@ console.log("maplayerservice: " + this.mapLayerService);
       
       this.createGraphics(positions, polygons, mercatorBounds);
   
-    
   //    this.cdr.detectChanges(); // Async operation, so we must notify angular that changes has occured
     }
   
@@ -637,15 +586,10 @@ decoding="async"
 })
 }
 
-{this.graphics.map((el) =>{
-return <div class="graphic">
-  
+<div class="graphic">
 <img src={getAssetPath(`/assets/icons/observasjonspunkt.svg`)}></img>
 
 </div>
-})
-}
-  
   </div>  
 
 }
