@@ -10,6 +10,11 @@ div {
   margin: 1rem 0 1rem 0;
 }
 
+.attachments-container { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  }
+
 .header {
   font-size: x-large;
   font-weight: bolder;

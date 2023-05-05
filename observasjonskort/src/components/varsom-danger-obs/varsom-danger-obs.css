@@ -12,6 +12,11 @@ span {
   border-left: 1px solid #B3B3B3;
   margin: 1.5rem;
 }
+.attachments-container { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  }
+
 
 @media screen and (max-width: 480px) {
   .parent{

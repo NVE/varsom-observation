@@ -1253,7 +1253,7 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 
 {/* ATTACHMENTS */}
 {this.version !=="short" ? 
-<div>
+<span class="attachments-container">
 {obs.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             shortVersion={this.version==="short" ? this.version : null}
@@ -1266,7 +1266,7 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
             </varsom-attachment>
         })
         }
-     </div> : null}
+     </span> : null}
 
 
 {/* LINK TO REGOBS */}

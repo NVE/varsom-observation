@@ -147,7 +147,7 @@ export class VarsomAvalancheObs {
     </div>
 
     {this.Attachments ? 
-      <div>
+      <span class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             Photographer={el.Photographer ? el.Photographer : null}            
@@ -158,7 +158,7 @@ export class VarsomAvalancheObs {
 
             </varsom-attachment>
         })
-        } </div> : ""}
+        } </span> : ""}
 
 
     </div>

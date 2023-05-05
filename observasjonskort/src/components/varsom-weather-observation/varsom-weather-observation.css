@@ -6,6 +6,11 @@ span {
   margin-right: 0.5rem;
 }
 
+.attachments-container { 
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+}
+
 
 .header {
   font-size: x-large;
