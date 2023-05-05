@@ -24,6 +24,7 @@
 
 - [varsom-header](../varsom-header)
 - [varsom-metadata](../varsom-metadata)
+- [varsom-static-map](../varsom-map)
 - [varsom-image-slider](../varsom-image-slider)
 - [varsom-damage-obs](../varsom-damage-obs)
 - [varsom-label](../varsom-label)
@@ -58,6 +59,7 @@
 graph TD;
   varsom-observation --> varsom-header
   varsom-observation --> varsom-metadata
+  varsom-observation --> varsom-static-map
   varsom-observation --> varsom-image-slider
   varsom-observation --> varsom-damage-obs
   varsom-observation --> varsom-label

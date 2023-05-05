@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Attachment, IceThicknessLayer, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observasjon/observation-model";
+import { Attachment, IceThicknessLayer, Observation, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observasjon/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -542,6 +542,10 @@ export namespace Components {
         "shortVersion": any;
         "strings"?: any;
     }
+    interface VarsomStaticMap {
+        "allowZoom"?: boolean;
+        "observation"?: Observation;
+    }
     interface VarsomStratProfile {
         "Attachments": Attachment[];
         "Layers": StratProfileLayer[];
@@ -873,6 +877,12 @@ declare global {
         prototype: HTMLVarsomSnowTempObsElement;
         new (): HTMLVarsomSnowTempObsElement;
     };
+    interface HTMLVarsomStaticMapElement extends Components.VarsomStaticMap, HTMLStencilElement {
+    }
+    var HTMLVarsomStaticMapElement: {
+        prototype: HTMLVarsomStaticMapElement;
+        new (): HTMLVarsomStaticMapElement;
+    };
     interface HTMLVarsomStratProfileElement extends Components.VarsomStratProfile, HTMLStencilElement {
     }
     var HTMLVarsomStratProfileElement: {
@@ -956,6 +966,7 @@ declare global {
         "varsom-snow-surface-observation": HTMLVarsomSnowSurfaceObservationElement;
         "varsom-snow-temp": HTMLVarsomSnowTempElement;
         "varsom-snow-temp-obs": HTMLVarsomSnowTempObsElement;
+        "varsom-static-map": HTMLVarsomStaticMapElement;
         "varsom-strat-profile": HTMLVarsomStratProfileElement;
         "varsom-strat-profile-layer": HTMLVarsomStratProfileLayerElement;
         "varsom-url": HTMLVarsomUrlElement;
@@ -1501,6 +1512,10 @@ declare namespace LocalJSX {
         "shortVersion"?: any;
         "strings"?: any;
     }
+    interface VarsomStaticMap {
+        "allowZoom"?: boolean;
+        "observation"?: Observation;
+    }
     interface VarsomStratProfile {
         "Attachments"?: Attachment[];
         "Layers"?: StratProfileLayer[];
@@ -1631,6 +1646,7 @@ declare namespace LocalJSX {
         "varsom-snow-surface-observation": VarsomSnowSurfaceObservation;
         "varsom-snow-temp": VarsomSnowTemp;
         "varsom-snow-temp-obs": VarsomSnowTempObs;
+        "varsom-static-map": VarsomStaticMap;
         "varsom-strat-profile": VarsomStratProfile;
         "varsom-strat-profile-layer": VarsomStratProfileLayer;
         "varsom-url": VarsomUrl;
@@ -1684,6 +1700,7 @@ declare module "@stencil/core" {
             "varsom-snow-surface-observation": LocalJSX.VarsomSnowSurfaceObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowSurfaceObservationElement>;
             "varsom-snow-temp": LocalJSX.VarsomSnowTemp & JSXBase.HTMLAttributes<HTMLVarsomSnowTempElement>;
             "varsom-snow-temp-obs": LocalJSX.VarsomSnowTempObs & JSXBase.HTMLAttributes<HTMLVarsomSnowTempObsElement>;
+            "varsom-static-map": LocalJSX.VarsomStaticMap & JSXBase.HTMLAttributes<HTMLVarsomStaticMapElement>;
             "varsom-strat-profile": LocalJSX.VarsomStratProfile & JSXBase.HTMLAttributes<HTMLVarsomStratProfileElement>;
             "varsom-strat-profile-layer": LocalJSX.VarsomStratProfileLayer & JSXBase.HTMLAttributes<HTMLVarsomStratProfileLayerElement>;
             "varsom-url": LocalJSX.VarsomUrl & JSXBase.HTMLAttributes<HTMLVarsomUrlElement>;

@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, getAssetPath } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
 import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, DamageObs, Observation, WaterLevelMeasurement } from './observation-model';
@@ -558,12 +558,19 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       shortVersion={this.version==="short" ? this.version : null}
       > </varsom-metadata>      
          
-      {/*map*/}     
-      <div class="map-container">
-      <div>
-        <img class="map" alt="map for observation" src={getAssetPath("/pictures/mapRegobs.png")}></img>
-      </div>
-      </div>
+      
+{/* STATIC MAP */}
+<varsom-static-map
+observation={obs}
+allowZoom={true}
+></varsom-static-map>
+
+
+
+
+
+
+
 
 <varsom-image-slider
 _images={obs._images} 
