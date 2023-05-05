@@ -10,6 +10,11 @@ div {
   margin: 1rem 0 1rem 0;
 }
 
+.attachments-container{
+  display: flex;
+  
+}
+
 .parent {
   padding: 0 0 0 8px;
   border-left: 1px solid #B3B3B3;

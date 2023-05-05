@@ -28,16 +28,18 @@ export class VarsomAttachment {
  
 
   render(){
-    return <div class="container">
+    return <span class="container">
 
       {this.Url ? 
-        <div>
+        <span>
         <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} />
-      </div>
+      </span>
       : ""} 
  
+ <span class="att-cont">
  {!this.shortVersion ? 
-<div class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
+<span class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
+  <br></br>
     {this.Photographer ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
@@ -63,11 +65,12 @@ export class VarsomAttachment {
 
 
 
-</div>
+</span>
 
  : null}
 
-    </div>
+</span>
+    </span>
   }
     
   }
