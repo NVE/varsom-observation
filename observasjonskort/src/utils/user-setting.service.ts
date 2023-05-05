@@ -190,7 +190,7 @@ componentWillLoad(){
         filter((result) => !!result),
         debounceTime(200),
         tap((result) =>
-        console.log("inmemory user settings changed. saving to db...???: ", result)
+        console.log("inmemory user settings changed. saving to db. result: ", result)
         //  this.loggingService?.debug('InMemory user settings changed. Saving to db: ', DEBUG_TAG, result)
         ),
         //switchMap((result) => this.saveUserSettingsToDb(result)),

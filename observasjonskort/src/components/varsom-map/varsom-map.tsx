@@ -159,7 +159,7 @@ await this.createMap(200,200);
     }
 
    getLocation(obs: Observation): ImageLocation {
-    console.log("getting location...")
+    
       return {
         latLng: L.latLng(obs._latitude, obs._longitude),
         geoHazard: getGeoHazardIdFromName(obs._geoHazardName),
@@ -169,7 +169,7 @@ await this.createMap(200,200);
     }
 
    getStartStopLocation(obs: Observation): ImageLocationStartStop {
-    console.log("getting start stop location...")
+    
       if (obs._avalancheObs) {
         return {
           ...this.obs2Latlng(obs._avalancheObs),
@@ -212,7 +212,7 @@ await this.createMap(200,200);
     }
 
     getPositionsToPlot(){
-      console.log("getting positions to plot...")
+      
       const location = this.getLocation(this.observation);
 
       // This controls the draw order / z-index for graphics
@@ -285,7 +285,7 @@ await this.createMap(200,200);
       width: number, // Map width in px
       height: number // Map height in px
     ): MercatorBounds {
-      console.log("getting merc bounds...")
+      
       let zoom = this.getStartZoom();
   
       let n = 0;
@@ -321,7 +321,7 @@ await this.createMap(200,200);
     }
   
      getPolygons(): PolygonsToPlot {
-      console.log("getting pol to plot ...")
+      
       const location = this.getLocation(this.observation);
       // getLatLngs on polygons may return nested arrays with depth of 3 therefore we use flat(3) to simplify the result
       const polygons = {} as PolygonsToPlot;
@@ -339,7 +339,7 @@ await this.createMap(200,200);
     }
   
      async createMap(w: number, h: number) {
-      console.log("creating map...")
+      
       const positions = this.getPositionsToPlot();
       const polygons = this.getPolygons();
       //add all positions together to find max and min latlng
@@ -354,9 +354,6 @@ await this.createMap(200,200);
       const { latLngBounds, geojsonBounds
      } = this.getLatLngBounds(positionsAndPolygonsLatLngs);
      
-
-
-console.log("maplayerservice: " + this.mapLayerService);
      
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
@@ -574,7 +571,6 @@ console.log("maplayerservice: " + this.mapLayerService);
   render(){
     return <div class="container" ref={(el) => this.container = el as HTMLElement}>
       
-  {console.log(this.graphics)}
       {this.tiles.map((el) =>{
 return <img
 src={el.src}

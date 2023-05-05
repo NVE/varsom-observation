@@ -9,7 +9,7 @@ import { MapSettings as settings } from './map-settings';
 
 
 export function getMapLayersWithMatchingBoundsForLocation(maps: ITopoMapSettings[], location: Feature) {
-  console.log("maps: " + maps)
+  
   return (
     maps
       // A map layer may have one or more exclude bounds.
