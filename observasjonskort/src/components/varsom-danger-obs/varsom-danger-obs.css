@@ -24,14 +24,6 @@ span {
   }
 
 
-@media screen and (max-width: 480px) {
-  .parent{
-    padding: 8px 16px 16px 16px;
-    border-left: 1px solid #B3B3B3;
-    margin: 1.5rem;
-  }
-}
-
 @media screen and (min-width: 1025px) {
   .parent{
     padding: 16px 32px 32px 32px;

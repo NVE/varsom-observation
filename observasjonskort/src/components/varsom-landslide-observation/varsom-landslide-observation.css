@@ -16,7 +16,14 @@ span {
 }
 
 
+@media screen and (max-width: 480px) {
+  .attachments-container { 
+    grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   }
+

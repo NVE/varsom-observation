@@ -21,11 +21,6 @@ div {
   grid-template-columns: repeat(3, 1fr);
   }
 
-  @media screen and (max-width: 480px) {
-    .attachments-container { 
-      grid-template-columns: repeat(2, 1fr) !important;
-      }
-  }
 
 .parent {
   padding: 0 0 0 8px;
