@@ -84,8 +84,22 @@ figcaption {
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 7%;
   border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 7%;
+  border-radius: 3px 0 0 3px;
+}
+
+@media screen and (max-width: 480px) {
+  .next{
+    right: 25%;
+  }
+  .prev{
+    left: 25%;
+  }
 }
 
 /* On hover, add a black background color with a little bit see-through */
