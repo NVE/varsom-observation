@@ -73,18 +73,13 @@ for (let i = 0; i < this._images.length; i=i+2){
 {this._loopNumbers.map((num) =>{
 return <div class="slideshow-container">
    {this._images.length > num ? 
-  <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="mySlides fade">
-  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class={this._images.length == 1 ? "observation-images first" : "observation-images"}  src={this._images[num]._imageData}></img>
-
-  {this._images.length > num+1 ? 
-  <img alt={this._images[num+1]._comment ? this._images[num+1]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}></img>
-  : null}  
-
-{!this.shortVersion ? 
- <div class="image-info-container">
-    <span class={this._images.length == 1 ? "imageInfo firstInfo" : "imageInfo"}> 
-    
-    {this._images[num]._copyright ? 
+  <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
+    <div class="img-cont">
+    <figure>
+  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}></img>
+  {!this.shortVersion ? 
+  <figcaption>
+  {this._images[num]._copyright ? 
     <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num]._copyright} <br></br> </div> : "" }
     
     {this._images[num]._photographer ? 
@@ -93,12 +88,15 @@ return <div class="slideshow-container">
     {this._images[num]._comment ? 
         <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num]._comment} </div> : ""}
 
-    </span> 
-
-    {this._images.length > num+1 ? 
-    <span class="imageInfo"> 
-    
-    {this._images[num+1]._copyright ? 
+  </figcaption> : null}
+</figure>
+   
+  {this._images.length > num+1 ? 
+  <figure>
+  <img alt={this._images[num+1]._comment ? this._images[num+1]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}></img>
+  {!this.shortVersion ? 
+  <figcaption>
+  {this._images[num+1]._copyright ? 
     <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num+1]._copyright} <br></br> </div> : "" }
     
     {this._images[num+1]._photographer ? 
@@ -107,12 +105,11 @@ return <div class="slideshow-container">
     {this._images[num+1]._comment ? 
         <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num+1]._comment} </div> : ""}
 
-    </span> 
-    : null }
+  </figcaption>: null}
+</figure>
+  : null}  
+</div>
 
-  </div>
-
-  : null }
 
 {this._images.length > 2 ?
 <div>

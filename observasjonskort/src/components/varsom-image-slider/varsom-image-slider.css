@@ -18,32 +18,18 @@ div {
   line-height: 20px;
 }
 
-.image-info-container {
-  display: flex;
-  
-}
 
 /*box-sizing:border-box*/
 
 .observation-images{
-  max-width: 200px;
-  margin: 18px 2.5rem 0rem 2.5rem;
+  max-width: 12.5rem;
+  margin: 0 2.5rem 0rem 2.5rem;
 }
 
-.first{
-  max-width: 200px;
-  margin: 18px 12rem 0rem 12rem;
+figcaption {
+  margin: 0 2.5rem 0rem 2.5rem; 
 }
 
-.map-container {
-  display: flex;
-  
-}
-
-.map{
-  width: 100%;
-  border: 1px solid rgba(119, 166, 169, 0.5);
-}
 
 /* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
 /* Slideshow container */
@@ -59,6 +45,26 @@ div {
 .mySlides {
   display: none;
 }
+
+.img-cont {
+  display: flex;
+  
+}
+
+figcaption {
+  background-color: rgba(4, 73, 98, 0.05);
+}
+
+@media screen and (max-width: 70rem) {
+
+.img-cont{
+  flex-direction: column;
+  margin: 0 5rem;
+}
+
+}
+
+
 
 /* Next & previous buttons */
 .prev, .next {
@@ -87,20 +93,20 @@ div {
   background-color: rgba(0,0,0,0.8);
 }
 
-.imageInfo {
+.imageInfo-slider {
   background-color: rgba(4, 73, 98, 0.05);
-  width: 100%;
-  max-width: 200px;
-  margin: 0 2.5rem 2.5rem 2.5rem;
+  
   
 }
 
-.firstInfo {
+.firstInfo-slider {
   background-color: rgba(4, 73, 98, 0.05);
-  width: 100%;
-  max-width: 200px;
-  margin: 0 12rem 2.5rem 12rem;
   
+}
+
+.image-info-container-slider{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 
@@ -149,26 +155,6 @@ div {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
-}
-
-
-.observation-container {
-  border-left: 1px solid rgba(119, 166, 169, 0.5);
-  border-top: 1px solid rgba(119, 166, 169, 0.5);
-  border-right: 1px solid rgba(119, 166, 169, 0.5);
-  width: 50%;
-}
-
-.border {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
-}
-
-  
-.observation-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bolder;
-  font-size: larger;
 }
 
 
