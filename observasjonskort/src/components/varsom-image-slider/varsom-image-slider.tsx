@@ -17,6 +17,8 @@ export class VarsomImageSlider {
   @Prop() shortVersion: string;
 
   observationImages: HTMLElement[] = [];
+  modal: HTMLElement;
+  closeBtn: HTMLElement;
 
   plusSlides(n) {
     this.showSlides.bind(this, this.slideIndex += n);
@@ -65,9 +67,12 @@ for (let i = 0; i < this._images.length; i=i+2){
       }
     }
 
-
+    
   render(){
     return <div>
+
+
+
 
 
 {this._loopNumbers.map((num) =>{
@@ -76,7 +81,11 @@ return <div class="slideshow-container">
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
     <div class="img-cont">
     <figure>
-  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}></img>
+  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
+  onClick={()=> this.modal.style.display="block"}></img>
+
+
+
   {!this.shortVersion ? 
   <figcaption>
   {this._images[num]._copyright ? 
@@ -90,6 +99,24 @@ return <div class="slideshow-container">
 
   </figcaption> : null}
 </figure>
+
+
+{/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
+<div id="myModal" ref={(mod) => this.modal = mod as HTMLElement}
+ class="modal">
+
+
+  <div class="modal-content">
+    
+    <span class="close" ref={(close) => this.closeBtn = close as HTMLElement}
+     onClick={() => this.modal.style.display = "none"}
+     >&times;
+    </span>
+  
+    <img src={this._images[num]._imageData}></img>
+  </div>
+
+</div>
    
   {this._images.length > num+1 ? 
   <figure>
