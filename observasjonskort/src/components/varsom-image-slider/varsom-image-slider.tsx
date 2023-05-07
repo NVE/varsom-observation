@@ -17,8 +17,8 @@ export class VarsomImageSlider {
   @Prop() shortVersion: string;
 
   observationImages: HTMLElement[] = [];
-  modal: HTMLElement;
-  closeBtn: HTMLElement;
+  modal: HTMLElement[] = [];
+  closeBtn: HTMLElement[] = [];
 
   plusSlides(n) {
     this.showSlides.bind(this, this.slideIndex += n);
@@ -82,7 +82,7 @@ return <div class="slideshow-container">
     <div class="img-cont">
     <figure>
   <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
-  onClick={()=> this.modal.style.display="block"}></img>
+  onClick={()=> this.modal[num].style.display="block"}></img>
 
 
 
@@ -102,14 +102,14 @@ return <div class="slideshow-container">
 
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
-<div id="myModal" ref={(mod) => this.modal = mod as HTMLElement}
+<div ref={(mod) => this.modal[num] = mod as HTMLElement}
  class="modal">
 
 
   <div class="modal-content">
     
-    <span class="close" ref={(close) => this.closeBtn = close as HTMLElement}
-     onClick={() => this.modal.style.display = "none"}
+    <span class="close" ref={(close) => this.closeBtn[num] = close as HTMLElement}
+     onClick={() => this.modal[num].style.display = "none"}
      >&times;
     </span>
   
@@ -117,10 +117,27 @@ return <div class="slideshow-container">
   </div>
 
 </div>
+
+<div ref={(mod) => this.modal[num+1] = mod as HTMLElement}
+ class="modal">
+
+
+  <div class="modal-content">
+    
+    <span class="close" ref={(close) => this.closeBtn[num+1] = close as HTMLElement}
+     onClick={() => this.modal[num+1].style.display = "none"}
+     >&times;
+    </span>
+  
+    <img src={this._images[num+1]._imageData} class="modal-img"></img>
+  </div>
+
+</div>
    
   {this._images.length > num+1 ? 
   <figure>
-  <img alt={this._images[num+1]._comment ? this._images[num+1]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}></img>
+  <img alt={this._images[num+1]._comment ? this._images[num+1]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
+  onClick={()=> this.modal[num+1].style.display="block"}></img>
   {!this.shortVersion ? 
   <figcaption>
   {this._images[num+1]._copyright ? 
