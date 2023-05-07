@@ -193,8 +193,16 @@ figcaption {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-  
+  display: flex;
+  justify-content: center;
 }
+
+.modal-img {
+  width: 100%;
+}
+
+
+
 
 /* The Close Button */
 .close {

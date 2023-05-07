@@ -113,7 +113,7 @@ return <div class="slideshow-container">
      >&times;
     </span>
   
-    <img src={this._images[num]._imageData}></img>
+    <img src={this._images[num]._imageData} class="modal-img"></img>
   </div>
 
 </div>
