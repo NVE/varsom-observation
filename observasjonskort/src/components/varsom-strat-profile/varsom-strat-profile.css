@@ -9,7 +9,15 @@ div {
   margin: 1rem 0 1rem 0;
 }
 
+
+
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 480px) {
+    .attachments-container { 
+      grid-template-columns: repeat(1, 1fr) !important;
+      }
   }

@@ -15,6 +15,12 @@ div {
   grid-template-columns: repeat(3, 1fr);
   }
 
+  @media screen and (max-width: 480px) {
+    .attachments-container { 
+      grid-template-columns: repeat(1, 1fr) !important;
+      }
+  }
+
 .header {
   font-size: x-large;
   font-weight: bolder;

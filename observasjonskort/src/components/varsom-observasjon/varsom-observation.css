@@ -12,6 +12,11 @@
     font-weight: 600;
   }
 
+  .container-for-image-slider {
+    display: flex;
+    justify-content: center;
+  }
+
   div {
     font-family:'Source Sans Pro';
     font-weight: 400;
@@ -26,10 +31,7 @@
   
   /*box-sizing:border-box*/
   
-  .observation-images{
-    max-width: 200px;
-    margin: 18px 2.5rem 0rem 2.5rem;
-  }
+
   
   .map-container {
     display: flex; 
@@ -48,22 +50,26 @@
   
   
   
-  
-  .observation-container {
-    border-left: 1px solid rgba(119, 166, 169, 0.5);
-    border-top: 1px solid rgba(119, 166, 169, 0.5);
-    border-right: 1px solid rgba(119, 166, 169, 0.5);
-    
-  }
+.observation-container {
+  border-left: 1px solid rgba(119, 166, 169, 0.5);
+  border-top: 1px solid rgba(119, 166, 169, 0.5);
+  border-right: 1px solid rgba(119, 166, 169, 0.5);
+  width: 50%;
+}
 
-  @media screen and (max-width: 480px) {
-    .observation-container {
-      border-left: 1px solid rgba(119, 166, 169, 0.5);
-      border-top: 1px solid rgba(119, 166, 169, 0.5);
-      border-right: 1px solid rgba(119, 166, 169, 0.5);
-      width: 50%;
-    }
-  }
+.border {
+  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+}
+
+  
+.observation-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+
 
   .border {
     border-bottom: 1px solid rgba(119, 166, 169, 0.5);
