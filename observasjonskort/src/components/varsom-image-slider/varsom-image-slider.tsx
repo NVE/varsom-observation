@@ -118,6 +118,8 @@ return <div class="slideshow-container">
 
 </div>
 
+
+{this._images.length > num +1 ? 
 <div ref={(mod) => this.modal[num+1] = mod as HTMLElement}
  class="modal">
 
@@ -133,6 +135,7 @@ return <div class="slideshow-container">
   </div>
 
 </div>
+: null}
    
   {this._images.length > num+1 ? 
   <figure>
