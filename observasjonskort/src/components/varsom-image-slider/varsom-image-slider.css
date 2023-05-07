@@ -22,12 +22,7 @@ div {
 /*box-sizing:border-box*/
 
 .observation-images{
-  max-width: 12.5rem;
-  margin: 0 2.5rem 0rem 2.5rem;
-}
-
-figcaption {
-  margin: 0 2.5rem 0rem 2.5rem; 
+  max-width: 14rem;
 }
 
 
@@ -38,7 +33,7 @@ figcaption {
   position: relative;
   margin: auto;
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
-  
+
 }
 
 /* Hide the images by default */
@@ -84,21 +79,26 @@ figcaption {
 
 /* Position the "next button" to the right */
 .next {
-  right: 7%;
+  right: 2%;
   border-radius: 3px 0 0 3px;
 }
 
 .prev {
-  left: 7%;
+  left: 2%;
   border-radius: 3px 0 0 3px;
 }
 
 @media screen and (max-width: 480px) {
   .next{
     right: 25%;
+    background-color: black;
+    opacity: 50%;
   }
   .prev{
     left: 25%;
+    background-color: black;
+    opacity: 50%;
+  
   }
 }
 
