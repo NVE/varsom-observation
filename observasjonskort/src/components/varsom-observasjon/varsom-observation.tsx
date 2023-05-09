@@ -566,11 +566,11 @@ allowZoom={true}
 ></varsom-static-map>
 
 <div class="container-for-image-slider">
-<varsom-image-slider
+<varsom-image-slider-mobile
 _images={obs._images} 
 strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
-  ></varsom-image-slider>
+  ></varsom-image-slider-mobile>
 </div>
 
 {/* CONTENT */}
