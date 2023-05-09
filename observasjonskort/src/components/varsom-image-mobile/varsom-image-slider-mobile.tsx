@@ -112,6 +112,7 @@ checkSwipe(elem: HTMLElement){ //source: https://pantaley.com/blog/How-to-separa
     
     if (this.observationImages.length > 0){
       
+      
         for (let j = 0; j < this.observationImages.length; j++){
           this.observationImages[j].style.display = "none";
           
