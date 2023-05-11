@@ -44,7 +44,7 @@
  - [varsom-ice-thickness](../varsom-ice-thickness)
  - [varsom-incident](../varsom-incident)
  - [varsom-landslide-observation](../varsom-landslide-observation)
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-observation](../varsom-observation)
  - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
  - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)

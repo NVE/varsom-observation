@@ -23,7 +23,7 @@
 
 ### Used by
 
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-observation](../varsom-observation)
 
 ### Depends on
 

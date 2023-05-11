@@ -20,7 +20,7 @@
 
 ### Used by
 
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-observation](../varsom-observation)
  - [varsom-water-level2](../varsom-water-level2)
 
 ### Depends on

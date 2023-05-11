@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-observation](../varsom-observation)
 
 ### Graph
 ```mermaid

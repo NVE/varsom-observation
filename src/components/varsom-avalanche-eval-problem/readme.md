@@ -37,7 +37,7 @@
 ### Used by
 
  - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
- - [varsom-observation](../varsom-observasjon)
+ - [varsom-observation](../varsom-observation)
 
 ### Depends on
 
