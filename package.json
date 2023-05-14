@@ -1,6 +1,6 @@
 {
   "name": "varsom-observation",
-  "version": "0.0.8",
+  "version": "0.1.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -64,7 +64,7 @@
   "bugs": {
     "url": "https://github.com/ionic-team/stencil-component-starter/issues"
   },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/ionic-team/stencil-component-starter#readme",
-  "_id": "varsom-observation@0.0.8"
+  "readme": "A web component for showing natural hazard observations",
+  "homepage": "https://www.varsom.no",
+  "_id": "varsom-observation@0.1.1"
 }
