@@ -20,27 +20,27 @@ export const config: Config = {
       type: 'www',
       copy: [{
         src: "**/*.i18n.*.json",
-        dest: "i18n"
+        dest: "src/assets/i18n"
       }, 
       {
         src: "**/*icon.svg",
-        dest: "icons"
+        dest: "src/assets/icons"
       }, 
       {
         src: "**/*.png",
-        dest: "pictures"
+        dest: "src/assets/pictures"
       },
       {
         src: "**/*.jpg",
-        dest: "pictures"
+        dest: "src/assets/pictures"
       },
       {
         src: "**/ext/*.svg",
-        dest: "svg"
+        dest: "src/assets/svg"
       },
       {
         src: "**/avalanche/*.svg",
-        dest: "svg"
+        dest: "src/assets/svg"
       }      
     ],
       
