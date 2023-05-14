@@ -14,10 +14,10 @@ export class VarsomRegobsLink {
     return <div> 
 
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
-<img alt="arrow icon" src={getAssetPath(`/assets/icons/Right.svg`)}></img></a>
+<img alt="arrow icon" src={(`src/assets/icons/Right.svg`)}></img></a>
 
 {/* TODO IMPLEMENT SHARING??*/}
-<a href=""></a><img alt="share icon" class="link" src={getAssetPath(`/assets/icons/Share.svg`)}></img>
+<a href=""></a><img alt="share icon" class="link" src={(`src/assets/icons/Share.svg`)}></img>
     </div>
   }
     
