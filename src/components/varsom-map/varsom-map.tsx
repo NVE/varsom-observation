@@ -1,4 +1,4 @@
-import { Component, Prop, getAssetPath, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { AvalancheObs, Graphic, ImageLocation, ImageLocationStartStop, LandslideObs, LatLng, LatLngBounds, MercatorBounds, Observation, PolygonsToPlot, TileProps } from '../varsom-observation/observation-model';
 import SphericalMercator from '@mapbox/sphericalmercator';
 import { Feature, Polygon } from '@turf/turf';
@@ -583,7 +583,7 @@ decoding="async"
 }
 
 <div class="graphic">
-<img src={(`src/assets/icons/observasjonspunkt.svg`)}></img>
+<img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
 
 </div>
   </div>  

@@ -36,11 +36,11 @@ export const config: Config = {
       },
       {
         src: "**/ext/*.svg",
-        dest: "src/assets/svg"
+        dest: "src/assets/svg/ext"
       },
       {
         src: "**/avalanche/*.svg",
-        dest: "src/assets/svg"
+        dest: "src/assets/svg/avalanche"
       }      
     ],
       

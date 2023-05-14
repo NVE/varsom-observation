@@ -56,7 +56,7 @@ export class VarsomMetadata {
 
       {this.competenceLevelName === "*" ? 
       <span>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
@@ -65,8 +65,8 @@ export class VarsomMetadata {
 
       {this.competenceLevelName === "**" ? 
       <span>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
@@ -74,29 +74,29 @@ export class VarsomMetadata {
 
       {this.competenceLevelName === "***" ? 
       <span>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
       </span> : ""}
 
       {this.competenceLevelName === "****" ? 
       <span>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' class="dark" src={(`src/assets/icons/star-icon.svg`)}></img>
       </span> : ""}
      
       {this.competenceLevelName === "*****" ? 
       <span>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
-        <img alt='rating star icon' src={(`src/assets/icons/star-icon-dark.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
+        <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
       </span> : ""}
 
       {this.observerGroupName && !this.shortVersion ? 

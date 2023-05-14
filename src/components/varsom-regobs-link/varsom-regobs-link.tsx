@@ -1,4 +1,4 @@
-import { Component, Prop, getAssetPath, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'varsom-regobs-link',
@@ -14,10 +14,10 @@ export class VarsomRegobsLink {
     return <div> 
 
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
-<img alt="arrow icon" src={(`src/assets/icons/Right.svg`)}></img></a>
+<img alt="arrow icon" src={(`src/assets/icons/Right-icon.svg`)}></img></a>
 
 {/* TODO IMPLEMENT SHARING??*/}
-<a href=""></a><img alt="share icon" class="link" src={(`src/assets/icons/Share.svg`)}></img>
+<a href=""></a><img alt="share icon" class="link" src={(`src/assets/icons/Share-icon.svg`)}></img>
     </div>
   }
     
