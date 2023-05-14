@@ -1,4 +1,4 @@
-import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 
 

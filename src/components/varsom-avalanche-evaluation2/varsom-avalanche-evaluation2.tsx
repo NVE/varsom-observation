@@ -1,4 +1,4 @@
-import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
 
 import { Attachment, AvalancheEvalProblem } from '../varsom-observation/observation-model';
