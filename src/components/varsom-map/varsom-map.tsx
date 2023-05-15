@@ -1,4 +1,4 @@
-import { Component, Prop, getAssetPath, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { AvalancheObs, Graphic, ImageLocation, ImageLocationStartStop, LandslideObs, LatLng, LatLngBounds, MercatorBounds, Observation, PolygonsToPlot, TileProps } from '../varsom-observation/observation-model';
 import SphericalMercator from '@mapbox/sphericalmercator';
 import { Feature, Polygon } from '@turf/turf';
@@ -509,7 +509,7 @@ await this.createMap(200,200);
   
       this.graphics.push({
         id: 'start',
-        svg: `<img src=${getAssetPath(`/assets/icons/skred-startposisjon.svg`)}></>`,
+        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
@@ -523,7 +523,7 @@ await this.createMap(200,200);
   
       this.graphics.push({
         id: 'start',
-        svg: `<img src=${getAssetPath(`/assets/icons/skred-startposisjon.svg`)}></>`,
+        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
@@ -583,7 +583,7 @@ decoding="async"
 }
 
 <div class="graphic">
-<img src={getAssetPath(`/assets/icons/observasjonspunkt.svg`)}></img>
+<img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
 
 </div>
   </div>  
