@@ -1,4 +1,4 @@
-import { Component, Prop, h, getAssetPath} from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
 import { Attachment, IceThicknessLayer } from '../varsom-observation/observation-model';
 
@@ -128,7 +128,7 @@ componentDidRender(){
 
 
 {this.HardCodedImg ?
-  <div><img src={getAssetPath(`/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
+  <div><img src={(`src/assets/pictures/iceThicknessStorybookImg.png`)}></img></div>
 : ""}
 
     <div id={this.regId + "12345"} class="hoved" ref={(el) => this.element = el as HTMLElement}>

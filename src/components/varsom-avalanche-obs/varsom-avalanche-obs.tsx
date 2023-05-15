@@ -1,4 +1,4 @@
-import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 
 
@@ -51,12 +51,12 @@ export class VarsomAvalancheObs {
 <div class="content">
 <div>
     {this.StartLat ? 
-    <span><img src={getAssetPath(`/assets/icons/skred-startposisjon.svg`)}>
+    <span><img src={(`src/assets/icons/skred-startposisjon.svg`)}>
       </img>Skredet startet her</span> 
     : ""}
 
     {this.StopLat ? 
-    <span><img src={getAssetPath(`/assets/icons/skred-stopposisjon.svg`)}>
+    <span><img src={(`src/assets/icons/skred-stopposisjon.svg`)}>
       </img>Skredet stoppet her</span> 
     : ""}
  </div>
