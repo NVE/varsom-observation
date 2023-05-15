@@ -9,17 +9,30 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomRegobsLink {
 
   @Prop() regId: any;
-  
+  @Prop() strings: any;
+
   render(){
     return <div> 
 
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
-<img alt="arrow icon" src={(`src/assets/icons/Right-icon.svg`)}></img></a>
 
-{/* TODO IMPLEMENT SHARING??*/}
-<a href=""></a><img alt="share icon" class="link" src={(`src/assets/icons/Share-icon.svg`)}></img>
+<img alt="arrow icon" src={getAssetPath(`/assets/icons/Right.svg`)}></img></a>
+<img onClick={
+  ()=> {
+    let text = "https://www.regobs.no/registration/" + this.regId;
+    navigator.clipboard.writeText(text); 
+    setTimeout(() => {
+      alert(this.strings ? this.strings.CopiedToClipboard : "Hyperlink to the observation copied to clipboard");  
+    }, 10);
+    
+    
+  }
+} alt="share icon" class="link" src={getAssetPath(`/assets/icons/Share.svg`)}></img>
+
     </div>
   }
+
+ 
     
   }
 

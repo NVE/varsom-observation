@@ -443,6 +443,7 @@ export namespace Components {
     }
     interface VarsomRegobsLink {
         "regId": any;
+        "strings": any;
     }
     interface VarsomSignsOfDanger {
         "Comment"?: any;
@@ -1412,6 +1413,7 @@ declare namespace LocalJSX {
     }
     interface VarsomRegobsLink {
         "regId"?: any;
+        "strings"?: any;
     }
     interface VarsomSignsOfDanger {
         "Comment"?: any;

@@ -1266,6 +1266,7 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 {/* LINK TO REGOBS */}
 <varsom-regobs-link
 regId={obs._regId}
+strings={this.strings}
 ></varsom-regobs-link>
 
 
