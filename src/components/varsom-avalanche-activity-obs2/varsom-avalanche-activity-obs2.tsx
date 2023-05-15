@@ -1,4 +1,4 @@
-import { Component, Prop, h, getAssetPath } from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 
 
@@ -70,7 +70,7 @@ export class VarsomAvalancheActivityObs2 {
     
 
     {this.ValidExposition ? 
-    <div><img src={getAssetPath(`/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
+    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     :""}  
 
     <br></br>
