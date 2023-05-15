@@ -10,7 +10,6 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomAttachment {
 
   @Prop() RegistrationName: any;
-  @Prop() shortVersion: any;
   @Prop() Comment: any;
   @Prop() Url: any;
   @Prop() Photographer: any;
@@ -37,7 +36,7 @@ export class VarsomAttachment {
       : ""} 
  
  <span class="att-cont">
- {!this.shortVersion ? 
+ 
 <span class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
   <br></br>
     {this.Photographer ? 
@@ -59,7 +58,7 @@ export class VarsomAttachment {
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
-    _value={this.shortVersion ? null : this.Comment}
+    _value={this.Comment}
     ></varsom-key-value>
     :""}
 
@@ -67,7 +66,7 @@ export class VarsomAttachment {
 
 </span>
 
- : null}
+
 
 </span>
     </span>

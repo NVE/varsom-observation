@@ -35,7 +35,6 @@ export namespace Components {
         "RegistrationName": any;
         "RegistrationTID"?: any;
         "Url": any;
-        "shortVersion": any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
@@ -1005,7 +1004,6 @@ declare namespace LocalJSX {
         "RegistrationName"?: any;
         "RegistrationTID"?: any;
         "Url"?: any;
-        "shortVersion"?: any;
         "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {

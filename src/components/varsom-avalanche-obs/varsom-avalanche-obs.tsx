@@ -146,7 +146,7 @@ export class VarsomAvalancheObs {
     :""}
     </div>
 
-    {this.Attachments ? 
+    {(this.Attachments && !this.shortVersion) ? 
       <span class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment

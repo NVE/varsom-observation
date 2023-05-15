@@ -1251,7 +1251,6 @@ Attachments={obs._incident.Attachments ? obs._incident.Attachments : null}
 <span class="attachments-container">
 {obs.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
-            shortVersion={this.version==="short" ? this.version : null}
             Photographer={el.Photographer ? el.Photographer : null}            
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
