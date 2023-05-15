@@ -22,7 +22,6 @@
 | `RegistrationName`   | `registration-name`    |             | `any`     | `undefined` |
 | `RegistrationTID`    | `registration-t-i-d`   |             | `any`     | `undefined` |
 | `Url`                | `url`                  |             | `any`     | `undefined` |
-| `shortVersion`       | `short-version`        |             | `any`     | `undefined` |
 | `strings`            | `strings`              |             | `any`     | `undefined` |
 
 

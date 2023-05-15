@@ -57,7 +57,6 @@ export class VarsomDamageObs {
       <div>
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
-            shortVersion={this.shortVersion ? this.shortVersion : null}
             strings={this.strings}
             AttachmentId={el.AttachmentId ? el.AttachmentId : null}
             GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
