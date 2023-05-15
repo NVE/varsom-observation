@@ -8,6 +8,31 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
+      copy: [{
+        src: "**/*.i18n.*.json",
+        dest: "src/assets/i18n"
+      }, 
+      {
+        src: "**/*icon.svg",
+        dest: "src/assets/icons"
+      }, 
+      {
+        src: "**/*.png",
+        dest: "src/assets/pictures"
+      },
+      {
+        src: "**/*.jpg",
+        dest: "src/assets/pictures"
+      },
+      {
+        src: "**/ext/*.svg",
+        dest: "src/assets/svg/ext"
+      },
+      {
+        src: "**/avalanche/*.svg",
+        dest: "src/assets/svg/avalanche"
+      }      
+    ],
       esmLoaderPath: '../loader',
     },
     {
@@ -20,27 +45,27 @@ export const config: Config = {
       type: 'www',
       copy: [{
         src: "**/*.i18n.*.json",
-        dest: "i18n"
+        dest: "src/assets/i18n"
       }, 
       {
         src: "**/*icon.svg",
-        dest: "icons"
+        dest: "src/assets/icons"
       }, 
       {
         src: "**/*.png",
-        dest: "pictures"
+        dest: "src/assets/pictures"
       },
       {
         src: "**/*.jpg",
-        dest: "pictures"
+        dest: "src/assets/pictures"
       },
       {
         src: "**/ext/*.svg",
-        dest: "svg"
+        dest: "src/assets/svg/ext"
       },
       {
         src: "**/avalanche/*.svg",
-        dest: "svg"
+        dest: "src/assets/svg/avalanche"
       }      
     ],
       

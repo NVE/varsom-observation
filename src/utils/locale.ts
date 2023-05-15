@@ -1,7 +1,7 @@
-import { getAssetPath } from '@stencil/core';
+//import { getAssetPath } from '@stencil/core';
 async function fetchLocaleStringsForComponent(componentName: string, locale: string): Promise<any> {
     return new Promise((resolve, reject): void => {
-      fetch(`${getAssetPath(`/i18n/${componentName}.i18n.${locale}.json`)}`)
+      fetch(`./../src/assets/i18n/${componentName}.i18n.${locale}.json`)
       .then((result) => {
         if (result.ok) resolve(result.json());
         else reject();
