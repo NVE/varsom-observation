@@ -1,4 +1,7 @@
 {
+  "RegistrationKeyInfo": {
+    "MetersAboveSeaLevel": "moh"
+  },
   "AppearanceName": "Udseende:",
   "Converters": {
     "Above": "Over",
