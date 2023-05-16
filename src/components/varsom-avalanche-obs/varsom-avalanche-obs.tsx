@@ -5,7 +5,7 @@ import { Attachment, Observation } from '../varsom-observation/observation-model
 @Component({
   tag: 'varsom-avalanche-obs',
   styleUrl: 'varsom-avalanche-obs.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomAvalancheObs {
@@ -44,14 +44,11 @@ export class VarsomAvalancheObs {
  
 
   render(){
-    return <div class="container"> 
+    return <div class="obs-container"> 
 
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
       ></varsom-label>
-
-
-
 
 <div>
     {this.StartLat ? 
@@ -67,10 +64,10 @@ export class VarsomAvalancheObs {
 
 
  {this.StartLat && this.StopLat && this.Observation._latitude ? 
-
 <varsom-static-map
 observation={this.Observation}
 allowZoom={true}
+avalanche={true}
 ></varsom-static-map>
  : null}
  

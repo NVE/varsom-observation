@@ -24,6 +24,7 @@ export class VarsomStaticMap {
 
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
+  @Prop() avalanche?: boolean;
 
   tiles: TileProps[];//null;
   graphics: Graphic[];     
@@ -593,13 +594,21 @@ decoding="async"
 })
 }
 
+{this.avalanche ? 
+<host>
 {this.graphics.map((el) => {
   return <div class="graphic" innerHTML={el.svg}> 
   
   </div>
 })}
+</host> : null }
 
-
+{this.avalanche ? 
+null :
+<div class="graphic">
+<img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
+</div>
+  }
 
 
 

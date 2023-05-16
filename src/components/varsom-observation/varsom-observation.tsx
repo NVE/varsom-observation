@@ -11,7 +11,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: false
+  shadow: false,
 })
 export class VarsomObservation {
 

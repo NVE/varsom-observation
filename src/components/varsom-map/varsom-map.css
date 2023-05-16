@@ -1,5 +1,5 @@
 .container {
-  height: 20rem;
+  height: 12.5rem;
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(119, 166, 169, 0.5);
@@ -16,4 +16,6 @@
   .graphic {
     z-index: 2;
     position: absolute; 
+    left: 50%;
+    top: 30%;
   }
