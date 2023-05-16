@@ -16,7 +16,7 @@ export class VarsomRegobsLink {
 
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
 
-<img alt="arrow icon" src={getAssetPath(`/assets/icons/Right.svg`)}></img></a>
+<img alt="arrow icon" src={(`/assets/icons/Right-icon.svg`)}></img></a>
 <img onClick={
   ()=> {
     let text = "https://www.regobs.no/registration/" + this.regId;
@@ -27,7 +27,7 @@ export class VarsomRegobsLink {
     
     
   }
-} alt="share icon" class="link" src={getAssetPath(`/assets/icons/Share.svg`)}></img>
+} alt="share icon" class="link" src={(`/assets/icons/Share-icon.svg`)}></img>
 
     </div>
   }

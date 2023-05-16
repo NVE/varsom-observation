@@ -509,7 +509,11 @@ await this.createMap(200,200);
   
       this.graphics.push({
         id: 'start',
-        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
+        svg: `<svg style="position:absolute; left: ${leftPx - w}px; top: ${topPx}px" width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0C8.94184 0 10.594 0.714782 11.9564 2.14437C13.3188 3.57395 14 5.3075 14 7.34507C14 8.36386 13.7573 9.53051 13.2718 10.8451C12.7864 12.1596 12.1991 13.392 11.5101 14.5423C10.821 15.6925 10.1398 16.7688 9.46644 17.7711C8.79306 18.7735 8.22148 19.5704 7.75168 20.162L7 21C6.81208 20.77 6.56152 20.466 6.24832 20.088C5.93512 19.7101 5.37137 18.9542 4.55705 17.8204C3.74273 16.6866 3.0302 15.5857 2.41946 14.5176C1.80872 13.4495 1.2528 12.2418 0.751678 10.8944C0.250557 9.54694 0 8.36386 0 7.34507C0 5.3075 0.681201 3.57395 2.04362 2.14437C3.40605 0.714782 5.05816 0 7 0Z" fill="#008A08"/>
+        <path d="M9.91699 7.58325L5.25033 10.2083L5.25033 4.95825L9.91699 7.58325Z" fill="white"/>
+        </svg>
+        `,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
@@ -522,8 +526,12 @@ await this.createMap(200,200);
       const h = 28;
   
       this.graphics.push({
-        id: 'start',
-        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
+        id: 'stopp',
+        svg: `<svg style="position: absolute; left: ${leftPx - w / 2}px; top: ${topPx - h}px width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0C8.94184 0 10.594 0.714782 11.9564 2.14437C13.3188 3.57395 14 5.3075 14 7.34507C14 8.36386 13.7573 9.53051 13.2718 10.8451C12.7864 12.1596 12.1991 13.392 11.5101 14.5423C10.821 15.6925 10.1398 16.7688 9.46644 17.7711C8.79306 18.7735 8.22148 19.5704 7.75168 20.162L7 21C6.81208 20.77 6.56152 20.466 6.24832 20.088C5.93512 19.7101 5.37137 18.9542 4.55705 17.8204C3.74273 16.6866 3.0302 15.5857 2.41946 14.5176C1.80872 13.4495 1.2528 12.2418 0.751678 10.8944C0.250557 9.54694 0 8.36386 0 7.34507C0 5.3075 0.681201 3.57395 2.04362 2.14437C3.40605 0.714782 5.05816 0 7 0Z" fill="#D30100"/>
+        <path d="M9.33301 9.91667L4.66634 9.91667L4.66634 5.25L9.33301 5.25L9.33301 9.91667Z" fill="white"/>
+        </svg>
+         `,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
@@ -543,7 +551,9 @@ await this.createMap(200,200);
         // width and height on svg?
         svg: //this.sanitizer.bypassSecurityTrustHtml
         (`
-        <svg pointer-events="none" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+        <svg 
+        style="position: absolute; left: ${svg_x0 - x0}px; top: ${svg_y0 - y0}px" ,
+        pointer-events="none" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
           <path
             stroke="red"
             stroke-opacity="0.9"
@@ -552,11 +562,12 @@ await this.createMap(200,200);
             stroke-linejoin="round"
             fill="none"
             d="M${start.x - svg_x0} ${start.y - svg_y0}L${stop.x - svg_x0} ${stop.y - svg_y0}"></path>
-        </svg>`),
-        style: {
-          'left.px': svg_x0 - x0,
-          'top.px': svg_y0 - y0,
-        },
+        </svg>`)
+        //,
+        //style: {
+         // 'left.px': svg_x0 - x0,
+          //'top.px': svg_y0 - y0,
+       // },
       });
     }
   
@@ -582,10 +593,16 @@ decoding="async"
 })
 }
 
-<div class="graphic">
-<img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
+{this.graphics.map((el) => {
+  return <div class="graphic" innerHTML={el.svg}> 
+  
+  </div>
+})}
 
-</div>
+
+
+
+
   </div>  
 
 }

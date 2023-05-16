@@ -219,6 +219,7 @@ export namespace Components {
         "FractureWidth": any;
         "HeightStartZone": any;
         "HeightStopZone": any;
+        "Observation": Observation;
         "RemotelyTriggered": any;
         "SnowLine": any;
         "StartLat": any;
@@ -1189,6 +1190,7 @@ declare namespace LocalJSX {
         "FractureWidth"?: any;
         "HeightStartZone"?: any;
         "HeightStopZone"?: any;
+        "Observation"?: Observation;
         "RemotelyTriggered"?: any;
         "SnowLine"?: any;
         "StartLat"?: any;

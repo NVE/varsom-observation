@@ -17,11 +17,13 @@
 
 ### Used by
 
+ - [varsom-avalanche-obs](../varsom-avalanche-obs)
  - [varsom-observation](../varsom-observation)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-avalanche-obs --> varsom-static-map
   varsom-observation --> varsom-static-map
   style varsom-static-map fill:#f9f,stroke:#333,stroke-width:4px
 ```

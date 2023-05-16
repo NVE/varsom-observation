@@ -695,6 +695,7 @@ StopLong={obs._avalancheObs.StopLong ? obs._avalancheObs.StopLong : null}
 RemotelyTriggered={obs._avalancheObs.RemotelyTriggered ? obs._avalancheObs.RemotelyTriggered : null}
 Comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 Attachments={obs._avalancheObs.Attachments ? obs._avalancheObs.Attachments : null}
+Observation={obs}
 ></varsom-avalanche-obs>  
   : "" }
 

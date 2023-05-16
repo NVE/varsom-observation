@@ -351,9 +351,13 @@ export type Observation = {
   
   export type Graphic = {
     id: string;
-    svg: string;//SafeHtml;
-    style: { [styleDesc: string]: number };
+    svg?: any;//SafeHtml;
+    src?: string;
+     style?: { [styleDesc: string]: number };
+  
   }
+
+  
 
   export type PositionToPlot = {
     pos: ImageLocation['latLng'];
