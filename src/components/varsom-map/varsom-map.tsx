@@ -44,6 +44,7 @@ export class VarsomStaticMap {
   TILE_SIZE = 256;
   PADDING = 15;
   SVG_PADDING = 20;
+  
 
   mercator = new SphericalMercator({ size: this.TILE_SIZE});
 
@@ -93,7 +94,7 @@ export class VarsomStaticMap {
 
 this.startSizeFinder();
 
-await this.createMap(200,200);  
+await this.createMap(78,80);  
 
 
   }
@@ -237,15 +238,16 @@ await this.createMap(200,200);
      getStartZoom() {
       // If start / stop avalanche should be plotted, start more zoomed in. If we are zoomed out we cant see the
       // avalanche path.
-      const location = this.getLocation(this.observation);
+      //const location = this.getLocation(this.observation);
 
       if (
-        (location?.startStopLocation?.start && location?.startStopLocation?.stop) ||
-        location?.startStopLocation?.totalPolygon
+        this.avalanche
+       // (location?.startStopLocation?.start && location?.startStopLocation?.stop) ||
+        //location?.startStopLocation?.totalPolygon
       ) {
         return 14;
       }
-      return settings.map.tiles.zoomLevelObservationList;
+      return 11;//settings.map.tiles.zoomLevelObservationList;
 
       
     }
@@ -507,6 +509,8 @@ await this.createMap(200,200);
       
       const w = 18;
       const h = 28;
+
+  
   
       this.graphics.push({
         id: 'start',
