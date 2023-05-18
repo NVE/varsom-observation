@@ -55,7 +55,7 @@ export class VarsomAvalancheActivityObs2 {
     {this.EstimatedNumTID ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
-    _value={(this.EstimatedNumName ? (this.EstimatedNumName + ". ") : "" )+ 
+    _value={(this.EstimatedNumName && !valueIsNotGiven(this.EstimatedNumName) ? (this.EstimatedNumName + ". ") : "" )+ 
     (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? (this.DestructiveSizeName + ". ") : "" ) + 
     (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : "")}
     ></varsom-key-value>
