@@ -12,9 +12,12 @@ export class VarsomKeyValue {
   @Prop() _key: any;
   @Prop() _value?: any;
   @Prop() shortVersion: string;
+
+  notGiven = ["Ikke gitt", "Not given", "Keine Angabe", "Nicht angegeben", "Ni podano", "Ej angivet", "Ikkje gitt", "Non donné", "Ikke givet"];
+  valueNotGiven = this.notGiven.includes(String(this._value));
   
   render(){
-    return <span>
+    let keyValue = <span>
     {this.shortVersion ?    
      <span>
      {this._value} 
@@ -27,6 +30,7 @@ export class VarsomKeyValue {
   }
 
     </span>
+    return this.valueNotGiven ? null : keyValue
  
     
   }

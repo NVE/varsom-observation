@@ -1,4 +1,4 @@
-import { Component, Prop, h} from '@stencil/core';
+import { Component, Prop, getAssetPath, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 
 @Component({
