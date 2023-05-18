@@ -1,5 +1,6 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
+import { valueIsNotGiven } from '../../utils/utils';
 
 
 @Component({
@@ -55,8 +56,8 @@ export class VarsomAvalancheActivityObs2 {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
     _value={(this.EstimatedNumName ? (this.EstimatedNumName + ". ") : "" )+ 
-    (this.DestructiveSizeName ? (this.DestructiveSizeName + ". ") : "" ) + 
-    (this.AvalTriggerSimpleName ? this.AvalTriggerSimpleName : "")}
+    (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? (this.DestructiveSizeName + ". ") : "" ) + 
+    (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : "")}
     ></varsom-key-value>
     :""}
  </div>
