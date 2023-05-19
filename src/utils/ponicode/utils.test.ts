@@ -275,3 +275,11 @@ describe("utils.getDangerTypeSvg", () => {
         expect(result).toBe("No-Rating-EAWS.svg")
     })
 })
+
+// @ponicode
+describe("utils.format", () => {
+    test("0", () => {
+        let result: any = utils.format("First", "Middle", "Last")
+        expect(result).toBe("First Middle Last")
+    })
+})
