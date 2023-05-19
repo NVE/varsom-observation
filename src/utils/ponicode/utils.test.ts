@@ -2,6 +2,10 @@ import * as utils from "../utils"
 
 
 
+
+
+
+
 // @ponicode
 describe("utils.getGeoHazardIdFromName", () => {
     test("input snow returns snow geoHazardId", () => {
@@ -24,6 +28,10 @@ describe("utils.getGeoHazardIdFromName", () => {
         expect(result).toBe(20)
     })
 })
+
+
+
+
 
 
 
@@ -64,6 +72,10 @@ describe("utils.getLangKeyFromName", () => {
         expect(result).toBe(2)
     })
 })
+
+
+
+
 
 
 
@@ -120,6 +132,8 @@ describe("utils.getObservationFromApiByLanguageAndType", () => {
     })
 })
 
+
+
 // @ponicode
 describe("utils.getObservationFromApiById", () => {
     test("input regId returns observation with correct regId from API", async () => {
@@ -127,6 +141,8 @@ describe("utils.getObservationFromApiById", () => {
         expect(result).toBe(332395)
     })
 })
+
+
 
 // @ponicode
 describe("utils.getObservationsFromApiByTypeAmountAndLanguage", () => {
@@ -139,6 +155,57 @@ describe("utils.getObservationsFromApiByTypeAmountAndLanguage", () => {
         let result: any = await utils.getObservationsFromApiByTypeAmountAndLanguage("Ice", 2, "German")
         expect(result).toBe("Eis")
     })
-
 })
 
+// @ponicode
+describe("utils.valueIsNotGiven", () => {
+    test("0", () => {
+        let result: any = utils.valueIsNotGiven("Ikke gitt")
+        expect(result).toBe(true)
+    })
+
+    test("1", () => {
+        let result: any = utils.valueIsNotGiven("Mye snø")
+        expect(result).toBe(false)
+    })
+
+    test("2", () => {
+        let result: any = utils.valueIsNotGiven("Not given")
+        expect(result).toBe(true)
+    })
+
+    test("3", () => {
+        let result: any = utils.valueIsNotGiven("Keine Angabe")
+        expect(result).toBe(true)
+    })
+
+    test("4", () => {
+        let result: any = utils.valueIsNotGiven("Nicht angegeben")
+        expect(result).toBe(true)
+    })
+
+    test("5", () => {
+        let result: any = utils.valueIsNotGiven("Ni podano")
+        expect(result).toBe(true)
+    })
+
+    test("6", () => {
+        let result: any = utils.valueIsNotGiven("Ej angivet")
+        expect(result).toBe(true)
+    })
+
+    test("7", () => {
+        let result: any = utils.valueIsNotGiven("Ikkje gitt")
+        expect(result).toBe(true)
+    })
+
+    test("8", () => {
+        let result: any = utils.valueIsNotGiven("Non donné")
+        expect(result).toBe(true)
+    })
+
+    test("9", () => {
+        let result: any = utils.valueIsNotGiven("Ikke givet")
+        expect(result).toBe(true)
+    })
+})
