@@ -1,6 +1,7 @@
 import { Component, Prop, h} from '@stencil/core';
-import { getDangerTypeSvg } from '../../utils/utils';
+import { getDangerTypeSvg, valueIsNotGiven } from '../../utils/utils';
 import { Attachment } from '../varsom-observation/observation-model';
+
 
 @Component({
   tag: 'varsom-avalanche-evaluation3',
@@ -33,7 +34,7 @@ export class VarsomAvalancheEvaluation3 {
     ></varsom-key-value>
     :""}
 
-    {this.ForecastCorrectName ? 
+    {this.ForecastCorrectName && !valueIsNotGiven(this.ForecastCorrectName)? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID : (this.shortVersion ? null : "Varslelets riktighet") }
     _value={this.ForecastCorrectName}

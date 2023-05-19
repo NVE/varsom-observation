@@ -193,6 +193,11 @@ export function getGeoHazardIdFromName(hazardName: string) {
     }
   }
 
+export function valueIsNotGiven(value: any){
+  let notGiven = ["Ikke gitt", "Not given", "Keine Angabe", "Nicht angegeben", "Ni podano", "Ej angivet", "Ikkje gitt", "Non donné", "Ikke givet"];
+  return notGiven.includes(String(value));
+}
+
   
 
 

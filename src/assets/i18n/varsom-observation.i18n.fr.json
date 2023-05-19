@@ -1,4 +1,8 @@
 {
+  "CopiedToClipboard": "Copié dans le presse-papier", 
+  "RegistrationKeyInfo":{
+    "MetersAboveSeaLevel": "m (par rapport au niveau de la mer)"
+  },
   "AppearanceName": "Aspect",
   "Converters": {
     "Above": "Au-dessus",

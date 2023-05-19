@@ -26,13 +26,18 @@ export class VarsomMetadata {
       <span>
         <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
-      {new Date(this.dateOfRegistration).toLocaleString("no")}
+      {new Date(this.dateOfRegistration).toLocaleString("no", {
+        dateStyle: "short"
+      })}
       </span> : ""}
 
       {this.dateOfLastUpdate && !this.shortVersion ? 
       <span>
       <label>{this.strings.Reg.UpdatedTime} </label>
-      {new Date(this.dateOfLastUpdate).toLocaleString("no")}
+      {new Date(this.dateOfLastUpdate).toLocaleString("no", 
+      {
+        dateStyle: "short"
+      })}
       </span> : ""}
       
       {this.geoHazardName ? 
@@ -40,12 +45,13 @@ export class VarsomMetadata {
       <img alt='geohazard icon'class="image" src={(`src/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
-   
-   
+   <br></br>
       {this.moh ? 
       <span>
-        <img alt='height icon' class="image" src={(`src/assets/icons/height-icon.svg`)}></img>
-      {this.moh} <span>{this.strings.RegistrationKeyInfo.MetersAboveSeaLevel} </span> 
+
+        <img alt='height icon' class="image" src="/assets/icons/height-icon.svg"></img>
+      {this.moh} {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
+
       </span> : ""}
 
       {this.nickname ? 
