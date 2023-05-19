@@ -247,3 +247,31 @@ describe("utils.getIconName", () => {
         expect(result).toBe("")
     })
 })
+
+// @ponicode
+describe("utils.getDangerTypeSvg", () => {
+    test("0", () => {
+        let result: any = utils.getDangerTypeSvg(1)
+        expect(result).toBe("Dry-Snow-1-EAWS.svg")
+    })
+
+    test("1", () => {
+        let result: any = utils.getDangerTypeSvg(2)
+        expect(result).toBe("Dry-Snow-2-EAWS.svg")
+    })
+
+    test("2", () => {
+        let result: any = utils.getDangerTypeSvg(3)
+        expect(result).toBe("Dry-Snow-3-EAWS.svg")
+    })
+
+    test("3", () => {
+        let result: any = utils.getDangerTypeSvg(4)
+        expect(result).toBe("Dry-Snow-4-5-EAWS.svg")
+    })
+
+    test("4", () => {
+        let result: any = utils.getDangerTypeSvg(99)
+        expect(result).toBe("No-Rating-EAWS.svg")
+    })
+})
