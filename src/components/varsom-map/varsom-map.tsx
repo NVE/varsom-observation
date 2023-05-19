@@ -24,6 +24,7 @@ export class VarsomStaticMap {
 
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
+  @Prop() small?: boolean;
 
   tiles: TileProps[];//null;
   graphics: Graphic[];     
@@ -569,7 +570,7 @@ await this.createMap(200,200);
   
 
   render(){
-    return <div class="container" ref={(el) => this.container = el as HTMLElement}>
+    return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
 return <img

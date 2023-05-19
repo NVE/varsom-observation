@@ -560,16 +560,19 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
          
       
 {/* STATIC MAP */}
+{this.version!=="short" ?
 <varsom-static-map
 observation={obs}
 allowZoom={true}
 ></varsom-static-map>
+  : null }
 
 <div class="container-for-image-slider">
 <varsom-image-slider
 _images={obs._images} 
 strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
+observation={obs}
   ></varsom-image-slider>
 </div>
 
