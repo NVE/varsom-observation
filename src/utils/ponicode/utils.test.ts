@@ -38,38 +38,48 @@ describe("utils.getGeoHazardIdFromName", () => {
 // @ponicode
 describe("utils.getLangKeyFromName", () => {
     test("input norwegian returns norwegian langKey", () => {
-        let result: any = utils.getLangKeyFromName("Norwegian")
+        let result: any = utils.getLangKeyFromName("nb")
         expect(result).toBe(1)
     })
 
     test("input nynorsk returns nynorsk langKey", () => {
-        let result: any = utils.getLangKeyFromName("Nynorsk")
+        let result: any = utils.getLangKeyFromName("nn")
         expect(result).toBe(7)
     })
 
     test("input italian returns italian langKey", () => {
-        let result: any = utils.getLangKeyFromName("Italian")
+        let result: any = utils.getLangKeyFromName("it")
         expect(result).toBe(6)
     })
 
     test("input slovenian returns slovenian langKey", () => {
-        let result: any = utils.getLangKeyFromName("Slovenian")
+        let result: any = utils.getLangKeyFromName("sl")
         expect(result).toBe(4)
     })
 
     test("input swedish returns swedish langKey", () => {
-        let result: any = utils.getLangKeyFromName("Swedish")
+        let result: any = utils.getLangKeyFromName("sv")
         expect(result).toBe(5)
     })
 
     test("input german returns german langKey", () => {
-        let result: any = utils.getLangKeyFromName("German")
+        let result: any = utils.getLangKeyFromName("de")
         expect(result).toBe(3)
     })
 
     test("input english returns english langKey", () => {
-        let result: any = utils.getLangKeyFromName("English")
+        let result: any = utils.getLangKeyFromName("en")
         expect(result).toBe(2)
+    })
+
+    test("7", () => {
+        let result: any = utils.getLangKeyFromName("fr")
+        expect(result).toBe(8)
+    })
+
+    test("8", () => {
+        let result: any = utils.getLangKeyFromName("da")
+        expect(result).toBe(9)
     })
 })
 
