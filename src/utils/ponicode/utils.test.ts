@@ -219,3 +219,31 @@ describe("utils.valueIsNotGiven", () => {
         expect(result).toBe(true)
     })
 })
+
+// @ponicode
+describe("utils.getIconName", () => {
+    test("0", () => {
+        let result: any = utils.getIconName("Snow")
+        expect(result).toBe("snow")
+    })
+
+    test("1", () => {
+        let result: any = utils.getIconName("Ice")
+        expect(result).toBe("ice")
+    })
+
+    test("2", () => {
+        let result: any = utils.getIconName("Water")
+        expect(result).toBe("water")
+    })
+
+    test("3", () => {
+        let result: any = utils.getIconName("Soil")
+        expect(result).toBe("dirt")
+    })
+
+    test("4", () => {
+        let result: any = utils.getIconName("Other")
+        expect(result).toBe("")
+    })
+})
