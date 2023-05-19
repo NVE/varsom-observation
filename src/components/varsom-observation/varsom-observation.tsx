@@ -565,8 +565,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 observation={obs}
 allowZoom={true}
 ></varsom-static-map>
-  : null }
-
+  : 
 <div class="container-for-image-slider">
 <varsom-image-slider
 _images={obs._images} 
@@ -575,6 +574,7 @@ shortVersion={this.version==="short" ? this.version : null}
 observation={obs}
   ></varsom-image-slider>
 </div>
+ }
 
 {/* CONTENT */}
 <div class="observation-content">
