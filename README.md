@@ -6,8 +6,8 @@
 ## **Installation**
 1. Install node.js v18.13.0 or newer
 2. Install Visual Studio Code
-3. Clone repo (https://github.com/NVE/observasjonskort.git)
-4. Open terminal and run "cd .\observasjonskort\"
+3. Clone repo (https://github.com/NVE/varsom-observation.git)
+4. Open terminal and run "cd varsom-observation"
 5. Install jquery: "npm install @types/jquery@latest"
 6. Install packages: "npm install"
 7. Test locally with "npm start"
@@ -68,9 +68,9 @@ be asked to log in after entering the command. Change version number in package.
 
 
 ## **Import component in a Vue project**
-To import the component in a Vue project, run the command "npm i varsom-observation".<br>
-copy folders from node_modules/varsom-observation/dist/collection/src/assets to src/assets. <br>
-In main.ts: import { defineCustomElement } from 'varsom-observation/dist/components/varsom-observation' and type defineCustomElement(); <br>
+To import the component in a Vue project, run the command "npm i @varsom/observation-components".<br>
+copy folders from node_modules/@varsom/observation-components/dist/collection/src/assets to src/assets. <br>
+In main.ts: import { defineCustomElement } from '@varsom/observation-components/dist/components/varsom-observation' and type defineCustomElement(); <br>
 Use the component in a .vue-file: \<varsom-observation version="" type="Snow" regid="" count=8 language="en"\>\</varsom-observation\> <br>
 You may need to adjust the width for the component in a css file, e.g. width: 200%.
 
