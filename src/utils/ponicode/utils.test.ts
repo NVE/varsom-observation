@@ -6,6 +6,14 @@ import * as utils from "../utils"
 
 
 
+
+
+
+
+
+
+
+
 // @ponicode
 describe("utils.getGeoHazardIdFromName", () => {
     test("input snow returns snow geoHazardId", () => {
@@ -28,6 +36,14 @@ describe("utils.getGeoHazardIdFromName", () => {
         expect(result).toBe(20)
     })
 })
+
+
+
+
+
+
+
+
 
 
 
@@ -89,46 +105,54 @@ describe("utils.getLangKeyFromName", () => {
 
 
 
+
+
+
+
+
+
+
+
 // @ponicode
 describe("utils.getObservationFromApiByLanguageAndType", () => {
     test("input snow and german gets observation with snow and german from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "German")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "de")
         expect(result).toBe("Schnee")
     })
 
     test("input dirt and english gets observation with dirt and english from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Dirt", "English")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Dirt", "en")
         expect(result).toBe("Soil")
     })
 
     test("input water and english gets observation with water and english from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Water", "English")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Water", "en")
         expect(result).toBe("Water")
     })
 
     test("input ice and german gets observation with ice and german from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Ice", "German")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Ice", "de")
         expect(result).toBe("Eis")
     })
 
     test("input dirt and slovenian gets observation with dirt and slovenian from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Dirt", "Slovenian")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Dirt", "sl")
         expect(result).toBe("Zemlja")
     })
 
     test("input ice and swedish gets observation with ice and swedish from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Ice", "Swedish")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Ice", "sv")
         expect(result).toBe("Is")
     })
 
     test("input snow and nynorsk gets observation with snow and nynorsk from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "Nynorsk")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "nn")
         expect(result).toBe("Snø")
     })
 
     test("input snow and italian gets observation with snow and italian from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "Italian")
-        expect(result).toBe("Nevicare")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "it")
+        expect(result).toBe("Neve")
     })
 
     test("input snow and no input for language gets snow observation default language (norwegian) from API", async () => {
@@ -137,10 +161,14 @@ describe("utils.getObservationFromApiByLanguageAndType", () => {
     })
 
     test("input snow and norwegian gets observation with snow and norwegian from API", async () => {
-        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "Norwegian")
+        let result: any = await utils.getObservationFromApiByLanguageAndType("Snow", "nb")
         expect(result).toBe("Snø")
     })
 })
+
+
+
+
 
 
 
@@ -154,18 +182,24 @@ describe("utils.getObservationFromApiById", () => {
 
 
 
+
+
+
+
 // @ponicode
 describe("utils.getObservationsFromApiByTypeAmountAndLanguage", () => {
     test("get multiple observations with correct type and language (snow/english)", async () => {
-        let result: any = await utils.getObservationsFromApiByTypeAmountAndLanguage("Snow", 2, "English")
+        let result: any = await utils.getObservationsFromApiByTypeAmountAndLanguage("Snow", 2, "en")
         expect(result).toBe("Snow")
     })
 
     test("get multiple observations with correct type and language (ice/german)", async () => {
-        let result: any = await utils.getObservationsFromApiByTypeAmountAndLanguage("Ice", 2, "German")
+        let result: any = await utils.getObservationsFromApiByTypeAmountAndLanguage("Ice", 2, "de")
         expect(result).toBe("Eis")
     })
 })
+
+
 
 // @ponicode
 describe("utils.valueIsNotGiven", () => {
@@ -220,6 +254,8 @@ describe("utils.valueIsNotGiven", () => {
     })
 })
 
+
+
 // @ponicode
 describe("utils.getIconName", () => {
     test("0", () => {
@@ -247,6 +283,8 @@ describe("utils.getIconName", () => {
         expect(result).toBe("")
     })
 })
+
+
 
 // @ponicode
 describe("utils.getDangerTypeSvg", () => {
@@ -276,10 +314,19 @@ describe("utils.getDangerTypeSvg", () => {
     })
 })
 
+
+
 // @ponicode
 describe("utils.format", () => {
     test("0", () => {
         let result: any = utils.format("First", "Middle", "Last")
         expect(result).toBe("First Middle Last")
+    })
+})
+
+// @ponicode
+describe("utils.generatePlotForIceThickness", () => {
+    test("0", () => {
+        utils.generatePlotForIceThickness(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)
     })
 })
