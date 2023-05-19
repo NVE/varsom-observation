@@ -74,6 +74,11 @@ In main.ts: import { defineCustomElement } from '@varsom/observation-components/
 Use the component in a .vue-file: \<varsom-observation version="" type="Snow" regid="" count=8 language="en"\>\</varsom-observation\> <br>
 You may need to adjust the width for the component in a css file, e.g. width: 200%.
 
+<br>
+
+You can also import the component with unpkg. Include this script in index.html:
+\<script type="module" src="https://unpkg.com/@varsom/observation-components@latest/dist/observation-components/observation-components.esm.js"\>\</script\>. This way you will always get the latest version. You still need to copy the files to src/assets.
+
 
 
 
