@@ -1,4 +1,4 @@
-import { Component, Prop, getAssetPath, h} from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 
 @Component({
@@ -49,7 +49,7 @@ export class VarsomMetadata {
       {this.moh ? 
       <span>
 
-        <img alt='height icon' class="image" src={getAssetPath(`/assets/icons/height-icon.svg`)}></img>
+        <img alt='height icon' class="image" src="/assets/icons/height-icon.svg"></img>
       {this.moh} {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
 
       </span> : ""}

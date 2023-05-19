@@ -1,4 +1,8 @@
 {
+  "CopiedToClipboard": "Kopieret til udklipsholder", 
+  "RegistrationKeyInfo":{
+    "MetersAboveSeaLevel": "moh"
+  },
   "AppearanceName": "Udseende:",
   "Converters": {
     "Above": "Over",
