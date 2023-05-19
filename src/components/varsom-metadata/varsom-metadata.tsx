@@ -49,7 +49,7 @@ export class VarsomMetadata {
       {this.moh ? 
       <span>
 
-        <img alt='height icon' class="image" src="/assets/icons/height-icon.svg"></img>
+        <img alt='height icon' class="image" src="src/assets/icons/height-icon.svg"></img>
       {this.moh} {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
 
       </span> : ""}
