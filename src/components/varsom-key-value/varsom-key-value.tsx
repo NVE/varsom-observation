@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { valueIsNotGiven } from '../../utils/utils';
 
 
 @Component({
@@ -12,9 +13,11 @@ export class VarsomKeyValue {
   @Prop() _key: any;
   @Prop() _value?: any;
   @Prop() shortVersion: string;
+
+  
   
   render(){
-    return <span>
+    let keyValue = <span>
     {this.shortVersion ?    
      <span>
      {this._value} 
@@ -27,6 +30,7 @@ export class VarsomKeyValue {
   }
 
     </span>
+    return valueIsNotGiven(this._value) ? null : keyValue
  
     
   }
