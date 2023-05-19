@@ -1,6 +1,6 @@
 {
   "name": "@varsom/observation-components",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/varsom-observation/varsom-observation.esm.js",
+  "unpkg": "dist/observation-components/observation-components.esm.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
@@ -66,5 +66,5 @@
   },
   "readme": "A web component for showing natural hazard observations",
   "homepage": "https://www.varsom.no",
-  "_id": "@varsom/observation-components@0.1.4"
+  "_id": "@varsom/observation-components@0.1.5"
 }

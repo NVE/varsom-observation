@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   
-  namespace: 'varsom-observation',
+  namespace: 'observation-components',
   
   
   outputTargets: [
