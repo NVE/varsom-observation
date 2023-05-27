@@ -79,7 +79,12 @@ You may need to adjust the width for the component in a css file, e.g. width: 20
 You can also import the component with unpkg. Include this script in index.html:
 \<script type="module" src="https://unpkg.com/@varsom/observation-components@latest/dist/observation-components/observation-components.esm.js"\>\</script\>. This way you will always get the latest version. You still need to copy the files to src/assets.
 
-
+## **References**
+1. Code for map component is based on code from https://beta.regobs.no
+2. Code for image slider component is based on code from https://www.w3schools.com/howto/howto_js_slideshow.asp
+3. Implementation of Storybook is based on code from https://ionic.io/blog/how-to-use-storybook-with-stencil
+4. To check if array is empty we have used code from https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
+5. Code for using translation files is based on code from https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
 
 
 
