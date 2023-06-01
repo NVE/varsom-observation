@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
+import { valueIsNotGiven } from '../../utils/utils';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class VarsomCompressionTest {
     ></varsom-key-value>
     :""}
     
-    {this.StabilityEvalName ? 
+    {this.StabilityEvalName && !valueIsNotGiven(this.StabilityEvalName) ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.StabilityEvalTID : (this.shortVersion ? null : "Stabilitet") }
     _value={this.StabilityEvalName}

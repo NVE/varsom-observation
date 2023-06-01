@@ -88,6 +88,7 @@ graph TD;
   varsom-observation --> varsom-incident
   varsom-observation --> varsom-attachment
   varsom-observation --> varsom-regobs-link
+  varsom-image-slider --> varsom-static-map
   varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value

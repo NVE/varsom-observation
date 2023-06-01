@@ -24,10 +24,13 @@ export class VarsomStaticMap {
 
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
-  @Prop() avalanche?: boolean;
+  @Prop() small?: boolean;
+  @Prop() avalanche?: any;
 
   tiles: TileProps[];//null;
   graphics: Graphic[];     
+
+  tilesElement: HTMLElement[] = [];
   
     //  private sanitizer: DomSanitizer,
     //private cdr: ChangeDetectorRef,
@@ -94,10 +97,33 @@ export class VarsomStaticMap {
 
 this.startSizeFinder();
 
-await this.createMap(78,80);  
+await this.createMap(100,200);  
 
 
   }
+
+  componentDidRender(){
+    
+    this.tiles.map((el) => {
+      //this.tilesElement[el.count].style.left = el.left;
+      //this.tilesElement[el.count].style.top = el.top;
+    });
+
+    this.tilesElement[0].style.top = "0rem";
+    this.tilesElement[1].style.top = "0rem";
+    this.tilesElement[2].style.top = "16rem !important";
+    this.tilesElement[3].style.top = "16rem";
+
+    this.tilesElement[0].style.left = "0rem";
+    this.tilesElement[1].style.left = "16rem";
+    this.tilesElement[2].style.left = "0rem";
+    this.tilesElement[3].style.left = "16rem";
+
+   
+  }
+
+
+  
 
   
   startSizeFinder() {
@@ -135,6 +161,7 @@ await this.createMap(78,80);
       const result: TileProps[] = [];
       const cornerTileX = Math.floor(x0 / tileSize);
       const cornerTileY = Math.floor(y0 / tileSize);
+      let tileCounter = 0;
 
       for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
         for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
@@ -143,10 +170,16 @@ await this.createMap(78,80);
           result.push({
             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
-            top: `${tileY * tileSize - y0}px`
+            top: `${tileY * tileSize - y0}px`,
+            count: tileCounter
           });
+          console.log(tileCounter)
+          tileCounter++;
+          
         }
       }
+      
+      
 
       return result;
     }
@@ -247,7 +280,7 @@ await this.createMap(78,80);
       ) {
         return 14;
       }
-      return 11;//settings.map.tiles.zoomLevelObservationList;
+      return 12;//settings.map.tiles.zoomLevelObservationList;
 
       
     }
@@ -585,16 +618,18 @@ await this.createMap(78,80);
   
 
   render(){
-    return <div class="container" ref={(el) => this.container = el as HTMLElement}>
+    return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
-return <img
+return <div
+ref={(tile) => this.tilesElement[el.count] = tile as HTMLElement}
+><img
 src={el.src}
 class="tile"
 loading="lazy"
 alt="Map tile"
 decoding="async"
-></img>
+></img></div>
 })
 }
 

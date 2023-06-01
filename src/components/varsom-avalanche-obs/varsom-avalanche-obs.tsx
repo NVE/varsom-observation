@@ -49,18 +49,7 @@ export class VarsomAvalancheObs {
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
       ></varsom-label>
-
-<div>
-    {this.StartLat ? 
-    <span><img src={(`src/assets/icons/skred-startposisjon-icon.svg`)}>
-      </img>Skredet startet her</span> 
-    : ""}
-
-    {this.StopLat ? 
-    <span><img src="src/assets/icons/skred-stopposisjon-icon.svg">
-      </img>Skredet stoppet her</span> 
-    : ""}
- </div>
+<div class="content">
 
 
  {this.StartLat && this.StopLat && this.Observation._latitude ? 
@@ -148,8 +137,14 @@ avalanche={true}
     ></varsom-key-value>
     :""}
 
-
 <br></br>
+<br></br>
+
+{this.ValidExposition ? 
+    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
+    :""}  
+
+
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.Comment : (this.shortVersion ? null : "Kommentar") }

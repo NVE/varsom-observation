@@ -340,6 +340,7 @@ export namespace Components {
     }
     interface VarsomImageSlider {
         "_images": any[];
+        "observation": Observation;
         "shortVersion": string;
         "strings": any;
     }
@@ -547,6 +548,7 @@ export namespace Components {
         "allowZoom"?: boolean;
         "avalanche"?: boolean;
         "observation"?: Observation;
+        "small"?: boolean;
     }
     interface VarsomStratProfile {
         "Attachments": Attachment[];
@@ -1312,6 +1314,7 @@ declare namespace LocalJSX {
     }
     interface VarsomImageSlider {
         "_images"?: any[];
+        "observation"?: Observation;
         "shortVersion"?: string;
         "strings"?: any;
     }
@@ -1519,6 +1522,7 @@ declare namespace LocalJSX {
         "allowZoom"?: boolean;
         "avalanche"?: boolean;
         "observation"?: Observation;
+        "small"?: boolean;
     }
     interface VarsomStratProfile {
         "Attachments"?: Attachment[];
