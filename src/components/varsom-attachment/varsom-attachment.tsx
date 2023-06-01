@@ -23,6 +23,9 @@ export class VarsomAttachment {
   @Prop() AttachmentMimeType?: any;
   @Prop() IsMainAttachment?: any;
   @Prop() CropImage?: boolean;
+
+  modal: HTMLElement;
+  closeBtn: HTMLElement;
   
  
 
@@ -31,7 +34,8 @@ export class VarsomAttachment {
 
       {this.Url ? 
         <span>
-        <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} />
+        <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
+          onClick={()=> this.modal.style.display="block"}/>
       </span>
       : ""} 
  
@@ -64,11 +68,32 @@ export class VarsomAttachment {
 
 
 
-</span>
-
-
 
 </span>
+
+
+
+</span>
+
+{/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
+
+
+<div ref={(mod) => this.modal = mod as HTMLElement}
+ class="modal">
+
+
+  <div class="modal-content">
+    
+    <span class="close" ref={(close) => this.closeBtn = close as HTMLElement}
+     onClick={() => this.modal.style.display = "none"}
+     >&times;
+    </span>
+  
+    <img alt={this.Comment ? this.Comment : "observation image"} class="modal-img" src={this.Url} />
+  </div>
+
+</div>
+
     </span>
   }
     
