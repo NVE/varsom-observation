@@ -65,6 +65,7 @@ export class VarsomSnowProfile2 {
         }
      </div>   : ""}
 
+{/* Removed until better view is implemented 
      {this.StratProfile ? 
      <div>
       
@@ -79,6 +80,8 @@ export class VarsomSnowProfile2 {
     strings={this.strings}
     ></varsom-strat-profile>
     </div>:""}
+    */
+    }
 
     </div>
     
