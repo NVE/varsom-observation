@@ -567,21 +567,25 @@ await this.createMap(200,200);
     
  */
   
-  
+    
+
 
   render(){
     return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
-return <img
+return <img id="map-img" 
 src={el.src}
 class="tile"
 loading="lazy"
 alt="Map tile"
 decoding="async"
+data-lat={this.observation._latitude}
+data-long={this.observation._longitude}
 ></img>
 })
 }
+
 
 <div class="graphic">
 <img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
