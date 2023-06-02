@@ -111,7 +111,7 @@ export class VarsomStaticMap {
 
 this.startSizeFinder();
 
-await this.createMap(100,200);  
+await this.createMap(256,256);  
 
 
   }
@@ -129,17 +129,19 @@ await this.createMap(100,200);
 
       
       this.startGraphicElement.style.position = "absolute";
-      this.startGraphicElement.style.left = this.startGraphic[0].left + "px";
-      this.startGraphicElement.style.top = this.startGraphic[0].top + "px";
+      this.startGraphicElement.style.left = `${this.startGraphic[0].left} px`;
+      this.startGraphicElement.style.top = `${this.startGraphic[0].top} px`;
       
       this.stopGraphicElement.style.position = "absolute";
-      this.stopGraphicElement.style.left = this.stopGraphic[0].left + "px";
-      this.stopGraphicElement.style.top = this.stopGraphic[0].top + "px";
+      this.stopGraphicElement.style.left = `${this.stopGraphic[0].left} px`;
+      this.stopGraphicElement.style.top = `${this.stopGraphic[0].top} px`;
+      
 
       this.StartStopLineGraphicElement.style.position = "absolute";
-      this.StartStopLineGraphicElement.style.left = this.StartStopLineGraphic[0].left + "px";
-      this.StartStopLineGraphicElement.style.top = this.StartStopLineGraphic[0].top + "px";
-      {/** osv */}
+      this.StartStopLineGraphicElement.style.top = `${this.StartStopLineGraphic[0].top} px`;
+      this.StartStopLineGraphicElement.style.left = `${this.StartStopLineGraphic[0].left} px`;
+      
+      
       
       
     
@@ -679,13 +681,13 @@ decoding="async"
 
 
 {this.startGraphic.map((el) => {
-  return <div class="graphic" innerHTML={el.svg}
+  return <div class="graphic-start-stop" innerHTML={el.svg}
   ref={(graphic) => this.startGraphicElement = graphic as HTMLElement}> 
   </div>
 })}
 
 {this.stopGraphic.map((el) => {
-  return <div class="graphic" innerHTML={el.svg}
+  return <div class="graphic-start-stop" innerHTML={el.svg}
   ref={(graphic) => this.stopGraphicElement = graphic as HTMLElement}> 
   </div>
 })}
