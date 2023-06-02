@@ -51,7 +51,7 @@ export class VarsomAvalancheObs {
       ></varsom-label>
 <div class="content">
 
-
+{/** 
  {this.StartLat && this.StopLat && this.Observation._latitude ? 
 <varsom-static-map
 observation={this.Observation}
@@ -59,8 +59,11 @@ allowZoom={true}
 avalanche={true}
 ></varsom-static-map>
  : null}
- 
+
  <br></br>
+ */}
+
+ 
 
  <div class="content">
 
@@ -169,7 +172,8 @@ avalanche={true}
 
 
     </div>
-    
+
+   </div> 
   }
     
   }

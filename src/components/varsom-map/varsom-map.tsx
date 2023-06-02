@@ -105,25 +105,68 @@ await this.createMap(100,200);
   componentDidRender(){
     
     this.tiles.map((el) => {
+      
       //this.tilesElement[el.count].style.left = el.left;
       //this.tilesElement[el.count].style.top = el.top;
     });
 
-    this.tilesElement[0].style.top = "0rem";
-    this.tilesElement[1].style.top = "0rem";
-    this.tilesElement[2].style.top = "16rem !important";
-    this.tilesElement[3].style.top = "16rem";
+    this.tilesElement.map((el)=>{
+      el.style.position = "absolute"
+    });
 
-    this.tilesElement[0].style.left = "0rem";
-    this.tilesElement[1].style.left = "16rem";
-    this.tilesElement[2].style.left = "0rem";
-    this.tilesElement[3].style.left = "16rem";
+    if (this.tilesElement.length > 2){ 
 
+    if (this.small){
+
+      this.tilesElement[0].style.top = "-11rem";
+      this.tilesElement[1].style.top = "-11rem";
+      this.tilesElement[2].style.top = "5rem";
+      this.tilesElement[3].style.top = "5rem";
+  
+      this.tilesElement[0].style.left = "-8rem";
+      this.tilesElement[1].style.left = "8rem";
+      this.tilesElement[2].style.left = "-8rem";
+      this.tilesElement[3].style.left = "8rem";
+
+    }
+    else{
+
+    this.tilesElement[0].style.top = "-9rem";
+    this.tilesElement[1].style.top = "-9rem";
+    this.tilesElement[2].style.top = "7rem";
+    this.tilesElement[3].style.top = "7rem";
+
+    this.tilesElement[0].style.left = "-4rem";
+    this.tilesElement[1].style.left = "12rem";
+    this.tilesElement[2].style.left = "-4rem";
+    this.tilesElement[3].style.left = "12rem";
+    }
    
+  } else {  //one tile
+    if (this.tilesElement.length == 1){
+      
+    
+
+    }else { //two tiles
+    if (this.small){
+      this.tilesElement[0].style.top = "-11rem";
+      this.tilesElement[1].style.top = "5rem";
+
+      this.tilesElement[0].style.left = "0rem";
+      this.tilesElement[1].style.left = "0rem";
+      
+      
+    }else {
+      this.tilesElement[0].style.top = "-8rem";
+      this.tilesElement[1].style.top = "8rem";
+
+      this.tilesElement[0].style.left = "4rem";
+      this.tilesElement[1].style.left = "4rem";
+    }
   }
 
-
-  
+  }
+}
 
   
   startSizeFinder() {
@@ -394,8 +437,7 @@ await this.createMap(100,200);
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
-
-      
+  
       // Map tiles
       this.tiles = mapLayers
         .map(({ //layerId,
@@ -403,7 +445,6 @@ await this.createMap(100,200);
         layerConfig, mercatorBounds,
         w, h, this.TILE_SIZE))
         .flat();
-  
       
       this.createGraphics(positions, polygons, mercatorBounds);
   
@@ -633,24 +674,24 @@ decoding="async"
 })
 }
 
-{this.avalanche ? 
+{/*{this.avalanche ? */}
+ 
 <host>
 {this.graphics.map((el) => {
   return <div class="graphic" innerHTML={el.svg}> 
   
   </div>
 })}
-</host> : null }
+</host>
+{/**: null } */}
+ 
+{this.small ?  null :
 
-{this.avalanche ? 
-null :
-<div class="graphic">
+
+<div class="graphic-obs">
 <img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
 </div>
   }
-
-
-
   </div>  
 
 }

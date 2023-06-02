@@ -325,6 +325,7 @@ export type Observation = {
     src: string;
     top: string;
     left: string;
+    count: number;
   }
 
   export type PolygonsToPlot = {
