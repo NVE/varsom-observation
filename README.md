@@ -74,7 +74,7 @@ In main.ts: import { defineCustomElement } from '@varsom/observation-components/
 Use the component in a .vue-file: \<varsom-observation version="" type="Snow" regid="" count=8 language="en"\>\</varsom-observation\> <br>
 You may need to adjust the width for the component in a css file, e.g. width: 200%.
 <br>
-Map coordinates are added as custom data to map image. The data can be accessed by calling "get-attribute('data-lat')" and "get-attribute('data-long')" on the map image (id: 'map-img'). 
+Map coordinates are added as custom data to map image. The data can be accessed by calling "get-attribute('data-lat')" and "get-attribute('data-long')" on the map image (id: 'map-tile-[dynamic number]'). 
 <br>
 
 You can also import the component with unpkg. Include this script in index.html:

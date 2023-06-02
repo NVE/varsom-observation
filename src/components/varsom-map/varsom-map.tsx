@@ -142,7 +142,8 @@ await this.createMap(200,200);
           result.push({
             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
-            top: `${tileY * tileSize - y0}px`
+            top: `${tileY * tileSize - y0}px`,
+            id: `map-tile-${tileX}`
           });
         }
       }
@@ -574,7 +575,7 @@ await this.createMap(200,200);
     return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
-return <img id="map-img" 
+return <img id={el.id}
 src={el.src}
 class="tile"
 loading="lazy"
