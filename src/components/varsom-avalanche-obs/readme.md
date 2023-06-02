@@ -49,7 +49,6 @@
 ### Depends on
 
 - [varsom-label](../varsom-label)
-- [varsom-static-map](../varsom-map)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-attachment](../varsom-attachment)
 
@@ -57,7 +56,6 @@
 ```mermaid
 graph TD;
   varsom-avalanche-obs --> varsom-label
-  varsom-avalanche-obs --> varsom-static-map
   varsom-avalanche-obs --> varsom-key-value
   varsom-avalanche-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value

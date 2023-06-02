@@ -97,7 +97,6 @@ graph TD;
   varsom-avalanche-activity-obs --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-attachment
   varsom-avalanche-obs --> varsom-label
-  varsom-avalanche-obs --> varsom-static-map
   varsom-avalanche-obs --> varsom-key-value
   varsom-avalanche-obs --> varsom-attachment
   varsom-water-level --> varsom-label-small

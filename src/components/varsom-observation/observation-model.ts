@@ -355,6 +355,9 @@ export type Observation = {
     svg?: any;//SafeHtml;
     src?: string;
      style?: { [styleDesc: string]: number };
+    top?: number,
+    left?: number,
+    count?: number
   
   }
 
