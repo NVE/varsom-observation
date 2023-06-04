@@ -7,7 +7,7 @@
 1. Install node.js v18.13.0 or newer
 2. Install Visual Studio Code
 3. Clone repo (https://github.com/NVE/varsom-observation.git)
-4. Open terminal and run "cd varsom-observation"
+4. Check that you are in the correct directory (varsom-observation). If not, open terminal and run "cd varsom-observation"
 5. Install jquery: "npm install @types/jquery@latest"
 6. Install packages: "npm install"
 7. Test locally with "npm start"
