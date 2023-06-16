@@ -563,6 +563,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
 {this.version!=="short" ?
 <varsom-static-map
 observation={obs}
+avalanche={obs._avalancheObs ? true : false}
 allowZoom={true}
 ></varsom-static-map>
   : 

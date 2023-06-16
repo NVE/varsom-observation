@@ -546,7 +546,7 @@ export namespace Components {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
-        "avalanche"?: any;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }
@@ -1520,7 +1520,7 @@ declare namespace LocalJSX {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
-        "avalanche"?: any;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }

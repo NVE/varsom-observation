@@ -25,7 +25,7 @@ export class VarsomStaticMap {
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
   @Prop() small?: boolean;
-  @Prop() avalanche?: any;
+  @Prop() avalanche?: boolean;
 
   tiles: TileProps[];//null;
   graphics: Graphic[];     
@@ -127,20 +127,23 @@ await this.createMap(256,256);
       el.style.position = "absolute"
     });
 
-      
+      if (this.startGraphicElement){
       this.startGraphicElement.style.position = "absolute";
       this.startGraphicElement.style.left = `${this.startGraphic[0].left} px`;
       this.startGraphicElement.style.top = `${this.startGraphic[0].top} px`;
-      
+      }
+
+      if (this.stopGraphicElement){
       this.stopGraphicElement.style.position = "absolute";
       this.stopGraphicElement.style.left = `${this.stopGraphic[0].left} px`;
       this.stopGraphicElement.style.top = `${this.stopGraphic[0].top} px`;
-      
+      }
 
+      if (this.StartStopLineGraphicElement){
       this.StartStopLineGraphicElement.style.position = "absolute";
       this.StartStopLineGraphicElement.style.top = `${this.StartStopLineGraphic[0].top} px`;
       this.StartStopLineGraphicElement.style.left = `${this.StartStopLineGraphic[0].left} px`;
-      
+      }
       
       
       
@@ -670,7 +673,7 @@ ref={(tile) => this.tilesElement[el.count] = tile as HTMLElement}
 ><img
 src={el.src}
 class="tile"
-loading="lazy"
+//loading="lazy"
 alt="Map tile"
 decoding="async"
 ></img></div>
@@ -702,7 +705,7 @@ decoding="async"
 
 {/**: null } */}
  
-{this.small ?  null :
+{(this.small || this.avalanche == true) ?  null :
 
 
 <div class="graphic-obs">
