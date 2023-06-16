@@ -13,7 +13,7 @@ export class VarsomLabel {
   
 
   render(){
-    return <div> 
+    return <div tabIndex={0}>     
     {this.label}
     </div>
   }
