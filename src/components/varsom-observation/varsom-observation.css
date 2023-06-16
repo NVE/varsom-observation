@@ -18,6 +18,11 @@
 
   }
 
+  .static-map-container {
+    display: flex;
+    justify-content: center;
+  }
+
   div {
     font-family:'Source Sans Pro';
     font-weight: 400;
