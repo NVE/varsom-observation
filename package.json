@@ -39,7 +39,8 @@
     "node": "^19.6.1",
     "node-fetch": "^3.3.0",
     "rxjs": "^7.8.1",
-    "smart-webcomponents": "^15.0.11"
+    "smart-webcomponents": "^15.0.11",
+    "swiper": "^9.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",

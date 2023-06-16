@@ -1,6 +1,9 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { Observation } from '../varsom-observation/observation-model';
-
+// import function to register Swiper custom elements
+import { register } from '../../../node_modules/swiper/element/swiper-element';
+// register Swiper custom elements
+register();
 
 @Component({
   tag: 'varsom-image-slider',
@@ -73,9 +76,17 @@ for (let i = 0; i < this._images.length; i=i+2){
   render(){
     return <div>
 
-
-
-
+<div class="slide-cont">
+<swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+  <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide>
+  <swiper-slide>Slide 4</swiper-slide>
+  <swiper-slide>Slide 5</swiper-slide>
+  <swiper-slide>Slide 6</swiper-slide>
+  
+</swiper-container>
+</div>
 
 {this._loopNumbers.map((num) =>{
 return <div class="slideshow-container">

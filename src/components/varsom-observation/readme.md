@@ -136,12 +136,10 @@ graph TD;
   varsom-snow-profile2 --> varsom-label
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-profile2 --> varsom-snow-density
-  varsom-snow-profile2 --> varsom-strat-profile
   varsom-snow-profile2 --> varsom-attachment
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
   varsom-snow-density-layer --> varsom-key-value
-  varsom-strat-profile --> varsom-strat-profile-layer
   varsom-danger-obs --> varsom-key-value
   varsom-danger-obs --> varsom-attachment
   varsom-avalanche-danger-obs --> varsom-key-value
