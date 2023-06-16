@@ -23,7 +23,7 @@ export class VarsomMetadata {
   render(){
     return <div> 
       {this.dateOfRegistration ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
       {new Date(this.dateOfRegistration).toLocaleString("no", {
@@ -32,7 +32,7 @@ export class VarsomMetadata {
       </span> : ""}
 
       {this.dateOfLastUpdate && !this.shortVersion ? 
-      <span>
+      <span tabIndex={0}>
       <label>{this.strings.Reg.UpdatedTime} </label>
       {new Date(this.dateOfLastUpdate).toLocaleString("no", 
       {
@@ -41,27 +41,27 @@ export class VarsomMetadata {
       </span> : ""}
       
       {this.geoHazardName ? 
-      <span>
+      <span tabIndex={0}>
       <img alt='geohazard icon'class="image" src={(`src/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
    <br></br>
+   
       {this.moh ? 
-      <span>
-
+      <span tabIndex={0}>
         <img alt='height icon' class="image" src="src/assets/icons/height-icon.svg"></img>
       {this.moh} {this.strings.RegistrationKeyInfo.MetersAboveSeaLevel}
 
       </span> : ""}
 
       {this.nickname ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='user icon' class="image" src={(`src/assets/icons/user-icon.svg`)}></img>
       {this.nickname}
       </span> : ""}
 
       {this.competenceLevelName === "*" ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
@@ -70,7 +70,7 @@ export class VarsomMetadata {
       </span> : ""}
 
       {this.competenceLevelName === "**" ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-icon.svg`)}></img>
@@ -79,7 +79,7 @@ export class VarsomMetadata {
       </span> : ""}
 
       {this.competenceLevelName === "***" ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
@@ -88,7 +88,7 @@ export class VarsomMetadata {
       </span> : ""}
 
       {this.competenceLevelName === "****" ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
@@ -97,7 +97,7 @@ export class VarsomMetadata {
       </span> : ""}
      
       {this.competenceLevelName === "*****" ? 
-      <span>
+      <span tabIndex={0}>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
         <img alt='rating star icon' src={(`src/assets/icons/star-dark-icon.svg`)}></img>
@@ -106,7 +106,7 @@ export class VarsomMetadata {
       </span> : ""}
 
       {this.observerGroupName && !this.shortVersion ? 
-      <span>
+      <span tabIndex={0}>
       <img alt='user group icon' class="image" src={(`src/assets/icons/user-group-icon.svg`)}></img>
       {this.observerGroupName}
       </span> : ""}

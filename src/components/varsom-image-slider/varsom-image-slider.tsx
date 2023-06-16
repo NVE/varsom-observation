@@ -82,7 +82,7 @@ return <div class="slideshow-container">
    {this._images.length > num  ? 
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
     <div class="img-cont">
-    <figure>
+    <figure tabIndex={0}>
      {num == 0 ?  
     
     <varsom-static-map
@@ -115,7 +115,7 @@ return <div class="slideshow-container">
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
 {num !== 0 ? 
-<div ref={(mod) => this.modal[num-1] = mod as HTMLElement}
+<div tabIndex={0} ref={(mod) => this.modal[num-1] = mod as HTMLElement}
  class="modal">
 
 
@@ -133,7 +133,7 @@ return <div class="slideshow-container">
 : null }
 
 {this._images.length > num +1 ? 
-<div ref={(mod) => this.modal[num] = mod as HTMLElement}
+<div tabIndex={0} ref={(mod) => this.modal[num] = mod as HTMLElement}
  class="modal">
 
 
@@ -151,7 +151,7 @@ return <div class="slideshow-container">
 : null}
    
   {this._images.length > num+1 ? 
-  <figure>
+  <figure tabIndex={0}>
   <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
   onClick={()=> this.modal[num].style.display="block"}></img>
   {!this.shortVersion ? 
@@ -173,8 +173,8 @@ return <div class="slideshow-container">
 
 {this._images.length > 2 ?
 <div>
-  <a class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
-<a class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
+  <a tabIndex={0} class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
+<a tabIndex={0} class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
 </div>
 : null}
 

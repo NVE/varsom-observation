@@ -572,7 +572,7 @@ await this.createMap(200,200);
 
 
   render(){
-    return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
+    return <div tabIndex={0} class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
 return <img id={el.id}

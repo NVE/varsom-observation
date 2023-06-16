@@ -34,7 +34,7 @@ export class VarsomIceCoverObservation {
       label={this.strings ? this.strings.Observations.IceCoverObs.ObsName : "Isdekning"}
       ></varsom-label>
 
-<div class="content">
+<div class="content" tabIndex={0}>
     {this.IceCoverName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverTName : (this.shortVersion ? null : "Isdekning") }
