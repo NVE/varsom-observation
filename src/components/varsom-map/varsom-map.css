@@ -1,14 +1,14 @@
 .container {
-  height: 25rem;  
+  height: 12rem;  
   width: 16rem;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(119, 166, 169, 0.5);
+  border: 1px solid rgba(119, 166, 169, 0.5);  
   
 }
 
 .container-small {
-  height: 25.25rem;
+  height: 10.5rem;
   width: 14rem;
   overflow: hidden;
   position: relative;
