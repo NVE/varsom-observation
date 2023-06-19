@@ -578,7 +578,7 @@ await this.createMap(200,200);
 return <img id={el.id}
 src={el.src}
 class="tile"
-loading="lazy"
+
 alt="Map tile"
 decoding="async"
 data-lat={this.observation._latitude}

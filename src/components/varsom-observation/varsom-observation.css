@@ -58,6 +58,12 @@
   width: 50%;
 }
 
+@media screen and (max-width: 480px) {
+  .observation-container { 
+    width: 100%;
+    }
+}
+
 .border {
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
 }

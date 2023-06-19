@@ -25,35 +25,6 @@ export class VarsomImageSliderMobile {
   modal: HTMLElement[] = [];
   closeBtn: HTMLElement[] = [];
 
-  plusSlides(n) {
-    this.showSlides.bind(this, this.slideIndex += n);
-  }
-  
-  // image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp
-   currentSlide(n) {
-    this.showSlides.bind(this, this.slideIndex = n);
-  }
-  
-    showSlides(n: number){
-    
-      let i;
-      let slides = this.observationImages;
-      
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {this.slideIndex = 1}
-      if (n < 1) {this.slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++){
-        if (slides[i]){
-        slides[i].style.display = 'none';
-        }
-      }
-      for (i = 0; i < dots.length; i++) {
-      }
-      if ( slides[this.slideIndex-1] != null)
-        slides[this.slideIndex-1].style.display = "block";
-      if ( slides[this.slideIndex] != null)
-      slides[this.slideIndex].style.display = "block";
-    }
   
 
 componentWillLoad(){
@@ -64,32 +35,27 @@ for (let i = 0; i < this._images.length; i=i+2){
 }
   
 
-   componentDidRender(){
-      
-        for (let j = 0; j < this.observationImages.length; j=j+2){
-          this.observationImages[j].style.display = "none";
-      this.showSlides(this.slideIndex);
-      }
-    }
-
     
   render(){
     return <div>
 
-<div class="slide-cont">
-<swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
-  <swiper-slide>Slide 1</swiper-slide>
-  <swiper-slide>Slide 2</swiper-slide>
-  <swiper-slide>Slide 3</swiper-slide>
-  <swiper-slide>Slide 4</swiper-slide>
-  <swiper-slide>Slide 5</swiper-slide>
-  <swiper-slide>Slide 6</swiper-slide>
-</swiper-container>
-</div>
+<swiper-container class="nirm" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
+
+
+
+
+
 
 {this._loopNumbers.map((num) =>{
 return <div class="slideshow-container">
+
+
+
+
    {this._images.length > num  ? 
+    
+
+<swiper-slide>
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
     <div class="img-cont">
     <figure tabIndex={0}>
@@ -99,7 +65,7 @@ return <div class="slideshow-container">
     observation={this.observation}
     allowZoom={true}
     small={true}
-></varsom-static-map>
+ ></varsom-static-map>
      : 
      
      <img alt={this._images[num]._comment ? this._images[num-1]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
@@ -108,18 +74,6 @@ return <div class="slideshow-container">
      }
 
 
-  {!this.shortVersion && num!== 0 ? 
-  <figcaption>
-  {this._images[num-1]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num-1]._copyright} <br></br> </div> : "" }
-    
-    {this._images[num-1]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num-1]._photographer} <br></br></div> : ""}
-        
-    {this._images[num-1]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num-1]._comment} </div> : ""}
-
-  </figcaption> : null}
 </figure>
 
 
@@ -164,36 +118,27 @@ return <div class="slideshow-container">
   <figure tabIndex={0}>
   <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
   onClick={()=> this.modal[num].style.display="block"}></img>
-  {!this.shortVersion ? 
-  <figcaption>
-  {this._images[num]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num]._copyright} <br></br> </div> : "" }
-    
-    {this._images[num]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num]._photographer} <br></br></div> : ""}
-        
-    {this._images[num]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num]._comment} </div> : ""}
 
-  </figcaption>: null}
 </figure>
   : null}  
 </div>
 
 
-{this._images.length > 2 ?
-<div>
-  <a tabIndex={0} class="prev" onClick={this.plusSlides.bind(this, -2)}>&#10094;</a>
-<a tabIndex={0} class="next" onClick={this.plusSlides.bind(this, 2)}>&#10095;</a>
-</div>
-: null}
-
   </div>
-
+  </swiper-slide>  
  : null}
 
+ 
+
 </div>
+
+
+
 })}
+
+
+</swiper-container>
+
     </div>
   }
 }

@@ -93,10 +93,6 @@ export class VarsomObservation {
     this.showSlides(this.slideIndex, this.observations[k]);
     }
 
-    document.querySelectorAll('div:visible').forEach(el => {
-      el.setAttribute('tabindex', '0');
-    });
-    
     
     document.querySelectorAll('varsom-ice-cover-observation').forEach(el => {
       el.setAttribute('tabindex', '0');
