@@ -29,7 +29,7 @@ export class VarsomImageSliderMobile {
 
 componentWillLoad(){
   this._loopNumbers = [];
-for (let i = 0; i < this._images.length; i=i+2){
+for (let i = 0; i < this._images.length; i++){
   this._loopNumbers.push(i);
 }
 }
@@ -42,7 +42,16 @@ for (let i = 0; i < this._images.length; i=i+2){
 <swiper-container class="nirm" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
 
 
+<swipe-slide>
+    
+    <varsom-static-map
+    observation={this.observation}
+    allowZoom={true}
+    small={true}
+ ></varsom-static-map>
 
+</swipe-slide>
+     
 
 
 
@@ -52,26 +61,17 @@ return <div class="slideshow-container">
 
 
 
-   {this._images.length > num  ? 
+   
     
 
 <swiper-slide>
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
     <div class="img-cont">
     <figure tabIndex={0}>
-     {num == 0 ?  
-    
-    <varsom-static-map
-    observation={this.observation}
-    allowZoom={true}
-    small={true}
- ></varsom-static-map>
-     : 
-     
-     <img alt={this._images[num]._comment ? this._images[num-1]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
-  onClick={()=> this.modal[num-1].style.display="block"}></img>
 
-     }
+     
+     <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
+  onClick={()=> this.modal[num-1].style.display="block"}></img>
 
 
 </figure>
@@ -126,7 +126,7 @@ return <div class="slideshow-container">
 
   </div>
   </swiper-slide>  
- : null}
+
 
  
 
