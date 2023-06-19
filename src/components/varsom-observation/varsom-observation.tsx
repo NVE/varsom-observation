@@ -8,6 +8,7 @@ import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
+
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
@@ -575,14 +576,16 @@ allowZoom={true}
 ></varsom-static-map>
   : 
 <div class="container-for-image-slider">
-<varsom-image-slider
+<varsom-image-slider-mobile
 _images={obs._images} 
 strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 observation={obs}
-  ></varsom-image-slider>
+  ></varsom-image-slider-mobile>
 </div>
  }
+
+ {/** if on mobile, initiate component for mobile image slider */}
 
 {/* CONTENT */}
 <div class="observation-content">

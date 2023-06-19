@@ -28,9 +28,9 @@
 ### Graph
 ```mermaid
 graph TD;
-  varsom-image-slider --> varsom-static-map
-  varsom-observation --> varsom-image-slider
-  style varsom-image-slider fill:#f9f,stroke:#333,stroke-width:4px
+  varsom-image-slider-mobile --> varsom-static-map
+  varsom-observation --> varsom-image-slider-mobile
+  style varsom-image-slider-mobile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

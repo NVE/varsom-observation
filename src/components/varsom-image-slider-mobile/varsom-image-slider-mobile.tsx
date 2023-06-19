@@ -1,7 +1,7 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { Observation } from '../varsom-observation/observation-model';
 // import function to register Swiper custom elements
-import { register } from 'swiper/element';
+import { register } from '../../../node_modules/swiper/element/swiper-element';
 // register Swiper custom elements
 register();
 
@@ -84,7 +84,6 @@ for (let i = 0; i < this._images.length; i=i+2){
   <swiper-slide>Slide 4</swiper-slide>
   <swiper-slide>Slide 5</swiper-slide>
   <swiper-slide>Slide 6</swiper-slide>
-  
 </swiper-container>
 </div>
 
