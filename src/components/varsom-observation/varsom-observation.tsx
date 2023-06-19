@@ -572,12 +572,23 @@ allowZoom={true}
 ></varsom-static-map>
   : 
 <div class="container-for-image-slider">
-<varsom-image-slider-mobile
-_images={obs._images} 
-strings={this.strings}
-shortVersion={this.version==="short" ? this.version : null}
-observation={obs}
-  ></varsom-image-slider-mobile>
+  {(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i)) ? 
+  <varsom-image-slider-mobile
+  _images={obs._images} 
+  strings={this.strings}
+  shortVersion={this.version==="short" ? this.version : null}
+  observation={obs}
+    ></varsom-image-slider-mobile>
+    :
+    <varsom-image-slider
+    _images={obs._images} 
+    strings={this.strings}
+    shortVersion={this.version==="short" ? this.version : null}
+    observation={obs}
+      ></varsom-image-slider>
+  
+  }
+
 </div>
  }
 

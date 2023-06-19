@@ -29,9 +29,6 @@ div {
   max-width: 14rem;
 }
 
-
-/* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
-/* Slideshow container */
 .slideshow-container {
   width: 100%;
   position: relative;
