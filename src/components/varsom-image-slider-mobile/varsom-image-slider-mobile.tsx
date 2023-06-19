@@ -39,17 +39,17 @@ for (let i = 0; i < this._images.length; i++){
   render(){
     return <div>
 
-<swiper-container class="nirm" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
+<swiper-container class="swipe-container" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
 
 
 <swipe-slide>
-    
+    <div class="map-container">
     <varsom-static-map
     observation={this.observation}
     allowZoom={true}
     small={true}
  ></varsom-static-map>
-
+</div>
 </swipe-slide>
      
 
@@ -58,11 +58,6 @@ for (let i = 0; i < this._images.length; i++){
 {this._loopNumbers.map((num) =>{
 return <div class="slideshow-container">
 
-
-
-
-   
-    
 
 <swiper-slide>
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
@@ -77,50 +72,7 @@ return <div class="slideshow-container">
 </figure>
 
 
-{/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
-{num !== 0 ? 
-<div tabIndex={0} ref={(mod) => this.modal[num-1] = mod as HTMLElement}
- class="modal">
 
-
-  <div class="modal-content">
-    
-    <span class="close" ref={(close) => this.closeBtn[num-1] = close as HTMLElement}
-     onClick={() => this.modal[num-1].style.display = "none"}
-     >&times;
-    </span>
-  
-    <img src={this._images[num-1]._imageData} class="modal-img"></img>
-  </div>
-
-</div>
-: null }
-
-{this._images.length > num +1 ? 
-<div tabIndex={0} ref={(mod) => this.modal[num] = mod as HTMLElement}
- class="modal">
-
-
-  <div class="modal-content">
-    
-    <span class="close" ref={(close) => this.closeBtn[num] = close as HTMLElement}
-     onClick={() => this.modal[num].style.display = "none"}
-     >&times;
-    </span>
-  
-    <img src={this._images[num]._imageData} class="modal-img"></img>
-  </div>
-
-</div>
-: null}
-   
-  {this._images.length > num+1 ? 
-  <figure tabIndex={0}>
-  <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
-  onClick={()=> this.modal[num].style.display="block"}></img>
-
-</figure>
-  : null}  
 </div>
 
 

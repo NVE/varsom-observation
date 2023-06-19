@@ -18,6 +18,10 @@ div {
   line-height: 20px;
 }
 
+.map-container {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
 
 /*box-sizing:border-box*/
 
@@ -35,7 +39,7 @@ div {
   
 }
 
-.nirm {
+.swipe-container {
   width: 18rem;
 }
 
