@@ -88,46 +88,15 @@ return <div class="slideshow-container">
      : 
      
      <img alt={this._images[num]._comment ? this._images[num-1]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
-  onClick={()=> this.modal[num-1].style.display="block"}></img>
+  onClick={()=> this.modal[num].style.display="block"}></img>
 
      }
 
-
-  {!this.shortVersion && num!== 0 ? 
-  <figcaption>
-  {this._images[num-1]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num-1]._copyright} <br></br> </div> : "" }
-    
-    {this._images[num-1]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num-1]._photographer} <br></br></div> : ""}
-        
-    {this._images[num-1]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num-1]._comment} </div> : ""}
-
-  </figcaption> : null}
 </figure>
 
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
 {num !== 0 ? 
-<div tabIndex={0} ref={(mod) => this.modal[num-1] = mod as HTMLElement}
- class="modal">
-
-
-  <div class="modal-content">
-    
-    <span class="close" ref={(close) => this.closeBtn[num-1] = close as HTMLElement}
-     onClick={() => this.modal[num-1].style.display = "none"}
-     >&times;
-    </span>
-  
-    <img src={this._images[num-1]._imageData} class="modal-img"></img>
-  </div>
-
-</div>
-: null }
-
-{this._images.length > num +1 ? 
 <div tabIndex={0} ref={(mod) => this.modal[num] = mod as HTMLElement}
  class="modal">
 
@@ -143,24 +112,31 @@ return <div class="slideshow-container">
   </div>
 
 </div>
+: null }
+
+{this._images.length > num +1 ? 
+<div tabIndex={0} ref={(mod) => this.modal[num+1] = mod as HTMLElement}
+ class="modal">
+
+
+  <div class="modal-content">
+    
+    <span class="close" ref={(close) => this.closeBtn[num+1] = close as HTMLElement}
+     onClick={() => this.modal[num+1].style.display = "none"}
+     >&times;
+    </span>
+  
+    <img src={this._images[num+1]._imageData} class="modal-img"></img>
+  </div>
+
+</div>
 : null}
    
   {this._images.length > num+1 ? 
   <figure tabIndex={0}>
   <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
-  onClick={()=> this.modal[num].style.display="block"}></img>
-  {!this.shortVersion ? 
-  <figcaption>
-  {this._images[num]._copyright ? 
-    <div><b>{this.strings.Observations.Picture.Copyright}: </b> {this._images[num]._copyright} <br></br> </div> : "" }
-    
-    {this._images[num]._photographer ? 
-     <div><b>{this.strings.Observations.Picture.Photographer}: </b> {this._images[num]._photographer} <br></br></div> : ""}
-        
-    {this._images[num]._comment ? 
-        <div><b>{this.strings.Observations.Picture.PictureComment}: </b> {this._images[num]._comment} </div> : ""}
-
-  </figcaption>: null}
+  onClick={()=> this.modal[num+1].style.display="block"}></img>
+  
 </figure>
   : null}  
 </div>
