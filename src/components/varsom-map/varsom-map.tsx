@@ -198,11 +198,7 @@ await this.createMap(256,256);
             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
             top: `${tileY * tileSize - y0}px`,
-<<<<<<< HEAD
-            id: `map-tile-${tileX}`
-=======
             count: tileCounter
->>>>>>> origin/feature_map_adjustment
           });
           console.log(tileCounter)
           tileCounter++;
@@ -673,23 +669,6 @@ await this.createMap(256,256);
     return <div tabIndex={0} class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
-<<<<<<< HEAD
-return <img id={el.id}
-src={el.src}
-class="tile"
-
-alt="Map tile"
-decoding="async"
-data-lat={this.observation._latitude}
-data-long={this.observation._longitude}
-></img>
-})
-}
-
-
-<div class="graphic">
-<img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
-=======
 return <div
 ref={(tile) => this.tilesElement[el.count] = tile as HTMLElement}
 ><img
@@ -703,7 +682,6 @@ decoding="async"
 }
 
 {/*{this.avalanche ? */}
->>>>>>> origin/feature_map_adjustment
 
 
 {this.startGraphic.map((el) => {

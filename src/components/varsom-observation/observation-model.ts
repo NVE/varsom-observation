@@ -325,13 +325,9 @@ export type Observation = {
     src: string;
     top: string;
     left: string;
-<<<<<<< HEAD
-    id: any;
-=======
     count: number;
->>>>>>> origin/feature_map_adjustment
   }
-
+  
   export type PolygonsToPlot = {
     totalPolygon: LatLng[];
     startPolygon: LatLng[];

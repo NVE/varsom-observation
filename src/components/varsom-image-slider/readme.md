@@ -17,6 +17,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [varsom-observation](../varsom-observation)
+
 ### Depends on
 
 - [varsom-static-map](../varsom-map)
@@ -25,6 +29,7 @@
 ```mermaid
 graph TD;
   varsom-image-slider --> varsom-static-map
+  varsom-observation --> varsom-image-slider
   style varsom-image-slider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
