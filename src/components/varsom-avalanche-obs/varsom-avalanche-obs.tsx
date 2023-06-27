@@ -1,11 +1,11 @@
 import { Component, Prop, h} from '@stencil/core';
-import { Attachment } from '../varsom-observation/observation-model';
+import { Attachment, Observation } from '../varsom-observation/observation-model';
 
 
 @Component({
   tag: 'varsom-avalanche-obs',
   styleUrl: 'varsom-avalanche-obs.css',
-  shadow: true,
+  shadow: false,
   assetsDirs: ['images']
 })
 export class VarsomAvalancheObs {
@@ -38,19 +38,34 @@ export class VarsomAvalancheObs {
   @Prop() RemotelyTriggered: any;
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
+  @Prop() Observation: Observation;
 
 
  
 
   render(){
-    return <div class="container"> 
+    return <div class="obs-container"> 
 
     <varsom-label
       label={this.strings ? this.strings.Observations.AvalancheObs.ObsName : "Skredhendelse"}  
       ></varsom-label>
 <div class="content">
 
+{/** 
+ {this.StartLat && this.StopLat && this.Observation._latitude ? 
+<varsom-static-map
+observation={this.Observation}
+allowZoom={true}
+avalanche={true}
+></varsom-static-map>
+ : null}
+
  <br></br>
+ */}
+
+ 
+
+ <div class="content">
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
@@ -157,7 +172,8 @@ export class VarsomAvalancheObs {
 
 
     </div>
-    
+
+   </div> 
   }
     
   }

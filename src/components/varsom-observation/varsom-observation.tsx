@@ -12,7 +12,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: false
+  shadow: false,
 })
 export class VarsomObservation {
 
@@ -566,10 +566,13 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       
 {/* STATIC MAP */}
 {this.version!=="short" ?
+<div class="static-map-container">
 <varsom-static-map
 observation={obs}
+avalanche={obs._avalancheObs ? true : false}
 allowZoom={true}
 ></varsom-static-map>
+</div>
   : 
 <div class="container-for-image-slider">
   {(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i)) ? 
@@ -716,6 +719,7 @@ StopLong={obs._avalancheObs.StopLong ? obs._avalancheObs.StopLong : null}
 RemotelyTriggered={obs._avalancheObs.RemotelyTriggered ? obs._avalancheObs.RemotelyTriggered : null}
 Comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 Attachments={obs._avalancheObs.Attachments ? obs._avalancheObs.Attachments : null}
+Observation={obs}
 ></varsom-avalanche-obs>  
   : "" }
 

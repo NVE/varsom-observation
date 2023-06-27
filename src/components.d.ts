@@ -219,6 +219,7 @@ export namespace Components {
         "FractureWidth": any;
         "HeightStartZone": any;
         "HeightStopZone": any;
+        "Observation": Observation;
         "RemotelyTriggered": any;
         "SnowLine": any;
         "StartLat": any;
@@ -551,6 +552,7 @@ export namespace Components {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }
@@ -1204,6 +1206,7 @@ declare namespace LocalJSX {
         "FractureWidth"?: any;
         "HeightStartZone"?: any;
         "HeightStopZone"?: any;
+        "Observation"?: Observation;
         "RemotelyTriggered"?: any;
         "SnowLine"?: any;
         "StartLat"?: any;
@@ -1536,6 +1539,7 @@ declare namespace LocalJSX {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }
