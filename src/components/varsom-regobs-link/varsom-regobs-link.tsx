@@ -17,7 +17,8 @@ export class VarsomRegobsLink {
 <a href={"https://www.regobs.no/registration/" + this.regId}>Se observasjon på regobs.no  
 
 <img alt="arrow icon" src="src/assets/icons/Right-icon.svg"></img></a>
-<img onClick={
+<img tabIndex={0}
+ onClick={
   ()=> {
     let text = "https://www.regobs.no/registration/" + this.regId;
     navigator.clipboard.writeText(text); 

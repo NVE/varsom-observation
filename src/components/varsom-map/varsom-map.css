@@ -1,13 +1,14 @@
 .container {
-  height: 12rem;
+  height: 12rem;  
+  width: 16rem;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(119, 166, 169, 0.5);
+  border: 1px solid rgba(119, 166, 169, 0.5);  
   
 }
 
 .container-small {
-  height: 10.25rem;
+  height: 10.5rem;
   width: 14rem;
   overflow: hidden;
   position: relative;
@@ -15,7 +16,6 @@
 }
   
   .tile {
-    width: 100%;
     pointer-events: none;
     position: absolute;
     z-index: 1;
@@ -24,8 +24,19 @@
 
   .graphic {
     z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 25%;  
-    
+    position: absolute; 
   }
+
+  .graphic-start-stop {
+    z-index: 3;
+    position: absolute; 
+  }
+
+  .graphic-obs {
+    z-index: 2;
+    position: absolute; 
+    left: 7.5rem;
+    top: 4.5rem;
+  }
+
+ 

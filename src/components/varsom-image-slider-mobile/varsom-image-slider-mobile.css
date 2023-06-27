@@ -18,6 +18,10 @@ div {
   line-height: 20px;
 }
 
+.map-container {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
 
 /*box-sizing:border-box*/
 
@@ -25,21 +29,18 @@ div {
   max-width: 14rem;
 }
 
-
-/* image slider:          source: w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp  */
-/* Slideshow container */
 .slideshow-container {
   width: 100%;
   position: relative;
   margin: auto;
   
-
 }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
+.swipe-container {
+  width: 18rem;
 }
+
+
 
 .img-cont {
   display: flex;
@@ -49,16 +50,6 @@ div {
 figcaption {
   background-color: rgba(4, 73, 98, 0.05);
 }
-
-@media screen and (max-width: 70rem) {
-
-.img-cont{
-  flex-direction: column;
-  margin: 0 5rem;
-}
-
-}
-
 
 
 /* Next & previous buttons */
@@ -118,10 +109,6 @@ figcaption {
   
 }
 
-.image-info-container-slider{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
 
 
 /* Caption text */
@@ -177,7 +164,7 @@ figcaption {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 5; /* Sit on top */
+  z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

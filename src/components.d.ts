@@ -219,6 +219,7 @@ export namespace Components {
         "FractureWidth": any;
         "HeightStartZone": any;
         "HeightStopZone": any;
+        "Observation": Observation;
         "RemotelyTriggered": any;
         "SnowLine": any;
         "StartLat": any;
@@ -338,6 +339,12 @@ export namespace Components {
         "strings": any;
     }
     interface VarsomImageSlider {
+        "_images": any[];
+        "observation": Observation;
+        "shortVersion": string;
+        "strings": any;
+    }
+    interface VarsomImageSliderMobile {
         "_images": any[];
         "observation": Observation;
         "shortVersion": string;
@@ -545,6 +552,7 @@ export namespace Components {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }
@@ -771,6 +779,12 @@ declare global {
         prototype: HTMLVarsomImageSliderElement;
         new (): HTMLVarsomImageSliderElement;
     };
+    interface HTMLVarsomImageSliderMobileElement extends Components.VarsomImageSliderMobile, HTMLStencilElement {
+    }
+    var HTMLVarsomImageSliderMobileElement: {
+        prototype: HTMLVarsomImageSliderMobileElement;
+        new (): HTMLVarsomImageSliderMobileElement;
+    };
     interface HTMLVarsomIncidentElement extends Components.VarsomIncident, HTMLStencilElement {
     }
     var HTMLVarsomIncidentElement: {
@@ -950,6 +964,7 @@ declare global {
         "varsom-ice-thickness": HTMLVarsomIceThicknessElement;
         "varsom-ice-thickness-layer": HTMLVarsomIceThicknessLayerElement;
         "varsom-image-slider": HTMLVarsomImageSliderElement;
+        "varsom-image-slider-mobile": HTMLVarsomImageSliderMobileElement;
         "varsom-incident": HTMLVarsomIncidentElement;
         "varsom-key-value": HTMLVarsomKeyValueElement;
         "varsom-label": HTMLVarsomLabelElement;
@@ -1191,6 +1206,7 @@ declare namespace LocalJSX {
         "FractureWidth"?: any;
         "HeightStartZone"?: any;
         "HeightStopZone"?: any;
+        "Observation"?: Observation;
         "RemotelyTriggered"?: any;
         "SnowLine"?: any;
         "StartLat"?: any;
@@ -1310,6 +1326,12 @@ declare namespace LocalJSX {
         "strings"?: any;
     }
     interface VarsomImageSlider {
+        "_images"?: any[];
+        "observation"?: Observation;
+        "shortVersion"?: string;
+        "strings"?: any;
+    }
+    interface VarsomImageSliderMobile {
         "_images"?: any[];
         "observation"?: Observation;
         "shortVersion"?: string;
@@ -1517,6 +1539,7 @@ declare namespace LocalJSX {
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
+        "avalanche"?: boolean;
         "observation"?: Observation;
         "small"?: boolean;
     }
@@ -1632,6 +1655,7 @@ declare namespace LocalJSX {
         "varsom-ice-thickness": VarsomIceThickness;
         "varsom-ice-thickness-layer": VarsomIceThicknessLayer;
         "varsom-image-slider": VarsomImageSlider;
+        "varsom-image-slider-mobile": VarsomImageSliderMobile;
         "varsom-incident": VarsomIncident;
         "varsom-key-value": VarsomKeyValue;
         "varsom-label": VarsomLabel;
@@ -1686,6 +1710,7 @@ declare module "@stencil/core" {
             "varsom-ice-thickness": LocalJSX.VarsomIceThickness & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessElement>;
             "varsom-ice-thickness-layer": LocalJSX.VarsomIceThicknessLayer & JSXBase.HTMLAttributes<HTMLVarsomIceThicknessLayerElement>;
             "varsom-image-slider": LocalJSX.VarsomImageSlider & JSXBase.HTMLAttributes<HTMLVarsomImageSliderElement>;
+            "varsom-image-slider-mobile": LocalJSX.VarsomImageSliderMobile & JSXBase.HTMLAttributes<HTMLVarsomImageSliderMobileElement>;
             "varsom-incident": LocalJSX.VarsomIncident & JSXBase.HTMLAttributes<HTMLVarsomIncidentElement>;
             "varsom-key-value": LocalJSX.VarsomKeyValue & JSXBase.HTMLAttributes<HTMLVarsomKeyValueElement>;
             "varsom-label": LocalJSX.VarsomLabel & JSXBase.HTMLAttributes<HTMLVarsomLabelElement>;

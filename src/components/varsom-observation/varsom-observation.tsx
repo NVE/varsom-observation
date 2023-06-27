@@ -8,10 +8,11 @@ import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
+
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: false
+  shadow: false,
 })
 export class VarsomObservation {
 
@@ -92,6 +93,10 @@ export class VarsomObservation {
     this.showSlides(this.slideIndex, this.observations[k]);
     }
 
+    
+    document.querySelectorAll('varsom-ice-cover-observation').forEach(el => {
+      el.setAttribute('tabindex', '0');
+    });
     }
 
     
@@ -559,22 +564,38 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       > </varsom-metadata>      
          
       
-{/* STATIC MAP */}
+{/* STATIC MAP */}  {/** if on mobile, initiate component for mobile image slider */}
 {this.version!=="short" ?
+<div class="static-map-container">
 <varsom-static-map
 observation={obs}
+avalanche={obs._avalancheObs ? true : false}
 allowZoom={true}
 ></varsom-static-map>
+</div>
   : 
 <div class="container-for-image-slider">
-<varsom-image-slider
-_images={obs._images} 
-strings={this.strings}
-shortVersion={this.version==="short" ? this.version : null}
-observation={obs}
-  ></varsom-image-slider>
+  {(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i)) ? 
+  <varsom-image-slider-mobile
+  _images={obs._images} 
+  strings={this.strings}
+  shortVersion={this.version==="short" ? this.version : null}
+  observation={obs}
+    ></varsom-image-slider-mobile>
+    :
+    <varsom-image-slider
+    _images={obs._images} 
+    strings={this.strings}
+    shortVersion={this.version==="short" ? this.version : null}
+    observation={obs}
+      ></varsom-image-slider>
+  
+  }
+
 </div>
  }
+
+
 
 {/* CONTENT */}
 <div class="observation-content">
@@ -698,6 +719,7 @@ StopLong={obs._avalancheObs.StopLong ? obs._avalancheObs.StopLong : null}
 RemotelyTriggered={obs._avalancheObs.RemotelyTriggered ? obs._avalancheObs.RemotelyTriggered : null}
 Comment={obs._avalancheObs.Comment ? obs._avalancheObs.Comment : null}
 Attachments={obs._avalancheObs.Attachments ? obs._avalancheObs.Attachments : null}
+Observation={obs}
 ></varsom-avalanche-obs>  
   : "" }
 

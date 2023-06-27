@@ -15,10 +15,11 @@ span {
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
+margin-left: 25%;
       }
   }
   
-  
+
 
 .header {
   font-size: x-large;
@@ -29,6 +30,10 @@ span {
   margin: 1.5rem;
 }
 
-.container {
+.map-container {
+  height: 400px;
+}
+
+.obs-container {
   border-bottom: 1px solid rgba(119, 166, 169, 0.5);
 }

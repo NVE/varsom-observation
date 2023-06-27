@@ -25,10 +25,23 @@ export class VarsomStaticMap {
   @Prop() allowZoom?: boolean;
   @Prop() observation?: Observation;
   @Prop() small?: boolean;
+  @Prop() avalanche?: boolean;
 
   tiles: TileProps[];//null;
   graphics: Graphic[];     
   
+  tilesElement: HTMLElement[] = [];
+  graphicElements: HTMLElement[] = [];
+  
+  startGraphicElement: HTMLElement;
+  stopGraphicElement: HTMLElement;
+  StartStopLineGraphicElement: HTMLElement;
+
+  startGraphic: Graphic[];
+  stopGraphic: Graphic[];
+  StartStopLineGraphic: Graphic[];
+
+
     //  private sanitizer: DomSanitizer,
     //private cdr: ChangeDetectorRef,
   mapLayerService = new MapLayersService();
@@ -44,6 +57,7 @@ export class VarsomStaticMap {
   TILE_SIZE = 256;
   PADDING = 15;
   SVG_PADDING = 20;
+  
 
   mercator = new SphericalMercator({ size: this.TILE_SIZE});
 
@@ -91,11 +105,51 @@ export class VarsomStaticMap {
     this.componentCreatedOrResized = new Subject<void>();
     this.ngDestroy$ = new Subject<void>();  
 
+    this.startGraphic = [];
+    this.stopGraphic = [];
+    this.StartStopLineGraphic = [];
+
 this.startSizeFinder();
 
-await this.createMap(200,200);  
+await this.createMap(256,256);  
 
 
+  }
+
+  componentDidRender(){
+    
+    this.tiles.map((el) => {
+      this.tilesElement[el.count].style.left = el.left;
+      this.tilesElement[el.count].style.top = el.top;
+    });
+
+    this.tilesElement.map((el)=>{
+      el.style.position = "absolute"
+    });
+
+      if (this.startGraphicElement){
+      this.startGraphicElement.style.position = "absolute";
+      this.startGraphicElement.style.left = `${this.startGraphic[0].left} px`;
+      this.startGraphicElement.style.top = `${this.startGraphic[0].top} px`;
+      }
+
+      if (this.stopGraphicElement){
+      this.stopGraphicElement.style.position = "absolute";
+      this.stopGraphicElement.style.left = `${this.stopGraphic[0].left} px`;
+      this.stopGraphicElement.style.top = `${this.stopGraphic[0].top} px`;
+      }
+
+      if (this.StartStopLineGraphicElement){
+      this.StartStopLineGraphicElement.style.position = "absolute";
+      this.StartStopLineGraphicElement.style.top = `${this.StartStopLineGraphic[0].top} px`;
+      this.StartStopLineGraphicElement.style.left = `${this.StartStopLineGraphic[0].left} px`;
+      }
+      
+      
+      
+    
+
+  
   }
 
   
@@ -134,6 +188,7 @@ await this.createMap(200,200);
       const result: TileProps[] = [];
       const cornerTileX = Math.floor(x0 / tileSize);
       const cornerTileY = Math.floor(y0 / tileSize);
+      let tileCounter = 0;
 
       for (let tileY = cornerTileY; tileY * tileSize < y0 + h; tileY++) {
         for (let tileX = cornerTileX; tileX * tileSize < x0 + w; tileX++) {
@@ -143,10 +198,15 @@ await this.createMap(200,200);
             src: url,//this.sanitizer.bypassSecurityTrustUrl(url),
             left: `${tileX * tileSize - x0}px`,
             top: `${tileY * tileSize - y0}px`,
-            id: `map-tile-${tileX}`
+            count: tileCounter
           });
+          console.log(tileCounter)
+          tileCounter++;
+          
         }
       }
+      
+      
 
       return result;
     }
@@ -238,15 +298,16 @@ await this.createMap(200,200);
      getStartZoom() {
       // If start / stop avalanche should be plotted, start more zoomed in. If we are zoomed out we cant see the
       // avalanche path.
-      const location = this.getLocation(this.observation);
+      //const location = this.getLocation(this.observation);
 
       if (
-        (location?.startStopLocation?.start && location?.startStopLocation?.stop) ||
-        location?.startStopLocation?.totalPolygon
+        this.avalanche
+       // (location?.startStopLocation?.start && location?.startStopLocation?.stop) ||
+        //location?.startStopLocation?.totalPolygon
       ) {
         return 14;
       }
-      return settings.map.tiles.zoomLevelObservationList;
+      return 12;//settings.map.tiles.zoomLevelObservationList;
 
       
     }
@@ -360,8 +421,7 @@ await this.createMap(200,200);
       const mapLayers = await this.mapLayerService.getMapLayerForLocation(geojsonBounds);
       const mercatorBounds = this.getMercatorBounds(latLngBounds, w, h);
   
-
-      
+  
       // Map tiles
       this.tiles = mapLayers
         .map(({ //layerId,
@@ -369,7 +429,6 @@ await this.createMap(200,200);
         layerConfig, mercatorBounds,
         w, h, this.TILE_SIZE))
         .flat();
-  
       
       this.createGraphics(positions, polygons, mercatorBounds);
   
@@ -445,6 +504,9 @@ await this.createMap(200,200);
         .flat()
         .join(',');
   
+        
+      let counter = 0;
+
       this.graphics.unshift({
         id: 'start-stop-line',
         svg: //this.sanitizer.bypassSecurityTrustHtml
@@ -464,7 +526,11 @@ await this.createMap(200,200);
           'left.px': svg_x0 - w,
           'top.px': svg_y0 - n,
         },
+        left: svg_x0 - w,
+        top: svg_y0 - n,
+        count: counter
       });
+      counter++;
     }
   
      getMercatorPointsFromPolygonsLtLng(polygons: LatLng[], zoom: number): LatLng[] {
@@ -508,29 +574,48 @@ await this.createMap(200,200);
       
       const w = 18;
       const h = 28;
+
+      let counter = 0;
   
-      this.graphics.push({
+      this.startGraphic.push({
         id: 'start',
-        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
+        svg: `<svg style="position:absolute; left: ${leftPx - w/2}px; top: ${topPx-h}px" width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0C8.94184 0 10.594 0.714782 11.9564 2.14437C13.3188 3.57395 14 5.3075 14 7.34507C14 8.36386 13.7573 9.53051 13.2718 10.8451C12.7864 12.1596 12.1991 13.392 11.5101 14.5423C10.821 15.6925 10.1398 16.7688 9.46644 17.7711C8.79306 18.7735 8.22148 19.5704 7.75168 20.162L7 21C6.81208 20.77 6.56152 20.466 6.24832 20.088C5.93512 19.7101 5.37137 18.9542 4.55705 17.8204C3.74273 16.6866 3.0302 15.5857 2.41946 14.5176C1.80872 13.4495 1.2528 12.2418 0.751678 10.8944C0.250557 9.54694 0 8.36386 0 7.34507C0 5.3075 0.681201 3.57395 2.04362 2.14437C3.40605 0.714782 5.05816 0 7 0Z" fill="#008A08"/>
+        <path d="M9.91699 7.58325L5.25033 10.2083L5.25033 4.95825L9.91699 7.58325Z" fill="white"/>
+        </svg>
+        `,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
         },
+        left: leftPx - w / 2,
+        top: topPx - h,
+        count: counter
       });
+      counter++;
     }
      createStopGraphic(topPx: number, leftPx: number) {
       
       const w = 18;
       const h = 28;
-  
-      this.graphics.push({
-        id: 'start',
-        svg: `<img src=${(`src/assets/icons/skred-startposisjon.svg`)}></>`,
+      let counter = 0;
+      this.stopGraphic.push({
+        id: 'stopp',
+        svg: `<svg style="position: absolute; left: ${leftPx - w / 2}px; top: ${topPx - h}px" width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0C8.94184 0 10.594 0.714782 11.9564 2.14437C13.3188 3.57395 14 5.3075 14 7.34507C14 8.36386 13.7573 9.53051 13.2718 10.8451C12.7864 12.1596 12.1991 13.392 11.5101 14.5423C10.821 15.6925 10.1398 16.7688 9.46644 17.7711C8.79306 18.7735 8.22148 19.5704 7.75168 20.162L7 21C6.81208 20.77 6.56152 20.466 6.24832 20.088C5.93512 19.7101 5.37137 18.9542 4.55705 17.8204C3.74273 16.6866 3.0302 15.5857 2.41946 14.5176C1.80872 13.4495 1.2528 12.2418 0.751678 10.8944C0.250557 9.54694 0 8.36386 0 7.34507C0 5.3075 0.681201 3.57395 2.04362 2.14437C3.40605 0.714782 5.05816 0 7 0Z" fill="#D30100"/>
+        <path d="M9.33301 9.91667L4.66634 9.91667L4.66634 5.25L9.33301 5.25L9.33301 9.91667Z" fill="white"/>
+        </svg>
+         `,
         style: {
           'left.px': leftPx - w / 2,
           'top.px': topPx - h,
         },
+        left: leftPx - w / 2,
+        top: topPx - h,
+        count: counter
+
       });
+      counter++;
     }
   
      createStartStopLine(start: { x: number; y: number }, stop: { x: number; y: number }, x0: number, y0: number) {
@@ -540,12 +625,16 @@ await this.createMap(200,200);
       const w = Math.ceil(Math.abs(start.x - stop.x)) + this.SVG_PADDING * 2;
       const h = Math.ceil(Math.abs(start.y - stop.y)) + this.SVG_PADDING * 2;
   
-      this.graphics.unshift({
+      let counter = 0;
+
+      this.StartStopLineGraphic.unshift({
         id: 'start-stop-line',
         // width and height on svg?
         svg: //this.sanitizer.bypassSecurityTrustHtml
         (`
-        <svg pointer-events="none" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+        <svg 
+        style="position: absolute; left: ${svg_x0 - x0}px; top: ${svg_y0 - y0}px" ,
+        pointer-events="none" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
           <path
             stroke="red"
             stroke-opacity="0.9"
@@ -555,11 +644,16 @@ await this.createMap(200,200);
             fill="none"
             d="M${start.x - svg_x0} ${start.y - svg_y0}L${stop.x - svg_x0} ${stop.y - svg_y0}"></path>
         </svg>`),
-        style: {
-          'left.px': svg_x0 - x0,
-          'top.px': svg_y0 - y0,
-        },
+        top: svg_y0 - y0,
+        left: svg_x0 - x0,
+        count: counter
+        //,
+        //style: {
+         // 'left.px': svg_x0 - x0,
+          //'top.px': svg_y0 - y0,
+       // },
       });
+      counter++;
     }
   
     /*createDamageGraphic(topPx: number, leftPx: number) {
@@ -572,26 +666,53 @@ await this.createMap(200,200);
 
 
   render(){
-    return <div class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
+    return <div tabIndex={0} class={this.small ? "container-small" : "container"} ref={(el) => this.container = el as HTMLElement}>
       
       {this.tiles.map((el) =>{
-return <img id={el.id}
+return <div
+ref={(tile) => this.tilesElement[el.count] = tile as HTMLElement}
+><img
 src={el.src}
 class="tile"
-loading="lazy"
+//loading="lazy"
 alt="Map tile"
 decoding="async"
-data-lat={this.observation._latitude}
-data-long={this.observation._longitude}
-></img>
+></img></div>
 })
 }
 
+{/*{this.avalanche ? */}
 
-<div class="graphic">
+
+{this.startGraphic.map((el) => {
+  return <div class="graphic-start-stop" innerHTML={el.svg}
+  ref={(graphic) => this.startGraphicElement = graphic as HTMLElement}> 
+  </div>
+})}
+
+{this.stopGraphic.map((el) => {
+  return <div class="graphic-start-stop" innerHTML={el.svg}
+  ref={(graphic) => this.stopGraphicElement = graphic as HTMLElement}> 
+  </div>
+})}
+
+{this.StartStopLineGraphic.map((el) => {
+  return <div class="graphic" innerHTML={el.svg}
+  ref={(graphic) => this.StartStopLineGraphicElement = graphic as HTMLElement}> 
+  </div>
+})}
+
+
+
+{/**: null } */}
+ 
+{(this.small || this.avalanche == true) ?  null :
+
+
+<div class="graphic-obs">
 <img src={(`src/assets/icons/observasjonspunkt-icon.svg`)}></img>
-
 </div>
+  }
   </div>  
 
 }

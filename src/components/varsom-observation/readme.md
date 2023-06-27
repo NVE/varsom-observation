@@ -25,6 +25,7 @@
 - [varsom-header](../varsom-header)
 - [varsom-metadata](../varsom-metadata)
 - [varsom-static-map](../varsom-map)
+- [varsom-image-slider-mobile](../varsom-image-slider-mobile)
 - [varsom-image-slider](../varsom-image-slider)
 - [varsom-damage-obs](../varsom-damage-obs)
 - [varsom-label](../varsom-label)
@@ -60,6 +61,7 @@ graph TD;
   varsom-observation --> varsom-header
   varsom-observation --> varsom-metadata
   varsom-observation --> varsom-static-map
+  varsom-observation --> varsom-image-slider-mobile
   varsom-observation --> varsom-image-slider
   varsom-observation --> varsom-damage-obs
   varsom-observation --> varsom-label
@@ -88,6 +90,7 @@ graph TD;
   varsom-observation --> varsom-incident
   varsom-observation --> varsom-attachment
   varsom-observation --> varsom-regobs-link
+  varsom-image-slider-mobile --> varsom-static-map
   varsom-image-slider --> varsom-static-map
   varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
@@ -136,12 +139,10 @@ graph TD;
   varsom-snow-profile2 --> varsom-label
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-profile2 --> varsom-snow-density
-  varsom-snow-profile2 --> varsom-strat-profile
   varsom-snow-profile2 --> varsom-attachment
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
   varsom-snow-density-layer --> varsom-key-value
-  varsom-strat-profile --> varsom-strat-profile-layer
   varsom-danger-obs --> varsom-key-value
   varsom-danger-obs --> varsom-attachment
   varsom-avalanche-danger-obs --> varsom-key-value

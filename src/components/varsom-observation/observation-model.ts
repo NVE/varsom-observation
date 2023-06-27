@@ -325,9 +325,9 @@ export type Observation = {
     src: string;
     top: string;
     left: string;
-    id: any;
+    count: number;
   }
-
+  
   export type PolygonsToPlot = {
     totalPolygon: LatLng[];
     startPolygon: LatLng[];
@@ -352,9 +352,16 @@ export type Observation = {
   
   export type Graphic = {
     id: string;
-    svg: string;//SafeHtml;
-    style: { [styleDesc: string]: number };
+    svg?: any;//SafeHtml;
+    src?: string;
+     style?: { [styleDesc: string]: number };
+    top?: number,
+    left?: number,
+    count?: number
+  
   }
+
+  
 
   export type PositionToPlot = {
     pos: ImageLocation['latLng'];

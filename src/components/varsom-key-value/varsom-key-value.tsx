@@ -17,7 +17,7 @@ export class VarsomKeyValue {
   
   
   render(){
-    let keyValue = <span>
+    let keyValue = <span tabIndex={0}>
     {this.shortVersion ?    
      <span>
      {this._value} 
