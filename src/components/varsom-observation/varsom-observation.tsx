@@ -564,7 +564,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       > </varsom-metadata>      
          
       
-{/* STATIC MAP */}
+{/* STATIC MAP */}  {/** if on mobile, initiate component for mobile image slider */}
 {this.version!=="short" ?
 <div class="static-map-container">
 <varsom-static-map
@@ -595,7 +595,7 @@ allowZoom={true}
 </div>
  }
 
- {/** if on mobile, initiate component for mobile image slider */}
+
 
 {/* CONTENT */}
 <div class="observation-content">
