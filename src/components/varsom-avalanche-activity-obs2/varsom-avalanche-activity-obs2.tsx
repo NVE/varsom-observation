@@ -2,6 +2,13 @@ import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 
+const DATE_FMT: Intl.DateTimeFormatOptions = {
+  dateStyle:"long",
+  timeStyle: "short"
+};
+
+const stringToDate = (date: string) => new Date(date).toLocaleString("no", DATE_FMT);
+
 
 @Component({
   tag: 'varsom-avalanche-activity-obs2',
@@ -34,7 +41,18 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
   @Prop() Attachments: Attachment[];
- 
+
+  get avalancheTimeFormatted(): string {
+    const formattedTimeStrings: string[] = [];
+    if (this.DtStart) {
+      formattedTimeStrings.push(stringToDate(this.DtStart));
+    }
+    if (this.DtEnd) {
+      formattedTimeStrings.push(stringToDate(this.DtEnd));
+    }
+    return formattedTimeStrings.join(' - ');
+  }
+
   render(){
     return <div class="container">
     
@@ -47,9 +65,7 @@ export class VarsomAvalancheActivityObs2 {
         <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
         : <div>Tid: </div>}
         </label>
-    {new Date(this.DtStart).toLocaleString("no", {dateStyle:"long",
-  timeStyle: "short"})} - {new Date(this.DtEnd).toLocaleString("no", {dateStyle:"long",
-  timeStyle: "short"})}
+    {this.avalancheTimeFormatted}
     </div>
       : ""} 
 
