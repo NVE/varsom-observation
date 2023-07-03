@@ -41,7 +41,7 @@ for (let i = 0; i < this._images.length; i++){
 
 <swiper-container class="swipe-container" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
 
-
+{/**
 <swipe-slide>
     <div class="map-container">
     <varsom-static-map
@@ -51,7 +51,7 @@ for (let i = 0; i < this._images.length; i++){
  ></varsom-static-map>
 </div>
 </swipe-slide>
-     
+     */} 
 
 
 
