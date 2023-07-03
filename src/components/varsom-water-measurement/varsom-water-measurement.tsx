@@ -24,7 +24,10 @@ export class VarsomWaterMeasurement {
 {this.DtMeasurementTime ?
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time: (this.shortVersion ? null : "Tid") }
-    _value={this.DtMeasurementTime}
+    _value={new Date(this.DtMeasurementTime).toLocaleString("no", {
+      dateStyle: "long",
+      timeStyle: "short"
+    })}
     ></varsom-key-value>
     :""}
 

@@ -47,7 +47,9 @@ export class VarsomAvalancheActivityObs2 {
         <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
         : <div>Tid: </div>}
         </label>
-    {new Date(this.DtStart).toLocaleString("no")} - {new Date(this.DtEnd).toLocaleString("no")}
+    {new Date(this.DtStart).toLocaleString("no", {dateStyle:"long",
+  timeStyle: "short"})} - {new Date(this.DtEnd).toLocaleString("no", {dateStyle:"long",
+  timeStyle: "short"})}
     </div>
       : ""} 
 

@@ -27,7 +27,8 @@ export class VarsomMetadata {
         <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
       {new Date(this.dateOfRegistration).toLocaleString("no", {
-        dateStyle: "short"
+        dateStyle: "short",
+        timeStyle: "short"
       })}
       </span> : ""}
 
@@ -36,7 +37,8 @@ export class VarsomMetadata {
       <label>{this.strings.Reg.UpdatedTime} </label>
       {new Date(this.dateOfLastUpdate).toLocaleString("no", 
       {
-        dateStyle: "short"
+        dateStyle: "short",
+        timeStyle: "short"
       })}
       </span> : ""}
       

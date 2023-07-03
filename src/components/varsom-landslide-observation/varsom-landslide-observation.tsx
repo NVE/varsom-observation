@@ -48,10 +48,14 @@ export class VarsomLandslideObservation {
 
 <div class="content">
 
-    {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
+    {(this.DtLandSlideTime && (this.DtLandSlideTimeEnd != this.DtLandSlideTime))  ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
-    _value={this.DtLandSlideTime}
+    _value={new Date(this.DtLandSlideTime).toLocaleString("no", 
+    { 
+  dateStyle: "long",
+  timeStyle: "short"}
+  )}
     ></varsom-key-value>
     :""}
 
@@ -59,9 +63,16 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     shortVersion={this.shortVersion ? this.shortVersion : null }
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
-    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom") + " " + this.DtLandSlideTime
+    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom") + " " + new Date(this.DtLandSlideTime).toLocaleString("no", {
+      dateStyle: "long",
+      timeStyle: "short"  
+    })
    + " " + (this.strings ? this.strings.Observations.LandslideObs.And + " " : "og ") + 
-   this.DtLandSlideTimeEnd
+   new Date(this.DtLandSlideTimeEnd).toLocaleString("no", {
+    dateStyle: "long",
+    timeStyle: "short"
+   
+   })
   }
     ></varsom-key-value>
     :""}
