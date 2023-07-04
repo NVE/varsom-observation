@@ -1,6 +1,7 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
+import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 
 @Component({
@@ -34,7 +35,12 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
   @Prop() Attachments: Attachment[];
- 
+
+  get avalancheTimeFormatted(): string {
+    return getStartEndTimeFormatted(this.DtStart, this.DtEnd);
+
+  }
+
   render(){
     return <div class="container">
     
@@ -47,9 +53,7 @@ export class VarsomAvalancheActivityObs2 {
         <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
         : <div>Tid: </div>}
         </label>
-    {new Date(this.DtStart).toLocaleString("no", {dateStyle:"long",
-  timeStyle: "short"})} - {new Date(this.DtEnd).toLocaleString("no", {dateStyle:"long",
-  timeStyle: "short"})}
+    {this.avalancheTimeFormatted}
     </div>
       : ""} 
 

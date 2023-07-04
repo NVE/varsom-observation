@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { formatDateString } from '../../utils/date-utils';
 
 @Component({
   tag: 'varsom-water-measurement',
@@ -14,6 +15,10 @@ export class VarsomWaterMeasurement {
   @Prop() DtMeasurementTime: any;
   @Prop() WaterLevelValue: any;  
 
+  get waterMeasurementTimeFormatted(): string {
+    return formatDateString(this.DtMeasurementTime)
+  }
+  
   render(){
     return <div class="container"> 
 
@@ -24,10 +29,7 @@ export class VarsomWaterMeasurement {
 {this.DtMeasurementTime ?
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time: (this.shortVersion ? null : "Tid") }
-    _value={new Date(this.DtMeasurementTime).toLocaleString("no", {
-      dateStyle: "long",
-      timeStyle: "short"
-    })}
+    _value={this.waterMeasurementTimeFormatted}
     ></varsom-key-value>
     :""}
 
