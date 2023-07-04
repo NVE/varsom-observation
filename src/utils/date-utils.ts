@@ -25,10 +25,11 @@ export function formatDateString(date: string, lang = 'no'): string {
 export function getStartEndTimeFormatted(start: string, end: string): string {
   const formattedTimeStrings: string[] = [];
   if (start) {
-    formattedTimeStrings.push(formatDateString(this.DtStart));
+    formattedTimeStrings.push(formatDateString(start));
   }
   if (end) {
-    formattedTimeStrings.push(formatDateString(this.DtEnd));
+    formattedTimeStrings.push(formatDateString(end));
   }
+
   return formattedTimeStrings.join(' - ');
 }
