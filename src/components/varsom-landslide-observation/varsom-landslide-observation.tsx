@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
+import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -35,7 +36,9 @@ export class VarsomLandslideObservation {
   @Prop() LandSlideSizeTID?: any;
   @Prop() Attachments: Attachment[];
   
-  
+  get landslideTimeFormatted(): string {
+    return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd);
+  }
 
   render(){
     return <div class="container"> 
@@ -48,10 +51,10 @@ export class VarsomLandslideObservation {
 
 <div class="content">
 
-    {(this.DtLandSlideTime && !this.DtLandSlideTimeEnd)  ? 
+    {(this.DtLandSlideTime && (this.DtLandSlideTimeEnd != this.DtLandSlideTime))  ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
-    _value={this.DtLandSlideTime}
+    _value={this.landslideTimeFormatted}
     ></varsom-key-value>
     :""}
 
@@ -59,11 +62,8 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     shortVersion={this.shortVersion ? this.shortVersion : null }
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
-    _value={(this.strings ? this.strings.Observations.LandslideObs.Between : "Mellom") + " " + this.DtLandSlideTime
-   + " " + (this.strings ? this.strings.Observations.LandslideObs.And + " " : "og ") + 
-   this.DtLandSlideTimeEnd
-  }
-    ></varsom-key-value>
+    _value={this.landslideTimeFormatted}
+      ></varsom-key-value>
     :""}
 
     {this.LandSlideName ? 
