@@ -1,6 +1,13 @@
 import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 
+const DATE_FMT: Intl.DateTimeFormatOptions = {
+  dateStyle:"long",
+  timeStyle: "short"
+};
+
+const stringToDate = (date: string) => new Date(date).toLocaleString("no", DATE_FMT);
+
 @Component({
   tag: 'varsom-metadata',
   styleUrl: 'varsom-metadata.css',
@@ -19,6 +26,13 @@ export class VarsomMetadata {
   @Prop() observerGroupName: any;
   @Prop() shortVersion: string;
 
+  get updateTimeFormatted(): string {
+    return stringToDate(this.dateOfLastUpdate)
+  }
+
+  get registrationTimeFormatted(): string {
+    return stringToDate(this.dateOfRegistration)
+  }
   
   render(){
     return <div> 
@@ -26,20 +40,13 @@ export class VarsomMetadata {
       <span tabIndex={0}>
         <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
       <label>{this.strings.Reg.RegisteredTime} </label>
-      {new Date(this.dateOfRegistration).toLocaleString("no", {
-        dateStyle: "short",
-        timeStyle: "short"
-      })}
+      {this.registrationTimeFormatted}
       </span> : ""}
 
       {this.dateOfLastUpdate && !this.shortVersion ? 
       <span tabIndex={0}>
       <label>{this.strings.Reg.UpdatedTime} </label>
-      {new Date(this.dateOfLastUpdate).toLocaleString("no", 
-      {
-        dateStyle: "short",
-        timeStyle: "short"
-      })}
+      {this.updateTimeFormatted}
       </span> : ""}
       
       {this.geoHazardName ? 
