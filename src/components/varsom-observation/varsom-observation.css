@@ -38,16 +38,10 @@
   
   /*box-sizing:border-box*/
   
-
-  
   .map-container {
     display: flex; 
   }
 
-  .map{
-    width: 100%;
-    border: 1px solid rgba(119, 166, 169, 0.5);
-  }
 
   .attachments-container { 
     display: grid;
@@ -58,9 +52,9 @@
   
   
 .observation-container {
-  border-left: 1px solid rgba(119, 166, 169, 0.5);
-  border-top: 1px solid rgba(119, 166, 169, 0.5);
-  border-right: 1px solid rgba(119, 166, 169, 0.5);
+  border-left: 1px solid #B7BABF;
+  border-top: 1px solid #B7BABF;
+  border-right: 1px solid #B7BABF;
   max-width: 35rem;
 }
 
@@ -71,7 +65,7 @@
 }
 
 .border {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+  border-bottom: 1px solid #B7BABF;
 }
 
   
@@ -85,7 +79,7 @@
 
 
   .border {
-    border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+    border-bottom: 1px solid #B7BABF;
   }
   
     

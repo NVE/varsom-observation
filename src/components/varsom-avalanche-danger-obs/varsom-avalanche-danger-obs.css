@@ -25,14 +25,14 @@ margin-left: 25%;
 
 .parent {
   padding: 0 0 0 8px;
-  border-left: 1px solid #B3B3B3;
+  border-left: 1px solid #B7BABF;
   margin: 1.5rem;
 }
 
 @media screen and (max-width: 480px) {
   .parent{
     padding: 8px 16px 16px 16px;
-    border-left: 1px solid #B3B3B3;
+    border-left: 1px solid #B7BABF;
     margin: 1.5rem;
   }
 }

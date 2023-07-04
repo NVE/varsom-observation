@@ -11,7 +11,7 @@ span {
 }
 
 .container {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+  border-bottom: 1px solid #B7BABF;
 }
 
 @media screen and (max-width: 480px) {
