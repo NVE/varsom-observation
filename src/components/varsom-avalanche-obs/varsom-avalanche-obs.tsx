@@ -1,5 +1,6 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment, Observation } from '../varsom-observation/observation-model';
+import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 
 @Component({
@@ -41,7 +42,10 @@ export class VarsomAvalancheObs {
   @Prop() Observation: Observation;
 
 
- 
+  get avalancheTimeFormatted(): string {
+    return getStartEndTimeFormatted(this.DtAvalancheTime, null);
+
+  }
 
   render(){
     return <div class="obs-container"> 
@@ -70,7 +74,7 @@ avalanche={true}
     {this.DtAvalancheTime ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.DtAvalancheTime : (this.shortVersion ? null : "Tid") }
-    _value={new Date(this.DtAvalancheTime).toLocaleString("no") }
+    _value={this.avalancheTimeFormatted}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
