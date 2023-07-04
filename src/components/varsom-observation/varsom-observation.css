@@ -46,7 +46,7 @@
   .attachments-container { 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 1rem 0.5rem;
+    margin: 1.5rem 1.5rem;
     }
   
   

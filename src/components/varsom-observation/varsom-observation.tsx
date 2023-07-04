@@ -566,14 +566,14 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       
 {/* STATIC MAP */}  {/** if on mobile, initiate component for mobile image slider */}
 {this.version!=="short"?
-{/** 
+<div>{/** 
 <div class="static-map-container">
 <varsom-static-map
 observation={obs}
 avalanche={obs._avalancheObs ? true : false}
 allowZoom={true}
 ></varsom-static-map>
-</div> */}
+</div> */}</div>
   : 
 <div class="container-for-image-slider">
   {(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i)) ? 
