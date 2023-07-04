@@ -78,25 +78,27 @@ return <div class="slideshow-container">
   <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
     <div class="img-cont">
     <figure tabIndex={0}>
-     {num == 0 ?  
-    
+     {/** num == 0 ?  
+    {
     <varsom-static-map
     observation={this.observation}
     allowZoom={true}
     small={true}
 ></varsom-static-map>
-     : 
+:
+*/}
+     
      
      <img alt={this._images[num]._comment ? this._images[num-1]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
   onClick={()=> this.modal[num].style.display="block"}></img>
 
-     }
+     
 
 </figure>
 
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
-{num !== 0 ? 
+{/* if map included, only do this if num is not 0 */ }
 <div tabIndex={0} ref={(mod) => this.modal[num] = mod as HTMLElement}
  class="modal">
 
@@ -112,7 +114,7 @@ return <div class="slideshow-container">
   </div>
 
 </div>
-: null }
+
 
 {this._images.length > num +1 ? 
 <div tabIndex={0} ref={(mod) => this.modal[num+1] = mod as HTMLElement}
