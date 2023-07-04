@@ -1,12 +1,6 @@
 import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
-
-const DATE_FMT: Intl.DateTimeFormatOptions = {
-  dateStyle:"long",
-  timeStyle: "short"
-};
-
-const stringToDate = (date: string) => new Date(date).toLocaleString("no", DATE_FMT);
+import { formatDateString } from '../../utils/date-utils';
 
 @Component({
   tag: 'varsom-metadata',
@@ -27,11 +21,11 @@ export class VarsomMetadata {
   @Prop() shortVersion: string;
 
   get updateTimeFormatted(): string {
-    return stringToDate(this.dateOfLastUpdate)
+    return formatDateString(this.dateOfLastUpdate)
   }
 
   get registrationTimeFormatted(): string {
-    return stringToDate(this.dateOfRegistration)
+    return formatDateString(this.dateOfRegistration)
   }
   
   render(){

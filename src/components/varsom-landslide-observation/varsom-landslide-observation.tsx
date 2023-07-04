@@ -1,12 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
-
-const DATE_FMT: Intl.DateTimeFormatOptions = {
-  dateStyle:"long",
-  timeStyle: "short"
-};
-
-const stringToDate = (date: string) => new Date(date).toLocaleString("no", DATE_FMT);
+import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -43,14 +37,7 @@ export class VarsomLandslideObservation {
   @Prop() Attachments: Attachment[];
   
   get landslideTimeFormatted(): string {
-    const formattedTimeStrings: string[] = [];
-    if (this.DtLandSlideTime) {
-      formattedTimeStrings.push(stringToDate(this.DtLandSlideTime));
-    }
-    if (this.DtLandSlideTimeEnd) {
-      formattedTimeStrings.push(stringToDate(this.DtLandSlideTimeEnd));
-    }
-    return formattedTimeStrings.join(' - ');
+    return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd);
   }
 
   render(){

@@ -1,13 +1,7 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
-
-const DATE_FMT: Intl.DateTimeFormatOptions = {
-  dateStyle:"long",
-  timeStyle: "short"
-};
-
-const stringToDate = (date: string) => new Date(date).toLocaleString("no", DATE_FMT);
+import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 
 @Component({
@@ -43,14 +37,8 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() Attachments: Attachment[];
 
   get avalancheTimeFormatted(): string {
-    const formattedTimeStrings: string[] = [];
-    if (this.DtStart) {
-      formattedTimeStrings.push(stringToDate(this.DtStart));
-    }
-    if (this.DtEnd) {
-      formattedTimeStrings.push(stringToDate(this.DtEnd));
-    }
-    return formattedTimeStrings.join(' - ');
+    return getStartEndTimeFormatted(this.DtStart, this.DtEnd);
+
   }
 
   render(){
