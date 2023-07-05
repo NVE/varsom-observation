@@ -90,8 +90,15 @@ export class VarsomAttachment {
      onClick={() => this.modal.style.display = "none"}
      >&times;
     </span>
-  
+  <figure>
     <img alt={this.Comment ? this.Comment : "observation image"} class="modal-img" src={this.Url} />
+    
+    <figcaption>
+      {this.Copyright}<br></br>
+      {this.Photographer}<br></br>
+      {this.Comment}
+    </figcaption>
+    </figure>
   </div>
 
 </div>

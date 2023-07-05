@@ -12,7 +12,7 @@ div {
 }
 
 .content {
-  margin: 1rem;
+  margin: 1.5rem;
 }
 
 @media screen and (max-width: 480px) {

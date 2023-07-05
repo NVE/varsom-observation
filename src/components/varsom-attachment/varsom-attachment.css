@@ -30,6 +30,10 @@ label {
   margin: 0 0.5rem
 }
 
+figcaption {
+  background-color: rgba(4, 73, 98, 0.05);
+}
+
 .smallImageInfo{
   background-color: #F7F7F8;
   width: 8rem; 
