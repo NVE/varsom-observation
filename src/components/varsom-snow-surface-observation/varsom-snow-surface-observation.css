@@ -1,7 +1,4 @@
 
-span {
-  margin-right: 0.5rem;
-}
 
 .content {
   margin: 1.5rem;
@@ -13,13 +10,13 @@ span {
 
 .attachments-container { 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-left: 1rem;
+  grid-template-columns: repeat(3, 0fr);
+  margin: 1rem;
   }
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-    margin-left: 25%;
+    
       }
   }

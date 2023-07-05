@@ -30,22 +30,15 @@ export class VarsomAttachment {
  
 
   render(){
-    return <span class="container">
+    return <div>
 
-      {this.Url ? 
-        <span>
-        <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
+<figure>
+          
+<img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
           onClick={()=> this.modal.style.display="block"}/>
-      </span>
-      : ""} 
- 
- <span class="att-cont">
- 
-<span class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
-  
-    
-    <br></br>
-    {this.Copyright ? 
+
+<figcaption class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
+{this.Copyright ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
     _value={this.Copyright}
@@ -69,13 +62,10 @@ export class VarsomAttachment {
     : null}
 
 
+</figcaption>
 
-
-</span>
-
-
-
-</span>
+</figure>
+     
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
 
@@ -103,8 +93,11 @@ export class VarsomAttachment {
 
 </div>
 
-    </span>
+    </div>
+    
   }
+
+  
     
   }
 

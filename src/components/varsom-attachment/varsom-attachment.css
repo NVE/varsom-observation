@@ -6,9 +6,6 @@
   max-width: 8rem;
 }
 
-.container {
-  margin: 0 0.5rem 2rem 0.5rem;
-}
 
 label {
   font-weight: 800;
@@ -20,14 +17,14 @@ label {
 }
 
 .imageInfo {
-  background-color: #F7F7F8;
+  
   width: 8rem; 
   padding: 8px 16px 16px;
 }
 
-.att-cont {
-  display: flex;
-  margin: 0 0.5rem
+
+figure {
+  margin: 0.5rem;
 }
 
 figcaption {
@@ -35,7 +32,6 @@ figcaption {
 }
 
 .smallImageInfo{
-  background-color: #F7F7F8;
   width: 8rem; 
   padding: 8px 16px 16px;
 }

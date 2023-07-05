@@ -20,7 +20,7 @@ export class VarsomGeneralObservation {
   @Prop() Attachments: Attachment[];
 
   render(){
-    return <div class="container"> 
+    return <div> 
 
       <varsom-label
       label={this.strings ? this.strings.Observations.GeneralObservation.Notes : "Notater"}
@@ -71,6 +71,9 @@ export class VarsomGeneralObservation {
             </varsom-attachment>
         })
         } </span> : ""}
+
+<div class="border"></div>
+
     </div>
   }
     

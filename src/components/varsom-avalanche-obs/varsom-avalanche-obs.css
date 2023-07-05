@@ -9,13 +9,13 @@ span {
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin: 0.5rem;
   }
 
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
       }
   }
   
@@ -27,7 +27,7 @@ margin-left: 25%;
 }
 
 .content {
-  margin: 1.5rem;
+  margin: 1rem;
 }
 
 .map-container {

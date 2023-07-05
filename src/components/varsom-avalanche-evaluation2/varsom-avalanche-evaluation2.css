@@ -21,7 +21,7 @@ img {
 @media screen and (max-width: 480px) {
   .attachments-container { 
     grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
+;
   
     }
 }

@@ -25,7 +25,7 @@ export class VarsomSnowProfile2 {
   @Prop() Attachments: Attachment[];
 
   render(){
-    return <div class="container"> 
+    return <div> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
@@ -99,6 +99,7 @@ export class VarsomSnowProfile2 {
         })
         } </span> : ""}
     
+    <div class="border"></div>
     
     </div>
 

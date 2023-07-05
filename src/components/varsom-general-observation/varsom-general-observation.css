@@ -9,12 +9,14 @@ span {
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin: 1.5rem;
   }
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
+      justify-items: center;
+      
       }
   }
 
@@ -22,7 +24,7 @@ margin-left: 25%;
   margin: 1.5rem;
 }
 
-.container {
+.border {
   border-bottom: 1px solid #B7BABF;
 }
 

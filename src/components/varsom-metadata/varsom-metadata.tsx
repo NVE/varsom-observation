@@ -48,7 +48,7 @@ export class VarsomMetadata {
       <img alt='geohazard icon'class="image" src={(`src/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
-   <br></br>
+   
    
       {this.moh ? 
       <span tabIndex={0}>
