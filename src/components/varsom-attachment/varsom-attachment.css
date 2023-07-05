@@ -4,6 +4,7 @@
 
 .smallImage {
   max-width: 8rem;
+  
 }
 
 
@@ -20,20 +21,24 @@ label {
   
   width: 8rem; 
   padding: 8px 16px 16px;
+  
 }
 
 
 figure {
   margin: 0.5rem;
+  
 }
 
 figcaption {
   background-color: rgba(4, 73, 98, 0.05);
+  
 }
 
 .smallImageInfo{
-  width: 8rem; 
+  width: 6rem; 
   padding: 8px 16px 16px;
+  
 }
 
 /* The Modal (background) */

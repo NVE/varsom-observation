@@ -89,7 +89,7 @@ export class VarsomAvalancheActivityObs2 {
     :""}
     
     {this.Attachments && !this.shortVersion ? 
-      <div>
+      <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             Photographer={el.Photographer ? el.Photographer : null}            
