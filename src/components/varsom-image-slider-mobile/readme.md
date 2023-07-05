@@ -21,14 +21,9 @@
 
  - [varsom-observation](../varsom-observation)
 
-### Depends on
-
-- [varsom-static-map](../varsom-map)
-
 ### Graph
 ```mermaid
 graph TD;
-  varsom-image-slider-mobile --> varsom-static-map
   varsom-observation --> varsom-image-slider-mobile
   style varsom-image-slider-mobile fill:#f9f,stroke:#333,stroke-width:4px
 ```

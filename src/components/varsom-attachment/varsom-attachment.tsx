@@ -42,13 +42,7 @@ export class VarsomAttachment {
  <span class="att-cont">
  
 <span class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
-  <br></br>
-    {this.Photographer ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
-    _value={this.Photographer}
-    ></varsom-key-value>
-    :""}
+  
     
     <br></br>
     {this.Copyright ? 
@@ -56,7 +50,15 @@ export class VarsomAttachment {
     _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
     _value={this.Copyright}
     ></varsom-key-value>
-    :""}
+    : null}
+
+<br></br>
+    {this.Photographer ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
+    _value={this.Photographer}
+    ></varsom-key-value>
+    : null}
 
     <br></br>
     {this.Comment ? 
@@ -64,7 +66,7 @@ export class VarsomAttachment {
     _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
-    :""}
+    : null}
 
 
 

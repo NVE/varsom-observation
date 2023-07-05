@@ -15,23 +15,6 @@
 | `small`       | `small`      |             | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `undefined` |
 
 
-## Dependencies
-
-### Used by
-
- - [varsom-image-slider](../varsom-image-slider)
- - [varsom-image-slider-mobile](../varsom-image-slider-mobile)
- - [varsom-observation](../varsom-observation)
-
-### Graph
-```mermaid
-graph TD;
-  varsom-image-slider --> varsom-static-map
-  varsom-image-slider-mobile --> varsom-static-map
-  varsom-observation --> varsom-static-map
-  style varsom-static-map fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

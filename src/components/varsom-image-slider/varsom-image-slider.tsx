@@ -109,8 +109,14 @@ return <div class="slideshow-container">
      onClick={() => this.modal[num].style.display = "none"}
      >&times;
     </span>
-  
+  <figure>
     <img src={this._images[num]._imageData} class="modal-img"></img>
+    <figcaption>
+       {this._images[num]._copyright}<br></br>
+       {this._images[num]._photographer}<br></br>
+       {this._images[num]._comment}
+      </figcaption>
+    </figure>
   </div>
 
 </div>
@@ -127,8 +133,14 @@ return <div class="slideshow-container">
      onClick={() => this.modal[num+1].style.display = "none"}
      >&times;
     </span>
-  
+    <figure>
     <img src={this._images[num+1]._imageData} class="modal-img"></img>
+    <figcaption>
+       {this._images[num]._copyright}<br></br>
+       {this._images[num]._photographer}<br></br>
+       {this._images[num]._comment}
+      </figcaption>
+    </figure>
   </div>
 
 </div>
@@ -138,7 +150,6 @@ return <div class="slideshow-container">
   <figure tabIndex={0}>
   <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num+1]._imageData}
   onClick={()=> this.modal[num+1].style.display="block"}></img>
-  
 </figure>
   : null}  
 </div>
