@@ -19,8 +19,8 @@ label {
 
 .imageInfo {
   
-  width: 8rem; 
-  padding: 8px 16px 16px;
+  width: 8.4rem; 
+  padding: 0.4rem 0.8rem 0.8rem;
   
 }
 
@@ -32,12 +32,12 @@ figure {
 
 figcaption {
   background-color: rgba(4, 73, 98, 0.05);
-  
+  word-break: break-word;
 }
 
 .smallImageInfo{
   width: 6rem; 
-  padding: 8px 16px 16px;
+  padding: 0.4rem 0.8rem 0.8rem;
   
 }
 
