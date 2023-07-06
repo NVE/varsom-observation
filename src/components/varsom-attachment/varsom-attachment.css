@@ -27,11 +27,12 @@ label {
 
 figure {
   margin: 0.5rem;
-  
+  display: flex;
+  flex-flow: column;
 }
 
 figcaption {
-  background-color: rgba(4, 73, 98, 0.05);
+  background-color:#F7F7F8;;
   word-break: break-word;
 }
 

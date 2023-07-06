@@ -4,7 +4,8 @@ label {
 }
 
 span {
-  margin-right: 2rem;
+  margin-right: 2.25rem;
+  font-family:'Source Sans Pro';
 }
 
 .image {
