@@ -24,7 +24,7 @@ export class VarsomDamageObs {
   render(){
      return <div>
 
-    
+    <div class="content">
 
     {this.GeoHazardName ? 
     <varsom-key-value
@@ -51,10 +51,10 @@ export class VarsomDamageObs {
     ></varsom-key-value>
     :""} 
 
-    
+    </div>
 
     {this.Attachments ?
-      <div>
+      <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             strings={this.strings}

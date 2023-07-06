@@ -6,13 +6,14 @@ span {
   margin-right: 0.5rem;
 }
 
-div {
-  margin: 1rem 0 1rem 0;
+.content {
+  margin: 1rem;
 }
 
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin: 1rem;
   }
 
   @media screen and (max-width: 480px) {
