@@ -24,7 +24,7 @@ export class VarsomKeyValue {
    </span>
    : 
     <span>
-    <b>{this._key} -  </b>
+    <b>{this._key}:  </b>
     {this._value}
     </span>
   }

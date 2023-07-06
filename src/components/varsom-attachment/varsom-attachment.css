@@ -1,5 +1,5 @@
 .normalImage {
-  max-width: 10rem;
+  max-width: 16.875rem;
 }
 
 .smallImage {
@@ -19,7 +19,7 @@ label {
 
 .imageInfo {
   
-  width: 8.4rem; 
+  width: 15.25rem; 
   padding: 0.4rem 0.8rem 0.8rem;
   
 }

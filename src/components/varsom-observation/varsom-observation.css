@@ -61,7 +61,7 @@
   border-left: 1px solid #B7BABF;
   border-top: 1px solid #B7BABF;
   border-right: 1px solid #B7BABF;
-  max-width: 35rem;
+  max-width: 60rem;
 }
 
 @media screen and (max-width: 480px) {
