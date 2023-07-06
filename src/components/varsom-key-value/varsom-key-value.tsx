@@ -20,11 +20,12 @@ export class VarsomKeyValue {
     let keyValue = <span tabIndex={0}>
     {this.shortVersion ?    
      <span>
+      {this.renderColon()}
      {this._value} 
    </span>
    : 
     <span>
-    <b>{this._key}:  </b>
+    <b>{this._key}{this.renderColon()}  </b>
     {this._value}
     </span>
   }
@@ -33,6 +34,16 @@ export class VarsomKeyValue {
     return valueIsNotGiven(this._value) ? null : keyValue
  
     
+  }
+  renderColon() {
+
+    if (this.shortVersion){
+    return "\u25CF " //Bullet point
+    }
+    else{
+      return ": "
+    } 
+
   }
     
   } 

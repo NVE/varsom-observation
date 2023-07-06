@@ -64,6 +64,7 @@ export class VarsomAvalancheActivityObs2 {
     _value={(this.EstimatedNumName && !valueIsNotGiven(this.EstimatedNumName) ? (this.EstimatedNumName + ". ") : "" )+ 
     (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? (this.DestructiveSizeName + ". ") : "" ) + 
     (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : "")}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
  </div>
@@ -72,6 +73,7 @@ export class VarsomAvalancheActivityObs2 {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.Prevalence : (this.shortVersion ? null : "Utbredelse") }
     _value={this.AvalPropagationName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
     
@@ -85,6 +87,7 @@ export class VarsomAvalancheActivityObs2 {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
     

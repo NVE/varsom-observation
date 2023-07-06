@@ -83,6 +83,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalancheTID : (this.shortVersion ? null : "Type") }
     _value={this.AvalancheName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -90,6 +91,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse") }
     _value={this.DestructiveSizeName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
     
@@ -97,6 +99,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalancheTriggerTID : (this.shortVersion ? null : "Skredutløser") }
     _value={this.AvalancheTriggerName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -104,6 +107,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeigthStartZone : (this.shortVersion ? null : "Løsneområdet") }
     _value={this.HeightStartZone}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -111,6 +115,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStopZone : (this.shortVersion ? null : "Stoppområdet") }
     _value={this.HeightStopZone}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -120,6 +125,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalCauseTID : (this.shortVersion ? null : "Svakt lag") }
     _value={this.AvalCauseName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -127,6 +133,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.TerrainStartZoneTID : (this.shortVersion ? null : "Terreng i løsneområdet") }
     _value={this.TerrainStartZoneName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -134,6 +141,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.TrajectoryName : (this.shortVersion ? null : "Skredbanenavn") }
     _value={this.Trajectory}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -141,6 +149,7 @@ avalanche={true}
     <varsom-key-value
     _key="Remotely triggered?"
     _value={this.RemotelyTriggered == true ? "Was remotely triggered" : "No"}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -156,6 +165,7 @@ avalanche={true}
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
     </div>
