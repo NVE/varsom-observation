@@ -612,6 +612,7 @@ allowZoom={true}
             DamageTypeTID={el.DamageTypeTID ? el.DamageTypeTID : null}
             DamagePosition={el.DamagePosition ? el.DamagePosition : null}
             Attachments={el.Attachments ? el.Attachments : null}
+            Comment={el.Comment ? el.Comment : null}
    
            > </varsom-damage-obs>
         })
