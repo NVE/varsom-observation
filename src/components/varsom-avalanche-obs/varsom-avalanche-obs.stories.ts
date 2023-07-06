@@ -38,7 +38,7 @@ VarsomAvalancheObservation.args = {
         AvalCauseName: "'Ikke gitt'",
         TerrainStartZoneName: "'Brattheng'",
         Trajectory: "'Utladøla'",
-        ValidExposition: "'SØ-S-SV'",
+        ValidExposition: "11110000",
         Comment: "'Maksimal hastighet ble målt til ca. 14,3 m/s, og skredet varte i ca. 38,2 sekunder. Skredet er automatisk detektert, og egenskaper og koordinater er estimert'",
         StartLat: 1,
         StopLat: 1

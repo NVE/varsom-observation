@@ -28,12 +28,14 @@
 
 ### Depends on
 
+- [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-damage-obs --> varsom-label
   varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value

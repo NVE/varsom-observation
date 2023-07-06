@@ -17,6 +17,7 @@
 ### Used by
 
  - [varsom-avalanche-obs](../varsom-avalanche-obs)
+ - [varsom-damage-obs](../varsom-damage-obs)
  - [varsom-general-observation](../varsom-general-observation)
  - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
  - [varsom-ice-thickness](../varsom-ice-thickness)
@@ -34,6 +35,7 @@
 ```mermaid
 graph TD;
   varsom-avalanche-obs --> varsom-label
+  varsom-damage-obs --> varsom-label
   varsom-general-observation --> varsom-label
   varsom-ice-cover-observation --> varsom-label
   varsom-ice-thickness --> varsom-label

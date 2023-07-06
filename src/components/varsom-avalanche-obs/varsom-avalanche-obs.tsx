@@ -73,7 +73,7 @@ avalanche={true}
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DtAvalancheTime : (this.shortVersion ? null : "Tid") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
     _value={this.avalancheTimeFormatted}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
