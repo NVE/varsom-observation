@@ -3,7 +3,7 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   
   namespace: 'observation-components',
-  
+  globalStyle: 'src/global/global.css',
   
   outputTargets: [
     {
