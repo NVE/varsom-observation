@@ -128,8 +128,10 @@ export class VarsomLandslideObservation {
         })
         } </div> : ""}
 
+</div>
+
     {(this.Attachments && !this.shortVersion) ? 
-      <span class="attachments-container">
+      <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             Photographer={el.Photographer ? el.Photographer : null}            
@@ -140,9 +142,9 @@ export class VarsomLandslideObservation {
 
             </varsom-attachment>
         })
-        } </span> : ""}
+        } </div> : ""}
 
-    </div>
+    
 
     </div>
   }

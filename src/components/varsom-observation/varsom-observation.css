@@ -42,20 +42,12 @@
     display: flex; 
   }
 
-    @media screen and (max-width: 480px) {
-      .attachments-container { 
-        margin: 1rem 1rem;
-        grid-template-columns: repeat(1, 1fr) !important;
-        
-        }
-    }
-    
-    .attachments-container { 
-      margin: 1rem 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: center;
-      }
+  .attachments-container { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem;
+  }
   
   
 .observation-container {
