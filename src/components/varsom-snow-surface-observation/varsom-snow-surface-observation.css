@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: repeat(3, 0fr);
   margin: 1rem;
+  align-items: center;
   }
 
   @media screen and (max-width: 480px) {

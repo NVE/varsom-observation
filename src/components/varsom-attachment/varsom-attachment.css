@@ -1,11 +1,13 @@
 .normalImage {
   max-width: 16.875rem;
+
 }
 
 .smallImage {
   max-width: 8rem;
   
 }
+
 
 
 label {
@@ -29,10 +31,11 @@ figure {
   margin: 0.5rem;
   display: flex;
   flex-flow: column;
+
 }
 
 figcaption {
-  background-color:#F7F7F8;;
+  background-color:#F7F7F8;
   word-break: break-word;
 }
 
