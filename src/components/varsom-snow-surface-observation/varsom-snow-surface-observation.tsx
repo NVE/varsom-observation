@@ -32,7 +32,7 @@ export class VarsomSnowSurfaceObservation {
   
 
   render(){
-    return <div class="container"> 
+    return <div> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.SnowSurfaceObservation.ObsName : "Snødekke"}
@@ -124,7 +124,8 @@ export class VarsomSnowSurfaceObservation {
         })
         } </span> : ""}
 
-    
+
+    <div class="border"></div>
     
 
     </div>

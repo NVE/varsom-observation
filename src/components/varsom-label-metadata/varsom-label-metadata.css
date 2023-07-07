@@ -1,25 +1,15 @@
-label {
-  font-weight: 600;
-}
 
 span {
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
   padding: 0.5rem;
+  font-weight: 600;
 }
 
-div {
-  font-size: xx-large;
-  font-weight: 600;
-  background-color:#F7F7F8;
-  margin: 1.5rem;
-  padding: 0.5rem;
-}
 
 @media screen and (max-width: 600px) {
-  div {
-  font-weight: 600;
+  span {
   font-size: x-large;
-  background-color:#F7F7F8;
+  background-color:#F7F7F8;;
   margin: 1.5rem;
   padding: 0.5rem;
   }

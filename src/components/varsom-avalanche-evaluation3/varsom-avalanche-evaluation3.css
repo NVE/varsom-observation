@@ -11,19 +11,27 @@ span {
 }
 
 .container {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+  border-bottom: 1px solid #B7BABF;
+}
+
+
+.danger-size {
+  position: relative;
+  top: -2.5rem;
+  margin-left: 0.5rem;
 }
 
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+align-items: center;
   }
 
   
     @media screen and (max-width: 480px) {
       .attachments-container { 
         grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
+;
         }
     }
 

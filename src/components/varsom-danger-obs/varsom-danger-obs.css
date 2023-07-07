@@ -9,26 +9,27 @@ span {
 
 .parent {
   padding: 0 0 0 8px;
-  border-left: 1px solid #B3B3B3;
-  margin: 1.5rem;
+  border-left: 1px solid #B7BABF;
 }
+
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+align-items: center;
+  margin: 1rem; 
   }
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
       }
   }
 
 
 @media screen and (min-width: 1025px) {
   .parent{
-    padding: 16px 32px 32px 32px;
-    border-left: 1px solid #B3B3B3;
+    padding: 8px 16px 16px 8px;
+    border-left: 1px solid #B7BABF;
     margin: 1.5rem;
   }
 }

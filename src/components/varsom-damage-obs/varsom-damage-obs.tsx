@@ -24,20 +24,15 @@ export class VarsomDamageObs {
   render(){
      return <div>
 
-    
+<varsom-label
+      label={this.strings ? this.strings.Observations.DamageObs.ObsName : "Skader"}
+      ></varsom-label>
 
-    {this.GeoHazardName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.GeoHazardName : (this.shortVersion ? null : "Faretype") }
-    _value={this.GeoHazardName}
-    ></varsom-key-value> 
-    :""}
-
-    <br></br>
+    <div class="content">
 
     {this.DamageTypeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.DamageTypeName : (this.shortVersion ? null : "Type skade") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DamageObs.DamageTypeTID : (this.shortVersion ? null : "Type") }
     _value={this.DamageTypeName}
     ></varsom-key-value>
     :""}
@@ -46,15 +41,15 @@ export class VarsomDamageObs {
 
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.DamageObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
     ></varsom-key-value>
     :""} 
 
-    
+    </div>
 
     {this.Attachments ?
-      <div>
+      <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             strings={this.strings}

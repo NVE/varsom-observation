@@ -30,33 +30,28 @@ export class VarsomAttachment {
  
 
   render(){
-    return <span class="container">
+    return <div>
 
-      {this.Url ? 
-        <span>
-        <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
+<figure>
+          
+<img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
           onClick={()=> this.modal.style.display="block"}/>
-      </span>
-      : ""} 
- 
- <span class="att-cont">
- 
-<span class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
-  <br></br>
+
+<figcaption class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
+{this.Copyright ? 
+    <varsom-key-value
+    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
+    _value={this.Copyright}
+    ></varsom-key-value>
+    : null}
+
+<br></br>
     {this.Photographer ? 
     <varsom-key-value
     _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
     _value={this.Photographer}
     ></varsom-key-value>
-    :""}
-    
-    <br></br>
-    {this.Copyright ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
-    _value={this.Copyright}
-    ></varsom-key-value>
-    :""}
+    : null}
 
     <br></br>
     {this.Comment ? 
@@ -64,16 +59,13 @@ export class VarsomAttachment {
     _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
     _value={this.Comment}
     ></varsom-key-value>
-    :""}
+    : null}
 
 
+</figcaption>
 
-
-</span>
-
-
-
-</span>
+</figure>
+     
 
 {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
 
@@ -88,14 +80,24 @@ export class VarsomAttachment {
      onClick={() => this.modal.style.display = "none"}
      >&times;
     </span>
-  
+  <figure>
     <img alt={this.Comment ? this.Comment : "observation image"} class="modal-img" src={this.Url} />
+    
+    <figcaption>
+      {this.Copyright}<br></br>
+      {this.Photographer}<br></br>
+      {this.Comment}
+    </figcaption>
+    </figure>
   </div>
 
 </div>
 
-    </span>
+    </div>
+    
   }
+
+  
     
   }
 

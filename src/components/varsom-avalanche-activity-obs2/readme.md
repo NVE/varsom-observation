@@ -42,12 +42,14 @@
 
 ### Depends on
 
+- [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-avalanche-activity-obs2 --> varsom-label-small
   varsom-avalanche-activity-obs2 --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-attachment
   varsom-attachment --> varsom-key-value

@@ -1,14 +1,14 @@
 .normalImage {
-  max-width: 10rem;
+  max-width: 16.875rem;
+
 }
 
 .smallImage {
   max-width: 8rem;
+  
 }
 
-.container {
-  margin: 0 0.5rem 2rem 0.5rem;
-}
+
 
 label {
   font-weight: 800;
@@ -20,28 +20,36 @@ label {
 }
 
 .imageInfo {
-  background-color: rgba(4, 73, 98, 0.05);
-  max-width: 10rem;
+  
+  width: 15.25rem; 
+  padding: 0.4rem 0.8rem 0.8rem;
   
 }
 
-.att-cont {
+
+figure {
+  margin: 0.5rem;
   display: flex;
-  margin: 0 0.5rem
+  flex-flow: column;
+
+}
+
+figcaption {
+  background-color:#F7F7F8;
+  word-break: break-word;
 }
 
 .smallImageInfo{
-  background-color: rgba(4, 73, 98, 0.05);
-  max-width: 8rem;
+  width: 6rem; 
+  padding: 0.4rem 0.8rem 0.8rem;
   
-  padding: 8px 16px 16px;
 }
 
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 3; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -53,10 +61,9 @@ label {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: white;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
   display: flex;
   justify-content: center;

@@ -39,6 +39,7 @@ export class VarsomMetadata {
 
       {this.dateOfLastUpdate && !this.shortVersion ? 
       <span tabIndex={0}>
+        <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
       <label>{this.strings.Reg.UpdatedTime} </label>
       {this.updateTimeFormatted}
       </span> : ""}
@@ -48,7 +49,7 @@ export class VarsomMetadata {
       <img alt='geohazard icon'class="image" src={(`src/assets/icons/${getIconName(this.geoHazardName)}-icon.svg`)}></img>
       {this.geoHazardName}
       </span> : ""}
-   <br></br>
+   
    
       {this.moh ? 
       <span tabIndex={0}>

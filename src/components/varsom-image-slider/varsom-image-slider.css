@@ -22,7 +22,13 @@ div {
 /*box-sizing:border-box*/
 
 .observation-images{
-  max-width: 14rem;
+   /*14 if map is included...*/
+  width: 25rem;
+  height: 25rem;
+  object-fit: cover;
+  margin: 1rem 0 0.5rem 0;
+  position: relative;
+  
 }
 
 
@@ -42,10 +48,12 @@ div {
 }
 
 .img-cont {
+  
   display: flex;
-  align-items: center;
   
 }
+
+
 
 figcaption {
   background-color: rgba(4, 73, 98, 0.05);
@@ -80,12 +88,12 @@ figcaption {
 
 /* Position the "next button" to the right */
 .next {
-  right: 2%;
+  right: 1%;
   border-radius: 3px 0 0 3px;
 }
 
 .prev {
-  left: 2%;
+  left: 1%;
   border-radius: 3px 0 0 3px;
 }
 

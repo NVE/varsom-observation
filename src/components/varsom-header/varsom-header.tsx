@@ -16,7 +16,7 @@ export class VarsomHeader {
   render(){
     return <div> 
       <div class="container">
-      <span tabIndex={0}>{this.region}</span> <span tabIndex={0}>Id: {this.regId}</span>
+      <span class="header" tabIndex={0}>{this.region}</span> <span class="id" tabIndex={0}>ID: {this.regId}</span>
     </div>
     </div>
   }

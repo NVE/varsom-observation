@@ -28,7 +28,7 @@ export class VarsomIceCoverObservation {
 
 
   render(){
-    return <div class="container"> 
+    return <div> 
 
 <varsom-label
       label={this.strings ? this.strings.Observations.IceCoverObs.ObsName : "Isdekning"}
@@ -100,7 +100,7 @@ export class VarsomIceCoverObservation {
         })
         } </span> : ""}
   
-    
+    <div class="border"></div>
     </div>
   }
     

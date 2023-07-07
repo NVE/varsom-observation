@@ -18,18 +18,19 @@ div {
 @media screen and (max-width: 480px) {
   .attachments-container { 
     grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
+;
     }
 }
 
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+align-items: center;
   }
 
 
 .container {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+  border-bottom: 1px solid #B7BABF;
 }
 
 .hoved {

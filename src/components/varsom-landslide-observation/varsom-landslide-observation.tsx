@@ -68,6 +68,7 @@ export class VarsomLandslideObservation {
 
     {this.LandSlideName ? 
     <varsom-key-value
+    shortVersion={this.shortVersion}
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTName : (this.shortVersion ? null : "Skredtype") }
     _value={this.LandSlideName}
     ></varsom-key-value>
@@ -77,6 +78,7 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideSizeTName : (this.shortVersion ? null : "Størrelse") }
     _value={this.LandSlideSizeName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -84,6 +86,7 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTriggerTName : (this.shortVersion ? null : "Trigger") }
     _value={this.LandSlideTriggerName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
       
@@ -91,6 +94,7 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.DamageExtentTName : (this.shortVersion ? null : "Omfang") }
     _value={this.DamageExtentName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
     
@@ -98,6 +102,7 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.ForecastAccurateTName : (this.shortVersion ? null : "Stemte varsel på varsom.no?") }
     _value={this.ForecastAccurateName}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
@@ -106,6 +111,7 @@ export class VarsomLandslideObservation {
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Comment : (this.shortVersion ? null : "Kommentar") }
     _value={this.Comment}
+    shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 

@@ -64,10 +64,16 @@ return <div class="slideshow-container">
     <div class="img-cont">
     <figure tabIndex={0}>
 
-     
+  
+    
      <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
   onClick={()=> this.modal[num-1].style.display="block"}></img>
 
+<figcaption>
+       {this._images[num]._copyright}<br></br>
+       {this._images[num]._photographer}<br></br>
+       {this._images[num]._comment}
+      </figcaption>
 
 </figure>
 

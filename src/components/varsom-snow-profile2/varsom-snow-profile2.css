@@ -11,22 +11,19 @@ span {
   margin: 1.5rem;
 }
 
-img {
-  width: 15rem;
-}
-
-.container {
-  border-bottom: 1px solid rgba(119, 166, 169, 0.5);
+.border {
+  border-bottom: 1px solid #B7BABF;
 }
 
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin: 1rem;
   }
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-margin-left: 25%;
       }
   }

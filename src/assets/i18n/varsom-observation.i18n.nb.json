@@ -856,7 +856,7 @@
   "RegistrationKeyInfo": {
     "Accuracy": "Nøyaktighet",
     "Edit": "Rediger",
-    "MetersAboveSeaLevel": "Meter over havet",
+    "MetersAboveSeaLevel": "moh",
     "Municipal": "Kommune",
     "Source": "Kildeangivelse",
     "UTMSource": "Posisjoneringskilde",
