@@ -92,6 +92,7 @@ graph TD;
   varsom-damage-obs --> varsom-key-value
   varsom-damage-obs --> varsom-attachment
   varsom-attachment --> varsom-key-value
+  varsom-avalanche-activity-obs2 --> varsom-label-small
   varsom-avalanche-activity-obs2 --> varsom-key-value
   varsom-avalanche-activity-obs2 --> varsom-attachment
   varsom-avalanche-activity-obs --> varsom-key-value
