@@ -43,10 +43,10 @@ export class VarsomSnowProfile2 {
   <br></br>
 {this.ImageUrl ?
  <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
+  {console.log(this.RegId)}
   <img src={this.ImageUrl}></img>
  </a>
  : ""}
-
 
 {this.SnowDensity ? 
 <div>
@@ -86,7 +86,7 @@ export class VarsomSnowProfile2 {
     </div>
     
     {(this.Attachments && !this.shortVersion) ? 
-      <span class="attachments-container">
+      <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
             Photographer={el.Photographer ? el.Photographer : null}            
@@ -97,7 +97,7 @@ export class VarsomSnowProfile2 {
 
             </varsom-attachment>
         })
-        } </span> : ""}
+        } </div> : ""}
     
     <div class="border"></div>
     

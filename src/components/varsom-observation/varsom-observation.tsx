@@ -188,7 +188,7 @@ export class VarsomObservation {
         if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
           if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2){
             if (this.observations[i]._snowProfile2)
-            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][2]["svgUrl"];
+            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][1]["svgUrl"];
           }
         }
       }
@@ -1077,6 +1077,7 @@ Attachments={obs._snowProfile2.Attachments ? obs._snowProfile2.Attachments : nul
 ></varsom-snow-profile2>
 :""}
 
+{console.log(obs._snowProfile2.ImageUrl)}
 
 
 

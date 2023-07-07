@@ -11,10 +11,6 @@ span {
   margin: 1.5rem;
 }
 
-img {
-  width: 15rem;
-}
-
 .border {
   border-bottom: 1px solid #B7BABF;
 }
@@ -22,13 +18,12 @@ img {
 .attachments-container { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-align-items: center;
+  align-items: center;
   margin: 1rem;
   }
 
   @media screen and (max-width: 480px) {
     .attachments-container { 
       grid-template-columns: repeat(1, 1fr) !important;
-;
       }
   }
