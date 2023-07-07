@@ -1077,9 +1077,6 @@ Attachments={obs._snowProfile2.Attachments ? obs._snowProfile2.Attachments : nul
 ></varsom-snow-profile2>
 :""}
 
-{console.log(obs._snowProfile2.ImageUrl)}
-
-
 
 {/* DANGER OBSERVATIONS */}
 {obs._dangerObs.length > 0 ?
