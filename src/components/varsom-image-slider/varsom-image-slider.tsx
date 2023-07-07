@@ -89,9 +89,9 @@ return <div class="slideshow-container">
 */}
      
      
-     <img alt={this._images[num]._comment ? this._images[num-1]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
+     <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
   onClick={()=> this.modal[num].style.display="block"}></img>
-
+ 
      
 
 </figure>
