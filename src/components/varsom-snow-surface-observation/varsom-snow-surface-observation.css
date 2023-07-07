@@ -9,15 +9,8 @@
 }
 
 .attachments-container { 
-  display: grid;
-  grid-template-columns: repeat(3, 0fr);
-  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  }
-
-  @media screen and (max-width: 480px) {
-    .attachments-container { 
-      grid-template-columns: repeat(1, 1fr) !important;
-    
-      }
-  }
+  margin: 1rem;
+}

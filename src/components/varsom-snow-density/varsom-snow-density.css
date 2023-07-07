@@ -10,17 +10,9 @@ div {
   margin: 1.5rem;
 }
 
-
-@media screen and (max-width: 480px) {
-  .attachments-container { 
-    grid-template-columns: repeat(1, 1fr) !important;
-;
-    }
-}
-
 .attachments-container { 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-align-items: center;
-  }
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem;
+}
