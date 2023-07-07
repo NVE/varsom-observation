@@ -3,7 +3,7 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   
   namespace: 'observation-components',
-  
+  globalStyle: 'src/global/global.css',
   
   outputTargets: [
     {
@@ -31,7 +31,11 @@ export const config: Config = {
       {
         src: "**/avalanche/*.svg",
         dest: "src/assets/svg/avalanche"
-      }      
+      },
+      {
+        src: "**/*.ttf",
+        dest: "src/assets/fonts"
+      }
     ],
       esmLoaderPath: '../loader',
     },
@@ -66,7 +70,11 @@ export const config: Config = {
       {
         src: "**/avalanche/*.svg",
         dest: "src/assets/svg/avalanche"
-      }      
+      },
+      {
+        src: "**/*.ttf",
+        dest: "src/assets/fonts"
+      }
     ],
       
       serviceWorker: null, // disable service workers

@@ -25,7 +25,7 @@
   }
 
   div {
-    font-family:'Source Sans Pro';
+    font-family: var(--varsom-font-family);
     font-weight: 400;
     line-height: 1.25rem;
     

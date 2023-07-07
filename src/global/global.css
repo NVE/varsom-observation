@@ -1,0 +1,32 @@
+/**
+ * Definerer Source Sans Pro-fonten. Fonten ligger i assets-mappa, men må
+ * registreres her for at vi skal kunne bruke den i prosjektet.
+ */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url('/assets/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url('/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+/**
+ * Globale variabler. Fonter, farger, osv som skal brukes i hele prosjektet
+ * defineres her.
+ * Dette er typisk ting som er markert som variabler i figma, når det står feks
+ *   background: var(--background-nve-background-colour, #F5F5F5);
+ *
+ * Vi kan også definere egne variabler her i tillegg til det som er definert i
+ * figma.
+ */
+:root {
+  --varsom-font-family: 'Source Sans 3', sans-serif;
+}
