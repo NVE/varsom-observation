@@ -3,19 +3,19 @@
  * registreres her for at vi skal kunne bruke den i prosjektet.
  */
 @font-face {
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans 3';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url('assets/fonts/SourceSans3-VariableFont-wght.ttf') format('truetype');
+  src: url('/assets/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans 3';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url('assets/fonts/SourceSans3-Italic-VariableFont-wght.ttf') format('truetype');
+  src: url('/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 /**
@@ -28,5 +28,5 @@
  * figma.
  */
 :root {
-  --varsom-font-family: 'Source Sans Pro', sans-serif;
+  --varsom-font-family: 'Source Sans 3', sans-serif;
 }

@@ -31,7 +31,11 @@ export const config: Config = {
       {
         src: "**/avalanche/*.svg",
         dest: "src/assets/svg/avalanche"
-      }      
+      },
+      {
+        src: "**/*.ttf",
+        dest: "src/assets/fonts"
+      }
     ],
       esmLoaderPath: '../loader',
     },
@@ -66,7 +70,11 @@ export const config: Config = {
       {
         src: "**/avalanche/*.svg",
         dest: "src/assets/svg/avalanche"
-      }      
+      },
+      {
+        src: "**/*.ttf",
+        dest: "src/assets/fonts"
+      }
     ],
       
       serviceWorker: null, // disable service workers
