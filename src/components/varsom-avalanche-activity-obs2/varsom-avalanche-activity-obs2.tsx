@@ -43,21 +43,29 @@ export class VarsomAvalancheActivityObs2 {
 
   render(){
     return <div class="container">
+
     
+
     <div class="parent"> 
 
+    {this.AvalCauseName ? 
+    <varsom-label-small
+    label={this.AvalancheExtName}
+    ></varsom-label-small>
+    :""}
+
     {(this.DtStart && this.DtEnd) ? 
-      <div>
+      <span>
       <label>
         {this.strings ? 
-        <div>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </div>
-        : <div>Tid: </div>}
+        <span>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </span>
+        : <span>Tid: </span>}
         </label>
     {this.avalancheTimeFormatted}
-    </div>
+    </span>
       : ""} 
 
-<div>
+
     {this.EstimatedNumTID ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
@@ -67,7 +75,7 @@ export class VarsomAvalancheActivityObs2 {
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
- </div>
+
  
     {this.AvalPropagationTID? 
     <varsom-key-value
@@ -82,7 +90,7 @@ export class VarsomAvalancheActivityObs2 {
     <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
     :""}  
 
-    <br></br>
+
     {this.Comment ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
