@@ -278,11 +278,6 @@ export namespace Components {
     interface VarsomDoc {
         "Text": any;
     }
-    interface VarsomEstimateOfRisk {
-        "comment": any;
-        "dangerSignName": any;
-        "strings": any;
-    }
     interface VarsomGeneralObservation {
         "Attachments": Attachment[];
         "Comment": any;
@@ -422,11 +417,6 @@ export namespace Components {
         "StopLong"?: any;
         "Urls"?: any[];
         "shortVersion": any;
-        "strings": any;
-    }
-    interface VarsomLatLng {
-        "Latitude": any;
-        "Longitude": any;
         "strings": any;
     }
     interface VarsomMetadata {
@@ -737,12 +727,6 @@ declare global {
         prototype: HTMLVarsomDocElement;
         new (): HTMLVarsomDocElement;
     };
-    interface HTMLVarsomEstimateOfRiskElement extends Components.VarsomEstimateOfRisk, HTMLStencilElement {
-    }
-    var HTMLVarsomEstimateOfRiskElement: {
-        prototype: HTMLVarsomEstimateOfRiskElement;
-        new (): HTMLVarsomEstimateOfRiskElement;
-    };
     interface HTMLVarsomGeneralObservationElement extends Components.VarsomGeneralObservation, HTMLStencilElement {
     }
     var HTMLVarsomGeneralObservationElement: {
@@ -814,12 +798,6 @@ declare global {
     var HTMLVarsomLandslideObservationElement: {
         prototype: HTMLVarsomLandslideObservationElement;
         new (): HTMLVarsomLandslideObservationElement;
-    };
-    interface HTMLVarsomLatLngElement extends Components.VarsomLatLng, HTMLStencilElement {
-    }
-    var HTMLVarsomLatLngElement: {
-        prototype: HTMLVarsomLatLngElement;
-        new (): HTMLVarsomLatLngElement;
     };
     interface HTMLVarsomMetadataElement extends Components.VarsomMetadata, HTMLStencilElement {
     }
@@ -957,7 +935,6 @@ declare global {
         "varsom-damage-obs": HTMLVarsomDamageObsElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-doc": HTMLVarsomDocElement;
-        "varsom-estimate-of-risk": HTMLVarsomEstimateOfRiskElement;
         "varsom-general-observation": HTMLVarsomGeneralObservationElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-ice-cover-observation": HTMLVarsomIceCoverObservationElement;
@@ -970,7 +947,6 @@ declare global {
         "varsom-label": HTMLVarsomLabelElement;
         "varsom-label-small": HTMLVarsomLabelSmallElement;
         "varsom-landslide-observation": HTMLVarsomLandslideObservationElement;
-        "varsom-lat-lng": HTMLVarsomLatLngElement;
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-regobs-link": HTMLVarsomRegobsLinkElement;
@@ -1265,11 +1241,6 @@ declare namespace LocalJSX {
     interface VarsomDoc {
         "Text"?: any;
     }
-    interface VarsomEstimateOfRisk {
-        "comment"?: any;
-        "dangerSignName"?: any;
-        "strings"?: any;
-    }
     interface VarsomGeneralObservation {
         "Attachments"?: Attachment[];
         "Comment"?: any;
@@ -1409,11 +1380,6 @@ declare namespace LocalJSX {
         "StopLong"?: any;
         "Urls"?: any[];
         "shortVersion"?: any;
-        "strings"?: any;
-    }
-    interface VarsomLatLng {
-        "Latitude"?: any;
-        "Longitude"?: any;
         "strings"?: any;
     }
     interface VarsomMetadata {
@@ -1648,7 +1614,6 @@ declare namespace LocalJSX {
         "varsom-damage-obs": VarsomDamageObs;
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-doc": VarsomDoc;
-        "varsom-estimate-of-risk": VarsomEstimateOfRisk;
         "varsom-general-observation": VarsomGeneralObservation;
         "varsom-header": VarsomHeader;
         "varsom-ice-cover-observation": VarsomIceCoverObservation;
@@ -1661,7 +1626,6 @@ declare namespace LocalJSX {
         "varsom-label": VarsomLabel;
         "varsom-label-small": VarsomLabelSmall;
         "varsom-landslide-observation": VarsomLandslideObservation;
-        "varsom-lat-lng": VarsomLatLng;
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-regobs-link": VarsomRegobsLink;
@@ -1703,7 +1667,6 @@ declare module "@stencil/core" {
             "varsom-damage-obs": LocalJSX.VarsomDamageObs & JSXBase.HTMLAttributes<HTMLVarsomDamageObsElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-doc": LocalJSX.VarsomDoc & JSXBase.HTMLAttributes<HTMLVarsomDocElement>;
-            "varsom-estimate-of-risk": LocalJSX.VarsomEstimateOfRisk & JSXBase.HTMLAttributes<HTMLVarsomEstimateOfRiskElement>;
             "varsom-general-observation": LocalJSX.VarsomGeneralObservation & JSXBase.HTMLAttributes<HTMLVarsomGeneralObservationElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-ice-cover-observation": LocalJSX.VarsomIceCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomIceCoverObservationElement>;
@@ -1716,7 +1679,6 @@ declare module "@stencil/core" {
             "varsom-label": LocalJSX.VarsomLabel & JSXBase.HTMLAttributes<HTMLVarsomLabelElement>;
             "varsom-label-small": LocalJSX.VarsomLabelSmall & JSXBase.HTMLAttributes<HTMLVarsomLabelSmallElement>;
             "varsom-landslide-observation": LocalJSX.VarsomLandslideObservation & JSXBase.HTMLAttributes<HTMLVarsomLandslideObservationElement>;
-            "varsom-lat-lng": LocalJSX.VarsomLatLng & JSXBase.HTMLAttributes<HTMLVarsomLatLngElement>;
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-regobs-link": LocalJSX.VarsomRegobsLink & JSXBase.HTMLAttributes<HTMLVarsomRegobsLinkElement>;

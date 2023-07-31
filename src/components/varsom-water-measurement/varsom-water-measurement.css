@@ -6,3 +6,6 @@ span {
   margin-right: 0.5rem;
 }
 
+div {
+  font-family: var(--varsom-font-family);
+}

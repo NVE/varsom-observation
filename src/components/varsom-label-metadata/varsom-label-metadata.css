@@ -1,6 +1,7 @@
 
 span {
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  font-family: var(--varsom-font-family);
   padding: 0.5rem;
   font-weight: 600;
 }
@@ -8,6 +9,7 @@ span {
 
 @media screen and (max-width: 600px) {
   span {
+  font-family: var(--varsom-font-family);
   font-size: x-large;
   background-color:#F7F7F8;;
   margin: 1.5rem;

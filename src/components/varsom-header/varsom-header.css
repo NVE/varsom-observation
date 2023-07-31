@@ -31,4 +31,5 @@ div {
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
   padding: 0.5rem;
   position: relative;
+  font-family: var(--varsom-font-family);
 }

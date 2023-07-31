@@ -2,6 +2,10 @@ label {
   font-weight: 600;
 }
 
+div {
+  font-family: var(--varsom-font-family);
+}
+
 .header {
   font-size: x-large;
   font-weight: bolder;

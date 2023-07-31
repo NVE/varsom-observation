@@ -20,7 +20,7 @@ export class VarsomAvalancheDangerObs {
     
  
   render(){
-    return <div class="container">
+    return <div>
     <div class="parent"> 
 
     {this.DangerSignName ? 

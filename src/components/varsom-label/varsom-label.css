@@ -22,6 +22,7 @@ div {
   background-color:#F7F7F8;
   margin: 1.5rem;
   padding: 0.5rem;
+  font-family: var(--varsom-font-family);
   }
 }
 
