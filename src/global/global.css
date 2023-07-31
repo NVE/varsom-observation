@@ -27,6 +27,9 @@
  * Vi kan også definere egne variabler her i tillegg til det som er definert i
  * figma.
  */
+
 :root {
   --varsom-font-family: 'Source Sans 3', sans-serif;
+  --varsom-text-size: 1rem;
+  --varsom-label-size: 1.25rem;
 }

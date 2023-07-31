@@ -5,6 +5,7 @@ div {
   background-color:#f5f5f5;
   padding: 1rem;
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 
 

@@ -10,6 +10,7 @@ span {
 div {
   border-bottom: 1px solid #B7BABF;
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 
 

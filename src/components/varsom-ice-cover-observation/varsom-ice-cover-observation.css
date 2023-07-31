@@ -4,6 +4,7 @@ label {
 
 div {
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 
 span {
