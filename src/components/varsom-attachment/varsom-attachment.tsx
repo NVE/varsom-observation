@@ -30,7 +30,7 @@ export class VarsomAttachment {
  
 
   render(){
-    return <div>
+    return <div class="images-container">
 
 <figure>
           

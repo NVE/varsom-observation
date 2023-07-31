@@ -8,7 +8,14 @@
   
 }
 
+.images-container{
+  background-color: #F7F7F8;
+  min-height: 35rem;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
 
+}
 
 label {
   font-weight: 800;
@@ -28,7 +35,7 @@ label {
 
 
 figure {
-  margin: 0.5rem;
+  margin: 0 0.5rem;
   display: flex;
   flex-flow: column;
 
