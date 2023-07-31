@@ -32,6 +32,21 @@ export class VarsomSnowProfile2 {
       ></varsom-label>
 
 <div class="content">
+
+{this.Exposition ?
+<varsom-key-value
+_key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.ValidExposition: (this.shortVersion ? null : "Eksposisjon") }
+_value={this.Exposition}
+></varsom-key-value>
+: ""}
+
+{this.SlopeAngle ?
+<varsom-key-value
+_key={this.strings && !this.shortVersion ? this.strings.MapSelection.SupportSteepnessName: (this.shortVersion ? null : "Bratthet") }
+_value={this.SlopeAngle + "\u00B0"}
+></varsom-key-value>
+: ""}
+
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment: (this.shortVersion ? null : "Kommentar") }
@@ -40,6 +55,7 @@ export class VarsomSnowProfile2 {
     :""}
     
     
+  <br></br>
   <br></br>
 {this.ImageUrl ?
  <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
