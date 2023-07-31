@@ -4,11 +4,12 @@ label {
 
 div {
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 
 .header {
-  font-size: x-large;
-  font-weight: bolder;
+  font-size: var(--varsom-label-size);
+  font-weight: 600;
   margin: 1.5rem;
 }
 

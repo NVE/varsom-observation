@@ -11,5 +11,6 @@ div {
   font-weight: 600;
   margin: 1.5rem 0;
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 

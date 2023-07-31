@@ -21,6 +21,7 @@ span {
 
 .container {
   border-bottom: 1px solid #B7BABF;
+  font-size: var(--varsom-text-size);
   font-family: var(--varsom-font-family);
 }
 
