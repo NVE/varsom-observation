@@ -14,3 +14,7 @@
   align-items: center;
   margin: 1rem;
 }
+
+div {
+  font-family: var(--varsom-font-family);
+}

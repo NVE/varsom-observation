@@ -33,7 +33,7 @@ export class VarsomCompressionTest {
 
 
   render(){
-    return <div class="container">
+    return <div>
     <div class="parent"> 
 {/* TODO: se regobs-kode for visning av tabell.... */ } 
     

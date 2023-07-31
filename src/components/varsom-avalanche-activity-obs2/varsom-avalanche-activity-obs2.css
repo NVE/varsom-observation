@@ -18,6 +18,9 @@ span {
   font-weight: bolder;
 }
 
+div {
+  font-family: var(--varsom-font-family);
+}
 
 
 .parent {

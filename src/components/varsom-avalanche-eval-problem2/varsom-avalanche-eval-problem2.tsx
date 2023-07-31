@@ -44,7 +44,7 @@ export class VarsomAvalancheEvalProblem2 {
   
 
   render(){
-    return <div class="container">
+    return <div>
     <div class="parent"> 
 
 

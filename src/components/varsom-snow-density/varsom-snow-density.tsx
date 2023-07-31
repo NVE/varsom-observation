@@ -19,7 +19,7 @@ export class VarsomSnowDensity {
   @Prop() Attachments: Attachment[];
 
   render(){
-    return <div class="container"> 
+    return <div> 
 
 {this.CylinderDiameter ? 
     <varsom-key-value

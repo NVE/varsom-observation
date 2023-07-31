@@ -42,7 +42,7 @@ export class VarsomAvalancheActivityObs2 {
   }
 
   render(){
-    return <div class="container">
+    return <div>
 
     
 

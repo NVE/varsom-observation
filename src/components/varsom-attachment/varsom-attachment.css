@@ -9,6 +9,7 @@
 }
 
 .images-container{
+  font-family: var(--varsom-font-family);
   background-color: #F7F7F8;
   min-height: 35rem;
   display: flex;

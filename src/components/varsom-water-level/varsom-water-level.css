@@ -14,6 +14,7 @@ div {
   padding: 0 0 0 8px;
   border-left: 1px solid #B7BABF;
   margin: 1.5rem;
+  font-family: var(--varsom-font-family);
 }
 
 .attachments-container { 
