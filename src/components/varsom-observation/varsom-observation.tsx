@@ -1134,7 +1134,7 @@ label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Obser
 {/* COMPRESSION TEST */}
 {obs._compressionTest.length > 0 ?
 <varsom-label
-label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observations.CompressionTest.ObsName : "Stabilitetstest"}
+label={this.strings.Observations.SnowProfile.CompressionTest ? this.strings.Observations.SnowProfile.CompressionTest : "Tester"}
 ></varsom-label> :"" }
 
 {obs._compressionTest.map((el: CompressionTest = {}) =>{
