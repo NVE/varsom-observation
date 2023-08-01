@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, SnowDensity } from '../varsom-observation/observation-model';
+import { getExpositionFromNumber } from '../../utils/utils';
 
 
 @Component({
@@ -36,10 +37,11 @@ export class VarsomSnowProfile2 {
 {this.Exposition ?
 <varsom-key-value
 _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.ValidExposition: (this.shortVersion ? null : "Eksposisjon") }
-_value={this.Exposition}
+_value={this.strings.COMPASS_DIRECTION[getExpositionFromNumber(this.Exposition)]}
 ></varsom-key-value>
 : ""}
 
+ 
 {this.SlopeAngle ?
 <varsom-key-value
 _key={this.strings && !this.shortVersion ? this.strings.MapSelection.SupportSteepnessName: (this.shortVersion ? null : "Bratthet") }

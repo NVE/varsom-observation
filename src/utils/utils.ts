@@ -16,6 +16,28 @@ export function format(first: string, middle: string, last: string): string {
 
 }
 
+export function getExpositionFromNumber(num: number){
+  switch(num){
+    case 0: 
+      return "NORTH_SHORT";
+    case 1:
+      return "NORTH_EAST_SHORT";
+    case 2: 
+      return "EAST_SHORT";
+    case 3:
+      return "SOUTH_EAST_SHORT";
+    case 4:
+      return "SOUTH_SHORT";
+    case 5:
+      return "SOUTH_WEST_SHORT";
+    case 6:
+      return "WEST_SHORT";
+    case 7:
+      return "NORTH_WEST_SHORT";
+    default: 
+      return ""
+  }
+}
 
 
 export async function getObservationFromApiById(id: string){
