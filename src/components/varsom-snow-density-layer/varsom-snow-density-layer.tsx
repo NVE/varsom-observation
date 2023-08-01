@@ -29,21 +29,21 @@ export class VarsomSnowDensityLayer {
 
 {this.Thickness ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.Density : (this.shortVersion ? null : "Tetthet") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Density.Density : (this.shortVersion ? null : "Tetthet") }
     _value={this.Thickness}
     ></varsom-key-value>
     :""}
 
 {this.Weight ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.Weight : (this.shortVersion ? null : "Vekt (g)") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Density.Weight : (this.shortVersion ? null : "Vekt (g)") }
     _value={this.Weight}
     ></varsom-key-value>
     :""}
 
 {this.WaterEquivalent ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.WaterEquivalent : (this.shortVersion ? null : "Vannekv. (mm)") }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Density.WaterEquivalent : (this.shortVersion ? null : "Vannekv. (mm)") }
     _value={this.WaterEquivalent}
     ></varsom-key-value>
     :""}

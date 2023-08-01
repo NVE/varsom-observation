@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, SnowDensity } from '../varsom-observation/observation-model';
+import { Attachment, SnowDensity, SnowTempObs } from '../varsom-observation/observation-model';
 import { getExpositionFromNumber } from '../../utils/utils';
 
 
@@ -49,6 +49,8 @@ _value={this.SlopeAngle + "\u00B0"}
 ></varsom-key-value>
 : ""}
 
+
+
 {this.Comment ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment: (this.shortVersion ? null : "Kommentar") }
@@ -56,6 +58,19 @@ _value={this.SlopeAngle + "\u00B0"}
     ></varsom-key-value>
     :""}
     
+    {this.SnowTemp ? 
+<div>
+      {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
+            return <varsom-snow-temp-obs
+            strings={this.strings}
+            shortVersion={this.shortVersion ? this.shortVersion : null}
+            Depth={el.Depth}
+            SnowTemp={el.SnowTemp}
+            >
+</varsom-snow-temp-obs>
+        })
+        }
+</div> : ""}  
     
   <br></br>
   <br></br>
@@ -66,7 +81,9 @@ _value={this.SlopeAngle + "\u00B0"}
  </a>
  : ""}
 
-{this.SnowDensity ? 
+{/**
+ * 
+ * {this.SnowDensity ? 
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
@@ -82,6 +99,8 @@ _value={this.SlopeAngle + "\u00B0"}
         })
         }
      </div>   : ""}
+ */}
+
 
 {/* Removed until better view is implemented 
      {this.StratProfile ? 

@@ -16,17 +16,15 @@ export class VarsomSnowTempObs {
   render(){
     return <div>
 
-      {this.Depth ? 
+      {this.SnowTemp !== null ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: (this.shortVersion ? null : "Snødybde") }
-    _value={this.Depth}
+    _value={this.SnowTemp + " \u00B0"}
     ></varsom-key-value>
     :""}
     
-    {this.SnowTemp ? 
+    {this.Depth !== null ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature: (this.shortVersion ? null : "Snøtemperatur") }
-    _value={this.SnowTemp + " cm"}
+    _value={" @ " + this.Depth*100 + " cm"}
     ></varsom-key-value>
     :""}
 
