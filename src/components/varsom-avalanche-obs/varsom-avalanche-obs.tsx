@@ -47,6 +47,12 @@ export class VarsomAvalancheObs {
 
   }
 
+  get AvalancheStartStopInfo(): any {
+    return this.strings.Observations.AvalancheObs.Avalanche + " " + this.strings.Observations.AvalancheObs.HeightStartZoneText + " " + this.HeightStartZone 
+    + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel + " " + this.strings.Observations.AvalancheObs.And + " " + this.strings.Observations.AvalancheObs.HeightStopZoneText
+    + " " + this.HeightStopZone + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel
+  }
+
   render(){
     return <div class="obs-container"> 
 
@@ -105,19 +111,12 @@ avalanche={true}
 
     {this.HeightStartZone ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeigthStartZone : (this.shortVersion ? null : "Løsneområdet") }
-    _value={this.HeightStartZone}
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStartZone : (this.shortVersion ? null : "Løsneområdet") }
+    _value={this.AvalancheStartStopInfo}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
-    {this.HeightStopZone ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStopZone : (this.shortVersion ? null : "Stoppområdet") }
-    _value={this.HeightStopZone}
-    shortVersion={this.shortVersion}
-    ></varsom-key-value>
-    :""}
 
     {/* TODO IMPLEMENT TEXT FOR START AND STOP POINT */ }
     
@@ -189,6 +188,7 @@ avalanche={true}
 
    </div> 
   }
+ 
     
   }
 
