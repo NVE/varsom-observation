@@ -324,7 +324,7 @@ export class VarsomObservation {
               CompressionTestName: data[i]["CompressionTest"][j]["CompressionTestName"],
               PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
               StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
-              ComprTestFractureName: data[i]["CompressionTest"][j]["CompressionTestFractureName"],
+              ComprTestFractureName: data[i]["CompressionTest"][j]["ComprTestFractureName"],
               CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
               TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
               TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
