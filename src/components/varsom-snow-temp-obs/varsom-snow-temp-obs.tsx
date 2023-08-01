@@ -14,22 +14,12 @@ export class VarsomSnowTempObs {
   @Prop() SnowTemp:	any;
   
   render(){
-    return <div>
+    return <span class="content">
 
-      {this.SnowTemp !== null ? 
-    <varsom-key-value
-    _value={this.SnowTemp + " \u00B0"}
-    ></varsom-key-value>
-    :""}
-    
-    {this.Depth !== null ? 
-    <varsom-key-value
-    _value={" @ " + this.Depth*100 + " cm"}
-    ></varsom-key-value>
-    :""}
+      {this.SnowTemp + " \u00B0 @ " + this.Depth*100 + " cm"}  
+   
 
-
-    </div>
+    </span>
   }
     
   }

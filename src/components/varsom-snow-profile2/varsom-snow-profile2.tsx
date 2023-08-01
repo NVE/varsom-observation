@@ -58,8 +58,11 @@ _value={this.SlopeAngle + "\u00B0"}
     ></varsom-key-value>
     :""}
     
-    {this.SnowTemp ? 
+    {this.SnowTemp.Layers ? 
 <div>
+  
+  <span>{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
+  
       {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs
             strings={this.strings}
@@ -76,7 +79,6 @@ _value={this.SlopeAngle + "\u00B0"}
   <br></br>
 {this.ImageUrl ?
  <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
-  {console.log(this.RegId)}
   <img src={this.ImageUrl}></img>
  </a>
  : ""}
