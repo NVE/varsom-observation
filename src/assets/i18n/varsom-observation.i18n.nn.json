@@ -444,6 +444,7 @@
     },
     "AvalancheObs": {
       "AvalancheTID": "Skredtype",
+      "Avalanche": "Skredet",
       "AvalancheTriggerTID": "Skredutløysar",
       "AvalancheType": "Skredtype",
       "AvalCauseTID": "Svakt lag",
@@ -454,6 +455,10 @@
       "FractureWidth": "Brotbreidd (m)",
       "HeigthStartZone": "Losneområdet",
       "HeigthStopZone": "Stoppområdet",
+      "HeightStartZoneText": "starta på",
+      "And": "og",
+      "HeightStopZoneText": "slutta på",
+      "MetersAboveSeaLevel": "moh",
       "IncidentDescription": "Ulykke eller skade",
       "IncidentPlaceholder": "Førte skredet til skade, ulykke eller nestenulykke? Kva skjedde og kvifor? Kunne situasjonen vore unngått?",
       "ObsName": "Skredhending",

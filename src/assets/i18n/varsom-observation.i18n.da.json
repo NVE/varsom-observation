@@ -115,11 +115,13 @@
     "AvalancheObs": {
       "AvalCauseTID": "Svagt lag",
       "Avalanche": "Lavinen",
+      "And": "og",
       "AvalancheTID": "Lavinetype",
       "AvalancheTriggerTID": "Lavineudløser",
       "Comment": "Kommentar",
       "DestructiveSizeTID": "Størrelse",
       "DtAvalancheTime": "Tid",
+      "MetersAboveSeaLevel": "moh",
       "Facing": "vendt",
       "Fracture": "Brud",
       "FractureHeigth": "høj",
