@@ -846,6 +846,7 @@ strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
+WindDirection={obs._weather.WindDirection ? obs._weather.WindDirection : null}
 PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
 WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
 CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}

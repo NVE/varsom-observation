@@ -22,7 +22,43 @@ export class VarsomWeatherObservation {
   @Prop() Comment: any;
   @Prop() Attachments?: Attachment[];
   
-  
+   get WindInfo():string{
+    return this.WindSpeed + " m/s " + this.strings.Observations.WeatherObservation.WindDirection + " " + this.WindDirectionInfo;
+  }
+
+  get WindDirectionInfo():string{
+    return this.WindDirectionName + " " + this.WindDirectionArrow;
+   
+}
+
+  get WindDirectionArrow():string {
+    switch(this.WindDirection){ //unicode code for arrows
+        case 0: {
+            return "\u2193"; //wind from north
+        }
+        case 45: { //from north east
+            return "\u2199"
+        }
+        case 90: {
+            return "\u27f5"; //from east
+        }
+        case 135: {
+            return "\u2196" //south east
+        }
+        case 180: {
+            return "\u2191" //south
+        }
+        case 225: {
+            return "\u2197" //south west
+        }
+        case 270: {
+            return "\u27f6"  //west
+        }
+        case 315: { //north west
+            return "\u2198";
+        }
+    }
+  }
   
   render(){
     return <div class="container"> 
@@ -42,38 +78,25 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {this.AirTemperature ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.AirTemperature: (this.shortVersion ? null : "Lufttemperatur (Â°C)") }
-    _value={this.AirTemperature}
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.AirTemperature: (this.shortVersion ? null : "Temperatur") }
+    _value={this.AirTemperature + " " + "\u00b0" + "C"}  //unicode for degrees symbol
     ></varsom-key-value>
     :""}
+
 
 {(this.WindDirection && this.WindSpeed) ?
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.Wind: (this.shortVersion ? null : "Vind") }
-    _value={this.WindSpeed + " " + this.WindDirection}
+    _value={this.WindInfo}
     ></varsom-key-value>
     :""}
     
-
-{(this.WindDirection && !this.WindSpeed) ?
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.WindDirection: (this.shortVersion ? null : "Vindretning") }
-    _value={this.WindDirection}
-    ></varsom-key-value>
-    :""}
-
-{(!this.WindDirection && this.WindSpeed) ?
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.WindSpeed: (this.shortVersion ? null : "Vindhastighet (m/s)") }
-    _value={this.WindSpeed}
-    ></varsom-key-value>
-    :""}
     
 
 {this.CloudCover ?
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.CloudCover: (this.shortVersion ? null : "Skydekke") }
-    _value={this.CloudCover}
+    _value={this.CloudCover + "% " + this.strings.Observations.WeatherObservation.Clouds}
     ></varsom-key-value>
     :""}
 
