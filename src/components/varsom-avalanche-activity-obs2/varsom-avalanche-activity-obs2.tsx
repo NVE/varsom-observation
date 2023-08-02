@@ -41,6 +41,7 @@ export class VarsomAvalancheActivityObs2 {
 
   }
 
+
   render(){
     return <div>
 
@@ -87,10 +88,20 @@ export class VarsomAvalancheActivityObs2 {
     
 <br></br>
 <br></br>
+<span class="icons-container">
     {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
+    <span><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></span>
     :""}  
 
+
+{this.ExposedHeight1 ? 
+<span class="avalanche-height-container">
+  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height.svg`)}></img><span class="avalanche-height-number">{this.ExposedHeight1 + "m"}</span></span>
+:""}
+    
+    </span>
+
+    <br></br>
 
     {this.Comment ? 
     <varsom-key-value
