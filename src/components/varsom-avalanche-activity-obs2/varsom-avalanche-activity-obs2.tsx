@@ -94,10 +94,16 @@ export class VarsomAvalancheActivityObs2 {
     :""}  
 
 
-{this.ExposedHeight1 ? 
+{(this.ExposedHeight1 && !this.ExposedHeight2) ? 
 <span class="avalanche-height-container">
-  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height.svg`)}></img><span class="avalanche-height-number">{this.ExposedHeight1 + "m"}</span></span>
+  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height.svg`)}></img><span>{this.ExposedHeight1 + "m"}</span></span>
 :""}
+
+{this.ExposedHeight1 && this.ExposedHeight2 ? 
+  <span class="avalanche-height-container">
+  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height2.svg`)}></img><span class="avalanche-height-number">{this.ExposedHeight1 + "m" + this.ExposedHeight2 + "m"}</span></span>
+:""}
+
     
     </span>
 
