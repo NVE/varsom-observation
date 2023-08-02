@@ -86,8 +86,7 @@ export class VarsomAvalancheActivityObs2 {
     ></varsom-key-value>
     :""}
     
-<br></br>
-<br></br>
+
 <span class="icons-container">
     {this.ValidExposition ? 
     <span><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></span>
@@ -107,7 +106,7 @@ export class VarsomAvalancheActivityObs2 {
     
     </span>
 
-    <br></br>
+  
 
     {this.Comment ? 
     <varsom-key-value

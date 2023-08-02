@@ -20,7 +20,7 @@ span {
 
 .icons-container {
   display: flex;
-  
+  margin-top: 1rem;
 }
 
 .avalanche-height-container{

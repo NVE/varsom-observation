@@ -130,7 +130,7 @@ export class VarsomAvalancheEvalProblem2 {
     
     </span>
 
-    <br></br>
+  
     <div>
     {this.Comment ? 
     <varsom-key-value
