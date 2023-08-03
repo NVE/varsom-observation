@@ -90,12 +90,13 @@ export class VarsomObservation {
     });
   }
 
+
   async componentWillLoad() {
     this.strings = await getLocaleComponentStrings(this.language);
     let data;
     let geoHazardId = getGeoHazardIdFromName(this.type);
     let langKey = getLangKeyFromName(this.language);
-    let _data;
+    let _data;    //if json data is sent as prop, get observation from json, else build query for API based on props.
     if (!(this.json && this.json.length > 2)) {
       if (this.regid.length !== 0) {
         _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`;
@@ -113,7 +114,6 @@ export class VarsomObservation {
     }
 
     for (let i = 0; i < this.count; i++) {
-      //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _moh: data[i]['ObsLocation']['Height'],
         _region: data[i]['ObsLocation']['MunicipalName'],
@@ -128,8 +128,7 @@ export class VarsomObservation {
         _typeOfWeather: data[i]['ObsLocation']['ForecastRegionName'],
         _latitude: data[i]['ObsLocation']['Latitude'],
         _longitude: data[i]['ObsLocation']['Longitude'],
-        //_landslideActivity: data[i]["LandslideActivity"],
-        _dangerObs: [], //data[i]["DangerObs"],
+        _dangerObs: [], 
         _landslideObs: data[i]['LandSlideObs'],
         _avalancheObs: data[i]['AvalancheObs'],
         _avalancheActivityObs2: [],
@@ -304,17 +303,17 @@ export class VarsomObservation {
             PropagationName: data[i]['CompressionTest'][j]['PropagationName'],
             StabilityEvalName: data[i]['CompressionTest'][j]['StabilityEvalName'],
             ComprTestFractureName: data[i]['CompressionTest'][j]['CompressionTestFractureName'],
-            CompressionTestTID: data[i]['CompressionTest'][j]['CompressionTestTID'], //	integer($int32) The CompressionTestKDV unique identifier
-            TapsFracture: data[i]['CompressionTest'][j]['TapsFracture'], //	integer($int32) TapsFracture
-            TapsFullPropagation: data[i]['CompressionTest'][j]['TapsFullPropagation'], //	integer($int32) TapsFullPropagation
-            PropagationTID: data[i]['CompressionTest'][j]['PropagationTID'], //	integer($int32) The PropagationKD unique identifier
-            FractureDepth: data[i]['CompressionTest'][j]['FractureDepth'], //($double) maximum: 100 minimum: 0 FractureDepth
-            PstX: data[i]['CompressionTest'][j]['PstX'], //($double) maximum: 100 minimum: 0 PST X distance (in meters)
-            PstY: data[i]['CompressionTest'][j]['PstY'], //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
-            StabilityEvalTID: data[i]['CompressionTest'][j]['StabilityEvalTID'], // integer($int32) The StabilityEvalKD unique identifier
-            ComprTestFractureTID: data[i]['CompressionTest'][j]['ComprTestFractureTID'], //	integer($int32) The ComprTestFractureKD unique identifier
-            RbRelease: data[i]['CompressionTest'][j]['RbRelease'], //	integer($int32) Percentage of block that released in Rutchblock test
-            Comment: data[i]['CompressionTest'][j]['Comment'], //Comment
+            CompressionTestTID: data[i]['CompressionTest'][j]['CompressionTestTID'], 
+            TapsFracture: data[i]['CompressionTest'][j]['TapsFracture'], 
+            TapsFullPropagation: data[i]['CompressionTest'][j]['TapsFullPropagation'], 
+            PropagationTID: data[i]['CompressionTest'][j]['PropagationTID'], 
+            FractureDepth: data[i]['CompressionTest'][j]['FractureDepth'], 
+            PstX: data[i]['CompressionTest'][j]['PstX'],
+            PstY: data[i]['CompressionTest'][j]['PstY'],
+            StabilityEvalTID: data[i]['CompressionTest'][j]['StabilityEvalTID'], 
+            ComprTestFractureTID: data[i]['CompressionTest'][j]['ComprTestFractureTID'],
+            RbRelease: data[i]['CompressionTest'][j]['RbRelease'], 
+            Comment: data[i]['CompressionTest'][j]['Comment'], 
             IncludeInSnowProfile: data[i]['CompressionTest'][j]['IncludeInSnowProfile'],
             Attachments: [],
           });
@@ -359,8 +358,7 @@ export class VarsomObservation {
       for (let j = 0; j < 50; j++) {
         //max 50 attachments
         if (data[i]['Attachments'][j] && data[i]['Attachments'][j] !== 0) {
-          //objects
-          if (data[i]['Attachments'][j].RegistrationTID == 51) {
+          if (data[i]['Attachments'][j].RegistrationTID == 51) {  //finds attachments for each registrationTID and maps to model
             if (this.observations[i]._iceCoverObs)
               this.addAttachments(
                 this.observations[i]._iceCoverObs,
@@ -712,7 +710,7 @@ export class VarsomObservation {
             );
           }
 
-          ////arrays of objects
+          //maps attachments to objects when objects are arrays
           if (data[i]['Attachments'][j].RegistrationTID == 13) {
             if (this.observations[i]._dangerObs.length > 0)
               this.addAttachments(
@@ -825,6 +823,7 @@ export class VarsomObservation {
       }
 
       //add images for image carousel
+      if (this.version === 'short'){
       for (let m = 0; m < data[i]['Attachments'].length; m++) {
         this.observations[i]._images.push({
           _imageData: data[i]['Attachments'][m] && data[i]['Attachments'][m] !== 0 ? data[i]['Attachments'][m]['Url'] : null,
@@ -837,6 +836,7 @@ export class VarsomObservation {
       }
     }
   }
+}
 
   render() {
     return (
@@ -860,7 +860,7 @@ export class VarsomObservation {
             {/* STATIC MAP */} {/** if on mobile, initiate component for mobile image slider */}
             {this.version !== 'short' ? (
               <div>
-                {/** 
+                {/** map is not included at the moment
 <div class="static-map-container">
 <varsom-static-map
 observation={obs}
@@ -871,7 +871,7 @@ allowZoom={true}
               </div>
             ) : (
               <div class="container-for-image-slider">
-                {navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i) ? (
+                {navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i) ? ( 
                   <varsom-image-slider-mobile
                     _images={obs._images}
                     strings={this.strings}
@@ -888,7 +888,7 @@ allowZoom={true}
                 )}
               </div>
             )}
-            {/* CONTENT */}
+            
             <div class="observation-content">
               {obs._damageObs.map((el: DamageObs = {}) => {
                 return (
@@ -1135,7 +1135,6 @@ allowZoom={true}
                 ''
               )}
 
-              {/* WEATHER OBSERVATIONS */}
               {obs._weather ? (
                 <varsom-weather-observation
                   strings={this.strings}
@@ -1152,7 +1151,6 @@ allowZoom={true}
                 ''
               )}
 
-              {/* AVALANCHE EVAL PROBLEM */}
               {obs._avalancheEvalProblem.length > 0 ? (
                 <varsom-label
                   label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : 'Skreproblem'}
@@ -1188,7 +1186,6 @@ allowZoom={true}
               })}
               {obs._avalancheEvalProblem.length > 0 ? <div class="border"></div> : ''}
 
-              {/* AVALANCHE EVAL PROBLEM 2 */}
               {obs._avalancheEvalProblem2.length > 0 ? (
                 <varsom-label
                   label={this.strings.Observations.AvalancheEvalProblem2.ObsName ? this.strings.Observations.AvalancheEvalProblem2.ObsName : 'Skreproblem'}
@@ -1280,7 +1277,6 @@ allowZoom={true}
                 ''
               )}
 
-              {/* AVALANCE EVALUATION 3*/}
               {obs._avalancheEvaluation2 ? (
                 <div>
                   <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label>
@@ -1307,7 +1303,6 @@ allowZoom={true}
                 ''
               )}
 
-              {/* AVALANCE EVALUATION 3*/}
               {obs._avalancheEvaluation3 ? (
                 <div>
                   <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label>
@@ -1327,10 +1322,6 @@ allowZoom={true}
               ) : (
                 ''
               )}
-
-              {/* DAMAGE OBSERVATIONS*/}
-
-              {/* SNOW PROFILE */}
 
               {obs._snowProfile ? (
                 <varsom-snow-profile
@@ -1371,7 +1362,6 @@ allowZoom={true}
                 ''
               )}
 
-              {/* DANGER OBSERVATIONS */}
               {obs._dangerObs.length > 0 ? (
                 <varsom-label label={this.strings.Observations.DangerObs.ObsName ? this.strings.Observations.DangerObs.ObsName : 'Faretegn'}></varsom-label>
               ) : (
@@ -1395,7 +1385,6 @@ allowZoom={true}
 
               {obs._dangerObs.length > 0 ? <div class="border"></div> : ''}
 
-              {/* AVALANCHE DANGER OBSERVATIONS */}
               {obs._avalancheDangerObs.length > 0 ? (
                 <varsom-label label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Observations.AvalancheDangerObs.ObsName : 'Fartegn'}></varsom-label>
               ) : (
@@ -1417,7 +1406,6 @@ allowZoom={true}
               })}
               {obs._avalancheDangerObs.length > 0 ? <div class="border"></div> : ''}
 
-              {/* COMPRESSION TEST */}
               {obs._compressionTest.length > 0 ? (
                 <varsom-label label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observations.CompressionTest.ObsName : 'Stabilitetstest'}></varsom-label>
               ) : (
@@ -1451,7 +1439,6 @@ allowZoom={true}
 
               {obs._compressionTest.length > 0 ? <div class="border"></div> : ''}
 
-              {/* SNOW SURFACE */}
               {obs._snowSurfaceObservation ? (
                 <varsom-snow-surface-observation
                   strings={this.strings}
