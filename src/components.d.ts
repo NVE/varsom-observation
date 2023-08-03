@@ -578,7 +578,6 @@ export namespace Components {
     interface VarsomUrl {
         "UrlDescription": any;
         "UrlLine": any;
-        "strings": any;
     }
     interface VarsomWaterLevel {
         "Attachments": Attachment[];
@@ -1541,7 +1540,6 @@ declare namespace LocalJSX {
     interface VarsomUrl {
         "UrlDescription"?: any;
         "UrlLine"?: any;
-        "strings"?: any;
     }
     interface VarsomWaterLevel {
         "Attachments"?: Attachment[];

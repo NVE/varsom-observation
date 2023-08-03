@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Attachment, Url } from '../varsom-observation/observation-model';
 })
 export class VarsomIncident {
 
-  @Prop() strings: any; 
+  @Prop({mutable: true}) strings: any; 
   @Prop() shortVersion: any;
   @Prop() GeoHazardName: any; 
   @Prop() ActivityInfluencedName: any; 
@@ -45,6 +46,11 @@ export class VarsomIncident {
   @Prop() Comment: any; 
   @Prop() Attachments: Attachment[];
 
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
+  
   render(){
     return <div class="container"> 
 
@@ -177,7 +183,6 @@ export class VarsomIncident {
      
       {this.IncidentURLs.map((el: Url = {}) =>{
             return <varsom-url
-            strings={this.strings}
             UrlDescription={el.UrlDescription ? el.UrlDescription : null}
             UrlLine={el.UrlLine ? el.UrlLine : null}
             >

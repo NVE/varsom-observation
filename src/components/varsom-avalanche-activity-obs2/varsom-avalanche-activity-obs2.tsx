@@ -2,6 +2,7 @@ import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { getStartEndTimeFormatted } from '../../utils/date-utils';
 })
 export class VarsomAvalancheActivityObs2 {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() Comment: any;
   @Prop() shortVersion: any;
   @Prop() AvalCauseName: any;
@@ -41,10 +42,13 @@ export class VarsomAvalancheActivityObs2 {
 
   }
 
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
+
   render(){
     return <div>
-
-    
 
     <div class="parent"> 
 

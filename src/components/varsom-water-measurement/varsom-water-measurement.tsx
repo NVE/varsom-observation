@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { formatDateString } from '../../utils/date-utils';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-water-measurement',
@@ -9,7 +10,7 @@ import { formatDateString } from '../../utils/date-utils';
 })
 export class VarsomWaterMeasurement {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() Comment: any;
   @Prop() DtMeasurementTime: any;
@@ -17,6 +18,11 @@ export class VarsomWaterMeasurement {
 
   get waterMeasurementTimeFormatted(): string {
     return formatDateString(this.DtMeasurementTime)
+  }
+
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
   }
   
   render(){

@@ -2,6 +2,7 @@ import { Component, Prop, h} from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
 
 import { Attachment, AvalancheEvalProblem } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Attachment, AvalancheEvalProblem } from '../varsom-observation/observat
 })
 export class VarsomAvalancheEvaluation2 {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() AvalancheDangerName: any;
   @Prop() ValidExposition: any;
@@ -29,6 +30,10 @@ export class VarsomAvalancheEvaluation2 {
   @Prop() AvalancheEvalProblems: any[];
   @Prop() Attachments: Attachment[];
   
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
 
   render(){
     return <div class="container"> 

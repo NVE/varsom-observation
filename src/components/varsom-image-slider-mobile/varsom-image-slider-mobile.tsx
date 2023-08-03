@@ -17,7 +17,7 @@ export class VarsomImageSliderMobile {
   @Prop() _images: any[];  
   dataSource: any;
   _loopNumbers: number[];
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: string;
   @Prop() observation: Observation;
 

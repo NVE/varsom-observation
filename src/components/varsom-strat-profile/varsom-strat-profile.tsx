@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, StratProfileLayer } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-strat-profile',
@@ -9,13 +10,16 @@ import { Attachment, StratProfileLayer } from '../varsom-observation/observation
 })
 export class VarsomStratProfile {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() TotalDepth:	any;
   @Prop() Layers: StratProfileLayer[];
   @Prop() Attachments: Attachment[];
 
-
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
 
   render(){
     return <span> 

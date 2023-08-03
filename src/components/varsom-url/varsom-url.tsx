@@ -9,10 +9,8 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomUrl {
 
-  @Prop() strings: any;
   @Prop() UrlDescription: any;
-  @Prop() UrlLine: any;
- 
+  @Prop() UrlLine: any; 
 
   render(){
     return <host> 

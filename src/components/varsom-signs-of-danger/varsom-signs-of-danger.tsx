@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -13,6 +14,10 @@ export class VarsomSignsOfDanger {
   @Prop() Type?: any;
   @Prop() strings?: any;
   
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
 
   render(){
     return <div> 

@@ -6,7 +6,7 @@ import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
-import { getLocaleComponentStrings } from '../../utils/locale';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -102,8 +102,12 @@ export class VarsomObservation {
     
 
   async componentWillLoad(){
-
-  this.strings = await getLocaleComponentStrings(this.language);
+  if (this.language){
+    this.strings = await getLocaleComponentStrings(this.language);
+  } else {
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
+  
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(this.language);
@@ -628,7 +632,7 @@ label={this.strings.Observations.AvalancheActivityObs2.ObsName ? this.strings.Ob
 {obs._avalancheActivityObs2.map((el: AvalancheActivityObs2 = {}) =>{
 
             return <varsom-avalanche-activity-obs2
-            strings={this.strings}
+            strings={this.strings ? this.strings : getLocaleFromDom()}
             shortVersion={this.version==="short" ? this.version : null}
             dt-start={el.DtStart ? el.DtStart : null}
             aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}

@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomStratProfileLayer {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() GrainFormPrimaryTName: any;
   @Prop() GrainFormSecondaryTName: any;
@@ -30,7 +31,10 @@ export class VarsomStratProfileLayer {
   @Prop() Comment: any;
   @Prop() SortOrder: any;
 
-
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
 
   render(){
     return <span> 

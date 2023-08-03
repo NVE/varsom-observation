@@ -9,7 +9,14 @@ async function fetchLocaleStringsForComponent(componentName: string, locale: str
     });
   }
   
-
+  export function getLocaleFromDom(){
+    var elements = document.querySelectorAll('html');
+    for (let i = 0; i < elements.length; i++){
+        if (elements[i].getAttribute('lang')){
+        return elements[i].getAttribute('lang');
+  }
+}
+}
   //source: https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
 
   export async function getLocaleComponentStrings(lang: string): Promise<any> {

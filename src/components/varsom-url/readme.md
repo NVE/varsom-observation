@@ -11,7 +11,6 @@
 | ---------------- | ----------------- | ----------- | ----- | ----------- |
 | `UrlDescription` | `url-description` |             | `any` | `undefined` |
 | `UrlLine`        | `url-line`        |             | `any` | `undefined` |
-| `strings`        | `strings`         |             | `any` | `undefined` |
 
 
 ## Dependencies

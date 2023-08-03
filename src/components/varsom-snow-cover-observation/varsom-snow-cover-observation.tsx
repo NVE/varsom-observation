@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Attachment } from '../varsom-observation/observation-model';
 })
 export class VarsomSnowCoverObservation {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() DepthHoarThickness: any;
   @Prop() CriticalLayerExists: any;
@@ -21,6 +22,12 @@ export class VarsomSnowCoverObservation {
   @Prop() CriticalLayerName: any;
   @Prop() Attachments: Attachment[];
    
+
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
+
   render(){
     return <div class="container"> 
 

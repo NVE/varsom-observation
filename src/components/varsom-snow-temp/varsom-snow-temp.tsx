@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, SnowTempObs } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-snow-temp',
@@ -14,6 +15,10 @@ export class VarsomSnowTemp {
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];
   
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
   
   render(){
     return <div> 

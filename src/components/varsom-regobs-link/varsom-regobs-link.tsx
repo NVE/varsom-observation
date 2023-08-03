@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-regobs-link',
@@ -9,7 +10,12 @@ import { Component, Prop, h } from '@stencil/core';
 export class VarsomRegobsLink {
 
   @Prop() regId: any;
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
+
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
 
   render(){
     return <div> 

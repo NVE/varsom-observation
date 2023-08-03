@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
 import { Attachment, IceThicknessLayer } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-ice-thickness',
@@ -10,7 +11,7 @@ import { Attachment, IceThicknessLayer } from '../varsom-observation/observation
 })
 export class VarsomIceThickness {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() Comment: any;
   @Prop() shortVersion: any;
   @Prop() IceThicknessLayers: IceThicknessLayer[];
@@ -29,7 +30,10 @@ export class VarsomIceThickness {
   element: HTMLElement;
   element2: HTMLElement;
 
-
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+  }
   
 componentDidRender(){
 
