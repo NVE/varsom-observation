@@ -1,9 +1,6 @@
 # varsom-metadata
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -19,20 +16,20 @@
 | `shortVersion`        | `short-version`         |             | `string` | `undefined` |
 | `strings`             | `strings`               |             | `any`    | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-observation](../varsom-observation)
+- [varsom-observation](../varsom-observation)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-observation --> varsom-metadata
   style varsom-metadata fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

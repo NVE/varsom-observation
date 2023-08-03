@@ -1,9 +1,6 @@
 # varsom-ice-thickness
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -25,12 +22,11 @@
 | `shortVersion`       | `short-version`     |             | `any`                 | `undefined` |
 | `strings`            | `strings`           |             | `any`                 | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-observation](../varsom-observation)
+- [varsom-observation](../varsom-observation)
 
 ### Depends on
 
@@ -40,6 +36,7 @@
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-ice-thickness --> varsom-label
@@ -52,6 +49,6 @@ graph TD;
   style varsom-ice-thickness fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

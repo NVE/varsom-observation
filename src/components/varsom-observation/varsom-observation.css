@@ -1,74 +1,69 @@
 :host {
-    display: block;
-  }
+  display: block;
+}
 
-  .header {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.header {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
+label {
+  font-weight: 600;
+  font-size: var(--varsom-label-size);
+}
 
-  label {
-    font-weight: 600;
-    font-size: var(--varsom-label-size);
-  }
+.container-for-image-slider {
+  display: flex;
+  justify-content: center;
+}
 
-  .container-for-image-slider {
-    display: flex;
-    justify-content: center;
+.static-map-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.75rem;
+}
 
-  }
+div {
+  font-family: var(--varsom-font-family);
+  font-weight: 400;
+  line-height: 1.25rem;
+  font-size: var(--varsom-text-size);
+}
 
-  .static-map-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2.75rem;
-  }
+.image-info-container {
+  display: flex;
+}
 
-  div {
-    font-family: var(--varsom-font-family);
-    font-weight: 400;
-    line-height: 1.25rem;
-    font-size: var(--varsom-text-size);
-  }
+/*box-sizing:border-box*/
 
-  .image-info-container {
-    display: flex;
-    
-  }
-  
-  /*box-sizing:border-box*/
-  
-  .map-container {
-    display: flex; 
-  }
+.map-container {
+  display: flex;
+}
 
-  .attachments-container { 
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 1rem;
-  }
-  
-  
+.attachments-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem;
+}
+
 .observation-container {
-  border-left: 1px solid #B7BABF;
-  border-top: 1px solid #B7BABF;
-  border-right: 1px solid #B7BABF;
+  border-left: 1px solid #b7babf;
+  border-top: 1px solid #b7babf;
+  border-right: 1px solid #b7babf;
   max-width: 60rem;
 }
 
 @media screen and (max-width: 480px) {
-  .observation-container { 
+  .observation-container {
     width: 100%;
-    }
+  }
 }
 
 .border {
-  border-bottom: 1px solid #B7BABF;
+  border-bottom: 1px solid #b7babf;
 }
 
-  
 .observation-header {
   display: flex;
   justify-content: space-between;
@@ -76,19 +71,13 @@
   font-size: larger;
 }
 
+.border {
+  border-bottom: 1px solid #b7babf;
+}
 
-
-  .border {
-    border-bottom: 1px solid #B7BABF;
-  }
-  
-    
-  .observation-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bolder;
-    font-size: larger;
-  }
-  
-  
-  
+.observation-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+  font-size: larger;
+}

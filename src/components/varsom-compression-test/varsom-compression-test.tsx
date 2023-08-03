@@ -2,15 +2,13 @@ import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 
-
 @Component({
   tag: 'varsom-compression-test',
   styleUrl: 'varsom-compression-test.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomCompressionTest {
-
   @Prop() strings: any;
   @Prop() shortVersion: any;
   @Prop() CompressionTestTID: any;
@@ -31,55 +29,57 @@ export class VarsomCompressionTest {
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
 
+  render() {
+    return (
+      <div>
+        <div class="parent">
+          {/* TODO: se regobs-kode for visning av tabell.... */}
 
-  render(){
-    return <div>
-    <div class="parent"> 
-{/* TODO: se regobs-kode for visning av tabell.... */ } 
-    
-    {this.PropagationName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Test : (this.shortVersion ? null : "Test") }
-    _value={this.PropagationName}
-    ></varsom-key-value>
-    :""}
-    
-    {this.StabilityEvalName && !valueIsNotGiven(this.StabilityEvalName) ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.StabilityEvalTID : (this.shortVersion ? null : "Stabilitet") }
-    _value={this.StabilityEvalName}
-    ></varsom-key-value>
-    :""}
+          {this.PropagationName ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Test : this.shortVersion ? null : 'Test'}
+              _value={this.PropagationName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-<br></br>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Comment : (this.shortVersion ? null : "Kommentar") }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
-  
-  </div>
-  {(this.Attachments && !this.shortVersion) ? 
-      <span class="attachments-container">
-      {this.Attachments.map((el: Attachment = {}) =>{
-            return <varsom-attachment
-            Photographer={el.Photographer ? el.Photographer : null}            
-            Comment={el.Comment ? el.Comment : null}
-            Url={el.Url ? el.Url : null}
-            Copyright={el.Copyright ? el.Copyright : null}
-            >
+          {this.StabilityEvalName && !valueIsNotGiven(this.StabilityEvalName) ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.StabilityEvalTID : this.shortVersion ? null : 'Stabilitet'}
+              _value={this.StabilityEvalName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-            </varsom-attachment>
-        })
-        } </span> : ""}
-
-    </div>
-
-    
+          <br></br>
+          {this.Comment ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Comment : this.shortVersion ? null : 'Kommentar'}
+              _value={this.Comment}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+        </div>
+        {this.Attachments && !this.shortVersion ? (
+          <span class="attachments-container">
+            {this.Attachments.map((el: Attachment = {}) => {
+              return (
+                <varsom-attachment
+                  Photographer={el.Photographer ? el.Photographer : null}
+                  Comment={el.Comment ? el.Comment : null}
+                  Url={el.Url ? el.Url : null}
+                  Copyright={el.Copyright ? el.Copyright : null}
+                ></varsom-attachment>
+              );
+            })}{' '}
+          </span>
+        ) : (
+          ''
+        )}
+      </div>
+    );
   }
-    
-  }
-
-  
-  
+}

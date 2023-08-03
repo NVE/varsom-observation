@@ -1,9 +1,6 @@
 # varsom-ice-thickness
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,18 +12,18 @@
 | `shortVersion`      | `short-version`       |             | `any` | `undefined` |
 | `strings`           | `strings`             |             | `any` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-ice-thickness](../varsom-ice-thickness)
+- [varsom-ice-thickness](../varsom-ice-thickness)
 
 ### Depends on
 
 - [varsom-key-value](../varsom-key-value)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-ice-thickness-layer --> varsom-key-value
@@ -34,6 +31,6 @@ graph TD;
   style varsom-ice-thickness-layer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -6,10 +6,9 @@ import { Attachment } from '../varsom-observation/observation-model';
   tag: 'varsom-avalanche-evaluation',
   styleUrl: 'varsom-avalanche-evaluation.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAvalancheEvaluation {
-
   @Prop() strings: any;
   @Prop() shortVersion: any;
   @Prop() RegID: any;
@@ -30,59 +29,61 @@ export class VarsomAvalancheEvaluation {
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
 
+  render() {
+    return (
+      <div class="container">
+        <div class="content">
+          {this.AvalancheEvaluation1 ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : this.shortVersion ? null : 'Skredfareurdering'}
+              _value={this.AvalancheEvaluation1}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-  render(){
-    return <div class="container"> 
+          {this.AvalancheDangerTID ? (
+            <div>
+              <p>{this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID : 'Faregrad'}</p>
 
-    <div class="content">
-    {this.AvalancheEvaluation1 ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : (this.shortVersion ? null : "Skredfareurdering") }
-    _value={this.AvalancheEvaluation1}
-    ></varsom-key-value>
-    :""}
+              <span>
+                <img src={`src/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`}></img>
 
-{this.AvalancheDangerTID ? 
-<div>
-<p>{this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID : "Faregrad"}</p>
-  
-  <span><img src={(`src/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 
-  
-  <span class="danger-size">{this.AvalancheDangerName} </span>
-  </span> 
-   </div>
-  : ""}
+                <span class="danger-size">{this.AvalancheDangerName} </span>
+              </span>
+            </div>
+          ) : (
+            ''
+          )}
 
-<br></br>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.Comment : (this.shortVersion ? null : "Kommentar") }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
+          <br></br>
+          {this.Comment ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.Comment : this.shortVersion ? null : 'Kommentar'}
+              _value={this.Comment}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+        </div>
 
-</div>
-
-{this.Attachments ? 
-      <div>
-      {this.Attachments.map((el: Attachment = {}) =>{
-            return <varsom-attachment
-            Photographer={el.Photographer ? el.Photographer : null}            
-            Comment={el.Comment ? el.Comment : null}
-            Url={el.Url ? el.Url : null}
-            Copyright={el.Copyright ? el.Copyright : null}
-            >
-
-            </varsom-attachment>
-        })
-        } </div> : ""}
-
-     
-
-    </div>
+        {this.Attachments ? (
+          <div>
+            {this.Attachments.map((el: Attachment = {}) => {
+              return (
+                <varsom-attachment
+                  Photographer={el.Photographer ? el.Photographer : null}
+                  Comment={el.Comment ? el.Comment : null}
+                  Url={el.Url ? el.Url : null}
+                  Copyright={el.Copyright ? el.Copyright : null}
+                ></varsom-attachment>
+              );
+            })}{' '}
+          </div>
+        ) : (
+          ''
+        )}
+      </div>
+    );
   }
-    
-  }
-
-  
-  
+}

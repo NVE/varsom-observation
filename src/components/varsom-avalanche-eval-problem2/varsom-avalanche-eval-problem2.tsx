@@ -1,15 +1,13 @@
-import { Component, Prop, h} from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
-
 
 @Component({
   tag: 'varsom-avalanche-eval-problem2',
   styleUrl: 'varsom-avalanche-eval-problem2.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAvalancheEvalProblem2 {
-
   @Prop() strings: any;
   @Prop() shortVersion: any;
   @Prop() AvalProbabilityTID: any;
@@ -32,7 +30,7 @@ export class VarsomAvalancheEvalProblem2 {
   @Prop() AvalCauseAttributeThinName: any;
   @Prop() AvalCauseAttributeSoftTID: any;
   @Prop() AvalCauseAttributeSoftName: any;
-  @Prop() AvalCauseAttributeCrystalTID  : any;
+  @Prop() AvalCauseAttributeCrystalTID: any;
   @Prop() AvalCauseAttributeCrystalName: any;
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalTriggerSimpleTID: any;
@@ -41,90 +39,126 @@ export class VarsomAvalancheEvalProblem2 {
   @Prop() AvalPropagationName: any;
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
-  
 
-  render(){
-    return <div>
-    <div class="parent"> 
+  render() {
+    return (
+      <div>
+        <div class="parent">
+          {this.AvalCauseName ? <varsom-label-small label={this.AvalCauseName}></varsom-label-small> : ''}
 
+          {this.AvalancheExtName ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalancheType : this.shortVersion ? null : 'Skredtype'}
+              _value={this.AvalancheExtName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalCauseName ? 
-    <varsom-label-small
-    label={this.AvalCauseName}
-    ></varsom-label-small>
-    :""}
+          {this.AvalPropagationName ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : this.shortVersion ? null : 'Utbredelse'}
+              _value={this.AvalPropagationName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalancheExtName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalancheType : (this.shortVersion ? null : "Skredtype") }
-    _value={this.AvalancheExtName}
-    ></varsom-key-value>
-    :""}
+          {this.AvalCauseAttributeLightTID ? (
+            <varsom-key-value
+              _key={
+                this.strings && !this.shortVersion
+                  ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID
+                  : this.shortVersion
+                  ? null
+                  : 'Ugunstige egenskaper på det svake laget'
+              }
+              _value={
+                this.AvalCauseAttributeLightName
+                  ? this.AvalCauseAttributeLightName + '. '
+                  : '' + this.AvalCauseAttributeThinName
+                  ? this.AvalCauseAttributeThinName + '. '
+                  : '' + this.AvalCauseAttributeSoftName
+                  ? this.AvalCauseAttributeSoftName + '. '
+                  : '' + this.AvalCauseAttributeCrystalName
+                  ? this.AvalCauseAttributeCrystalName
+                  : ''
+              }
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalPropagationName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : (this.shortVersion ? null : "Utbredelse") }
-    _value={this.AvalPropagationName}
-    ></varsom-key-value>
-    :""}
-  
-    {this.AvalCauseAttributeLightTID ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID : (this.shortVersion ? null : "Ugunstige egenskaper på det svake laget") }
-    _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName + ". " : "" + 
-    this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName + ". " : "" +
-    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName + ". " : "" + 
-    this.AvalCauseAttributeCrystalName ? this.AvalCauseAttributeCrystalName : ""
+          {this.AvalCauseDepthName ? (
+            <varsom-key-value
+              _key={
+                this.strings && !this.shortVersion
+                  ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID
+                  : this.shortVersion
+                  ? null
+                  : 'Avstand fra overflaten til det svake laget'
+              }
+              _value={this.AvalCauseDepthName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+
+          {this.AvalProbabilityName ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID : this.shortVersion ? null : 'Sannsynlighet for skred'}
+              _value={this.AvalProbabilityName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+
+          {this.AvalTriggerSimpleName ? (
+            <varsom-key-value
+              _key={
+                this.strings && !this.shortVersion
+                  ? this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID
+                  : this.shortVersion
+                  ? null
+                  : 'Sannsynlighet for å løse ut skred'
+              }
+              _value={this.AvalTriggerSimpleName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+
+          {this.DestructiveSizeName ? (
+            <varsom-key-value
+              _key={
+                this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID : this.shortVersion ? null : 'Størrelse på forventet skred'
+              }
+              _value={this.DestructiveSizeName}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
+
+          {this.ValidExposition ? (
+            <div>
+              <img src={`src/assets/svg/ext/${this.ValidExposition}.svg`}></img>
+            </div>
+          ) : (
+            ''
+          )}
+
+          <div>
+            {this.Comment ? (
+              <varsom-key-value
+                _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.Comment : this.shortVersion ? null : 'Kommentar'}
+                _value={this.Comment}
+              ></varsom-key-value>
+            ) : (
+              ''
+            )}
+          </div>
+        </div>
+      </div>
+    );
   }
-    ></varsom-key-value>
-    :""}
-
-    {this.AvalCauseDepthName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID : (this.shortVersion ? null : "Avstand fra overflaten til det svake laget") }
-    _value={this.AvalCauseDepthName}
-    ></varsom-key-value>
-    :""}
-
-    {this.AvalProbabilityName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID : (this.shortVersion ? null : "Sannsynlighet for skred") }
-    _value={this.AvalProbabilityName}
-    ></varsom-key-value>
-    :""}
-
-    {this.AvalTriggerSimpleName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID : (this.shortVersion ? null : "Sannsynlighet for å løse ut skred") }
-    _value={this.AvalTriggerSimpleName}
-    ></varsom-key-value>
-    :""}
-
-    {this.DestructiveSizeName ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse på forventet skred") }
-    _value={this.DestructiveSizeName}
-    ></varsom-key-value>
-    :""}
-
-    {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-    : ""}
-
-    <div>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.Comment : (this.shortVersion ? null : "Kommentar") }
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
-    </div>
-    
-    </div>
-    </div>
-  }
-    
-  }
-
-  
-  
+}

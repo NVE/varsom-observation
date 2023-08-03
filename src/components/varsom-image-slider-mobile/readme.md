@@ -1,9 +1,6 @@
 # varsom-attachment
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,20 +11,20 @@
 | `shortVersion` | `short-version` |             | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `undefined` |
 | `strings`      | `strings`       |             | `any`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-observation](../varsom-observation)
+- [varsom-observation](../varsom-observation)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-observation --> varsom-image-slider-mobile
   style varsom-image-slider-mobile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -1,9 +1,6 @@
 # varsom-avalanche-eval-problem
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,19 +8,19 @@
 | -------- | --------- | ----------- | ----- | ----------- |
 | `label`  | `label`   |             | `any` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
- - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
- - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
- - [varsom-general-observation](../varsom-general-observation)
- - [varsom-water-level](../varsom-water-level)
- - [varsom-water-measurement](../varsom-water-measurement)
+- [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+- [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
+- [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
+- [varsom-general-observation](../varsom-general-observation)
+- [varsom-water-level](../varsom-water-level)
+- [varsom-water-measurement](../varsom-water-measurement)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-avalanche-activity-obs2 --> varsom-label-small
@@ -35,6 +32,6 @@ graph TD;
   style varsom-label-small fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

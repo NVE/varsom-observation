@@ -1,10 +1,9 @@
 /* eslint-disable max-len */
 
-import { MapLayerZIndex } from "../models/maplayer-zindex.enum";
-import { ISettings } from "./map-settings-model";
-import { NORWAY_BOUNDS } from "./norway-bounds";
-import { SVALBARD_BOUNDS } from "./svalbard-bounds";
-
+import { MapLayerZIndex } from '../models/maplayer-zindex.enum';
+import { ISettings } from './map-settings-model';
+import { NORWAY_BOUNDS } from './norway-bounds';
+import { SVALBARD_BOUNDS } from './svalbard-bounds';
 
 export const settings: ISettings = {
   authConfig: {
@@ -21,8 +20,7 @@ export const settings: ISettings = {
     },
     DEMO: {
       client_id: '7149f248-5e18-4feb-8a0c-e988dc021977',
-      server_host:
-        'https://nveb2c01staging.b2clogin.com/nveb2c01staging.onmicrosoft.com/B2C_1A_sign_up_sign_in_nve/v2.0',
+      server_host: 'https://nveb2c01staging.b2clogin.com/nveb2c01staging.onmicrosoft.com/B2C_1A_sign_up_sign_in_nve/v2.0',
       redirect_url: 'regobs://callback',
       end_session_redirect_url: undefined,
       scopes: 'openid offline_access',

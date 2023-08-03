@@ -1,9 +1,6 @@
 # varsom-attachment
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -24,38 +21,38 @@
 | `Url`                | `url`                  |             | `any`     | `undefined` |
 | `strings`            | `strings`              |             | `any`     | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
- - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
- - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
- - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
- - [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
- - [varsom-avalanche-obs](../varsom-avalanche-obs)
- - [varsom-compression-test](../varsom-compression-test)
- - [varsom-damage-obs](../varsom-damage-obs)
- - [varsom-danger-obs](../varsom-danger-obs)
- - [varsom-general-observation](../varsom-general-observation)
- - [varsom-ice-cover-observation](../varsom-ice-cover-observation)
- - [varsom-ice-thickness](../varsom-ice-thickness)
- - [varsom-incident](../varsom-incident)
- - [varsom-landslide-observation](../varsom-landslide-observation)
- - [varsom-observation](../varsom-observation)
- - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
- - [varsom-snow-profile2](../varsom-snow-profile2)
- - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
- - [varsom-water-level](../varsom-water-level)
- - [varsom-water-level2](../varsom-water-level2)
- - [varsom-weather-observation](../varsom-weather-observation)
+- [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
+- [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+- [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
+- [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
+- [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
+- [varsom-avalanche-obs](../varsom-avalanche-obs)
+- [varsom-compression-test](../varsom-compression-test)
+- [varsom-damage-obs](../varsom-damage-obs)
+- [varsom-danger-obs](../varsom-danger-obs)
+- [varsom-general-observation](../varsom-general-observation)
+- [varsom-ice-cover-observation](../varsom-ice-cover-observation)
+- [varsom-ice-thickness](../varsom-ice-thickness)
+- [varsom-incident](../varsom-incident)
+- [varsom-landslide-observation](../varsom-landslide-observation)
+- [varsom-observation](../varsom-observation)
+- [varsom-snow-cover-observation](../varsom-snow-cover-observation)
+- [varsom-snow-profile2](../varsom-snow-profile2)
+- [varsom-snow-surface-observation](../varsom-snow-surface-observation)
+- [varsom-water-level](../varsom-water-level)
+- [varsom-water-level2](../varsom-water-level2)
+- [varsom-weather-observation](../varsom-weather-observation)
 
 ### Depends on
 
 - [varsom-key-value](../varsom-key-value)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-attachment --> varsom-key-value
@@ -83,6 +80,6 @@ graph TD;
   style varsom-attachment fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

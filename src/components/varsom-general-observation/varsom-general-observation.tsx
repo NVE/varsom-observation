@@ -5,10 +5,9 @@ import { Attachment, Url } from '../varsom-observation/observation-model';
   tag: 'varsom-general-observation',
   styleUrl: 'varsom-general-observation.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomGeneralObservation {
-
   @Prop() strings: any;
   @Prop() shortVersion: any;
   @Prop() GeoHazardName: any;
@@ -19,65 +18,53 @@ export class VarsomGeneralObservation {
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
 
-  render(){
-    return <div> 
-
-      <varsom-label
-      label={this.strings ? this.strings.Observations.GeneralObservation.Notes : "Notater"}
-      ></varsom-label>
-
-  
-
-<div class="content">
-
-<varsom-label-small
-      label={this.ObsHeader ? this.ObsHeader : ""}
-      ></varsom-label-small>
-      
-    {this.ObsComment ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.GeneralObservation.Comment : (this.shortVersion ? null : "Kommentar") }
-    _value={this.ObsComment}
-    ></varsom-key-value>
-    :""}
-
-
-      {this.Urls ? 
+  render() {
+    return (
       <div>
-{this.Urls.map((el: Url = {}) =>{
-            return <varsom-url
-            strings={this.strings}
-            UrlDescription={el.UrlDescription ? el.UrlDescription : null}
-            UrlLine={el.UrlLine ? el.UrlLine : null}
-            >
+        <varsom-label label={this.strings ? this.strings.Observations.GeneralObservation.Notes : 'Notater'}></varsom-label>
 
-            </varsom-url>
-        })
-        } </div>
-        : ""}
-        
-    </div>
+        <div class="content">
+          <varsom-label-small label={this.ObsHeader ? this.ObsHeader : ''}></varsom-label-small>
 
-    {(this.Attachments && !this.shortVersion) ? 
-      <span class="attachments-container">
-      {this.Attachments.map((el: Attachment = {}) =>{
-            return <varsom-attachment
-            Photographer={el.Photographer ? el.Photographer : null}            
-            Comment={el.Comment ? el.Comment : null}
-            Url={el.Url ? el.Url : null}
-            Copyright={el.Copyright ? el.Copyright : null}
-            >
+          {this.ObsComment ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.GeneralObservation.Comment : this.shortVersion ? null : 'Kommentar'}
+              _value={this.ObsComment}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-            </varsom-attachment>
-        })
-        } </span> : ""}
+          {this.Urls ? (
+            <div>
+              {this.Urls.map((el: Url = {}) => {
+                return <varsom-url strings={this.strings} UrlDescription={el.UrlDescription ? el.UrlDescription : null} UrlLine={el.UrlLine ? el.UrlLine : null}></varsom-url>;
+              })}{' '}
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
 
-<div class="border"></div>
+        {this.Attachments && !this.shortVersion ? (
+          <span class="attachments-container">
+            {this.Attachments.map((el: Attachment = {}) => {
+              return (
+                <varsom-attachment
+                  Photographer={el.Photographer ? el.Photographer : null}
+                  Comment={el.Comment ? el.Comment : null}
+                  Url={el.Url ? el.Url : null}
+                  Copyright={el.Copyright ? el.Copyright : null}
+                ></varsom-attachment>
+              );
+            })}{' '}
+          </span>
+        ) : (
+          ''
+        )}
 
-    </div>
+        <div class="border"></div>
+      </div>
+    );
   }
-    
-  }
-
-  
-  
+}

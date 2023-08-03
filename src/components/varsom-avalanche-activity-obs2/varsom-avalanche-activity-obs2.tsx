@@ -1,17 +1,15 @@
-import { Component, Prop, h} from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-
 
 @Component({
   tag: 'varsom-avalanche-activity-obs2',
   styleUrl: 'varsom-avalanche-activity-obs2.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAvalancheActivityObs2 {
-
   @Prop() strings: any;
   @Prop() Comment: any;
   @Prop() shortVersion: any;
@@ -38,89 +36,92 @@ export class VarsomAvalancheActivityObs2 {
 
   get avalancheTimeFormatted(): string {
     return getStartEndTimeFormatted(this.DtStart, this.DtEnd);
-
   }
 
-  render(){
-    return <div>
+  render() {
+    return (
+      <div>
+        <div class="parent">
+          {this.AvalCauseName ? <varsom-label-small label={this.AvalancheExtName}></varsom-label-small> : ''}
 
-    
+          {this.DtStart && this.DtEnd ? (
+            <span>
+              <label>{this.strings ? <span>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </span> : <span>Tid: </span>}</label>
+              {this.avalancheTimeFormatted}
+            </span>
+          ) : (
+            ''
+          )}
 
-    <div class="parent"> 
+          {this.EstimatedNumTID ? (
+            <varsom-key-value
+              _key={
+                this.strings && !this.shortVersion
+                  ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger
+                  : this.shortVersion
+                  ? null
+                  : 'Antall, størrelse og skredutløser'
+              }
+              _value={
+                (this.EstimatedNumName && !valueIsNotGiven(this.EstimatedNumName) ? this.EstimatedNumName + '. ' : '') +
+                (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? this.DestructiveSizeName + '. ' : '') +
+                (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : '')
+              }
+              shortVersion={this.shortVersion}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalCauseName ? 
-    <varsom-label-small
-    label={this.AvalancheExtName}
-    ></varsom-label-small>
-    :""}
+          {this.AvalPropagationTID ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.Prevalence : this.shortVersion ? null : 'Utbredelse'}
+              _value={this.AvalPropagationName}
+              shortVersion={this.shortVersion}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {(this.DtStart && this.DtEnd) ? 
-      <span>
-      <label>
-        {this.strings ? 
-        <span>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </span>
-        : <span>Tid: </span>}
-        </label>
-    {this.avalancheTimeFormatted}
-    </span>
-      : ""} 
+          <br></br>
+          <br></br>
+          {this.ValidExposition ? (
+            <div>
+              <img src={`src/assets/svg/ext/${this.ValidExposition}.svg`}></img>
+            </div>
+          ) : (
+            ''
+          )}
 
+          {this.Comment ? (
+            <varsom-key-value
+              _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : this.shortVersion ? null : 'Kommentar'}
+              _value={this.Comment}
+              shortVersion={this.shortVersion}
+            ></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.EstimatedNumTID ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
-    _value={(this.EstimatedNumName && !valueIsNotGiven(this.EstimatedNumName) ? (this.EstimatedNumName + ". ") : "" )+ 
-    (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? (this.DestructiveSizeName + ". ") : "" ) + 
-    (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : "")}
-    shortVersion={this.shortVersion}
-    ></varsom-key-value>
-    :""}
-
- 
-    {this.AvalPropagationTID? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.Prevalence : (this.shortVersion ? null : "Utbredelse") }
-    _value={this.AvalPropagationName}
-    shortVersion={this.shortVersion}
-    ></varsom-key-value>
-    :""}
-    
-<br></br>
-<br></br>
-    {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-    :""}  
-
-
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
-    _value={this.Comment}
-    shortVersion={this.shortVersion}
-    ></varsom-key-value>
-    :""}
-    
-    {this.Attachments && !this.shortVersion ? 
-      <div class="attachments-container">
-      {this.Attachments.map((el: Attachment = {}) =>{
-            return <varsom-attachment
-            Photographer={el.Photographer ? el.Photographer : null}            
-            Comment={el.Comment ? el.Comment : null}
-            Url={el.Url ? el.Url : null}
-            Copyright={el.Copyright ? el.Copyright : null}
-            CropImage
-            >
-
-            </varsom-attachment>
-        })
-        } </div> : ""}
-    
-    </div>
-
-    </div>
+          {this.Attachments && !this.shortVersion ? (
+            <div class="attachments-container">
+              {this.Attachments.map((el: Attachment = {}) => {
+                return (
+                  <varsom-attachment
+                    Photographer={el.Photographer ? el.Photographer : null}
+                    Comment={el.Comment ? el.Comment : null}
+                    Url={el.Url ? el.Url : null}
+                    Copyright={el.Copyright ? el.Copyright : null}
+                    CropImage
+                  ></varsom-attachment>
+                );
+              })}{' '}
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+    );
   }
-    
-  }
-
-  
-  
+}

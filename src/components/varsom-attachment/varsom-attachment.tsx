@@ -1,14 +1,12 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-attachment',
   styleUrl: 'varsom-attachment.css',
   shadow: false,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAttachment {
-
   @Prop() RegistrationName: any;
   @Prop() Comment: any;
   @Prop() Url: any;
@@ -26,104 +24,64 @@ export class VarsomAttachment {
 
   modal: HTMLElement;
   closeBtn: HTMLElement;
-  
- openImageInNewTab(url){
-  let image = '<img src='+ url +' />';
-  let popup = window.open();
-  popup.document.write(image);
- }
 
-  render(){
-    return <div class="images-container">
-<figure>
-<img class="zoom-icon" onClick={()=> this.modal.style.display="block"} src={(`src/assets/icons/zoom-icon.svg`)}></img>
-<img class="external-page-icon" onClick={()=>this.openImageInNewTab(this.Url)} src={(`src/assets/icons/external-page-icon.svg`)}></img>
-<img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
-          />
-
-<figcaption class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
-{this.Copyright ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
-    _value={this.Copyright}
-    ></varsom-key-value>
-    : null}
-
-<br></br>
-    {this.Photographer ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
-    _value={this.Photographer}
-    ></varsom-key-value>
-    : null}
-
-    <br></br>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
-    _value={this.Comment}
-    ></varsom-key-value>
-    : null}
-
-
-</figcaption>
-
-</figure>
-     
-
-{/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */ }
-
-
-<div ref={(mod) => this.modal = mod as HTMLElement}
- class="modal">
-
-
-  <div class="modal-content">
-    
-    <span class="close" ref={(close) => this.closeBtn = close as HTMLElement}
-     onClick={() => this.modal.style.display = "none"}
-     >&times;
-    </span>
-  <figure>
-    <img alt={this.Comment ? this.Comment : "observation image"} class="modal-img" src={this.Url} />
-    <figcaption>
-{this.Copyright ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
-    _value={this.Copyright}
-    ></varsom-key-value>
-    : null}
-
-<br></br>
-    {this.Photographer ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
-    _value={this.Photographer}
-    ></varsom-key-value>
-    : null}
-
-    <br></br>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
-    _value={this.Comment}
-    ></varsom-key-value>
-    : null}
-
-
-</figcaption>
-    </figure>
-  </div>
-
-</div>
-
-    </div>
-    
+  openImageInNewTab(url) {
+    let image = '<img src=' + url + ' />';
+    let popup = window.open();
+    popup.document.write(image);
   }
 
-  
-    
-  }
+  render() {
+    return (
+      <div class="images-container">
+        <figure>
+          <img class="zoom-icon" onClick={() => (this.modal.style.display = 'block')} src={`src/assets/icons/zoom-icon.svg`}></img>
+          <img class="external-page-icon" onClick={() => this.openImageInNewTab(this.Url)} src={`src/assets/icons/external-page-icon.svg`}></img>
+          <img alt={this.Comment ? this.Comment : 'observation image'} class={this.CropImage ? 'smallImage' : 'normalImage'} src={this.Url} />
 
-  
-  
+          <figcaption class={this.CropImage ? 'smallImageInfo' : 'imageInfo'}>
+            {this.Copyright ? (
+              <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.Copyright : 'Opphavsrett'} _value={this.Copyright}></varsom-key-value>
+            ) : null}
+
+            <br></br>
+            {this.Photographer ? (
+              <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.Photographer : 'Fotograf'} _value={this.Photographer}></varsom-key-value>
+            ) : null}
+
+            <br></br>
+            {this.Comment ? <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.PictureComment : 'Kommentar'} _value={this.Comment}></varsom-key-value> : null}
+          </figcaption>
+        </figure>
+
+        {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */}
+
+        <div ref={mod => (this.modal = mod as HTMLElement)} class="modal">
+          <div class="modal-content">
+            <span class="close" ref={close => (this.closeBtn = close as HTMLElement)} onClick={() => (this.modal.style.display = 'none')}>
+              &times;
+            </span>
+            <figure>
+              <img alt={this.Comment ? this.Comment : 'observation image'} class="modal-img" src={this.Url} />
+              <figcaption>
+                {this.Copyright ? (
+                  <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.Copyright : 'Opphavsrett'} _value={this.Copyright}></varsom-key-value>
+                ) : null}
+
+                <br></br>
+                {this.Photographer ? (
+                  <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.Photographer : 'Fotograf'} _value={this.Photographer}></varsom-key-value>
+                ) : null}
+
+                <br></br>
+                {this.Comment ? (
+                  <varsom-key-value _key={this.strings ? this.strings.Observations.Picture.PictureComment : 'Kommentar'} _value={this.Comment}></varsom-key-value>
+                ) : null}
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}

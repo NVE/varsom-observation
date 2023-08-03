@@ -1,11 +1,9 @@
 .normalImage {
   max-width: 16.875rem;
-
 }
 
 .smallImage {
   max-width: 8rem;
-  
 }
 
 .zoom-icon {
@@ -20,14 +18,13 @@
   top: 0.5rem;
 }
 
-.images-container{
+.images-container {
   font-family: var(--varsom-font-family);
-  background-color: #F7F7F8;
+  background-color: #f7f7f8;
   min-height: 35rem;
   display: flex;
   align-items: center;
   margin: 0.5rem;
-
 }
 
 label {
@@ -40,12 +37,9 @@ label {
 }
 
 .imageInfo {
-  
-  width: 15.25rem; 
+  width: 15.25rem;
   padding: 0.4rem 0.8rem 0.8rem;
-  
 }
-
 
 figure {
   margin: 0 0.5rem;
@@ -55,14 +49,13 @@ figure {
 }
 
 figcaption {
-  background-color:#F7F7F8;
+  background-color: #f7f7f8;
   word-break: break-word;
 }
 
-.smallImageInfo{
-  width: 6rem; 
+.smallImageInfo {
+  width: 6rem;
   padding: 0.4rem 0.8rem 0.8rem;
-  
 }
 
 /* The Modal (background) */
@@ -75,8 +68,8 @@ figcaption {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */

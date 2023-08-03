@@ -1,9 +1,6 @@
 # varsom-schema
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -16,7 +13,6 @@
 | `regid`    | `regid`    |             | `string` | `undefined` |
 | `type`     | `type`     |             | `string` | `undefined` |
 | `version`  | `version`  |             | `string` | `undefined` |
-
 
 ## Dependencies
 
@@ -55,6 +51,7 @@
 - [varsom-regobs-link](../varsom-regobs-link)
 
 ### Graph
+
 ```mermaid
 graph TD;
   varsom-observation --> varsom-header
@@ -164,6 +161,6 @@ graph TD;
   style varsom-observation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

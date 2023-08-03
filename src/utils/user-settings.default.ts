@@ -1,9 +1,8 @@
-import { AppMode } from "../models/app-mode.enum";
-import { GeoHazard } from "../models/geo-hazard.enum";
-import { LangKey } from "../models/lang-key.enum";
-import { TopoMap } from "../models/topo-map.enum";
-import { UserSetting } from "../models/user-settings.model";
-
+import { AppMode } from '../models/app-mode.enum';
+import { GeoHazard } from '../models/geo-hazard.enum';
+import { LangKey } from '../models/lang-key.enum';
+import { TopoMap } from '../models/topo-map.enum';
+import { UserSetting } from '../models/user-settings.model';
 
 export const DEFAULT_USER_SETTINGS: (langKey: LangKey) => UserSetting = (langKey: LangKey) => ({
   appMode: AppMode.Prod,

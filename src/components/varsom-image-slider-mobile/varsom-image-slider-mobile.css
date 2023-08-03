@@ -7,7 +7,6 @@
   font-weight: 600;
 }
 
-
 label {
   font-weight: 600;
 }
@@ -26,7 +25,7 @@ div {
 
 /*box-sizing:border-box*/
 
-.observation-images{
+.observation-images {
   max-width: 14rem;
 }
 
@@ -34,28 +33,24 @@ div {
   width: 100%;
   position: relative;
   margin: auto;
-  
 }
 
 .swipe-container {
   width: 18rem;
 }
 
-
-
 .img-cont {
   display: flex;
   align-items: center;
-  
 }
 
 figcaption {
   background-color: rgba(4, 73, 98, 0.05);
 }
 
-
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -82,36 +77,31 @@ figcaption {
 }
 
 @media screen and (max-width: 480px) {
-  .next{
+  .next {
     right: 25%;
     background-color: black;
     opacity: 50%;
   }
-  .prev{
+  .prev {
     left: 25%;
     background-color: black;
     opacity: 50%;
-  
   }
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .imageInfo-slider {
   background-color: rgba(4, 73, 98, 0.05);
-  
-  
 }
 
 .firstInfo-slider {
   background-color: rgba(4, 73, 98, 0.05);
-  
 }
-
-
 
 /* Caption text */
 .text {
@@ -123,7 +113,6 @@ figcaption {
   width: 100%;
   text-align: center;
 }
-
 
 /* Number text (1/3 etc) */
 .numbertext {
@@ -146,7 +135,8 @@ figcaption {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -157,10 +147,13 @@ figcaption {
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
 
 /* The Modal (background) */
 .modal {
@@ -172,8 +165,8 @@ figcaption {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -191,9 +184,6 @@ figcaption {
   width: 100%;
 }
 
-
-
-
 /* The Close Button */
 .close {
   color: #aaa;
@@ -208,4 +198,3 @@ figcaption {
   text-decoration: none;
   cursor: pointer;
 }
-

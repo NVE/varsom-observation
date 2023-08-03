@@ -15,7 +15,7 @@ div {
   margin: 1.5rem;
 }
 
-.attachments-container { 
+.attachments-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -23,23 +23,23 @@ div {
 }
 
 .container {
-  border-bottom: 1px solid #B7BABF;
+  border-bottom: 1px solid #b7babf;
   font-family: var(--varsom-font-family);
   font-size: var(--varsom-text-size);
 }
 
 .hoved {
-  float:right;
-  clear:both;
+  float: right;
+  clear: both;
   border: 3px solid #fad5aa;
-  background-color:#ffffe6;
-  padding:2px 0px 2px 5px;
-  margin:10px 0px 0px 5px;
+  background-color: #ffffe6;
+  padding: 2px 0px 2px 5px;
+  margin: 10px 0px 0px 5px;
 }
 
 .icethicknessdiv {
   border: none;
-  background-color:#ffffe6;
+  background-color: #ffffe6;
 }
 
 img {

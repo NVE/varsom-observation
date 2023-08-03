@@ -1,14 +1,12 @@
+export default {
+  //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
+  title: 'Components/StratProfileLayer',
+  argTypes: {
+    shortVersion: { control: 'select', options: ['true (select blank for full version)', ''], defaultValue: '' },
+  },
+};
 
-
-export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
-    title: 'Components/StratProfileLayer',
-    argTypes: {
-        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
-    defaultValue: ""}
-          }
-}
-
-const Template = (args) => `<varsom-strat-profile-layer
+const Template = args => `<varsom-strat-profile-layer
 thickness=${args.Thickness}
 hardness-t-i-d=${args.HardnessTID}
 hardness-t-name=${args.HardnessTName}
@@ -25,25 +23,22 @@ critical-layer-t-name=${args.CriticalLayerTName}
 comment=${args.comment}
 short-version=${args.shortVersion}  
 >
-</varsom-strat-profile-layer> `
+</varsom-strat-profile-layer> `;
 
 export const VarsomStratProfileLayer = Template.bind({});
 VarsomStratProfileLayer.args = {
-
-    Thickness: 0.05,
-    HardnessTID: 14,
-    HardnessTName: "P",
-    HardnessBottomTID: 12,
-    GrainFormPrimaryTID: 0.6,
-    GrainFormPrimaryTName: "P",
-    GrainFormSecondaryTID: 10,
-    GrainSizeAvg: 3,
-    GrainSizeAvgMax: 0.6,
-    WetnessTID: 0.6,
-    WetnessTName: "P",
-    CriticalLayerTID: 23,
-    CriticalLayerTName: "P",
-    Comment: "'Kommentar til lagdeling...'"
-
-
-    }
+  Thickness: 0.05,
+  HardnessTID: 14,
+  HardnessTName: 'P',
+  HardnessBottomTID: 12,
+  GrainFormPrimaryTID: 0.6,
+  GrainFormPrimaryTName: 'P',
+  GrainFormSecondaryTID: 10,
+  GrainSizeAvg: 3,
+  GrainSizeAvgMax: 0.6,
+  WetnessTID: 0.6,
+  WetnessTName: 'P',
+  CriticalLayerTID: 23,
+  CriticalLayerTName: 'P',
+  Comment: "'Kommentar til lagdeling...'",
+};
