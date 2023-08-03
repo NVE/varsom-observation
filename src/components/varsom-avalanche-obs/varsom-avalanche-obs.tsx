@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, Observation } from '../varsom-observation/observation-model';
+import { Attachment, Observation } from '../../models/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
 
 @Component({

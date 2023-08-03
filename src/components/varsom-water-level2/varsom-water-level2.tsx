@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, WaterLevelMeasurement } from '../varsom-observation/observation-model';
+import { Attachment, WaterLevelMeasurement } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-water-level2',

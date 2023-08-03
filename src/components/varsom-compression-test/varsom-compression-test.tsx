@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment } from '../varsom-observation/observation-model';
+import { Attachment } from '../../models/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 
 @Component({

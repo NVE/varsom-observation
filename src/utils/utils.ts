@@ -6,7 +6,7 @@
 //import './js/jqplot.canvasTextRenderer.min.js';
 //import './js/jqplot.canvasAxisLabelRenderer.min.js';
 //import './js/istykkelse.js'
-import { IceThicknessLayer } from '../components/varsom-observation/observation-model.js';
+import { IceThicknessLayer } from '../models/observation-model.js';
 import { CreatePlot } from './js/istykkelse.js';
 
 export function format(first: string, middle: string, last: string): string {

@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, StratProfileLayer } from '../varsom-observation/observation-model';
+import { Attachment, StratProfileLayer } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-strat-profile',

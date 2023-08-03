@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
-import { Attachment, IceThicknessLayer } from '../varsom-observation/observation-model';
+import { Attachment, IceThicknessLayer } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-ice-thickness',

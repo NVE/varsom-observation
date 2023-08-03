@@ -1,11 +1,11 @@
 import { Component, Prop, h, State } from '@stencil/core';
 import { getLangKeyFromName } from '../../utils/utils';
 import { getGeoHazardIdFromName } from '../../utils/utils';
-import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, DamageObs, Observation, WaterLevelMeasurement } from './observation-model';
-import { AvalancheEvalProblem2 } from './observation-model';
-import { DangerObs } from './observation-model';
-import { AvalancheActivityObs2 } from './observation-model';
-import { Attachment } from './observation-model';
+import { AvalancheDangerObs, AvalancheEvalProblem, CompressionTest, DamageObs, Observation, WaterLevelMeasurement } from '../../models/observation-model';
+import { AvalancheEvalProblem2 } from '../../models/observation-model';
+import { DangerObs } from '../../models/observation-model';
+import { AvalancheActivityObs2 } from '../../models/observation-model';
+import { Attachment } from '../../models/observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({

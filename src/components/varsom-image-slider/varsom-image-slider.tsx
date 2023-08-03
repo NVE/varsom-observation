@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import { Observation } from '../varsom-observation/observation-model';
+import { Observation } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-image-slider',

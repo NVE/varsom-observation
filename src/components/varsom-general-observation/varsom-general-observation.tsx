@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, Url } from '../varsom-observation/observation-model';
+import { Attachment, Url } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-general-observation',

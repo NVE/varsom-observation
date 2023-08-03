@@ -11,11 +11,11 @@ import {
   Observation,
   PolygonsToPlot,
   TileProps,
-} from '../varsom-observation/observation-model';
+} from '../../models/observation-model';
 import SphericalMercator from '@mapbox/sphericalmercator';
 import { Feature, Polygon } from '@turf/turf';
 
-import { PositionToPlot } from '../varsom-observation/observation-model';
+import { PositionToPlot } from '../../models/observation-model';
 import { MapSettings as settings } from '../../utils/map-settings';
 import { ITopoMapLayerOptions } from '../../utils/map-settings-model';
 import { RegobsGeoHazardMarker } from '../../utils/geo-hazard-marker';

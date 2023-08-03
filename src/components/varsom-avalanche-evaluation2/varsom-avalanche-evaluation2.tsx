@@ -1,7 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
 
-import { Attachment, AvalancheEvalProblem } from '../varsom-observation/observation-model';
+import { Attachment, AvalancheEvalProblem } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-avalanche-evaluation2',

@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import { Observation } from '../varsom-observation/observation-model';
+import { Observation } from '../../models/observation-model';
 // import function to register Swiper custom elements
 import { register } from '../../../node_modules/swiper/element/swiper-element';
 // register Swiper custom elements

@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment } from '../varsom-observation/observation-model';
+import { Attachment } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-damage-obs',

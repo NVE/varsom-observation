@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, SnowDensityLayer } from '../varsom-observation/observation-model';
+import { Attachment, SnowDensityLayer } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-snow-density',

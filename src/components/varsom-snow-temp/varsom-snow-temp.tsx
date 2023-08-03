@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, SnowTempObs } from '../varsom-observation/observation-model';
+import { Attachment, SnowTempObs } from '../../models/observation-model';
 
 @Component({
   tag: 'varsom-snow-temp',
