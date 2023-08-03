@@ -8,6 +8,18 @@
   
 }
 
+.zoom-icon {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.external-page-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
 .images-container{
   font-family: var(--varsom-font-family);
   background-color: #F7F7F8;
@@ -39,7 +51,7 @@ figure {
   margin: 0 0.5rem;
   display: flex;
   flex-flow: column;
-
+  position: relative;
 }
 
 figcaption {
