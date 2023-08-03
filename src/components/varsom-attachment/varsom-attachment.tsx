@@ -33,10 +33,10 @@ export class VarsomAttachment {
     return <div class="images-container">
 
 <figure>
-<img class="zoom-icon" src={(`src/assets/icons/zoom-icon.svg`)}></img>
+<img class="zoom-icon" onClick={()=> this.modal.style.display="block"} src={(`src/assets/icons/zoom-icon.svg`)}></img>
 <img class="external-page-icon" src={(`src/assets/icons/external-page-icon.svg`)}></img>
 <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
-          onClick={()=> this.modal.style.display="block"}/>
+          />
 
 <figcaption class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
 {this.Copyright ? 
