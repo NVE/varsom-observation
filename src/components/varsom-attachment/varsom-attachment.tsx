@@ -27,14 +27,17 @@ export class VarsomAttachment {
   modal: HTMLElement;
   closeBtn: HTMLElement;
   
- 
+ openImageInNewTab(url){
+  let image = '<img src='+ url +' />';
+  let popup = window.open();
+  popup.document.write(image);
+ }
 
   render(){
     return <div class="images-container">
-
 <figure>
 <img class="zoom-icon" onClick={()=> this.modal.style.display="block"} src={(`src/assets/icons/zoom-icon.svg`)}></img>
-<img class="external-page-icon" src={(`src/assets/icons/external-page-icon.svg`)}></img>
+<img class="external-page-icon" onClick={()=>this.openImageInNewTab(this.Url)} src={(`src/assets/icons/external-page-icon.svg`)}></img>
 <img alt={this.Comment ? this.Comment : "observation image"} class={this.CropImage ? "smallImage" : "normalImage"} src={this.Url} 
           />
 
