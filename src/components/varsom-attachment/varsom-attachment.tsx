@@ -56,10 +56,10 @@ export class VarsomAttachment {
 
         {/* OPEN IMAGE IN MODAL: SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp */}
 
-        <div ref={mod => (this.modal = mod as HTMLElement)} class="modal">
-          <div class="modal-content">
+        <div ref={mod => (this.modal = mod as HTMLElement)} class="modal">  
+          <div class="modal-content">  {/**To access html elements we have to use ref. The value from span element is set in the variable closeBtn */}
             <span class="close" ref={close => (this.closeBtn = close as HTMLElement)} onClick={() => (this.modal.style.display = 'none')}>
-              &times;
+              &times; {/** close symbol (X) */}
             </span>
             <figure>
               <img alt={this.Comment ? this.Comment : 'observation image'} class="modal-img" src={this.Url} />

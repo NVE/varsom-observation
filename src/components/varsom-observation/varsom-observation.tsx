@@ -21,19 +21,13 @@ export class VarsomObservation {
   @Prop() regid: string;
   @Prop() language: string = 'nb';
   @Prop() type: string;
-  @Prop() number: number = 1;
   @Prop() json: any;
   @Prop() version: string;
-
-  element: HTMLElement;
-  strings: any;
-
-  //carousel: Carousel;
-  dataSource: any;
-
-  observationImages: HTMLElement[] = [];
-
   @Prop() count: number = 1;
+
+  strings: any;
+  dataSource: any;
+  observationImages: HTMLElement[] = [];
 
   addAttachments(object: any, url: string, comment: string, photographer: string, copyright: string) {
     object.Attachments.push({

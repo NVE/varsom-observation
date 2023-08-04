@@ -434,7 +434,6 @@ export namespace Components {
         "count": number;
         "json": any;
         "language": string;
-        "number": number;
         "regid": string;
         "type": string;
         "version": string;
@@ -1397,7 +1396,6 @@ declare namespace LocalJSX {
         "count"?: number;
         "json"?: any;
         "language"?: string;
-        "number"?: number;
         "regid"?: string;
         "type"?: string;
         "version"?: string;
