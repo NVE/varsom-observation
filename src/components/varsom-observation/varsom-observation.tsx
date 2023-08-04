@@ -916,6 +916,7 @@ avalanche-ext-tid={el.AvalancheExtTID ? el.AvalancheExtTID : null}
 avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
 aval-cause-tid={el.AvalCauseTID ? el.AvalCauseTID : null}
 aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
 aval-cause-attribute-light-tid={el.AvalCauseAttributeLightTID ? el.AvalCauseAttributeLightTID : null}
 aval-cause-attribute-light-name={el.AvalCauseAttributeLightName ? el.AvalCauseAttributeLightName : null}
 aval-cause-attribute-thin-tid={el.AvalCauseAttributeThinTID ? el.AvalCauseAttributeThinTID : null}
