@@ -449,11 +449,16 @@
     },
     "AvalancheObs": {
       "AvalancheTID": "Type",
+      "Avalanche": "Avalanche",
       "AvalancheTriggerTID": "Sensitivity to triggers",
       "AvalancheType": "Landslide type",
       "AvalCauseTID": "Weak layer",
       "Comment": "Comment",
       "DestructiveSizeTID": "Size",
+      "HeightStartZoneText": "release at",
+      "And": "and",
+      "HeightStopZoneText": "ended at",
+      "MetersAboveSeaLevel": "masl",
       "DtAvalancheTime": "Avalanche time (required)",
       "FractureHeight": "Fracture height (cm)",
       "FractureWidth": "Fracture width (m)",
@@ -774,9 +779,9 @@
       "With": "with"
     },
     "WeatherObservation": {
-      "AirTemperature": "Air temperature (°C)",
+      "AirTemperature": "Air temperature",
       "AirTemperaturePlaceholder": "Can be given with two decimals",
-      "CloudCover": "Cloud coverage (%)",
+      "CloudCover": "Cloud coverage",
       "Clouds": "clouds",
       "Comment": "Comment",
       "CommentHeader": "Describe weather",
@@ -794,8 +799,8 @@
       "Precipitation": "Percipitation",
       "PrecipitationTID": "Precipitation type",
       "Wind": "Wind conditions",
-      "WindDirection": "Wind direction",
-      "WindSpeed": "Wind speed (m/s)"
+      "WindDirection": "from",
+      "WindSpeed": "Wind speed"
     }
   },
   "Of": "of",
