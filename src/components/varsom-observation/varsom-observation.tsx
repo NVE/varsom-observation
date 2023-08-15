@@ -180,20 +180,17 @@ export class VarsomObservation {
         }          
      );
      
-   
-    
      //add imageUrl for snowProfile2
      for (let i = 0; i < this.observations.length; i ++){
       for (let j = 0; j < data[i]["Summaries"].length; j ++){
-        if (data[i]["Summaries"][j]["RegistrationTID"] == 36){
-          if (data[i]["Summaries"][j]["AdaptiveElements"].length > 2){
-            if (this.observations[i]._snowProfile2)
-            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][1]["svgUrl"];
+        for (let k = 0; k < data[i]["Summaries"][j]["AdaptiveElements"].length; k++){
+          if (data[i]["Summaries"][j]["AdaptiveElements"][k]["type"] === "SnowProfilePlot"){   
+            this.observations[i]._snowProfile2.ImageUrl = data[i]["Summaries"][j]["AdaptiveElements"][k]["svgUrl"];
           }
         }
-      }
+          }
+        
      }
-
         //add avalancheActivityObservations
         if (data[i]["AvalancheActivityObs2"].length > 0){
           for (let j = 0; j < data[i]["AvalancheActivityObs2"].length; j++){
@@ -849,6 +846,7 @@ strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
+WindDirection={obs._weather.WindDirection ? obs._weather.WindDirection : null}
 PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
 WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
 CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}
@@ -919,6 +917,7 @@ avalanche-ext-tid={el.AvalancheExtTID ? el.AvalancheExtTID : null}
 avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
 aval-cause-tid={el.AvalCauseTID ? el.AvalCauseTID : null}
 aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
 aval-cause-attribute-light-tid={el.AvalCauseAttributeLightTID ? el.AvalCauseAttributeLightTID : null}
 aval-cause-attribute-light-name={el.AvalCauseAttributeLightName ? el.AvalCauseAttributeLightName : null}
 aval-cause-attribute-thin-tid={el.AvalCauseAttributeThinTID ? el.AvalCauseAttributeThinTID : null}
