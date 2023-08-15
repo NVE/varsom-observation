@@ -59,7 +59,6 @@ _value={this.SlopeAngle + "\u00B0"}
   <br></br>
 {this.ImageUrl ?
  <a href={"https://plot.regobs.no/v1/SnowProfile/" + this.RegId}>
-  {console.log(this.RegId)}
   <img src={this.ImageUrl}></img>
  </a>
  : ""}

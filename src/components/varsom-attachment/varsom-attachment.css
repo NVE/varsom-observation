@@ -8,6 +8,18 @@
   
 }
 
+.zoom-icon {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.external-page-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
 .images-container{
   font-family: var(--varsom-font-family);
   background-color: #F7F7F8;
@@ -39,7 +51,7 @@ figure {
   margin: 0 0.5rem;
   display: flex;
   flex-flow: column;
-
+  position: relative;
 }
 
 figcaption {
@@ -70,7 +82,7 @@ figcaption {
 /* Modal Content/Box */
 .modal-content {
   background-color: white;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 0.5rem auto; /* 0.5rem from the top and centered */
   padding: 20px;
   width: 80%; /* Could be more or less, depending on screen size */
   display: flex;

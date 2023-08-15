@@ -691,7 +691,7 @@
       "With": "con"
     },
     "WeatherObservation": {
-      "AirTemperature": "Temperatura atmosferica (°C)",
+      "AirTemperature": "Temperatura atmosferica",
       "AirTemperaturePlaceholder": "Può essere indicato con due cifre decimali",
       "CloudCover": "Copertura nuvolosa",
       "Clouds": "Nuvole",
@@ -712,7 +712,7 @@
       "PrecipitationTID": "Tipo di precipitazione",
       "Wind": "Condizioni del vento",
       "WindDirection": "da",
-      "WindSpeed": "Velocità del vento (m/s)"
+      "WindSpeed": "Velocità del vento"
     }
   },
   "Of": "di",
