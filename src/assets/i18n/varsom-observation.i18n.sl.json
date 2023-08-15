@@ -740,7 +740,7 @@
     "WeatherObservation": {
       "AirTemperature": "Temperatura zraka (°C)",
       "AirTemperaturePlaceholder": "Lahko se vnese z dvema decimalkama",
-      "CloudCover": "Oblačnost (%)",
+      "CloudCover": "Oblačnost",
       "Clouds": "oblaki",
       "Comment": "Komentar",
       "CommentHeader": "Opišite vreme",
@@ -758,8 +758,9 @@
       "Precipitation": "Padavine",
       "PrecipitationTID": "Tip padavin",
       "Wind": "Vetrovne razmere",
-      "WindDirection": "Smer vetra",
-      "WindSpeed": "Hitrost vetra (m/s)"
+      "WindDirection_": "Smer vetra",
+      "WindDirection": "iz smeri",
+      "WindSpeed": "Hitrost vetra"
     }
   },
   "Of": "od",
