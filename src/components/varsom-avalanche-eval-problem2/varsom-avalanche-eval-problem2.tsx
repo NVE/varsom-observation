@@ -69,23 +69,21 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
   
-    {this.AvalCauseAttributeLightTID ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID : (this.shortVersion ? null : "Ugunstige egenskaper på det svake laget") }
-    _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName + ". " : "" + 
-    this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName + ". " : "" +
-    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName + ". " : "" + 
-    this.AvalCauseAttributeCrystalName ? this.AvalCauseAttributeCrystalName : ""
-  }
-    ></varsom-key-value>
-    :""}
-
     {this.AvalCauseDepthName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID : (this.shortVersion ? null : "Avstand fra overflaten til det svake laget") }
     _value={this.AvalCauseDepthName}
     ></varsom-key-value>
     :""}
+
+    <varsom-key-value
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID : (this.shortVersion ? null : "Ugunstige egenskaper på det svake laget") }
+    _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName : "" + 
+    this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName : "" +
+    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName : "" + 
+    this.AvalCauseAttributeCrystalName ? this.AvalCauseAttributeCrystalName : ""
+    }
+    ></varsom-key-value>
 
     {this.AvalProbabilityName ? 
     <varsom-key-value
