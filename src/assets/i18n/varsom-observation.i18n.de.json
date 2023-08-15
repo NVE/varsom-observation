@@ -631,7 +631,7 @@
       "ObsName": "Wetterbeobachtung",
       "PrecipitationTID": "Niederschlagsart",
       "Wind": "Windverhältnisse",
-      "WindDirection": "von"
+      "WindDirection": "aus"
     }
   },
   "Of": "von",

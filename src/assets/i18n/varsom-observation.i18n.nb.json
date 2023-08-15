@@ -778,9 +778,9 @@
       "With": "med"
     },
     "WeatherObservation": {
-      "AirTemperature": "Lufttemperatur (°C)",
+      "AirTemperature": "Temperatur",
       "AirTemperaturePlaceholder": "Kan gis med to desimal",
-      "CloudCover": "Skydekke (%)",
+      "CloudCover": "Skydekke",
       "Clouds": "skyer",
       "Comment": "Kommentar",
       "CommentHeader": "Beskriv været",
@@ -793,13 +793,13 @@
       "FromSouthEast": "SØ - fra sørøst",
       "FromSouthWest": "SV - fra sørvest",
       "FromWest": "V - fra vest",
-      "ObsName": "Værobservasjon",
+      "ObsName": "Vær",
       "OnlyFullPercentage": "Kun hele prosent",
       "Precipitation": "Nedbørstype",
       "PrecipitationTID": "Nedbørstype",
       "Wind": "Vind",
-      "WindDirection": "Vindretning",
-      "WindSpeed": "Vindhastighet (m/s)"
+      "WindDirection": "fra",
+      "WindSpeed": "Vindhastighet"
     }
   },
   "Of": "av",
