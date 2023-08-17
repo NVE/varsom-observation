@@ -47,10 +47,24 @@ export class VarsomAvalancheObs {
 
   }
 
-  get AvalancheStartStopInfo(): string {
-    return this.strings.Observations.AvalancheObs.Avalanche + " " + this.strings.Observations.AvalancheObs.HeightStartZoneText + " " + this.HeightStartZone 
-    + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel + " " + this.strings.Observations.AvalancheObs.And + " " + this.strings.Observations.AvalancheObs.HeightStopZoneText
-    + " " + this.HeightStopZone + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel
+  avalancheStartStopInfo(start: any, stop: any): string {
+  
+    if (start === -1){  //start height not given. It wil only show stop height
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStopZoneText}
+      ${this.HeightStopZone} ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel}
+    `
+    }
+
+    if (stop === -1){  //stop height not given. It wil only show start height
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStartZoneText} ${this.HeightStartZone} 
+      ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel} 
+     `
+    }
+    else       //both values given. Shows start and stop values
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStartZoneText} ${this.HeightStartZone} 
+      ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel} ${this.strings.Observations.AvalancheObs.And} ${this.strings.Observations.AvalancheObs.HeightStopZoneText}
+      ${this.HeightStopZone} ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel}
+    `
   }
 
   render(){
@@ -109,10 +123,10 @@ avalanche={true}
     ></varsom-key-value>
     :""}
 
-    {this.HeightStartZone ? 
+    {(this.HeightStartZone !== -1 && this.HeightStopZone !== -1) ?  //if no start and stop value, it will not render
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStartZone : (this.shortVersion ? null : "Løsneområdet") }
-    _value={this.AvalancheStartStopInfo}
+    _value={this.avalancheStartStopInfo(this.HeightStartZone, this.HeightStopZone)}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
