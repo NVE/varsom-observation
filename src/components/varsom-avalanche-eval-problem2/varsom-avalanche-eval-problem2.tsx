@@ -47,7 +47,6 @@ export class VarsomAvalancheEvalProblem2 {
     return <div>
     <div class="parent"> 
 
-
     {this.AvalCauseName ? 
     <varsom-label-small
     label={this.AvalCauseName}
@@ -61,6 +60,7 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
+ 
     {this.AvalPropagationName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : (this.shortVersion ? null : "Utbredelse") }
@@ -105,9 +105,11 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
-    {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-    : ""}
+    <varsom-exposed-height
+    ValidExposition={this.ValidExposition ?? null}
+    ExposedHeight1={this.ExposedHeight1 ?? null}
+    ExposedHeight2={this.ExposedHeight2 ?? null}
+    ></varsom-exposed-height>
 
     <div>
     {this.Comment ? 

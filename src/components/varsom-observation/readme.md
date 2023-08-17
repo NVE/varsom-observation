@@ -125,6 +125,7 @@ graph TD;
   varsom-avalanche-eval-problem --> varsom-key-value
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-avalanche-eval-problem2 --> varsom-key-value
+  varsom-avalanche-eval-problem2 --> varsom-exposed-height
   varsom-avalanche-evaluation --> varsom-key-value
   varsom-avalanche-evaluation --> varsom-attachment
   varsom-avalanche-evaluation2 --> varsom-key-value
