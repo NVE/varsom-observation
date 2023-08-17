@@ -47,7 +47,7 @@ export class VarsomAvalancheObs {
 
   }
 
-  get AvalancheStartStopInfo(): any {
+  get AvalancheStartStopInfo(): string {
     return this.strings.Observations.AvalancheObs.Avalanche + " " + this.strings.Observations.AvalancheObs.HeightStartZoneText + " " + this.HeightStartZone 
     + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel + " " + this.strings.Observations.AvalancheObs.And + " " + this.strings.Observations.AvalancheObs.HeightStopZoneText
     + " " + this.HeightStopZone + " " + this.strings.Observations.AvalancheObs.MetersAboveSeaLevel
