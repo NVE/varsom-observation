@@ -19,16 +19,16 @@ async function fetchLocaleStringsForComponent(componentName: string, locale: str
 }
   //source: https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
 
-  export async function getLocaleComponentStrings(lang: string): Promise<any> {
+  export async function getLocaleComponentStrings(): Promise<any> {
     
     let componentName = "varsom-observation";
     
     let strings;
+
     try {
-      strings = await fetchLocaleStringsForComponent(componentName, lang);
+      strings = await fetchLocaleStringsForComponent(componentName, getLocaleFromDom());
     } catch (e) {
-      console.warn(`error getting locale for ${componentName} (${lang}) `);
-      strings = await fetchLocaleStringsForComponent(componentName, lang);
+      console.warn(`error getting locale for ${componentName} - ${getLocaleFromDom()}) `);
     }
     return strings;
   }

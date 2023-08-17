@@ -25,7 +25,7 @@ export class VarsomSnowCoverObservation {
 
   async componentWillLoad(){
     if (!this.strings)
-    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+    this.strings = await getLocaleComponentStrings();
   }
 
   render(){

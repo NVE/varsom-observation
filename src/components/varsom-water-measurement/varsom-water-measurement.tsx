@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { formatDateString } from '../../utils/date-utils';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-water-measurement',
@@ -22,7 +22,7 @@ export class VarsomWaterMeasurement {
 
   async componentWillLoad(){
     if (!this.strings)
-    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
+    this.strings = await getLocaleComponentStrings();
   }
   
   render(){

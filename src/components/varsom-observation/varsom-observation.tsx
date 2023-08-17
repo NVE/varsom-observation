@@ -102,11 +102,9 @@ export class VarsomObservation {
     
 
   async componentWillLoad(){
-  if (this.language){
-    this.strings = await getLocaleComponentStrings(this.language);
-  } else {
-    this.strings = await getLocaleComponentStrings(getLocaleFromDom());
-  }
+  
+  this.strings = await getLocaleComponentStrings();
+    
   
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
@@ -694,7 +692,6 @@ Attachments={obs._avalancheActivityObs.Attachments ? obs._avalancheActivityObs.A
 
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
-strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
 AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
