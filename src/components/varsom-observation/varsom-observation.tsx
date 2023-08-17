@@ -321,7 +321,7 @@ export class VarsomObservation {
               CompressionTestName: data[i]["CompressionTest"][j]["CompressionTestName"],
               PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
               StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
-              ComprTestFractureName: data[i]["CompressionTest"][j]["CompressionTestFractureName"],
+              ComprTestFractureName: data[i]["CompressionTest"][j]["ComprTestFractureName"],
               CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
               TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
               TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
@@ -1133,7 +1133,7 @@ label={this.strings.Observations.AvalancheDangerObs.ObsName ? this.strings.Obser
 {/* COMPRESSION TEST */}
 {obs._compressionTest.length > 0 ?
 <varsom-label
-label={this.strings.Observations.CompressionTest.ObsName ? this.strings.Observations.CompressionTest.ObsName : "Stabilitetstest"}
+label={this.strings.Observations.SnowProfile.CompressionTest ? this.strings.Observations.SnowProfile.CompressionTest : "Tester"}
 ></varsom-label> :"" }
 
 {obs._compressionTest.map((el: CompressionTest = {}) =>{
