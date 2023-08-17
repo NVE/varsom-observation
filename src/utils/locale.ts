@@ -10,33 +10,11 @@ async function fetchLocaleStringsForComponent(componentName: string, locale: str
   }
   
   export function getLocaleFromDom(elem: HTMLElement){
-    
-        var langElement = elem.closest("[lang]");
-        var langValue = langElement.getAttribute("lang");
-        
-        return langValue
-    
-    //var elements = document.querySelectorAll('html');
-    //for (let i = 0; i < elements.length; i++){
-      //var lang = "en";
-      //if (elements[i].getAttribute('lang')){
-        //lang = elements[i].getAttribute('lang');
-      //return lang;
+    var langElement = elem.closest("[lang]");
+    var langValue = langElement.getAttribute("lang");
+      
+    return langValue;
   }
-
-
-//get lang attr from dom
-//source: https://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
-export function getBrowserLang() {
-  if (navigator.languages !== undefined)
-
-    return navigator.languages[0];
-}
-
-
-
-
-
 
   //source: https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
 
