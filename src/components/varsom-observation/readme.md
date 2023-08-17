@@ -7,15 +7,14 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type     | Default     |
-| ---------- | ---------- | ----------- | -------- | ----------- |
-| `count`    | `count`    |             | `number` | `1`         |
-| `json`     | `json`     |             | `any`    | `undefined` |
-| `language` | `language` |             | `string` | `"nb"`      |
-| `number`   | `number`   |             | `number` | `1`         |
-| `regid`    | `regid`    |             | `string` | `undefined` |
-| `type`     | `type`     |             | `string` | `undefined` |
-| `version`  | `version`  |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type     | Default     |
+| --------- | --------- | ----------- | -------- | ----------- |
+| `count`   | `count`   |             | `number` | `1`         |
+| `json`    | `json`    |             | `any`    | `undefined` |
+| `number`  | `number`  |             | `number` | `1`         |
+| `regid`   | `regid`   |             | `string` | `undefined` |
+| `type`    | `type`    |             | `string` | `undefined` |
+| `version` | `version` |             | `string` | `undefined` |
 
 
 ## Dependencies
