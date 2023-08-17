@@ -464,12 +464,16 @@ export namespace Components {
         "Attachments": Attachment[];
         "Comment": any;
         "CylinderDiameter": any;
+        "Density": any;
+        "Depth": any;
         "Layers": SnowDensityLayer[];
         "TareWeight": any;
+        "Weight": any;
         "shortVersion": any;
         "strings": any;
     }
     interface VarsomSnowDensityLayer {
+        "Density": any;
         "Depth": any;
         "SortOrder": any;
         "Thickness": any;
@@ -504,6 +508,7 @@ export namespace Components {
         "SnowTemp": any;
         "StratProfile": any;
         "TotalDepth": any;
+        "Weight": any;
         "shortVersion": any;
         "strings": any;
     }
@@ -1427,12 +1432,16 @@ declare namespace LocalJSX {
         "Attachments"?: Attachment[];
         "Comment"?: any;
         "CylinderDiameter"?: any;
+        "Density"?: any;
+        "Depth"?: any;
         "Layers"?: SnowDensityLayer[];
         "TareWeight"?: any;
+        "Weight"?: any;
         "shortVersion"?: any;
         "strings"?: any;
     }
     interface VarsomSnowDensityLayer {
+        "Density"?: any;
         "Depth"?: any;
         "SortOrder"?: any;
         "Thickness"?: any;
@@ -1467,6 +1476,7 @@ declare namespace LocalJSX {
         "SnowTemp"?: any;
         "StratProfile"?: any;
         "TotalDepth"?: any;
+        "Weight"?: any;
         "shortVersion"?: any;
         "strings"?: any;
     }

@@ -20,6 +20,7 @@ export class VarsomSnowProfile2 {
   @Prop() Exposition: any;
   @Prop() SlopeAngle: any;
   @Prop() SnowTemp: any;
+  @Prop() Weight: any;
   @Prop() ImageUrl: any;
   @Prop() SnowDensity: SnowDensity[];
   @Prop() RegId: any;
@@ -83,9 +84,8 @@ _value={this.SlopeAngle + "\u00B0"}
  </a>
  : ""}
 
-{/**
- * 
- * {this.SnowDensity ? 
+
+ {this.SnowDensity ? 
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
@@ -94,6 +94,9 @@ _value={this.SlopeAngle + "\u00B0"}
             CylinderDiameter={el.CylinderDiameter ? el.CylinderDiameter : null}
             TareWeight={el.TareWeight ? el.TareWeight : null}
             Comment={el.Comment ? el.Comment : null}   
+            Density={el.Density ? el.Density : null}   
+            Depth={el.Depth ? el.Depth : 0}
+            Weight={el.Weight ? el.Weight : null}   
             Layers={el.Layers ? el.Layers : null}          
             >
 
@@ -101,8 +104,7 @@ _value={this.SlopeAngle + "\u00B0"}
         })
         }
      </div>   : ""}
- */}
-
+ 
 
 {/* Removed until better view is implemented 
      {this.StratProfile ? 
