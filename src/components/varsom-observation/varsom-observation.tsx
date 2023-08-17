@@ -321,7 +321,7 @@ export class VarsomObservation {
               CompressionTestName: data[i]["CompressionTest"][j]["CompressionTestName"],
               PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
               StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
-              ComprTestFractureName: data[i]["CompressionTest"][j]["CompressionTestFractureName"],
+              ComprTestFractureName: data[i]["CompressionTest"][j]["ComprTestFractureName"],
               CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
               TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
               TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
@@ -936,6 +936,7 @@ strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 PrecipitationName={obs._weather.PrecipitationName ? obs._weather.PrecipitationName : null}
 WindDirectionName={obs._weather.WindDirectionName ? obs._weather.WindDirectionName : null}
+WindDirection={obs._weather.WindDirection ? obs._weather.WindDirection : null}
 PrecipitationTID={obs._weather.PrecipitationTID ? obs._weather.PrecipitationTID : null}
 WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
 CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}
@@ -1122,6 +1123,7 @@ avalanche-ext-tid={el.AvalancheExtTID ? el.AvalancheExtTID : null}
 avalanche-ext-name={el.AvalancheExtName ? el.AvalancheExtName : null}
 aval-cause-tid={el.AvalCauseTID ? el.AvalCauseTID : null}
 aval-cause-name={el.AvalCauseName ? el.AvalCauseName : null}
+aval-cause-depth-name={el.AvalCauseDepthName ? el.AvalCauseDepthName : null}
 aval-cause-attribute-light-tid={el.AvalCauseAttributeLightTID ? el.AvalCauseAttributeLightTID : null}
 aval-cause-attribute-light-name={el.AvalCauseAttributeLightName ? el.AvalCauseAttributeLightName : null}
 aval-cause-attribute-thin-tid={el.AvalCauseAttributeThinTID ? el.AvalCauseAttributeThinTID : null}
@@ -1225,15 +1227,43 @@ Attachments={obs._avalancheEvaluation3.Attachments ? obs._avalancheEvaluation3.A
 </div>
 : ""}
 
-{/* DAMAGE OBSERVATIONS*/}
 
+{/* COMPRESSION TEST */}
+{obs._compressionTest.length > 0 ?
+<varsom-label
+label={this.strings.Observations.SnowProfile.CompressionTest ? this.strings.Observations.SnowProfile.CompressionTest : "Tester"}
+></varsom-label> :"" }
 
+{obs._compressionTest.map((el: CompressionTest = {}) =>{
+  
+            return <varsom-compression-test
+            strings={this.strings}
+            shortVersion={this.version==="short" ? this.version : null}
+            CompressionTestTID={el.CompressionTestTID ? el.CompressionTestTID : null}
+            TapsFracture={el.TapsFracture ? el.TapsFracture : null}
+            TapsFullPropagation={el.TapsFullPropagation ? el.TapsFullPropagation : null}
+            PropagationTID={el.PropagationTID ? el.PropagationTID : null}
+            PropagationName={el.PropagationName ? el.PropagationName : null}
+            FractureDepth={el.FractureDepth ? el.FractureDepth : null}
+            PstX={el.PstX ? el.PstX : null}
+            PstY={el.PstY ? el.PstY : null}
+            RbRelease={el.RbRelease ? el.RbRelease : null}
+            StabilityEvalTID={el.StabilityEvalTID ? el.StabilityEvalTID : null}
+            StabilityEvalName={el.StabilityEvalName ? el.StabilityEvalName : null}
+            ComprTestFractureTID={el.ComprTestFractureTID ? el.ComprTestFractureTID : null}
+            ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
+            IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
+            Comment={el.Comment}
+            Attachments={el.Attachments}
+            > 
+        
+          </varsom-compression-test>
+        })
+        
+        }
 
-
-
-
-
-
+{obs._compressionTest.length > 0 ?
+<div class="border"></div> :"" }
 
 
 
