@@ -1228,45 +1228,6 @@ Attachments={obs._avalancheEvaluation3.Attachments ? obs._avalancheEvaluation3.A
 : ""}
 
 
-{/* COMPRESSION TEST */}
-{obs._compressionTest.length > 0 ?
-<varsom-label
-label={this.strings.Observations.SnowProfile.CompressionTest ? this.strings.Observations.SnowProfile.CompressionTest : "Tester"}
-></varsom-label> :"" }
-
-{obs._compressionTest.map((el: CompressionTest = {}) =>{
-  
-            return <varsom-compression-test
-            strings={this.strings}
-            shortVersion={this.version==="short" ? this.version : null}
-            CompressionTestTID={el.CompressionTestTID ? el.CompressionTestTID : null}
-            TapsFracture={el.TapsFracture ? el.TapsFracture : null}
-            TapsFullPropagation={el.TapsFullPropagation ? el.TapsFullPropagation : null}
-            PropagationTID={el.PropagationTID ? el.PropagationTID : null}
-            PropagationName={el.PropagationName ? el.PropagationName : null}
-            FractureDepth={el.FractureDepth ? el.FractureDepth : null}
-            PstX={el.PstX ? el.PstX : null}
-            PstY={el.PstY ? el.PstY : null}
-            RbRelease={el.RbRelease ? el.RbRelease : null}
-            StabilityEvalTID={el.StabilityEvalTID ? el.StabilityEvalTID : null}
-            StabilityEvalName={el.StabilityEvalName ? el.StabilityEvalName : null}
-            ComprTestFractureTID={el.ComprTestFractureTID ? el.ComprTestFractureTID : null}
-            ComprTestFractureName={el.ComprTestFractureName ? el.ComprTestFractureName : null}
-            IncludeInSnowProfile={el.IncludeInSnowProfile ? el.IncludeInSnowProfile : null}
-            Comment={el.Comment}
-            Attachments={el.Attachments}
-            > 
-        
-          </varsom-compression-test>
-        })
-        
-        }
-
-{obs._compressionTest.length > 0 ?
-<div class="border"></div> :"" }
-
-
-
 {obs._iceCoverObs ? 
 <varsom-ice-cover-observation
 strings={this.strings}
