@@ -37,10 +37,10 @@ export class VarsomCompressionTest {
     <div class="parent"> 
 {/* TODO: se regobs-kode for visning av tabell.... */ } 
     
-    {this.PropagationName ? 
+    {this.PropagationName && this.FractureDepth && this.ComprTestFractureName ?
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Test : (this.shortVersion ? null : "Test") }
-    _value={this.PropagationName}
+    _value={this.PropagationName + "@" + this.FractureDepth * 100 + "cm(" + this.ComprTestFractureName +")"}
     ></varsom-key-value>
     :""}
     
