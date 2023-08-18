@@ -44,6 +44,7 @@ export class VarsomAvalancheEvalProblem2 {
   
 
   render(){
+
     return <div>
     <div class="parent"> 
 
@@ -120,11 +121,26 @@ export class VarsomAvalancheEvalProblem2 {
     :""}
     </div>
     
-    </div>
-    </div>
+    
+    {(this.Attachments && !this.shortVersion) ? 
+      <span class="attachments-container">
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </span> : ""}
+    
+    
+  </div>
+</div>
+ 
+  
   }
     
-  }
-
-  
-  
+}
