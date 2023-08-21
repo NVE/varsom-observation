@@ -1,7 +1,8 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment, Observation } from '../varsom-observation/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-avalanche-obs',
@@ -11,7 +12,7 @@ import { getStartEndTimeFormatted } from '../../utils/date-utils';
 })
 export class VarsomAvalancheObs {
 
-  @Prop() strings: any;
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() DestructiveSizeName: any;
   @Prop() AvalancheTriggerName: any;
@@ -41,10 +42,15 @@ export class VarsomAvalancheObs {
   @Prop() Attachments: Attachment[];
   @Prop() Observation: Observation;
 
+  @Element() elem: HTMLElement;
 
   get avalancheTimeFormatted(): string {
-    return getStartEndTimeFormatted(this.DtAvalancheTime, null);
+    return getStartEndTimeFormatted(this.DtAvalancheTime, null, this.elem);
+  }
 
+  async componentWillLoad(){
+    if (!this.strings)
+    this.strings = await getLocaleComponentStrings(getLocaleFromDom(this.elem));
   }
 
   get formatStartStopInfo(): string {
@@ -144,7 +150,7 @@ avalanche={true}
 
     {this.TerrainStartZoneName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.TerrainStartZoneTID : (this.shortVersion ? null : "Terreng i løsneområdet") }
+    _key={this.strings?.Observations.AvalancheObs.TerrainStartZoneTID }
     _value={this.TerrainStartZoneName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
