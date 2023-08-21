@@ -169,6 +169,9 @@ export function getGeoHazardIdFromName(hazardName: string) {
       case "nb": {
         return 1
       }
+      case "no": {
+        return 1
+      }
       case "de": {
         return 3
       }

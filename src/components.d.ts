@@ -278,6 +278,11 @@ export namespace Components {
     interface VarsomDoc {
         "Text": any;
     }
+    interface VarsomExposedHeight {
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ValidExposition": any;
+    }
     interface VarsomGeneralObservation {
         "Attachments": Attachment[];
         "Comment": any;
@@ -433,7 +438,6 @@ export namespace Components {
     interface VarsomObservation {
         "count": number;
         "json": any;
-        "language": string;
         "number": number;
         "regid": string;
         "type": string;
@@ -727,6 +731,12 @@ declare global {
         prototype: HTMLVarsomDocElement;
         new (): HTMLVarsomDocElement;
     };
+    interface HTMLVarsomExposedHeightElement extends Components.VarsomExposedHeight, HTMLStencilElement {
+    }
+    var HTMLVarsomExposedHeightElement: {
+        prototype: HTMLVarsomExposedHeightElement;
+        new (): HTMLVarsomExposedHeightElement;
+    };
     interface HTMLVarsomGeneralObservationElement extends Components.VarsomGeneralObservation, HTMLStencilElement {
     }
     var HTMLVarsomGeneralObservationElement: {
@@ -935,6 +945,7 @@ declare global {
         "varsom-damage-obs": HTMLVarsomDamageObsElement;
         "varsom-danger-obs": HTMLVarsomDangerObsElement;
         "varsom-doc": HTMLVarsomDocElement;
+        "varsom-exposed-height": HTMLVarsomExposedHeightElement;
         "varsom-general-observation": HTMLVarsomGeneralObservationElement;
         "varsom-header": HTMLVarsomHeaderElement;
         "varsom-ice-cover-observation": HTMLVarsomIceCoverObservationElement;
@@ -1241,6 +1252,11 @@ declare namespace LocalJSX {
     interface VarsomDoc {
         "Text"?: any;
     }
+    interface VarsomExposedHeight {
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ValidExposition"?: any;
+    }
     interface VarsomGeneralObservation {
         "Attachments"?: Attachment[];
         "Comment"?: any;
@@ -1396,7 +1412,6 @@ declare namespace LocalJSX {
     interface VarsomObservation {
         "count"?: number;
         "json"?: any;
-        "language"?: string;
         "number"?: number;
         "regid"?: string;
         "type"?: string;
@@ -1614,6 +1629,7 @@ declare namespace LocalJSX {
         "varsom-damage-obs": VarsomDamageObs;
         "varsom-danger-obs": VarsomDangerObs;
         "varsom-doc": VarsomDoc;
+        "varsom-exposed-height": VarsomExposedHeight;
         "varsom-general-observation": VarsomGeneralObservation;
         "varsom-header": VarsomHeader;
         "varsom-ice-cover-observation": VarsomIceCoverObservation;
@@ -1667,6 +1683,7 @@ declare module "@stencil/core" {
             "varsom-damage-obs": LocalJSX.VarsomDamageObs & JSXBase.HTMLAttributes<HTMLVarsomDamageObsElement>;
             "varsom-danger-obs": LocalJSX.VarsomDangerObs & JSXBase.HTMLAttributes<HTMLVarsomDangerObsElement>;
             "varsom-doc": LocalJSX.VarsomDoc & JSXBase.HTMLAttributes<HTMLVarsomDocElement>;
+            "varsom-exposed-height": LocalJSX.VarsomExposedHeight & JSXBase.HTMLAttributes<HTMLVarsomExposedHeightElement>;
             "varsom-general-observation": LocalJSX.VarsomGeneralObservation & JSXBase.HTMLAttributes<HTMLVarsomGeneralObservationElement>;
             "varsom-header": LocalJSX.VarsomHeader & JSXBase.HTMLAttributes<HTMLVarsomHeaderElement>;
             "varsom-ice-cover-observation": LocalJSX.VarsomIceCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomIceCoverObservationElement>;

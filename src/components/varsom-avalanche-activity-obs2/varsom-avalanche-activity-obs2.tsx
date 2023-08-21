@@ -2,7 +2,7 @@ import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-avalanche-activity-obs2',
@@ -35,9 +35,11 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
   @Prop() Attachments: Attachment[];
+  
+  @Element() elem: HTMLElement;
 
   get avalancheTimeFormatted(): string {
-    return getStartEndTimeFormatted(this.DtStart, this.DtEnd);
+    return getStartEndTimeFormatted(this.DtStart, this.DtEnd, this.elem);
 
   }
 
@@ -86,27 +88,11 @@ export class VarsomAvalancheActivityObs2 {
     ></varsom-key-value>
     :""}
     
-
-<span class="icons-container">
-    {this.ValidExposition ? 
-    <span><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></span>
-    :""}  
-
-
-{(this.ExposedHeight1 && !this.ExposedHeight2) ? 
-<span class="avalanche-height-container">
-  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height.svg`)}></img><span>{this.ExposedHeight1 + "m"}</span></span>
-:""}
-
-{this.ExposedHeight1 && this.ExposedHeight2 ? 
-  <span class="avalanche-height-container">
-  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height2.svg`)}></img><span class="avalanche-height-number">{this.ExposedHeight1 + "m" + this.ExposedHeight2 + "m"}</span></span>
-:""}
-
-    
-    </span>
-
-  
+    <varsom-exposed-height
+    ValidExposition={this.ValidExposition ?? null}
+    ExposedHeight1={this.ExposedHeight1 ?? null}
+    ExposedHeight2={this.ExposedHeight2 ?? null}
+    ></varsom-exposed-height>  
 
     {this.Comment ? 
     <varsom-key-value

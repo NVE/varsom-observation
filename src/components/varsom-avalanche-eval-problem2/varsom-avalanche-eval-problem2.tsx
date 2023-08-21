@@ -44,9 +44,10 @@ export class VarsomAvalancheEvalProblem2 {
   
 
   render(){
-    return <div> 
 
-    <div class="parent">
+    return <div>
+    <div class="parent"> 
+
     {this.AvalCauseName ? 
     <varsom-label-small
     label={this.AvalCauseName}
@@ -61,6 +62,7 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
+ 
     {this.AvalPropagationName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : (this.shortVersion ? null : "Utbredelse") }
@@ -105,28 +107,11 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
-<span class="icons-container">
-    {this.ValidExposition ? 
-    <span><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></span>
-    :""}  
-
-
-{(this.ExposedHeight1 && !this.ExposedHeight2) ? 
-<span class="avalanche-height-container">
-  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height.svg`)}></img><span>{this.ExposedHeight1 + "m"}</span></span>
-:""}
-
-{this.ExposedHeight1 && this.ExposedHeight2 ? 
-  <span class="avalanche-height2-container">
-  <img src={(`src/assets/svg/avalanche/Icon-Avalanche-height2.svg`)}></img><span class="avalanche-height-number-container">
-    <span class="height-number">{this.ExposedHeight1 + "m"}</span>    
-    <span class="height-number">{this.ExposedHeight2 + "m"}</span> 
-    </span>
-    </span>
-:""}
-    
-    </span>
-
+    <varsom-exposed-height
+    ValidExposition={this.ValidExposition ?? null}
+    ExposedHeight1={this.ExposedHeight1 ?? null}
+    ExposedHeight2={this.ExposedHeight2 ?? null}
+    ></varsom-exposed-height>
   
     <div>
     {this.Comment ? 

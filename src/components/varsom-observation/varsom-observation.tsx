@@ -6,8 +6,8 @@ import { AvalancheEvalProblem2 } from './observation-model';
 import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
-import { getLocaleComponentStrings } from '../../utils/locale';
-
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-observation',
@@ -21,12 +21,13 @@ export class VarsomObservation {
   observations: Observation[] = []; 
   
   @Prop() regid: string;
-  @Prop() language: string = "nb";
+
   @Prop() type: string;
   @Prop() number: number = 1;
   @Prop() json: any;
   @Prop() version: string;
 
+  @Element() elem: HTMLElement  //elem is a reference to DOM
 
   element: HTMLElement;
   strings: any;
@@ -103,10 +104,10 @@ export class VarsomObservation {
 
   async componentWillLoad(){
 
-  this.strings = await getLocaleComponentStrings(this.language);
+  this.strings = await getLocaleComponentStrings(getLocaleFromDom(this.elem)); 
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
-  let langKey = getLangKeyFromName(this.language);
+  let langKey = getLangKeyFromName(getLocaleFromDom(this.elem));
   let _data; 
   if (!(this.json && this.json.length > 2)){
   if (this.regid.length !== 0){

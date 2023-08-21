@@ -52,12 +52,14 @@
 
 - [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-exposed-height](../varsom-exposed-height)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-avalanche-eval-problem2 --> varsom-key-value
+  varsom-avalanche-eval-problem2 --> varsom-exposed-height
   varsom-observation --> varsom-avalanche-eval-problem2
   style varsom-avalanche-eval-problem2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
