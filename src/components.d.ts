@@ -231,6 +231,7 @@ export namespace Components {
         "Trajectory": any;
         "ValidExposition": any;
         "shortVersion": any;
+        "strings": any;
     }
     interface VarsomCompressionTest {
         "Attachments": Attachment[];
@@ -1203,6 +1204,7 @@ declare namespace LocalJSX {
         "Trajectory"?: any;
         "ValidExposition"?: any;
         "shortVersion"?: any;
+        "strings"?: any;
     }
     interface VarsomCompressionTest {
         "Attachments"?: Attachment[];
