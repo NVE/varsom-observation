@@ -1,6 +1,7 @@
 import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 import { formatDateString } from '../../utils/date-utils';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-metadata',
@@ -20,12 +21,14 @@ export class VarsomMetadata {
   @Prop() observerGroupName: any;
   @Prop() shortVersion: string;
 
+  @Element() elem: HTMLElement;
+
   get updateTimeFormatted(): string {
-    return formatDateString(this.dateOfLastUpdate)
+    return formatDateString(this.dateOfLastUpdate, this.elem)
   }
 
   get registrationTimeFormatted(): string {
-    return formatDateString(this.dateOfRegistration)
+    return formatDateString(this.dateOfRegistration, this.elem)
   }
   
   render(){

@@ -44,15 +44,16 @@ export class VarsomAvalancheEvalProblem2 {
   
 
   render(){
+
     return <div>
     <div class="parent"> 
-
 
     {this.AvalCauseName ? 
     <varsom-label-small
     label={this.AvalCauseName}
     ></varsom-label-small>
     :""}
+    
 
     {this.AvalancheExtName ? 
     <varsom-key-value
@@ -61,6 +62,7 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
+ 
     {this.AvalPropagationName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : (this.shortVersion ? null : "Utbredelse") }
@@ -105,10 +107,12 @@ export class VarsomAvalancheEvalProblem2 {
     ></varsom-key-value>
     :""}
 
-    {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-    : ""}
-
+    <varsom-exposed-height
+    ValidExposition={this.ValidExposition ?? null}
+    ExposedHeight1={this.ExposedHeight1 ?? null}
+    ExposedHeight2={this.ExposedHeight2 ?? null}
+    ></varsom-exposed-height>
+  
     <div>
     {this.Comment ? 
     <varsom-key-value
@@ -118,11 +122,26 @@ export class VarsomAvalancheEvalProblem2 {
     :""}
     </div>
     
-    </div>
-    </div>
+    
+    {(this.Attachments && !this.shortVersion) ? 
+      <span class="attachments-container">
+      {this.Attachments.map((el: Attachment = {}) =>{
+            return <varsom-attachment
+            Photographer={el.Photographer ? el.Photographer : null}            
+            Comment={el.Comment ? el.Comment : null}
+            Url={el.Url ? el.Url : null}
+            Copyright={el.Copyright ? el.Copyright : null}
+            >
+
+            </varsom-attachment>
+        })
+        } </span> : ""}
+    
+    
+  </div>
+</div>
+ 
+  
   }
     
-  }
-
-  
-  
+}

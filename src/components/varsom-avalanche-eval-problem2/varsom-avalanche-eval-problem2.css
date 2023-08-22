@@ -16,9 +16,37 @@ div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 1rem;
   }
 
+  .icons-container {
+    display: flex;
+    margin-top: 1rem;
+  }
+  
+  .avalanche-height-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 4rem;
+    justify-content: center;
+  }
+
+  .avalanche-height2-container{
+    display: flex;
+    margin: 0.5rem 0 0 1rem;
+    max-width: 4rem;
+    justify-content: center;
+  }
+  
+  .height-number {
+    margin: 0.6rem 0
+  }
+
+  .avalanche-height-number-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
 
 .parent {
   padding: 0 0 0 8px;
