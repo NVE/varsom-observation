@@ -46,15 +46,15 @@ export class VarsomSnowDensity {
     ></varsom-key-value>
     :""}
     
+    {this.Layers ? 
+      <label>
+      {this.strings.Observations.SnowProfile.SnowDensity}:  
+      </label>
+    : ""}
   
-
-  
-    
 {this.Layers ? 
-<span>
-  <label>
-  {this.strings.Observations.SnowProfile.SnowDensity}:  
-  </label>
+<span class="density">
+  
       {this.Layers.map((el: SnowDensityLayer = {}) =>{
             return <varsom-snow-density-layer
             strings={this.strings}

@@ -3,10 +3,6 @@ label {
   margin-right: 1rem;
 }
 
-span {
-  margin-right: 0.5rem;
-}
-
 div {
   font-family: var(--varsom-font-family);
   font-size: var(--varsom-text-size);
@@ -17,4 +13,12 @@ div {
   flex-wrap: wrap;
   align-items: center;
   margin: 1rem;
+}
+
+.density :after {
+  content:", "
+}
+
+.density :last-child::after {
+  content: ""
 }

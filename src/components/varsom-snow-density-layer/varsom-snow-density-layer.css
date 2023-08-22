@@ -1,7 +1,8 @@
 
 span {
-  margin-right: 0.5rem;
+  margin: 0;
   font-family: var(--varsom-font-family);
   font-size: var(--varsom-text-size);
+  font-weight: 400;
 }
 
