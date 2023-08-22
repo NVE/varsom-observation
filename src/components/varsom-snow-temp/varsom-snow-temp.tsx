@@ -12,7 +12,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowTemp {
 
-  @Prop() strings?: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];

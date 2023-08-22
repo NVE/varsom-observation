@@ -14,7 +14,7 @@ export class VarsomSignsOfDanger {
   
   @Prop() Comment?: any;
   @Prop() Type?: any;
-  @Prop() strings?: any;
+  private strings: any;
   
   @Element() elem: HTMLElement;
 

@@ -12,9 +12,9 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomMetadata {
 
+  private strings: any
   @Prop() dateOfRegistration: any;
   @Prop() dateOfLastUpdate?: any;
-  @Prop() strings?: any;
   @Prop() geoHazardName: any;
   @Prop() moh: any;
   @Prop() nickname: any;

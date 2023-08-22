@@ -11,7 +11,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowTempObs {
 
-  @Prop() strings?: any;
+  private strings: any;
   @Prop() shortVersion: any;
   @Prop() Depth: any; 
   @Prop() SnowTemp:	any;

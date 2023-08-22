@@ -35,7 +35,6 @@ export namespace Components {
         "RegistrationName": any;
         "RegistrationTID"?: any;
         "Url": any;
-        "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
         "Aspect": any;
@@ -413,7 +412,6 @@ export namespace Components {
         "nickname": any;
         "observerGroupName": any;
         "shortVersion": string;
-        "strings"?: any;
     }
     interface VarsomObservation {
         "count": number;
@@ -429,7 +427,6 @@ export namespace Components {
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
-        "strings"?: any;
     }
     interface VarsomSnowCoverObservation {
         "Attachments": Attachment[];
@@ -509,13 +506,11 @@ export namespace Components {
         "Attachments": Attachment[];
         "Layers": SnowTempObs[];
         "shortVersion": any;
-        "strings"?: any;
     }
     interface VarsomSnowTempObs {
         "Depth": any;
         "SnowTemp": any;
         "shortVersion": any;
-        "strings"?: any;
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
@@ -975,7 +970,6 @@ declare namespace LocalJSX {
         "RegistrationName"?: any;
         "RegistrationTID"?: any;
         "Url"?: any;
-        "strings"?: any;
     }
     interface VarsomAvalancheActivityObs {
         "Aspect"?: any;
@@ -1353,7 +1347,6 @@ declare namespace LocalJSX {
         "nickname"?: any;
         "observerGroupName"?: any;
         "shortVersion"?: string;
-        "strings"?: any;
     }
     interface VarsomObservation {
         "count"?: number;
@@ -1369,7 +1362,6 @@ declare namespace LocalJSX {
     interface VarsomSignsOfDanger {
         "Comment"?: any;
         "Type"?: any;
-        "strings"?: any;
     }
     interface VarsomSnowCoverObservation {
         "Attachments"?: Attachment[];
@@ -1449,13 +1441,11 @@ declare namespace LocalJSX {
         "Attachments"?: Attachment[];
         "Layers"?: SnowTempObs[];
         "shortVersion"?: any;
-        "strings"?: any;
     }
     interface VarsomSnowTempObs {
         "Depth"?: any;
         "SnowTemp"?: any;
         "shortVersion"?: any;
-        "strings"?: any;
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
