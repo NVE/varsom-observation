@@ -18,6 +18,24 @@ span {
   font-weight: bolder;
 }
 
+.icons-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.avalanche-height-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 4rem;
+  justify-content: center;
+
+}
+
+.avalanche-height-number {
+  margin-left: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
 div {
   font-family: var(--varsom-font-family);
   font-size: var(--varsom-text-size);

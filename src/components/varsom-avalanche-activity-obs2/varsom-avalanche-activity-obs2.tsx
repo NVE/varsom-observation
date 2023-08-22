@@ -43,6 +43,7 @@ export class VarsomAvalancheActivityObs2 {
 
   }
 
+
   render(){
     return <div>
 
@@ -87,12 +88,11 @@ export class VarsomAvalancheActivityObs2 {
     ></varsom-key-value>
     :""}
     
-
     <varsom-exposed-height
     ValidExposition={this.ValidExposition ?? null}
     ExposedHeight1={this.ExposedHeight1 ?? null}
     ExposedHeight2={this.ExposedHeight2 ?? null}
-    ></varsom-exposed-height>
+    ></varsom-exposed-height>  
 
     {this.Comment ? 
     <varsom-key-value

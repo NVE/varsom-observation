@@ -53,6 +53,7 @@ export class VarsomAvalancheEvalProblem2 {
     label={this.AvalCauseName}
     ></varsom-label-small>
     :""}
+    
 
     {this.AvalancheExtName ? 
     <varsom-key-value
@@ -111,7 +112,7 @@ export class VarsomAvalancheEvalProblem2 {
     ExposedHeight1={this.ExposedHeight1 ?? null}
     ExposedHeight2={this.ExposedHeight2 ?? null}
     ></varsom-exposed-height>
-
+  
     <div>
     {this.Comment ? 
     <varsom-key-value
