@@ -31,7 +31,6 @@
 | `ExposedHeightComboTID`  | `exposed-height-combo-t-i-d` |             | `any`          | `undefined` |
 | `ValidExposition`        | `valid-exposition`           |             | `any`          | `undefined` |
 | `shortVersion`           | `short-version`              |             | `any`          | `undefined` |
-| `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 
 ## Dependencies
@@ -44,6 +43,7 @@
 
 - [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-exposed-height](../varsom-exposed-height)
 - [varsom-attachment](../varsom-attachment)
 
 ### Graph
@@ -51,6 +51,7 @@
 graph TD;
   varsom-avalanche-activity-obs2 --> varsom-label-small
   varsom-avalanche-activity-obs2 --> varsom-key-value
+  varsom-avalanche-activity-obs2 --> varsom-exposed-height
   varsom-avalanche-activity-obs2 --> varsom-attachment
   varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-activity-obs2

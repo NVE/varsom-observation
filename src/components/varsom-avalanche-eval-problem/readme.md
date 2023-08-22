@@ -29,7 +29,6 @@
 | `DestructiveSizeExtName`       | `destructive-size-ext-name`       |             | `any`          | `undefined` |
 | `DestructiveSizeExtTID`        | `destructive-size-ext-t-i-d`      |             | `any`          | `undefined` |
 | `shortVersion`                 | `short-version`                   |             | `any`          | `undefined` |
-| `strings`                      | `strings`                         |             | `any`          | `undefined` |
 
 
 ## Dependencies
@@ -43,12 +42,15 @@
 
 - [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
 graph TD;
   varsom-avalanche-eval-problem --> varsom-label-small
   varsom-avalanche-eval-problem --> varsom-key-value
+  varsom-avalanche-eval-problem --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-avalanche-evaluation2 --> varsom-avalanche-eval-problem
   varsom-observation --> varsom-avalanche-eval-problem
   style varsom-avalanche-eval-problem fill:#f9f,stroke:#333,stroke-width:4px

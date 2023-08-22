@@ -1,7 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-import { Element } from '@stencil/core';
-
 @Component({
   tag: 'varsom-exposed-height',
   styleUrl: 'varsom-exposed-height.css',

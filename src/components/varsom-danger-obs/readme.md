@@ -16,7 +16,6 @@
 | `GeoHazardName`  | `geo-hazard-name`   |             | `any`          | `undefined` |
 | `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `any`          | `undefined` |
 | `shortVersion`   | `short-version`     |             | `any`          | `undefined` |
-| `strings`        | `strings`           |             | `any`          | `undefined` |
 
 
 ## Dependencies

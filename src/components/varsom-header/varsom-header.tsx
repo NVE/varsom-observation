@@ -1,8 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
-import { Element } from '@stencil/core';
-
 @Component({
   tag: 'varsom-header',
   styleUrl: 'varsom-header.css',
@@ -13,7 +10,6 @@ export class VarsomHeader {
 
   @Prop() region: string;
   @Prop() regId: string;
-
 
   render(){
     return <div> 

@@ -13,7 +13,6 @@
 | `IceLayerName`      | `ice-layer-name`      |             | `any` | `undefined` |
 | `IceLayerThickness` | `ice-layer-thickness` |             | `any` | `undefined` |
 | `shortVersion`      | `short-version`       |             | `any` | `undefined` |
-| `strings`           | `strings`             |             | `any` | `undefined` |
 
 
 ## Dependencies

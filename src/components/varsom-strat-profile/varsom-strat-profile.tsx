@@ -1,8 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, StratProfileLayer } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings } from '../../utils/locale';
-
-import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-strat-profile',
@@ -12,17 +9,10 @@ import { Element } from '@stencil/core';
 })
 export class VarsomStratProfile {
 
-  private strings: any;
   @Prop() shortVersion: any;
   @Prop() TotalDepth:	any;
   @Prop() Layers: StratProfileLayer[];
   @Prop() Attachments: Attachment[];
-
-  @Element() elem: HTMLElement;
-
-async componentWillLoad(){
- this.strings = await getLocaleComponentStrings(this.elem);
-  }
 
   render(){
     return <span> 
@@ -30,7 +20,6 @@ async componentWillLoad(){
 
       {this.Layers.map((el: StratProfileLayer = {}) =>{
             return <varsom-strat-profile-layer
-            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             GrainFormPrimaryTName={el.GrainFormPrimaryTName ? el.GrainFormPrimaryTName : null}
             GrainFormSecondaryTName={el.GrainFormSecondaryTName ? el.GrainFormSecondaryTName : null}
@@ -51,7 +40,6 @@ async componentWillLoad(){
             Comment={el.Comment ? el.Comment : null}
             SortOrder={el.SortOrder ? el.SortOrder : null}
             >
-
             </varsom-strat-profile-layer>
         })
         }     

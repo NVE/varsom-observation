@@ -17,7 +17,6 @@
 | `nickname`            | `nickname`              |             | `any`    | `undefined` |
 | `observerGroupName`   | `observer-group-name`   |             | `any`    | `undefined` |
 | `shortVersion`        | `short-version`         |             | `string` | `undefined` |
-| `strings`             | `strings`               |             | `any`    | `undefined` |
 
 
 ## Dependencies

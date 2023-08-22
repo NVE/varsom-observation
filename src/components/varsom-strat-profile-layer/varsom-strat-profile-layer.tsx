@@ -1,8 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { getLocaleComponentStrings } from '../../utils/locale';
-
-
-import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-strat-profile-layer',
@@ -31,13 +27,6 @@ export class VarsomStratProfileLayer {
   @Prop() CriticalLayerTID: any;
   @Prop() Comment: any;
   @Prop() SortOrder: any;
-  private strings: any;
-
-  @Element() elem: HTMLElement;
-
-async componentWillLoad(){
- this.strings = await getLocaleComponentStrings(this.elem);
-  }
 
   render(){
     return <span> 

@@ -21,7 +21,6 @@
 | `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
 | `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
 | `shortVersion`      | `short-version`        |             | `any`           | `undefined` |
-| `strings`           | `strings`              |             | `any`           | `undefined` |
 
 
 ## Dependencies
