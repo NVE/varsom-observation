@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { formatDateString } from '../../utils/date-utils';
+import { Element } from '@stencil/core';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
@@ -15,6 +16,8 @@ export class VarsomWaterMeasurement {
   @Prop() Comment: any;
   @Prop() DtMeasurementTime: any;
   @Prop() WaterLevelValue: any;  
+
+  @Element() elem: HTMLElement;
 
   get waterMeasurementTimeFormatted(): string {
     return formatDateString(this.DtMeasurementTime)

@@ -7,7 +7,7 @@ import { DangerObs } from './observation-model';
 import { AvalancheActivityObs2 } from './observation-model';
 import { Attachment } from './observation-model';
 import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
-
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-observation',
@@ -21,12 +21,13 @@ export class VarsomObservation {
   observations: Observation[] = []; 
   
   @Prop() regid: string;
-  @Prop() language: string = "nb";
+
   @Prop() type: string;
   @Prop() number: number = 1;
   @Prop() json: any;
   @Prop() version: string;
 
+  @Element() elem: HTMLElement  //elem is a reference to DOM
 
   element: HTMLElement;
   strings: any;
@@ -102,13 +103,11 @@ export class VarsomObservation {
     
 
   async componentWillLoad(){
-  
-  this.strings = await getLocaleComponentStrings();
-    
-  
+
+  this.strings = await getLocaleComponentStrings(); 
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
-  let langKey = getLangKeyFromName(this.language);
+  let langKey = getLangKeyFromName(getLocaleFromDom());
   let _data; 
   if (!(this.json && this.json.length > 2)){
   if (this.regid.length !== 0){
@@ -602,7 +601,6 @@ allowZoom={true}
 
 {obs._avalancheObs ? 
 <varsom-avalanche-obs
-strings={this.strings}
 shortVersion={this.version==="short" ? this.version : null}
 DestructiveSizeName={obs._avalancheObs.DestructiveSizeName ? obs._avalancheObs.DestructiveSizeName : null}
 AvalancheTriggerName={obs._avalancheObs.AvalancheTriggerName ? obs._avalancheObs.AvalancheTriggerName : null}
@@ -1117,8 +1115,8 @@ aval-probability-tid={el.AvalProbabilityTID ? el.AvalProbabilityTID : null}
 aval-probability-name={el.AvalProbabilityName ? el.AvalProbabilityName : null}
 aval-cause-depth-tid={el.AvalCauseDepthTID ? el.AvalCauseDepthTID : null}
 valid-exposition={el.ValidExposition ? el.ValidExposition : null}
-exposed-height1={el.ExposedHeight1 ? el.ExposedHeight1 : null}
-exposed-height2={el.ExposedHeight2 ? el.ExposedHeight2 : null}
+ExposedHeight1={el.ExposedHeight1 ? el.ExposedHeight1 : null}
+ExposedHeight2={el.ExposedHeight2 ? el.ExposedHeight2 : null}
 exposed-height-combo-tid={el.ExposedHeightComboTID ? el.ExposedHeightComboTID : null}
 exposed-height-combo-name={el.ExposedHeightComboName ? el.ExposedHeightComboName : null}
 avalanche-ext-tid={el.AvalancheExtTID ? el.AvalancheExtTID : null}

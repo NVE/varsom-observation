@@ -2,8 +2,7 @@ import { Component, Prop, h} from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
-
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-avalanche-activity-obs2',
@@ -36,16 +35,14 @@ export class VarsomAvalancheActivityObs2 {
   @Prop() DestructiveSizeTID: any;
   @Prop() AvalPropagationTID: any;
   @Prop() Attachments: Attachment[];
+  
+  @Element() elem: HTMLElement;
 
   get avalancheTimeFormatted(): string {
-    return getStartEndTimeFormatted(this.DtStart, this.DtEnd);
+    return getStartEndTimeFormatted(this.DtStart, this.DtEnd, this.elem);
 
   }
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
-  }
 
   render(){
     return <div>
@@ -89,12 +86,11 @@ export class VarsomAvalancheActivityObs2 {
     ></varsom-key-value>
     :""}
     
-<br></br>
-<br></br>
-    {this.ValidExposition ? 
-    <div><img src={(`src/assets/svg/ext/${this.ValidExposition}.svg`)}></img></div>
-    :""}  
-
+    <varsom-exposed-height
+    ValidExposition={this.ValidExposition ?? null}
+    ExposedHeight1={this.ExposedHeight1 ?? null}
+    ExposedHeight2={this.ExposedHeight2 ?? null}
+    ></varsom-exposed-height>  
 
     {this.Comment ? 
     <varsom-key-value

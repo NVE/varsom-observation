@@ -1,7 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -36,9 +37,11 @@ export class VarsomLandslideObservation {
   @Prop() DtLandSlideTime?: any;
   @Prop() LandSlideSizeTID?: any;
   @Prop() Attachments: Attachment[];
-  
+
+  @Element() elem: HTMLElement;
+
   get landslideTimeFormatted(): string {
-    return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd);
+    return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd, this.elem);
   }
 
   async componentWillLoad(){

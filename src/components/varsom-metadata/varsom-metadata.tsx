@@ -1,7 +1,8 @@
 import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 import { formatDateString } from '../../utils/date-utils';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-metadata',
@@ -20,6 +21,8 @@ export class VarsomMetadata {
   @Prop() competenceLevelName: any;
   @Prop() observerGroupName: any;
   @Prop() shortVersion: string;
+
+  @Element() elem: HTMLElement;
 
   get updateTimeFormatted(): string {
     return formatDateString(this.dateOfLastUpdate)

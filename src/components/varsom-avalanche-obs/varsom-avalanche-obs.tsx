@@ -1,8 +1,8 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment, Observation } from '../varsom-observation/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-import { getLocaleComponentStrings } from '../../utils/locale';
-
+import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-avalanche-obs',
@@ -12,6 +12,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomAvalancheObs {
 
+  @Prop({mutable: true}) strings: any;
   @Prop() shortVersion: any;
   @Prop() DestructiveSizeName: any;
   @Prop() AvalancheTriggerName: any;
@@ -41,14 +42,35 @@ export class VarsomAvalancheObs {
   @Prop() Attachments: Attachment[];
   @Prop() Observation: Observation;
 
-  private strings: any;
+  @Element() elem: HTMLElement;
 
   get avalancheTimeFormatted(): string {
-    return getStartEndTimeFormatted(this.DtAvalancheTime, null);
+    return getStartEndTimeFormatted(this.DtAvalancheTime, null, this.elem);
   }
 
   async componentWillLoad(){
+    if (!this.strings)
     this.strings = await getLocaleComponentStrings();
+  }
+
+  get formatStartStopInfo(): string {
+  
+    if (this.HeightStartZone === -1){  //start height not given. It wil only show stop height
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStopZoneText}
+      ${this.HeightStopZone} ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel}
+    `
+    }
+
+    if (this.HeightStopZone === -1){  //stop height not given. It wil only show start height
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStartZoneText} ${this.HeightStartZone} 
+      ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel} 
+     `
+    }
+    else       //both values given. Shows start and stop values
+      return `${this.strings.Observations.AvalancheObs.Avalanche} ${this.strings.Observations.AvalancheObs.HeightStartZoneText} ${this.HeightStartZone} 
+      ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel} ${this.strings.Observations.AvalancheObs.And} ${this.strings.Observations.AvalancheObs.HeightStopZoneText}
+      ${this.HeightStopZone} ${this.strings.Observations.AvalancheObs.MetersAboveSeaLevel}
+    `
   }
 
   render(){
@@ -109,21 +131,14 @@ avalanche={true}
     ></varsom-key-value>
     :""}
 
-    {this.HeightStartZone ? 
+    {(this.HeightStartZone !== -1 && this.HeightStopZone !== -1) ?  //if no start and stop value, it will not render
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeigthStartZone : (this.shortVersion ? null : "Løsneområdet") }
-    _value={this.HeightStartZone}
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStartZone : (this.shortVersion ? null : "Løsneområdet") }
+    _value={this.formatStartStopInfo}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
     :""}
 
-    {this.HeightStopZone ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStopZone : (this.shortVersion ? null : "Stoppområdet") }
-    _value={this.HeightStopZone}
-    shortVersion={this.shortVersion}
-    ></varsom-key-value>
-    :""}
 
     {/* TODO IMPLEMENT TEXT FOR START AND STOP POINT */ }
     
@@ -137,7 +152,7 @@ avalanche={true}
 
     {this.TerrainStartZoneName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.TerrainStartZoneTID : (this.shortVersion ? null : "Terreng i løsneområdet") }
+    _key={this.strings?.Observations.AvalancheObs.TerrainStartZoneTID }
     _value={this.TerrainStartZoneName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -195,6 +210,7 @@ avalanche={true}
 
    </div> 
   }
+ 
     
   }
 
