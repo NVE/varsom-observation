@@ -572,7 +572,12 @@
       "IncidentIngress": "Ingress",
       "IncidentText": "Description",
       "ObsName": "Incident",
-      "Urls": "Links"
+      "Urls": "Links",
+      "InvolvedNum": "Number involved",
+      "LocalKnowledgeTID": "Local knowledge",
+      "LocalTouristTID": "Local or traveller",
+      "SafetyGearTID": "Safety gear",
+      "SlopeActivityTID": "Slope activity"
     },
     "InCm": "In centimeter",
     "InMeter": "In meter",

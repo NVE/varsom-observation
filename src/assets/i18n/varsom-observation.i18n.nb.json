@@ -571,7 +571,12 @@
       "IncidentIngress": "Ingress",
       "IncidentText": "Beskrivelse",
       "ObsName": "Ulykke / Hendelse",
-      "Urls": "Lenker"
+      "InvolvedNum": "Antall involverte",
+      "LocalKnowledgeTID": "Lokalkjent",
+      "LocalTouristTID": "Lokal eller tilreisende",
+      "SafetyGearTID": "Sikkerhetsutstyr",
+      "SlopeActivityTID": "Turfase",
+      "Urls": "Links"
     },
     "InCm": "I centimeter",
     "InMeter": "I meter",
