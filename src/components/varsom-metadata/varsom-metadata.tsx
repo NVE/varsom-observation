@@ -25,16 +25,15 @@ export class VarsomMetadata {
   @Element() elem: HTMLElement;
 
   get updateTimeFormatted(): string {
-    return formatDateString(this.dateOfLastUpdate)
+    return formatDateString(this.dateOfLastUpdate, this.elem)
   }
 
   get registrationTimeFormatted(): string {
-    return formatDateString(this.dateOfRegistration)
+    return formatDateString(this.dateOfRegistration, this.elem)
   }
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
   render(){

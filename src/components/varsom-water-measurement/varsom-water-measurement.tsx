@@ -3,6 +3,7 @@ import { formatDateString } from '../../utils/date-utils';
 import { Element } from '@stencil/core';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
+
 @Component({
   tag: 'varsom-water-measurement',
   styleUrl: 'varsom-water-measurement.css',
@@ -11,7 +12,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomWaterMeasurement {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() Comment: any;
   @Prop() DtMeasurementTime: any;
@@ -20,12 +21,11 @@ export class VarsomWaterMeasurement {
   @Element() elem: HTMLElement;
 
   get waterMeasurementTimeFormatted(): string {
-    return formatDateString(this.DtMeasurementTime)
+    return formatDateString(this.DtMeasurementTime, this.elem)
   }
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
   render(){

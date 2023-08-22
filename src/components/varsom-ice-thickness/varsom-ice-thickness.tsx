@@ -1,7 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { generatePlotForIceThickness } from '../../utils/utils';
 import { Attachment, IceThicknessLayer } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-ice-thickness',
@@ -11,7 +13,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomIceThickness {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() Comment: any;
   @Prop() shortVersion: any;
   @Prop() IceThicknessLayers: IceThicknessLayer[];
@@ -30,9 +32,10 @@ export class VarsomIceThickness {
   element: HTMLElement;
   element2: HTMLElement;
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
 componentDidRender(){
@@ -59,7 +62,7 @@ componentDidRender(){
       <div>
       {this.IceThicknessLayers.map((el: IceThicknessLayer = {}) =>{
             return <varsom-ice-thickness-layer
-            strings={this.strings}
+            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Comment={el.Comment ? el.Comment : null}
             IceLayerName={el.IceLayerName ? el.IceLayerName : null}

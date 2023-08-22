@@ -13,7 +13,6 @@ import { MapLayersService } from '../../utils/static-tiles.service';
 
 import { race, ReplaySubject, Subject, debounceTime, distinctUntilChanged, interval, map, share, skipWhile, takeUntil } from 'rxjs';
 
-
 @Component({
   tag: 'varsom-static-map',
   styleUrl: 'varsom-map.css',

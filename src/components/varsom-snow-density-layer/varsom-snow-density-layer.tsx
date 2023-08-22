@@ -1,6 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-snow-density-layer',
@@ -10,7 +12,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomSnowDensityLayer {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() Depth: any;
   @Prop() Thickness: any;
@@ -19,9 +21,10 @@ export class VarsomSnowDensityLayer {
   @Prop() SortOrder: any;
 
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
   render(){

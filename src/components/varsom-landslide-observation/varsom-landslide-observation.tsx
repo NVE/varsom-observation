@@ -12,7 +12,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomLandslideObservation {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() LandSlideName?: any;
   @Prop() LandSlideTriggerName?: any;
@@ -44,9 +44,8 @@ export class VarsomLandslideObservation {
     return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd, this.elem);
   }
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){

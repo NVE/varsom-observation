@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-label-small',
   styleUrl: 'varsom-label-small.css',

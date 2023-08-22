@@ -1,7 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-damage-obs',
@@ -11,7 +13,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomDamageObs {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() GeoHazardName: string;
   @Prop() DamageTypeName:	string;
   @Prop() shortVersion: any;
@@ -21,9 +23,10 @@ export class VarsomDamageObs {
   @Prop() DamagePosition: any;	//LatLng,
   @Prop() Comment:	string;
 
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){
@@ -57,7 +60,7 @@ export class VarsomDamageObs {
       <div class="attachments-container">
       {this.Attachments.map((el: Attachment = {}) =>{
             return <varsom-attachment
-            strings={this.strings}
+            
             AttachmentId={el.AttachmentId ? el.AttachmentId : null}
             GeoHazardName={el.GeoHazardName ? el.GeoHazardName : null}
             RegistrationName={el.RegistrationName ? el.RegistrationName : null}

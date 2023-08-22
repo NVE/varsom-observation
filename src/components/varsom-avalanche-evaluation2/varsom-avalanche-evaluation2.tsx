@@ -2,8 +2,9 @@ import { Component, Prop, h} from '@stencil/core';
 import { getDangerTypeSvg } from '../../utils/utils';
 
 import { Attachment, AvalancheEvalProblem } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
+import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-avalanche-evaluation2',
@@ -13,7 +14,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomAvalancheEvaluation2 {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() AvalancheDangerName: any;
   @Prop() ValidExposition: any;
@@ -30,9 +31,10 @@ export class VarsomAvalancheEvaluation2 {
   @Prop() AvalancheEvalProblems: any[];
   @Prop() Attachments: Attachment[];
   
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){
@@ -78,7 +80,7 @@ export class VarsomAvalancheEvaluation2 {
       <div>
       {this.AvalancheEvalProblems.map((el: AvalancheEvalProblem = {}) =>{
             return <varsom-avalanche-eval-problem
-            strings={this.strings}
+            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             AvalancheEvalProblemID={el.AvalancheEvalProblemID ? el.AvalancheEvalProblemID : null}
             AvalProbabilityTID={el.AvalProbabilityTID ? el.AvalProbabilityTID : null}

@@ -1,7 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
-
+import { getLocaleComponentStrings } from '../../utils/locale';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-weather-observation',
@@ -11,7 +11,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomWeatherObservation {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() PrecipitationName: any;
   @Prop() WindDirectionName: any;
@@ -22,11 +22,10 @@ export class VarsomWeatherObservation {
   @Prop() CloudCover: any;
   @Prop() Comment: any;
   @Prop() Attachments?: Attachment[];
-  
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
 
+  async componentWillLoad(){
+    this.strings = await getLocaleComponentStrings(this.elem);
 }
    get WindInfo():string{
     return this.WindSpeed + " m/s " + this.strings.Observations.WeatherObservation.WindDirection + " " + this.WindDirectionInfo;

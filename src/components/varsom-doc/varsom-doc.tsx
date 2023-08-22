@@ -1,6 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
 
 
+import { Element } from '@stencil/core';
+
 @Component({
   tag: 'varsom-doc',
   styleUrl: 'varsom-doc.css',

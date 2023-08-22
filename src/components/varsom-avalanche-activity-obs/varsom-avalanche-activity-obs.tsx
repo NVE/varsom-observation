@@ -1,7 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-avalanche-activity-obs',
@@ -11,7 +13,7 @@ import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale'
 })
 export class VarsomAvalancheActivityObs {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() header: any;
   @Prop() shortVersion: any;
   @Prop() AvalancheActivityObsID: any;
@@ -34,9 +36,10 @@ export class VarsomAvalancheActivityObs {
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
   
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
   render(){

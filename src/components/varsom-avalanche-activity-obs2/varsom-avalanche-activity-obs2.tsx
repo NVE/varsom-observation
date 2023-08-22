@@ -12,7 +12,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomAvalancheActivityObs2 {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() Comment: any;
   @Prop() shortVersion: any;
   @Prop() AvalCauseName: any;

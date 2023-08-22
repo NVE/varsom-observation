@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-attachment',
   styleUrl: 'varsom-attachment.css',

@@ -1,7 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { valueIsNotGiven } from '../../utils/utils';
 
-
 @Component({
   tag: 'varsom-key-value',
   styleUrl: 'varsom-key-value.css',
@@ -13,8 +12,6 @@ export class VarsomKeyValue {
   @Prop() _key: any;
   @Prop() _value?: any;
   @Prop() shortVersion: string;
-
-  
   
   render(){
     let keyValue = <span tabIndex={0}>

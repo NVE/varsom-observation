@@ -1,5 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-snow-temp-obs',
@@ -14,9 +16,10 @@ export class VarsomSnowTempObs {
   @Prop() Depth: any; 
   @Prop() SnowTemp:	any;
   
-  async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){
