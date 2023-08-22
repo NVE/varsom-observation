@@ -1,7 +1,8 @@
 import { Component, Prop, h} from '@stencil/core';
 import { getDangerTypeSvg, valueIsNotGiven } from '../../utils/utils';
 import { Attachment } from '../varsom-observation/observation-model';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
+import
 
 
 @Component({
@@ -26,7 +27,7 @@ export class VarsomAvalancheEvaluation3 {
 
   async componentWillLoad(){
     if (!this.strings)
-    this.strings = await getLocaleComponentStrings();
+    this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){
