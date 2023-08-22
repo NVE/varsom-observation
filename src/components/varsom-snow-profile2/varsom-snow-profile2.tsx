@@ -62,8 +62,8 @@ _value={this.SlopeAngle + "\u00B0"}
     {this.SnowTemp.Layers ? 
 <div>
   
-  <span>{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
-  
+  <span class="snowtemp-header">{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
+  <span class="snowtemp-layers">
       {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs
             strings={this.strings}
@@ -74,6 +74,7 @@ _value={this.SlopeAngle + "\u00B0"}
 </varsom-snow-temp-obs>
         })
         }
+        </span>
 </div> : ""}  
     
   <br></br>
