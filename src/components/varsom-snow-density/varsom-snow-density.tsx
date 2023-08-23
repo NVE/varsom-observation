@@ -17,6 +17,9 @@ export class VarsomSnowDensity {
   @Prop() shortVersion: any;
   @Prop() CylinderDiameter: any;
   @Prop() TareWeight: any;
+  @Prop() Weight: any;
+  @Prop() Density: any;
+  @Prop() Depth: any;
   @Prop() Comment: any;
   @Prop() Layers: SnowDensityLayer[];
   @Prop() Attachments: Attachment[];
@@ -52,22 +55,30 @@ async componentWillLoad(){
     ></varsom-key-value>
     :""}
     
-
+    {this.Layers ? 
+      <label>
+      {this.strings.Observations.SnowProfile.SnowDensity}:  
+      </label>
+    : ""}
+  
 {this.Layers ? 
-<div>
+<span class="density">
+  
       {this.Layers.map((el: SnowDensityLayer = {}) =>{
             return <varsom-snow-density-layer
             
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Thickness={el.Thickness ? el.Thickness : null}
             Weight={el.Weight ? el.Weight : null}
+            Depth={el.Depth ? el.Depth : 0}
+            Density={el.Density ? el.Density : null}
             WaterEquivalent={el.WaterEquivalent ? el.WaterEquivalent : null}          
             SortOrder={el.SortOrder ? el.SortOrder : null}          
             >
 </varsom-snow-density-layer>
         })
         }
-</div> : ""}  
+</span> : ""}  
     
     </div>
   }

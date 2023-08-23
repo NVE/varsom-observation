@@ -1,15 +1,19 @@
-label {
-  font-weight: 600;
-}
 
 span {
   margin-right: 0.5rem;
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
+
+.label {
+  font-weight: 600;
+}
+
 
 div {
   margin: 1rem;
   padding: 1rem;
   font-family: var(--varsom-font-family);
+  font-size: var(--varsom-text-size);
 }
 

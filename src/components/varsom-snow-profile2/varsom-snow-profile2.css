@@ -1,10 +1,7 @@
-label {
-  font-weight: 600;
-}
 
 span {
   margin-right: 0.5rem;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .content {
@@ -16,6 +13,10 @@ div {
   font-size: var(--varsom-text-size);
 }
 
+.snowtemp-header {
+  font-weight: 600;
+}
+
 .border {
   border-bottom: 1px solid #B7BABF;
 }
@@ -25,4 +26,12 @@ div {
   flex-wrap: wrap;
   align-items: center;
   margin: 1rem;
+}
+
+.snowtemp-layers :after {
+  content:", "
+}
+
+.snowtemp-layers :last-child::after {
+  content: ""
 }

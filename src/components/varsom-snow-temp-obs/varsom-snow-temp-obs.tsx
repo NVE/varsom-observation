@@ -23,24 +23,12 @@ async componentWillLoad(){
   }
 
   render(){
-    return <div>
+    return <span class="content">
 
-      {this.Depth ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: (this.shortVersion ? null : "Snødybde") }
-    _value={this.Depth}
-    ></varsom-key-value>
-    :""}
-    
-    {this.SnowTemp ? 
-    <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature: (this.shortVersion ? null : "Snøtemperatur") }
-    _value={this.SnowTemp + " cm"}
-    ></varsom-key-value>
-    :""}
+      {this.SnowTemp + " \u00B0 @ " + this.Depth*100 + " cm"}  
+   
 
-
-    </div>
+    </span>
   }
     
   }

@@ -22,7 +22,7 @@ export class VarsomKeyValue {
    </span>
    : 
     <span>
-    <b>{this._key}{this.renderColon()}  </b>
+    <span class="label">{this._key}{this.renderColon()}  </span>
     {this._value}
     </span>
   }

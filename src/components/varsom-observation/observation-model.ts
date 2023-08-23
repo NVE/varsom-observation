@@ -606,6 +606,9 @@ export type ImageLocationStartStop = {
     CylinderDiameter?:	number, //($double)
     TareWeight?: number, //($double)
     Comment?: string,
+    Depth?: number,
+    Density?: number //($double) Density in kg/m^3
+    Weight?:	number, //($double) Weight in KG
     Layers?: SnowDensityLayer[],
     Attachments?: Attachment[]
    }

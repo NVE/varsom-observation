@@ -1,9 +1,10 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, SnowDensity } from '../varsom-observation/observation-model';
+import { Attachment, SnowDensity, SnowTempObs } from '../varsom-observation/observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
 
 import { Element } from '@stencil/core';
+import { getExpositionFromNumber } from '../../utils/utils';
 
 @Component({
   tag: 'varsom-snow-profile2',
@@ -22,6 +23,7 @@ export class VarsomSnowProfile2 {
   @Prop() Exposition: any;
   @Prop() SlopeAngle: any;
   @Prop() SnowTemp: any;
+  @Prop() Weight: any;
   @Prop() ImageUrl: any;
   @Prop() SnowDensity: SnowDensity[];
   @Prop() RegId: any;
@@ -45,16 +47,19 @@ async componentWillLoad(){
 {this.Exposition ?
 <varsom-key-value
 _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.ValidExposition: (this.shortVersion ? null : "Eksposisjon") }
-_value={this.Exposition}
+_value={this.strings.COMPASS_DIRECTION[getExpositionFromNumber(this.Exposition)]}
 ></varsom-key-value>
 : ""}
 
+ 
 {this.SlopeAngle ?
 <varsom-key-value
 _key={this.strings && !this.shortVersion ? this.strings.MapSelection.SupportSteepnessName: (this.shortVersion ? null : "Bratthet") }
 _value={this.SlopeAngle + "\u00B0"}
 ></varsom-key-value>
 : ""}
+
+
 
 {this.Comment ? 
     <varsom-key-value
@@ -63,6 +68,22 @@ _value={this.SlopeAngle + "\u00B0"}
     ></varsom-key-value>
     :""}
     
+    {this.SnowTemp && this.SnowTemp.Layers ? 
+<div>
+  
+  <span class="snowtemp-header">{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
+  <span class="snowtemp-layers">
+      {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
+            return <varsom-snow-temp-obs
+            shortVersion={this.shortVersion ? this.shortVersion : null}
+            Depth={el.Depth}
+            SnowTemp={el.SnowTemp}
+            >
+</varsom-snow-temp-obs>
+        })
+        }
+        </span>
+</div> : ""}  
     
   <br></br>
   <br></br>
@@ -72,7 +93,8 @@ _value={this.SlopeAngle + "\u00B0"}
  </a>
  : ""}
 
-{this.SnowDensity ? 
+
+ {this.SnowDensity ? 
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
@@ -81,6 +103,9 @@ _value={this.SlopeAngle + "\u00B0"}
             CylinderDiameter={el.CylinderDiameter ? el.CylinderDiameter : null}
             TareWeight={el.TareWeight ? el.TareWeight : null}
             Comment={el.Comment ? el.Comment : null}   
+            Density={el.Density ? el.Density : null}   
+            Depth={el.Depth ? el.Depth : 0}
+            Weight={el.Weight ? el.Weight : null}   
             Layers={el.Layers ? el.Layers : null}          
             >
 
@@ -88,6 +113,7 @@ _value={this.SlopeAngle + "\u00B0"}
         })
         }
      </div>   : ""}
+ 
 
 {/* Removed until better view is implemented 
      {this.StratProfile ? 
