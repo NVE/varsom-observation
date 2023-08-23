@@ -92,21 +92,21 @@ async componentWillLoad(){
 
 {this.LocalTouristName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Local or tourist" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.LocalTouristTID : (this.shortVersion ? null : "Lokal eller tilreisende") }
     _value={this.LocalTouristName}
     ></varsom-key-value>
     :""}
 
 {this.LocalKnowledgeName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Local knowledge" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.LocalKnowledgeTID : (this.shortVersion ? null : "Lokalkjent") }
     _value={this.LocalKnowledgeName}
     ></varsom-key-value>
     :""}
 
 {this.SafetyGearName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Safety gear" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.SafetyGearTID : (this.shortVersion ? null : "Sikkerhetsutstyr") }
     _value={this.SafetyGearName}
     ></varsom-key-value>
     :""}
@@ -121,7 +121,7 @@ async componentWillLoad(){
       
 {this.SlopeActivityName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Slope activity" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.SlopeActivityTID : (this.shortVersion ? null : "Turfase") }
     _value={this.SlopeActivityName}
     ></varsom-key-value>
     :""}
@@ -143,7 +143,7 @@ async componentWillLoad(){
 
 {this.InvolvedNum ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Number involved" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.InvolvedNum : (this.shortVersion ? null : "Antall involverte") }
     _value={this.InvolvedNum}
     ></varsom-key-value>
     :""}
