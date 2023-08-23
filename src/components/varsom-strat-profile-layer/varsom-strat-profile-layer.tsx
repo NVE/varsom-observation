@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-strat-profile-layer',
   styleUrl: 'varsom-strat-profile-layer.css',
@@ -9,7 +8,6 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomStratProfileLayer {
 
-  @Prop() strings: any;
   @Prop() shortVersion: any;
   @Prop() GrainFormPrimaryTName: any;
   @Prop() GrainFormSecondaryTName: any;
@@ -29,8 +27,6 @@ export class VarsomStratProfileLayer {
   @Prop() CriticalLayerTID: any;
   @Prop() Comment: any;
   @Prop() SortOrder: any;
-
-
 
   render(){
     return <span> 

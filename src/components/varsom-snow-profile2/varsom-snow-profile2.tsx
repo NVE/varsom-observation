@@ -1,6 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, SnowDensity } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-snow-profile2',
@@ -10,7 +13,7 @@ import { Attachment, SnowDensity } from '../varsom-observation/observation-model
 })
 export class VarsomSnowProfile2 {
 
-  @Prop() strings: any;
+  private strings: any;
   @Prop() shortVersion: any;
   @Prop() TotalDepth: any;
   @Prop() StratProfile: any;
@@ -23,6 +26,12 @@ export class VarsomSnowProfile2 {
   @Prop() SnowDensity: SnowDensity[];
   @Prop() RegId: any;
   @Prop() Attachments: Attachment[];
+
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
 
   render(){
     return <div> 
@@ -67,7 +76,7 @@ _value={this.SlopeAngle + "\u00B0"}
 <div>
       {this.SnowDensity.map((el: SnowDensity = {}) =>{
             return <varsom-snow-density
-            strings={this.strings}
+            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             CylinderDiameter={el.CylinderDiameter ? el.CylinderDiameter : null}
             TareWeight={el.TareWeight ? el.TareWeight : null}
@@ -92,7 +101,7 @@ _value={this.SlopeAngle + "\u00B0"}
     Layers={this.StratProfile.Layers}
     shortVersion={this.shortVersion ? this.shortVersion : null}
     TotalDepth={this.StratProfile.TotalDepth}
-    strings={this.strings}
+    
     ></varsom-strat-profile>
     </div>:""}
     */

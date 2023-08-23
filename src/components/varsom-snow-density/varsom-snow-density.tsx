@@ -1,6 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, SnowDensityLayer } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-snow-density',
@@ -10,13 +13,19 @@ import { Attachment, SnowDensityLayer } from '../varsom-observation/observation-
 })
 export class VarsomSnowDensity {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() CylinderDiameter: any;
   @Prop() TareWeight: any;
   @Prop() Comment: any;
   @Prop() Layers: SnowDensityLayer[];
   @Prop() Attachments: Attachment[];
+
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
 
   render(){
     return <div> 
@@ -48,7 +57,7 @@ export class VarsomSnowDensity {
 <div>
       {this.Layers.map((el: SnowDensityLayer = {}) =>{
             return <varsom-snow-density-layer
-            strings={this.strings}
+            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Thickness={el.Thickness ? el.Thickness : null}
             Weight={el.Weight ? el.Weight : null}

@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type  | Default     |
-| --------- | --------- | ----------- | ----- | ----------- |
-| `regId`   | `reg-id`  |             | `any` | `undefined` |
-| `strings` | `strings` |             | `any` | `undefined` |
+| Property | Attribute | Description | Type  | Default     |
+| -------- | --------- | ----------- | ----- | ----------- |
+| `regId`  | `reg-id`  |             | `any` | `undefined` |
 
 
 ## Dependencies

@@ -33,7 +33,6 @@
 | `StopLong`               | `stop-long`                 |             | `any`          | `undefined` |
 | `Urls`                   | --                          |             | `any[]`        | `undefined` |
 | `shortVersion`           | `short-version`             |             | `any`          | `undefined` |
-| `strings`                | `strings`                   |             | `any`          | `undefined` |
 
 
 ## Dependencies

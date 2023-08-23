@@ -15,7 +15,6 @@
 | `DangerSignName`       | `danger-sign-name`         |             | `any`          | `undefined` |
 | `DangerSignTID`        | `danger-sign-t-i-d`        |             | `any`          | `undefined` |
 | `shortVersion`         | `short-version`            |             | `any`          | `undefined` |
-| `strings`              | `strings`                  |             | `any`          | `undefined` |
 
 
 ## Dependencies

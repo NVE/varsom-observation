@@ -1,6 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-incident',
@@ -10,7 +13,7 @@ import { Attachment, Url } from '../varsom-observation/observation-model';
 })
 export class VarsomIncident {
 
-  @Prop() strings: any; 
+  private strings: any 
   @Prop() shortVersion: any;
   @Prop() GeoHazardName: any; 
   @Prop() ActivityInfluencedName: any; 
@@ -45,6 +48,12 @@ export class VarsomIncident {
   @Prop() Comment: any; 
   @Prop() Attachments: Attachment[];
 
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
+  
   render(){
     return <div class="container"> 
 
@@ -83,21 +92,21 @@ export class VarsomIncident {
 
 {this.LocalTouristName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Local or tourist" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.LocalTouristTID : (this.shortVersion ? null : "Lokal eller tilreisende") }
     _value={this.LocalTouristName}
     ></varsom-key-value>
     :""}
 
 {this.LocalKnowledgeName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Local knowledge" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.LocalKnowledgeTID : (this.shortVersion ? null : "Lokalkjent") }
     _value={this.LocalKnowledgeName}
     ></varsom-key-value>
     :""}
 
 {this.SafetyGearName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Safety gear" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.SafetyGearTID : (this.shortVersion ? null : "Sikkerhetsutstyr") }
     _value={this.SafetyGearName}
     ></varsom-key-value>
     :""}
@@ -112,7 +121,7 @@ export class VarsomIncident {
       
 {this.SlopeActivityName ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Slope activity" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.SlopeActivityTID : (this.shortVersion ? null : "Turfase") }
     _value={this.SlopeActivityName}
     ></varsom-key-value>
     :""}
@@ -134,7 +143,7 @@ export class VarsomIncident {
 
 {this.InvolvedNum ? 
     <varsom-key-value
-    _key={this.shortVersion ? null : "Number involved" }
+    _key={this.strings && !this.shortVersion ? this.strings.Observations.Incident.InvolvedNum : (this.shortVersion ? null : "Antall involverte") }
     _value={this.InvolvedNum}
     ></varsom-key-value>
     :""}
@@ -177,7 +186,6 @@ export class VarsomIncident {
      
       {this.IncidentURLs.map((el: Url = {}) =>{
             return <varsom-url
-            strings={this.strings}
             UrlDescription={el.UrlDescription ? el.UrlDescription : null}
             UrlLine={el.UrlLine ? el.UrlLine : null}
             >

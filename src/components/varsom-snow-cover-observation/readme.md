@@ -18,7 +18,6 @@
 | `DepthHoarThickness`    | `depth-hoar-thickness`    |             | `any`          | `undefined` |
 | `SnowPilotRef`          | `snow-pilot-ref`          |             | `any`          | `undefined` |
 | `shortVersion`          | `short-version`           |             | `any`          | `undefined` |
-| `strings`               | `strings`                 |             | `any`          | `undefined` |
 
 
 ## Dependencies

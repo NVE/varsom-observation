@@ -22,7 +22,6 @@
 | `RegistrationName`   | `registration-name`    |             | `any`     | `undefined` |
 | `RegistrationTID`    | `registration-t-i-d`   |             | `any`     | `undefined` |
 | `Url`                | `url`                  |             | `any`     | `undefined` |
-| `strings`            | `strings`              |             | `any`     | `undefined` |
 
 
 ## Dependencies
@@ -31,6 +30,8 @@
 
  - [varsom-avalanche-activity-obs](../varsom-avalanche-activity-obs)
  - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
+ - [varsom-avalanche-eval-problem](../varsom-avalanche-eval-problem)
+ - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
  - [varsom-avalanche-evaluation](../varsom-avalanche-evaluation)
  - [varsom-avalanche-evaluation2](../varsom-avalanche-evaluation2)
  - [varsom-avalanche-evaluation3](../varsom-avalanche-evaluation3)
@@ -61,6 +62,8 @@ graph TD;
   varsom-attachment --> varsom-key-value
   varsom-avalanche-activity-obs --> varsom-attachment
   varsom-avalanche-activity-obs2 --> varsom-attachment
+  varsom-avalanche-eval-problem --> varsom-attachment
+  varsom-avalanche-eval-problem2 --> varsom-attachment
   varsom-avalanche-evaluation --> varsom-attachment
   varsom-avalanche-evaluation2 --> varsom-attachment
   varsom-avalanche-evaluation3 --> varsom-attachment

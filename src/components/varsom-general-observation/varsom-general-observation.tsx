@@ -1,5 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-general-observation',
@@ -9,7 +12,7 @@ import { Attachment, Url } from '../varsom-observation/observation-model';
 })
 export class VarsomGeneralObservation {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() GeoHazardName: any;
   @Prop() Urls: Url[];
@@ -18,6 +21,12 @@ export class VarsomGeneralObservation {
   @Prop() ObsHeader: any;
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
+
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
 
   render(){
     return <div> 
@@ -46,7 +55,6 @@ export class VarsomGeneralObservation {
       <div>
 {this.Urls.map((el: Url = {}) =>{
             return <varsom-url
-            strings={this.strings}
             UrlDescription={el.UrlDescription ? el.UrlDescription : null}
             UrlLine={el.UrlLine ? el.UrlLine : null}
             >

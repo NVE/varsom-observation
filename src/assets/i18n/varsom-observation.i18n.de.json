@@ -469,7 +469,12 @@
       "IncidentIngress": "Eintritt",
       "IncidentText": "Beschreibung",
       "ObsName": "Ereignis",
-      "Urls": "Links"
+      "Urls": "Links",
+      "InvolvedNum": "Number involved",
+      "LocalKnowledgeTID": "Local knowledge",
+      "LocalTouristTID": "Local or traveller",
+      "SafetyGearTID": "Safety gear",
+      "SlopeActivityTID": "Slope activity"
     },
     "LandslideObs": {
       "ActivityInfluencedTName": "Was war betroffen?",

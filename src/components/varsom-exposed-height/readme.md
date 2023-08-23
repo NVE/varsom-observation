@@ -18,11 +18,13 @@
 
 ### Used by
 
+ - [varsom-avalanche-activity-obs2](../varsom-avalanche-activity-obs2)
  - [varsom-avalanche-eval-problem2](../varsom-avalanche-eval-problem2)
 
 ### Graph
 ```mermaid
 graph TD;
+  varsom-avalanche-activity-obs2 --> varsom-exposed-height
   varsom-avalanche-eval-problem2 --> varsom-exposed-height
   style varsom-exposed-height fill:#f9f,stroke:#333,stroke-width:4px
 ```

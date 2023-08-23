@@ -1,6 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment, WaterLevelMeasurement } from '../varsom-observation/observation-model';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-water-level2',
@@ -10,7 +13,7 @@ import { Attachment, WaterLevelMeasurement } from '../varsom-observation/observa
 })
 export class VarsomWaterLevel2 {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() Comment: any;
   @Prop() WaterAstrayName: any;
@@ -32,7 +35,13 @@ export class VarsomWaterLevel2 {
   @Prop() MarkingTypeTID: any;
   @Prop() MeasuringToolDescription: any;
   @Prop() Attachments: Attachment[];
-   
+
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
+
   render(){
     return <div class="container"> 
 
@@ -102,7 +111,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
       <div>
       {this.WaterLevelMeasurement.map((el: WaterLevelMeasurement = {}) =>{
             return <varsom-water-measurement
-            strings={this.strings}
+            
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Comment={el.Comment}
             DtMeasurementTime={el.DtMeasurementTime}

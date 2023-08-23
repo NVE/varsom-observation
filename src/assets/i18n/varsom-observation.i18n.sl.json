@@ -537,7 +537,12 @@
       "IncidentIngress": "Vstop",
       "IncidentText": "Opis",
       "ObsName": "Nesreča/dogodek",
-      "Urls": "Povezave"
+      "Urls": "Povezave",
+      "InvolvedNum": "Number involved",
+      "LocalKnowledgeTID": "Local knowledge",
+      "LocalTouristTID": "Local or traveller",
+      "SafetyGearTID": "Safety gear",
+      "SlopeActivityTID": "Slope activity"
     },
     "InCm": "V centimetrih",
     "InMeter": "V metrih",

@@ -9,17 +9,14 @@ import { Attachment, SnowTempObs } from '../varsom-observation/observation-model
 })
 export class VarsomSnowTemp {
 
-  @Prop() strings?: any;
   @Prop() shortVersion: any;
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];
-  
   
   render(){
     return <div> 
       {this.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs
-            strings={this.strings}
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Depth={el.Depth ? el.Depth : null}
             SnowTemp={el.SnowTemp ? el.SnowTemp : null}          

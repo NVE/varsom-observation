@@ -15,7 +15,6 @@
 | `Layers`           | --                  |             | `SnowDensityLayer[]` | `undefined` |
 | `TareWeight`       | `tare-weight`       |             | `any`                | `undefined` |
 | `shortVersion`     | `short-version`     |             | `any`                | `undefined` |
-| `strings`          | `strings`           |             | `any`                | `undefined` |
 
 
 ## Dependencies

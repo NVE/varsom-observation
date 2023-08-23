@@ -2,6 +2,7 @@ import { Component, Prop, h} from '@stencil/core';
 import { getIconName } from '../../utils/utils';
 import { formatDateString } from '../../utils/date-utils';
 import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-metadata',
@@ -11,9 +12,9 @@ import { Element } from '@stencil/core';
 })
 export class VarsomMetadata {
 
+  private strings: any
   @Prop() dateOfRegistration: any;
   @Prop() dateOfLastUpdate?: any;
-  @Prop() strings?: any;
   @Prop() geoHazardName: any;
   @Prop() moh: any;
   @Prop() nickname: any;
@@ -29,6 +30,10 @@ export class VarsomMetadata {
 
   get registrationTimeFormatted(): string {
     return formatDateString(this.dateOfRegistration, this.elem)
+  }
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
   
   render(){

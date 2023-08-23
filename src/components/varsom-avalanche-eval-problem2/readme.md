@@ -39,7 +39,6 @@
 | `ExposedHeightComboTID`         | `exposed-height-combo-t-i-d`         |             | `any`          | `undefined` |
 | `ValidExposition`               | `valid-exposition`                   |             | `any`          | `undefined` |
 | `shortVersion`                  | `short-version`                      |             | `any`          | `undefined` |
-| `strings`                       | `strings`                            |             | `any`          | `undefined` |
 
 
 ## Dependencies
@@ -53,6 +52,7 @@
 - [varsom-label-small](../varsom-label-small)
 - [varsom-key-value](../varsom-key-value)
 - [varsom-exposed-height](../varsom-exposed-height)
+- [varsom-attachment](../varsom-attachment)
 
 ### Graph
 ```mermaid
@@ -60,6 +60,8 @@ graph TD;
   varsom-avalanche-eval-problem2 --> varsom-label-small
   varsom-avalanche-eval-problem2 --> varsom-key-value
   varsom-avalanche-eval-problem2 --> varsom-exposed-height
+  varsom-avalanche-eval-problem2 --> varsom-attachment
+  varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-eval-problem2
   style varsom-avalanche-eval-problem2 fill:#f9f,stroke:#333,stroke-width:4px
 ```

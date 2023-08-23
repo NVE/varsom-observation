@@ -17,7 +17,6 @@
 | `ObsHeader`     | `obs-header`       |             | `any`          | `undefined` |
 | `Urls`          | --                 |             | `Url[]`        | `undefined` |
 | `shortVersion`  | `short-version`    |             | `any`          | `undefined` |
-| `strings`       | `strings`          |             | `any`          | `undefined` |
 
 
 ## Dependencies

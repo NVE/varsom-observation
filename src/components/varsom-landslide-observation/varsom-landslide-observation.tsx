@@ -2,6 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 import { Attachment, Url } from '../varsom-observation/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
 import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-landslide-observation',
@@ -11,7 +12,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomLandslideObservation {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() LandSlideName?: any;
   @Prop() LandSlideTriggerName?: any;
@@ -41,6 +42,10 @@ export class VarsomLandslideObservation {
 
   get landslideTimeFormatted(): string {
     return getStartEndTimeFormatted(this.DtLandSlideTime, this.DtLandSlideTimeEnd, this.elem);
+  }
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   render(){
@@ -122,7 +127,6 @@ export class VarsomLandslideObservation {
       <div>
       {this.Urls.map((el: Url = {}) =>{
             return <varsom-url
-            strings={this.strings}
             UrlDescription={el.UrlDescription ? el.UrlDescription : null}
             UrlLine={el.UrlLine ? el.UrlLine : null}
             >

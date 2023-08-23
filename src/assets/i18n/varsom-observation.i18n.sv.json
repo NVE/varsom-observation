@@ -482,7 +482,12 @@
       "IncidentIngress": "Ingress",
       "IncidentText": "Beskrivning",
       "ObsName": "Olycka / Tillbud",
-      "Urls": "Länkar"
+      "Urls": "Länkar",
+      "InvolvedNum": "Antal involverade",
+      "LocalKnowledgeTID": "Lokalkännedom",
+      "LocalTouristTID": "Lokalbo eller tillresande",
+      "SafetyGearTID": "Safety gear",
+      "SlopeActivityTID": "Slope activity"
     },
     "LandslideObs": {
       "ActivityInfluencedTName": "Vad blev påverkat?",
