@@ -15,7 +15,6 @@
 | `WaterEquivalent` | `water-equivalent` |             | `any` | `undefined` |
 | `Weight`          | `weight`           |             | `any` | `undefined` |
 | `shortVersion`    | `short-version`    |             | `any` | `undefined` |
-| `strings`         | `strings`          |             | `any` | `undefined` |
 
 
 ## Dependencies

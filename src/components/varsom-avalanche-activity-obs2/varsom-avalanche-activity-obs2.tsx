@@ -12,7 +12,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomAvalancheActivityObs2 {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() Comment: any;
   @Prop() shortVersion: any;
   @Prop() AvalCauseName: any;
@@ -46,8 +46,6 @@ export class VarsomAvalancheActivityObs2 {
 
   render(){
     return <div>
-
-    
 
     <div class="parent"> 
 

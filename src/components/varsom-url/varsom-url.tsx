@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 
-
 @Component({
   tag: 'varsom-url',
   styleUrl: 'varsom-url.css',
@@ -9,10 +8,8 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomUrl {
 
-  @Prop() strings: any;
   @Prop() UrlDescription: any;
-  @Prop() UrlLine: any;
- 
+  @Prop() UrlLine: any; 
 
   render(){
     return <host> 

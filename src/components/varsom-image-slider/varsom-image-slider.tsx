@@ -13,7 +13,6 @@ export class VarsomImageSlider {
   @Prop() _images: any[];  
   dataSource: any;
   _loopNumbers: number[];
-  @Prop() strings: any;
   @Prop() shortVersion: string;
   @Prop() observation: Observation;
 

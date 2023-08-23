@@ -1,7 +1,10 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
+
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-compression-test',
@@ -11,7 +14,7 @@ import { valueIsNotGiven } from '../../utils/utils';
 })
 export class VarsomCompressionTest {
 
-  @Prop() strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() CompressionTestTID: any;
   @Prop() CompressionTestName: any;
@@ -31,6 +34,11 @@ export class VarsomCompressionTest {
   @Prop() Comment: any;
   @Prop() Attachments: Attachment[];
 
+  @Element() elem: HTMLElement;
+
+async componentWillLoad(){
+ this.strings = await getLocaleComponentStrings(this.elem);
+  }
 
   render(){
     return <div>

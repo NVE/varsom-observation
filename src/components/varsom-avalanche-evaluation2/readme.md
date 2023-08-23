@@ -24,7 +24,6 @@
 | `ExposedHeightComboTID`  | `exposed-height-combo-t-i-d` |             | `any`          | `undefined` |
 | `ValidExposition`        | `valid-exposition`           |             | `any`          | `undefined` |
 | `shortVersion`           | `short-version`              |             | `any`          | `undefined` |
-| `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 
 ## Dependencies
@@ -47,6 +46,7 @@ graph TD;
   varsom-avalanche-evaluation2 --> varsom-attachment
   varsom-avalanche-eval-problem --> varsom-label-small
   varsom-avalanche-eval-problem --> varsom-key-value
+  varsom-avalanche-eval-problem --> varsom-attachment
   varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-avalanche-evaluation2
   style varsom-avalanche-evaluation2 fill:#f9f,stroke:#333,stroke-width:4px

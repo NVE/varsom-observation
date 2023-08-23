@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
-
+import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-attachment',
@@ -9,12 +10,12 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomAttachment {
 
+  private strings: any
   @Prop() RegistrationName: any;
   @Prop() Comment: any;
   @Prop() Url: any;
   @Prop() Photographer: any;
   @Prop() Copyright: any;
-  @Prop() strings?: any;
   @Prop() AttachmentId?: any;
   @Prop() GeoHazardName?: any;
   @Prop() GeoHazardTID?: any;
@@ -23,6 +24,7 @@ export class VarsomAttachment {
   @Prop() AttachmentMimeType?: any;
   @Prop() IsMainAttachment?: any;
   @Prop() CropImage?: boolean;
+  @Element() elem: HTMLElement;
 
   modal: HTMLElement;
   closeBtn: HTMLElement;
@@ -32,6 +34,10 @@ export class VarsomAttachment {
   let popup = window.open();
   popup.document.write(image);
  }
+
+ async componentWillLoad(){
+  this.strings = await getLocaleComponentStrings(this.elem);
+    }
 
   render(){
     return <div class="images-container">

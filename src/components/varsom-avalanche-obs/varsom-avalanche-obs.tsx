@@ -1,7 +1,7 @@
 import { Component, Prop, h} from '@stencil/core';
 import { Attachment, Observation } from '../varsom-observation/observation-model';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
-import { getLocaleComponentStrings, getLocaleFromDom } from '../../utils/locale';
+import { getLocaleComponentStrings } from '../../utils/locale';
 import { Element } from '@stencil/core';
 
 @Component({
@@ -12,7 +12,7 @@ import { Element } from '@stencil/core';
 })
 export class VarsomAvalancheObs {
 
-  @Prop({mutable: true}) strings: any;
+  private strings: any
   @Prop() shortVersion: any;
   @Prop() DestructiveSizeName: any;
   @Prop() AvalancheTriggerName: any;
@@ -49,8 +49,7 @@ export class VarsomAvalancheObs {
   }
 
   async componentWillLoad(){
-    if (!this.strings)
-    this.strings = await getLocaleComponentStrings(getLocaleFromDom(this.elem));
+ this.strings = await getLocaleComponentStrings(this.elem);
   }
 
   get formatStartStopInfo(): string {
@@ -74,6 +73,8 @@ export class VarsomAvalancheObs {
   }
 
   render(){
+
+    
     return <div class="obs-container"> 
 
     <varsom-label

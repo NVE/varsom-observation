@@ -11,7 +11,6 @@
 | --------- | --------- | ----------- | ----- | ----------- |
 | `Comment` | `comment` |             | `any` | `undefined` |
 | `Type`    | `type`    |             | `any` | `undefined` |
-| `strings` | `strings` |             | `any` | `undefined` |
 
 
 ----------------------------------------------

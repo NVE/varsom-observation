@@ -12,7 +12,6 @@
 | `Depth`        | `depth`         |             | `any` | `undefined` |
 | `SnowTemp`     | `snow-temp`     |             | `any` | `undefined` |
 | `shortVersion` | `short-version` |             | `any` | `undefined` |
-| `strings`      | `strings`       |             | `any` | `undefined` |
 
 
 ## Dependencies

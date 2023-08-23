@@ -13,7 +13,6 @@
 | `Layers`       | --              |             | `StratProfileLayer[]` | `undefined` |
 | `TotalDepth`   | `total-depth`   |             | `any`                 | `undefined` |
 | `shortVersion` | `short-version` |             | `any`                 | `undefined` |
-| `strings`      | `strings`       |             | `any`                 | `undefined` |
 
 
 ## Dependencies

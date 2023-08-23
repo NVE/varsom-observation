@@ -15,6 +15,7 @@ export function formatDateString(date: string, elem: HTMLElement): string {
   return new Date(date).toLocaleString(getLocaleFromDom(elem), DATE_FMT);
 }
 
+
 /**
  * Format start and end times in a single string.
  *

@@ -30,7 +30,6 @@
 | `TerrainStartZoneTID`    | `terrain-start-zone-t-i-d`   |             | `any`          | `undefined` |
 | `header`                 | `header`                     |             | `any`          | `undefined` |
 | `shortVersion`           | `short-version`              |             | `any`          | `undefined` |
-| `strings`                | `strings`                    |             | `any`          | `undefined` |
 
 
 ## Dependencies
