@@ -68,14 +68,12 @@ _value={this.SlopeAngle + "\u00B0"}
     ></varsom-key-value>
     :""}
     
-{console.log(this.Comment, "snowtemp")}
-
-    {this.StratProfile.Layers ? 
+    {this.SnowTemp && this.SnowTemp.Layers ? 
 <div>
   
   <span class="snowtemp-header">{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
   <span class="snowtemp-layers">
-      {this.StratProfile.Layers.map((el: SnowTempObs = {}) =>{
+      {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs
             shortVersion={this.shortVersion ? this.shortVersion : null}
             Depth={el.Depth}
