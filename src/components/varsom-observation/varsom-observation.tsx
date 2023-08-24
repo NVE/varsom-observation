@@ -12,7 +12,7 @@ import { Element } from '@stencil/core';
 @Component({
   tag: 'varsom-observation',
   styleUrl: 'varsom-observation.css',
-  shadow: false,
+  
 })
 export class VarsomObservation {
 
@@ -916,6 +916,7 @@ WindSpeed={obs._weather.WindSpeed ? obs._weather.WindSpeed : null}
 CloudCover={obs._weather.CloudCover ? obs._weather.CloudCover : null}
 AirTemperature={obs._weather.AirTemperature ? obs._weather.AirTemperature : null}
 Attachments={obs._weather.Attachments ? obs._weather.Attachments : null}
+elemProp={this.elem}
 >
    </varsom-weather-observation>
 : ""}

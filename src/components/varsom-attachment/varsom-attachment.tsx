@@ -25,6 +25,7 @@ export class VarsomAttachment {
   @Prop() IsMainAttachment?: any;
   @Prop() CropImage?: boolean;
   @Element() elem: HTMLElement;
+  @Prop() elemProp?: HTMLElement;
 
   modal: HTMLElement;
   closeBtn: HTMLElement;
@@ -36,7 +37,7 @@ export class VarsomAttachment {
  }
 
  async componentWillLoad(){
-  this.strings = await getLocaleComponentStrings(this.elem);
+  this.strings = this.elemProp ? await getLocaleComponentStrings(this.elemProp) : await getLocaleComponentStrings(this.elem);
     }
 
   render(){

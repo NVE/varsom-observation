@@ -22,10 +22,11 @@ export class VarsomWeatherObservation {
   @Prop() CloudCover: any;
   @Prop() Comment: any;
   @Prop() Attachments?: Attachment[];
+  @Prop() elemProp?: HTMLElement;
   @Element() elem: HTMLElement;
 
   async componentWillLoad(){
-    this.strings = await getLocaleComponentStrings(this.elem);
+    this.strings = this.elemProp ? await getLocaleComponentStrings(this.elemProp) : await getLocaleComponentStrings(this.elem);
 }
    get WindInfo():string{
     return this.WindSpeed + " m/s " + this.strings.Observations.WeatherObservation.WindDirection + " " + this.WindDirectionInfo;
@@ -123,6 +124,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
             Comment={el.Comment ? el.Comment : null}
             Url={el.Url ? el.Url : null}
             Copyright={el.Copyright ? el.Copyright : null}
+            elemProp={this.elemProp}
             >
 
             </varsom-attachment>

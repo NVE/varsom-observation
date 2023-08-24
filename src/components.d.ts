@@ -35,6 +35,7 @@ export namespace Components {
         "RegistrationName": any;
         "RegistrationTID"?: any;
         "Url": any;
+        "elemProp"?: HTMLElement;
     }
     interface VarsomAvalancheActivityObs {
         "Aspect": any;
@@ -603,6 +604,7 @@ export namespace Components {
         "WindDirection": any;
         "WindDirectionName": any;
         "WindSpeed": any;
+        "elemProp"?: HTMLElement;
         "shortVersion": any;
     }
 }
@@ -975,6 +977,7 @@ declare namespace LocalJSX {
         "RegistrationName"?: any;
         "RegistrationTID"?: any;
         "Url"?: any;
+        "elemProp"?: HTMLElement;
     }
     interface VarsomAvalancheActivityObs {
         "Aspect"?: any;
@@ -1543,6 +1546,7 @@ declare namespace LocalJSX {
         "WindDirection"?: any;
         "WindDirectionName"?: any;
         "WindSpeed"?: any;
+        "elemProp"?: HTMLElement;
         "shortVersion"?: any;
     }
     interface IntrinsicElements {

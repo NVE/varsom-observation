@@ -5,6 +5,7 @@ label {
 div {
   font-family: var(--varsom-font-family);
   font-size: var(--varsom-text-size);
+  
 }
 
 .header {
@@ -25,7 +26,11 @@ span {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 1rem;
+  margin: 3rem;
+  }
+
+  .content123 {
+    color: red;
   }
   
 

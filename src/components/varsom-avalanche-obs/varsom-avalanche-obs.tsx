@@ -6,9 +6,7 @@ import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-avalanche-obs',
-  styleUrl: 'varsom-avalanche-obs.css',
-  shadow: false,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAvalancheObs {
 
@@ -50,6 +48,7 @@ export class VarsomAvalancheObs {
 
   async componentWillLoad(){
  this.strings = await getLocaleComponentStrings(this.elem);
+ console.log(this.elem, "ele2m elem2 ")
   }
 
   get formatStartStopInfo(): string {
@@ -96,7 +95,7 @@ avalanche={true}
 
  
 
- <div class="content">
+ <div class="content123">
 
     {this.DtAvalancheTime ? 
     <varsom-key-value

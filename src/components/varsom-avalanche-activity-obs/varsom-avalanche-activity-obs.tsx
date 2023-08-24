@@ -7,7 +7,6 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-avalanche-activity-obs',
-  styleUrl: 'varsom-avalanche-activity-obs.css',
   shadow: true,
   assetsDirs: ['images']
 })
@@ -40,6 +39,7 @@ export class VarsomAvalancheActivityObs {
 
 async componentWillLoad(){
  this.strings = await getLocaleComponentStrings(this.elem);
+
   }
   
   render(){
@@ -51,7 +51,7 @@ async componentWillLoad(){
     </div>
       : ""} 
 
-    <div class="content">
+    <div class="content123">
     {this.EstimatedNumName ? 
     <varsom-key-value
     _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : (this.shortVersion ? null : "Antall skred") }
