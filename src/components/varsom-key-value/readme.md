@@ -39,11 +39,9 @@
  - [varsom-landslide-observation](../varsom-landslide-observation)
  - [varsom-snow-cover-observation](../varsom-snow-cover-observation)
  - [varsom-snow-density](../varsom-snow-density)
- - [varsom-snow-density-layer](../varsom-snow-density-layer)
  - [varsom-snow-profile](../varsom-snow-profile)
  - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-surface-observation](../varsom-snow-surface-observation)
- - [varsom-snow-temp-obs](../varsom-snow-temp-obs)
  - [varsom-water-level](../varsom-water-level)
  - [varsom-water-level2](../varsom-water-level2)
  - [varsom-water-measurement](../varsom-water-measurement)
@@ -73,11 +71,9 @@ graph TD;
   varsom-landslide-observation --> varsom-key-value
   varsom-snow-cover-observation --> varsom-key-value
   varsom-snow-density --> varsom-key-value
-  varsom-snow-density-layer --> varsom-key-value
   varsom-snow-profile --> varsom-key-value
   varsom-snow-profile2 --> varsom-key-value
   varsom-snow-surface-observation --> varsom-key-value
-  varsom-snow-temp-obs --> varsom-key-value
   varsom-water-level --> varsom-key-value
   varsom-water-level2 --> varsom-key-value
   varsom-water-measurement --> varsom-key-value

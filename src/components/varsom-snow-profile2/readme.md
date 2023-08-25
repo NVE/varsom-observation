@@ -20,6 +20,7 @@
 | `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |
 | `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
 | `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
+| `Weight`            | `weight`               |             | `any`           | `undefined` |
 | `shortVersion`      | `short-version`        |             | `any`           | `undefined` |
 
 
@@ -33,6 +34,7 @@
 
 - [varsom-label](../varsom-label)
 - [varsom-key-value](../varsom-key-value)
+- [varsom-snow-temp-obs](../varsom-snow-temp-obs)
 - [varsom-snow-density](../varsom-snow-density)
 - [varsom-attachment](../varsom-attachment)
 
@@ -41,11 +43,11 @@
 graph TD;
   varsom-snow-profile2 --> varsom-label
   varsom-snow-profile2 --> varsom-key-value
+  varsom-snow-profile2 --> varsom-snow-temp-obs
   varsom-snow-profile2 --> varsom-snow-density
   varsom-snow-profile2 --> varsom-attachment
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
-  varsom-snow-density-layer --> varsom-key-value
   varsom-attachment --> varsom-key-value
   varsom-observation --> varsom-snow-profile2
   style varsom-snow-profile2 fill:#f9f,stroke:#333,stroke-width:4px

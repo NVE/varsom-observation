@@ -12,8 +12,11 @@
 | `Attachments`      | --                  |             | `Attachment[]`       | `undefined` |
 | `Comment`          | `comment`           |             | `any`                | `undefined` |
 | `CylinderDiameter` | `cylinder-diameter` |             | `any`                | `undefined` |
+| `Density`          | `density`           |             | `any`                | `undefined` |
+| `Depth`            | `depth`             |             | `any`                | `undefined` |
 | `Layers`           | --                  |             | `SnowDensityLayer[]` | `undefined` |
 | `TareWeight`       | `tare-weight`       |             | `any`                | `undefined` |
+| `Weight`           | `weight`            |             | `any`                | `undefined` |
 | `shortVersion`     | `short-version`     |             | `any`                | `undefined` |
 
 
@@ -33,7 +36,6 @@
 graph TD;
   varsom-snow-density --> varsom-key-value
   varsom-snow-density --> varsom-snow-density-layer
-  varsom-snow-density-layer --> varsom-key-value
   varsom-snow-profile2 --> varsom-snow-density
   style varsom-snow-density fill:#f9f,stroke:#333,stroke-width:4px
 ```

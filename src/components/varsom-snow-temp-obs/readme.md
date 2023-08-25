@@ -18,16 +18,13 @@
 
 ### Used by
 
+ - [varsom-snow-profile2](../varsom-snow-profile2)
  - [varsom-snow-temp](../varsom-snow-temp)
-
-### Depends on
-
-- [varsom-key-value](../varsom-key-value)
 
 ### Graph
 ```mermaid
 graph TD;
-  varsom-snow-temp-obs --> varsom-key-value
+  varsom-snow-profile2 --> varsom-snow-temp-obs
   varsom-snow-temp --> varsom-snow-temp-obs
   style varsom-snow-temp-obs fill:#f9f,stroke:#333,stroke-width:4px
 ```
