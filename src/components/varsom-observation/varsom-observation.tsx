@@ -109,7 +109,7 @@ export class VarsomObservation {
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(getLocaleFromDom(this.elem));
   let _data; 
-  if (!(this.json && this.json.length > 2)){
+  if (!(this.json)){
   if (this.regid.length !== 0){
     _data = `{"LangKey": ${langKey}, "RegId": ${this.regid}}`
   } else
@@ -124,7 +124,7 @@ export class VarsomObservation {
   data = await response.json();
   
 }else {
-  data = JSON.parse(this.json);
+  data = [this.json];
 }
 
      for(let i = 0; i < this.count; i++){
