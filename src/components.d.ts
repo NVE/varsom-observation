@@ -406,6 +406,7 @@ export namespace Components {
     interface VarsomMetadata {
         "competenceLevelName": any;
         "dateOfLastUpdate"?: any;
+        "dateOfObservation": any;
         "dateOfRegistration": any;
         "geoHazardName": any;
         "moh": any;
@@ -1346,6 +1347,7 @@ declare namespace LocalJSX {
     interface VarsomMetadata {
         "competenceLevelName"?: any;
         "dateOfLastUpdate"?: any;
+        "dateOfObservation"?: any;
         "dateOfRegistration"?: any;
         "geoHazardName"?: any;
         "moh"?: any;
