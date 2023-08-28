@@ -25,6 +25,10 @@ To show plots for ice thickness you must include these scripts and stylesheet:<b
 \<script type="text/javascript" src="https://plot.regobs.no/v1/js/jqplot.canvasTextRenderer.min.js"\>\</script\><br>
 \<script type="text/javascript" src="https://plot.regobs.no/v1/js/jqplot.canvasAxisLabelRenderer.min.js"\>\</script\><br>
 \<link rel="stylesheet" type="text/css" href="https://plot.regobs.no/v1/css/jquery.jqplot.min.css" /\>
+<br><br>
+The component can use JSON data from an observation to show the observation without making a call to the api. 
+To pass JSON data to the component as a prop, you must do it with javascript. Add an id for the component (e.g. "obs") and pass the JSON object (jsonObject) as prop inside a script tag like this: document.querySelector("#obs").json = jsonObject;
+
 
 ### **Language support**
 The component uses lang attribute in the DOM to determine language for the observations, e.g. if lang="en", then the component will show observations in english.
