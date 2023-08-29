@@ -52,7 +52,7 @@ async componentWillLoad(){
       {this.registrationTimeFormatted}
       </span> : ""}
 
-      {this.dateOfLastUpdate && !this.shortVersion ? 
+      {this.dateOfLastUpdate && this.dateOfLastUpdate.value != this.dateOfRegistration.value && !this.shortVersion ? 
       <span tabIndex={0}>
         <label>{this.strings.Reg.UpdatedTime} </label>
       {this.updateTimeFormatted}
