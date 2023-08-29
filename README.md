@@ -67,7 +67,7 @@ You can share you storybook with others. Make sure the project is set to public 
 
 ## **Distribute component to npm**
 The component can be published to npm with the command "npm publish --access=public". You need to have an account on npm and will 
-be asked to log in after entering the command. Change version number in package.json before publishing a new version.
+be asked to log in after entering the command. Change version number two places in package.json and one place in package-locl.json and run "npm run build" before publishing a new version.
 
 
 ## **Import component in a Vue project**

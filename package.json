@@ -1,6 +1,6 @@
 {
   "name": "@varsom/observation-components",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Web components for showing natural hazard observations",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -67,5 +67,5 @@
   },
   "readme": "A web component for showing natural hazard observations",
   "homepage": "https://www.varsom.no",
-  "_id": "@varsom/observation-components@0.2.1"
+  "_id": "@varsom/observation-components@0.2.3"
 }
