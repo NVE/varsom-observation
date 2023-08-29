@@ -35,7 +35,7 @@ async componentWillLoad(){
     return <div class="container"> 
 
 <varsom-label
-      label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
+      label={this.strings.Observations.SnowProfile.ObsName}
       ></varsom-label>
 
 <div class="content">
@@ -56,21 +56,21 @@ async componentWillLoad(){
 
 {this.Photographer ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Photographer : (this.shortVersion ? null : "Fotograf") }
+    _key={this.strings.Observations.Picture.Photographer}
     _value={this.Photographer}
     ></varsom-key-value>
     :""}
 
 {this.Copyright ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Copyright : (this.shortVersion ? null : "Opphavsrett") }
+    _key={this.strings.Observations.Picture.Copyright}
     _value={this.Copyright}
     ></varsom-key-value>
     :""}
 
 {this.Aspect ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Picture.Aspect: (this.shortVersion ? null : "Himmelretning") }
+    _key={this.strings.Observations.Picture.Aspect}
     _value={this.Aspect}
     ></varsom-key-value>
     :""}
@@ -78,7 +78,7 @@ async componentWillLoad(){
 
     {this.Url ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Url.Url: "URL" }
+    _key={this.strings.Observations.Url.Url}
     _value={this.Url}
     ></varsom-key-value>
     :""}
@@ -86,7 +86,7 @@ async componentWillLoad(){
 <div>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.SnowProfile.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

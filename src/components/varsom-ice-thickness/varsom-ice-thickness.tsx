@@ -53,7 +53,7 @@ componentDidRender(){
     return <div class="container">
 
       <varsom-label
-      label={this.strings ? this.strings.Observations.IceThickness.ObsName : "Istykkelse"}
+      label={this.strings.Observations.IceThickness.ObsName}
       ></varsom-label>
 
 
@@ -77,28 +77,28 @@ componentDidRender(){
 
     {this.SnowDepth ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.SnowDepthBeforeDrilling : (this.shortVersion ? null : "Snødybde før boring") }
+    _key={this.strings.Observations.IceThickness.SnowDepthBeforeDrilling}
     _value={this.SnowDepth + " cm"}
     ></varsom-key-value>
     :""}
 
     {this.SlushSnow ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.SlushSnowBeforeDrilling : (this.shortVersion ? null : "Sørpe før boring") }
+    _key={this.strings.Observations.IceThickness.SlushSnowBeforeDrilling}
     _value={this.SlushSnow + " cm"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightBefore && this.IceHeightBefore <= 0 ) ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
+    _key={this.strings.Observations.IceThickness.IceHeightBeforeInput}
     _value={((this.IceHeightBefore) * 100 * -1) + " cm"}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightAfter && this.IceHeightAfter > 0)? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
+    _key={this.strings.Observations.IceThickness.IceHeightBeforeInput}
     _value={(this.IceHeightAfter) * 100 + " cm"}
     ></varsom-key-value>
     :""}
@@ -106,20 +106,20 @@ componentDidRender(){
     {(this.IceHeightAfter && this.IceHeightAfter === 0)? 
     <varsom-key-value
     _key={this.IceHeightAfter ? this.IceHeightAfter : (this.shortVersion ? null : "er likt med isoverflaten") }
-    _value={this.strings ? this.strings.Observations.IceThickness.IsEqualToIceSurface : "er likt med isoverflaten"}
+    _value={this.strings.Observations.IceThickness.IsEqualToIceSurface}
     ></varsom-key-value>
     :""}
 
     {(this.IceHeightAfter && this.IceHeightAfter < 0)? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.IceHeightBeforeInput : (this.shortVersion ? null : "Overvannets tykkelse") }
-    _value={((this.IceHeightAfter) * 100 * -1) + " cm" + this.strings ? this.strings.Observations.IceThickness.LowerThanIceSurface : "lavere enn isoverflaten"}
+    _key={this.strings.Observations.IceThickness.IceHeightBeforeInput}
+    _value={((this.IceHeightAfter) * 100 * -1) + " cm" + this.strings.Observations.IceThickness.LowerThanIceSurface}
     ></varsom-key-value>
     :""}
 
     {this.IceThicknessSum  ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.Total : (this.shortVersion ? null : "Total istykkelse") }
+    _key={this.strings.Observations.IceThickness.Total}
     _value={this.IceThicknessSum}
     ></varsom-key-value>
     :""}
@@ -128,7 +128,7 @@ componentDidRender(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceThickness.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.IceThickness.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

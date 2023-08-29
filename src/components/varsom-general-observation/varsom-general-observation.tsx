@@ -32,7 +32,7 @@ async componentWillLoad(){
     return <div> 
 
       <varsom-label
-      label={this.strings ? this.strings.Observations.GeneralObservation.Notes : "Notater"}
+      label={this.strings.Observations.GeneralObservation.Notes}
       ></varsom-label>
 
   
@@ -45,7 +45,7 @@ async componentWillLoad(){
       
     {this.ObsComment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.GeneralObservation.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.GeneralObservation.Comment}
     _value={this.ObsComment}
     ></varsom-key-value>
     :""}

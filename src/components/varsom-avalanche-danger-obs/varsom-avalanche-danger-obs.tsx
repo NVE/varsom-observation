@@ -31,7 +31,7 @@ async componentWillLoad(){
 
     {this.DangerSignName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheDangerObs.DangerSignTID : (this.shortVersion ? null : "Type") }
+    _key={this.strings.Observations.AvalancheDangerObs.DangerSignTID}
     _value={this.DangerSignName}
     ></varsom-key-value>
     :""}
@@ -39,7 +39,7 @@ async componentWillLoad(){
     <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DangerObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.DangerObs.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

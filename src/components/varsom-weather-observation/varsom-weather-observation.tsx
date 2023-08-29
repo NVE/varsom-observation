@@ -69,21 +69,21 @@ export class VarsomWeatherObservation {
     return <div class="container"> 
 
 <varsom-label
-label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ¦r"}
+label={this.strings.Observations.WeatherObservation.ObsName}
 ></varsom-label>
 
 <div class="content">
 
 {this.PrecipitationName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.PrecipitationTID: (this.shortVersion ? null : "NedbÃ¸rstype") }
+    _key={this.strings.Observations.WeatherObservation.PrecipitationTID}
     _value={this.PrecipitationName}
     ></varsom-key-value>
     :""}
 
 {this.AirTemperature ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.AirTemperature: (this.shortVersion ? null : "Temperatur") }
+    _key={this.strings.Observations.WeatherObservation.AirTemperature}
     _value={this.AirTemperature + " " + "\u00b0" + "C"}  //unicode for degrees symbol
     ></varsom-key-value>
     :""}
@@ -91,7 +91,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {(this.WindDirection && this.WindSpeed) ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.Wind: (this.shortVersion ? null : "Vind") }
+    _key={this.strings.Observations.WeatherObservation.Wind}
     _value={this.WindInfo}
     ></varsom-key-value>
     :""}
@@ -100,7 +100,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 
 {this.CloudCover ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.CloudCover: (this.shortVersion ? null : "Skydekke") }
+    _key={this.strings.Observations.WeatherObservation.CloudCover}
     _value={this.CloudCover + "% " + this.strings.Observations.WeatherObservation.Clouds}
     ></varsom-key-value>
     :""}
@@ -108,7 +108,7 @@ label={this.strings ? this.strings.Observations.WeatherObservation.ObsName : "VÃ
 <br></br>
 {this.Comment ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WeatherObservation.Comment: (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.WeatherObservation.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

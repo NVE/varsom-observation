@@ -39,14 +39,14 @@ async componentWillLoad(){
     return <div> 
 
 <varsom-label
-      label={this.strings ? this.strings.Observations.SnowProfile.ObsName : "Snøprofil"}
+      label={this.strings.Observations.SnowProfile.ObsName}
       ></varsom-label>
 
 <div class="content">
 
 {this.Exposition ?
 <varsom-key-value
-_key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.ValidExposition: (this.shortVersion ? null : "Eksposisjon") }
+_key={this.strings.Observations.AvalancheEvaluation.ValidExposition}
 _value={this.strings.COMPASS_DIRECTION[getExpositionFromNumber(this.Exposition)]}
 ></varsom-key-value>
 : ""}
@@ -54,7 +54,7 @@ _value={this.strings.COMPASS_DIRECTION[getExpositionFromNumber(this.Exposition)]
  
 {this.SlopeAngle ?
 <varsom-key-value
-_key={this.strings && !this.shortVersion ? this.strings.MapSelection.SupportSteepnessName: (this.shortVersion ? null : "Bratthet") }
+_key={this.strings.MapSelection.SupportSteepnessName}
 _value={this.SlopeAngle + "\u00B0"}
 ></varsom-key-value>
 : ""}
@@ -63,7 +63,7 @@ _value={this.SlopeAngle + "\u00B0"}
 
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment: (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.SnowProfile.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}
@@ -71,7 +71,7 @@ _value={this.SlopeAngle + "\u00B0"}
     {this.SnowTemp && this.SnowTemp.Layers ? 
 <div>
   
-  <span class="snowtemp-header">{this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.SnowTemperature + ": ": (this.shortVersion ? null : "Temperatur:") }</span>
+  <span class="snowtemp-header">{this.strings.Observations.SnowProfile.SnowTemperature + ": "}</span>
   <span class="snowtemp-layers">
       {this.SnowTemp.Layers.map((el: SnowTempObs = {}) =>{
             return <varsom-snow-temp-obs

@@ -54,21 +54,21 @@ async componentWillLoad(){
     <div class="content">
     {this.EstimatedNumName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.HowManyAvalanches : (this.shortVersion ? null : "Antall skred") }
+    _key={this.strings.Observations.AvalancheActivityObs.HowManyAvalanches}
     _value={this.EstimatedNumName}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheTriggerName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID : (this.shortVersion ? null : "Skredutløser") }
+    _key={this.strings.Observations.AvalancheActivityObs.AvalancheTriggerTID}
     _value={this.AvalancheTriggerName}
     ></varsom-key-value>
     :""}
 
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheActivityObs.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

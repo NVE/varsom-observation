@@ -45,7 +45,7 @@ async componentWillLoad(){
     <div class="content">
     {this.AvalancheEvaluation1 ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1 : (this.shortVersion ? null : "Skredfareurdering") }
+    _key={this.strings.Observations.AvalancheEvaluation.AvalancheEvaluation1}
     _value={this.AvalancheEvaluation1}
     ></varsom-key-value>
     :""}
@@ -64,7 +64,7 @@ async componentWillLoad(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheEvaluation.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

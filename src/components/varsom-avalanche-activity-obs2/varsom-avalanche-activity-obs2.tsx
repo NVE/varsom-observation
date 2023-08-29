@@ -3,6 +3,7 @@ import { Attachment } from '../varsom-observation/observation-model';
 import { valueIsNotGiven } from '../../utils/utils';
 import { getStartEndTimeFormatted } from '../../utils/date-utils';
 import { Element } from '@stencil/core';
+import { getLocaleComponentStrings } from '../../utils/locale';
 
 @Component({
   tag: 'varsom-avalanche-activity-obs2',
@@ -40,9 +41,11 @@ export class VarsomAvalancheActivityObs2 {
 
   get avalancheTimeFormatted(): string {
     return getStartEndTimeFormatted(this.DtStart, this.DtEnd, this.elem);
-
   }
 
+  async componentWillLoad(){
+    this.strings = await getLocaleComponentStrings(this.elem);
+     }
 
   render(){
     return <div>
@@ -58,9 +61,7 @@ export class VarsomAvalancheActivityObs2 {
     {(this.DtStart && this.DtEnd) ? 
       <span>
       <label>
-        {this.strings ? 
         <span>{this.strings.Observations.AvalancheActivityObs2.DtAvalancheTime}: </span>
-        : <span>Tid: </span>}
         </label>
     {this.avalancheTimeFormatted}
     </span>
@@ -69,7 +70,7 @@ export class VarsomAvalancheActivityObs2 {
 
     {this.EstimatedNumTID ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger : (this.shortVersion ? null : "Antall, størrelse og skredutløser") }
+    _key={this.strings.Observations.AvalancheActivityObs2.NumberAndSizeAndTrigger}
     _value={(this.EstimatedNumName && !valueIsNotGiven(this.EstimatedNumName) ? (this.EstimatedNumName + ". ") : "" )+ 
     (this.DestructiveSizeName && !valueIsNotGiven(this.DestructiveSizeName) ? (this.DestructiveSizeName + ". ") : "" ) + 
     (this.AvalTriggerSimpleName && !valueIsNotGiven(this.AvalTriggerSimpleName) ? this.AvalTriggerSimpleName : "")}
@@ -80,7 +81,7 @@ export class VarsomAvalancheActivityObs2 {
  
     {this.AvalPropagationTID? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs2.Prevalence : (this.shortVersion ? null : "Utbredelse") }
+    _key={this.strings.Observations.AvalancheActivityObs2.Prevalence}
     _value={this.AvalPropagationName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -94,7 +95,7 @@ export class VarsomAvalancheActivityObs2 {
 
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheActivityObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheActivityObs.Comment}
     _value={this.Comment}
     shortVersion={this.shortVersion}
     ></varsom-key-value>

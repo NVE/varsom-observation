@@ -35,14 +35,14 @@ async componentWillLoad(){
 
 {this.CylinderDiameter ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.CylinderBoreDiam : (this.shortVersion ? null : "Sylinderdiameter (cm)") }
+    _key={this.strings.Observations.Density.CylinderBoreDiam}
     _value={this.CylinderDiameter}
     ></varsom-key-value>
     :""}
 
 {this.TareWeight ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.Density.TareWeight : (this.shortVersion ? null : "Posevekt og evt rør (g)") }
+    _key={this.strings.Observations.Density.TareWeight}
     _value={this.TareWeight}
     ></varsom-key-value>
     :""}
@@ -50,7 +50,7 @@ async componentWillLoad(){
 <br></br>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowProfile.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.SnowProfile.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}
