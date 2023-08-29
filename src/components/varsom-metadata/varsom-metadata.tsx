@@ -13,6 +13,7 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 export class VarsomMetadata {
 
   private strings: any
+  @Prop() dateOfObservation: any;
   @Prop() dateOfRegistration: any;
   @Prop() dateOfLastUpdate?: any;
   @Prop() geoHazardName: any;
@@ -38,17 +39,22 @@ async componentWillLoad(){
   
   render(){
     return <div> 
-      {this.dateOfRegistration ? 
+       {this.dateOfObservation ? 
       <span tabIndex={0}>
         <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
-      <label>{this.strings.Reg.RegisteredTime} </label>
+      <label>{this.strings.Reg.ObservedTime} </label>
+      {this.registrationTimeFormatted}
+      </span> : ""}
+      
+      {this.dateOfRegistration ? 
+      <span tabIndex={0}>
+        <label>{this.strings.Reg.RegisteredTime} </label>
       {this.registrationTimeFormatted}
       </span> : ""}
 
-      {this.dateOfLastUpdate && !this.shortVersion ? 
+      {this.dateOfLastUpdate && (this.registrationTimeFormatted != this.updateTimeFormatted) && !this.shortVersion ? 
       <span tabIndex={0}>
-        <img alt='calendar icon' class="image" src="/src/assets/icons/calendar-icon.svg"></img>
-      <label>{this.strings.Reg.UpdatedTime} </label>
+        <label>{this.strings.Reg.UpdatedTime} </label>
       {this.updateTimeFormatted}
       </span> : ""}
       

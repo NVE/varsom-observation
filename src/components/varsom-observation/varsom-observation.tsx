@@ -138,6 +138,7 @@ export class VarsomObservation {
         _source: data[i]["SourceName"],
         _sourceOfPositioning: data[i]["ObsLocation"]["UTMSourceName"],
         _precision: data[i]["ObsLocation"]["Uncertainty"],
+        _dateOfObservation: data[i]["DtObsTime"],
         _dateOfRegistration: data[i]["DtRegTime"],
         _dateOfLastUpdate: data[i]["DtChangeTime"],
         _observer: data[i]["Observer"],
@@ -550,6 +551,7 @@ if (data[i]["Attachments"][j].RegistrationTID == 13){
       ></varsom-header>
 
       <varsom-metadata 
+      date-of-observation={obs._dateOfObservation ? obs._dateOfObservation : null}
       date-of-registration={obs._dateOfRegistration ? obs._dateOfRegistration : null}
       date-of-last-update={obs._dateOfLastUpdate ? obs._dateOfLastUpdate : null}
       geo-hazard-name={obs._geoHazardName ? obs._geoHazardName : null}

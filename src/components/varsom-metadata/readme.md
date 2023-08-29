@@ -11,6 +11,7 @@
 | --------------------- | ----------------------- | ----------- | -------- | ----------- |
 | `competenceLevelName` | `competence-level-name` |             | `any`    | `undefined` |
 | `dateOfLastUpdate`    | `date-of-last-update`   |             | `any`    | `undefined` |
+| `dateOfObservation`   | `date-of-observation`   |             | `any`    | `undefined` |
 | `dateOfRegistration`  | `date-of-registration`  |             | `any`    | `undefined` |
 | `geoHazardName`       | `geo-hazard-name`       |             | `any`    | `undefined` |
 | `moh`                 | `moh`                   |             | `any`    | `undefined` |
