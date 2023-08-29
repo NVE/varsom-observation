@@ -75,7 +75,6 @@ To import the component in a Vue project, run the command "npm i @varsom/observa
 copy folders from node_modules/@varsom/observation-components/dist/collection/src/assets to src/assets. <br>
 In main.ts: import { defineCustomElement } from '@varsom/observation-components/dist/components/varsom-observation' and type defineCustomElement(); <br>
 Use the component in a .vue-file: \<varsom-observation version="" type="Snow" regid="" count=8\>\</varsom-observation\> <br>
-You may need to adjust the width for the component in a css file, e.g. width: 200%.
 <br>
 Map coordinates are added as custom data to map image. The data can be accessed by calling "get-attribute('data-lat')" and "get-attribute('data-long')" on the map image (id: 'map-tile-[dynamic number]'). 
 <br>
