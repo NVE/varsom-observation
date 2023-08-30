@@ -32,11 +32,9 @@ export class VarsomObservation {
   element: HTMLElement;
   strings: any;
   
-  //carousel: Carousel;
   dataSource: any;
 
   observationImages: HTMLElement[] = [];
-
 
   @Prop() count: number = 1;
 
@@ -72,13 +70,13 @@ export class VarsomObservation {
       slides[i].style.display = 'none';
     }
     for (i = 0; i < dots.length; i++) {
-      //dots[i].className = dots[i].className.replace(" active", "");
+      
     }
     if ( slides[this.slideIndex-1] != null)
       slides[this.slideIndex-1].style.display = "block";
     if ( slides[this.slideIndex] != null)
     slides[this.slideIndex].style.display = "block";
-    //dots[this.slideIndex-1].className += " active";
+    
   }
 
 
@@ -145,8 +143,7 @@ export class VarsomObservation {
         _typeOfWeather: data[i]["ObsLocation"]["ForecastRegionName"],
         _latitude: data[i]["ObsLocation"]["Latitude"],
         _longitude: data[i]["ObsLocation"]["Longitude"],
-        //_landslideActivity: data[i]["LandslideActivity"],
-        _dangerObs: [],//data[i]["DangerObs"],
+        _dangerObs: [],
         _landslideObs: data[i]["LandSlideObs"],
         _avalancheObs: data[i]["AvalancheObs"],
         _avalancheActivityObs2: [],
@@ -324,17 +321,17 @@ export class VarsomObservation {
               PropagationName: data[i]["CompressionTest"][j]["PropagationName"],
               StabilityEvalName: data[i]["CompressionTest"][j]["StabilityEvalName"],
               ComprTestFractureName: data[i]["CompressionTest"][j]["ComprTestFractureName"],
-              CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], //	integer($int32) The CompressionTestKDV unique identifier
-              TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], //	integer($int32) TapsFracture
-              TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"], //	integer($int32) TapsFullPropagation
-              PropagationTID: data[i]["CompressionTest"][j]["PropagationTID"], //	integer($int32) The PropagationKD unique identifier
-              FractureDepth: data[i]["CompressionTest"][j]["FractureDepth"], //($double) maximum: 100 minimum: 0 FractureDepth
-              PstX:	data[i]["CompressionTest"][j]["PstX"], //($double) maximum: 100 minimum: 0 PST X distance (in meters)
-              PstY:	data[i]["CompressionTest"][j]["PstY"], //($double) maximum: 100 minimum: 0 PST Y distance (in meters)
-              StabilityEvalTID: data[i]["CompressionTest"][j]["StabilityEvalTID"], // integer($int32) The StabilityEvalKD unique identifier
-              ComprTestFractureTID: data[i]["CompressionTest"][j]["ComprTestFractureTID"], //	integer($int32) The ComprTestFractureKD unique identifier
-              RbRelease: data[i]["CompressionTest"][j]["RbRelease"], //	integer($int32) Percentage of block that released in Rutchblock test
-              Comment:	data[i]["CompressionTest"][j]["Comment"], //Comment
+              CompressionTestTID: data[i]["CompressionTest"][j]["CompressionTestTID"], 
+              TapsFracture: data[i]["CompressionTest"][j]["TapsFracture"], 
+              TapsFullPropagation: data[i]["CompressionTest"][j]["TapsFullPropagation"],
+              PropagationTID: data[i]["CompressionTest"][j]["PropagationTID"], 
+              FractureDepth: data[i]["CompressionTest"][j]["FractureDepth"], 
+              PstX:	data[i]["CompressionTest"][j]["PstX"], 
+              PstY:	data[i]["CompressionTest"][j]["PstY"], 
+              StabilityEvalTID: data[i]["CompressionTest"][j]["StabilityEvalTID"], 
+              ComprTestFractureTID: data[i]["CompressionTest"][j]["ComprTestFractureTID"], 
+              RbRelease: data[i]["CompressionTest"][j]["RbRelease"], 
+              Comment:	data[i]["CompressionTest"][j]["Comment"],
               IncludeInSnowProfile:	data[i]["CompressionTest"][j]["IncludeInSnowProfile"],
               Attachments: []
               
