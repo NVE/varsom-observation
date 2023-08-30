@@ -8,7 +8,7 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomLabelSmall {
 
-  @Prop() label: any;
+  @Prop() label: string;
   
 
   render(){

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Attachment, IceThicknessLayer, Observation, SnowDensity, SnowDensityLayer, SnowTempObs, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observation/observation-model";
+import { Attachment, AvalancheEvalProblem, IceThicknessLayer, LatLng, Observation, SnowDensity, SnowDensityLayer, SnowTemp, SnowTempObs, StratProfile, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observation/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -37,248 +37,247 @@ export namespace Components {
         "Url": any;
     }
     interface VarsomAvalancheActivityObs {
-        "Aspect": any;
+        "Aspect": number;
         "Attachments": Attachment[];
-        "AvalancheActivityObsID": any;
-        "AvalancheName": any;
-        "AvalancheTID": any;
-        "AvalancheTriggerName": any;
-        "AvalancheTriggerTID": any;
-        "Comment": any;
-        "DestructiveSizeName": any;
-        "DestructiveSizeTID": any;
-        "DtAvalancheTime": any;
-        "DtOffAvalancheTime": any;
-        "EstimatedNumName": any;
-        "EstimatedNumTID": any;
-        "HeigthStartZone": any;
-        "SnowLine": any;
-        "SnowLineName": any;
-        "TerrainStartZoneName": any;
-        "TerrainStartZoneTID": any;
-        "header": any;
-        "shortVersion": any;
+        "AvalancheActivityObsID": number;
+        "AvalancheName": string;
+        "AvalancheTID": number;
+        "AvalancheTriggerName": string;
+        "AvalancheTriggerTID": number;
+        "Comment": string;
+        "DestructiveSizeName": string;
+        "DestructiveSizeTID": number;
+        "DtAvalancheTime": number;
+        "DtOffAvalancheTime": string;
+        "EstimatedNumName": string;
+        "EstimatedNumTID": number;
+        "HeigthStartZone": number;
+        "SnowLine": number;
+        "SnowLineName": string;
+        "TerrainStartZoneName": string;
+        "TerrainStartZoneTID": number;
+        "header": string;
+        "shortVersion": string;
     }
     interface VarsomAvalancheActivityObs2 {
         "Attachments": Attachment[];
-        "AvalCauseName": any;
-        "AvalCauseTID": any;
-        "AvalPropagationName": any;
-        "AvalPropagationTID": any;
-        "AvalTriggerSimpleName": any;
-        "AvalTriggerSimpleTID": any;
-        "AvalancheExtName": any;
-        "AvalancheExtTID": any;
-        "Comment": any;
-        "DestructiveSizeName": any;
-        "DestructiveSizeTID": any;
-        "DtEnd": any;
-        "DtStart": any;
-        "EstimatedNumName": any;
-        "EstimatedNumTID": any;
-        "ExposedHeight1": any;
-        "ExposedHeight2": any;
-        "ExposedHeightComboName": any;
-        "ExposedHeightComboTID": any;
-        "ValidExposition": any;
-        "shortVersion": any;
+        "AvalCauseName": string;
+        "AvalCauseTID": number;
+        "AvalPropagationName": string;
+        "AvalPropagationTID": number;
+        "AvalTriggerSimpleName": string;
+        "AvalTriggerSimpleTID": number;
+        "AvalancheExtName": string;
+        "AvalancheExtTID": number;
+        "Comment": string;
+        "DestructiveSizeName": string;
+        "DestructiveSizeTID": number;
+        "DtEnd": string;
+        "DtStart": string;
+        "EstimatedNumName": string;
+        "EstimatedNumTID": number;
+        "ExposedHeight1": number;
+        "ExposedHeight2": number;
+        "ExposedHeightComboName": string;
+        "ExposedHeightComboTID": number;
+        "ValidExposition": string;
+        "shortVersion": string;
     }
     interface VarsomAvalancheDangerObs {
         "Attachments": Attachment[];
-        "AvalancheDangerObsID": any;
-        "Comment": any;
-        "DangerSignName": any;
-        "DangerSignTID": any;
-        "shortVersion": any;
+        "AvalancheDangerObsID": number;
+        "Comment": string;
+        "DangerSignName": string;
+        "DangerSignTID": number;
+        "shortVersion": string;
     }
     interface VarsomAvalancheEvalProblem {
         "Attachments": Attachment[];
-        "AvalCauseExtName": any;
-        "AvalCauseExtTID": any;
-        "AvalCauseName": any;
-        "AvalCauseTID": any;
-        "AvalProbabilityName": any;
-        "AvalProbabilityTID": any;
-        "AvalReleaseHeightName": any;
-        "AvalReleaseHeightTID": any;
-        "AvalTriggerSimpleName": any;
-        "AvalTriggerSimpleTID": any;
-        "AvalancheEvalProblemID": any;
-        "AvalancheExtName": any;
-        "AvalancheExtTID": any;
-        "AvalancheProbabilityAutoText": any;
-        "AvalancheProblemAutoText": any;
-        "Comment": any;
-        "DestructiveSizeExtName": any;
-        "DestructiveSizeExtTID": any;
-        "shortVersion": any;
+        "AvalCauseExtName": string;
+        "AvalCauseExtTID": number;
+        "AvalCauseName": string;
+        "AvalCauseTID": number;
+        "AvalProbabilityName": string;
+        "AvalProbabilityTID": number;
+        "AvalReleaseHeightName": string;
+        "AvalReleaseHeightTID": number;
+        "AvalTriggerSimpleName": string;
+        "AvalTriggerSimpleTID": number;
+        "AvalancheEvalProblemID": number;
+        "AvalancheExtName": string;
+        "AvalancheExtTID": number;
+        "AvalancheProbabilityAutoText": string;
+        "AvalancheProblemAutoText": string;
+        "Comment": string;
+        "DestructiveSizeExtName": string;
+        "DestructiveSizeExtTID": number;
+        "shortVersion": string;
     }
     interface VarsomAvalancheEvalProblem2 {
         "Attachments": Attachment[];
-        "AvalCauseAttributeCrystalName": any;
-        "AvalCauseAttributeCrystalTID": any;
-        "AvalCauseAttributeLightName": any;
-        "AvalCauseAttributeLightTID": any;
-        "AvalCauseAttributeSoftName": any;
-        "AvalCauseAttributeSoftTID": any;
-        "AvalCauseAttributeThinName": any;
-        "AvalCauseAttributeThinTID": any;
-        "AvalCauseDepthName": any;
-        "AvalCauseDepthTID": any;
-        "AvalCauseName": any;
-        "AvalCauseTID": any;
-        "AvalProbabilityName": any;
-        "AvalProbabilityTID": any;
-        "AvalPropagationName": any;
-        "AvalPropagationTID": any;
-        "AvalTriggerSimpleName": any;
-        "AvalTriggerSimpleTID": any;
-        "AvalancheExtName": any;
-        "AvalancheExtTID": any;
-        "Comment": any;
-        "DestructiveSizeName": any;
-        "DestructiveSizeTID": any;
-        "ExposedHeight1": any;
-        "ExposedHeight2": any;
-        "ExposedHeightComboName": any;
-        "ExposedHeightComboTID": any;
-        "ValidExposition": any;
-        "shortVersion": any;
+        "AvalCauseAttributeCrystalName": string;
+        "AvalCauseAttributeCrystalTID": number;
+        "AvalCauseAttributeLightName": string;
+        "AvalCauseAttributeLightTID": number;
+        "AvalCauseAttributeSoftName": string;
+        "AvalCauseAttributeSoftTID": number;
+        "AvalCauseAttributeThinName": string;
+        "AvalCauseAttributeThinTID": number;
+        "AvalCauseDepthName": string;
+        "AvalCauseDepthTID": number;
+        "AvalCauseName": string;
+        "AvalCauseTID": number;
+        "AvalProbabilityName": string;
+        "AvalProbabilityTID": number;
+        "AvalPropagationName": string;
+        "AvalPropagationTID": number;
+        "AvalTriggerSimpleName": string;
+        "AvalTriggerSimpleTID": number;
+        "AvalancheExtName": string;
+        "AvalancheExtTID": number;
+        "Comment": string;
+        "DestructiveSizeName": string;
+        "DestructiveSizeTID": number;
+        "ExposedHeight1": number;
+        "ExposedHeight2": number;
+        "ExposedHeightComboName": string;
+        "ExposedHeightComboTID": number;
+        "ValidExposition": string;
+        "shortVersion": string;
     }
     interface VarsomAvalancheEvaluation {
         "Attachments": Attachment[];
-        "AvalancheDangerName": any;
-        "AvalancheDangerTID": any;
-        "AvalancheEvaluation1": any;
-        "AvalancheProblemName1": any;
-        "AvalancheProblemName2": any;
-        "AvalancheProblemName3": any;
-        "AvalancheProblemTID1": any;
-        "AvalancheProblemTID2": any;
-        "AvalancheProblemTID3": any;
-        "CanPublish": any;
-        "Comment": any;
-        "RegID": any;
-        "ValidExposition": any;
-        "ValidHeightFrom": any;
-        "ValidHeightRelative": any;
-        "ValidHeigtTo": any;
-        "shortVersion": any;
+        "AvalancheDangerName": string;
+        "AvalancheDangerTID": number;
+        "AvalancheEvaluation1": string;
+        "AvalancheProblemName1": string;
+        "AvalancheProblemName2": string;
+        "AvalancheProblemName3": string;
+        "AvalancheProblemTID1": number;
+        "AvalancheProblemTID2": number;
+        "AvalancheProblemTID3": number;
+        "CanPublish": boolean;
+        "Comment": string;
+        "ValidExposition": string;
+        "ValidHeightFrom": number;
+        "ValidHeightRelative": string;
+        "ValidHeigtTo": number;
+        "shortVersion": string;
     }
     interface VarsomAvalancheEvaluation2 {
         "Attachments": Attachment[];
-        "AvalancheDangerName": any;
-        "AvalancheDangerTID": any;
-        "AvalancheDevelopment": any;
-        "AvalancheEvalProblems": any[];
-        "AvalancheEvaluation": any;
-        "Comment": any;
-        "ExposedClimateName": any;
-        "ExposedClimateTID": any;
-        "ExposedHeight1": any;
-        "ExposedHeight2": any;
-        "ExposedHeightComboName": any;
-        "ExposedHeightComboTID": any;
-        "ValidExposition": any;
-        "shortVersion": any;
+        "AvalancheDangerName": string;
+        "AvalancheDangerTID": number;
+        "AvalancheDevelopment": string;
+        "AvalancheEvalProblems": AvalancheEvalProblem[];
+        "AvalancheEvaluation": string;
+        "Comment": string;
+        "ExposedClimateName": string;
+        "ExposedClimateTID": number;
+        "ExposedHeight1": number;
+        "ExposedHeight2": number;
+        "ExposedHeightComboName": string;
+        "ExposedHeightComboTID": number;
+        "ValidExposition": string;
+        "shortVersion": string;
     }
     interface VarsomAvalancheEvaluation3 {
         "Attachments": Attachment[];
-        "AvalancheDangerName": any;
-        "AvalancheDangerTID": any;
-        "AvalancheDevelopment": any;
-        "AvalancheEvaluation": any;
-        "ForecastComment": any;
-        "ForecastCorrectName": any;
-        "ForecastCorrectTID": any;
-        "shortVersion": any;
+        "AvalancheDangerName": string;
+        "AvalancheDangerTID": number;
+        "AvalancheDevelopment": string;
+        "AvalancheEvaluation": string;
+        "ForecastComment": string;
+        "ForecastCorrectName": string;
+        "ForecastCorrectTID": number;
+        "shortVersion": string;
     }
     interface VarsomAvalancheObs {
-        "Aspect": any;
+        "Aspect": number;
         "Attachments": Attachment[];
-        "AvalCauseName": any;
-        "AvalCauseTID": any;
-        "AvalancheName": any;
-        "AvalancheTID": any;
-        "AvalancheTriggerName": any;
-        "AvalancheTriggerTID": any;
-        "Comment": any;
-        "DestructiveSizeName": any;
-        "DestructiveSizeTID": any;
-        "DtAvalancheTime": any;
-        "FractureHeight": any;
-        "FractureWidth": any;
-        "HeightStartZone": any;
-        "HeightStopZone": any;
+        "AvalCauseName": string;
+        "AvalCauseTID": number;
+        "AvalancheName": string;
+        "AvalancheTID": number;
+        "AvalancheTriggerName": string;
+        "AvalancheTriggerTID": number;
+        "Comment": string;
+        "DestructiveSizeName": string;
+        "DestructiveSizeTID": number;
+        "DtAvalancheTime": string;
+        "FractureHeight": number;
+        "FractureWidth": number;
+        "HeightStartZone": number;
+        "HeightStopZone": number;
         "Observation": Observation;
-        "RemotelyTriggered": any;
-        "SnowLine": any;
-        "StartLat": any;
-        "StartLong": any;
-        "StopLat": any;
-        "StopLong": any;
-        "TerrainStartZoneName": any;
-        "TerrainStartZoneTID": any;
-        "Trajectory": any;
-        "ValidExposition": any;
-        "shortVersion": any;
+        "RemotelyTriggered": boolean;
+        "SnowLine": number;
+        "StartLat": number;
+        "StartLong": number;
+        "StopLat": number;
+        "StopLong": number;
+        "TerrainStartZoneName": string;
+        "TerrainStartZoneTID": number;
+        "Trajectory": string;
+        "ValidExposition": string;
+        "shortVersion": string;
     }
     interface VarsomCompressionTest {
         "Attachments": Attachment[];
-        "Comment": any;
-        "ComprTestFractureName": any;
-        "ComprTestFractureTID": any;
-        "CompressionTestName": any;
-        "CompressionTestTID": any;
-        "FractureDepth": any;
-        "IncludeInSnowProfile": any;
-        "PropagationName": any;
-        "PropagationTID": any;
-        "PstX": any;
-        "PstY": any;
-        "RbRelease": any;
-        "StabilityEvalName": any;
-        "StabilityEvalTID": any;
-        "TapsFracture": any;
-        "TapsFullPropagation": any;
-        "shortVersion": any;
+        "Comment": string;
+        "ComprTestFractureName": string;
+        "ComprTestFractureTID": number;
+        "CompressionTestName": string;
+        "CompressionTestTID": number;
+        "FractureDepth": number;
+        "IncludeInSnowProfile": boolean;
+        "PropagationName": string;
+        "PropagationTID": number;
+        "PstX": number;
+        "PstY": number;
+        "RbRelease": number;
+        "StabilityEvalName": string;
+        "StabilityEvalTID": number;
+        "TapsFracture": number;
+        "TapsFullPropagation": number;
+        "shortVersion": string;
     }
     interface VarsomDamageObs {
         "Attachments"?: Attachment[];
         "Comment": string;
-        "DamagePosition": any;
+        "DamagePosition": LatLng;
         "DamageTypeName": string;
         "DamageTypeTID": number;
         "GeoHazardName": string;
         "GeoHazardTID": number;
-        "shortVersion": any;
+        "shortVersion": string;
     }
     interface VarsomDangerObs {
         "Attachments": Attachment[];
-        "Comment": any;
-        "DangerSignName": any;
-        "DangerSignTID": any;
-        "GeoHazardName": any;
-        "GeoHazardTID": any;
-        "shortVersion": any;
+        "Comment": string;
+        "DangerSignName": string;
+        "DangerSignTID": number;
+        "GeoHazardName": string;
+        "GeoHazardTID": number;
+        "shortVersion": string;
     }
     interface VarsomDoc {
         "Text": any;
     }
     interface VarsomExposedHeight {
-        "ExposedHeight1": any;
-        "ExposedHeight2": any;
-        "ValidExposition": any;
+        "ExposedHeight1": number;
+        "ExposedHeight2": number;
+        "ValidExposition": string;
     }
     interface VarsomGeneralObservation {
         "Attachments": Attachment[];
-        "Comment": any;
-        "GeoHazardName": any;
-        "GeoHazardTID": any;
-        "ObsComment": any;
-        "ObsHeader": any;
+        "Comment": string;
+        "GeoHazardName": string;
+        "GeoHazardTID": number;
+        "ObsComment": string;
+        "ObsHeader": string;
         "Urls": Url[];
-        "shortVersion": any;
+        "shortVersion": string;
     }
     interface VarsomHeader {
         "regId": string;
@@ -286,40 +285,40 @@ export namespace Components {
     }
     interface VarsomIceCoverObservation {
         "Attachments": Attachment[];
-        "Comment": any;
-        "IceCapacityName": any;
-        "IceCapacityTID": any;
-        "IceCoverAfterName": any;
-        "IceCoverAfterTID": any;
-        "IceCoverBeforeName": any;
-        "IceCoverBeforeTID": any;
-        "IceCoverName": any;
-        "IceCoverTID": any;
-        "IceSkateabilityName": any;
-        "IceSkateabilityTID": any;
-        "shortVersion": any;
+        "Comment": string;
+        "IceCapacityName": string;
+        "IceCapacityTID": number;
+        "IceCoverAfterName": string;
+        "IceCoverAfterTID": number;
+        "IceCoverBeforeName": string;
+        "IceCoverBeforeTID": number;
+        "IceCoverName": string;
+        "IceCoverTID": number;
+        "IceSkateabilityName": string;
+        "IceSkateabilityTID": number;
+        "shortVersion": string;
     }
     interface VarsomIceThickness {
         "Attachments": Attachment[];
-        "Comment": any;
-        "DtObsTime": any;
-        "HardCodedImg": any;
-        "IceHeightAfter": any;
-        "IceHeightBefore": any;
+        "Comment": string;
+        "DtObsTime": string;
+        "HardCodedImg": string;
+        "IceHeightAfter": number;
+        "IceHeightBefore": number;
         "IceThicknessLayers": IceThicknessLayer[];
-        "IceThicknessSum": any;
-        "LocationName": any;
-        "ObsLocationId": any;
-        "SlushSnow": any;
-        "SnowDepth": any;
-        "regId": any;
-        "shortVersion": any;
+        "IceThicknessSum": number;
+        "LocationName": string;
+        "ObsLocationId": number;
+        "SlushSnow": number;
+        "SnowDepth": number;
+        "regId": number;
+        "shortVersion": string;
     }
     interface VarsomIceThicknessLayer {
-        "Comment": any;
-        "IceLayerName": any;
-        "IceLayerThickness": any;
-        "shortVersion": any;
+        "Comment": string;
+        "IceLayerName": string;
+        "IceLayerThickness": number;
+        "shortVersion": string;
     }
     interface VarsomImageSlider {
         "_images": any[];
@@ -332,86 +331,86 @@ export namespace Components {
         "shortVersion": string;
     }
     interface VarsomIncident {
-        "ActivityInfluencedName": any;
-        "ActivityInfluencedTID": any;
+        "ActivityInfluencedName": string;
+        "ActivityInfluencedTID": number;
         "Attachments": Attachment[];
-        "CasualtiesNum": any;
-        "Comment": any;
-        "DamageExtentName": any;
-        "DamageExtentTID": any;
-        "DeadNum": any;
-        "DtEndTime": any;
-        "EvacuatedNum": any;
-        "ForecastAccurateName": any;
-        "ForecastAccurateTID": any;
-        "GeoHazardName": any;
-        "GeoHazardTID": any;
-        "HarmedNum": any;
-        "IncidentHeader": any;
-        "IncidentIngress": any;
-        "IncidentText": any;
-        "IncidentURLs": any[];
-        "InvolvedNum": any;
-        "LocalKnowledgeName": any;
-        "LocalKnowledgeTID": any;
-        "LocalTouristName": any;
-        "LocalTouristTID": any;
-        "MaterialDamages": any;
-        "RescueName": any;
-        "RescueTID": any;
-        "SafetyGearName": any;
-        "SafetyGearTID": any;
-        "SlopeActivityName": any;
-        "SlopeActivityTID": any;
-        "TrafficObstructed": any;
-        "shortVersion": any;
+        "CasualtiesNum": number;
+        "Comment": string;
+        "DamageExtentName": string;
+        "DamageExtentTID": number;
+        "DeadNum": number;
+        "DtEndTime": string;
+        "EvacuatedNum": number;
+        "ForecastAccurateName": string;
+        "ForecastAccurateTID": number;
+        "GeoHazardName": string;
+        "GeoHazardTID": number;
+        "HarmedNum": number;
+        "IncidentHeader": string;
+        "IncidentIngress": string;
+        "IncidentText": string;
+        "IncidentURLs": Url[];
+        "InvolvedNum": number;
+        "LocalKnowledgeName": string;
+        "LocalKnowledgeTID": number;
+        "LocalTouristName": string;
+        "LocalTouristTID": number;
+        "MaterialDamages": boolean;
+        "RescueName": string;
+        "RescueTID": number;
+        "SafetyGearName": string;
+        "SafetyGearTID": number;
+        "SlopeActivityName": string;
+        "SlopeActivityTID": number;
+        "TrafficObstructed": boolean;
+        "shortVersion": string;
     }
     interface VarsomKeyValue {
-        "_key": any;
-        "_value"?: any;
+        "_key": string;
+        "_value"?: string | number | boolean;
         "shortVersion": string;
     }
     interface VarsomLabel {
-        "label": any;
+        "label": string;
     }
     interface VarsomLabelSmall {
-        "label": any;
+        "label": string;
     }
     interface VarsomLandslideObservation {
-        "ActivityInfluencedName"?: any;
-        "ActivityInfluencedTID"?: any;
+        "ActivityInfluencedName"?: string;
+        "ActivityInfluencedTID"?: number;
         "Attachments": Attachment[];
-        "Comment"?: any;
-        "DamageExtentName"?: any;
-        "DamageExtentTID"?: any;
-        "DtLandSlideTime"?: any;
-        "DtLandSlideTimeEnd"?: any;
-        "ForecastAccurateName"?: any;
-        "ForecastAccurateTID"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "LandSlideName"?: any;
-        "LandSlideSizeName"?: any;
-        "LandSlideSizeTID"?: any;
-        "LandSlideTID"?: any;
-        "LandSlideTriggerName"?: any;
-        "LandSlideTriggerTID"?: any;
-        "StartLat"?: any;
-        "StartLong"?: any;
-        "StopLat"?: any;
-        "StopLong"?: any;
-        "Urls"?: any[];
-        "shortVersion": any;
+        "Comment"?: string;
+        "DamageExtentName"?: string;
+        "DamageExtentTID"?: number;
+        "DtLandSlideTime"?: string;
+        "DtLandSlideTimeEnd"?: string;
+        "ForecastAccurateName"?: string;
+        "ForecastAccurateTID"?: number;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "LandSlideName"?: string;
+        "LandSlideSizeName"?: string;
+        "LandSlideSizeTID"?: number;
+        "LandSlideTID"?: number;
+        "LandSlideTriggerName"?: string;
+        "LandSlideTriggerTID"?: number;
+        "StartLat"?: number;
+        "StartLong"?: number;
+        "StopLat"?: number;
+        "StopLong"?: number;
+        "Urls"?: Url[];
+        "shortVersion": string;
     }
     interface VarsomMetadata {
-        "competenceLevelName": any;
-        "dateOfLastUpdate"?: any;
-        "dateOfObservation": any;
-        "dateOfRegistration": any;
-        "geoHazardName": any;
-        "moh": any;
-        "nickname": any;
-        "observerGroupName": any;
+        "competenceLevelName": string;
+        "dateOfLastUpdate"?: string;
+        "dateOfObservation": string;
+        "dateOfRegistration": string;
+        "geoHazardName": string;
+        "moh": number;
+        "nickname": string;
+        "observerGroupName": string;
         "shortVersion": string;
     }
     interface VarsomObservation {
@@ -423,100 +422,96 @@ export namespace Components {
         "version": string;
     }
     interface VarsomRegobsLink {
-        "regId": any;
-    }
-    interface VarsomSignsOfDanger {
-        "Comment"?: any;
-        "Type"?: any;
+        "regId": number;
     }
     interface VarsomSnowCoverObservation {
         "Attachments": Attachment[];
-        "Comment": any;
-        "CriticalLayerExists": any;
-        "CriticalLayerLocation": any;
-        "CriticalLayerName": any;
-        "CriticalLayerTID": any;
-        "DepthHoarThickness": any;
-        "SnowPilotRef": any;
-        "shortVersion": any;
+        "Comment": string;
+        "CriticalLayerExists": boolean;
+        "CriticalLayerLocation": number;
+        "CriticalLayerName": string;
+        "CriticalLayerTID": number;
+        "DepthHoarThickness": number;
+        "SnowPilotRef": string;
+        "shortVersion": string;
     }
     interface VarsomSnowDensity {
         "Attachments": Attachment[];
-        "Comment": any;
-        "CylinderDiameter": any;
-        "Density": any;
-        "Depth": any;
+        "Comment": string;
+        "CylinderDiameter": number;
+        "Density": number;
+        "Depth": number;
         "Layers": SnowDensityLayer[];
-        "TareWeight": any;
-        "Weight": any;
-        "shortVersion": any;
+        "TareWeight": number;
+        "Weight": number;
+        "shortVersion": string;
     }
     interface VarsomSnowDensityLayer {
-        "Density": any;
-        "Depth": any;
-        "SortOrder": any;
-        "Thickness": any;
-        "WaterEquivalent": any;
-        "Weight": any;
-        "shortVersion": any;
+        "Density": number;
+        "Depth": number;
+        "SortOrder": number;
+        "Thickness": number;
+        "WaterEquivalent": number;
+        "Weight": number;
+        "shortVersion": string;
     }
     interface VarsomSnowProfile {
-        "Aspect": any;
+        "Aspect": number;
         "Attachments": Attachment[];
-        "Comment": any;
-        "Copyright": any;
-        "GeoHazardName": any;
-        "GeoHazardTID": any;
-        "Photographer": any;
-        "RegistrationName": any;
-        "RegistrationTID": any;
-        "Url": any;
-        "shortVersion": any;
+        "Comment": string;
+        "Copyright": string;
+        "GeoHazardName": string;
+        "GeoHazardTID": number;
+        "Photographer": string;
+        "RegistrationName": string;
+        "RegistrationTID": number;
+        "Url": string;
+        "shortVersion": string;
     }
     interface VarsomSnowProfile2 {
         "Attachments": Attachment[];
-        "Comment": any;
-        "Exposition": any;
-        "ImageUrl": any;
-        "IsProfileToGround": any;
-        "RegId": any;
-        "SlopeAngle": any;
+        "Comment": string;
+        "Exposition": number;
+        "ImageUrl": string;
+        "IsProfileToGround": boolean;
+        "RegId": number;
+        "SlopeAngle": number;
         "SnowDensity": SnowDensity[];
-        "SnowTemp": any;
-        "StratProfile": any;
-        "TotalDepth": any;
-        "Weight": any;
-        "shortVersion": any;
+        "SnowTemp": SnowTemp;
+        "StratProfile": StratProfile;
+        "TotalDepth": number;
+        "Weight": number;
+        "shortVersion": string;
     }
     interface VarsomSnowSurfaceObservation {
         "Attachments": Attachment[];
-        "Comment": any;
-        "FootPenetration": any;
-        "HeightLimitLayeredSnow": any;
-        "NewSnowDepth24": any;
-        "NewSnowLine": any;
-        "SkiConditionsName": any;
-        "SkiConditionsTID": any;
-        "SnowDepth": any;
-        "SnowDriftName": any;
-        "SnowDriftTID": any;
-        "SnowLine": any;
-        "SnowSurfaceName": any;
-        "SnowSurfaceTID": any;
-        "SurfaceRoughnessName": any;
-        "SurfaceWaterContentName": any;
-        "SurfaceWaterContentTID": any;
-        "shortVersion": any;
+        "Comment": string;
+        "FootPenetration": number;
+        "HeightLimitLayeredSnow": number;
+        "NewSnowDepth24": number;
+        "NewSnowLine": number;
+        "SkiConditionsName": string;
+        "SkiConditionsTID": number;
+        "SnowDepth": number;
+        "SnowDriftName": string;
+        "SnowDriftTID": number;
+        "SnowLine": number;
+        "SnowSurfaceName": string;
+        "SnowSurfaceTID": number;
+        "SurfaceRoughnessName": string;
+        "SurfaceWaterContentName": string;
+        "SurfaceWaterContentTID": number;
+        "shortVersion": string;
     }
     interface VarsomSnowTemp {
         "Attachments": Attachment[];
         "Layers": SnowTempObs[];
-        "shortVersion": any;
+        "shortVersion": string;
     }
     interface VarsomSnowTempObs {
-        "Depth": any;
-        "SnowTemp": any;
-        "shortVersion": any;
+        "Depth": number;
+        "SnowTemp": number;
+        "shortVersion": string;
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
@@ -527,84 +522,84 @@ export namespace Components {
     interface VarsomStratProfile {
         "Attachments": Attachment[];
         "Layers": StratProfileLayer[];
-        "TotalDepth": any;
-        "shortVersion": any;
+        "TotalDepth": number;
+        "shortVersion": string;
     }
     interface VarsomStratProfileLayer {
-        "Comment": any;
-        "CriticalLayerTID": any;
-        "CriticalLayerTName": any;
-        "DepthTop": any;
-        "GrainFormPrimaryTID": any;
-        "GrainFormPrimaryTName": any;
-        "GrainFormSecondaryTID": any;
-        "GrainFormSecondaryTName": any;
-        "GrainSizeAvg": any;
-        "GrainSizeAvgMax": any;
-        "HardnessBottomTID": any;
-        "HardnessBottomTName": any;
-        "HardnessTID": any;
-        "HardnessTName": any;
-        "SortOrder": any;
-        "Thickness": any;
-        "WetnessTID": any;
-        "WetnessTName": any;
-        "shortVersion": any;
+        "Comment": string;
+        "CriticalLayerTID": number;
+        "CriticalLayerTName": string;
+        "DepthTop": number;
+        "GrainFormPrimaryTID": number;
+        "GrainFormPrimaryTName": string;
+        "GrainFormSecondaryTID": number;
+        "GrainFormSecondaryTName": string;
+        "GrainSizeAvg": number;
+        "GrainSizeAvgMax": number;
+        "HardnessBottomTID": number;
+        "HardnessBottomTName": string;
+        "HardnessTID": number;
+        "HardnessTName": string;
+        "SortOrder": number;
+        "Thickness": number;
+        "WetnessTID": number;
+        "WetnessTName": string;
+        "shortVersion": string;
     }
     interface VarsomUrl {
-        "UrlDescription": any;
-        "UrlLine": any;
+        "UrlDescription": string;
+        "UrlLine": string;
     }
     interface VarsomWaterLevel {
         "Attachments": Attachment[];
-        "IsRiver": any;
-        "MeasuredDischarge": any;
-        "WaterLevelDescribed": any;
-        "WaterLevelRefName": any;
-        "WaterLevelRefTID": any;
-        "WaterLevelValue": any;
-        "shortVersion": any;
+        "IsRiver": boolean;
+        "MeasuredDischarge": number;
+        "WaterLevelDescribed": number;
+        "WaterLevelRefName": number;
+        "WaterLevelRefTID": number;
+        "WaterLevelValue": number;
+        "shortVersion": string;
     }
     interface VarsomWaterLevel2 {
         "Attachments": Attachment[];
-        "Comment": any;
-        "MarkingReferenceName": any;
-        "MarkingReferenceTID": any;
-        "MarkingTypeName": any;
-        "MarkingTypeTID": any;
-        "MeasurementReferenceName": any;
-        "MeasurementReferenceTID": any;
-        "MeasurementTypeName": any;
-        "MeasurementTypeTID": any;
-        "MeasuringToolDescription": any;
-        "ObservationTimingName": any;
-        "ObservationTimingTID": any;
-        "WaterAstrayName": any;
-        "WaterAstrayTID": any;
+        "Comment": string;
+        "MarkingReferenceName": string;
+        "MarkingReferenceTID": number;
+        "MarkingTypeName": string;
+        "MarkingTypeTID": number;
+        "MeasurementReferenceName": string;
+        "MeasurementReferenceTID": number;
+        "MeasurementTypeName": string;
+        "MeasurementTypeTID": number;
+        "MeasuringToolDescription": string;
+        "ObservationTimingName": string;
+        "ObservationTimingTID": number;
+        "WaterAstrayName": string;
+        "WaterAstrayTID": number;
         "WaterLevelMeasurement": WaterLevelMeasurement[];
-        "WaterLevelMethodName": any;
-        "WaterLevelMethodTID": any;
-        "WaterLevelStateName": any;
-        "WaterLevelStateTID": any;
-        "shortVersion": any;
+        "WaterLevelMethodName": string;
+        "WaterLevelMethodTID": number;
+        "WaterLevelStateName": string;
+        "WaterLevelStateTID": number;
+        "shortVersion": string;
     }
     interface VarsomWaterMeasurement {
-        "Comment": any;
-        "DtMeasurementTime": any;
-        "WaterLevelValue": any;
-        "shortVersion": any;
+        "Comment": string;
+        "DtMeasurementTime": string;
+        "WaterLevelValue": number;
+        "shortVersion": string;
     }
     interface VarsomWeatherObservation {
-        "AirTemperature": any;
+        "AirTemperature": number;
         "Attachments"?: Attachment[];
-        "CloudCover": any;
-        "Comment": any;
-        "PrecipitationName": any;
-        "PrecipitationTID": any;
-        "WindDirection": any;
-        "WindDirectionName": any;
-        "WindSpeed": any;
-        "shortVersion": any;
+        "CloudCover": number;
+        "Comment": string;
+        "PrecipitationName": string;
+        "PrecipitationTID": number;
+        "WindDirection": number;
+        "WindDirectionName": string;
+        "WindSpeed": number;
+        "shortVersion": string;
     }
 }
 declare global {
@@ -794,12 +789,6 @@ declare global {
         prototype: HTMLVarsomRegobsLinkElement;
         new (): HTMLVarsomRegobsLinkElement;
     };
-    interface HTMLVarsomSignsOfDangerElement extends Components.VarsomSignsOfDanger, HTMLStencilElement {
-    }
-    var HTMLVarsomSignsOfDangerElement: {
-        prototype: HTMLVarsomSignsOfDangerElement;
-        new (): HTMLVarsomSignsOfDangerElement;
-    };
     interface HTMLVarsomSnowCoverObservationElement extends Components.VarsomSnowCoverObservation, HTMLStencilElement {
     }
     var HTMLVarsomSnowCoverObservationElement: {
@@ -928,7 +917,6 @@ declare global {
         "varsom-metadata": HTMLVarsomMetadataElement;
         "varsom-observation": HTMLVarsomObservationElement;
         "varsom-regobs-link": HTMLVarsomRegobsLinkElement;
-        "varsom-signs-of-danger": HTMLVarsomSignsOfDangerElement;
         "varsom-snow-cover-observation": HTMLVarsomSnowCoverObservationElement;
         "varsom-snow-density": HTMLVarsomSnowDensityElement;
         "varsom-snow-density-layer": HTMLVarsomSnowDensityLayerElement;
@@ -978,248 +966,247 @@ declare namespace LocalJSX {
         "Url"?: any;
     }
     interface VarsomAvalancheActivityObs {
-        "Aspect"?: any;
+        "Aspect"?: number;
         "Attachments"?: Attachment[];
-        "AvalancheActivityObsID"?: any;
-        "AvalancheName"?: any;
-        "AvalancheTID"?: any;
-        "AvalancheTriggerName"?: any;
-        "AvalancheTriggerTID"?: any;
-        "Comment"?: any;
-        "DestructiveSizeName"?: any;
-        "DestructiveSizeTID"?: any;
-        "DtAvalancheTime"?: any;
-        "DtOffAvalancheTime"?: any;
-        "EstimatedNumName"?: any;
-        "EstimatedNumTID"?: any;
-        "HeigthStartZone"?: any;
-        "SnowLine"?: any;
-        "SnowLineName"?: any;
-        "TerrainStartZoneName"?: any;
-        "TerrainStartZoneTID"?: any;
-        "header"?: any;
-        "shortVersion"?: any;
+        "AvalancheActivityObsID"?: number;
+        "AvalancheName"?: string;
+        "AvalancheTID"?: number;
+        "AvalancheTriggerName"?: string;
+        "AvalancheTriggerTID"?: number;
+        "Comment"?: string;
+        "DestructiveSizeName"?: string;
+        "DestructiveSizeTID"?: number;
+        "DtAvalancheTime"?: number;
+        "DtOffAvalancheTime"?: string;
+        "EstimatedNumName"?: string;
+        "EstimatedNumTID"?: number;
+        "HeigthStartZone"?: number;
+        "SnowLine"?: number;
+        "SnowLineName"?: string;
+        "TerrainStartZoneName"?: string;
+        "TerrainStartZoneTID"?: number;
+        "header"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheActivityObs2 {
         "Attachments"?: Attachment[];
-        "AvalCauseName"?: any;
-        "AvalCauseTID"?: any;
-        "AvalPropagationName"?: any;
-        "AvalPropagationTID"?: any;
-        "AvalTriggerSimpleName"?: any;
-        "AvalTriggerSimpleTID"?: any;
-        "AvalancheExtName"?: any;
-        "AvalancheExtTID"?: any;
-        "Comment"?: any;
-        "DestructiveSizeName"?: any;
-        "DestructiveSizeTID"?: any;
-        "DtEnd"?: any;
-        "DtStart"?: any;
-        "EstimatedNumName"?: any;
-        "EstimatedNumTID"?: any;
-        "ExposedHeight1"?: any;
-        "ExposedHeight2"?: any;
-        "ExposedHeightComboName"?: any;
-        "ExposedHeightComboTID"?: any;
-        "ValidExposition"?: any;
-        "shortVersion"?: any;
+        "AvalCauseName"?: string;
+        "AvalCauseTID"?: number;
+        "AvalPropagationName"?: string;
+        "AvalPropagationTID"?: number;
+        "AvalTriggerSimpleName"?: string;
+        "AvalTriggerSimpleTID"?: number;
+        "AvalancheExtName"?: string;
+        "AvalancheExtTID"?: number;
+        "Comment"?: string;
+        "DestructiveSizeName"?: string;
+        "DestructiveSizeTID"?: number;
+        "DtEnd"?: string;
+        "DtStart"?: string;
+        "EstimatedNumName"?: string;
+        "EstimatedNumTID"?: number;
+        "ExposedHeight1"?: number;
+        "ExposedHeight2"?: number;
+        "ExposedHeightComboName"?: string;
+        "ExposedHeightComboTID"?: number;
+        "ValidExposition"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheDangerObs {
         "Attachments"?: Attachment[];
-        "AvalancheDangerObsID"?: any;
-        "Comment"?: any;
-        "DangerSignName"?: any;
-        "DangerSignTID"?: any;
-        "shortVersion"?: any;
+        "AvalancheDangerObsID"?: number;
+        "Comment"?: string;
+        "DangerSignName"?: string;
+        "DangerSignTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheEvalProblem {
         "Attachments"?: Attachment[];
-        "AvalCauseExtName"?: any;
-        "AvalCauseExtTID"?: any;
-        "AvalCauseName"?: any;
-        "AvalCauseTID"?: any;
-        "AvalProbabilityName"?: any;
-        "AvalProbabilityTID"?: any;
-        "AvalReleaseHeightName"?: any;
-        "AvalReleaseHeightTID"?: any;
-        "AvalTriggerSimpleName"?: any;
-        "AvalTriggerSimpleTID"?: any;
-        "AvalancheEvalProblemID"?: any;
-        "AvalancheExtName"?: any;
-        "AvalancheExtTID"?: any;
-        "AvalancheProbabilityAutoText"?: any;
-        "AvalancheProblemAutoText"?: any;
-        "Comment"?: any;
-        "DestructiveSizeExtName"?: any;
-        "DestructiveSizeExtTID"?: any;
-        "shortVersion"?: any;
+        "AvalCauseExtName"?: string;
+        "AvalCauseExtTID"?: number;
+        "AvalCauseName"?: string;
+        "AvalCauseTID"?: number;
+        "AvalProbabilityName"?: string;
+        "AvalProbabilityTID"?: number;
+        "AvalReleaseHeightName"?: string;
+        "AvalReleaseHeightTID"?: number;
+        "AvalTriggerSimpleName"?: string;
+        "AvalTriggerSimpleTID"?: number;
+        "AvalancheEvalProblemID"?: number;
+        "AvalancheExtName"?: string;
+        "AvalancheExtTID"?: number;
+        "AvalancheProbabilityAutoText"?: string;
+        "AvalancheProblemAutoText"?: string;
+        "Comment"?: string;
+        "DestructiveSizeExtName"?: string;
+        "DestructiveSizeExtTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheEvalProblem2 {
         "Attachments"?: Attachment[];
-        "AvalCauseAttributeCrystalName"?: any;
-        "AvalCauseAttributeCrystalTID"?: any;
-        "AvalCauseAttributeLightName"?: any;
-        "AvalCauseAttributeLightTID"?: any;
-        "AvalCauseAttributeSoftName"?: any;
-        "AvalCauseAttributeSoftTID"?: any;
-        "AvalCauseAttributeThinName"?: any;
-        "AvalCauseAttributeThinTID"?: any;
-        "AvalCauseDepthName"?: any;
-        "AvalCauseDepthTID"?: any;
-        "AvalCauseName"?: any;
-        "AvalCauseTID"?: any;
-        "AvalProbabilityName"?: any;
-        "AvalProbabilityTID"?: any;
-        "AvalPropagationName"?: any;
-        "AvalPropagationTID"?: any;
-        "AvalTriggerSimpleName"?: any;
-        "AvalTriggerSimpleTID"?: any;
-        "AvalancheExtName"?: any;
-        "AvalancheExtTID"?: any;
-        "Comment"?: any;
-        "DestructiveSizeName"?: any;
-        "DestructiveSizeTID"?: any;
-        "ExposedHeight1"?: any;
-        "ExposedHeight2"?: any;
-        "ExposedHeightComboName"?: any;
-        "ExposedHeightComboTID"?: any;
-        "ValidExposition"?: any;
-        "shortVersion"?: any;
+        "AvalCauseAttributeCrystalName"?: string;
+        "AvalCauseAttributeCrystalTID"?: number;
+        "AvalCauseAttributeLightName"?: string;
+        "AvalCauseAttributeLightTID"?: number;
+        "AvalCauseAttributeSoftName"?: string;
+        "AvalCauseAttributeSoftTID"?: number;
+        "AvalCauseAttributeThinName"?: string;
+        "AvalCauseAttributeThinTID"?: number;
+        "AvalCauseDepthName"?: string;
+        "AvalCauseDepthTID"?: number;
+        "AvalCauseName"?: string;
+        "AvalCauseTID"?: number;
+        "AvalProbabilityName"?: string;
+        "AvalProbabilityTID"?: number;
+        "AvalPropagationName"?: string;
+        "AvalPropagationTID"?: number;
+        "AvalTriggerSimpleName"?: string;
+        "AvalTriggerSimpleTID"?: number;
+        "AvalancheExtName"?: string;
+        "AvalancheExtTID"?: number;
+        "Comment"?: string;
+        "DestructiveSizeName"?: string;
+        "DestructiveSizeTID"?: number;
+        "ExposedHeight1"?: number;
+        "ExposedHeight2"?: number;
+        "ExposedHeightComboName"?: string;
+        "ExposedHeightComboTID"?: number;
+        "ValidExposition"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheEvaluation {
         "Attachments"?: Attachment[];
-        "AvalancheDangerName"?: any;
-        "AvalancheDangerTID"?: any;
-        "AvalancheEvaluation1"?: any;
-        "AvalancheProblemName1"?: any;
-        "AvalancheProblemName2"?: any;
-        "AvalancheProblemName3"?: any;
-        "AvalancheProblemTID1"?: any;
-        "AvalancheProblemTID2"?: any;
-        "AvalancheProblemTID3"?: any;
-        "CanPublish"?: any;
-        "Comment"?: any;
-        "RegID"?: any;
-        "ValidExposition"?: any;
-        "ValidHeightFrom"?: any;
-        "ValidHeightRelative"?: any;
-        "ValidHeigtTo"?: any;
-        "shortVersion"?: any;
+        "AvalancheDangerName"?: string;
+        "AvalancheDangerTID"?: number;
+        "AvalancheEvaluation1"?: string;
+        "AvalancheProblemName1"?: string;
+        "AvalancheProblemName2"?: string;
+        "AvalancheProblemName3"?: string;
+        "AvalancheProblemTID1"?: number;
+        "AvalancheProblemTID2"?: number;
+        "AvalancheProblemTID3"?: number;
+        "CanPublish"?: boolean;
+        "Comment"?: string;
+        "ValidExposition"?: string;
+        "ValidHeightFrom"?: number;
+        "ValidHeightRelative"?: string;
+        "ValidHeigtTo"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheEvaluation2 {
         "Attachments"?: Attachment[];
-        "AvalancheDangerName"?: any;
-        "AvalancheDangerTID"?: any;
-        "AvalancheDevelopment"?: any;
-        "AvalancheEvalProblems"?: any[];
-        "AvalancheEvaluation"?: any;
-        "Comment"?: any;
-        "ExposedClimateName"?: any;
-        "ExposedClimateTID"?: any;
-        "ExposedHeight1"?: any;
-        "ExposedHeight2"?: any;
-        "ExposedHeightComboName"?: any;
-        "ExposedHeightComboTID"?: any;
-        "ValidExposition"?: any;
-        "shortVersion"?: any;
+        "AvalancheDangerName"?: string;
+        "AvalancheDangerTID"?: number;
+        "AvalancheDevelopment"?: string;
+        "AvalancheEvalProblems"?: AvalancheEvalProblem[];
+        "AvalancheEvaluation"?: string;
+        "Comment"?: string;
+        "ExposedClimateName"?: string;
+        "ExposedClimateTID"?: number;
+        "ExposedHeight1"?: number;
+        "ExposedHeight2"?: number;
+        "ExposedHeightComboName"?: string;
+        "ExposedHeightComboTID"?: number;
+        "ValidExposition"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheEvaluation3 {
         "Attachments"?: Attachment[];
-        "AvalancheDangerName"?: any;
-        "AvalancheDangerTID"?: any;
-        "AvalancheDevelopment"?: any;
-        "AvalancheEvaluation"?: any;
-        "ForecastComment"?: any;
-        "ForecastCorrectName"?: any;
-        "ForecastCorrectTID"?: any;
-        "shortVersion"?: any;
+        "AvalancheDangerName"?: string;
+        "AvalancheDangerTID"?: number;
+        "AvalancheDevelopment"?: string;
+        "AvalancheEvaluation"?: string;
+        "ForecastComment"?: string;
+        "ForecastCorrectName"?: string;
+        "ForecastCorrectTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomAvalancheObs {
-        "Aspect"?: any;
+        "Aspect"?: number;
         "Attachments"?: Attachment[];
-        "AvalCauseName"?: any;
-        "AvalCauseTID"?: any;
-        "AvalancheName"?: any;
-        "AvalancheTID"?: any;
-        "AvalancheTriggerName"?: any;
-        "AvalancheTriggerTID"?: any;
-        "Comment"?: any;
-        "DestructiveSizeName"?: any;
-        "DestructiveSizeTID"?: any;
-        "DtAvalancheTime"?: any;
-        "FractureHeight"?: any;
-        "FractureWidth"?: any;
-        "HeightStartZone"?: any;
-        "HeightStopZone"?: any;
+        "AvalCauseName"?: string;
+        "AvalCauseTID"?: number;
+        "AvalancheName"?: string;
+        "AvalancheTID"?: number;
+        "AvalancheTriggerName"?: string;
+        "AvalancheTriggerTID"?: number;
+        "Comment"?: string;
+        "DestructiveSizeName"?: string;
+        "DestructiveSizeTID"?: number;
+        "DtAvalancheTime"?: string;
+        "FractureHeight"?: number;
+        "FractureWidth"?: number;
+        "HeightStartZone"?: number;
+        "HeightStopZone"?: number;
         "Observation"?: Observation;
-        "RemotelyTriggered"?: any;
-        "SnowLine"?: any;
-        "StartLat"?: any;
-        "StartLong"?: any;
-        "StopLat"?: any;
-        "StopLong"?: any;
-        "TerrainStartZoneName"?: any;
-        "TerrainStartZoneTID"?: any;
-        "Trajectory"?: any;
-        "ValidExposition"?: any;
-        "shortVersion"?: any;
+        "RemotelyTriggered"?: boolean;
+        "SnowLine"?: number;
+        "StartLat"?: number;
+        "StartLong"?: number;
+        "StopLat"?: number;
+        "StopLong"?: number;
+        "TerrainStartZoneName"?: string;
+        "TerrainStartZoneTID"?: number;
+        "Trajectory"?: string;
+        "ValidExposition"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomCompressionTest {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "ComprTestFractureName"?: any;
-        "ComprTestFractureTID"?: any;
-        "CompressionTestName"?: any;
-        "CompressionTestTID"?: any;
-        "FractureDepth"?: any;
-        "IncludeInSnowProfile"?: any;
-        "PropagationName"?: any;
-        "PropagationTID"?: any;
-        "PstX"?: any;
-        "PstY"?: any;
-        "RbRelease"?: any;
-        "StabilityEvalName"?: any;
-        "StabilityEvalTID"?: any;
-        "TapsFracture"?: any;
-        "TapsFullPropagation"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "ComprTestFractureName"?: string;
+        "ComprTestFractureTID"?: number;
+        "CompressionTestName"?: string;
+        "CompressionTestTID"?: number;
+        "FractureDepth"?: number;
+        "IncludeInSnowProfile"?: boolean;
+        "PropagationName"?: string;
+        "PropagationTID"?: number;
+        "PstX"?: number;
+        "PstY"?: number;
+        "RbRelease"?: number;
+        "StabilityEvalName"?: string;
+        "StabilityEvalTID"?: number;
+        "TapsFracture"?: number;
+        "TapsFullPropagation"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomDamageObs {
         "Attachments"?: Attachment[];
         "Comment"?: string;
-        "DamagePosition"?: any;
+        "DamagePosition"?: LatLng;
         "DamageTypeName"?: string;
         "DamageTypeTID"?: number;
         "GeoHazardName"?: string;
         "GeoHazardTID"?: number;
-        "shortVersion"?: any;
+        "shortVersion"?: string;
     }
     interface VarsomDangerObs {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "DangerSignName"?: any;
-        "DangerSignTID"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "DangerSignName"?: string;
+        "DangerSignTID"?: number;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomDoc {
         "Text"?: any;
     }
     interface VarsomExposedHeight {
-        "ExposedHeight1"?: any;
-        "ExposedHeight2"?: any;
-        "ValidExposition"?: any;
+        "ExposedHeight1"?: number;
+        "ExposedHeight2"?: number;
+        "ValidExposition"?: string;
     }
     interface VarsomGeneralObservation {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "ObsComment"?: any;
-        "ObsHeader"?: any;
+        "Comment"?: string;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "ObsComment"?: string;
+        "ObsHeader"?: string;
         "Urls"?: Url[];
-        "shortVersion"?: any;
+        "shortVersion"?: string;
     }
     interface VarsomHeader {
         "regId"?: string;
@@ -1227,40 +1214,40 @@ declare namespace LocalJSX {
     }
     interface VarsomIceCoverObservation {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "IceCapacityName"?: any;
-        "IceCapacityTID"?: any;
-        "IceCoverAfterName"?: any;
-        "IceCoverAfterTID"?: any;
-        "IceCoverBeforeName"?: any;
-        "IceCoverBeforeTID"?: any;
-        "IceCoverName"?: any;
-        "IceCoverTID"?: any;
-        "IceSkateabilityName"?: any;
-        "IceSkateabilityTID"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "IceCapacityName"?: string;
+        "IceCapacityTID"?: number;
+        "IceCoverAfterName"?: string;
+        "IceCoverAfterTID"?: number;
+        "IceCoverBeforeName"?: string;
+        "IceCoverBeforeTID"?: number;
+        "IceCoverName"?: string;
+        "IceCoverTID"?: number;
+        "IceSkateabilityName"?: string;
+        "IceSkateabilityTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomIceThickness {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "DtObsTime"?: any;
-        "HardCodedImg"?: any;
-        "IceHeightAfter"?: any;
-        "IceHeightBefore"?: any;
+        "Comment"?: string;
+        "DtObsTime"?: string;
+        "HardCodedImg"?: string;
+        "IceHeightAfter"?: number;
+        "IceHeightBefore"?: number;
         "IceThicknessLayers"?: IceThicknessLayer[];
-        "IceThicknessSum"?: any;
-        "LocationName"?: any;
-        "ObsLocationId"?: any;
-        "SlushSnow"?: any;
-        "SnowDepth"?: any;
-        "regId"?: any;
-        "shortVersion"?: any;
+        "IceThicknessSum"?: number;
+        "LocationName"?: string;
+        "ObsLocationId"?: number;
+        "SlushSnow"?: number;
+        "SnowDepth"?: number;
+        "regId"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomIceThicknessLayer {
-        "Comment"?: any;
-        "IceLayerName"?: any;
-        "IceLayerThickness"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "IceLayerName"?: string;
+        "IceLayerThickness"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomImageSlider {
         "_images"?: any[];
@@ -1273,86 +1260,86 @@ declare namespace LocalJSX {
         "shortVersion"?: string;
     }
     interface VarsomIncident {
-        "ActivityInfluencedName"?: any;
-        "ActivityInfluencedTID"?: any;
+        "ActivityInfluencedName"?: string;
+        "ActivityInfluencedTID"?: number;
         "Attachments"?: Attachment[];
-        "CasualtiesNum"?: any;
-        "Comment"?: any;
-        "DamageExtentName"?: any;
-        "DamageExtentTID"?: any;
-        "DeadNum"?: any;
-        "DtEndTime"?: any;
-        "EvacuatedNum"?: any;
-        "ForecastAccurateName"?: any;
-        "ForecastAccurateTID"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "HarmedNum"?: any;
-        "IncidentHeader"?: any;
-        "IncidentIngress"?: any;
-        "IncidentText"?: any;
-        "IncidentURLs"?: any[];
-        "InvolvedNum"?: any;
-        "LocalKnowledgeName"?: any;
-        "LocalKnowledgeTID"?: any;
-        "LocalTouristName"?: any;
-        "LocalTouristTID"?: any;
-        "MaterialDamages"?: any;
-        "RescueName"?: any;
-        "RescueTID"?: any;
-        "SafetyGearName"?: any;
-        "SafetyGearTID"?: any;
-        "SlopeActivityName"?: any;
-        "SlopeActivityTID"?: any;
-        "TrafficObstructed"?: any;
-        "shortVersion"?: any;
+        "CasualtiesNum"?: number;
+        "Comment"?: string;
+        "DamageExtentName"?: string;
+        "DamageExtentTID"?: number;
+        "DeadNum"?: number;
+        "DtEndTime"?: string;
+        "EvacuatedNum"?: number;
+        "ForecastAccurateName"?: string;
+        "ForecastAccurateTID"?: number;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "HarmedNum"?: number;
+        "IncidentHeader"?: string;
+        "IncidentIngress"?: string;
+        "IncidentText"?: string;
+        "IncidentURLs"?: Url[];
+        "InvolvedNum"?: number;
+        "LocalKnowledgeName"?: string;
+        "LocalKnowledgeTID"?: number;
+        "LocalTouristName"?: string;
+        "LocalTouristTID"?: number;
+        "MaterialDamages"?: boolean;
+        "RescueName"?: string;
+        "RescueTID"?: number;
+        "SafetyGearName"?: string;
+        "SafetyGearTID"?: number;
+        "SlopeActivityName"?: string;
+        "SlopeActivityTID"?: number;
+        "TrafficObstructed"?: boolean;
+        "shortVersion"?: string;
     }
     interface VarsomKeyValue {
-        "_key"?: any;
-        "_value"?: any;
+        "_key"?: string;
+        "_value"?: string | number | boolean;
         "shortVersion"?: string;
     }
     interface VarsomLabel {
-        "label"?: any;
+        "label"?: string;
     }
     interface VarsomLabelSmall {
-        "label"?: any;
+        "label"?: string;
     }
     interface VarsomLandslideObservation {
-        "ActivityInfluencedName"?: any;
-        "ActivityInfluencedTID"?: any;
+        "ActivityInfluencedName"?: string;
+        "ActivityInfluencedTID"?: number;
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "DamageExtentName"?: any;
-        "DamageExtentTID"?: any;
-        "DtLandSlideTime"?: any;
-        "DtLandSlideTimeEnd"?: any;
-        "ForecastAccurateName"?: any;
-        "ForecastAccurateTID"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "LandSlideName"?: any;
-        "LandSlideSizeName"?: any;
-        "LandSlideSizeTID"?: any;
-        "LandSlideTID"?: any;
-        "LandSlideTriggerName"?: any;
-        "LandSlideTriggerTID"?: any;
-        "StartLat"?: any;
-        "StartLong"?: any;
-        "StopLat"?: any;
-        "StopLong"?: any;
-        "Urls"?: any[];
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "DamageExtentName"?: string;
+        "DamageExtentTID"?: number;
+        "DtLandSlideTime"?: string;
+        "DtLandSlideTimeEnd"?: string;
+        "ForecastAccurateName"?: string;
+        "ForecastAccurateTID"?: number;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "LandSlideName"?: string;
+        "LandSlideSizeName"?: string;
+        "LandSlideSizeTID"?: number;
+        "LandSlideTID"?: number;
+        "LandSlideTriggerName"?: string;
+        "LandSlideTriggerTID"?: number;
+        "StartLat"?: number;
+        "StartLong"?: number;
+        "StopLat"?: number;
+        "StopLong"?: number;
+        "Urls"?: Url[];
+        "shortVersion"?: string;
     }
     interface VarsomMetadata {
-        "competenceLevelName"?: any;
-        "dateOfLastUpdate"?: any;
-        "dateOfObservation"?: any;
-        "dateOfRegistration"?: any;
-        "geoHazardName"?: any;
-        "moh"?: any;
-        "nickname"?: any;
-        "observerGroupName"?: any;
+        "competenceLevelName"?: string;
+        "dateOfLastUpdate"?: string;
+        "dateOfObservation"?: string;
+        "dateOfRegistration"?: string;
+        "geoHazardName"?: string;
+        "moh"?: number;
+        "nickname"?: string;
+        "observerGroupName"?: string;
         "shortVersion"?: string;
     }
     interface VarsomObservation {
@@ -1364,100 +1351,96 @@ declare namespace LocalJSX {
         "version"?: string;
     }
     interface VarsomRegobsLink {
-        "regId"?: any;
-    }
-    interface VarsomSignsOfDanger {
-        "Comment"?: any;
-        "Type"?: any;
+        "regId"?: number;
     }
     interface VarsomSnowCoverObservation {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "CriticalLayerExists"?: any;
-        "CriticalLayerLocation"?: any;
-        "CriticalLayerName"?: any;
-        "CriticalLayerTID"?: any;
-        "DepthHoarThickness"?: any;
-        "SnowPilotRef"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "CriticalLayerExists"?: boolean;
+        "CriticalLayerLocation"?: number;
+        "CriticalLayerName"?: string;
+        "CriticalLayerTID"?: number;
+        "DepthHoarThickness"?: number;
+        "SnowPilotRef"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomSnowDensity {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "CylinderDiameter"?: any;
-        "Density"?: any;
-        "Depth"?: any;
+        "Comment"?: string;
+        "CylinderDiameter"?: number;
+        "Density"?: number;
+        "Depth"?: number;
         "Layers"?: SnowDensityLayer[];
-        "TareWeight"?: any;
-        "Weight"?: any;
-        "shortVersion"?: any;
+        "TareWeight"?: number;
+        "Weight"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomSnowDensityLayer {
-        "Density"?: any;
-        "Depth"?: any;
-        "SortOrder"?: any;
-        "Thickness"?: any;
-        "WaterEquivalent"?: any;
-        "Weight"?: any;
-        "shortVersion"?: any;
+        "Density"?: number;
+        "Depth"?: number;
+        "SortOrder"?: number;
+        "Thickness"?: number;
+        "WaterEquivalent"?: number;
+        "Weight"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomSnowProfile {
-        "Aspect"?: any;
+        "Aspect"?: number;
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "Copyright"?: any;
-        "GeoHazardName"?: any;
-        "GeoHazardTID"?: any;
-        "Photographer"?: any;
-        "RegistrationName"?: any;
-        "RegistrationTID"?: any;
-        "Url"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "Copyright"?: string;
+        "GeoHazardName"?: string;
+        "GeoHazardTID"?: number;
+        "Photographer"?: string;
+        "RegistrationName"?: string;
+        "RegistrationTID"?: number;
+        "Url"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomSnowProfile2 {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "Exposition"?: any;
-        "ImageUrl"?: any;
-        "IsProfileToGround"?: any;
-        "RegId"?: any;
-        "SlopeAngle"?: any;
+        "Comment"?: string;
+        "Exposition"?: number;
+        "ImageUrl"?: string;
+        "IsProfileToGround"?: boolean;
+        "RegId"?: number;
+        "SlopeAngle"?: number;
         "SnowDensity"?: SnowDensity[];
-        "SnowTemp"?: any;
-        "StratProfile"?: any;
-        "TotalDepth"?: any;
-        "Weight"?: any;
-        "shortVersion"?: any;
+        "SnowTemp"?: SnowTemp;
+        "StratProfile"?: StratProfile;
+        "TotalDepth"?: number;
+        "Weight"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomSnowSurfaceObservation {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "FootPenetration"?: any;
-        "HeightLimitLayeredSnow"?: any;
-        "NewSnowDepth24"?: any;
-        "NewSnowLine"?: any;
-        "SkiConditionsName"?: any;
-        "SkiConditionsTID"?: any;
-        "SnowDepth"?: any;
-        "SnowDriftName"?: any;
-        "SnowDriftTID"?: any;
-        "SnowLine"?: any;
-        "SnowSurfaceName"?: any;
-        "SnowSurfaceTID"?: any;
-        "SurfaceRoughnessName"?: any;
-        "SurfaceWaterContentName"?: any;
-        "SurfaceWaterContentTID"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "FootPenetration"?: number;
+        "HeightLimitLayeredSnow"?: number;
+        "NewSnowDepth24"?: number;
+        "NewSnowLine"?: number;
+        "SkiConditionsName"?: string;
+        "SkiConditionsTID"?: number;
+        "SnowDepth"?: number;
+        "SnowDriftName"?: string;
+        "SnowDriftTID"?: number;
+        "SnowLine"?: number;
+        "SnowSurfaceName"?: string;
+        "SnowSurfaceTID"?: number;
+        "SurfaceRoughnessName"?: string;
+        "SurfaceWaterContentName"?: string;
+        "SurfaceWaterContentTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomSnowTemp {
         "Attachments"?: Attachment[];
         "Layers"?: SnowTempObs[];
-        "shortVersion"?: any;
+        "shortVersion"?: string;
     }
     interface VarsomSnowTempObs {
-        "Depth"?: any;
-        "SnowTemp"?: any;
-        "shortVersion"?: any;
+        "Depth"?: number;
+        "SnowTemp"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomStaticMap {
         "allowZoom"?: boolean;
@@ -1468,84 +1451,84 @@ declare namespace LocalJSX {
     interface VarsomStratProfile {
         "Attachments"?: Attachment[];
         "Layers"?: StratProfileLayer[];
-        "TotalDepth"?: any;
-        "shortVersion"?: any;
+        "TotalDepth"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomStratProfileLayer {
-        "Comment"?: any;
-        "CriticalLayerTID"?: any;
-        "CriticalLayerTName"?: any;
-        "DepthTop"?: any;
-        "GrainFormPrimaryTID"?: any;
-        "GrainFormPrimaryTName"?: any;
-        "GrainFormSecondaryTID"?: any;
-        "GrainFormSecondaryTName"?: any;
-        "GrainSizeAvg"?: any;
-        "GrainSizeAvgMax"?: any;
-        "HardnessBottomTID"?: any;
-        "HardnessBottomTName"?: any;
-        "HardnessTID"?: any;
-        "HardnessTName"?: any;
-        "SortOrder"?: any;
-        "Thickness"?: any;
-        "WetnessTID"?: any;
-        "WetnessTName"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "CriticalLayerTID"?: number;
+        "CriticalLayerTName"?: string;
+        "DepthTop"?: number;
+        "GrainFormPrimaryTID"?: number;
+        "GrainFormPrimaryTName"?: string;
+        "GrainFormSecondaryTID"?: number;
+        "GrainFormSecondaryTName"?: string;
+        "GrainSizeAvg"?: number;
+        "GrainSizeAvgMax"?: number;
+        "HardnessBottomTID"?: number;
+        "HardnessBottomTName"?: string;
+        "HardnessTID"?: number;
+        "HardnessTName"?: string;
+        "SortOrder"?: number;
+        "Thickness"?: number;
+        "WetnessTID"?: number;
+        "WetnessTName"?: string;
+        "shortVersion"?: string;
     }
     interface VarsomUrl {
-        "UrlDescription"?: any;
-        "UrlLine"?: any;
+        "UrlDescription"?: string;
+        "UrlLine"?: string;
     }
     interface VarsomWaterLevel {
         "Attachments"?: Attachment[];
-        "IsRiver"?: any;
-        "MeasuredDischarge"?: any;
-        "WaterLevelDescribed"?: any;
-        "WaterLevelRefName"?: any;
-        "WaterLevelRefTID"?: any;
-        "WaterLevelValue"?: any;
-        "shortVersion"?: any;
+        "IsRiver"?: boolean;
+        "MeasuredDischarge"?: number;
+        "WaterLevelDescribed"?: number;
+        "WaterLevelRefName"?: number;
+        "WaterLevelRefTID"?: number;
+        "WaterLevelValue"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomWaterLevel2 {
         "Attachments"?: Attachment[];
-        "Comment"?: any;
-        "MarkingReferenceName"?: any;
-        "MarkingReferenceTID"?: any;
-        "MarkingTypeName"?: any;
-        "MarkingTypeTID"?: any;
-        "MeasurementReferenceName"?: any;
-        "MeasurementReferenceTID"?: any;
-        "MeasurementTypeName"?: any;
-        "MeasurementTypeTID"?: any;
-        "MeasuringToolDescription"?: any;
-        "ObservationTimingName"?: any;
-        "ObservationTimingTID"?: any;
-        "WaterAstrayName"?: any;
-        "WaterAstrayTID"?: any;
+        "Comment"?: string;
+        "MarkingReferenceName"?: string;
+        "MarkingReferenceTID"?: number;
+        "MarkingTypeName"?: string;
+        "MarkingTypeTID"?: number;
+        "MeasurementReferenceName"?: string;
+        "MeasurementReferenceTID"?: number;
+        "MeasurementTypeName"?: string;
+        "MeasurementTypeTID"?: number;
+        "MeasuringToolDescription"?: string;
+        "ObservationTimingName"?: string;
+        "ObservationTimingTID"?: number;
+        "WaterAstrayName"?: string;
+        "WaterAstrayTID"?: number;
         "WaterLevelMeasurement"?: WaterLevelMeasurement[];
-        "WaterLevelMethodName"?: any;
-        "WaterLevelMethodTID"?: any;
-        "WaterLevelStateName"?: any;
-        "WaterLevelStateTID"?: any;
-        "shortVersion"?: any;
+        "WaterLevelMethodName"?: string;
+        "WaterLevelMethodTID"?: number;
+        "WaterLevelStateName"?: string;
+        "WaterLevelStateTID"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomWaterMeasurement {
-        "Comment"?: any;
-        "DtMeasurementTime"?: any;
-        "WaterLevelValue"?: any;
-        "shortVersion"?: any;
+        "Comment"?: string;
+        "DtMeasurementTime"?: string;
+        "WaterLevelValue"?: number;
+        "shortVersion"?: string;
     }
     interface VarsomWeatherObservation {
-        "AirTemperature"?: any;
+        "AirTemperature"?: number;
         "Attachments"?: Attachment[];
-        "CloudCover"?: any;
-        "Comment"?: any;
-        "PrecipitationName"?: any;
-        "PrecipitationTID"?: any;
-        "WindDirection"?: any;
-        "WindDirectionName"?: any;
-        "WindSpeed"?: any;
-        "shortVersion"?: any;
+        "CloudCover"?: number;
+        "Comment"?: string;
+        "PrecipitationName"?: string;
+        "PrecipitationTID"?: number;
+        "WindDirection"?: number;
+        "WindDirectionName"?: string;
+        "WindSpeed"?: number;
+        "shortVersion"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
@@ -1579,7 +1562,6 @@ declare namespace LocalJSX {
         "varsom-metadata": VarsomMetadata;
         "varsom-observation": VarsomObservation;
         "varsom-regobs-link": VarsomRegobsLink;
-        "varsom-signs-of-danger": VarsomSignsOfDanger;
         "varsom-snow-cover-observation": VarsomSnowCoverObservation;
         "varsom-snow-density": VarsomSnowDensity;
         "varsom-snow-density-layer": VarsomSnowDensityLayer;
@@ -1633,7 +1615,6 @@ declare module "@stencil/core" {
             "varsom-metadata": LocalJSX.VarsomMetadata & JSXBase.HTMLAttributes<HTMLVarsomMetadataElement>;
             "varsom-observation": LocalJSX.VarsomObservation & JSXBase.HTMLAttributes<HTMLVarsomObservationElement>;
             "varsom-regobs-link": LocalJSX.VarsomRegobsLink & JSXBase.HTMLAttributes<HTMLVarsomRegobsLinkElement>;
-            "varsom-signs-of-danger": LocalJSX.VarsomSignsOfDanger & JSXBase.HTMLAttributes<HTMLVarsomSignsOfDangerElement>;
             "varsom-snow-cover-observation": LocalJSX.VarsomSnowCoverObservation & JSXBase.HTMLAttributes<HTMLVarsomSnowCoverObservationElement>;
             "varsom-snow-density": LocalJSX.VarsomSnowDensity & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityElement>;
             "varsom-snow-density-layer": LocalJSX.VarsomSnowDensityLayer & JSXBase.HTMLAttributes<HTMLVarsomSnowDensityLayerElement>;

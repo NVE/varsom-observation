@@ -12,14 +12,14 @@ import { Element } from '@stencil/core';
 })
 export class VarsomGeneralObservation {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() GeoHazardName: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() GeoHazardName: string;
   @Prop() Urls: Url[];
-  @Prop() GeoHazardTID: any;
-  @Prop() ObsComment: any;
-  @Prop() ObsHeader: any;
-  @Prop() Comment: any;
+  @Prop() GeoHazardTID: number;
+  @Prop() ObsComment: string;
+  @Prop() ObsHeader: string;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

@@ -8,25 +8,25 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomStratProfileLayer {
 
-  @Prop() shortVersion: any;
-  @Prop() GrainFormPrimaryTName: any;
-  @Prop() GrainFormSecondaryTName: any;
-  @Prop() HardnessTName: any;
-  @Prop() HardnessBottomTName: any;
-  @Prop() WetnessTName: any;
-  @Prop() CriticalLayerTName: any;
-  @Prop() DepthTop: any;
-  @Prop() Thickness: any;
-  @Prop() GrainFormPrimaryTID: any;
-  @Prop() GrainFormSecondaryTID: any;
-  @Prop() GrainSizeAvg: any;
-  @Prop() GrainSizeAvgMax: any;
-  @Prop() HardnessTID: any;
-  @Prop() HardnessBottomTID: any;
-  @Prop() WetnessTID: any;
-  @Prop() CriticalLayerTID: any;
-  @Prop() Comment: any;
-  @Prop() SortOrder: any;
+  @Prop() shortVersion: string;
+  @Prop() GrainFormPrimaryTName: string;
+  @Prop() GrainFormSecondaryTName: string;
+  @Prop() HardnessTName: string;
+  @Prop() HardnessBottomTName: string;
+  @Prop() WetnessTName: string;
+  @Prop() CriticalLayerTName: string;
+  @Prop() DepthTop: number;
+  @Prop() Thickness: number;
+  @Prop() GrainFormPrimaryTID: number;
+  @Prop() GrainFormSecondaryTID: number;
+  @Prop() GrainSizeAvg: number;
+  @Prop() GrainSizeAvgMax: number;
+  @Prop() HardnessTID: number;
+  @Prop() HardnessBottomTID: number;
+  @Prop() WetnessTID: number;
+  @Prop() CriticalLayerTID: number;
+  @Prop() Comment: string;
+  @Prop() SortOrder: number;
 
   render(){
     return <span> 

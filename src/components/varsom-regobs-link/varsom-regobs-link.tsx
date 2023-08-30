@@ -11,8 +11,8 @@ import { Element } from '@stencil/core';
 })
 export class VarsomRegobsLink {
 
-  @Prop() regId: any;
-  private strings: any
+  @Prop() regId: number;
+  private strings;
 
   @Element() elem: HTMLElement;
 

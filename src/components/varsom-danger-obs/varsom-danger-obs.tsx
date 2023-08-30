@@ -13,13 +13,13 @@ import { Element } from '@stencil/core';
 })
 export class VarsomDangerObs {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() GeoHazardName: any;
-  @Prop() DangerSignName: any;
-  @Prop() GeoHazardTID: any;
-  @Prop() DangerSignTID: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() GeoHazardName: string;
+  @Prop() DangerSignName: string;
+  @Prop() GeoHazardTID: number;
+  @Prop() DangerSignTID: number;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
  
   @Element() elem: HTMLElement;

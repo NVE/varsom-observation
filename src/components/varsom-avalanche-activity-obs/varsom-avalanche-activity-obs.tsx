@@ -13,27 +13,27 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomAvalancheActivityObs {
 
-  private strings: any
-  @Prop() header: any;
-  @Prop() shortVersion: any;
-  @Prop() AvalancheActivityObsID: any;
-  @Prop() Aspect: any;
-  @Prop() HeigthStartZone: any;
-  @Prop() DtAvalancheTime: any;
-  @Prop() DestructiveSizeTID: any;
-  @Prop() DestructiveSizeName: any;
-  @Prop() EstimatedNumTID: any;
-  @Prop() EstimatedNumName: any;
-  @Prop() AvalancheTID: any;
-  @Prop() AvalancheName: any;
-  @Prop() AvalancheTriggerTID: any;
-  @Prop() AvalancheTriggerName: any;
-  @Prop() TerrainStartZoneTID: any;
-  @Prop() TerrainStartZoneName: any;
-  @Prop() SnowLine: any;
-  @Prop() SnowLineName: any;
-  @Prop() DtOffAvalancheTime: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() header: string;
+  @Prop() shortVersion: string;
+  @Prop() AvalancheActivityObsID: number;
+  @Prop() Aspect: number;
+  @Prop() HeigthStartZone: number;
+  @Prop() DtAvalancheTime: number;
+  @Prop() DestructiveSizeTID: number;
+  @Prop() DestructiveSizeName: string;
+  @Prop() EstimatedNumTID: number;
+  @Prop() EstimatedNumName: string;
+  @Prop() AvalancheTID: number;
+  @Prop() AvalancheName: string;
+  @Prop() AvalancheTriggerTID: number;
+  @Prop() AvalancheTriggerName: string;
+  @Prop() TerrainStartZoneTID: number;
+  @Prop() TerrainStartZoneName: string;
+  @Prop() SnowLine: number;
+  @Prop() SnowLineName: string;
+  @Prop() DtOffAvalancheTime: string;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
   
   @Element() elem: HTMLElement;

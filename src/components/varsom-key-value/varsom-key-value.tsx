@@ -9,8 +9,8 @@ import { valueIsNotGiven } from '../../utils/utils';
 })
 export class VarsomKeyValue {
 
-  @Prop() _key: any;
-  @Prop() _value?: any;
+  @Prop() _key: string;
+  @Prop() _value?: string | number | boolean;
   @Prop() shortVersion: string;
   
   render(){

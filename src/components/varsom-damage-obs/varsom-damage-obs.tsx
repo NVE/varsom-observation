@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment } from '../varsom-observation/observation-model';
+import { Attachment, LatLng } from '../varsom-observation/observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
 
@@ -13,14 +13,14 @@ import { Element } from '@stencil/core';
 })
 export class VarsomDamageObs {
 
-  private strings: any
+  private strings;
   @Prop() GeoHazardName: string;
   @Prop() DamageTypeName:	string;
-  @Prop() shortVersion: any;
+  @Prop() shortVersion: string;
   @Prop() Attachments?: Attachment[];
   @Prop() GeoHazardTID: number; //	integer($int32)
   @Prop() DamageTypeTID: number; //	integer($int32)
-  @Prop() DamagePosition: any;	//LatLng,
+  @Prop() DamagePosition: LatLng;	//LatLng,
   @Prop() Comment:	string;
 
   @Element() elem: HTMLElement;

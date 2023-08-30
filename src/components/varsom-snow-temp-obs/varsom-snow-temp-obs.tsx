@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Element } from '@stencil/core';
+import { SnowTemp } from '../varsom-observation/observation-model';
 
 @Component({
   tag: 'varsom-snow-temp-obs',
@@ -9,9 +10,9 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowTempObs {
 
-  @Prop() shortVersion: any;
-  @Prop() Depth: any; 
-  @Prop() SnowTemp:	any;
+  @Prop() shortVersion: string;
+  @Prop() Depth: number; 
+  @Prop() SnowTemp:	number;
   
   @Element() elem: HTMLElement;
 

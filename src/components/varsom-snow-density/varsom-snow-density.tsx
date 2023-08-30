@@ -13,14 +13,14 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowDensity {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() CylinderDiameter: any;
-  @Prop() TareWeight: any;
-  @Prop() Weight: any;
-  @Prop() Density: any;
-  @Prop() Depth: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() CylinderDiameter: number;
+  @Prop() TareWeight: number;
+  @Prop() Weight: number;
+  @Prop() Density: number;
+  @Prop() Depth: number;
+  @Prop() Comment: string;
   @Prop() Layers: SnowDensityLayer[];
   @Prop() Attachments: Attachment[];
 

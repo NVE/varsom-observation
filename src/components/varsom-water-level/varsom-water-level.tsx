@@ -13,14 +13,14 @@ import { Element } from '@stencil/core';
 })
 export class VarsomWaterLevel {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() WaterLevelDescribed: any;
-  @Prop() WaterLevelValue: any;
-  @Prop() WaterLevelRefTID: any;
-  @Prop() WaterLevelRefName: any;
-  @Prop() MeasuredDischarge: any;
-  @Prop() IsRiver: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() WaterLevelDescribed: number;
+  @Prop() WaterLevelValue: number;
+  @Prop() WaterLevelRefTID: number;
+  @Prop() WaterLevelRefName: number;
+  @Prop() MeasuredDischarge: number;
+  @Prop() IsRiver: boolean;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

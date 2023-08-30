@@ -13,27 +13,27 @@ import { Element } from '@stencil/core';
 })
 export class VarsomWaterLevel2 {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() Comment: any;
-  @Prop() WaterAstrayName: any;
-  @Prop() WaterLevelStateName: any;
-  @Prop() ObservationTimingName: any;
-  @Prop() MeasurementReferenceName: any;
-  @Prop() WaterLevelMethodName: any;
-  @Prop() MeasurementTypeName: any;
-  @Prop() MarkingReferenceName: any;
-  @Prop() MarkingTypeName: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() Comment: string;
+  @Prop() WaterAstrayName: string;
+  @Prop() WaterLevelStateName: string;
+  @Prop() ObservationTimingName: string;
+  @Prop() MeasurementReferenceName: string;
+  @Prop() WaterLevelMethodName: string;
+  @Prop() MeasurementTypeName: string;
+  @Prop() MarkingReferenceName: string;
+  @Prop() MarkingTypeName: string;
   @Prop() WaterLevelMeasurement: WaterLevelMeasurement[];
-  @Prop() WaterAstrayTID: any;
-  @Prop() ObservationTimingTID: any;
-  @Prop() MeasurementReferenceTID: any;
-  @Prop() MeasurementTypeTID: any;
-  @Prop() WaterLevelMethodTID: any;
-  @Prop() MarkingReferenceTID: any;
-  @Prop() WaterLevelStateTID: any;
-  @Prop() MarkingTypeTID: any;
-  @Prop() MeasuringToolDescription: any;
+  @Prop() WaterAstrayTID: number;
+  @Prop() ObservationTimingTID: number;
+  @Prop() MeasurementReferenceTID: number;
+  @Prop() MeasurementTypeTID: number;
+  @Prop() WaterLevelMethodTID: number;
+  @Prop() MarkingReferenceTID: number;
+  @Prop() WaterLevelStateTID: number;
+  @Prop() MarkingTypeTID: number;
+  @Prop() MeasuringToolDescription: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

@@ -14,24 +14,24 @@ import { Element } from '@stencil/core';
 })
 export class VarsomCompressionTest {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() CompressionTestTID: any;
-  @Prop() CompressionTestName: any;
-  @Prop() TapsFracture: any;
-  @Prop() TapsFullPropagation: any;
-  @Prop() PropagationTID: any;
-  @Prop() PropagationName: any;
-  @Prop() FractureDepth: any;
-  @Prop() PstX: any;
-  @Prop() PstY: any;
-  @Prop() RbRelease: any;
-  @Prop() StabilityEvalTID: any;
-  @Prop() StabilityEvalName: any;
-  @Prop() ComprTestFractureTID: any;
-  @Prop() ComprTestFractureName: any;
-  @Prop() IncludeInSnowProfile: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() CompressionTestTID: number;
+  @Prop() CompressionTestName: string;
+  @Prop() TapsFracture: number;
+  @Prop() TapsFullPropagation: number;
+  @Prop() PropagationTID: number;
+  @Prop() PropagationName: string;
+  @Prop() FractureDepth: number;
+  @Prop() PstX: number;
+  @Prop() PstY: number;
+  @Prop() RbRelease: number;
+  @Prop() StabilityEvalTID: number;
+  @Prop() StabilityEvalName: string;
+  @Prop() ComprTestFractureTID: number;
+  @Prop() ComprTestFractureName: string;
+  @Prop() IncludeInSnowProfile: boolean;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

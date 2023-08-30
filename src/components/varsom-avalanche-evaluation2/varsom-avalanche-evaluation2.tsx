@@ -14,21 +14,21 @@ import { getLocaleComponentStrings } from '../../utils/locale';
 })
 export class VarsomAvalancheEvaluation2 {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() AvalancheDangerName: any;
-  @Prop() ValidExposition: any;
-  @Prop() AvalancheEvaluation: any;
-  @Prop() AvalancheDevelopment: any;
-  @Prop() ExposedHeight1: any;
-  @Prop() ExposedHeight2: any;
-  @Prop() ExposedHeightComboTID: any;
-  @Prop() ExposedHeightComboName: any;
-  @Prop() ExposedClimateTID: any;
-  @Prop() ExposedClimateName: any;
-  @Prop() AvalancheDangerTID: any;
-  @Prop() Comment: any;
-  @Prop() AvalancheEvalProblems: any[];
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() AvalancheDangerName: string;
+  @Prop() ValidExposition: string;
+  @Prop() AvalancheEvaluation: string;
+  @Prop() AvalancheDevelopment: string;
+  @Prop() ExposedHeight1: number;
+  @Prop() ExposedHeight2: number;
+  @Prop() ExposedHeightComboTID: number;
+  @Prop() ExposedHeightComboName: string;
+  @Prop() ExposedClimateTID: number;
+  @Prop() ExposedClimateName: string;
+  @Prop() AvalancheDangerTID: number;
+  @Prop() Comment: string;
+  @Prop() AvalancheEvalProblems: AvalancheEvalProblem[];
   @Prop() Attachments: Attachment[];
   
   @Element() elem: HTMLElement;
