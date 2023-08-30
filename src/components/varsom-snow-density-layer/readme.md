@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type  | Default     |
-| ----------------- | ------------------ | ----------- | ----- | ----------- |
-| `Density`         | `density`          |             | `any` | `undefined` |
-| `Depth`           | `depth`            |             | `any` | `undefined` |
-| `SortOrder`       | `sort-order`       |             | `any` | `undefined` |
-| `Thickness`       | `thickness`        |             | `any` | `undefined` |
-| `WaterEquivalent` | `water-equivalent` |             | `any` | `undefined` |
-| `Weight`          | `weight`           |             | `any` | `undefined` |
-| `shortVersion`    | `short-version`    |             | `any` | `undefined` |
+| Property          | Attribute          | Description | Type     | Default     |
+| ----------------- | ------------------ | ----------- | -------- | ----------- |
+| `Density`         | `density`          |             | `number` | `undefined` |
+| `Depth`           | `depth`            |             | `number` | `undefined` |
+| `SortOrder`       | `sort-order`       |             | `number` | `undefined` |
+| `Thickness`       | `thickness`        |             | `number` | `undefined` |
+| `WaterEquivalent` | `water-equivalent` |             | `number` | `undefined` |
+| `Weight`          | `weight`           |             | `number` | `undefined` |
+| `shortVersion`    | `short-version`    |             | `string` | `undefined` |
 
 
 ## Dependencies

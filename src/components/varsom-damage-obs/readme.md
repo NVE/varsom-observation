@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property         | Attribute           | Description | Type           | Default     |
-| ---------------- | ------------------- | ----------- | -------------- | ----------- |
-| `Attachments`    | --                  |             | `Attachment[]` | `undefined` |
-| `Comment`        | `comment`           |             | `string`       | `undefined` |
-| `DamagePosition` | `damage-position`   |             | `any`          | `undefined` |
-| `DamageTypeName` | `damage-type-name`  |             | `string`       | `undefined` |
-| `DamageTypeTID`  | `damage-type-t-i-d` |             | `number`       | `undefined` |
-| `GeoHazardName`  | `geo-hazard-name`   |             | `string`       | `undefined` |
-| `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `number`       | `undefined` |
-| `shortVersion`   | `short-version`     |             | `any`          | `undefined` |
+| Property         | Attribute           | Description | Type                                       | Default     |
+| ---------------- | ------------------- | ----------- | ------------------------------------------ | ----------- |
+| `Attachments`    | --                  |             | `Attachment[]`                             | `undefined` |
+| `Comment`        | `comment`           |             | `string`                                   | `undefined` |
+| `DamagePosition` | --                  |             | `{ Latitude: number; Longitude: number; }` | `undefined` |
+| `DamageTypeName` | `damage-type-name`  |             | `string`                                   | `undefined` |
+| `DamageTypeTID`  | `damage-type-t-i-d` |             | `number`                                   | `undefined` |
+| `GeoHazardName`  | `geo-hazard-name`   |             | `string`                                   | `undefined` |
+| `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `number`                                   | `undefined` |
+| `shortVersion`   | `short-version`     |             | `string`                                   | `undefined` |
 
 
 ## Dependencies

@@ -1,6 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
 import { Element } from '@stencil/core';
-import { SnowTemp } from '../varsom-observation/observation-model';
 
 @Component({
   tag: 'varsom-snow-temp-obs',

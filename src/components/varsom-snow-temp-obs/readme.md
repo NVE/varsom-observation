@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type  | Default     |
-| -------------- | --------------- | ----------- | ----- | ----------- |
-| `Depth`        | `depth`         |             | `any` | `undefined` |
-| `SnowTemp`     | `snow-temp`     |             | `any` | `undefined` |
-| `shortVersion` | `short-version` |             | `any` | `undefined` |
+| Property       | Attribute       | Description | Type     | Default     |
+| -------------- | --------------- | ----------- | -------- | ----------- |
+| `Depth`        | `depth`         |             | `number` | `undefined` |
+| `SnowTemp`     | `snow-temp`     |             | `number` | `undefined` |
+| `shortVersion` | `short-version` |             | `string` | `undefined` |
 
 
 ## Dependencies

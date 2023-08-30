@@ -10,14 +10,14 @@
 | Property           | Attribute           | Description | Type                 | Default     |
 | ------------------ | ------------------- | ----------- | -------------------- | ----------- |
 | `Attachments`      | --                  |             | `Attachment[]`       | `undefined` |
-| `Comment`          | `comment`           |             | `any`                | `undefined` |
-| `CylinderDiameter` | `cylinder-diameter` |             | `any`                | `undefined` |
-| `Density`          | `density`           |             | `any`                | `undefined` |
-| `Depth`            | `depth`             |             | `any`                | `undefined` |
+| `Comment`          | `comment`           |             | `string`             | `undefined` |
+| `CylinderDiameter` | `cylinder-diameter` |             | `number`             | `undefined` |
+| `Density`          | `density`           |             | `number`             | `undefined` |
+| `Depth`            | `depth`             |             | `number`             | `undefined` |
 | `Layers`           | --                  |             | `SnowDensityLayer[]` | `undefined` |
-| `TareWeight`       | `tare-weight`       |             | `any`                | `undefined` |
-| `Weight`           | `weight`            |             | `any`                | `undefined` |
-| `shortVersion`     | `short-version`     |             | `any`                | `undefined` |
+| `TareWeight`       | `tare-weight`       |             | `number`             | `undefined` |
+| `Weight`           | `weight`            |             | `number`             | `undefined` |
+| `shortVersion`     | `short-version`     |             | `string`             | `undefined` |
 
 
 ## Dependencies

@@ -10,19 +10,19 @@
 | Property             | Attribute           | Description | Type                  | Default     |
 | -------------------- | ------------------- | ----------- | --------------------- | ----------- |
 | `Attachments`        | --                  |             | `Attachment[]`        | `undefined` |
-| `Comment`            | `comment`           |             | `any`                 | `undefined` |
-| `DtObsTime`          | `dt-obs-time`       |             | `any`                 | `undefined` |
-| `HardCodedImg`       | `hard-coded-img`    |             | `any`                 | `undefined` |
-| `IceHeightAfter`     | `ice-height-after`  |             | `any`                 | `undefined` |
-| `IceHeightBefore`    | `ice-height-before` |             | `any`                 | `undefined` |
+| `Comment`            | `comment`           |             | `string`              | `undefined` |
+| `DtObsTime`          | `dt-obs-time`       |             | `string`              | `undefined` |
+| `HardCodedImg`       | `hard-coded-img`    |             | `string`              | `undefined` |
+| `IceHeightAfter`     | `ice-height-after`  |             | `number`              | `undefined` |
+| `IceHeightBefore`    | `ice-height-before` |             | `number`              | `undefined` |
 | `IceThicknessLayers` | --                  |             | `IceThicknessLayer[]` | `undefined` |
-| `IceThicknessSum`    | `ice-thickness-sum` |             | `any`                 | `undefined` |
-| `LocationName`       | `location-name`     |             | `any`                 | `undefined` |
-| `ObsLocationId`      | `obs-location-id`   |             | `any`                 | `undefined` |
-| `SlushSnow`          | `slush-snow`        |             | `any`                 | `undefined` |
-| `SnowDepth`          | `snow-depth`        |             | `any`                 | `undefined` |
-| `regId`              | `reg-id`            |             | `any`                 | `undefined` |
-| `shortVersion`       | `short-version`     |             | `any`                 | `undefined` |
+| `IceThicknessSum`    | `ice-thickness-sum` |             | `number`              | `undefined` |
+| `LocationName`       | `location-name`     |             | `string`              | `undefined` |
+| `ObsLocationId`      | `obs-location-id`   |             | `number`              | `undefined` |
+| `SlushSnow`          | `slush-snow`        |             | `number`              | `undefined` |
+| `SnowDepth`          | `snow-depth`        |             | `number`              | `undefined` |
+| `regId`              | `reg-id`            |             | `number`              | `undefined` |
+| `shortVersion`       | `short-version`     |             | `string`              | `undefined` |
 
 
 ## Dependencies
