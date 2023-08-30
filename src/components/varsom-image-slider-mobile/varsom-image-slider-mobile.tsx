@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import { Observation } from '../varsom-observation/observation-model';
+import { Observation } from '../../models/observation-model';
 // import function to register Swiper custom elements
 import { register } from '../../../node_modules/swiper/element/swiper-element';
 // register Swiper custom elements
@@ -9,12 +9,11 @@ register();
   tag: 'varsom-image-slider-mobile',
   styleUrl: 'varsom-image-slider-mobile.css',
   shadow: false,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomImageSliderMobile {
-
   @State() slideIndex: number = 1;
-  @Prop() _images: any[];  
+  @Prop() _images: any[];
   dataSource: any;
   _loopNumbers: number[];
   @Prop() shortVersion: string;
@@ -24,23 +23,18 @@ export class VarsomImageSliderMobile {
   modal: HTMLElement[] = [];
   closeBtn: HTMLElement[] = [];
 
-  
+  componentWillLoad() {
+    this._loopNumbers = [];
+    for (let i = 0; i < this._images.length; i++) {
+      this._loopNumbers.push(i);
+    }
+  }
 
-componentWillLoad(){
-  this._loopNumbers = [];
-for (let i = 0; i < this._images.length; i++){
-  this._loopNumbers.push(i);
-}
-}
-  
-
-    
-  render(){
-    return <div>
-
-<swiper-container class="swipe-container" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
-
-{/**
+  render() {
+    return (
+      <div>
+        <swiper-container class="swipe-container" slides-per-view="1" grid-rows="1" speed="500" loop="true" css-mode="true">
+          {/**
 <swipe-slide>
     <div class="map-container">
     <varsom-static-map
@@ -50,54 +44,38 @@ for (let i = 0; i < this._images.length; i++){
  ></varsom-static-map>
 </div>
 </swipe-slide>
-     */} 
+     */}
 
+          {this._loopNumbers.map(num => {
+            return (
+              <div class="slideshow-container">
+                <swiper-slide>
+                  <div ref={el => (this.observationImages[num] = el as HTMLElement)} class="myslides fade">
+                    <div class="img-cont">
+                      <figure tabIndex={0}>
+                        <img
+                          alt={this._images[num]._comment ? this._images[num]._comment : 'observation image'}
+                          class="observation-images"
+                          src={this._images[num]._imageData}
+                          onClick={() => (this.modal[num - 1].style.display = 'block')}
+                        ></img>
 
-
-{this._loopNumbers.map((num) =>{
-return <div class="slideshow-container">
-
-
-<swiper-slide>
-  <div ref={(el) => this.observationImages[num] = el as HTMLElement} class="myslides fade">
-    <div class="img-cont">
-    <figure tabIndex={0}>
-
-  
-    
-     <img alt={this._images[num]._comment ? this._images[num]._comment : "observation image"} class="observation-images" src={this._images[num]._imageData}
-  onClick={()=> this.modal[num-1].style.display="block"}></img>
-
-<figcaption>
-       {this._images[num]._copyright}<br></br>
-       {this._images[num]._photographer}<br></br>
-       {this._images[num]._comment}
-      </figcaption>
-
-</figure>
-
-
-
-</div>
-
-
-  </div>
-  </swiper-slide>  
-
-
- 
-
-</div>
-
-
-
-})}
-
-
-</swiper-container>
-
-    </div>
+                        <figcaption>
+                          {this._images[num]._copyright}
+                          <br></br>
+                          {this._images[num]._photographer}
+                          <br></br>
+                          {this._images[num]._comment}
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </div>
+            );
+          })}
+        </swiper-container>
+      </div>
+    );
   }
 }
-  
-  

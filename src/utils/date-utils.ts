@@ -1,4 +1,4 @@
-import { getLocaleFromDom } from "./locale";
+import { getLocaleFromDom } from './locale';
 
 const DATE_FMT: Intl.DateTimeFormatOptions = {
   dateStyle: 'long',
@@ -14,7 +14,6 @@ const DATE_FMT: Intl.DateTimeFormatOptions = {
 export function formatDateString(date: string, elem: HTMLElement): string {
   return new Date(date).toLocaleString(getLocaleFromDom(elem), DATE_FMT);
 }
-
 
 /**
  * Format start and end times in a single string.

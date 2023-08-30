@@ -1,7 +1,5 @@
 # varsom-avalanche-evaluation3
 
-
-
 <!-- Auto Generated Below -->
 
 

@@ -4,25 +4,25 @@ import { Component, Prop, h } from '@stencil/core';
   tag: 'varsom-url',
   styleUrl: 'varsom-url.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomUrl {
-
   @Prop() UrlDescription: any;
-  @Prop() UrlLine: any; 
+  @Prop() UrlLine: any;
 
-  render(){
-    return <host> 
-
-  {(this.UrlLine && this.UrlDescription) ? 
-      <ul>
-    <li>{this.UrlDescription} {this.UrlLine}</li>  
-    </ul>
-    :""}
-    </host>
+  render() {
+    return (
+      <host>
+        {this.UrlLine && this.UrlDescription ? (
+          <ul>
+            <li>
+              {this.UrlDescription} {this.UrlLine}
+            </li>
+          </ul>
+        ) : (
+          ''
+        )}
+      </host>
+    );
   }
-    
-  }
-
-  
-  
+}

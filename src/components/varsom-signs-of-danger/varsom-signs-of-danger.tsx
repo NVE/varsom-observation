@@ -1,48 +1,46 @@
 import { Component, Prop, h } from '@stencil/core';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
-
 import { Element } from '@stencil/core';
 
 @Component({
   tag: 'varsom-signs-of-danger',
   styleUrl: 'varsom-signs-of-danger.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomSignsOfDanger {
-  
   @Prop() Comment?: any;
   @Prop() Type?: any;
   private strings: any;
-  
+
   @Element() elem: HTMLElement;
 
-async componentWillLoad(){
- this.strings = await getLocaleComponentStrings(this.elem);
+  async componentWillLoad() {
+    this.strings = await getLocaleComponentStrings(this.elem);
   }
 
-  render(){
-    return <div> 
+  render() {
+    return (
+      <div>
+        {this.Type ? (
+          <span>
+            <label>Label mangler: </label>
+            {this.Type}
+          </span>
+        ) : (
+          ''
+        )}
 
-      {this.Type ? 
-      <span>
-      <label>Label mangler: </label>
-      {this.Type}
-      </span> : ""}
-
-      {this.Comment ? 
-      <span>
-      <label>{this.strings.Observations.CompressionTest.Comment}: </label>
-      {this.Comment}
-      </span> : ""}
-
-      
-    
-    </div>
+        {this.Comment ? (
+          <span>
+            <label>{this.strings.Observations.CompressionTest.Comment}: </label>
+            {this.Comment}
+          </span>
+        ) : (
+          ''
+        )}
+      </div>
+    );
   }
-    
-  }
-
-  
-  
+}

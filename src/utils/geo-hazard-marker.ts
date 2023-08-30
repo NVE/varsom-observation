@@ -1,11 +1,11 @@
 import * as L from 'leaflet';
 
 enum GeoHazard {
-    Snow = 10,
-    Soil = 20,
-    Water = 60,
-    Ice = 70,
-  }
+  Snow = 10,
+  Soil = 20,
+  Water = 60,
+  Ice = 70,
+}
 
 export class RegobsGeoHazardMarker extends L.DivIcon {
   constructor(geoHazard: GeoHazard) {

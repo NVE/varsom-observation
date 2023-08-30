@@ -1,14 +1,12 @@
+export default {
+  //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
+  title: 'Components/AvalancheEvaluationProblem',
+  argTypes: {
+    shortVersion: { control: 'select', options: ['true (select blank for full version)', ''], defaultValue: '' },
+  },
+};
 
-
-export default {   //source: https://ionic.io/blog/how-to-use-storybook-with-stencil
-    title: 'Components/AvalancheEvaluationProblem',
-    argTypes: {
-        shortVersion: {control: "select", options: ["true (select blank for full version)", ""],
-    defaultValue: ""}
-          }
-}
-
-const Template = (args) => `<varsom-avalanche-eval-problem
+const Template = args => `<varsom-avalanche-eval-problem
 avalanche-ext-name=${args.AvalancheExtName} 
 Comment=${args.Comment} 
 aval-trigger-simple-name=${args.AvalTriggerSimpleName} 
@@ -17,16 +15,14 @@ destructive-size-ext-name=${args.DestructiveSizeExtName}
 aval-cause-name=${args.AvalCauseName} 
 short-version=${args.shortVersion} 
 >
-</varsom-avalanche-eval-problem> `
+</varsom-avalanche-eval-problem> `;
 
 export const VarsomAvalancheEvaluationProblem = Template.bind({});
 VarsomAvalancheEvaluationProblem.args = {
- 
-        Comment: "'Solutløste skred'",
-        AvalancheExtName: "'Tørre flakskred'",
-        AvalTriggerSimpleName: "'Svært vanskelig å løse ut'",
-        AvalProbabilityName: "'Lite sannsynlig'",
-        DestructiveSizeExtName: "'2 - middels'",
-        AvalCauseName: "'Nedføyket svakt lag med nysnø'"
-
-    }
+  Comment: "'Solutløste skred'",
+  AvalancheExtName: "'Tørre flakskred'",
+  AvalTriggerSimpleName: "'Svært vanskelig å løse ut'",
+  AvalProbabilityName: "'Lite sannsynlig'",
+  DestructiveSizeExtName: "'2 - middels'",
+  AvalCauseName: "'Nedføyket svakt lag med nysnø'",
+};

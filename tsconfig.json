@@ -5,10 +5,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
@@ -18,12 +15,12 @@
     "jsxFactory": "h"
   },
   "include": [
-    "src"
-, "src/utils/js/jquery-1.11.1.min.js", "src/utils/js/jquery.jqplot.min.js", 
-"src/utils/js/jqplot.canvasAxisLabelRenderer.min.js", "src/utils/js/jqplot.canvasOverlay.min.js",
-"src/utils/js/jqplot.canvasTextRenderer.min.js"
-],
-  "exclude": [
-    "node_modules"
-  ]
+    "src",
+    "src/utils/js/jquery-1.11.1.min.js",
+    "src/utils/js/jquery.jqplot.min.js",
+    "src/utils/js/jqplot.canvasAxisLabelRenderer.min.js",
+    "src/utils/js/jqplot.canvasOverlay.min.js",
+    "src/utils/js/jqplot.canvasTextRenderer.min.js"
+  ],
+  "exclude": ["node_modules"]
 }

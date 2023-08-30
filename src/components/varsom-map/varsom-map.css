@@ -1,9 +1,8 @@
 .container {
-  height: 12rem;  
+  height: 12rem;
   width: 18rem;
   overflow: hidden;
   position: relative;
-    
 }
 
 .container-small {
@@ -11,31 +10,27 @@
   width: 14rem;
   overflow: hidden;
   position: relative;
-  
 }
-  
-  .tile {
-    pointer-events: none;
-    position: absolute;
-    z-index: 1;
-    
-  }
 
-  .graphic {
-    z-index: 2;
-    position: absolute; 
-  }
+.tile {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
 
-  .graphic-start-stop {
-    z-index: 3;
-    position: absolute; 
-  }
+.graphic {
+  z-index: 2;
+  position: absolute;
+}
 
-  .graphic-obs {
-    z-index: 2;
-    position: absolute; 
-    left: 7.5rem;
-    top: 4.5rem;
-  }
+.graphic-start-stop {
+  z-index: 3;
+  position: absolute;
+}
 
- 
+.graphic-obs {
+  z-index: 2;
+  position: absolute;
+  left: 7.5rem;
+  top: 4.5rem;
+}

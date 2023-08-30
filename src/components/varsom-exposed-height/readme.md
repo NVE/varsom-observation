@@ -1,7 +1,5 @@
 # varsom-exposed-height
 
-
-
 <!-- Auto Generated Below -->
 
 

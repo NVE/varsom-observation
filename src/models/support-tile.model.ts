@@ -1,5 +1,5 @@
-import { GeoHazard } from "./geo-hazard.enum";
-import * as L from 'leaflet'
+import { GeoHazard } from './geo-hazard.enum';
+import * as L from 'leaflet';
 
 export interface SupportTile extends SubTile {
   opacity: number;

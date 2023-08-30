@@ -1,7 +1,5 @@
 # varsom-avalanche-eval-problem
 
-
-
 <!-- Auto Generated Below -->
 
 

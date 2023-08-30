@@ -1,7 +1,5 @@
 # varsom-compression-test
 
-
-
 <!-- Auto Generated Below -->
 
 

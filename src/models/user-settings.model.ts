@@ -1,8 +1,8 @@
-import { AppMode } from "./app-mode.enum";
-import { GeoHazard } from "./geo-hazard.enum";
-import { LangKey } from "./lang-key.enum";
-import { SupportTileStore } from "./support-tile.model";
-import { TopoMap } from "./topo-map.enum";
+import { AppMode } from './app-mode.enum';
+import { GeoHazard } from './geo-hazard.enum';
+import { LangKey } from './lang-key.enum';
+import { SupportTileStore } from './support-tile.model';
+import { TopoMap } from './topo-map.enum';
 
 export interface UserSetting {
   appMode: AppMode;

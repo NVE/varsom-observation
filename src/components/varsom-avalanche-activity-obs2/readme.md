@@ -1,7 +1,5 @@
 # varsom-avalanche-activity-obs2
 
-
-
 <!-- Auto Generated Below -->
 
 
