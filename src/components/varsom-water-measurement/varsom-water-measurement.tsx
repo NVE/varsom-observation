@@ -33,18 +33,18 @@ async componentWillLoad(){
 
 
 <varsom-label-small
-      label={this.strings ? this.strings.Observations.WaterLevel2.WaterMeasurement : "Vannmåling"}
+      label={this.strings.Observations.WaterLevel2.WaterMeasurement}
       ></varsom-label-small>
 {this.DtMeasurementTime ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time: (this.shortVersion ? null : "Tid") }
+    _key={this.strings.Observations.LandslideObs.Time}
     _value={this.waterMeasurementTimeFormatted}
     ></varsom-key-value>
     :""}
 
 {this.WaterLevelValue ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.WaterLevelValue: (this.shortVersion ? null : "Størrelse") }
+    _key={this.strings.Observations.LandslideObs.WaterLevelValue}
     _value={this.WaterLevelValue}
     ></varsom-key-value>
     :""}
@@ -52,7 +52,7 @@ async componentWillLoad(){
 <br></br>
     {this.Comment ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.Comment: (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.WaterLevel2.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

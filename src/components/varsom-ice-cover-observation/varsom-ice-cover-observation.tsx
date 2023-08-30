@@ -37,48 +37,48 @@ async componentWillLoad(){
     return <div> 
 
 <varsom-label
-      label={this.strings ? this.strings.Observations.IceCoverObs.ObsName : "Isdekning"}
+      label={this.strings.Observations.IceCoverObs.ObsName}
       ></varsom-label>
 
 <div class="content" tabIndex={0}>
     {this.IceCoverName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverTName : (this.shortVersion ? null : "Isdekning") }
+    _key={this.strings.Observations.IceCoverObs.IceCoverTName}
     _value={this.IceCoverName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverBeforeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverBeforeTName : (this.shortVersion ? null : "Isdekning før observasjon") }
+    _key={this.strings.Observations.IceCoverObs.IceCoverBeforeTName}
     _value={this.IceCoverBeforeName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverAfterName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverAfterTName : (this.shortVersion ? null : "Isdekning etter observasjon") }
+    _key={this.strings.Observations.IceCoverObs.IceCoverAfterTName}
     _value={this.IceCoverAfterName}
     ></varsom-key-value>
     :""}
 
     {this.IceCoverName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCoverAfterTName : (this.shortVersion ? null : "Isdekning etter observasjon") }
+    _key={this.strings.Observations.IceCoverObs.IceCoverAfterTName}
     _value={this.IceCoverName}
     ></varsom-key-value>
     :""}
 
     {this.IceCapacityName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceCapacityTName : (this.shortVersion ? null : "Bæreevne") }
+    _key={this.strings.Observations.IceCoverObs.IceCapacityTName}
     _value={this.IceCapacityName}
     ></varsom-key-value>
     :""}
 
     {this.IceSkateabilityName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : (this.shortVersion ? null : "Skøytbarhet") }
+    _key={this.strings.Observations.IceCoverObs.IceSkateabilityTName}
     _value={this.IceSkateabilityName}
     ></varsom-key-value>
     :""}
@@ -86,7 +86,7 @@ async componentWillLoad(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.IceCoverObs.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

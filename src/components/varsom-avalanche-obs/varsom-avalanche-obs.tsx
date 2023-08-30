@@ -100,7 +100,7 @@ avalanche={true}
 
     {this.DtAvalancheTime ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
+    _key={this.strings.Observations.LandslideObs.Time}
     _value={this.avalancheTimeFormatted}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -108,7 +108,7 @@ avalanche={true}
 
     {this.AvalancheName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalancheTID : (this.shortVersion ? null : "Type") }
+    _key={this.strings.Observations.AvalancheObs.AvalancheTID}
     _value={this.AvalancheName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -116,7 +116,7 @@ avalanche={true}
 
     {this.DestructiveSizeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse") }
+    _key={this.strings.Observations.AvalancheObs.DestructiveSizeTID}
     _value={this.DestructiveSizeName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -124,7 +124,7 @@ avalanche={true}
     
     {this.AvalancheTriggerName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalancheTriggerTID : (this.shortVersion ? null : "Skredutløser") }
+    _key={this.strings.Observations.AvalancheObs.AvalancheTriggerTID}
     _value={this.AvalancheTriggerName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -132,7 +132,7 @@ avalanche={true}
 
     {(this.HeightStartZone !== -1 && this.HeightStopZone !== -1) ?  //if no start and stop value, it will not render
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.HeightStartZone : (this.shortVersion ? null : "Løsneområdet") }
+    _key={this.strings.Observations.AvalancheObs.HeightStartZone}
     _value={this.formatStartStopInfo}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -143,7 +143,7 @@ avalanche={true}
     
     {this.AvalCauseName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.AvalCauseTID : (this.shortVersion ? null : "Svakt lag") }
+    _key={this.strings.Observations.AvalancheObs.AvalCauseTID}
     _value={this.AvalCauseName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -159,7 +159,7 @@ avalanche={true}
 
     {this.Trajectory ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.TrajectoryName : (this.shortVersion ? null : "Skredbanenavn") }
+    _key={this.strings.Observations.AvalancheObs.TrajectoryName}
     _value={this.Trajectory}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -183,7 +183,7 @@ avalanche={true}
 
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheObs.Comment}
     _value={this.Comment}
     shortVersion={this.shortVersion}
     ></varsom-key-value>

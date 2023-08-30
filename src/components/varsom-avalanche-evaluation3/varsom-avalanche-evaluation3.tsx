@@ -34,28 +34,28 @@ export class VarsomAvalancheEvaluation3 {
     <div class="content"> 
     {this.AvalancheEvaluation ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ObsName : (this.shortVersion ? null : "Skredfareurdering") }
+    _key={this.strings.Observations.AvalancheEvaluation3.ObsName}
     _value={this.AvalancheEvaluation}
     ></varsom-key-value>
     :""}
 
     {this.ForecastCorrectName && !valueIsNotGiven(this.ForecastCorrectName)? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID : (this.shortVersion ? null : "Varslelets riktighet") }
+    _key={this.strings.Observations.AvalancheEvaluation3.ForecastCorrectTID}
     _value={this.ForecastCorrectName}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheDevelopment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment : (this.shortVersion ? null : "Utvikling") }
+    _key={this.strings.Observations.AvalancheEvaluation3.AvalancheDevelopment}
     _value={this.AvalancheDevelopment}
     ></varsom-key-value>
     :""}
 
     {this.ForecastComment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheEvaluation3.ForecastComment}
     _value={this.ForecastComment}
     ></varsom-key-value>
     :""}
@@ -63,7 +63,7 @@ export class VarsomAvalancheEvaluation3 {
 
 {this.AvalancheDangerTID ? 
 <div>
-  <p>{this.strings ? this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID : "Faregrad"}</p>
+  <p>{this.strings.Observations.AvalancheEvaluation.AvalancheDangerTID}</p>
   
 <span><img src={(`src/assets/svg/avalanche/Icon-Avalanche-Danger-Level-${getDangerTypeSvg(this.AvalancheDangerTID)}`)}></img> 
 

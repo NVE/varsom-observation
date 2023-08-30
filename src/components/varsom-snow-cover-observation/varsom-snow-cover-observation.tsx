@@ -42,35 +42,35 @@ async componentWillLoad(){
 
 {this.DepthHoarThickness ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.DepthHoar : (this.shortVersion ? null : "Begerkrystaller tykkelse") }
+    _key={this.strings.Observations.SnowCover.DepthHoar}
     _value={this.DepthHoarThickness}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerExists ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerFound : (this.shortVersion ? null : "Svakt lag finnes") }
+    _key={this.strings.Observations.SnowCover.CriticalLayerFound}
     _value={this.CriticalLayerExists}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerLocation ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerLocation : (this.shortVersion ? null : "Plassering") }
+    _key={this.strings.Observations.SnowCover.CriticalLayerLocation}
     _value={this.CriticalLayerLocation}
     ></varsom-key-value>
     :""}
 
 {this.SnowPilotRef ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.SnowPilotRefTID : (this.shortVersion ? null : "Snøprofil") }
+    _key={this.strings.Observations.SnowCover.SnowPilotRefTID}
     _value={this.SnowPilotRef}
     ></varsom-key-value>
     :""}
 
 {this.CriticalLayerName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.CriticalLayerTID : (this.shortVersion ? null : "Type") }
+    _key={this.strings.Observations.SnowCover.CriticalLayerTID}
     _value={this.CriticalLayerName}
     ></varsom-key-value>
     :""}
@@ -78,7 +78,7 @@ async componentWillLoad(){
 <br></br>
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowCover.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.SnowCover.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

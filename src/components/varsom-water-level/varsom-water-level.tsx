@@ -33,26 +33,26 @@ async componentWillLoad(){
     return <div class="parent"> 
 
 <varsom-label-small
-label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
+label={this.strings.Observations.WaterLevel.ObsName}
 ></varsom-label-small>
 
 {this.WaterLevelRefTID ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelRefTName: (this.shortVersion ? null : "Referansenivå") }
+    _key={this.strings.Observations.WaterLevel.WaterLevelRefTName}
     _value={this.WaterLevelRefName}
     ></varsom-key-value>
     :""}
 
 {this.WaterLevelDescribed ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelDescribed: (this.shortVersion ? null : "Vannstand beskrivelse") }
+    _key={this.strings.Observations.WaterLevel.WaterLevelDescribed}
     _value={this.WaterLevelDescribed}
     ></varsom-key-value>
     :""}
 
 {this.WaterLevelValue ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel.WaterLevelValue: (this.shortVersion ? null : "Størrelse") }
+    _key={this.strings.Observations.WaterLevel.WaterLevelValue}
     _value={this.WaterLevelValue}
     ></varsom-key-value>
     :""}

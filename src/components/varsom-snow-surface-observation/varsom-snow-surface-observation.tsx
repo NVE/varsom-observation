@@ -43,62 +43,62 @@ async componentWillLoad(){
     return <div> 
 
 <varsom-label
-      label={this.strings ? this.strings.Observations.SnowSurfaceObservation.ObsName : "Snødekke"}
+      label={this.strings.Observations.SnowSurfaceObservation.ObsName}
       ></varsom-label>
 
 <div class="content">
 {this.SnowDepth ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDepth: (this.shortVersion ? null : "Snødybde (cm)") }
+    _key={this.strings.Observations.SnowSurfaceObservation.SnowDepth}
     _value={this.SnowDepth * 100}
     ></varsom-key-value>
     :""}
 
 {this.SnowDriftName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowDriftTName: (this.shortVersion ? null : "Snøfokk") }
+    _key={this.strings.Observations.SnowSurfaceObservation.SnowDriftTName}
     _value={this.SnowDriftName}
     ></varsom-key-value>
     :""}
 
 {this.NewSnowDepth24 ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.NewSnowDepth24: (this.shortVersion ? null : "Siste døgn (cm)") }
+    _key={this.strings.Observations.SnowSurfaceObservation.NewSnowDepth24}
     _value={this.NewSnowDepth24 * 100}
     ></varsom-key-value>
     :""}
 
 {this.SnowLine ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowLine: (this.shortVersion ? null : "Snøgrense (moh)") }
+    _key={this.strings.Observations.SnowSurfaceObservation.SnowLine}
     _value={this.SnowLine}
     ></varsom-key-value>
     : ""}
 
 {this.NewSnowLine ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.NewSnowLine: (this.shortVersion ? null : "Nysnøgrense (moh)") }
+    _key={this.strings.Observations.SnowSurfaceObservation.NewSnowLine}
     _value={this.NewSnowLine}
     ></varsom-key-value>
     : ""}
 
 {this.SnowSurfaceName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SnowSurfaceTName: (this.shortVersion ? null : "Snøoverflate") }
+    _key={this.strings.Observations.SnowSurfaceObservation.SnowSurfaceTName}
     _value={this.SnowSurfaceName}
     ></varsom-key-value>
     : ""}
 
 {this.SurfaceWaterContentName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.SurfaceWaterContentTName: (this.shortVersion ? null : "Overflatefuktighet") }
+    _key={this.strings.Observations.SnowSurfaceObservation.SurfaceWaterContentTName}
     _value={this.SurfaceWaterContentName}
     ></varsom-key-value>
     : ""}
 
 {this.FootPenetration ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.FootPenetration: (this.shortVersion ? null : "Innsynkning fot") }
+    _key={this.strings.Observations.SnowSurfaceObservation.FootPenetration}
     _value={this.FootPenetration}
     ></varsom-key-value>
     : ""}
@@ -113,7 +113,7 @@ async componentWillLoad(){
     <br></br>
 {this.Comment ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.SnowSurfaceObservation.Comment: (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.SnowSurfaceObservation.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     : ""}

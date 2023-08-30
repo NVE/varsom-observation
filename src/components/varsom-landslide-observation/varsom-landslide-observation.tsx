@@ -61,7 +61,7 @@ async componentWillLoad(){
 
     {(this.DtLandSlideTime && (this.DtLandSlideTimeEnd != this.DtLandSlideTime))  ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
+    _key={this.strings.Observations.LandslideObs.Time}
     _value={this.landslideTimeFormatted}
     ></varsom-key-value>
     :""}
@@ -69,7 +69,7 @@ async componentWillLoad(){
     {(this.DtLandSlideTime && this.DtLandSlideTimeEnd && this.strings)  ? 
     <varsom-key-value
     shortVersion={this.shortVersion ? this.shortVersion : null }
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Time : (this.shortVersion ? null : "Tid") }
+    _key={this.strings.Observations.LandslideObs.Time}
     _value={this.landslideTimeFormatted}
       ></varsom-key-value>
     :""}
@@ -77,14 +77,14 @@ async componentWillLoad(){
     {this.LandSlideName ? 
     <varsom-key-value
     shortVersion={this.shortVersion}
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTName : (this.shortVersion ? null : "Skredtype") }
+    _key={this.strings.Observations.LandslideObs.LandSlideTName}
     _value={this.LandSlideName}
     ></varsom-key-value>
     :""}
 
     {this.LandSlideSizeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideSizeTName : (this.shortVersion ? null : "Størrelse") }
+    _key={this.strings.Observations.LandslideObs.LandSlideSizeTName}
     _value={this.LandSlideSizeName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -92,7 +92,7 @@ async componentWillLoad(){
 
     {this.LandSlideTriggerName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.LandSlideTriggerTName : (this.shortVersion ? null : "Trigger") }
+    _key={this.strings.Observations.LandslideObs.LandSlideTriggerTName}
     _value={this.LandSlideTriggerName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -100,7 +100,7 @@ async componentWillLoad(){
       
     {this.DamageExtentName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.DamageExtentTName : (this.shortVersion ? null : "Omfang") }
+    _key={this.strings.Observations.LandslideObs.DamageExtentTName}
     _value={this.DamageExtentName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -108,7 +108,7 @@ async componentWillLoad(){
     
     {this.ForecastAccurateName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.ForecastAccurateTName : (this.shortVersion ? null : "Stemte varsel på varsom.no?") }
+    _key={this.strings.Observations.LandslideObs.ForecastAccurateTName}
     _value={this.ForecastAccurateName}
     shortVersion={this.shortVersion}
     ></varsom-key-value>
@@ -117,7 +117,7 @@ async componentWillLoad(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.LandslideObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.LandslideObs.Comment}
     _value={this.Comment}
     shortVersion={this.shortVersion}
     ></varsom-key-value>

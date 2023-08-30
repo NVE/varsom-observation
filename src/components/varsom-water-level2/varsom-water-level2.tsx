@@ -47,7 +47,7 @@ async componentWillLoad(){
 
 
 <varsom-label
-label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"}
+label={this.strings.Observations.WaterLevel.ObsName}
 ></varsom-label>
      
 <div class="content">
@@ -55,7 +55,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
 {this.WaterLevelStateName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.WaterLevelStateTName: (this.shortVersion ? null : "Situasjon") }
+    _key={this.strings.Observations.WaterLevel2.WaterLevelStateTName}
     _value={this.WaterLevelStateName}
     ></varsom-key-value>
     :""}
@@ -63,14 +63,14 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
 {this.WaterAstrayName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.WaterAstrayTName: (this.shortVersion ? null : "Vann på avveie") }
+    _key={this.strings.Observations.WaterLevel2.WaterAstrayTName}
     _value={this.WaterAstrayName}
     ></varsom-key-value>
     :""}
 
 {this.ObservationTimingName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.ObservationTimingTName: (this.shortVersion ? null : "Hva registrerer du?") }
+    _key={this.strings.Observations.WaterLevel2.ObservationTimingTName}
     _value={this.ObservationTimingName}
     ></varsom-key-value>
     :""}
@@ -78,22 +78,22 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 
 {this.MeasurementTypeName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.MeasurementTypeTName: (this.shortVersion ? null : "Måleinstrument") }
+    _key={this.strings.Observations.WaterLevel2.MeasurementTypeTName}
     _value={this.MeasurementTypeName + ", " + (this.MeasuringToolDescription ? this.MeasuringToolDescription : "")}
     ></varsom-key-value>
     :""}
 
 {this.MeasurementReferenceName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.MeasuredRelativeTo: (this.shortVersion ? null : "Måling relativt til") }
+    _key={this.strings.Observations.WaterLevel2.MeasuredRelativeTo}
     _value={this.MeasurementReferenceName}
     ></varsom-key-value>
     :""}
 
 {this.MeasurementReferenceTID ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.MeasurementReferenceTName: (this.shortVersion ? null : "Vannmarkering på/i") }
-    _value={this.MarkingReferenceName + (this.strings ? this.strings.Observations.WaterLevel2.With : " med ") + 
+    _key={this.strings.Observations.WaterLevel2.MeasurementReferenceTName}
+    _value={this.MarkingReferenceName + this.strings.Observations.WaterLevel2.With + 
   (this.MarkingTypeName ? this.MarkingTypeName : "")}
     ></varsom-key-value>
     :""}
@@ -101,7 +101,7 @@ label={this.strings ? this.strings.Observations.WaterLevel.ObsName : "Vannstand"
 <br></br>
 {this.Comment ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.WaterLevel2.Comment: (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.WaterLevel2.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

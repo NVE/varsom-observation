@@ -63,7 +63,7 @@ async componentWillLoad(){
 
     {this.AvalancheExtName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.AvalancheType : (this.shortVersion ? null : "Skredtype") }
+    _key={this.strings.Observations.AvalancheProblem.AvalancheType}
     _value={this.AvalancheExtName}
     ></varsom-key-value>
     :""}
@@ -71,20 +71,20 @@ async componentWillLoad(){
  
     {this.AvalPropagationName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheProblem.Propagation : (this.shortVersion ? null : "Utbredelse") }
+    _key={this.strings.Observations.AvalancheProblem.Propagation}
     _value={this.AvalPropagationName}
     ></varsom-key-value>
     :""}
   
     {this.AvalCauseDepthName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID : (this.shortVersion ? null : "Avstand fra overflaten til det svake laget") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID}
     _value={this.AvalCauseDepthName}
     ></varsom-key-value>
     :""}
 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID : (this.shortVersion ? null : "Ugunstige egenskaper på det svake laget") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID}
     _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName : "" + 
     this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName : "" +
     this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName : "" + 
@@ -94,21 +94,21 @@ async componentWillLoad(){
 
     {this.AvalProbabilityName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID : (this.shortVersion ? null : "Sannsynlighet for skred") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID}
     _value={this.AvalProbabilityName}
     ></varsom-key-value>
     :""}
 
     {this.AvalTriggerSimpleName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID : (this.shortVersion ? null : "Sannsynlighet for å løse ut skred") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}
     _value={this.AvalTriggerSimpleName}
     ></varsom-key-value>
     :""}
 
     {this.DestructiveSizeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID : (this.shortVersion ? null : "Størrelse på forventet skred") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID}
     _value={this.DestructiveSizeName}
     ></varsom-key-value>
     :""}
@@ -122,7 +122,7 @@ async componentWillLoad(){
     <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvalProblem2.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheEvalProblem2.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

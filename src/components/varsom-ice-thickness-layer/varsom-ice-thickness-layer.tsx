@@ -29,7 +29,7 @@ async componentWillLoad(){
 
     {(this.IceLayerThickness && this.IceLayerName)  ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.IceCoverObs.IceSkateabilityTName : (this.shortVersion ? null : "Islag (ovenfra og ned)") }
+    _key={this.strings.Observations.IceCoverObs.IceSkateabilityTName}
     _value={this.IceLayerThickness + " " + this.IceLayerName + ". " + (this.Comment ? this.Comment : "")}   
     ></varsom-key-value>
     :""}

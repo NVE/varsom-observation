@@ -43,14 +43,14 @@ async componentWillLoad(){
     <div class="content">
     {this.AvalancheEvaluation ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation2.ObsName : (this.shortVersion ? null : "Skredfareurdering") }
+    _key={this.strings.Observations.AvalancheEvaluation2.ObsName}
     _value={this.AvalancheEvaluation}
     ></varsom-key-value>
     :""}
 
     {this.AvalancheDevelopment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation2.AvalancheDevelopment : (this.shortVersion ? null : "Utvikling") }
+    _key={this.strings.Observations.AvalancheEvaluation2.AvalancheDevelopment}
     _value={this.AvalancheDevelopment}
     ></varsom-key-value>
     :""}
@@ -70,7 +70,7 @@ async componentWillLoad(){
 <div>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.AvalancheEvaluation3.ForecastComment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.AvalancheEvaluation3.ForecastComment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

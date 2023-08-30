@@ -47,14 +47,14 @@ async componentWillLoad(){
     
     {this.PropagationName && this.FractureDepth && this.ComprTestFractureName ?
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Test : (this.shortVersion ? null : "Test") }
+    _key={this.strings.Observations.CompressionTest.Test}
     _value={this.PropagationName + "@" + this.FractureDepth * 100 + "cm(" + this.ComprTestFractureName +")"}
     ></varsom-key-value>
     :""}
     
     {this.StabilityEvalName && !valueIsNotGiven(this.StabilityEvalName) ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.StabilityEvalTID : (this.shortVersion ? null : "Stabilitet") }
+    _key={this.strings.Observations.CompressionTest.StabilityEvalTID}
     _value={this.StabilityEvalName}
     ></varsom-key-value>
     :""}
@@ -62,7 +62,7 @@ async componentWillLoad(){
 <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.CompressionTest.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.CompressionTest.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""}

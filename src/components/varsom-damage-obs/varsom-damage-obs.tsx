@@ -33,14 +33,14 @@ async componentWillLoad(){
      return <div>
 
 <varsom-label
-      label={this.strings ? this.strings.Observations.DamageObs.ObsName : "Skader"}
+      label={this.strings.Observations.DamageObs.ObsName}
       ></varsom-label>
 
     <div class="content">
 
     {this.DamageTypeName ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DamageObs.DamageTypeTID : (this.shortVersion ? null : "Type") }
+    _key={this.strings.Observations.DamageObs.DamageTypeTID}
     _value={this.DamageTypeName}
     ></varsom-key-value>
     :""}
@@ -49,7 +49,7 @@ async componentWillLoad(){
 
 {this.Comment ? 
     <varsom-key-value
-    _key={this.strings && !this.shortVersion ? this.strings.Observations.DamageObs.Comment : (this.shortVersion ? null : "Kommentar") }
+    _key={this.strings.Observations.DamageObs.Comment}
     _value={this.Comment}
     ></varsom-key-value>
     :""} 
