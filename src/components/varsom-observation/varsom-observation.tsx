@@ -102,7 +102,7 @@ export class VarsomObservation {
 
   async componentWillLoad(){
 
-  this.strings = await getLocaleComponentStrings(this.elem); 
+  this.strings = await getLocaleComponentStrings(this.elem); //get translation strings and pass to variable based on lang attribute in DOM
   let data;
   let geoHazardId = getGeoHazardIdFromName(this.type);
   let langKey = getLangKeyFromName(getLocaleFromDom(this.elem));
@@ -124,10 +124,8 @@ export class VarsomObservation {
 }else {
   data = [this.json];
 }
-
+//mapping data from api to observation model
      for(let i = 0; i < this.count; i++){
-    
-     //source: https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
       this.observations.push({
         _moh: data[i]["ObsLocation"]["Height"],
         _region: data[i]["ObsLocation"]["MunicipalName"],
