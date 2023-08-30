@@ -24,7 +24,7 @@ export class VarsomAttachment {
   @Prop() AttachmentMimeType?: any;
   @Prop() IsMainAttachment?: any;
   @Prop() CropImage?: boolean;
-  @Element() elem: HTMLElement;
+  @Element() elem: HTMLElement; 
 
   modal: HTMLElement;
   closeBtn: HTMLElement;
@@ -35,8 +35,10 @@ export class VarsomAttachment {
   popup.document.write(image);
  }
 
- async componentWillLoad(){
-  this.strings = await getLocaleComponentStrings(this.elem);
+  
+  
+ async componentWillLoad(){ 
+  this.strings = await getLocaleComponentStrings(this.elem); 
     }
 
   render(){
@@ -50,7 +52,7 @@ export class VarsomAttachment {
 <figcaption class={this.CropImage ? "smallImageInfo" : "imageInfo"}>
 {this.Copyright ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Copyright : "Opphavsrett" }
+    _key={this.strings.Observations.Picture.Copyright}
     _value={this.Copyright}
     ></varsom-key-value>
     : null}
@@ -58,7 +60,7 @@ export class VarsomAttachment {
 <br></br>
     {this.Photographer ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.Photographer : "Fotograf" }
+    _key={this.strings.Observations.Picture.Photographer}
     _value={this.Photographer}
     ></varsom-key-value>
     : null}
@@ -66,7 +68,7 @@ export class VarsomAttachment {
     <br></br>
     {this.Comment ? 
     <varsom-key-value
-    _key={this.strings ? this.strings.Observations.Picture.PictureComment : "Kommentar" }
+    _key={this.strings.Observations.Picture.PictureComment}
     _value={this.Comment}
     ></varsom-key-value>
     : null}
