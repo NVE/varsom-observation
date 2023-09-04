@@ -1,7 +1,5 @@
 # varsom-water-measurement
 
-
-
 <!-- Auto Generated Below -->
 
 

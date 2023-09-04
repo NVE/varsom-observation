@@ -1,7 +1,5 @@
 # varsom-ice-thickness
 
-
-
 <!-- Auto Generated Below -->
 
 

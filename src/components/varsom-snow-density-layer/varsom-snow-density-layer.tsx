@@ -6,7 +6,7 @@ import { Element } from '@stencil/core';
   tag: 'varsom-snow-density-layer',
   styleUrl: 'varsom-snow-density-layer.css',
   shadow: false,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomSnowDensityLayer {
 
@@ -18,18 +18,9 @@ export class VarsomSnowDensityLayer {
   @Prop() WaterEquivalent: number;
   @Prop() SortOrder: number;
 
-
   @Element() elem: HTMLElement;
-  
-  render(){
-    return <span> 
-    {
-      `${this.Density} kg/m\u00B3 (${this.WaterEquivalent} mm) @ ${this.Depth * 100} cm`
-    }
-    </span>
-  }
-    
-  }
 
-  
-  
+  render() {
+    return <span>{`${this.Density} kg/m\u00B3 (${this.WaterEquivalent} mm) @ ${this.Depth * 100} cm`}</span>;
+  }
+}

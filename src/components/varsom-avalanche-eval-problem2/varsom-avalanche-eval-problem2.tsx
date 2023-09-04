@@ -1,5 +1,5 @@
-import { Component, Prop, h} from '@stencil/core';
-import { Attachment } from '../varsom-observation/observation-model';
+import { Component, Prop, h } from '@stencil/core';
+import { Attachment } from '../../models/observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 import { Element } from '@stencil/core';
 
@@ -7,7 +7,7 @@ import { Element } from '@stencil/core';
   tag: 'varsom-avalanche-eval-problem2',
   styleUrl: 'varsom-avalanche-eval-problem2.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomAvalancheEvalProblem2 {
 
@@ -42,112 +42,88 @@ export class VarsomAvalancheEvalProblem2 {
   @Prop() AvalPropagationName: string;
   @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
-  
+
   @Element() elem: HTMLElement;
 
-async componentWillLoad(){
- this.strings = await getLocaleComponentStrings(this.elem);
+  async componentWillLoad() {
+    this.strings = await getLocaleComponentStrings(this.elem);
   }
 
-  render(){
+  render() {
+    return (
+      <div>
+        <div class="parent">
+          {this.AvalCauseName ? <varsom-label-small label={this.AvalCauseName}></varsom-label-small> : ''}
 
-    return <div>
-    <div class="parent"> 
+          {this.AvalancheExtName ? <varsom-key-value _key={this.strings.Observations.AvalancheProblem.AvalancheType} _value={this.AvalancheExtName}></varsom-key-value> : ''}
 
-    {this.AvalCauseName ? 
-    <varsom-label-small
-    label={this.AvalCauseName}
-    ></varsom-label-small>
-    :""}
-    
+          {this.AvalPropagationName ? <varsom-key-value _key={this.strings.Observations.AvalancheProblem.Propagation} _value={this.AvalPropagationName}></varsom-key-value> : ''}
 
-    {this.AvalancheExtName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheProblem.AvalancheType}
-    _value={this.AvalancheExtName}
-    ></varsom-key-value>
-    :""}
+          {this.AvalCauseDepthName ? (
+            <varsom-key-value _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID} _value={this.AvalCauseDepthName}></varsom-key-value>
+          ) : (
+            ''
+          )}
 
- 
-    {this.AvalPropagationName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheProblem.Propagation}
-    _value={this.AvalPropagationName}
-    ></varsom-key-value>
-    :""}
-  
-    {this.AvalCauseDepthName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseDepthTID}
-    _value={this.AvalCauseDepthName}
-    ></varsom-key-value>
-    :""}
+          <varsom-key-value
+            _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID}
+            _value={
+              this.AvalCauseAttributeLightName
+                ? this.AvalCauseAttributeLightName
+                : '' + this.AvalCauseAttributeThinName
+                ? this.AvalCauseAttributeThinName
+                : '' + this.AvalCauseAttributeSoftName
+                ? this.AvalCauseAttributeSoftName
+                : '' + this.AvalCauseAttributeCrystalName
+                ? this.AvalCauseAttributeCrystalName
+                : ''
+            }
+          ></varsom-key-value>
 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.AvalCauseAttributeLightTID}
-    _value={this.AvalCauseAttributeLightName ? this.AvalCauseAttributeLightName : "" + 
-    this.AvalCauseAttributeThinName ? this.AvalCauseAttributeThinName : "" +
-    this.AvalCauseAttributeSoftName ? this.AvalCauseAttributeSoftName : "" + 
-    this.AvalCauseAttributeCrystalName ? this.AvalCauseAttributeCrystalName : ""
-    }
-    ></varsom-key-value>
+          {this.AvalProbabilityName ? (
+            <varsom-key-value _key={this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID} _value={this.AvalProbabilityName}></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalProbabilityName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.AvalProbabilityTID}
-    _value={this.AvalProbabilityName}
-    ></varsom-key-value>
-    :""}
+          {this.AvalTriggerSimpleName ? (
+            <varsom-key-value _key={this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID} _value={this.AvalTriggerSimpleName}></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.AvalTriggerSimpleName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.AvalTriggerSimpleTID}
-    _value={this.AvalTriggerSimpleName}
-    ></varsom-key-value>
-    :""}
+          {this.DestructiveSizeName ? (
+            <varsom-key-value _key={this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID} _value={this.DestructiveSizeName}></varsom-key-value>
+          ) : (
+            ''
+          )}
 
-    {this.DestructiveSizeName ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.DestructiveSizeTID}
-    _value={this.DestructiveSizeName}
-    ></varsom-key-value>
-    :""}
+          <varsom-exposed-height
+            ValidExposition={this.ValidExposition ?? null}
+            ExposedHeight1={this.ExposedHeight1 ?? null}
+            ExposedHeight2={this.ExposedHeight2 ?? null}
+          ></varsom-exposed-height>
 
-    <varsom-exposed-height
-    ValidExposition={this.ValidExposition ?? null}
-    ExposedHeight1={this.ExposedHeight1 ?? null}
-    ExposedHeight2={this.ExposedHeight2 ?? null}
-    ></varsom-exposed-height>
-  
-    <div>
-    {this.Comment ? 
-    <varsom-key-value
-    _key={this.strings.Observations.AvalancheEvalProblem2.Comment}
-    _value={this.Comment}
-    ></varsom-key-value>
-    :""}
-    </div>
-    
-    
-    {(this.Attachments && !this.shortVersion) ? 
-      <span class="attachments-container">
-      {this.Attachments.map((el: Attachment = {}) =>{
-            return <varsom-attachment
-            Photographer={el.Photographer ? el.Photographer : null}            
-            Comment={el.Comment ? el.Comment : null}
-            Url={el.Url ? el.Url : null}
-            Copyright={el.Copyright ? el.Copyright : null}
-            >
+          <div>{this.Comment ? <varsom-key-value _key={this.strings.Observations.AvalancheEvalProblem2.Comment} _value={this.Comment}></varsom-key-value> : ''}</div>
 
-            </varsom-attachment>
-        })
-        } </span> : ""}
-    
-    
-  </div>
-</div>
- 
-  
+          {this.Attachments && !this.shortVersion ? (
+            <span class="attachments-container">
+              {this.Attachments.map((el: Attachment = {}) => {
+                return (
+                  <varsom-attachment
+                    Photographer={el.Photographer ? el.Photographer : null}
+                    Comment={el.Comment ? el.Comment : null}
+                    Url={el.Url ? el.Url : null}
+                    Copyright={el.Copyright ? el.Copyright : null}
+                  ></varsom-attachment>
+                );
+              })}{' '}
+            </span>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+    );
   }
-    
 }

@@ -1,7 +1,5 @@
 # varsom-damage-obs
 
-
-
 <!-- Auto Generated Below -->
 
 

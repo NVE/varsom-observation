@@ -1,7 +1,5 @@
 # varsom-schema
 
-
-
 <!-- Auto Generated Below -->
 
 

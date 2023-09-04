@@ -4,20 +4,14 @@ import { Component, Prop, h } from '@stencil/core';
   tag: 'varsom-label-small',
   styleUrl: 'varsom-label-small.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomLabelSmall {
 
   @Prop() label: string;
   
 
-  render(){
-    return <div> 
-    {this.label}
-    </div>
+  render() {
+    return <div>{this.label}</div>;
   }
-    
-  }
-
-  
-  
+}

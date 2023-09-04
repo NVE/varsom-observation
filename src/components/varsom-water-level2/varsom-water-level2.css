@@ -11,15 +11,14 @@ span {
 }
 
 .container {
-  border-bottom: 1px solid #B7BABF;
+  border-bottom: 1px solid #b7babf;
   font-size: var(--varsom-text-size);
   font-family: var(--varsom-font-family);
 }
 
-.attachments-container { 
+.attachments-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   margin: 1rem;
 }
-

@@ -1,17 +1,15 @@
 # varsom-exposed-height
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property          | Attribute          | Description | Type     | Default     |
-| ----------------- | ------------------ | ----------- | -------- | ----------- |
-| `ExposedHeight1`  | `exposed-height-1` |             | `number` | `undefined` |
-| `ExposedHeight2`  | `exposed-height-2` |             | `number` | `undefined` |
-| `ValidExposition` | `valid-exposition` |             | `string` | `undefined` |
+| Property          | Attribute          | Description | Type  | Default     |
+| ----------------- | ------------------ | ----------- | ----- | ----------- |
+| `ExposedHeight1`  | `exposed-height-1` |             | `any` | `undefined` |
+| `ExposedHeight2`  | `exposed-height-2` |             | `any` | `undefined` |
+| `ValidExposition` | `valid-exposition` |             | `any` | `undefined` |
 
 
 ## Dependencies

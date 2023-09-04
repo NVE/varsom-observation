@@ -1,7 +1,5 @@
 # varsom-danger-obs
 
-
-
 <!-- Auto Generated Below -->
 
 

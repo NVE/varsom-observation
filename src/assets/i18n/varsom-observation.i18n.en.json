@@ -155,7 +155,6 @@
     "InvalidRegistration": "Unknown registration ID",
     "InvalidRegText": "We couldn't find the registration you're asking for",
     "RouterError": "We couldn't find the page you're looking for, but it's never too late to turn around"
-
   },
   "Footer": {
     "CookiesLink": "Informasjonskapsler",

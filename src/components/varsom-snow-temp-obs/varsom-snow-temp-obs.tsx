@@ -5,7 +5,7 @@ import { Element } from '@stencil/core';
   tag: 'varsom-snow-temp-obs',
   styleUrl: 'varsom-snow-temp-obs.css',
   shadow: true,
-  assetsDirs: ['images']
+  assetsDirs: ['images'],
 })
 export class VarsomSnowTempObs {
 
@@ -15,16 +15,7 @@ export class VarsomSnowTempObs {
   
   @Element() elem: HTMLElement;
 
-  render(){
-    return <span class="content">
-
-      {this.SnowTemp + " \u00B0 @ " + this.Depth*100 + " cm"}  
-   
-
-    </span>
+  render() {
+    return <span class="content">{this.SnowTemp + ' \u00B0 @ ' + this.Depth * 100 + ' cm'}</span>;
   }
-    
-  }
-
-  
-  
+}

@@ -21,11 +21,9 @@ span {
   margin: 1.5rem;
 }
 
-.attachments-container { 
+.attachments-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   margin: 1rem;
-  }
-  
-
+}

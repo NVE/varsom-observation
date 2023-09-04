@@ -1,7 +1,5 @@
 # varsom-weather
 
-
-
 <!-- Auto Generated Below -->
 
 

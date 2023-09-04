@@ -1,7 +1,7 @@
-import { NORWAY_BOUNDS } from "./norway-bounds"
-import { SVALBARD_BOUNDS } from "./svalbard-bounds"
+import { NORWAY_BOUNDS } from './norway-bounds';
+import { SVALBARD_BOUNDS } from './svalbard-bounds';
 
- enum MapLayerZIndex {
+enum MapLayerZIndex {
   OnlineMixedBackgroundLayer = 0,
   OfflineBackgroundLayer = 10,
   OnlineBackgroundLayer = 20,
@@ -9,7 +9,6 @@ import { SVALBARD_BOUNDS } from "./svalbard-bounds"
   OnlineSupportLayer = 40,
   Top = 50,
 }
-
 
 export const MapSettings = {
   map: {
@@ -31,7 +30,6 @@ export const MapSettings = {
               [71.15939141681443, 30.816650390624996],
             ],
             zIndex: MapLayerZIndex.OnlineBackgroundLayer,
-
           },
           supportsOffline: true,
         },
@@ -249,5 +247,5 @@ export const MapSettings = {
     extentColor: '#3344bb',
     startExtentColor: '#33bb44',
     endExtentColor: '#bb3344',
-  } 
-}
+  },
+};

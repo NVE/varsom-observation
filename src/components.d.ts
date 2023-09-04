@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Attachment, AvalancheEvalProblem, IceThicknessLayer, LatLng, Observation, SnowDensity, SnowDensityLayer, SnowTemp, SnowTempObs, StratProfile, StratProfileLayer, Url, WaterLevelMeasurement } from "./components/varsom-observation/observation-model";
+import { Attachment, AvalancheEvalProblem, IceThicknessLayer, LatLng, Observation, SnowDensity, SnowDensityLayer, SnowTemp, SnowTempObs, StratProfile, StratProfileLayer, Url, WaterLevelMeasurement } from "./models/observation-model";
 export namespace Components {
     interface MyComponent {
         /**
@@ -47,7 +47,7 @@ export namespace Components {
         "Comment": string;
         "DestructiveSizeName": string;
         "DestructiveSizeTID": number;
-        "DtAvalancheTime": number;
+        "DtAvalancheTime": string;
         "DtOffAvalancheTime": string;
         "EstimatedNumName": string;
         "EstimatedNumTID": number;
@@ -265,9 +265,9 @@ export namespace Components {
         "Text": any;
     }
     interface VarsomExposedHeight {
-        "ExposedHeight1": number;
-        "ExposedHeight2": number;
-        "ValidExposition": string;
+        "ExposedHeight1": any;
+        "ExposedHeight2": any;
+        "ValidExposition": any;
     }
     interface VarsomGeneralObservation {
         "Attachments": Attachment[];
@@ -976,7 +976,7 @@ declare namespace LocalJSX {
         "Comment"?: string;
         "DestructiveSizeName"?: string;
         "DestructiveSizeTID"?: number;
-        "DtAvalancheTime"?: number;
+        "DtAvalancheTime"?: string;
         "DtOffAvalancheTime"?: string;
         "EstimatedNumName"?: string;
         "EstimatedNumTID"?: number;
@@ -1194,9 +1194,9 @@ declare namespace LocalJSX {
         "Text"?: any;
     }
     interface VarsomExposedHeight {
-        "ExposedHeight1"?: number;
-        "ExposedHeight2"?: number;
-        "ValidExposition"?: string;
+        "ExposedHeight1"?: any;
+        "ExposedHeight2"?: any;
+        "ValidExposition"?: any;
     }
     interface VarsomGeneralObservation {
         "Attachments"?: Attachment[];

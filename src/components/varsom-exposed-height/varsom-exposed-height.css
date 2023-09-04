@@ -3,14 +3,14 @@
   margin-top: 1rem;
 }
 
-.avalanche-height-container{
+.avalanche-height-container {
   display: flex;
   flex-direction: column;
   max-width: 4rem;
   justify-content: center;
 }
 
-.avalanche-height2-container{
+.avalanche-height2-container {
   display: flex;
   margin: 0.5rem 0 0 1rem;
   max-width: 4rem;
@@ -18,7 +18,7 @@
 }
 
 .height-number {
-  margin: 0.6rem 0
+  margin: 0.6rem 0;
 }
 
 .avalanche-height-number-container {

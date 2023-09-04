@@ -1,20 +1,20 @@
 import { Polygon } from 'geojson';
 import * as L from 'leaflet';
 
- enum GeoHazard {
+enum GeoHazard {
   Snow = 10,
   Soil = 20,
   Water = 60,
   Ice = 70,
 }
 
- interface SupportTile extends SubTile {
+interface SupportTile extends SubTile {
   opacity: number;
   geoHazardId: GeoHazard;
   subTile?: SubTile;
 }
 
- interface SubTile extends SubTileStore {
+interface SubTile extends SubTileStore {
   description: string;
   url: string;
   availableOffline?: boolean;
@@ -24,9 +24,9 @@ import * as L from 'leaflet';
  interface SupportTileStore extends SubTileStore {
   opacity: number;
   subTile?: SubTileStore;
-}*/ 
+}*/
 
- interface SubTileStore {
+interface SubTileStore {
   name: string;
   enabled: boolean;
   checked: boolean;

@@ -1,7 +1,5 @@
 # varsom-snow-surface
 
-
-
 <!-- Auto Generated Below -->
 
 
