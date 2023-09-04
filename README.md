@@ -92,3 +92,11 @@ You can also import the component with unpkg. Include this script in index.html:
 3. Implementation of Storybook is based on code from https://ionic.io/blog/how-to-use-storybook-with-stencil
 4. To check if array is empty we have used code from https://pipinghot.dev/snippet/check-if-an-array-has-length-in-javascript-typescript/
 5. Code for using translation files is based on code from https://medium.com/stencil-tricks/implementing-internationalisation-i18n-with-stencil-5e6559554117
+
+## Autogenerering av regobs modeller
+
+```
+npm run generate-models
+```
+
+Api models are generated in `./src/models/regobs.ts`.
