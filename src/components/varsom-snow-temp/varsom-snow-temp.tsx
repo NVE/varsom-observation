@@ -9,7 +9,7 @@ import { Attachment, SnowTempObs } from '../varsom-observation/observation-model
 })
 export class VarsomSnowTemp {
 
-  @Prop() shortVersion: any;
+  @Prop() shortVersion: string;
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];
   

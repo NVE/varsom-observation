@@ -13,26 +13,26 @@ import { Element } from '@stencil/core';
 })
 export class VarsomAvalancheEvalProblem {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() AvalancheEvalProblemID: any;
-  @Prop() AvalProbabilityTID: any;
-  @Prop() AvalProbabilityName: any;
-  @Prop() AvalTriggerSimpleTID: any;
-  @Prop() AvalTriggerSimpleName: any;
-  @Prop() DestructiveSizeExtTID: any;
-  @Prop() DestructiveSizeExtName: any;
-  @Prop() AvalancheExtTID: any;
-  @Prop() AvalancheExtName: any;
-  @Prop() AvalCauseTID: any;
-  @Prop() AvalCauseExtTID: any;
-  @Prop() AvalCauseName: any;
-  @Prop() AvalCauseExtName: any;
-  @Prop() AvalReleaseHeightTID: any;
-  @Prop() AvalReleaseHeightName: any;
-  @Prop() AvalancheProbabilityAutoText: any;
-  @Prop() AvalancheProblemAutoText: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() AvalancheEvalProblemID: number;
+  @Prop() AvalProbabilityTID: number;
+  @Prop() AvalProbabilityName: string;
+  @Prop() AvalTriggerSimpleTID: number;
+  @Prop() AvalTriggerSimpleName: string;
+  @Prop() DestructiveSizeExtTID: number;
+  @Prop() DestructiveSizeExtName: string;
+  @Prop() AvalancheExtTID: number;
+  @Prop() AvalancheExtName: string;
+  @Prop() AvalCauseTID: number;
+  @Prop() AvalCauseExtTID: number;
+  @Prop() AvalCauseName: string;
+  @Prop() AvalCauseExtName: string;
+  @Prop() AvalReleaseHeightTID: number;
+  @Prop() AvalReleaseHeightName: string;
+  @Prop() AvalancheProbabilityAutoText: string;
+  @Prop() AvalancheProblemAutoText: string;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

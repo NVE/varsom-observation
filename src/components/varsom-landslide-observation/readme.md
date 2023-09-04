@@ -9,30 +9,30 @@
 
 | Property                 | Attribute                   | Description | Type           | Default     |
 | ------------------------ | --------------------------- | ----------- | -------------- | ----------- |
-| `ActivityInfluencedName` | `activity-influenced-name`  |             | `any`          | `undefined` |
-| `ActivityInfluencedTID`  | `activity-influenced-t-i-d` |             | `any`          | `undefined` |
+| `ActivityInfluencedName` | `activity-influenced-name`  |             | `string`       | `undefined` |
+| `ActivityInfluencedTID`  | `activity-influenced-t-i-d` |             | `number`       | `undefined` |
 | `Attachments`            | --                          |             | `Attachment[]` | `undefined` |
-| `Comment`                | `comment`                   |             | `any`          | `undefined` |
-| `DamageExtentName`       | `damage-extent-name`        |             | `any`          | `undefined` |
-| `DamageExtentTID`        | `damage-extent-t-i-d`       |             | `any`          | `undefined` |
-| `DtLandSlideTime`        | `dt-land-slide-time`        |             | `any`          | `undefined` |
-| `DtLandSlideTimeEnd`     | `dt-land-slide-time-end`    |             | `any`          | `undefined` |
-| `ForecastAccurateName`   | `forecast-accurate-name`    |             | `any`          | `undefined` |
-| `ForecastAccurateTID`    | `forecast-accurate-t-i-d`   |             | `any`          | `undefined` |
-| `GeoHazardName`          | `geo-hazard-name`           |             | `any`          | `undefined` |
-| `GeoHazardTID`           | `geo-hazard-t-i-d`          |             | `any`          | `undefined` |
-| `LandSlideName`          | `land-slide-name`           |             | `any`          | `undefined` |
-| `LandSlideSizeName`      | `land-slide-size-name`      |             | `any`          | `undefined` |
-| `LandSlideSizeTID`       | `land-slide-size-t-i-d`     |             | `any`          | `undefined` |
-| `LandSlideTID`           | `land-slide-t-i-d`          |             | `any`          | `undefined` |
-| `LandSlideTriggerName`   | `land-slide-trigger-name`   |             | `any`          | `undefined` |
-| `LandSlideTriggerTID`    | `land-slide-trigger-t-i-d`  |             | `any`          | `undefined` |
-| `StartLat`               | `start-lat`                 |             | `any`          | `undefined` |
-| `StartLong`              | `start-long`                |             | `any`          | `undefined` |
-| `StopLat`                | `stop-lat`                  |             | `any`          | `undefined` |
-| `StopLong`               | `stop-long`                 |             | `any`          | `undefined` |
-| `Urls`                   | --                          |             | `any[]`        | `undefined` |
-| `shortVersion`           | `short-version`             |             | `any`          | `undefined` |
+| `Comment`                | `comment`                   |             | `string`       | `undefined` |
+| `DamageExtentName`       | `damage-extent-name`        |             | `string`       | `undefined` |
+| `DamageExtentTID`        | `damage-extent-t-i-d`       |             | `number`       | `undefined` |
+| `DtLandSlideTime`        | `dt-land-slide-time`        |             | `string`       | `undefined` |
+| `DtLandSlideTimeEnd`     | `dt-land-slide-time-end`    |             | `string`       | `undefined` |
+| `ForecastAccurateName`   | `forecast-accurate-name`    |             | `string`       | `undefined` |
+| `ForecastAccurateTID`    | `forecast-accurate-t-i-d`   |             | `number`       | `undefined` |
+| `GeoHazardName`          | `geo-hazard-name`           |             | `string`       | `undefined` |
+| `GeoHazardTID`           | `geo-hazard-t-i-d`          |             | `number`       | `undefined` |
+| `LandSlideName`          | `land-slide-name`           |             | `string`       | `undefined` |
+| `LandSlideSizeName`      | `land-slide-size-name`      |             | `string`       | `undefined` |
+| `LandSlideSizeTID`       | `land-slide-size-t-i-d`     |             | `number`       | `undefined` |
+| `LandSlideTID`           | `land-slide-t-i-d`          |             | `number`       | `undefined` |
+| `LandSlideTriggerName`   | `land-slide-trigger-name`   |             | `string`       | `undefined` |
+| `LandSlideTriggerTID`    | `land-slide-trigger-t-i-d`  |             | `number`       | `undefined` |
+| `StartLat`               | `start-lat`                 |             | `number`       | `undefined` |
+| `StartLong`              | `start-long`                |             | `number`       | `undefined` |
+| `StopLat`                | `stop-lat`                  |             | `number`       | `undefined` |
+| `StopLong`               | `stop-long`                 |             | `number`       | `undefined` |
+| `Urls`                   | --                          |             | `Url[]`        | `undefined` |
+| `shortVersion`           | `short-version`             |             | `string`       | `undefined` |
 
 
 ## Dependencies

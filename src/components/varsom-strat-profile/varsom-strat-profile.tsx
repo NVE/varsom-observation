@@ -9,8 +9,8 @@ import { Attachment, StratProfileLayer } from '../varsom-observation/observation
 })
 export class VarsomStratProfile {
 
-  @Prop() shortVersion: any;
-  @Prop() TotalDepth:	any;
+  @Prop() shortVersion: string;
+  @Prop() TotalDepth:	number;
   @Prop() Layers: StratProfileLayer[];
   @Prop() Attachments: Attachment[];
 

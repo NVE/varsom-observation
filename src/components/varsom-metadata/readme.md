@@ -9,14 +9,14 @@
 
 | Property              | Attribute               | Description | Type     | Default     |
 | --------------------- | ----------------------- | ----------- | -------- | ----------- |
-| `competenceLevelName` | `competence-level-name` |             | `any`    | `undefined` |
-| `dateOfLastUpdate`    | `date-of-last-update`   |             | `any`    | `undefined` |
-| `dateOfObservation`   | `date-of-observation`   |             | `any`    | `undefined` |
-| `dateOfRegistration`  | `date-of-registration`  |             | `any`    | `undefined` |
-| `geoHazardName`       | `geo-hazard-name`       |             | `any`    | `undefined` |
-| `moh`                 | `moh`                   |             | `any`    | `undefined` |
-| `nickname`            | `nickname`              |             | `any`    | `undefined` |
-| `observerGroupName`   | `observer-group-name`   |             | `any`    | `undefined` |
+| `competenceLevelName` | `competence-level-name` |             | `string` | `undefined` |
+| `dateOfLastUpdate`    | `date-of-last-update`   |             | `string` | `undefined` |
+| `dateOfObservation`   | `date-of-observation`   |             | `string` | `undefined` |
+| `dateOfRegistration`  | `date-of-registration`  |             | `string` | `undefined` |
+| `geoHazardName`       | `geo-hazard-name`       |             | `string` | `undefined` |
+| `moh`                 | `moh`                   |             | `number` | `undefined` |
+| `nickname`            | `nickname`              |             | `string` | `undefined` |
+| `observerGroupName`   | `observer-group-name`   |             | `string` | `undefined` |
 | `shortVersion`        | `short-version`         |             | `string` | `undefined` |
 
 

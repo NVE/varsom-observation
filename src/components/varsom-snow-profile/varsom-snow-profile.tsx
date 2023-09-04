@@ -12,17 +12,17 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowProfile {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() GeoHazardName: any;
-  @Prop() RegistrationName: any;
-  @Prop() Photographer: any;
-  @Prop() Copyright: any;
-  @Prop() Aspect: any;
-  @Prop() GeoHazardTID: any;
-  @Prop() RegistrationTID: any;
-  @Prop() Url: any;
-  @Prop() Comment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() GeoHazardName: string;
+  @Prop() RegistrationName: string;
+  @Prop() Photographer: string;
+  @Prop() Copyright: string;
+  @Prop() Aspect: number;
+  @Prop() GeoHazardTID: number;
+  @Prop() RegistrationTID: number;
+  @Prop() Url: string;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

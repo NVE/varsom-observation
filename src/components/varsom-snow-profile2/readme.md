@@ -7,21 +7,21 @@
 
 ## Properties
 
-| Property            | Attribute              | Description | Type            | Default     |
-| ------------------- | ---------------------- | ----------- | --------------- | ----------- |
-| `Attachments`       | --                     |             | `Attachment[]`  | `undefined` |
-| `Comment`           | `comment`              |             | `any`           | `undefined` |
-| `Exposition`        | `exposition`           |             | `any`           | `undefined` |
-| `ImageUrl`          | `image-url`            |             | `any`           | `undefined` |
-| `IsProfileToGround` | `is-profile-to-ground` |             | `any`           | `undefined` |
-| `RegId`             | `reg-id`               |             | `any`           | `undefined` |
-| `SlopeAngle`        | `slope-angle`          |             | `any`           | `undefined` |
-| `SnowDensity`       | --                     |             | `SnowDensity[]` | `undefined` |
-| `SnowTemp`          | `snow-temp`            |             | `any`           | `undefined` |
-| `StratProfile`      | `strat-profile`        |             | `any`           | `undefined` |
-| `TotalDepth`        | `total-depth`          |             | `any`           | `undefined` |
-| `Weight`            | `weight`               |             | `any`           | `undefined` |
-| `shortVersion`      | `short-version`        |             | `any`           | `undefined` |
+| Property            | Attribute              | Description | Type                                                                               | Default     |
+| ------------------- | ---------------------- | ----------- | ---------------------------------------------------------------------------------- | ----------- |
+| `Attachments`       | --                     |             | `Attachment[]`                                                                     | `undefined` |
+| `Comment`           | `comment`              |             | `string`                                                                           | `undefined` |
+| `Exposition`        | `exposition`           |             | `number`                                                                           | `undefined` |
+| `ImageUrl`          | `image-url`            |             | `string`                                                                           | `undefined` |
+| `IsProfileToGround` | `is-profile-to-ground` |             | `boolean`                                                                          | `undefined` |
+| `RegId`             | `reg-id`               |             | `number`                                                                           | `undefined` |
+| `SlopeAngle`        | `slope-angle`          |             | `number`                                                                           | `undefined` |
+| `SnowDensity`       | --                     |             | `SnowDensity[]`                                                                    | `undefined` |
+| `SnowTemp`          | --                     |             | `{ Layers: SnowTempObs[]; Attachments?: Attachment[]; }`                           | `undefined` |
+| `StratProfile`      | --                     |             | `{ TotalDepth: number; Layers: StratProfileLayer[]; Attachments?: Attachment[]; }` | `undefined` |
+| `TotalDepth`        | `total-depth`          |             | `number`                                                                           | `undefined` |
+| `Weight`            | `weight`               |             | `number`                                                                           | `undefined` |
+| `shortVersion`      | `short-version`        |             | `string`                                                                           | `undefined` |
 
 
 ## Dependencies

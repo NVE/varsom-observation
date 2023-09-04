@@ -8,9 +8,9 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class VarsomExposedHeight {
 
-    @Prop() ValidExposition: any;
-    @Prop() ExposedHeight1: any;
-    @Prop() ExposedHeight2: any;
+    @Prop() ValidExposition: string;
+    @Prop() ExposedHeight1: number;
+    @Prop() ExposedHeight2: number;
 
    
   render(){

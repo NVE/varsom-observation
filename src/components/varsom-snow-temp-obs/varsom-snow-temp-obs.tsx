@@ -9,9 +9,9 @@ import { Element } from '@stencil/core';
 })
 export class VarsomSnowTempObs {
 
-  @Prop() shortVersion: any;
-  @Prop() Depth: any; 
-  @Prop() SnowTemp:	any;
+  @Prop() shortVersion: string;
+  @Prop() Depth: number; 
+  @Prop() SnowTemp:	number;
   
   @Element() elem: HTMLElement;
 

@@ -12,15 +12,15 @@ import { Element } from '@stencil/core';
 })
 export class VarsomAvalancheEvaluation3 {
 
-  private strings: any
-  @Prop() shortVersion: any;
-  @Prop() AvalancheDangerName: any;
-  @Prop() ForecastCorrectName: any;
-  @Prop() AvalancheDangerTID: any;
-  @Prop() AvalancheEvaluation: any;
-  @Prop() AvalancheDevelopment: any;
-  @Prop() ForecastCorrectTID: any;
-  @Prop() ForecastComment: any;
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() AvalancheDangerName: string;
+  @Prop() ForecastCorrectName: string;
+  @Prop() AvalancheDangerTID: number;
+  @Prop() AvalancheEvaluation: string;
+  @Prop() AvalancheDevelopment: string;
+  @Prop() ForecastCorrectTID: number;
+  @Prop() ForecastComment: string;
   @Prop() Attachments: Attachment[];
   @Element () elem: HTMLElement;
 
