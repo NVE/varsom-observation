@@ -8,14 +8,14 @@
 | Property               | Attribute                | Description | Type           | Default     |
 | ---------------------- | ------------------------ | ----------- | -------------- | ----------- |
 | `Attachments`          | --                       |             | `Attachment[]` | `undefined` |
-| `AvalancheDangerName`  | `avalanche-danger-name`  |             | `any`          | `undefined` |
-| `AvalancheDangerTID`   | `avalanche-danger-t-i-d` |             | `any`          | `undefined` |
-| `AvalancheDevelopment` | `avalanche-development`  |             | `any`          | `undefined` |
-| `AvalancheEvaluation`  | `avalanche-evaluation`   |             | `any`          | `undefined` |
-| `ForecastComment`      | `forecast-comment`       |             | `any`          | `undefined` |
-| `ForecastCorrectName`  | `forecast-correct-name`  |             | `any`          | `undefined` |
-| `ForecastCorrectTID`   | `forecast-correct-t-i-d` |             | `any`          | `undefined` |
-| `shortVersion`         | `short-version`          |             | `any`          | `undefined` |
+| `AvalancheDangerName`  | `avalanche-danger-name`  |             | `string`       | `undefined` |
+| `AvalancheDangerTID`   | `avalanche-danger-t-i-d` |             | `number`       | `undefined` |
+| `AvalancheDevelopment` | `avalanche-development`  |             | `string`       | `undefined` |
+| `AvalancheEvaluation`  | `avalanche-evaluation`   |             | `string`       | `undefined` |
+| `ForecastComment`      | `forecast-comment`       |             | `string`       | `undefined` |
+| `ForecastCorrectName`  | `forecast-correct-name`  |             | `string`       | `undefined` |
+| `ForecastCorrectTID`   | `forecast-correct-t-i-d` |             | `number`       | `undefined` |
+| `shortVersion`         | `short-version`          |             | `string`       | `undefined` |
 
 
 ## Dependencies

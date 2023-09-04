@@ -8,23 +8,22 @@
 | Property                | Attribute                   | Description | Type           | Default     |
 | ----------------------- | --------------------------- | ----------- | -------------- | ----------- |
 | `Attachments`           | --                          |             | `Attachment[]` | `undefined` |
-| `AvalancheDangerName`   | `avalanche-danger-name`     |             | `any`          | `undefined` |
-| `AvalancheDangerTID`    | `avalanche-danger-t-i-d`    |             | `any`          | `undefined` |
-| `AvalancheEvaluation1`  | `avalanche-evaluation-1`    |             | `any`          | `undefined` |
-| `AvalancheProblemName1` | `avalanche-problem-name-1`  |             | `any`          | `undefined` |
-| `AvalancheProblemName2` | `avalanche-problem-name-2`  |             | `any`          | `undefined` |
-| `AvalancheProblemName3` | `avalanche-problem-name-3`  |             | `any`          | `undefined` |
-| `AvalancheProblemTID1`  | `avalanche-problem-t-i-d-1` |             | `any`          | `undefined` |
-| `AvalancheProblemTID2`  | `avalanche-problem-t-i-d-2` |             | `any`          | `undefined` |
-| `AvalancheProblemTID3`  | `avalanche-problem-t-i-d-3` |             | `any`          | `undefined` |
-| `CanPublish`            | `can-publish`               |             | `any`          | `undefined` |
-| `Comment`               | `comment`                   |             | `any`          | `undefined` |
-| `RegID`                 | `reg-i-d`                   |             | `any`          | `undefined` |
-| `ValidExposition`       | `valid-exposition`          |             | `any`          | `undefined` |
-| `ValidHeightFrom`       | `valid-height-from`         |             | `any`          | `undefined` |
-| `ValidHeightRelative`   | `valid-height-relative`     |             | `any`          | `undefined` |
-| `ValidHeigtTo`          | `valid-heigt-to`            |             | `any`          | `undefined` |
-| `shortVersion`          | `short-version`             |             | `any`          | `undefined` |
+| `AvalancheDangerName`   | `avalanche-danger-name`     |             | `string`       | `undefined` |
+| `AvalancheDangerTID`    | `avalanche-danger-t-i-d`    |             | `number`       | `undefined` |
+| `AvalancheEvaluation1`  | `avalanche-evaluation-1`    |             | `string`       | `undefined` |
+| `AvalancheProblemName1` | `avalanche-problem-name-1`  |             | `string`       | `undefined` |
+| `AvalancheProblemName2` | `avalanche-problem-name-2`  |             | `string`       | `undefined` |
+| `AvalancheProblemName3` | `avalanche-problem-name-3`  |             | `string`       | `undefined` |
+| `AvalancheProblemTID1`  | `avalanche-problem-t-i-d-1` |             | `number`       | `undefined` |
+| `AvalancheProblemTID2`  | `avalanche-problem-t-i-d-2` |             | `number`       | `undefined` |
+| `AvalancheProblemTID3`  | `avalanche-problem-t-i-d-3` |             | `number`       | `undefined` |
+| `CanPublish`            | `can-publish`               |             | `boolean`      | `undefined` |
+| `Comment`               | `comment`                   |             | `string`       | `undefined` |
+| `ValidExposition`       | `valid-exposition`          |             | `string`       | `undefined` |
+| `ValidHeightFrom`       | `valid-height-from`         |             | `number`       | `undefined` |
+| `ValidHeightRelative`   | `valid-height-relative`     |             | `string`       | `undefined` |
+| `ValidHeigtTo`          | `valid-heigt-to`            |             | `number`       | `undefined` |
+| `shortVersion`          | `short-version`             |             | `string`       | `undefined` |
 
 
 ## Dependencies

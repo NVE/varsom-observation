@@ -9,8 +9,8 @@
 | -------------- | --------------- | ----------- | --------------------- | ----------- |
 | `Attachments`  | --              |             | `Attachment[]`        | `undefined` |
 | `Layers`       | --              |             | `StratProfileLayer[]` | `undefined` |
-| `TotalDepth`   | `total-depth`   |             | `any`                 | `undefined` |
-| `shortVersion` | `short-version` |             | `any`                 | `undefined` |
+| `TotalDepth`   | `total-depth`   |             | `number`              | `undefined` |
+| `shortVersion` | `short-version` |             | `string`              | `undefined` |
 
 
 ## Dependencies

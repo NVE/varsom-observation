@@ -8,13 +8,13 @@
 | Property        | Attribute          | Description | Type           | Default     |
 | --------------- | ------------------ | ----------- | -------------- | ----------- |
 | `Attachments`   | --                 |             | `Attachment[]` | `undefined` |
-| `Comment`       | `comment`          |             | `any`          | `undefined` |
-| `GeoHazardName` | `geo-hazard-name`  |             | `any`          | `undefined` |
-| `GeoHazardTID`  | `geo-hazard-t-i-d` |             | `any`          | `undefined` |
-| `ObsComment`    | `obs-comment`      |             | `any`          | `undefined` |
-| `ObsHeader`     | `obs-header`       |             | `any`          | `undefined` |
+| `Comment`       | `comment`          |             | `string`       | `undefined` |
+| `GeoHazardName` | `geo-hazard-name`  |             | `string`       | `undefined` |
+| `GeoHazardTID`  | `geo-hazard-t-i-d` |             | `number`       | `undefined` |
+| `ObsComment`    | `obs-comment`      |             | `string`       | `undefined` |
+| `ObsHeader`     | `obs-header`       |             | `string`       | `undefined` |
 | `Urls`          | --                 |             | `Url[]`        | `undefined` |
-| `shortVersion`  | `short-version`    |             | `any`          | `undefined` |
+| `shortVersion`  | `short-version`    |             | `string`       | `undefined` |
 
 
 ## Dependencies

@@ -11,24 +11,25 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomSnowSurfaceObservation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() SnowDepth: any;
-  @Prop() SnowDriftName: any;
-  @Prop() SnowSurfaceName: any;
-  @Prop() SkiConditionsName: any;
-  @Prop() NewSnowLine: any;
-  @Prop() SurfaceWaterContentName: any;
-  @Prop() SkiConditionsTID: any;
-  @Prop() SurfaceRoughnessName: any;
-  @Prop() NewSnowDepth24: any;
-  @Prop() SurfaceWaterContentTID: any;
-  @Prop() SnowDriftTID: any;
-  @Prop() SnowSurfaceTID: any;
-  @Prop() Comment: any;
-  @Prop() HeightLimitLayeredSnow: any;
-  @Prop() SnowLine: any;
-  @Prop() FootPenetration: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() SnowDepth: number;
+  @Prop() SnowDriftName: string;
+  @Prop() SnowSurfaceName: string;
+  @Prop() SkiConditionsName: string;
+  @Prop() NewSnowLine: number;
+  @Prop() SurfaceWaterContentName: string;
+  @Prop() SkiConditionsTID: number;
+  @Prop() SurfaceRoughnessName: string;
+  @Prop() NewSnowDepth24: number;
+  @Prop() SurfaceWaterContentTID: number;
+  @Prop() SnowDriftTID: number;
+  @Prop() SnowSurfaceTID: number;
+  @Prop() Comment: string;
+  @Prop() HeightLimitLayeredSnow: number;
+  @Prop() SnowLine: number;
+  @Prop() FootPenetration: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

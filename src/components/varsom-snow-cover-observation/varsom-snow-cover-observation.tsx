@@ -11,15 +11,16 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomSnowCoverObservation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() DepthHoarThickness: any;
-  @Prop() CriticalLayerExists: any;
-  @Prop() CriticalLayerLocation: any;
-  @Prop() CriticalLayerTID: any;
-  @Prop() SnowPilotRef: any;
-  @Prop() Comment: any;
-  @Prop() CriticalLayerName: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() DepthHoarThickness: number;
+  @Prop() CriticalLayerExists: boolean;
+  @Prop() CriticalLayerLocation: number ;
+  @Prop() CriticalLayerTID: number;
+  @Prop() SnowPilotRef: string;
+  @Prop() Comment: string;
+  @Prop() CriticalLayerName: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

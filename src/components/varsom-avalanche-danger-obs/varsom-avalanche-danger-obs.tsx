@@ -10,12 +10,13 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomAvalancheDangerObs {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() DangerSignName: any;
-  @Prop() AvalancheDangerObsID: any;
-  @Prop() Comment: any;
-  @Prop() DangerSignTID: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() DangerSignName: string;
+  @Prop() AvalancheDangerObsID: number;
+  @Prop() Comment: string;
+  @Prop() DangerSignTID: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

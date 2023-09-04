@@ -10,16 +10,17 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomWeatherObservation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() PrecipitationName: any;
-  @Prop() WindDirectionName: any;
-  @Prop() PrecipitationTID: any;
-  @Prop() AirTemperature: any;
-  @Prop() WindDirection: any;
-  @Prop() WindSpeed: any;
-  @Prop() CloudCover: any;
-  @Prop() Comment: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() PrecipitationName: string;
+  @Prop() WindDirectionName: string;
+  @Prop() PrecipitationTID: number;
+  @Prop() AirTemperature: number;
+  @Prop() WindDirection: number;
+  @Prop() WindSpeed: number;
+  @Prop() CloudCover: number;
+  @Prop() Comment: string;
   @Prop() Attachments?: Attachment[];
   @Element() elem: HTMLElement;
 

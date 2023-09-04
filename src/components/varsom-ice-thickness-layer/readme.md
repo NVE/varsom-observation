@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property            | Attribute             | Description | Type  | Default     |
-| ------------------- | --------------------- | ----------- | ----- | ----------- |
-| `Comment`           | `comment`             |             | `any` | `undefined` |
-| `IceLayerName`      | `ice-layer-name`      |             | `any` | `undefined` |
-| `IceLayerThickness` | `ice-layer-thickness` |             | `any` | `undefined` |
-| `shortVersion`      | `short-version`       |             | `any` | `undefined` |
+| Property            | Attribute             | Description | Type     | Default     |
+| ------------------- | --------------------- | ----------- | -------- | ----------- |
+| `Comment`           | `comment`             |             | `string` | `undefined` |
+| `IceLayerName`      | `ice-layer-name`      |             | `string` | `undefined` |
+| `IceLayerThickness` | `ice-layer-thickness` |             | `number` | `undefined` |
+| `shortVersion`      | `short-version`       |             | `string` | `undefined` |
 
 
 ## Dependencies

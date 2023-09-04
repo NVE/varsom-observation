@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type  | Default     |
-| ---------------- | ----------------- | ----------- | ----- | ----------- |
-| `UrlDescription` | `url-description` |             | `any` | `undefined` |
-| `UrlLine`        | `url-line`        |             | `any` | `undefined` |
+| Property         | Attribute         | Description | Type     | Default     |
+| ---------------- | ----------------- | ----------- | -------- | ----------- |
+| `UrlDescription` | `url-description` |             | `string` | `undefined` |
+| `UrlLine`        | `url-line`        |             | `string` | `undefined` |
 
 
 ## Dependencies

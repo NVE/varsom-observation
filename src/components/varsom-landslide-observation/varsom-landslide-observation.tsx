@@ -11,30 +11,31 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   assetsDirs: ['images'],
 })
 export class VarsomLandslideObservation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() LandSlideName?: any;
-  @Prop() LandSlideTriggerName?: any;
-  @Prop() ActivityInfluencedName?: any;
-  @Prop() GeoHazardName?: any;
-  @Prop() ForecastAccurateName?: any;
-  @Prop() Urls?: any[];
-  @Prop() DamageExtentName?: any;
-  @Prop() LandSlideTID?: any;
-  @Prop() LandSlideTriggerTID?: any;
-  @Prop() Comment?: any;
-  @Prop() LandSlideSizeName?: any;
-  @Prop() GeoHazardTID?: any;
-  @Prop() ActivityInfluencedTID?: any;
-  @Prop() ForecastAccurateTID?: any;
-  @Prop() DamageExtentTID?: any;
-  @Prop() StartLat?: any;
-  @Prop() StartLong?: any;
-  @Prop() StopLat?: any;
-  @Prop() StopLong?: any;
-  @Prop() DtLandSlideTimeEnd?: any;
-  @Prop() DtLandSlideTime?: any;
-  @Prop() LandSlideSizeTID?: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() LandSlideName?: string;
+  @Prop() LandSlideTriggerName?: string;
+  @Prop() ActivityInfluencedName?: string;
+  @Prop() GeoHazardName?: string;
+  @Prop() ForecastAccurateName?: string;
+  @Prop() Urls?: Url[];
+  @Prop() DamageExtentName?: string;
+  @Prop() LandSlideTID?: number;
+  @Prop() LandSlideTriggerTID?: number;
+  @Prop() Comment?: string;
+  @Prop() LandSlideSizeName?: string;
+  @Prop() GeoHazardTID?: number;
+  @Prop() ActivityInfluencedTID?: number;
+  @Prop() ForecastAccurateTID?: number;
+  @Prop() DamageExtentTID?: number;
+  @Prop() StartLat?: number;
+  @Prop() StartLong?: number;
+  @Prop() StopLat?: number;
+  @Prop() StopLong?: number;
+  @Prop() DtLandSlideTimeEnd?: string;
+  @Prop() DtLandSlideTime?: string;
+  @Prop() LandSlideSizeTID?: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

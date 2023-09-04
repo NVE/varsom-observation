@@ -8,7 +8,8 @@ import { Attachment, SnowTempObs } from '../../models/observation-model';
   assetsDirs: ['images'],
 })
 export class VarsomSnowTemp {
-  @Prop() shortVersion: any;
+
+  @Prop() shortVersion: string;
   @Prop() Layers: SnowTempObs[];
   @Prop() Attachments: Attachment[];
 

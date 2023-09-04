@@ -7,17 +7,17 @@
 
 | Property           | Attribute            | Description | Type           | Default     |
 | ------------------ | -------------------- | ----------- | -------------- | ----------- |
-| `Aspect`           | `aspect`             |             | `any`          | `undefined` |
+| `Aspect`           | `aspect`             |             | `number`       | `undefined` |
 | `Attachments`      | --                   |             | `Attachment[]` | `undefined` |
-| `Comment`          | `comment`            |             | `any`          | `undefined` |
-| `Copyright`        | `copyright`          |             | `any`          | `undefined` |
-| `GeoHazardName`    | `geo-hazard-name`    |             | `any`          | `undefined` |
-| `GeoHazardTID`     | `geo-hazard-t-i-d`   |             | `any`          | `undefined` |
-| `Photographer`     | `photographer`       |             | `any`          | `undefined` |
-| `RegistrationName` | `registration-name`  |             | `any`          | `undefined` |
-| `RegistrationTID`  | `registration-t-i-d` |             | `any`          | `undefined` |
-| `Url`              | `url`                |             | `any`          | `undefined` |
-| `shortVersion`     | `short-version`      |             | `any`          | `undefined` |
+| `Comment`          | `comment`            |             | `string`       | `undefined` |
+| `Copyright`        | `copyright`          |             | `string`       | `undefined` |
+| `GeoHazardName`    | `geo-hazard-name`    |             | `string`       | `undefined` |
+| `GeoHazardTID`     | `geo-hazard-t-i-d`   |             | `number`       | `undefined` |
+| `Photographer`     | `photographer`       |             | `string`       | `undefined` |
+| `RegistrationName` | `registration-name`  |             | `string`       | `undefined` |
+| `RegistrationTID`  | `registration-t-i-d` |             | `number`       | `undefined` |
+| `Url`              | `url`                |             | `string`       | `undefined` |
+| `shortVersion`     | `short-version`      |             | `string`       | `undefined` |
 
 
 ## Dependencies

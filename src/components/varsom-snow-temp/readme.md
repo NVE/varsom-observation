@@ -9,7 +9,7 @@
 | -------------- | --------------- | ----------- | --------------- | ----------- |
 | `Attachments`  | --              |             | `Attachment[]`  | `undefined` |
 | `Layers`       | --              |             | `SnowTempObs[]` | `undefined` |
-| `shortVersion` | `short-version` |             | `any`           | `undefined` |
+| `shortVersion` | `short-version` |             | `string`        | `undefined` |
 
 
 ## Dependencies

@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Attachment, SnowDensity, SnowTempObs } from '../../models/observation-model';
+import { Attachment, SnowDensity, SnowTemp, SnowTempObs, StratProfile } from '../../models/observation-model';
 import { getLocaleComponentStrings } from '../../utils/locale';
 
 import { Element } from '@stencil/core';
@@ -12,19 +12,20 @@ import { getExpositionFromNumber } from '../../utils/utils';
   assetsDirs: ['images'],
 })
 export class VarsomSnowProfile2 {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() TotalDepth: any;
-  @Prop() StratProfile: any;
-  @Prop() Comment: any;
-  @Prop() IsProfileToGround: any;
-  @Prop() Exposition: any;
-  @Prop() SlopeAngle: any;
-  @Prop() SnowTemp: any;
-  @Prop() Weight: any;
-  @Prop() ImageUrl: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() TotalDepth: number;
+  @Prop() StratProfile: StratProfile;
+  @Prop() Comment: string;
+  @Prop() IsProfileToGround: boolean;
+  @Prop() Exposition: number;
+  @Prop() SlopeAngle: number;
+  @Prop() SnowTemp: SnowTemp;
+  @Prop() Weight: number;
+  @Prop() ImageUrl: string;
   @Prop() SnowDensity: SnowDensity[];
-  @Prop() RegId: any;
+  @Prop() RegId: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

@@ -8,12 +8,12 @@
 | Property         | Attribute           | Description | Type           | Default     |
 | ---------------- | ------------------- | ----------- | -------------- | ----------- |
 | `Attachments`    | --                  |             | `Attachment[]` | `undefined` |
-| `Comment`        | `comment`           |             | `any`          | `undefined` |
-| `DangerSignName` | `danger-sign-name`  |             | `any`          | `undefined` |
-| `DangerSignTID`  | `danger-sign-t-i-d` |             | `any`          | `undefined` |
-| `GeoHazardName`  | `geo-hazard-name`   |             | `any`          | `undefined` |
-| `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `any`          | `undefined` |
-| `shortVersion`   | `short-version`     |             | `any`          | `undefined` |
+| `Comment`        | `comment`           |             | `string`       | `undefined` |
+| `DangerSignName` | `danger-sign-name`  |             | `string`       | `undefined` |
+| `DangerSignTID`  | `danger-sign-t-i-d` |             | `number`       | `undefined` |
+| `GeoHazardName`  | `geo-hazard-name`   |             | `string`       | `undefined` |
+| `GeoHazardTID`   | `geo-hazard-t-i-d`  |             | `number`       | `undefined` |
+| `shortVersion`   | `short-version`     |             | `string`       | `undefined` |
 
 
 ## Dependencies

@@ -8,26 +8,26 @@
 | Property                   | Attribute                     | Description | Type                      | Default     |
 | -------------------------- | ----------------------------- | ----------- | ------------------------- | ----------- |
 | `Attachments`              | --                            |             | `Attachment[]`            | `undefined` |
-| `Comment`                  | `comment`                     |             | `any`                     | `undefined` |
-| `MarkingReferenceName`     | `marking-reference-name`      |             | `any`                     | `undefined` |
-| `MarkingReferenceTID`      | `marking-reference-t-i-d`     |             | `any`                     | `undefined` |
-| `MarkingTypeName`          | `marking-type-name`           |             | `any`                     | `undefined` |
-| `MarkingTypeTID`           | `marking-type-t-i-d`          |             | `any`                     | `undefined` |
-| `MeasurementReferenceName` | `measurement-reference-name`  |             | `any`                     | `undefined` |
-| `MeasurementReferenceTID`  | `measurement-reference-t-i-d` |             | `any`                     | `undefined` |
-| `MeasurementTypeName`      | `measurement-type-name`       |             | `any`                     | `undefined` |
-| `MeasurementTypeTID`       | `measurement-type-t-i-d`      |             | `any`                     | `undefined` |
-| `MeasuringToolDescription` | `measuring-tool-description`  |             | `any`                     | `undefined` |
-| `ObservationTimingName`    | `observation-timing-name`     |             | `any`                     | `undefined` |
-| `ObservationTimingTID`     | `observation-timing-t-i-d`    |             | `any`                     | `undefined` |
-| `WaterAstrayName`          | `water-astray-name`           |             | `any`                     | `undefined` |
-| `WaterAstrayTID`           | `water-astray-t-i-d`          |             | `any`                     | `undefined` |
+| `Comment`                  | `comment`                     |             | `string`                  | `undefined` |
+| `MarkingReferenceName`     | `marking-reference-name`      |             | `string`                  | `undefined` |
+| `MarkingReferenceTID`      | `marking-reference-t-i-d`     |             | `number`                  | `undefined` |
+| `MarkingTypeName`          | `marking-type-name`           |             | `string`                  | `undefined` |
+| `MarkingTypeTID`           | `marking-type-t-i-d`          |             | `number`                  | `undefined` |
+| `MeasurementReferenceName` | `measurement-reference-name`  |             | `string`                  | `undefined` |
+| `MeasurementReferenceTID`  | `measurement-reference-t-i-d` |             | `number`                  | `undefined` |
+| `MeasurementTypeName`      | `measurement-type-name`       |             | `string`                  | `undefined` |
+| `MeasurementTypeTID`       | `measurement-type-t-i-d`      |             | `number`                  | `undefined` |
+| `MeasuringToolDescription` | `measuring-tool-description`  |             | `string`                  | `undefined` |
+| `ObservationTimingName`    | `observation-timing-name`     |             | `string`                  | `undefined` |
+| `ObservationTimingTID`     | `observation-timing-t-i-d`    |             | `number`                  | `undefined` |
+| `WaterAstrayName`          | `water-astray-name`           |             | `string`                  | `undefined` |
+| `WaterAstrayTID`           | `water-astray-t-i-d`          |             | `number`                  | `undefined` |
 | `WaterLevelMeasurement`    | --                            |             | `WaterLevelMeasurement[]` | `undefined` |
-| `WaterLevelMethodName`     | `water-level-method-name`     |             | `any`                     | `undefined` |
-| `WaterLevelMethodTID`      | `water-level-method-t-i-d`    |             | `any`                     | `undefined` |
-| `WaterLevelStateName`      | `water-level-state-name`      |             | `any`                     | `undefined` |
-| `WaterLevelStateTID`       | `water-level-state-t-i-d`     |             | `any`                     | `undefined` |
-| `shortVersion`             | `short-version`               |             | `any`                     | `undefined` |
+| `WaterLevelMethodName`     | `water-level-method-name`     |             | `string`                  | `undefined` |
+| `WaterLevelMethodTID`      | `water-level-method-t-i-d`    |             | `number`                  | `undefined` |
+| `WaterLevelStateName`      | `water-level-state-name`      |             | `string`                  | `undefined` |
+| `WaterLevelStateTID`       | `water-level-state-t-i-d`     |             | `number`                  | `undefined` |
+| `shortVersion`             | `short-version`               |             | `string`                  | `undefined` |
 
 
 ## Dependencies

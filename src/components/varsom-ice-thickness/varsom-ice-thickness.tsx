@@ -12,20 +12,21 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomIceThickness {
-  private strings: any;
-  @Prop() Comment: any;
-  @Prop() shortVersion: any;
+
+  private strings;
+  @Prop() Comment: string;
+  @Prop() shortVersion: string;
   @Prop() IceThicknessLayers: IceThicknessLayer[];
-  @Prop() SnowDepth: any;
-  @Prop() SlushSnow: any;
-  @Prop() IceThicknessSum: any;
-  @Prop() IceHeightBefore: any;
-  @Prop() IceHeightAfter: any;
-  @Prop() regId: any;
-  @Prop() ObsLocationId: any;
-  @Prop() DtObsTime: any;
-  @Prop() LocationName: any;
-  @Prop() HardCodedImg: any;
+  @Prop() SnowDepth: number;
+  @Prop() SlushSnow: number;
+  @Prop() IceThicknessSum: number;
+  @Prop() IceHeightBefore: number;
+  @Prop() IceHeightAfter: number;
+  @Prop() regId: number;
+  @Prop() ObsLocationId: number;
+  @Prop() DtObsTime: string;
+  @Prop() LocationName: string;
+  @Prop() HardCodedImg: string;
   @Prop() Attachments: Attachment[];
 
   element: HTMLElement;

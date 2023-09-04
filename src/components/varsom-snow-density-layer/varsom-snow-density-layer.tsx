@@ -9,13 +9,14 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomSnowDensityLayer {
-  @Prop() shortVersion: any;
-  @Prop() Depth: any;
-  @Prop() Thickness: any;
-  @Prop() Density: any;
-  @Prop() Weight: any;
-  @Prop() WaterEquivalent: any;
-  @Prop() SortOrder: any;
+
+  @Prop() shortVersion: string;
+  @Prop() Depth: number;
+  @Prop() Thickness: number;
+  @Prop() Density: number;
+  @Prop() Weight: number;
+  @Prop() WaterEquivalent: number;
+  @Prop() SortOrder: number;
 
   @Element() elem: HTMLElement;
 

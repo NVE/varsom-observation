@@ -12,24 +12,24 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   assetsDirs: ['images'],
 })
 export class VarsomAvalancheEvaluation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() RegID: any;
-  @Prop() CanPublish: any;
-  @Prop() AvalancheDangerTID: any;
-  @Prop() AvalancheDangerName: any;
-  @Prop() ValidExposition: any;
-  @Prop() ValidHeightRelative: any;
-  @Prop() ValidHeightFrom: any;
-  @Prop() ValidHeigtTo: any;
-  @Prop() AvalancheProblemTID1: any;
-  @Prop() AvalancheProblemName1: any;
-  @Prop() AvalancheProblemTID2: any;
-  @Prop() AvalancheProblemName2: any;
-  @Prop() AvalancheProblemTID3: any;
-  @Prop() AvalancheProblemName3: any;
-  @Prop() AvalancheEvaluation1: any;
-  @Prop() Comment: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() CanPublish: boolean;
+  @Prop() AvalancheDangerTID: number;
+  @Prop() AvalancheDangerName: string;
+  @Prop() ValidExposition: string;
+  @Prop() ValidHeightRelative: string;
+  @Prop() ValidHeightFrom: number;
+  @Prop() ValidHeigtTo: number;
+  @Prop() AvalancheProblemTID1: number;
+  @Prop() AvalancheProblemName1: string;
+  @Prop() AvalancheProblemTID2: number;
+  @Prop() AvalancheProblemName2: string;
+  @Prop() AvalancheProblemTID3: number;
+  @Prop() AvalancheProblemName3: string;
+  @Prop() AvalancheEvaluation1: string;
+  @Prop() Comment: string;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

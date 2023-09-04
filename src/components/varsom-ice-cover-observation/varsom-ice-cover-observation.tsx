@@ -11,19 +11,20 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   assetsDirs: ['images'],
 })
 export class VarsomIceCoverObservation {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() IceCoverBeforeName: any;
-  @Prop() IceCoverName: any;
-  @Prop() IceCoverAfterName: any;
-  @Prop() IceSkateabilityName: any;
-  @Prop() IceCapacityName: any;
-  @Prop() IceCoverBeforeTID: any;
-  @Prop() IceCoverTID: any;
-  @Prop() IceCoverAfterTID: any;
-  @Prop() Comment: any;
-  @Prop() IceSkateabilityTID: any;
-  @Prop() IceCapacityTID: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() IceCoverBeforeName: string;
+  @Prop() IceCoverName: string;
+  @Prop() IceCoverAfterName: string;
+  @Prop() IceSkateabilityName: string;
+  @Prop() IceCapacityName: string;
+  @Prop() IceCoverBeforeTID: number;
+  @Prop() IceCoverTID: number;
+  @Prop() IceCoverAfterTID: number;
+  @Prop() Comment: string;
+  @Prop() IceSkateabilityTID: number;
+  @Prop() IceCapacityTID: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

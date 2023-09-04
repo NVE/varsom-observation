@@ -10,11 +10,12 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   assetsDirs: ['images'],
 })
 export class VarsomWaterMeasurement {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() Comment: any;
-  @Prop() DtMeasurementTime: any;
-  @Prop() WaterLevelValue: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() Comment: string;
+  @Prop() DtMeasurementTime: string;
+  @Prop() WaterLevelValue: number;  
 
   @Element() elem: HTMLElement;
 

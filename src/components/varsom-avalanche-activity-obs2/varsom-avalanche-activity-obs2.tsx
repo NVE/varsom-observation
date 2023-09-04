@@ -12,28 +12,29 @@ import { getLocaleComponentStrings } from '../../utils/locale';
   assetsDirs: ['images'],
 })
 export class VarsomAvalancheActivityObs2 {
-  private strings: any;
-  @Prop() Comment: any;
-  @Prop() shortVersion: any;
-  @Prop() AvalCauseName: any;
-  @Prop() DtStart: any;
-  @Prop() EstimatedNumName: any;
-  @Prop() ExposedHeightComboName: any;
-  @Prop() AvalancheExtName: any;
-  @Prop() AvalTriggerSimpleName: any;
-  @Prop() DestructiveSizeName: any;
-  @Prop() AvalPropagationName: any;
-  @Prop() EstimatedNumTID: any;
-  @Prop() DtEnd: any;
-  @Prop() ValidExposition: any;
-  @Prop() ExposedHeight1: any;
-  @Prop() ExposedHeight2: any;
-  @Prop() ExposedHeightComboTID: any;
-  @Prop() AvalancheExtTID: any;
-  @Prop() AvalCauseTID: any;
-  @Prop() AvalTriggerSimpleTID: any;
-  @Prop() DestructiveSizeTID: any;
-  @Prop() AvalPropagationTID: any;
+
+  private strings;
+  @Prop() Comment: string;
+  @Prop() shortVersion: string;
+  @Prop() AvalCauseName: string;
+  @Prop() DtStart: string;
+  @Prop() EstimatedNumName: string;
+  @Prop() ExposedHeightComboName: string;
+  @Prop() AvalancheExtName: string;
+  @Prop() AvalTriggerSimpleName: string;
+  @Prop() DestructiveSizeName: string;
+  @Prop() AvalPropagationName: string;
+  @Prop() EstimatedNumTID: number;
+  @Prop() DtEnd: string;
+  @Prop() ValidExposition: string;
+  @Prop() ExposedHeight1: number;
+  @Prop() ExposedHeight2: number;
+  @Prop() ExposedHeightComboTID: number;
+  @Prop() AvalancheExtTID: number;
+  @Prop() AvalCauseTID: number;
+  @Prop() AvalTriggerSimpleTID: number;
+  @Prop() DestructiveSizeTID: number;
+  @Prop() AvalPropagationTID: number;
   @Prop() Attachments: Attachment[];
 
   @Element() elem: HTMLElement;

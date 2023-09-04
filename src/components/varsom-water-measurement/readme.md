@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property            | Attribute             | Description | Type  | Default     |
-| ------------------- | --------------------- | ----------- | ----- | ----------- |
-| `Comment`           | `comment`             |             | `any` | `undefined` |
-| `DtMeasurementTime` | `dt-measurement-time` |             | `any` | `undefined` |
-| `WaterLevelValue`   | `water-level-value`   |             | `any` | `undefined` |
-| `shortVersion`      | `short-version`       |             | `any` | `undefined` |
+| Property            | Attribute             | Description | Type     | Default     |
+| ------------------- | --------------------- | ----------- | -------- | ----------- |
+| `Comment`           | `comment`             |             | `string` | `undefined` |
+| `DtMeasurementTime` | `dt-measurement-time` |             | `string` | `undefined` |
+| `WaterLevelValue`   | `water-level-value`   |             | `number` | `undefined` |
+| `shortVersion`      | `short-version`       |             | `string` | `undefined` |
 
 
 ## Dependencies

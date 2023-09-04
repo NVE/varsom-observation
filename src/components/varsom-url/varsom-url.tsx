@@ -7,8 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomUrl {
-  @Prop() UrlDescription: any;
-  @Prop() UrlLine: any;
+
+  @Prop() UrlDescription: string;
+  @Prop() UrlLine: string; 
 
   render() {
     return (

@@ -7,7 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomLabel {
-  @Prop() label: any;
+
+  @Prop() label: string;
+  
 
   render() {
     return <div tabIndex={0}>{this.label}</div>;

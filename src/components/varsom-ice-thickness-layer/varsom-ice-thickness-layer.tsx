@@ -10,11 +10,12 @@ import { Element } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomIceThicknessLayer {
-  private strings: any;
-  @Prop() shortVersion: any;
-  @Prop() Comment: any;
-  @Prop() IceLayerName: any;
-  @Prop() IceLayerThickness: any;
+
+  private strings;
+  @Prop() shortVersion: string;
+  @Prop() Comment: string;
+  @Prop() IceLayerName: string;
+  @Prop() IceLayerThickness: number;;
 
   @Element() elem: HTMLElement;
 

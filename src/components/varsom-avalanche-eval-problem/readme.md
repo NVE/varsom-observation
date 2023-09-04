@@ -8,25 +8,25 @@
 | Property                       | Attribute                         | Description | Type           | Default     |
 | ------------------------------ | --------------------------------- | ----------- | -------------- | ----------- |
 | `Attachments`                  | --                                |             | `Attachment[]` | `undefined` |
-| `AvalCauseExtName`             | `aval-cause-ext-name`             |             | `any`          | `undefined` |
-| `AvalCauseExtTID`              | `aval-cause-ext-t-i-d`            |             | `any`          | `undefined` |
-| `AvalCauseName`                | `aval-cause-name`                 |             | `any`          | `undefined` |
-| `AvalCauseTID`                 | `aval-cause-t-i-d`                |             | `any`          | `undefined` |
-| `AvalProbabilityName`          | `aval-probability-name`           |             | `any`          | `undefined` |
-| `AvalProbabilityTID`           | `aval-probability-t-i-d`          |             | `any`          | `undefined` |
-| `AvalReleaseHeightName`        | `aval-release-height-name`        |             | `any`          | `undefined` |
-| `AvalReleaseHeightTID`         | `aval-release-height-t-i-d`       |             | `any`          | `undefined` |
-| `AvalTriggerSimpleName`        | `aval-trigger-simple-name`        |             | `any`          | `undefined` |
-| `AvalTriggerSimpleTID`         | `aval-trigger-simple-t-i-d`       |             | `any`          | `undefined` |
-| `AvalancheEvalProblemID`       | `avalanche-eval-problem-i-d`      |             | `any`          | `undefined` |
-| `AvalancheExtName`             | `avalanche-ext-name`              |             | `any`          | `undefined` |
-| `AvalancheExtTID`              | `avalanche-ext-t-i-d`             |             | `any`          | `undefined` |
-| `AvalancheProbabilityAutoText` | `avalanche-probability-auto-text` |             | `any`          | `undefined` |
-| `AvalancheProblemAutoText`     | `avalanche-problem-auto-text`     |             | `any`          | `undefined` |
-| `Comment`                      | `comment`                         |             | `any`          | `undefined` |
-| `DestructiveSizeExtName`       | `destructive-size-ext-name`       |             | `any`          | `undefined` |
-| `DestructiveSizeExtTID`        | `destructive-size-ext-t-i-d`      |             | `any`          | `undefined` |
-| `shortVersion`                 | `short-version`                   |             | `any`          | `undefined` |
+| `AvalCauseExtName`             | `aval-cause-ext-name`             |             | `string`       | `undefined` |
+| `AvalCauseExtTID`              | `aval-cause-ext-t-i-d`            |             | `number`       | `undefined` |
+| `AvalCauseName`                | `aval-cause-name`                 |             | `string`       | `undefined` |
+| `AvalCauseTID`                 | `aval-cause-t-i-d`                |             | `number`       | `undefined` |
+| `AvalProbabilityName`          | `aval-probability-name`           |             | `string`       | `undefined` |
+| `AvalProbabilityTID`           | `aval-probability-t-i-d`          |             | `number`       | `undefined` |
+| `AvalReleaseHeightName`        | `aval-release-height-name`        |             | `string`       | `undefined` |
+| `AvalReleaseHeightTID`         | `aval-release-height-t-i-d`       |             | `number`       | `undefined` |
+| `AvalTriggerSimpleName`        | `aval-trigger-simple-name`        |             | `string`       | `undefined` |
+| `AvalTriggerSimpleTID`         | `aval-trigger-simple-t-i-d`       |             | `number`       | `undefined` |
+| `AvalancheEvalProblemID`       | `avalanche-eval-problem-i-d`      |             | `number`       | `undefined` |
+| `AvalancheExtName`             | `avalanche-ext-name`              |             | `string`       | `undefined` |
+| `AvalancheExtTID`              | `avalanche-ext-t-i-d`             |             | `number`       | `undefined` |
+| `AvalancheProbabilityAutoText` | `avalanche-probability-auto-text` |             | `string`       | `undefined` |
+| `AvalancheProblemAutoText`     | `avalanche-problem-auto-text`     |             | `string`       | `undefined` |
+| `Comment`                      | `comment`                         |             | `string`       | `undefined` |
+| `DestructiveSizeExtName`       | `destructive-size-ext-name`       |             | `string`       | `undefined` |
+| `DestructiveSizeExtTID`        | `destructive-size-ext-t-i-d`      |             | `number`       | `undefined` |
+| `shortVersion`                 | `short-version`                   |             | `string`       | `undefined` |
 
 
 ## Dependencies

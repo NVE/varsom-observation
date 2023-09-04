@@ -7,16 +7,16 @@
 
 | Property            | Attribute             | Description | Type           | Default     |
 | ------------------- | --------------------- | ----------- | -------------- | ----------- |
-| `AirTemperature`    | `air-temperature`     |             | `any`          | `undefined` |
+| `AirTemperature`    | `air-temperature`     |             | `number`       | `undefined` |
 | `Attachments`       | --                    |             | `Attachment[]` | `undefined` |
-| `CloudCover`        | `cloud-cover`         |             | `any`          | `undefined` |
-| `Comment`           | `comment`             |             | `any`          | `undefined` |
-| `PrecipitationName` | `precipitation-name`  |             | `any`          | `undefined` |
-| `PrecipitationTID`  | `precipitation-t-i-d` |             | `any`          | `undefined` |
-| `WindDirection`     | `wind-direction`      |             | `any`          | `undefined` |
-| `WindDirectionName` | `wind-direction-name` |             | `any`          | `undefined` |
-| `WindSpeed`         | `wind-speed`          |             | `any`          | `undefined` |
-| `shortVersion`      | `short-version`       |             | `any`          | `undefined` |
+| `CloudCover`        | `cloud-cover`         |             | `number`       | `undefined` |
+| `Comment`           | `comment`             |             | `string`       | `undefined` |
+| `PrecipitationName` | `precipitation-name`  |             | `string`       | `undefined` |
+| `PrecipitationTID`  | `precipitation-t-i-d` |             | `number`       | `undefined` |
+| `WindDirection`     | `wind-direction`      |             | `number`       | `undefined` |
+| `WindDirectionName` | `wind-direction-name` |             | `string`       | `undefined` |
+| `WindSpeed`         | `wind-speed`          |             | `number`       | `undefined` |
+| `shortVersion`      | `short-version`       |             | `string`       | `undefined` |
 
 
 ## Dependencies

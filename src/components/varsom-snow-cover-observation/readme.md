@@ -8,14 +8,14 @@
 | Property                | Attribute                 | Description | Type           | Default     |
 | ----------------------- | ------------------------- | ----------- | -------------- | ----------- |
 | `Attachments`           | --                        |             | `Attachment[]` | `undefined` |
-| `Comment`               | `comment`                 |             | `any`          | `undefined` |
-| `CriticalLayerExists`   | `critical-layer-exists`   |             | `any`          | `undefined` |
-| `CriticalLayerLocation` | `critical-layer-location` |             | `any`          | `undefined` |
-| `CriticalLayerName`     | `critical-layer-name`     |             | `any`          | `undefined` |
-| `CriticalLayerTID`      | `critical-layer-t-i-d`    |             | `any`          | `undefined` |
-| `DepthHoarThickness`    | `depth-hoar-thickness`    |             | `any`          | `undefined` |
-| `SnowPilotRef`          | `snow-pilot-ref`          |             | `any`          | `undefined` |
-| `shortVersion`          | `short-version`           |             | `any`          | `undefined` |
+| `Comment`               | `comment`                 |             | `string`       | `undefined` |
+| `CriticalLayerExists`   | `critical-layer-exists`   |             | `boolean`      | `undefined` |
+| `CriticalLayerLocation` | `critical-layer-location` |             | `number`       | `undefined` |
+| `CriticalLayerName`     | `critical-layer-name`     |             | `string`       | `undefined` |
+| `CriticalLayerTID`      | `critical-layer-t-i-d`    |             | `number`       | `undefined` |
+| `DepthHoarThickness`    | `depth-hoar-thickness`    |             | `number`       | `undefined` |
+| `SnowPilotRef`          | `snow-pilot-ref`          |             | `string`       | `undefined` |
+| `shortVersion`          | `short-version`           |             | `string`       | `undefined` |
 
 
 ## Dependencies

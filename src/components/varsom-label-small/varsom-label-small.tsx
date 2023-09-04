@@ -7,7 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
   assetsDirs: ['images'],
 })
 export class VarsomLabelSmall {
-  @Prop() label: any;
+
+  @Prop() label: string;
+  
 
   render() {
     return <div>{this.label}</div>;

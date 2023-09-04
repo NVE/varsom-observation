@@ -8,23 +8,23 @@
 | Property                | Attribute                   | Description | Type           | Default     |
 | ----------------------- | --------------------------- | ----------- | -------------- | ----------- |
 | `Attachments`           | --                          |             | `Attachment[]` | `undefined` |
-| `Comment`               | `comment`                   |             | `any`          | `undefined` |
-| `ComprTestFractureName` | `compr-test-fracture-name`  |             | `any`          | `undefined` |
-| `ComprTestFractureTID`  | `compr-test-fracture-t-i-d` |             | `any`          | `undefined` |
-| `CompressionTestName`   | `compression-test-name`     |             | `any`          | `undefined` |
-| `CompressionTestTID`    | `compression-test-t-i-d`    |             | `any`          | `undefined` |
-| `FractureDepth`         | `fracture-depth`            |             | `any`          | `undefined` |
-| `IncludeInSnowProfile`  | `include-in-snow-profile`   |             | `any`          | `undefined` |
-| `PropagationName`       | `propagation-name`          |             | `any`          | `undefined` |
-| `PropagationTID`        | `propagation-t-i-d`         |             | `any`          | `undefined` |
-| `PstX`                  | `pst-x`                     |             | `any`          | `undefined` |
-| `PstY`                  | `pst-y`                     |             | `any`          | `undefined` |
-| `RbRelease`             | `rb-release`                |             | `any`          | `undefined` |
-| `StabilityEvalName`     | `stability-eval-name`       |             | `any`          | `undefined` |
-| `StabilityEvalTID`      | `stability-eval-t-i-d`      |             | `any`          | `undefined` |
-| `TapsFracture`          | `taps-fracture`             |             | `any`          | `undefined` |
-| `TapsFullPropagation`   | `taps-full-propagation`     |             | `any`          | `undefined` |
-| `shortVersion`          | `short-version`             |             | `any`          | `undefined` |
+| `Comment`               | `comment`                   |             | `string`       | `undefined` |
+| `ComprTestFractureName` | `compr-test-fracture-name`  |             | `string`       | `undefined` |
+| `ComprTestFractureTID`  | `compr-test-fracture-t-i-d` |             | `number`       | `undefined` |
+| `CompressionTestName`   | `compression-test-name`     |             | `string`       | `undefined` |
+| `CompressionTestTID`    | `compression-test-t-i-d`    |             | `number`       | `undefined` |
+| `FractureDepth`         | `fracture-depth`            |             | `number`       | `undefined` |
+| `IncludeInSnowProfile`  | `include-in-snow-profile`   |             | `boolean`      | `undefined` |
+| `PropagationName`       | `propagation-name`          |             | `string`       | `undefined` |
+| `PropagationTID`        | `propagation-t-i-d`         |             | `number`       | `undefined` |
+| `PstX`                  | `pst-x`                     |             | `number`       | `undefined` |
+| `PstY`                  | `pst-y`                     |             | `number`       | `undefined` |
+| `RbRelease`             | `rb-release`                |             | `number`       | `undefined` |
+| `StabilityEvalName`     | `stability-eval-name`       |             | `string`       | `undefined` |
+| `StabilityEvalTID`      | `stability-eval-t-i-d`      |             | `number`       | `undefined` |
+| `TapsFracture`          | `taps-fracture`             |             | `number`       | `undefined` |
+| `TapsFullPropagation`   | `taps-full-propagation`     |             | `number`       | `undefined` |
+| `shortVersion`          | `short-version`             |             | `string`       | `undefined` |
 
 
 ## Dependencies
