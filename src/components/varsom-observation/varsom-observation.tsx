@@ -1412,8 +1412,7 @@ allowZoom={true}
                 <div>
                   <varsom-label label={this.strings.Observations.AvalancheEvaluation.ObsName}></varsom-label>
                   <varsom-avalanche-evaluation
-                    shortVersion={this.version === 'short' ? this.version : null}
-                    RegID={obs._avalancheEvaluation.RegID ? obs._avalancheEvaluation.RegID : null}
+                    shortVersion={this.version === 'short' ? this.version : null}                    
                     CanPublish={obs._avalancheEvaluation.CanPublish ? obs._avalancheEvaluation.CanPublish : null}
                     AvalancheDangerTID={obs._avalancheEvaluation.AvalancheDangerTID ? obs._avalancheEvaluation.AvalancheDangerTID : null}
                     AvalancheDangerName={obs._avalancheEvaluation.AvalancheDangerName ? obs._avalancheEvaluation.AvalancheDangerName : null}
