@@ -19,6 +19,7 @@
     "loader/"
   ],
   "scripts": {
+    "generate-models": "swagger-typescript-api -p https://api.regobs.no/v5/swagger/docs/V5 -o ./src/models -n regobs.ts --no-client",
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
@@ -59,7 +60,8 @@
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^19.6.3",
-    "rollup-plugin-node-polyfills": "^0.2.1"
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "swagger-typescript-api": "^13.0.3"
   },
   "license": "MIT",
   "bugs": {
